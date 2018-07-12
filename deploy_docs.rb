@@ -4,7 +4,30 @@ require "net/http"
 require "json"
 require "kramdown"
 
-class UpdateDocs
+
+class SendData
+
+  def send_all
+    list_md_files.each do |file|
+      html = Convert.to_html(file)
+
+      HelpScout.new.update_doc(article_id(file), html)
+    end
+  end
+
+  private
+
+  def article_id(file)
+    file.split("_")
+  end
+
+  def list_md_files
+    Dir["*.md"]
+  end
+
+end
+
+class HelpScout
 
   CONTENT_TYPE_JSON = "application/json"
   BASE_URL = "docsapi.helpscout.net"
@@ -17,7 +40,7 @@ class UpdateDocs
     @http.use_ssl = true
   end
 
-  def put(article_id, text)
+  def update_doc(article_id, text)
     request = Net::HTTP::Put.new(path(article_id))
     request.basic_auth API_KEY, "X"
 
