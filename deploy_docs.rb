@@ -4,27 +4,25 @@ require "net/http"
 require "json"
 require "kramdown"
 
-
 class SendData
-
   def send_all
     list_md_files.each do |file|
       html = Convert.to_html(file)
+      Log.new("Converted #{file} to html").green
+      Log.new("Take a look at its first few chars").grey
+      Log.new(html.slice(0, 20)).grey
 
       HelpScout.new.update_doc(article_id(file), html)
     end
   end
 
-  private
-
   def article_id(file)
-    file.split("_")
+    file.split("_").first
   end
 
   def list_md_files
-    Dir["*.md"]
+    Dir["*_*.md"]
   end
-
 end
 
 class HelpScout
@@ -36,7 +34,7 @@ class HelpScout
   API_KEY = ENV['DOCS_API_KEY']
 
   def initialize
-    @http = Net::HTTP.new(BASE_URL, PORT)
+    @http ||= Net::HTTP.new(BASE_URL, PORT)
     @http.use_ssl = true
   end
 
@@ -46,18 +44,26 @@ class HelpScout
 
     request.content_type = CONTENT_TYPE_JSON
     request.body = JSON.generate({ "text": text })
+
     trigger(request)
+
+    Log.new("Updated #{full_path(article_id)}").green
   end
 
   private
 
   def trigger(request)
+    Log.new("Trying to update the doc").yellow
     request['Connection'] = 'keep-alive'
     response = @http.request(request)
   end
 
   def path(article_id)
-    [ARTICLES_URL,article_id].join
+    [ARTICLES_URL, article_id].join
+  end
+
+  def full_path(article_id)
+    [BASE_URL, path(article_id)].join
   end
 end
 
@@ -69,3 +75,28 @@ class Convert
   end
 
 end
+
+class Log
+
+  def initialize(text)
+    @text = text
+  end
+
+  def colourize(colour_code)
+    "\e[#{colour_code}m#{@text}\e[0m"
+  end
+
+  def green
+    puts colourize(32)
+  end
+
+  def yellow
+    puts colourize(33)
+  end
+
+  def grey
+    puts colourize(37)
+  end
+end
+
+SendData.new.send_all
