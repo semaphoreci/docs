@@ -1,15 +1,17 @@
-version: "v1.0-beta-task"
+version: "v1.0"
 name: First pipeline example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1404
+    os_image: ubuntu1804
 
 blocks:
-  - name: "Example Block"
+  - name: "Execute on master"
     task:
       jobs:
-      - name: Test it out
+      - name: Deploy
         commands:
           - checkout
           - ls -lah
+          - gem install kramdown
+          - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
