@@ -14,15 +14,20 @@ require "kramdown"
 require_relative "lib/help_scout.rb"
 require_relative "lib/convert.rb"
 
-class SendData
-  def send_all
-    list_md_files.each do |file|
-      html = Convert.to_html(file)
-      Log.new("Converted #{file} to html").green
-      Log.new("Take a look at its first few chars").grey
-      Log.new(html.slice(0, 20)).grey
+class Arhivator
 
-      HelpScout.new.update_doc(article_id(file), html)
+  def update_file(file_path)
+    html = Convert.to_html(file_path)
+    Log.new("Converted #{file_path} to html").green
+    Log.new("Take a look at its first few chars").grey
+    Log.new(html.slice(0, 20)).grey
+
+    HelpScout.new.update_doc(article_id(file_path), html)
+  end
+
+  def update_all
+    list_md_files.each do |file|
+      update_file(file)
     end
   end
 
@@ -35,4 +40,10 @@ class SendData
   end
 end
 
-SendData.new.send_all
+if ARGV.nil?
+  Arhivator.new.update_all
+else
+  ARGV.each do |file|
+    Arhivator.new.update_file(file)
+  end
+end

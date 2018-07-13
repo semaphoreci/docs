@@ -13,6 +13,12 @@ HelpScout Docs
 
 ### Updating existing files
 
+#### Update specific files
+
+![example](public/deploy_docs.png)
+
+#### Update all files
+
 When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 [update] every article which meets the following:
 
@@ -21,6 +27,7 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 - It is named in the following form `21323321_article-name.md`.
   - `21323321` in this example represents `id` of article in HelpScout Docs
   - `id` is included in the article's URL (`https://secure.helpscout.net/docs/xxxxxxx/article/21323321/`)
+
 
 ### Install dependencies
 

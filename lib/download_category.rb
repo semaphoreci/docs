@@ -1,5 +1,10 @@
+require "net/http"
+require "json"
+require "kramdown"
+
 require_relative "log.rb"
 require_relative "help_scout.rb"
+require_relative "convert.rb"
 
 class DownloadCategory < HelpScout
 
@@ -15,7 +20,9 @@ class DownloadCategory < HelpScout
       article_slug = article["slug"]
 
       file_name = "#{article_id}_#{article_slug}.md"
+      Log.new("Trying to save #{file_name} file").grey
       Convert.save_as_markdown(file_name, article_html)
+      Log.new("    Saved #{file_name} file").green
     end
   end
 
