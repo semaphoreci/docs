@@ -9,9 +9,14 @@ blocks:
   - name: "Execute on master"
     task:
       jobs:
-      - name: Deploy
-        commands:
-          - checkout
-          - ls -lah
-          - gem install kramdown
-          - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
+        - name: Deploy
+          commands:
+            - checkout
+            - echo $DOCS_API_KEY
+            - ls -lah
+            - gem install kramdown
+            - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
+
+      secrets:
+        - name: helpscout-docs
+          env_var_names: []
