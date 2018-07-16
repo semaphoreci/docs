@@ -11,6 +11,7 @@ blocks:
       jobs:
         - name: List of changes
           commands:
+            - checkout
             - git diff-tree --no-commit-id --name-only $SEMAPHORE_GIT_SHA
 
   - name: "Execute on master"
