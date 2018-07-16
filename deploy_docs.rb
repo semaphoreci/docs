@@ -5,6 +5,8 @@ if ENV["DOCS_API_KEY"].nil?
   exit 1
 end
 
+REVISION = ENV['SEMAPHORE_GIT_SHA']
+
 require "net/http"
 require "json"
 require "redcarpet"
@@ -40,4 +42,13 @@ class Arhivator
   end
 end
 
-Arhivator.new.update_all
+def list_changed_articles(commit_sha)
+  files = `git diff-tree --no-commit-id --name-only #{commit_sha}`
+  files.split("\n") - ["README.md"]
+end
+
+changed_articles = list_changed_articles(REVISION).select { |name| name.match(/.md\z/) }
+
+changed_articles.each do |article|
+  Arhivator.new.update_file(article)
+end
