@@ -52,3 +52,23 @@ generate the following kind of output:
 The  `-v` parameter can be very handy when you have problems with
 the `sem` command.
 
+
+### What if a command does not exist
+
+If you try to execute a `sem` command and this command does not exist, you will get an error message similar to the following:
+
+```
+ sem doesNotExist
+Error: unknown command "doesNotExist" for "sem"
+Run 'sem --help' for usage.
+unknown command "doesNotExist" for "sem"
+```
+
+On the other hand, if you try to access a resource type that does not exist, you will gent the following kind of error message:
+
+```
+$ sem get doesNotExist
+error: Unknown resource kind doesNotExist.
+```
+
+
