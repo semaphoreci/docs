@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative "lib/log.rb"
-
 if ENV["DOCS_API_KEY"].nil?
   Log.new("Environment variable DOCS_API_KEY is not set. Exiting..").yellow
   exit 1
@@ -9,10 +7,12 @@ end
 
 require "net/http"
 require "json"
-require "kramdown"
+require "redcarpet"
 
+require_relative "lib/log.rb"
 require_relative "lib/help_scout.rb"
 require_relative "lib/convert.rb"
+require_relative "lib/docs_renderer.rb"
 
 class Arhivator
 
@@ -39,6 +39,5 @@ class Arhivator
     Dir["*_*.md"]
   end
 end
-
 
 Arhivator.new.update_all

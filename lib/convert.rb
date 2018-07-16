@@ -1,8 +1,9 @@
 class Convert
 
   def self.to_html(file)
-    markdown = File.read(file)
-    Kramdown::Document.new(markdown).to_html
+    markdown = Redcarpet::Markdown.new(DocsRenderer, fenced_code_blocks: true)
+    file = File.read(file, :encoding => "utf-8")
+    markdown.render(file)
   end
 
   def self.save_as_markdown(file_name, content)
