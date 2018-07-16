@@ -19,8 +19,8 @@ class Arhivator
   def update_file(file_path)
     html = Convert.to_html(file_path)
     Log.new("Converted #{file_path} to html").green
-    Log.new("Take a look at its first few chars").grey
-    Log.new(html.slice(0, 20)).grey
+    Log.new("Take a look at its first few chars").blue
+    Log.new(html.slice(0, 20)).green
 
     HelpScout.new.update_doc(article_id(file_path), html)
   end
