@@ -6,6 +6,13 @@ agent:
     os_image: ubuntu1804
 
 blocks:
+  - name: "Check Changes"
+    task:
+      jobs:
+        - name: List of changes
+          commands:
+            - git diff-tree --no-commit-id --name-only $SEMAPHORE_GIT_SHA
+
   - name: "Execute on master"
     task:
       jobs:
