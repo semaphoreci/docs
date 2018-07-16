@@ -12,7 +12,6 @@ blocks:
         - name: Deploy
           commands:
             - checkout
-            - echo $DOCS_API_KEY
             - ls -lah
             - gem install kramdown
             - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
