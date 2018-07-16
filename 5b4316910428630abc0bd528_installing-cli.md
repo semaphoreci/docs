@@ -58,7 +58,7 @@ the `sem` command.
 If you try to execute a `sem` command and this command does not exist, you will get an error message similar to the following:
 
 ```
- sem doesNotExist
+$ sem doesNotExist
 Error: unknown command "doesNotExist" for "sem"
 Run 'sem --help' for usage.
 unknown command "doesNotExist" for "sem"

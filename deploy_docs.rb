@@ -40,10 +40,5 @@ class Arhivator
   end
 end
 
-if ARGV.nil?
-  Arhivator.new.update_all
-else
-  ARGV.each do |file|
-    Arhivator.new.update_file(file)
-  end
-end
+
+Arhivator.new.update_all
