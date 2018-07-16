@@ -31,10 +31,6 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 
 ### Install dependencies
 
-Currently, script depends on gem [kramdown]. It can be installed with the following command
-
-`gem install kramdown`
-
 ### Set up secret
 
 - `cp docs_secrets.yml.example docs_secrets.yml`

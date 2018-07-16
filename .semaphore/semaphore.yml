@@ -20,8 +20,7 @@ blocks:
         - name: Deploy
           commands:
             - checkout
-            - ls -lah
-            - gem install kramdown
+            - bundle install --deployment --path vendor/bundle
             - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
 
       secrets:
