@@ -58,18 +58,29 @@ the `sem` command.
 If you try to execute a `sem` command and this command does not exist, you will get an error message similar to the following:
 
     $ sem doesNotExist
-
     Error: unknown command "doesNotExist" for "sem"
-
     Run 'sem --help' for usage.
-
     unknown command "doesNotExist" for "sem"
 
 
 On the other hand, if you try to access a resource type that does not exist, you will gent the following kind of error message:
 
     $ sem get doesNotExist
-
     error: Unknown resource kind doesNotExist.
+
+Last, if you execute a `sem` command with fewer arguments than required, `sem` will respond with an error message similar to the following:
+
+    $ sem describe
+    Error: accepts 2 arg(s), received 0
+    Usage:
+      sem describe [KIND] [NAME] [flags]
+    
+    Flags:
+      -h, --help   help for describe
+    
+    Global Flags:
+      -v, --verbose   verbose output
+    
+    accepts 2 arg(s), received 0
 
 
