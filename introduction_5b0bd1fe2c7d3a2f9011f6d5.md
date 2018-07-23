@@ -1,6 +1,6 @@
 ### An Introduction to YAML files
 
-YAML, which stands for *YAML Ain\'t Markup Language*, is a plain text
+YAML, which stands for *YAML Ain't Markup Language*, is a plain text
 format that is commonly used for configuration files and can be easily
 read by humans.
 
