@@ -1,7 +1,7 @@
 #### Introduction
 
 In this document you will learn how to create a simple Semaphore 2.0
-project that uses the [Go Programming Language][1]{: target="_blank"}.
+project that uses the <a href="https://golang.org/" target="_blank">Go Programming Language</a>.
 
 #### The YAML File used
 
@@ -88,7 +88,7 @@ is an environment variable defined by Semaphore.
 
 This is all that you are going to need for creating the presented
 Semaphore 2.0 project. You can see the results of all your projects by
-visiting [https://id.semaphoreci.com/][2]{: target="_blank"}.
+visiting <a href="https://id.semaphoreci.com/" target="_blank">https://id.semaphoreci.com/</a>.
 
 #### Explaining the YAML file in full detail
 
@@ -196,6 +196,3 @@ belongs to the same `block` as the `epilogue`. So, in this case, the
 commands of the `epilogue` block will get executed two times.
 
 
-
-[1]: https://golang.org/
-[2]: https://id.semaphoreci.com/
