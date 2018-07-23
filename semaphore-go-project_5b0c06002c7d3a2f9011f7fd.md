@@ -83,16 +83,12 @@ The contents of the `hw.go` file that is used are as follows:
     	fmt.Println("SEMAPHORE_PIPELINE_ID:", os.Getenv("SEMAPHORE_PIPELINE_ID"))
     }
 
-<div>
 As you can see, the `hw.go` program reads `SEMAPHORE_PIPELINE_ID`, which
 is an environment variable defined by Semaphore.
-</div>
 
-<div>
 This is all that you are going to need for creating the presented
 Semaphore 2.0 project. You can see the results of all your projects by
 visiting [https://id.semaphoreci.com/][2]{: target="_blank"}.
-</div>
 
 #### Explaining the YAML file in full detail
 
