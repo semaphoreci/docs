@@ -88,7 +88,7 @@ is an environment variable defined by Semaphore.
 
 This is all that you are going to need for creating the presented
 Semaphore 2.0 project. You can see the results of all your projects by
-visiting <a href="https://id.semaphoreci.com/" target="_blank">https://id.semaphoreci.com/</a>.
+visiting <a href="https://id.semaphoreci.com/" target="_blank">https://id.semaphoreci.com</a>.
 
 #### Explaining the YAML file in full detail
 
