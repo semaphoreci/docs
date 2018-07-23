@@ -7,24 +7,18 @@ HelpScout Docs
 
 - create a file in HelpScout docs
   - HelpScout will assign a URL to it which we'll use for next step (`https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`)
-- create file in repository `5b4699632c7d3a099f2e742a_example.md`
+- create file in repository `just-example_5b4699632c7d3a099f2e742a.md`
   - `5b4699632c7d3a099f2e742a` is `id` of specific article
-  - `example` is article's `slug`
+  - `just-example` is article's `slug`
 
 ### Updating existing files
-
-#### Update specific files
-
-![example](public/deploy_docs.png)
-
-#### Update all files
 
 When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 [update] every article which meets the following:
 
 - It is in the project root directory
 - It is a markdown file associated with an article in HelpScout Docs
-- It is named in the following form `21323321_article-name.md`.
+- It is named in the following form `article-name_21323321.md`.
   - `21323321` in this example represents `id` of article in HelpScout Docs
   - `id` is included in the article's URL (`https://secure.helpscout.net/docs/xxxxxxx/article/21323321/`)
 
