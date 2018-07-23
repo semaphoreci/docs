@@ -18,7 +18,7 @@ is a visualization of the pipeline YAML configuration file that contains
 jobs and commands.
 
 A  `.semaphore/semaphore.yml` file can also support secrets – you can
-learn more this feature at [secrets][1]{: target="_blank"}.
+learn more this feature at [secrets][1].
 
 ## About the grammar
 
@@ -27,8 +27,7 @@ pipeline YAML configuration files, it would be good to have the
 following in mind:
 
 * The blocks of the grammar are identified by indentation and there is
-  not need for braces or curly braces. The [Python][2]{:
-  target="_blank"} programming language uses indentation as well.
+  not need for braces or curly braces. The [Python][2] programming language uses indentation as well.
 * You do not need to use any semicolons for separating different
   statements because statements are separated by newline characters.
 * The grammar allows you to create simple pipeline configuration files
@@ -534,10 +533,7 @@ At this moment the best thing you can do is to start creating Semaphore
 how `.semaphore/semaphore.yml` files work. You will most likely make
 mistakes in the process but this is part of the learning process!
 
-[][3]
-
 
 
 [1]: https://docs.semaphoreci.com/article/15-secrets
 [2]: https://www.python.org/
-[3]: https://jenkins.io/doc/book/pipeline/syntax/
