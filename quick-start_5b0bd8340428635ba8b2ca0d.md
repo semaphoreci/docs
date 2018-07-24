@@ -2,8 +2,8 @@
 
 Semaphore 2.0 is a continuous integration tool for every kind of user.
 
-Note that all Semaphore 2.0 projects use a 
-`.semaphore/semaphore.yml` configuration file. This document will
+Note that all Semaphore 2.0 projects use a
+`.semaphore/semaphore.yml` configuration file. This document will
 present you a simple Semaphore 2.0 project.
 
 After reading this document, you will be able to understand the
@@ -67,7 +67,7 @@ makes it the simplest kind of a Semaphore 2.0 project.
 The web interface of Semaphore 2.0 is simple, mainly because you now
 have to define most of the things of a project using the
 `.semaphore/semaphore.yml` file. You can find it
-at [https://id.semaphoreci.com/][1]{: target="_blank"}.
+at [https://id.semaphoreci.com/][1].
 
 #### Explaining the YAML file in full detail
 
@@ -105,7 +105,7 @@ project. Please notice that a Semaphore 2.0 project can contain multiple
      - name: This is Block
        task:
 
-The line that begins with `- name` is used for assigning a name to
+The line that begins with `- name` is used for assigning a name to
 the `task` block that follows. 
 
 After that you can start defining the jobs of a `task` block using the
@@ -126,7 +126,7 @@ contains a single command. The `SEMAPHORE_PIPELINE_ID` environment
 variable is automatically defined by Semaphore 2.0 and is guaranteed to
 be unique for each pipeline.
 
-The second job from the first  `task` block is defined as follows:
+The second job from the first `task` block is defined as follows:
 
 
              - name: Job 2 from 1st task block
