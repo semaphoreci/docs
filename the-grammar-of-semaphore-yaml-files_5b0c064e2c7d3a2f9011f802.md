@@ -38,6 +38,8 @@ pipeline. You will see the `name` property again because it can also be
 used for defining the name of a job inside a `jobs` block or the name of
 a task section defined using `task`.
 
+## About agent
+
 You can think of the values under the  `agent` property as the
 environment (type of container) in which the jobs of the pipeline will
 get executed. The `type` property is intended for selecting the machine
