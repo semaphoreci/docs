@@ -21,7 +21,7 @@ every  `.semaphore/semaphore.yml` file you create. This preamble
 includes the following four lines:
 
     version: "v1.0"
-    name: <The name of the Semaphore 2.0 project>
+    name: "The name of the Semaphore 2.0 project"
     agent:
       machine:
         type: e1-standard-2
