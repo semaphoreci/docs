@@ -40,13 +40,12 @@ a task section defined using `task`.
 
 ## About agent
 
-You can think of the values under the `agent` property as the
+You can think of the _three_ values under the `agent` property as the
 environment (type of container) in which the jobs of the pipeline will
 get executed. The `type` property is intended for selecting the machine
 (hardware) you would like to use for your builds. The `os_image`
-property specifies the operating system that will be used. Please notice
-that you cannot use arbitrary values for the `type` and `os_image`
-properties.
+property specifies the operating system and the version of the operation systems that will be used.
+Please notice that you cannot use arbitrary values for the `type` and `os_image` properties.
 
 You will most likely need to use `e1-standard-2` as the value of the
 `type` property and `ubuntu1804` as the value of the `os_image` property.
@@ -54,9 +53,9 @@ You will most likely need to use `e1-standard-2` as the value of the
 ## About blocks
 
 The `blocks` property is an array of items that hold the elements of
-a  `.semaphore/semaphore.yml` file.
+a `.semaphore/semaphore.yml` file.
 
-Each item of the `blocks` property can have its own `name` property
+Each item of the `blocks` property can have its own `name` property
 associated with it. If there is no `name` value, Semaphore 2.0 will
 assign a value to it. The important thing to remember is that the `name`
 values of all the `blocks` items of a Semaphore 2.0 project, which
