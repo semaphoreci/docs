@@ -52,6 +52,8 @@ You will most likely need to use `e1-standard-2` as the value of the
 `type` property and  `ubuntu1804` as the value of
 the `os_image` property.
 
+## About blocks
+
 The `blocks` property is an array of items that hold the elements of
 a  `.semaphore/semaphore.yml` file.
 
