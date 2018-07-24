@@ -1,7 +1,7 @@
 ## The Sections of a Semaphore 2.0 pipeline YAML file
 
 YAML files have a structure and YAML files used for configuring
-pipelines are no exception.
+pipelines in Semaphore 2.0 projects are no exception.
 
 Each Semaphore 2.0 pipeline configuration file has certain blocks, which
 are defined by the use of properties. Some of the blocks and properties
@@ -16,9 +16,8 @@ are executed before or after a job.
 ### The Preamble
 
 Each Semaphore 2.0 pipeline configuration file has a preamble, which is
-mandatory and should be present on
-every  `.semaphore/semaphore.yml` file you create. This preamble
-includes the following four lines:
+mandatory and should be present on every `.semaphore/semaphore.yml` file you create.
+This preamble includes the following four lines:
 
     version: "v1.0"
     name: "The name of the Semaphore 2.0 project"
@@ -34,7 +33,7 @@ current version is 1.0 and therefore this is the value that should be
 used.
 
 The `name` property is a Unicode string that assigns a name to the
-pipeline. You will see the `name` property again because it can also be
+pipeline. You will see the `name` property again because it can also be
 used for defining the name of a job inside a `jobs` block or the name of
 a task section defined using `task`.
 
