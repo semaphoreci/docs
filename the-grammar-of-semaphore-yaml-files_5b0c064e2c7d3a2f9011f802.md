@@ -40,30 +40,29 @@ a task section defined using `task`.
 
 ## About agent
 
-You can think of the values under the  `agent` property as the
-environment (type of container) in which the jobs of the pipeline will
+You can think of the values under the `agent` property as the
+environment (type of container) in which the jobs of the pipeline will
 get executed. The `type` property is intended for selecting the machine
 (hardware) you would like to use for your builds. The `os_image`
 property specifies the operating system that will be used. Please notice
 that you cannot use arbitrary values for the `type` and `os_image`
 properties.
 
-You will most likely need to use `e1-standard-2` as the value of the
-`type` property and  `ubuntu1804` as the value of
-the `os_image` property.
+You will most likely need to use `e1-standard-2` as the value of the
+`type` property and `ubuntu1804` as the value of the `os_image` property.
 
 ## About blocks
 
 The `blocks` property is an array of items that hold the elements of
 a  `.semaphore/semaphore.yml` file.
 
-Each item of the  `blocks` property can have its own `name` property
-associated with it. If there is no `name` value, Semaphore 2.0 will
-assign a value to it. The important thing to remember is that the `name`
+Each item of the `blocks` property can have its own `name` property
+associated with it. If there is no `name` value, Semaphore 2.0 will
+assign a value to it. The important thing to remember is that the `name`
 values of all the `blocks` items of a Semaphore 2.0 project, which
-appear before the `task` property, must be unique.
+appear before the `task` property, must be unique.
 
-If you accidentally name two or more  `blocks` properties with the same
+If you accidentally name two or more `blocks` properties with the same
 name, you will get an error message similar to the following:
 
     semaphore.yml ERROR:
@@ -71,15 +70,15 @@ name, you will get an error message similar to the following:
 
 ## About task
 
-The `task` keyword that comes after the  `blocks` property divides a
-YAML configuration file into major and distinct sections. Each `task`
+The `task` keyword that comes after the `blocks` property divides a
+YAML configuration file into major and distinct sections. Each `task`
 section can have multiple `jobs` items, an optional `prologue` section,
 an optional `epilogue` section as well as an optional `env_vars` block
 for defining environment variables.
 
 ###  About Jobs
 
-The core part of each   `.semaphore/semaphore.yml` file is code blocks
+The core part of each `.semaphore/semaphore.yml` file is code blocks
 that define one or more jobs because jobs define the commands that will
 get executed on a given Semaphore 2.0 project. Therefore, `jobs`
 properties are essential for each Semaphore 2.0 pipeline because they
@@ -89,7 +88,7 @@ allow you to define the commands that you want to execute.
 
 A job item can contain various sections including `name`, `commands` and
 `cmd_file`, which can be considered as the parameters of a job.
-The `commands` and `cmd_file` properties can help you define jobs either
+The `commands` and `cmd_file` properties can help you define jobs either
 inline or using an external plain text file, respectively.
 
 The general structure of a job when using the `commands` property is as
@@ -111,11 +110,11 @@ follows:
       - name: A name for this job
          cmd_file: /path/to/file/plain_text_file
 
-As you will learn in a while, the type of the value of the 
-`cmd_file` property is string, which means that you can only have a
-single `cmd_file` value. Should you wish to call multiple UNIX scripts,
+As you will learn in a while, the type of the value of the
+`cmd_file` property is string, which means that you can only have a
+single `cmd_file` value. Should you wish to call multiple UNIX scripts,
 you can put all of them into a single file or call them directly from
-the plain text file used as the value of `cmd_file`.
+the plain text file used as the value of `cmd_file`.
 
 #### About name
 
@@ -137,14 +136,14 @@ example that uses the `commands` property is the following:
       - echo $SEMAPHORE_PIPELINE_ID
       - go run hw.go
 
-Notice that you cannot use both `commands` and `cmd_file` for defining a
+Notice that you cannot use both `commands` and `cmd_file` for defining a
 single job. Additionally, notice that the `checkout` command is specific
 to Semaphore 2.0 pipelines YAML files and is used for fetching the files
 of the GitHub repository into the Linux virtual machine in order to be
 able to use them.
 
-The following is an example of a working  
-`.semaphore/semaphore.yml` file that uses the `commands` property:
+The following is an example of a working `.semaphore/semaphore.yml`
+file that uses the `commands` property:
 
     version: "v1.0"
     name: Single Job YAML file.
@@ -167,10 +166,10 @@ Strictly speaking, the `cmd_file` is a string property that points to a
 plain text file that can be found in the GitHub repository of your
 Semaphore 2.0 project.
 
-Some information about what happens behind the scenes:  Semaphore 2.0
-reads the plain text file and creates the equivalent job using a 
-`commands` block, which is what is finally executed. This means that
-the  `cmd_file` property is replaced before the job is started and a
+Some information about what happens behind the scenes: Semaphore 2.0
+reads the plain text file and creates the equivalent job using a
+`commands` block, which is what is finally executed. This means that
+the `cmd_file` property is replaced before the job is started and a
 machine begins its execution.
 
 An example of a job defined using `cmd_file` is the following:
@@ -179,13 +178,13 @@ An example of a job defined using `cmd_file` is the following:
       - name: A name for this job
          cmd_file: /path/to/GitHub/file/plain_text_file
 
-Notice that you cannot use both  `commands` and `cmd_file` for defining
-a job. Moveover, you cannot have a job properly defined if both
-the `commands` and `cmd_file` properties are missing.
+Notice that you cannot use both `commands` and `cmd_file` for defining
+a job. Moreover, you cannot have a job properly defined if both
+the `commands` and `cmd_file` properties are missing.
 
-The following is an example of a working `.semaphore/semaphore.yml` file
+The following is an example of a working `.semaphore/semaphore.yml` file
 that uses the `cmd_file` property to execute the commands found
-in `command_file`\:
+in `command_file`:
 
     version: "v1.0"
     name: Using cmd_file.
@@ -207,7 +206,7 @@ You will learn more the `prologue` property at the section that follows.
 
 ### The prologue and epilogue properties
 
-A `.semaphore/semaphore.yml` configuration file can have a single
+A `.semaphore/semaphore.yml` configuration file can have a single
 `prologue` and a single `epilogue` property per `task` property. Both
 `prologue` and `epilogue` properties are optional.
 
@@ -238,7 +237,7 @@ A `prologue` property definition can be defined as follows:
     prologue:
         cmd_file: /path/to/GitHub/file/plain_text_file
 
-The following is an example of a working `.semaphore/semaphore.yml` file
+The following is an example of a working `.semaphore/semaphore.yml` file
 that uses the `prologue` and `epilogue` properties:
 
     version: "v1.0"
@@ -332,7 +331,7 @@ The preceding YAML code exempt defines two environment variables named
 means that numeric values that are not natural numbers need to be
 included in double quotes.
 
-The following code presents a complete `.semaphore/semaphore.yml` file
+The following code presents a complete `.semaphore/semaphore.yml` file
 that defines and uses two environment variables:
 
     version: "v1.0"
@@ -373,10 +372,10 @@ work. Additionally, you can have empty lines in your YAML files.
 A good practice would be to begin with the definitions of the jobs that
 you will need for your pipeline using simple *echo* commands before
 writing the actual commands for each one of them. Once you have
-a `.semaphore/semaphore.yml` file without syntactical errors, you can
+a `.semaphore/semaphore.yml` file without syntactical errors, you can
 start putting the commands for each job.
 
-The following `.semaphore/semaphore.yml` configuration file defines a
+The following `.semaphore/semaphore.yml` configuration file defines a
 minimalistic pipeline configuration file with a single job:
 
     version: "v1.0"
@@ -394,9 +393,8 @@ minimalistic pipeline configuration file with a single job:
                 - echo $SEMAPHORE_PIPELINE_ID
                 - echo "Hello World!"
 
-You can always begin with such simple `.semaphore/semaphore.yml` files
-and build on these or use any one of your
-existing `.semaphore/semaphore.yml` files.
+You can always begin with such simple `.semaphore/semaphore.yml` files
+and build on these or use any one of your existing `.semaphore/semaphore.yml` files.
 
 ### The order of execution
 
@@ -404,9 +402,9 @@ You cannot and you should not make any assumptions about the order the
 various jobs of a block are going to be executed. This means that the
 jobs of each block might not start in the order of definition.
 
-However, the blocks of a `.semaphore/semaphore.yml` file are executed
+However, the blocks of a `.semaphore/semaphore.yml` file are executed
 sequentially. This means that if you have two blocks on
-a `.semaphore/semaphore.yml` file file, the second one will begin only
+a `.semaphore/semaphore.yml` file file, the second one will begin only
 when the first one has finished.
 
 Last, the jobs of a block will run in parallel provided that you have
@@ -414,7 +412,7 @@ the required capacity (boxes) available.
 
 ###  A complete .semaphore/semaphore.yml example
 
-The following code presents a complete `.semaphore/semaphore.yml` file:
+The following code presents a complete `.semaphore/semaphore.yml` file:
 
     version: "v1.0"
     name: YAML file example for Go project.
@@ -475,11 +473,11 @@ The following code presents a complete `.semaphore/semaphore.yml` file:
 
 ### A .semaphore/semaphore.yml file without name properties
 
-Although it is allowed to have `.semaphore/semaphore.yml` files without
+Although it is allowed to have `.semaphore/semaphore.yml` files without
 name properties, it is considered a very bad practice and should be
 avoided.
 
-However, the following sample `.semaphore/semaphore.yml` file proves
+However, the following sample `.semaphore/semaphore.yml` file proves
 that it can be done:
 
     version: "v1.0"
@@ -496,7 +494,7 @@ that it can be done:
 
 At this moment the best thing you can do is to start creating Semaphore
 2.0 pipelines and projects in order to try things and understand
-how `.semaphore/semaphore.yml` files work. You will most likely make
+how `.semaphore/semaphore.yml` files work. You will most likely make
 mistakes in the process but this is part of the learning process!
 
 
