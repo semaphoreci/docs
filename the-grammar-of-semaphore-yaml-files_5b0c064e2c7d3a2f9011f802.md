@@ -1,17 +1,3 @@
-- [My Title](#heading)
-  * [Sub-heading](#sub-heading)
-    + [Sub-sub-heading](#sub-sub-heading)
-- [My Title 2](#heading-1)
-  * [Sub-heading](#sub-heading-1)
-    + [Sub-sub-heading](#sub-sub-heading-1)
-- [My Title 3](#heading-2)
-  * [Sub-heading](#sub-heading-2)
-    + [Sub-sub-heading](#sub-sub-heading-2)
-
-
-<!-- toc -->
-
-
 ### Introduction
 
 This document will introduce you to the YAML grammar used for
