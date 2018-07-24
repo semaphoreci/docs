@@ -83,79 +83,64 @@ mandatory:
         type: e1-standard-2
         os_image: ubuntu1804
 
-<div>
+
 The `blocks` block is used for embedding the jobs of the project and is
 also mandatory:
-</div>
+
 
     blocks:
     # Is this a valid comment?
     # Yes it is!
 
-<div>
+
 The previous code also shows how you can include comment in a
 `.semaphore/semaphore.yml` file.
-</div>
 
-<div>
+
 The `task` keyword is used for defining the jobs of a Semaphore 2.0
 project. Please notice that a Semaphore 2.0 project can contain multiple
 `task` blocks.
-</div>
+
 
      - name: This is Block
        task:
 
-<div>
 The line that begins with `- name` is used for assigning a name to
 the `task` block that follows. 
-</div>
 
-<div>
 After that you can start defining the jobs of a `task` block using the
 `jobs` keyword:
-</div>
+
 
           jobs:
 
-<div>
 That particular `task` block contains two jobs. The first one is defined
 as follows:
-</div>
 
             - name: Job 1 from 1st task block
               commands:
                 - echo $SEMAPHORE_PIPELINE_ID
 
-<div>
 So, the name of that particular job is "Job 1 from 1st task block" and
 contains a single command. The `SEMAPHORE_PIPELINE_ID` environment
 variable is automatically defined by Semaphore 2.0 and is guaranteed to
 be unique for each pipeline.
-</div>
 
-<div>
 The second job from the first  `task` block is defined as follows:
-</div>
+
 
              - name: Job 2 from 1st task block
               commands:
                 - echo "This is from the 2nd job of 1st task block"
                 - echo $SEMAPHORE_PIPELINE_ID
 
-<div markdown="1">
 This particular job contains just two `echo` commands. As before, the
 `SEMAPHORE_PIPELINE_ID` environment variable is defined by Semaphore
 2.0.
 
-</div>
-
-<div>
 Feel free to make changes to the `.semaphore/semaphore.yml` file of the
 presented project and maybe try to break it by inserting an unknown
 keyword or a command that fails!
-</div>
-
 
 
 [1]: https://id.semaphoreci.com/
