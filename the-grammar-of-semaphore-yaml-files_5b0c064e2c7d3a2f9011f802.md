@@ -52,7 +52,7 @@ You will most likely need to use `e1-standard-2` as the value of the
 ## About blocks
 
 The `blocks` property is an array of items that hold the elements of
-a `.semaphore/semaphore.yml` file.
+a `.semaphore/semaphore.yml` file.
 
 Each item of the `blocks` property can have its own `name` property
 associated with it. If there is no `name` value, Semaphore 2.0 will
