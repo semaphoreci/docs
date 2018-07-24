@@ -1,5 +1,5 @@
 version: "v1.0"
-name: Project for Semaphore 2.0 documentation
+name: Semaphore 2.0 documentation Project
 agent:
   machine:
     type: e1-standard-2
