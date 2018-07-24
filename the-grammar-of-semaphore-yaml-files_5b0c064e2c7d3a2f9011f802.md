@@ -195,7 +195,7 @@ The following is an example of a working  
                 - echo $SEMAPHORE_PIPELINE_ID
                 - echo "Hello World!"
 
-#### About cmd\_file
+#### About cmd_file
 
 Strictly speaking, the `cmd_file` is a string property that points to a
 plain text file that can be found in the GitHub repository of your
