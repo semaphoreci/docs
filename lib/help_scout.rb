@@ -50,7 +50,25 @@ class HelpScout
   end
 
   def log_article_details(article_id)
-    data = get_article_details(article_id)["article"]
+    data = get_article_details(article_id)
+
+    is_article_found?(data) ? display_article_details(data, article_id) : output_response_details(data, article_id)
+  end
+
+  def is_article_found?(data)
+    data.key?("article")
+  end
+
+  def output_response_details(response, article_id)
+    Log.new("HelpScout response is").red
+    Log.new(response).yellow
+    Log.new("It appears that something went wrong").red
+    Log.new("Please check instructions in README").red
+    Log.new("Also it would be good to verify if article exists on HelpScout").red
+  end
+
+  def display_article_details(fetched_data, article_id)
+    data = fetched_data["article"]
 
     Log.new("Updated #{full_article_path(article_id)}").green
     attributes = ["publicUrl", "status", "hasDraft", "viewCount", "popularity", "lastPublishedAt"]
@@ -59,5 +77,4 @@ class HelpScout
       Log.new("#{attribute}: #{data[attribute]}").blue
     end
   end
-
 end

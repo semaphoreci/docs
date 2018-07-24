@@ -8,6 +8,10 @@ class Log
     "\e[#{colour_code}m#{@text}\e[0m"
   end
 
+  def red
+    puts colourize(31)
+  end
+
   def green
     puts colourize(32)
   end
