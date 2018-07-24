@@ -267,7 +267,7 @@ that uses the `prologue` and `epilogue` properties:
 Currently, there is no way to define a global `prologue` or `epilogue`
 block, that is a `prologue` or `epilogue` definition that will be
 defined outside a `block` item and would be applied to each `block` item
-of the entire `.semaphore/semaphore.yml` file. However, you can put the
+of the entire `.semaphore/semaphore.yml` file. However, you can put the
 desired commands on an external file and define your `prologue` or
 `epilogue` blocks using a `cmd_file` item.
 
@@ -275,7 +275,7 @@ desired commands on an external file and define your `prologue` or
 
 As the `prologue` block is executed before a job, the result of the job
 that follows that `prologue` block has no effect on the execution of the
-`prologue` block. The same happens with `epilogue` blocks, which means
+`prologue` block. The same happens with `epilogue` blocks, which means
 that `epilogue` blocks are executed even if the jobs that precedes them
 have failed.
 
@@ -310,7 +310,7 @@ the following kind of output:
 
 ### Defining Environment variables
 
-The syntax of `.semaphore/semaphore.yml` file allows you to define your
+The syntax of `.semaphore/semaphore.yml` file allows you to define your
 own environment variables with the help of the `env_vars` property that
 is an array. The elements of such an array are name and value pairs that
 hold the name of the environment variable and the value of the
@@ -397,7 +397,7 @@ and build on these or use any one of your existing `.semaphore/semaphore.yml` fi
 ### The order of execution
 
 You cannot and you should not make any assumptions about the order the
-various jobs of a block are going to be executed. This means that the
+various jobs of a block are going to be executed. This means that the
 jobs of each block might not start in the order of definition.
 
 However, the blocks of a `.semaphore/semaphore.yml` file are executed
