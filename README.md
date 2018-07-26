@@ -25,6 +25,13 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 
 ### Install dependencies
 
+Currently, script depends on [redcarpet] gem.
+It can be installed with the following command
+
+```
+gem install redcarpet
+```
+
 ### Set up secret
 
 - `cp docs_secrets.yml.example docs_secrets.yml`
@@ -36,5 +43,5 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 - propagate secret to Semaphore with `sem`
 
 [HelpScout Docs token]: https://developer.helpscout.com/docs-api/
-[kramdown]: https://kramdown.gettalong.org/index.html
+[redcarpet]: https://github.com/vmg/redcarpet
 [update]: https://developer.helpscout.com/docs-api/articles/update/
