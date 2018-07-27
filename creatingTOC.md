@@ -1,5 +1,9 @@
 # This file may exist in the Documentation GitHub repository of Semaphore 2.0 but it will not get published as it has not been created in Help Scout.
 
+
+# How to create TOC entries in Mark Down
+
+
 - [The format](#the-format)
 - [Existing Title](#existing-title)
 - [Issues](#issues)
