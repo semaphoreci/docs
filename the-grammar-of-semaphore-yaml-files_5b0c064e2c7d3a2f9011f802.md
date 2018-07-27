@@ -17,7 +17,7 @@ are executed before or after a job.
 
 Each Semaphore 2.0 pipeline configuration file has a preamble, which is
 mandatory and should be present on every `.semaphore/semaphore.yml` file you create.
-This preamble includes the following four lines:
+This preamble includes the following seven lines:
 
     version: "v1.0"
     name: "The name of the Semaphore 2.0 project"
