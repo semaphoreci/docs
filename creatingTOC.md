@@ -22,7 +22,7 @@ Each TOC entry must have the following format:
     [Text for that entry](#existing-title)
 
 - The `Text for that entry` can be anything whereas the `existing-title` must be an exiting title.
-- The `#id selector` text must be in lowercase
+- The `#id selector` text must be in *lowercase*.
 - In the `#id selector` text you must replace space characters with `-`.
 
 ## Existing Title
