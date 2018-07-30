@@ -55,7 +55,8 @@ the `ls(1)` command with the `-a` switch.
 #### About Semaphore 2.0 YAML files
 
 The following is a small YAML configuration file used in a simple
-Semaphore 2.0 project that has two jobs and uses secrets:
+Semaphore 2.0 project that has two jobs under the same `task` property
+and uses two secrets named `mySecrets` and `more-mihalis-secrets`:
 
     $ cat .semaphore/semaphore.yml
     version: "v1.0"
@@ -90,8 +91,8 @@ Semaphore 2.0 project that has two jobs and uses secrets:
 
 By default, the files of your GitHub repository are not accessible by
 Semaphore 2.0. In order to make the files of your GitHub repository
-accessible to Semaphore, you will need to execute the `checkout` command
-in the list of commands of a job.
+accessible to a Semaphore job, you will need to execute the `checkout` command
+in the list of commands of a job or in the `prologue` part of a `task`.
 
 #### 
 
