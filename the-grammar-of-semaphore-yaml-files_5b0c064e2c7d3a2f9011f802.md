@@ -43,8 +43,10 @@ You can think of the _three_ values under the `agent` property as the
 environment (type of container) in which the jobs of the pipeline will
 get executed. The `type` property is intended for selecting the machine
 (hardware) you would like to use for your builds. The `os_image`
-property specifies the operating system and the version of the operation systems that will be used.
-Please notice that you cannot use arbitrary values for the `type` and `os_image` properties.
+property specifies the operating system and the version of the
+operation systems that will be used.
+Please notice that you cannot use arbitrary values for the `type` and
+`os_image` properties.
 
 You will most likely need to use `e1-standard-2` as the value of the
 `type` property and `ubuntu1804` as the value of the `os_image` property.
@@ -480,7 +482,10 @@ that it can be done:
 
     version: "v1.0"
     name: Basic YAML configuration file example.
-    semaphore_image: standard
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     blocks:
       - task:
           jobs:
