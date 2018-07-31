@@ -402,7 +402,7 @@ jobs of each block might not start in the order of definition.
 
 However, the blocks of a `.semaphore/semaphore.yml` file are executed
 sequentially. This means that if you have two blocks on
-a `.semaphore/semaphore.yml` file file, the second one will begin only
+a `.semaphore/semaphore.yml` file, the second one will begin only
 when the first one has finished.
 
 Last, the jobs of a block will run in parallel provided that you have
