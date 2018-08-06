@@ -25,14 +25,16 @@ other organizations.
 
 ### apiVersion
 
-The `apiVersion` property 
+The `apiVersion` property defines the version used for the definition of the
+YAML file.
+
+List of values for `apiVersion`: `v1alpha`.
 
 ### kind
 
 The `kind` property
 
-The list of valid values for the `kind` property includes `Secret` and
-`Project`.
+The list of values for `kind`: `Secret`, `Project`.
 
 ### metadata
 
