@@ -25,42 +25,53 @@ other organizations.
 
 ### apiVersion
 
-The `apiVersion` property defines the version used for the definition of the
-YAML file.
+The `apiVersion` property defines the version of the YAML grammar that will be
+used in current YAML file. Different versions have different features.
 
 List of values for `apiVersion`: `v1alpha`.
 
 ### kind
 
-The `kind` property
+The `kind` property defines the purpose of the YAML file. For a YAML file that
+will be used for defining `secrets`, the value of the `kind` property should
+be `Secret`.
 
 The list of values for `kind`: `Secret`, `Project`.
 
 ### metadata
 
-The `metadata` property
+The `metadata` property defines the metadata of the Secrets YAML file.
+Currently, only the `name` property is allowed but this might change
+in future versions.
 
 #### name in metadata
 
-The value of the `name` property in the `metadata` context
+The value of the `name` property, which is a string, in the `metadata` context
+defines the name of the `secrets` bucket. This `name` value will be used in
+the Pipeline YAML file for importing a specific `secrets` bucket or as an
+argument to the `sem delete secrets` command for deleting a specific `secrets`
+bucket.
 
 ### data:
 
-The `data` property
+The `data` property, which is compulsory, currently holds a single `env_vars`
+property.
 
 ### env_vars
 
-The `env_vars` property is a list of `name` and `value` pairs that allow you
-to define the names and the values of the environment variables that will be
-inserted in the `secrets` bucket described.
+The `env_vars` property, which is compulsory, is a list of `name` and `value`
+pairs that allows you to define the names and the values of the environment
+variables that will be inserted in the current `secrets` bucket.
 
 #### name in env_vars
 
-The value of the `name` property
+The value of the `name` property under the `env_vars` property defines the
+name of an environment variable.
 
 #### value
 
-The value of the `value` property 
+The value of the `value` property defines the value of the environment variable
+that was previously defined using a `name` property.
 
 ## Secrets example
 
