@@ -15,7 +15,8 @@
 This document is the reference for the YAML grammar used for adding projects
 to Semaphore 2.0 using the `sem` command line utility.
 
-Projects can also be added to Semaphore 2.0 with the `sem init` command.
+Projects can also be added to Semaphore 2.0 with the `sem init` command. In
+that case, you will not need to create a YAML file on your own.
 
 ## Properties
 
@@ -69,14 +70,12 @@ the following error message:
 
 > error: http status 422 with message "{"message":"project name \"goDemo2.1\" is already taken"}" received from upstream
 
-
 Last, if the `url` value does not have the correct format, `sem` will print
 the next kind of error message:
 
 > $ sem create -f goDemo.yaml
 
 > error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
-
 
 ## Example
 
