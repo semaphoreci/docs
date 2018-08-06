@@ -1,5 +1,24 @@
-# Secrets YAML reference
+* [About Secrets YAML reference](#secrets-yaml-reference)
+* [Properties](#properties)
+   * [apiVersion](#apiversion)
+   * [kind](#kind)
+   * [metadata](#metadata)
+      * [name](#name-in-metadata)
+   * [data](#data)
+   * [env_vars](#env_vars)
+      * [name](#name-in-env_vars)
+      * [value](#value)
+* [Secrets example](#secrets-example)
+* [See also](#see-also)
 
+# Secrets YAML Reference
+
+This document is the reference for the YAML grammar used for creating `secrets`
+buckets for Semaphore 2.0 projects.
+
+A `secrets` bucket along with its contents is created under the current
+organization and is available in this organization only unless you add it to
+other organizations.
 
 
 ## Properties
@@ -10,6 +29,9 @@
 
 ### kind
 
+
+The list of valid values for the `kind` property includes `Secret` and
+`Project`.
 
 ### metadata
 
