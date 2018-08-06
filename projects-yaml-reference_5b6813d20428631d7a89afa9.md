@@ -13,7 +13,8 @@
 # Projects YAML Reference
 
 This document is the reference for the YAML grammar used for adding projects
-to Semaphore 2.0 using the `sem` command line utility.
+to under the current organization of Semaphore 2.0 using the `create` command
+of the `sem` command line utility.
 
 Projects can also be added to Semaphore 2.0 with the `sem init` command. In
 that case, you will not need to create a YAML file on your own.
@@ -23,7 +24,8 @@ that case, you will not need to create a YAML file on your own.
 
 ## apiVersion
 
-The `apiVersion` property
+The `apiVersion` property defines the version used in the definition of the
+YAML file. Different YAML versions have different features.
 
 List of value for `apiVersion`: `v1alpha`.
 
@@ -89,6 +91,6 @@ the next kind of error message:
 
 ## See Also
 
-   * [Secrets YAML reference]
+   * [Secrets YAML Reference]
    * [Changing organizations]
-   * [sem utility reference]
+   * [sem utility Reference]
