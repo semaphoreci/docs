@@ -67,3 +67,6 @@ The list of valid values for the `kind` property includes `Secret` and
 
 ## See also
 
+* [sem Utility Reference]
+* [Projects YAML Reference]
+* [Pipeline YAML Reference]
