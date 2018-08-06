@@ -20,36 +20,45 @@ A `secrets` bucket along with its contents is created under the current
 organization and is available in this organization only unless you add it to
 other organizations.
 
-
 ## Properties
 
 
 ### apiVersion
 
+The `apiVersion` property 
 
 ### kind
 
+The `kind` property
 
 The list of valid values for the `kind` property includes `Secret` and
 `Project`.
 
 ### metadata
 
+The `metadata` property
 
 #### name in metadata
 
+The value of the `name` property in the `metadata` context
+
 ### data:
 
-
+The `data` property
 
 ### env_vars
 
+The `env_vars` property is a list of `name` and `value` pairs that allow you
+to define the names and the values of the environment variables that will be
+inserted in the `secrets` bucket described.
 
 #### name in env_vars
 
+The value of the `name` property
 
 #### value
 
+The value of the `value` property 
 
 ## Secrets example
 
@@ -67,6 +76,6 @@ The list of valid values for the `kind` property includes `Secret` and
 
 ## See also
 
-* [sem Utility Reference]
+* [sem utility Reference]
 * [Projects YAML Reference]
 * [Pipeline YAML Reference]
