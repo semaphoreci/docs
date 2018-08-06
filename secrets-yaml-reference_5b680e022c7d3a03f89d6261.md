@@ -2,6 +2,32 @@
 
 
 
+## Properties
+
+
+### apiVersion
+
+
+### kind
+
+
+### metadata
+
+
+#### name in metadata
+
+### data:
+
+
+
+### env_vars
+
+
+#### name in env_vars
+
+
+#### value
+
 
 ## Secrets example
 
@@ -15,4 +41,7 @@
           value: "This is the value of SECRET_ONE"
         - name: SECRET_TWO
           value: "This is the value of SECRET_TWO"
+
+
+## See also
 
