@@ -86,6 +86,10 @@ that was previously defined using a `name` property.
         - name: SECRET_TWO
           value: "This is the value of SECRET_TWO"
 
+The previous example defines a `secrets` bucket named `a-secrets-bucket-name`
+that contains two secret environment variables named `SECRET_ONE` and
+`SECRET_TWO` with values `This is the value of SECRET_ONE` and
+`This is the value of SECRET_TWO`, respectively.
 
 ## See also
 
