@@ -1,3 +1,5 @@
+# sem commad line tool Reference
+
 * [Overview](#overview-of-sem)
 * [Syntax](#syntax)
 * [Operations](#operations)
@@ -8,8 +10,6 @@
 * [Help functions](#help-functions)
 * [Examples](#examples)
 * [See also](#see-also)
-
-# sem commad line tool Reference
 
 
 ## Overview of sem
@@ -36,16 +36,16 @@ flag, which requires a path to a local file.
 
 The following list briefly describes the `sem` operations:
 
-* *config*:
-* *connect*:
-* *context*:
-* *create*:
-* *delete*:
-* *describe*:
-* *get*:
-* *help*:
-* *init*:
-* *version*:
+* *config*: The `config` command is
+* *connect*: The `connect` command is
+* *context*: The `context` command is
+* *create*: The `create` command is
+* *delete*: The `delete` command is
+* *describe*: The `describe` command is
+* *get*: The `get` command is
+* *help*: The `help` command is
+* *init*: The `init` command is
+* *version*: The `version` command is
 
 
 ## Resource types
@@ -127,7 +127,12 @@ returns the current version of the `sem` tool.
 
 ### sem version
 
-The `sem version` command
+The `sem version` command displays the version of the `sem` tool:
+
+    $ sem version
+    v0.4.1
+
+The actual output might be different on your machine.
 
 ### sem help
 
@@ -159,12 +164,15 @@ The output of the `sem help` command is static and is as follows:
 
 ### Resources
 
+There exist two kinds of resources: `secrets` buckets and projects.
 
 #### Secrets
 
+`secrets`
 
 #### Projects
 
+A project is
 
 ## See also
 
