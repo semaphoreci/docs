@@ -97,6 +97,31 @@ The `sem version` command
 
 ### sem help
 
+The output of the `sem help` command is static and is as follows:
+
+    $ sem help
+    Semaphore 2.0 command line interface
+
+    Usage:
+      sem [command]
+
+    Available Commands:
+      config      Get and set configuration options.
+      connect     Connect to a Semaphore endpoint
+      context     Manage contexts for connecting to Semaphore
+      create      Create a resource from a file.
+      delete      Delete a resource.
+      describe    Describe a resource
+      get         List of resources.
+      help        Help about any command
+      init        Initialize a project
+      version     Display the version
+
+    Flags:
+      -h, --help      help for sem
+      -v, --verbose   verbose output
+
+    Use "sem [command] --help" for more information about a command.
 
 ### Resources
 
