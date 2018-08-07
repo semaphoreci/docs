@@ -3,15 +3,38 @@
 
 ## Overview of sem
 
-`sem` is the command line interface to Semaphore 2.0.
+`sem` is the command line interface to Semaphore 2.0. This reference covers
+the syntax and the commands of `sem` and provides examples of the commands with
+output.
 
 
 ## Syntax
 
+The general syntax of `sem` is as follows:
 
+    sem [COMMAND] [RESOURCE] [NAME] [flags]
+
+where `[COMMAND]` is the name of the command as explained in this reference
+page, `[RESOURCE]` is the type of the resource that interests us, `[NAME]` is
+the actual name of the resource and `[flags]` are optional flags. Some of the
+`[flags]` might need an additional argument, as it is the case with the `-f`
+flag, which requires a path to a local file.
 
 
 ## Operations
+
+The following list briefly describes the `sem` operations:
+
+* [config]:
+* [connect]:
+* [context]:
+* [create]:
+* [delete]:
+* [describe]:
+* [get]:
+* [help]:
+* [init]:
+* [version]:
 
 
 ## Resource types
