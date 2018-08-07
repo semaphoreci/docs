@@ -1,3 +1,14 @@
+* [Overview](#overview-of-sem)
+* [Syntax](#syntax)
+* [Operations](#operations)
+* [Resource types](#resource-types)
+* [Working with organizations](#working-with-organizations)
+* [Working with resources](#working-with-resources)
+* [Project Initialization](#project-initialization)
+* [Help functions](#help-functions)
+* [Examples](#examples)
+* [See also](#see-also)
+
 # sem commad line tool Reference
 
 
