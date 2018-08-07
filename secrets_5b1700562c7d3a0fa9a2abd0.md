@@ -205,9 +205,7 @@ defined as follows:
                 - echo $SECRET_TWO
           secrets:
             - name: mySecrets
-              env_var_names: []
             - name: more-mihalis-secrets
-              env_var_names: []
 
 Please notice that when the names of the environment variables of two
 more more `secrets` are the same, then the environment variable will
