@@ -25,16 +25,16 @@ flag, which requires a path to a local file.
 
 The following list briefly describes the `sem` operations:
 
-* [config]:
-* [connect]:
-* [context]:
-* [create]:
-* [delete]:
-* [describe]:
-* [get]:
-* [help]:
-* [init]:
-* [version]:
+* *config*:
+* *connect*:
+* *context*:
+* *create*:
+* *delete*:
+* *describe*:
+* *get*:
+* *help*:
+* *init*:
+* *version*:
 
 
 ## Resource types
