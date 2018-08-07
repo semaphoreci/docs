@@ -235,8 +235,6 @@ The `.semaphore/semaphore.yml` file that will be used is the following:
                 - echo $SEMAPHORE_PIPELINE_ID
           secrets:
             - name: does-not-exist
-              env_var_names:
-                - SECRET_ONE
 
 In that case the pipeline will fail to run.
 
