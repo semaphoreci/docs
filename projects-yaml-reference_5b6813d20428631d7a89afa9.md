@@ -79,7 +79,6 @@ First, if the GitHub repository cannot be found, `sem create` will reply with th
 next error message:
 
 > $ sem create -f goDemo.yaml
->
 > error: http status 422 with message "{"message":"repository \"text/goDemo\" not found"}" received from upstream
 
 Next, if the Semaphore 2.0 project name is already taken, `sem` will reply with
