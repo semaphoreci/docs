@@ -9,6 +9,7 @@
 * [Project Initialization](#project-initialization)
 * [Help functions](#help-functions)
 * [Examples](#examples)
+* [Flags](#flags)
 * [See also](#see-also)
 
 
@@ -127,7 +128,9 @@ returns the current version of the `sem` tool.
 
 ### sem version
 
-The `sem version` command displays the version of the `sem` tool:
+The `sem version` command displays the version of the `sem` tool. As an
+example, if you are using `sem` version 0.4.1, the output of `sem version`
+will be as follows:
 
     $ sem version
     v0.4.1
@@ -136,31 +139,9 @@ The actual output might be different on your machine.
 
 ### sem help
 
-The output of the `sem help` command is static and is as follows:
+The output of the `sem help` command is static and identical to the output of
+executing the `sem` command without any command line arguments.
 
-    $ sem help
-    Semaphore 2.0 command line interface
-
-    Usage:
-      sem [command]
-
-    Available Commands:
-      config      Get and set configuration options.
-      connect     Connect to a Semaphore endpoint
-      context     Manage contexts for connecting to Semaphore
-      create      Create a resource from a file.
-      delete      Delete a resource.
-      describe    Describe a resource
-      get         List of resources.
-      help        Help about any command
-      init        Initialize a project
-      version     Display the version
-
-    Flags:
-      -h, --help      help for sem
-      -v, --verbose   verbose output
-
-    Use "sem [command] --help" for more information about a command.
 
 ### Resources
 
@@ -168,11 +149,42 @@ There exist two kinds of resources: `secrets` buckets and projects.
 
 #### Secrets
 
-`secrets`
+You can consider a `secrets` bucket as a place where you can store your
+sensitive data.
+
+Each `secrets` bucket is associated with a single organization. In other words,
+a `secrets` bucket belongs to an organization. In order to use a specific
+`secrets` bucket you should be connected to its organization.
+
+Currently, there is no way to use two or more `secrets` buckets that belong in
+different organizations in the same Semaphore 2.0 project. You should import
+the desired `secrets` buckets in a single organization and used them from
+there.
 
 #### Projects
 
-A project is
+A project is the way Semaphore 2.0 organizes, stores and processes GitHub
+repositories. As a result each Semaphore 2.0 project has a one-to-one
+relationship with a GitHub repository.
+
+
+## Flags
+
+### The --help flag
+
+The `--help` flag, which can also be used as `-h`
+
+### The --verbose flag
+
+The `--verbose` flag, which can also be used as `-v`
+
+
+### The -f flag
+
+The `-f` flag allows you to specify the path to the desired YAML file that will
+be used with the `sem create` command in order to create a new `secrets` bucket
+or a new Semaphore 2.0 project.
+
 
 ## See also
 
