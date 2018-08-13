@@ -38,7 +38,6 @@ Not all `sem` commands require a `[RESOURCE]`
 
 The following list briefly describes the `sem` operations:
 
-* *config*: The `config` command is used for 
 * *connect*: The `connect` command is used for connecting to organizations.
 * *context*: The `context` command is used for adding an organization to your existing ones for the first time.
 * *create*: The `create` command is used for creating new resources.
@@ -57,12 +56,7 @@ list includes `secrets` buckets and projects.
 ## Working with organizations
 
 This group of `sem` commands for working with organizations includes the
-`sem config`, `sem connect` and `sem context` commands.
-
-### sem config
-
-The `sem config` command allows you to set, change and view individual key and
-value pairs related to organizations.
+`sem connect` and `sem context` commands.
 
 ### sem connect
 
@@ -152,7 +146,7 @@ returns the current version of the `sem` tool.
 
 ## Examples
 
-This section will present valid examples of `sem`.
+This section will present examples for all `sem` commands.
 
 ### sem version
 
@@ -169,12 +163,6 @@ The actual output might be different on your machine.
 
 The output of the `sem help` command is static and identical to the output of
 executing the `sem` command without any command line arguments.
-
-
-### sem config
-
-The `sem config`
-
 
 ### sem connect
 
