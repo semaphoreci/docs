@@ -51,14 +51,13 @@ The following list briefly describes the `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 has various types of resources that can be handled by `sem`. This
-list includes
+Semaphore 2.0 has two types of resources that can be handled by `sem`. This
+list includes `secrets` buckets and projects.
 
 ## Working with organizations
 
 This group of `sem` commands for working with organizations includes the
 `sem config`, `sem connect` and `sem context` commands.
-
 
 ### sem config
 
@@ -76,15 +75,17 @@ Once you connect to an organization, you do not need to execute `sem connect`
 for connecting to that organization again – you can connect to any
 organization that you are already a member of using the `sem context` command.
 
-
 ### sem context
 
 The `sem context` command is used for listing the organizations the active
 Semaphore 2.0 user belong to and changing from one organization to another.
 
 The `sem context` command can be used with or without any command line
-parameters.
-
+parameters. If `sem context` is used without any other command line parameters,
+it returns the list of Semaphore 2.0 organizations the active user belongs to.
+When used with a command line argument, which should be a valid organization
+the active user belongs to, `sem context` will change the active organization
+to the given one.
 
 ## Working with resources
 
@@ -92,13 +93,13 @@ This group of `sem` commands includes the most commonly and frequently used
 `sem create`, `sem delete`, `sem describe` and `sem get` commands because
 these are the commands that allow you to work with existing resources.
 
-
 ### sem create
 
 The `sem create` command is used for creating new resources and should always
-be followed by the `-f` flag, which should be followed by a valid path to a
-YAML file
-
+be followed by the `-f` flag, which should be followed by a valid path to an
+existing YAML file. Currently there exist two types of YAML configuration files
+that can be handled by `sem create`: secrets and projects YAML configuration
+files.
 
 ### sem delete
 
@@ -112,16 +113,16 @@ when you use `sem delete` to delete a project, what happens is that that
 particular project is deleted from the active organization but all of its files
 along with the related GitHub repository remain intact.
 
-
 ### sem describe
 
-The `sem describe` command
-
+The `sem describe` command describes an existing resource. The resource type
+as well as the resource name should be given as command line arguments, in that
+order.
 
 ### sem get
 
-The `sem get` command
-
+The `sem get` command returns the items of an existing resource type and
+requires a command line argument, which is the resource type.
 
 ## Project Initialization
 
@@ -141,17 +142,17 @@ commands.
 
 ### sem help
 
-The `sem help` command
-
+The `sem help` command returns information about an existing command when
+it is followed by a valid command name and a help screen otherwise.
 
 ### sem version
 
 The `sem version` command requires no additional command line parameters and
 returns the current version of the `sem` tool.
 
-
 ## Examples
 
+This section will present valid examples of `sem`.
 
 ### sem version
 
@@ -177,14 +178,14 @@ The `sem config`
 
 ### sem connect
 
-The `sem connect` command allows you to connect to a Semaphore 2.0 organization
-for the first time.
+The `sem connect` command should be executed as follows:
+
+    sem connect tsoukalos.semaphoreci.com NeUFkim46BCdpqCAyWXN
 
 ### sem context
 
-The `sem context` can be used with or without any command line parameters. The
-next command will just list all the organizations the connected user belongs
-to:
+The next command will just list all the organizations the connected user
+belongs to:
 
     sem context
 
@@ -249,6 +250,8 @@ bucket named `mySecrets`, you should execute one of the next two commands:
 The `sem get`
 
 ### sem init
+
+As `sem init` requires no command line arguments, you execute it as follows:
 
     sem init
 
