@@ -307,6 +307,6 @@ or a new Semaphore 2.0 project.
 
 ## See also
 
-* [Secrets YAML reference]()
-* [Projects YAML reference]()
+* [Secrets YAML reference]  ()
+* [Projects YAML reference]  ()
 
