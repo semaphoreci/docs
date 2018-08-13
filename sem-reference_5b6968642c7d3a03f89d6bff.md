@@ -31,8 +31,8 @@ the actual name of the resource and `[flags]` are optional flags. Some of the
 `[flags]` might need an additional argument, as it is the case with the `-f`
 flag, which requires a path to a local file.
 
-Not all `sem` commands require a `[RESOURCE]` item.
-
+Not all `sem` commands require a `[RESOURCE]` value and most `sem` commands do
+not require a `[flag]`.
 
 ## Operations
 
@@ -235,7 +235,18 @@ bucket named `mySecrets`, you should execute one of the next two commands:
 
 ### sem get
 
-The `sem get`
+The `sem get` command returns the list of available items that belong to the
+given resource type.
+
+So, in order to get a list of the available projects for the current user
+under the active organization, you should execute the following command:
+
+    sem get projects
+
+Similarly, the next command returns the list of available `secrets` buckets
+for the current user under the active organization:
+
+    sem get secrets
 
 ### sem init
 
