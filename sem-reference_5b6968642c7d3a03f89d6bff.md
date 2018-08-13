@@ -16,9 +16,8 @@
 ## Overview of sem
 
 `sem` is the command line interface to Semaphore 2.0. This reference covers
-the syntax and the commands of `sem` and provides examples of the commands with
-output.
-
+the syntax and the commands of `sem` and provides examples of the `sem`
+commands.
 
 ## Syntax
 
@@ -31,6 +30,8 @@ page, `[RESOURCE]` is the type of the resource that interests us, `[NAME]` is
 the actual name of the resource and `[flags]` are optional flags. Some of the
 `[flags]` might need an additional argument, as it is the case with the `-f`
 flag, which requires a path to a local file.
+
+Not all `sem` commands require a `[RESOURCE]`
 
 
 ## Operations
@@ -69,23 +70,38 @@ The `sem connect` command
 
 ### sem context
 
-The `sem context` command
+The `sem context` command is used for listing the organizations the active
+Semaphore 2.0 user belong to and changing from one organization to another.
+
+The `sem context` command can be used with or without any command line
+parameters.
 
 
 ## Working with resources
 
 This group of `sem` commands includes the most commonly and frequently used
-`sem create`, `sem delete`, `sem describe` and `sem get` commands.
+`sem create`, `sem delete`, `sem describe` and `sem get` commands because
+these are the commands that allow you to work with existing resources.
 
 
 ### sem create
 
-The `sem create` command
+The `sem create` command is used for creating new resources and should always
+be followed by the `-f` flag, which should be followed by a valid path to a
+YAML file
 
 
 ### sem delete
 
-The `sem delete` command
+The `sem delete` command is used for deleting existing resources, which means
+that is used for deleting entire `secrets` buckets and Semaphore 2.0 projects.
+
+Note that when you delete a `secrets` bucket, then that particular `secrets`
+bucket disappears from the active organization and there is no way to get it
+back unless you recreate that `secrets` buckets using `sem create`. However,
+when you use `sem delete` to delete a project, what happens is that that
+particular project is deleted from the active organization but all of its files
+along with the related GitHub repository remain intact.
 
 
 ### sem describe
@@ -104,8 +120,10 @@ This group includes the `sem init` command only.
 
 ### sem init
 
-The `sem init` command
-
+The `sem init` command should be executed from within the root directory of a
+GitHub repository that has been either created locally or cloned using the
+`git clone` command. The command is executed without any other command line
+parameters or arguments.
 
 ## Help functions
 
@@ -128,7 +146,7 @@ returns the current version of the `sem` tool.
 
 ### sem version
 
-The `sem version` command displays the version of the `sem` tool. As an
+The `sem version` command displays the used version of the `sem` tool. As an
 example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
@@ -142,6 +160,79 @@ The actual output might be different on your machine.
 The output of the `sem help` command is static and identical to the output of
 executing the `sem` command without any command line arguments.
 
+
+### sem config
+
+The `sem config`
+
+
+### sem connect
+
+The `sem connect`
+
+### sem context
+
+The `sem context` can be used with or without any command line parameters. The
+next command will just list all the organizations the connected user belongs
+to:
+
+    sem context
+
+The active organization will have a `*` character in front of it.
+
+If you use an argument with `sem context`, then that argument should be a valid
+organization name as it appears in the output of `sem context`. So, in order to
+change from the current organization to `tsoukalos_semaphoreci_com`, you should
+execute the next command:
+
+    sem context tsoukalos_semaphoreci_com
+
+
+### sem create
+
+The `sem create` command goes hand by hand with the `-f` flag because you
+always need to provide a file with the `sem create` command. So, if you have
+a valid secret or project YAML file stored at `/tmp/valid.yaml`, you should
+execute the next command in order to add that `secrets` bucket or project under
+the current organization:
+
+    sem create -f /tmp/valid.yaml
+
+### sem delete [project | projects]
+
+
+Both `project` and `projects` resource values will work.
+
+### sem delete [secret | secrets]
+
+
+Both `secret` and `secrets` resource values will work.
+
+
+### sem describe
+
+The `sem describe` command required a resource type and then a valid resource
+name after the resource type.
+
+In order to find out more information about a project named `docs`, you should
+execute one of the next two commands:
+
+    sem describe project docs
+    sem describe projects docs
+
+Similarly, in order to find out information about the contents of a `secrets`
+bucket named `mySecrets`, you should execute one of the next two commands:
+
+    sem describe secrets mySecrets
+    sem describe secret mySecrets
+
+### sem get
+
+The `sem get`
+
+### sem init
+
+    sem init
 
 ### Resources
 
@@ -167,6 +258,11 @@ A project is the way Semaphore 2.0 organizes, stores and processes GitHub
 repositories. As a result each Semaphore 2.0 project has a one-to-one
 relationship with a GitHub repository.
 
+Note that the same project can exist under multiple Semaphore 2.0 organizations
+and that deleting a Semaphore 2.0 project from a organization will not
+automatically delete that project from the other organizations that project
+exists in.
+
 
 ## Flags
 
@@ -188,4 +284,6 @@ or a new Semaphore 2.0 project.
 
 ## See also
 
+* [Secrets YAML reference]()
+* [Projects YAML reference]()
 
