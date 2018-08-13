@@ -248,6 +248,9 @@ for the current user under the active organization:
 
     sem get secrets
 
+Each entry is printed on a separate line, which makes the generated output
+easy to be further processed by traditional UNIX command line tools.
+
 ### sem init
 
 As `sem init` requires no command line arguments, you execute it as follows:
