@@ -31,7 +31,7 @@ the actual name of the resource and `[flags]` are optional flags. Some of the
 `[flags]` might need an additional argument, as it is the case with the `-f`
 flag, which requires a path to a local file.
 
-Not all `sem` commands require a `[RESOURCE]`
+Not all `sem` commands require a `[RESOURCE]` item.
 
 
 ## Operations
@@ -50,8 +50,8 @@ The following list briefly describes the `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 has two types of resources that can be handled by `sem`. This
-list includes `secrets` buckets and projects.
+Semaphore 2.0 has two types of resources that can be handled by `sem`. The list
+includes `secrets` buckets and Semaphore 2.0 projects.
 
 ## Working with organizations
 
