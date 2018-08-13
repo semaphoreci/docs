@@ -38,17 +38,16 @@ Not all `sem` commands require a `[RESOURCE]`
 
 The following list briefly describes the `sem` operations:
 
-* *config*: The `config` command is
-* *connect*: The `connect` command is
-* *context*: The `context` command is
-* *create*: The `create` command is
-* *delete*: The `delete` command is
-* *describe*: The `describe` command is
-* *get*: The `get` command is
-* *help*: The `help` command is
-* *init*: The `init` command is
-* *version*: The `version` command is
-
+* *config*: The `config` command is used for 
+* *connect*: The `connect` command is used for connecting to organizations.
+* *context*: The `context` command is used for adding an organization to your existing ones for the first time.
+* *create*: The `create` command is used for creating new resources.
+* *delete*: The `delete` command is used for deleting existing resources.
+* *describe*: The `describe` command is used for getting information about existing resources.
+* *get*: The `get` command is used for getting the list of an existing type of resource.
+* *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
+* *init*: The `init` command is used for adding an existing GitHub repository to Semaphore 2.0 for the first time.
+* *version*: The `version` command is used for getting the used version of the `sem` command.
 
 ## Resource types
 
@@ -57,16 +56,26 @@ list includes
 
 ## Working with organizations
 
-This group of `sem` commands includes the `sem config`, `sem connect` and `sem context` commands.
+This group of `sem` commands for working with organizations includes the
+`sem config`, `sem connect` and `sem context` commands.
 
 
 ### sem config
 
-The `sem config` command
+The `sem config` command allows you to set, change and view individual key and
+value pairs related to organizations.
 
 ### sem connect
 
-The `sem connect` command
+The `sem connect` command allows you to connect to a Semaphore 2.0 organization
+for the first time and requires two command line arguments. The first command
+line argument is the organization name and the second command line argument is
+the authentication token for that organization.
+
+Once you connect to an organization, you do not need to execute `sem connect`
+for connecting to that organization again – you can connect to any
+organization that you are already a member of using the `sem context` command.
+
 
 ### sem context
 
@@ -168,7 +177,8 @@ The `sem config`
 
 ### sem connect
 
-The `sem connect`
+The `sem connect` command allows you to connect to a Semaphore 2.0 organization
+for the first time.
 
 ### sem context
 
@@ -187,7 +197,6 @@ execute the next command:
 
     sem context tsoukalos_semaphoreci_com
 
-
 ### sem create
 
 The `sem create` command goes hand by hand with the `-f` flag because you
@@ -200,14 +209,23 @@ the current organization:
 
 ### sem delete [project | projects]
 
+In order to delete an existing project named `be-careful` from the current
+organization, you should execute one of the next two commands:
 
-Both `project` and `projects` resource values will work.
+    sem delete project be-careful
+    sem delete projects be-careful
+
+Both `project` and `projects` resource values will work with `sem delete`.
 
 ### sem delete [secret | secrets]
 
+In order to delete an existing `secrets` bucket named `my-secrets` from the
+current organization, you should execute one of the next two commands:
 
-Both `secret` and `secrets` resource values will work.
+    sem delete secret my-secrets
+    sem delete secrets my-secrets
 
+Both `secret` and `secrets` resource values will work with `sem delete`.
 
 ### sem describe
 
