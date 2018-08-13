@@ -282,8 +282,8 @@ relationship with a GitHub repository.
 Note that the same project can exist under multiple Semaphore 2.0 organizations
 and that deleting a Semaphore 2.0 project from a organization will not
 automatically delete that project from the other organizations that project
-exists in.
-
+exists in. Additionally, the related GitHub repository will be intact after
+deleting a project from Semaphore 2.0.
 
 ## Flags
 
