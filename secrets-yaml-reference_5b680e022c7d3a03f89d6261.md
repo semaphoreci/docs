@@ -28,7 +28,7 @@ other organizations.
 The `apiVersion` property defines the version of the YAML grammar that will be
 used in current YAML file. Different versions have different features.
 
-List of values for `apiVersion`: `v1alpha`.
+The list of values for `apiVersion`: `v1alpha`.
 
 ### kind
 
