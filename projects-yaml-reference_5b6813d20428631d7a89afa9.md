@@ -36,7 +36,7 @@ List of value for `apiVersion`: `v1alpha`.
 
 ## kind
 
-The value of the `kind` property is a string that specifies the purpose of the
+The value of the `kind` property is a string that specifies the type of the
 YAML file, that is whether it is for creating new projects or new `secrets`
 buckets. For projects the value of the `kind` property should be `Project`.
 
