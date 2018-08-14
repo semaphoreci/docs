@@ -6,17 +6,16 @@
 * [Resource types](#resource-types)
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
-* [Project Initialization](#project-initialization)
+* [Project initialization](#project-initialization)
 * [Help functions](#help-functions)
 * [Examples](#examples)
 * [Flags](#flags)
 * [See also](#see-also)
 
-
 ## Overview of sem
 
 `sem` is the command line interface to Semaphore 2.0. This reference covers
-the syntax and the commands of `sem` and provides examples of the `sem`
+the syntax and the commands of `sem` and presents examples of the various `sem`
 commands.
 
 ## Syntax
@@ -38,7 +37,7 @@ not require a `[flag]`.
 
 The following list briefly describes the `sem` operations:
 
-* *connect*: The `connect` command is used for connecting to organizations.
+* *connect*: The `connect` command is used for connecting to organizations for the first time.
 * *context*: The `context` command is used for adding an organization to your existing ones for the first time.
 * *create*: The `create` command is used for creating new resources.
 * *delete*: The `delete` command is used for deleting existing resources.
@@ -46,12 +45,12 @@ The following list briefly describes the `sem` operations:
 * *get*: The `get` command is used for getting the list of an existing type of resource.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository to Semaphore 2.0 for the first time.
-* *version*: The `version` command is used for getting the used version of the `sem` command.
+* *version*: The `version` command is used for getting the version of the `sem` utility.
 
 ## Resource types
 
-Semaphore 2.0 has two types of resources that can be handled by `sem`. The list
-includes `secrets` buckets and Semaphore 2.0 projects.
+Semaphore 2.0 has two types of resources that can be handled by `sem`. The
+small list includes `secrets` buckets and Semaphore 2.0 projects.
 
 ## Working with organizations
 
@@ -162,7 +161,7 @@ The actual output might be different on your machine.
 ### sem help
 
 The output of the `sem help` command is static and identical to the output of
-executing the `sem` command without any command line arguments.
+the `sem` command when executed without any command line arguments.
 
 ### sem connect
 
