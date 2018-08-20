@@ -18,7 +18,8 @@ buckets for Semaphore 2.0 projects.
 
 A `secrets` bucket along with its contents is created under the current
 organization and is available in this organization only unless you add it to
-other organizations.
+other organizations. Additionally, a `secrets` bucket is visible to all the
+users of an organization.
 
 ## Properties
 
@@ -26,7 +27,8 @@ other organizations.
 ### apiVersion
 
 The `apiVersion` property defines the version of the YAML grammar that will be
-used in current YAML file. Different versions have different features.
+used in the current YAML file. Different versions might have different
+features.
 
 The list of values for `apiVersion`: `v1alpha`.
 
@@ -51,6 +53,9 @@ defines the name of the `secrets` bucket. This `name` value will be used in
 the Pipeline YAML file for importing a specific `secrets` bucket or as an
 argument to the `sem delete secrets` command for deleting a specific `secrets`
 bucket.
+
+The value of each `name` property should be unique among all `secrets` buckets
+that exists under the same organization.
 
 ### data:
 
