@@ -20,7 +20,7 @@ commands.
 
 ## Syntax
 
-The general syntax of `sem` is as follows:
+The general syntax of the `sem` utility is as follows:
 
     sem [COMMAND] [RESOURCE] [NAME] [flags]
 
@@ -28,7 +28,7 @@ where `[COMMAND]` is the name of the command as explained in this reference
 page, `[RESOURCE]` is the type of the resource that interests us, `[NAME]` is
 the actual name of the resource and `[flags]` are optional flags. Some of the
 `[flags]` might need an additional argument, as it is the case with the `-f`
-flag, which requires a path to a local file.
+flag, which requires a valid path to a local file.
 
 Not all `sem` commands require a `[RESOURCE]` value and most `sem` commands do
 not require a `[flag]`.
@@ -49,8 +49,8 @@ The following list briefly describes the `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 has two types of resources that can be handled by `sem`. The
-small list includes `secrets` buckets and Semaphore 2.0 projects.
+Semaphore 2.0 supports two types of resources: `secrets` buckets and
+Semaphore 2.0 projects. Both types of resources are identified by name.
 
 ## Working with organizations
 
@@ -83,8 +83,9 @@ to the given one.
 ## Working with resources
 
 This group of `sem` commands includes the most commonly and frequently used
-`sem create`, `sem delete`, `sem describe` and `sem get` commands because
-these are the commands that allow you to work with existing resources.
+commands: `sem create`, `sem delete`, `sem describe` and `sem get`. This mainly
+happens because these are the commands that allow you to work with existing
+resources.
 
 ### sem create
 
@@ -114,24 +115,25 @@ order.
 
 ### sem get
 
-The `sem get` command returns the items of an existing resource type and
-requires a command line argument, which is the resource type.
+The `sem get` command returns the items of an existing resource type that can
+be found in the active organization and requires a command line argument,
+which is the resource type.
 
 ## Project Initialization
 
-This group includes the `sem init` command only.
+This group only includes the `sem init` command.
 
 ### sem init
 
 The `sem init` command should be executed from within the root directory of a
-GitHub repository that has been either created locally or cloned using the
-`git clone` command. The command is executed without any other command line
-parameters or arguments.
+GitHub repository that has been either created locally and pushed to GitHub or
+cloned using the `git clone` command. The command is executed without any other
+command line parameters or arguments.
 
-## Help functions
+## Help commands
 
 The last group of `sem` commands includes the `sem help` and `sem version`
-commands.
+commands, which are help commands.
 
 ### sem help
 
@@ -156,12 +158,23 @@ will be as follows:
     $ sem version
     v0.4.1
 
-The actual output might be different on your machine.
+Your actual output might be different on your machine.
+
+Additionally, the `sem version` command does not work with the `-f` flag and
+does not create any additional output when used with the `-v` flag.
 
 ### sem help
 
 The output of the `sem help` command is static and identical to the output of
 the `sem` command when executed without any command line arguments.
+
+Additionally, the `help` command can be also used as follows (the `connect`
+command is used as an example here):
+
+    sem connect help
+
+In that case, `help` will generate information about the use of the
+`sem connect` command.
 
 ### sem connect
 
@@ -176,7 +189,8 @@ belongs to:
 
     sem context
 
-The active organization will have a `*` character in front of it.
+In the output of `sem context`, the active organization will have a `*`
+character in front of it.
 
 If you use an argument with `sem context`, then that argument should be a valid
 organization name as it appears in the output of `sem context`. So, in order to
@@ -188,10 +202,10 @@ execute the next command:
 ### sem create
 
 The `sem create` command goes hand by hand with the `-f` flag because you
-always need to provide a file with the `sem create` command. So, if you have
-a valid secret or project YAML file stored at `/tmp/valid.yaml`, you should
-execute the next command in order to add that `secrets` bucket or project under
-the current organization:
+always need to provide a valid YAML file with the `sem create` command. So,
+if you have a valid secret or project YAML file stored at `/tmp/valid.yaml`,
+you should execute the next command in order to add that `secrets` bucket or
+project under the current organization:
 
     sem create -f /tmp/valid.yaml
 
@@ -203,7 +217,8 @@ organization, you should execute one of the next two commands:
     sem delete project be-careful
     sem delete projects be-careful
 
-Both `project` and `projects` resource values will work with `sem delete`.
+Both `project` and `projects` values can be used for specifying that we want to
+work with Semaphore 2.0 projects.
 
 ### sem delete [secret | secrets]
 
@@ -213,11 +228,12 @@ current organization, you should execute one of the next two commands:
     sem delete secret my-secrets
     sem delete secrets my-secrets
 
-Both `secret` and `secrets` resource values will work with `sem delete`.
+Both `secret` and `secrets` values can be used with `sem delete` for specifying
+that we are going to work with secrets and `secrets` buckets.
 
 ### sem describe
 
-The `sem describe` command required a resource type and then a valid resource
+The `sem describe` command requires a resource type and then a valid resource
 name after the resource type.
 
 In order to find out more information about a project named `docs`, you should
@@ -234,21 +250,25 @@ bucket named `mySecrets`, you should execute one of the next two commands:
 
 ### sem get
 
-The `sem get` command returns the list of available items that belong to the
-given resource type.
+As the `sem get` command returns the list of available items that belong to the
+specified resource type, you will need to specify the resource type that
+interests you.
 
 So, in order to get a list of the available projects for the current user
-under the active organization, you should execute the following command:
+under the active organization, you should execute one of the following two
+equivalent commands:
 
     sem get projects
+    sem get project
 
 Similarly, the next command returns the list of available `secrets` buckets
 for the current user under the active organization:
 
     sem get secrets
+	sem get secret
 
 Each entry is printed on a separate line, which makes the generated output
-easy to be further processed by traditional UNIX command line tools.
+suitable for being further processed by traditional UNIX command line tools.
 
 ### sem init
 
@@ -256,9 +276,13 @@ As `sem init` requires no command line arguments, you execute it as follows:
 
     sem init
 
+If the `.semaphore/semaphore.yml` file is already present in the current
+directory, `sem init` will fail.
+
 ### Resources
 
-There exist two kinds of resources: `secrets` buckets and projects.
+There exist two kinds of resources: `secrets` bucket and projects. Each
+resource is uniquely identified by its name.
 
 #### Secrets
 
@@ -286,16 +310,23 @@ automatically delete that project from the other organizations that project
 exists in. Additionally, the related GitHub repository will be intact after
 deleting a project from Semaphore 2.0.
 
+Last, you can use the same project name under multiple organizations but you
+cannot use the same project name more than once under a single organization.
+
 ## Flags
 
 ### The --help flag
 
-The `--help` flag, which can also be used as `-h`
+The `--help` flag, which can also be used as `-h`, is used for getting
+information about a `sem` command or `sem`.
 
 ### The --verbose flag
 
-The `--verbose` flag, which can also be used as `-v`
+The `--verbose` flag, which can also be used as `-v` displays verbose
+output – you will see the interaction and the data exchanged between
+`sem` and the Semaphore 2.0 servers.
 
+The `-v` flag is useful for debugging.
 
 ### The -f flag
 
