@@ -7,9 +7,9 @@
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
 * [Project initialization](#project-initialization)
-* [Help functions](#help-functions)
-* [Examples](#examples)
+* [Help commands](#help-commands)
 * [Flags](#flags)
+* [Examples](#examples)
 * [See also](#see-also)
 
 ## Overview of sem
