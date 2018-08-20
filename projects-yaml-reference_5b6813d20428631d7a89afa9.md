@@ -20,8 +20,11 @@ Projects can also be added to Semaphore 2.0 with the `sem init` command. In
 that case, you will not need to create a YAML file on your own. However,
 `sem init` requires a local copy of the GitHub repository, even if that
 repository is not up to date, that does not contain a
-`.semaphore/semaphore.yml` file.
+`.semaphore/semaphore.yml` file. Put simply, `sem init` is simpler but less
+flexible than the `sem create` command.
 
+Note that all branches of a GitHub repository that is added to Semaphore
+2.0 will be visible in Semaphore 2.0 automatically.
 
 ## Properties
 
@@ -56,7 +59,7 @@ be displayed in the Semaphore 2.0 user interface and the output of the
 The value of the `name` property should be unique among the Semaphore 2.0
 projects of the same organization.
 
-Using the same YAML file with a different `name` value, will create
+Using the same YAML file with different `name` values, will create
 multiple copies of the same GitHub repository in Semaphore 2.0.
 
 ## spec
@@ -72,8 +75,8 @@ The `repository` property is used for holding the `url` property.
 The `url` property is a string that specifies the URL of the GitHub repository
 you want to add in Semaphore 2.0.
 
-If the value of `url` is erroneous in some way, you will get various types of
-error messages.
+If the value of `url` is erroneous, you will get various types of error
+messages.
 
 First, if the GitHub repository cannot be found, `sem create` will reply with the
 next error message:
@@ -109,6 +112,6 @@ the next kind of error message:
 
 ## See Also
 
-   * [Secrets YAML Reference]
-   * [Changing organizations]
-   * [sem utility Reference]
+   * [Secrets YAML Reference] ()
+   * [Changing organizations] ()
+   * [sem utility Reference] ()
