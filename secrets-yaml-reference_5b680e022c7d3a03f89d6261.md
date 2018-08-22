@@ -8,16 +8,16 @@
    * [env_vars](#env_vars)
       * [name](#name-in-env_vars)
       * [value](#value)
-* [Secrets example](#secrets-example)
+* [Example](#example)
 * [See also](#see-also)
 
 # Overview
 
 This document is the reference for the YAML grammar used for creating secrets.
 
-A `secrets` bucket along with its contents is created under the current
+A secret along with its contents is created under the current
 organization and is available in this organization only unless you add it to
-other organizations. Additionally, a `secrets` bucket is visible to all the
+other organizations. Additionally, a secret is visible to all the
 users of an organization.
 
 ## Properties
@@ -48,13 +48,12 @@ in future versions.
 #### name in metadata
 
 The value of the `name` property, which is a string, in the `metadata` context
-defines the name of the `secrets` bucket. This `name` value will be used in
-the Pipeline YAML file for importing a specific `secrets` bucket or as an
-argument to the `sem delete secrets` command for deleting a specific `secrets`
-bucket.
+defines the name of the secret. This `name` value will be used in
+the Pipeline YAML file for importing a specific secret or as an
+argument to the `sem delete secret` command for deleting a specific secret.
 
-The value of each `name` property should be unique among all `secrets` buckets
-that exists under the same organization and must only contain ASCII characters,
+The value of each `name` property should be unique among all secrets
+that exist under the same organization and must only contain ASCII characters,
 dashes and underscores – space characters are not allowed.
 
 ### data:
@@ -66,7 +65,7 @@ property.
 
 The `env_vars` property, which is compulsory, is a list of `name` and `value`
 pairs that allows you to define the names and the values of the environment
-variables that will be inserted in the current `secrets` bucket.
+variables that will be inserted in the current secret.
 
 #### name in env_vars
 
@@ -78,12 +77,12 @@ name of an environment variable.
 The value of the `value` property defines the value of the environment variable
 that was previously defined using a `name` property.
 
-## Secrets example
+## Example
 
     apiVersion: v1alpha
     kind: Secret
     metadata:
-      name: a-secrets-bucket-name
+      name: a-secrets-name
     data:
       env_vars:
         - name: SECRET_ONE
@@ -91,7 +90,7 @@ that was previously defined using a `name` property.
         - name: SECRET_TWO
           value: "This is the value of SECRET_TWO"
 
-The previous example defines a `secrets` bucket named `a-secrets-bucket-name`
+The previous example defines a secret named `a-secrets-name`
 that contains two secret environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
