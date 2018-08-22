@@ -103,8 +103,8 @@ The `sem delete` command is used for deleting existing resources, which means
 that is used for deleting Semaphore 2.0 projects and secrets.
 
 Note that when you delete a secret, then that particular secret will disappear
-from the active organization and Semaphore 2.0 projects that are using it will
-be affected.
+from the active organization and all Semaphore 2.0 projects that are using it
+will be affected.
 
 When you use `sem delete` to delete a project then that particular project is
 deleted from the active organization of the active user.
@@ -265,16 +265,12 @@ project under the current organization:
 
     sem create -f /tmp/valid.yaml
 
-### sem delete [project | projects]
+### sem delete project
 
 In order to delete an existing project named `be-careful` from the current
 organization, you should execute one of the next two commands:
 
     sem delete project be-careful
-    sem delete projects be-careful
-
-Both `project` and `projects` values can be used for specifying that we want to
-work with Semaphore 2.0 projects.
 
 ### sem delete secret
 
