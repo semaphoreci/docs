@@ -13,8 +13,7 @@
 
 # Secrets YAML Reference
 
-This document is the reference for the YAML grammar used for creating `secrets`
-buckets for Semaphore 2.0 projects.
+This document is the reference for the YAML grammar used for creating secrets.
 
 A `secrets` bucket along with its contents is created under the current
 organization and is available in this organization only unless you add it to
