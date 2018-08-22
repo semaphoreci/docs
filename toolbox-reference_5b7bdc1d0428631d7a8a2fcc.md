@@ -20,6 +20,9 @@ This section contains the most useful entries of Semaphore 2.0 toolbox
 
 #### Description
 
+The `libcheckout` script includes the implementation of a single function
+named `checkout()` that is used for 
+
 #### Command Line Parameters
 
 #### Dependencies
@@ -37,8 +40,9 @@ Both these environment variables are defined by Semaphore 2.0.
 
 ### sem-service
 
-
 #### Description
+
+The `sem-service` script
 
 #### Command Line Parameters
 
@@ -51,6 +55,9 @@ Both these environment variables are defined by Semaphore 2.0.
 
 
 #### Description
+
+The `retry` script
+
 
 #### Command Line Parameters
 
