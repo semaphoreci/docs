@@ -90,6 +90,35 @@ used commands: `sem create`, `sem delete`, `sem describe` and `sem get`. This
 mainly happens because these are the commands that allow you to work with
 resources.
 
+### Resources
+
+There exist two kinds of resources: `secret` and `project`. Each resource is
+uniquely identified by its name.
+
+#### Secrets
+
+You can consider a `secret` as a place where you can store your sensitive data.
+
+Each `secret` is associated with a single organization. In other words, a
+`secret` belongs to an organization. In order to use a specific `secret` you
+should be connected to its organization.
+
+#### Projects
+
+A project is the way Semaphore 2.0 organizes, stores and processes GitHub
+repositories. As a result each Semaphore 2.0 project has a one-to-one
+relationship with a GitHub repository.
+
+However, the same GitHub repository can be assigned to multiple Semaphore 2.0
+projects. Additionally, the same project can exist under multiple Semaphore 2.0
+organizations and that deleting a Semaphore 2.0 project from an organization
+will not automatically delete that project from the other organizations that
+project exists in. Last, the related GitHub repository will remain intact after
+deleting a project from Semaphore 2.0.
+
+Last, you can use the same project name under multiple organizations but you
+cannot use the same project name more than once under a single organization.
+
 ### sem create
 
 The `sem create` command is used for creating new resources and should always
@@ -150,35 +179,6 @@ command line argument to `sem help`, a help screen is printed.
 
 The `sem version` command requires no additional command line parameters and
 returns the current version of the `sem` tool.
-
-### Resources
-
-There exist two kinds of resources: `secret` and `project`. Each resource is
-uniquely identified by its name.
-
-#### Secrets
-
-You can consider a `secret` as a place where you can store your sensitive data.
-
-Each `secret` is associated with a single organization. In other words, a
-`secret` belongs to an organization. In order to use a specific `secret` you
-should be connected to its organization.
-
-#### Projects
-
-A project is the way Semaphore 2.0 organizes, stores and processes GitHub
-repositories. As a result each Semaphore 2.0 project has a one-to-one
-relationship with a GitHub repository.
-
-However, the same GitHub repository can be assigned to multiple Semaphore 2.0
-projects. Additionally, the same project can exist under multiple Semaphore 2.0
-organizations and that deleting a Semaphore 2.0 project from an organization
-will not automatically delete that project from the other organizations that
-project exists in. Last, the related GitHub repository will remain intact after
-deleting a project from Semaphore 2.0.
-
-Last, you can use the same project name under multiple organizations but you
-cannot use the same project name more than once under a single organization.
 
 ## Flags
 
