@@ -11,7 +11,7 @@
 * [Example](#example)
 * [See also](#see-also)
 
-# Overview
+## Overview
 
 This document is the reference for the YAML grammar used for creating secrets.
 
