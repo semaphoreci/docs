@@ -50,8 +50,8 @@ The following list briefly describes the `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 supports two types of resources: `secrets` and `projects`. Most
-resource related operations require a resource name.
+Semaphore 2.0 supports two types of resources: `secret` and `project`. Most
+resource related operations also require a resource name.
 
 ## Working with organizations
 
@@ -198,8 +198,8 @@ The `-v` flag is useful for debugging.
 ### The -f flag
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
-be used with the `sem create` command in order to create a new `secrets` bucket
-or a new Semaphore 2.0 project.
+be used with the `sem create` command in order to create a new secret or a new
+Semaphore 2.0 project.
 
 ## Examples
 
@@ -260,7 +260,7 @@ execute the next command:
 The `sem create` command goes hand by hand with the `-f` flag because you
 always need to provide a valid YAML file with the `sem create` command. So,
 if you have a valid secret or project YAML file stored at `/tmp/valid.yaml`,
-you should execute the next command in order to add that `secrets` bucket or
+you should execute the next command in order to add that secret or
 project under the current organization:
 
     sem create -f /tmp/valid.yaml
@@ -276,16 +276,12 @@ organization, you should execute one of the next two commands:
 Both `project` and `projects` values can be used for specifying that we want to
 work with Semaphore 2.0 projects.
 
-### sem delete [secret | secrets]
+### sem delete secret
 
-In order to delete an existing `secrets` bucket named `my-secrets` from the
-current organization, you should execute one of the next two commands:
+In order to delete an existing secret named `my-secrets` from the current
+organization, you should execute the next command:
 
     sem delete secret my-secrets
-    sem delete secrets my-secrets
-
-Both `secret` and `secrets` values can be used with `sem delete` for specifying
-that we are going to work with secrets and `secrets` buckets.
 
 ### sem describe
 
@@ -296,12 +292,10 @@ In order to find out more information about a project named `docs`, you should
 execute one of the next two commands:
 
     sem describe project docs
-    sem describe projects docs
 
-Similarly, in order to find out information about the contents of a `secrets`
-bucket named `mySecrets`, you should execute one of the next two commands:
+Similarly, in order to find out information about the contents of a `secret`
+named `mySecrets`, you should execute one of the next two commands:
 
-    sem describe secrets mySecrets
     sem describe secret mySecrets
 
 ### sem get
@@ -314,13 +308,11 @@ So, in order to get a list of the available projects for the current user
 under the active organization, you should execute one of the following two
 equivalent commands:
 
-    sem get projects
     sem get project
 
-Similarly, the next command returns the list of available `secrets` buckets
-for the current user under the active organization:
+Similarly, the next command returns the list of available secrets for the
+current user under the active organization:
 
-    sem get secrets
 	sem get secret
 
 Each entry is printed on a separate line, which makes the generated output
