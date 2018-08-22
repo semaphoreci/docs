@@ -1,4 +1,4 @@
-* [About Secrets YAML reference](#secrets-yaml-reference)
+* [Overview](#overview)
 * [Properties](#properties)
    * [apiVersion](#apiversion)
    * [kind](#kind)
@@ -11,7 +11,7 @@
 * [Secrets example](#secrets-example)
 * [See also](#see-also)
 
-# Secrets YAML Reference
+# Overview
 
 This document is the reference for the YAML grammar used for creating secrets.
 
