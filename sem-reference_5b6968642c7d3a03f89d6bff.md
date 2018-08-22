@@ -38,8 +38,8 @@ with the `-f` flag, which requires a valid path to a local file.
 
 The following list briefly describes the `sem` operations:
 
-* *connect*: The `connect` command is used for connecting to organizations for the first time.
-* *context*: The `context` command is used for adding an organization to your existing ones for the first time.
+* *connect*: The `connect` command is used for connecting to an organization for the first time.
+* *context*: The `context` command is used for switching organizations.
 * *create*: The `create` command is used for creating new resources.
 * *delete*: The `delete` command is used for deleting existing resources.
 * *describe*: The `describe` command is used for getting information about existing resources.
@@ -50,8 +50,8 @@ The following list briefly describes the `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 supports two types of resources: `secrets` buckets and Semaphore
-2.0 projects. Most resource related operations require a resource name.
+Semaphore 2.0 supports two types of resources: `secrets` and `projects`. Most
+resource related operations require a resource name.
 
 ## Working with organizations
 
@@ -62,10 +62,10 @@ This group of `sem` commands for working with organizations contains the
 
 The `sem connect` command allows you to connect to a Semaphore 2.0 organization
 for the first time and requires two command line arguments. The first command
-line argument is the organization name and the second command line argument is
-the authentication token for that organization – the organization must already
-exist. Organizations are created using the web interface of Semaphore 2.0.
-The authentication token depends on the active user.
+line argument is the organization domain and the second command line argument
+is the user authentication token – the organization must already exist.
+Organizations are created using the web interface of Semaphore 2.0. The
+authentication token depends on the active user.
 
 Once you connect to an organization, you do not need to execute `sem connect`
 for connecting to that organization again – you can connect to any
@@ -74,14 +74,14 @@ organization that you are already a member of using the `sem context` command.
 ### sem context
 
 The `sem context` command is used for listing the organizations the active
-Semaphore 2.0 user belong to and for changing between organizations.
+Semaphore 2.0 user belongs to and for changing between organizations.
 
 The `sem context` command can be used with or without any command line
 parameters. If `sem context` is used without any other command line parameters,
-it returns the list of Semaphore 2.0 organizations the active user belongs to.
-When used with a command line argument, which should be a valid organization
-the active user belongs to, `sem context` will change the active organization
-to the given one.
+it returns the list of Semaphore 2.0 organizations the active has previously
+connected to with the `sem` utility. When used with a command line argument,
+which should be a valid organization the active user belongs to, `sem context`
+will change the active organization to the given one.
 
 ## Working with resources
 
@@ -100,16 +100,14 @@ that can be handled by `sem create`: secrets and projects configuration files.
 ### sem delete
 
 The `sem delete` command is used for deleting existing resources, which means
-that is used for deleting Semaphore 2.0 projects and entire `secrets` buckets.
+that is used for deleting Semaphore 2.0 projects and secrets.
 
-Note that when you delete a `secrets` bucket, then that particular `secrets`
-bucket disappears from the active organization for every user that is a member
-of that organization and there is no way to get it back unless you recreate
-that `secrets` buckets using the `sem create` command along with the
-appropriate YAML file. However, when you use `sem delete` to delete a project,
-what happens is that that particular project is deleted from the active
-organization but all of its files along with the related GitHub repository
-remain intact.
+Note that when you delete a secret, then that particular secret will disappear
+from the active organization and Semaphore 2.0 projects that are using it will
+be affected.
+
+When you use `sem delete` to delete a project then that particular project is
+deleted from the active organization of the active user.
 
 ### sem describe
 
@@ -155,22 +153,16 @@ returns the current version of the `sem` tool.
 
 ### Resources
 
-There exist two kinds of resources: `secrets` bucket and projects. Each
-resource is uniquely identified by its name.
+There exist two kinds of resources: `secret` and `project`. Each resource is
+uniquely identified by its name.
 
 #### Secrets
 
-You can consider a `secrets` bucket as a place where you can store your
-sensitive data.
+You can consider a `secret` as a place where you can store your sensitive data.
 
-Each `secrets` bucket is associated with a single organization. In other words,
-a `secrets` bucket belongs to an organization. In order to use a specific
-`secrets` bucket you should be connected to its organization.
-
-Currently, there is no way to use two or more `secrets` buckets that belong in
-different organizations in the same Semaphore 2.0 project. You should import
-the desired `secrets` buckets in a single organization and used them from
-there.
+Each `secret` is associated with a single organization. In other words, a
+`secret` belongs to an organization. In order to use a specific `secret` you
+should be connected to its organization.
 
 #### Projects
 
