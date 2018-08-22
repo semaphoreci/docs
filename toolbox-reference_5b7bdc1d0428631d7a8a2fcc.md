@@ -25,10 +25,11 @@ This section contains the most useful entries of Semaphore 2.0 toolbox
 #### Dependencies
 
 The `checkout()` function of the `libcheckout` script depends on the following
-two environment variables:
+three environment variables:
 
-   - :
-   - :
+   - `SEMAPHORE_GIT_URL`:
+   - `SEMAPHORE_GIT_DIR`:
+   - `SEMAPHORE_GIT_SHA`:
    
 Both these environment variables are defined by Semaphore 2.0.
 
