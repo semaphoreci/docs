@@ -23,13 +23,10 @@ repository is not up to date, that does not contain a
 `.semaphore/semaphore.yml` file. Put simply, `sem init` is simpler but less
 flexible than the `sem create` command.
 
-Note that all branches of a GitHub repository that is added to Semaphore
-2.0 will be visible in Semaphore 2.0 automatically.
-
 ## Properties
 
 
-## apiVersion
+### apiVersion
 
 The `apiVersion` property defines the version of the YAML grammar that will be
 used for the definition of the YAML file. Different YAML versions have
@@ -37,43 +34,45 @@ different features.
 
 List of value for `apiVersion`: `v1alpha`.
 
-## kind
+### kind
 
 The value of the `kind` property is a string that specifies the type of the
-YAML file, that is whether it is for creating new projects or new `secrets`
-buckets. For projects the value of the `kind` property should be `Project`.
+YAML file, that is whether it is for creating new projects or new secrets.
+For projects the value of the `kind` property should be `Project`.
 
-List of values for `kind`: `Project`, `Secret`.
-
-## metadata
+### metadata
 
 The `metadata` property is for grouping other properties. Currently, the only
 supported property is `name`.
 
-### name
+#### name
 
 The `name` property defines the name of the Semaphore 2.0 project, as it will
 be displayed in the Semaphore 2.0 user interface and the output of the
 `sem get projects` command.
 
-The value of the `name` property should be unique among the Semaphore 2.0
-projects of the same organization.
+The value of the `name` property should be unique among all Semaphore 2.0
+projects of the same organization and must only contain ASCII characters
+without spaces.
 
 Using the same YAML file with different `name` values, will create
 multiple copies of the same GitHub repository in Semaphore 2.0.
 
-## spec
+### spec
 
 The `spec` property is currently used for holding the `repository` property.
 
-### repository
+#### repository
 
 The `repository` property is used for holding the `url` property.
 
-#### url
+##### url
 
 The `url` property is a string that specifies the URL of the GitHub repository
-you want to add in Semaphore 2.0.
+you want to add in Semaphore 2.0. The format of the `url` value should be as
+follows:
+
+    git@github.com:github_username/github_repository.git
 
 If the value of `url` is erroneous, you will get various types of error
 messages.
