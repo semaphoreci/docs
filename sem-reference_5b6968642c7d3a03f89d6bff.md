@@ -1,4 +1,3 @@
-# sem commad line tool Reference
 
 * [Overview](#overview-of-sem)
 * [Syntax](#syntax)
