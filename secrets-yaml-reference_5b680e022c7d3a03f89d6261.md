@@ -54,7 +54,8 @@ argument to the `sem delete secrets` command for deleting a specific `secrets`
 bucket.
 
 The value of each `name` property should be unique among all `secrets` buckets
-that exists under the same organization.
+that exists under the same organization and must only contain ASCII characters,
+dashes and underscores – space characters are not allowed.
 
 ### data:
 
