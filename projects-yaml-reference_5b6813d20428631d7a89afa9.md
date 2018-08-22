@@ -21,7 +21,9 @@ that case, you will not need to create a YAML file on your own. However,
 `sem init` requires a local copy of the GitHub repository, even if that
 repository is not up to date, that does not contain a
 `.semaphore/semaphore.yml` file. Put simply, `sem init` is simpler but less
-flexible than the `sem create` command.
+flexible than the `sem create` command. To learn more about the `sem init`
+command you can visit the
+[sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference).
 
 ## Properties
 
@@ -29,7 +31,7 @@ flexible than the `sem create` command.
 ### apiVersion
 
 The `apiVersion` property defines the version of the YAML grammar that will be
-used for the definition of the YAML file. Different YAML versions have
+used for the definition of the YAML file. Different YAML versions might have
 different features.
 
 List of value for `apiVersion`: `v1alpha`.
@@ -40,6 +42,8 @@ The value of the `kind` property is a string that specifies the type of the
 YAML file, that is whether it is for creating new projects or new secrets.
 For projects the value of the `kind` property should be `Project`.
 
+The list of values for `kind`: `Project`.
+
 ### metadata
 
 The `metadata` property is for grouping other properties. Currently, the only
@@ -47,16 +51,16 @@ supported property is `name`.
 
 #### name
 
-The `name` property defines the name of the Semaphore 2.0 project, as it will
+The `name` property defines the name of the Semaphore 2.0 project as it will
 be displayed in the Semaphore 2.0 user interface and the output of the
-`sem get projects` command.
+`sem get project` command.
 
 The value of the `name` property should be unique among all Semaphore 2.0
 projects of the same organization and must only contain [a-z], [A-Z] or [0-9]
 characters, dashes and underscores – space characters are not allowed.
 
 Using the same YAML file with different `name` values, will create
-multiple copies of the same GitHub repository in Semaphore 2.0.
+multiple Semaphore 2.0 projects connected to the same GitHub repository.
 
 ### spec
 
@@ -111,6 +115,6 @@ the next kind of error message:
 
 ## See Also
 
-   * [Secrets YAML Reference] ()
+   * [Secrets YAML Reference] (https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
    * [Changing organizations] ()
-   * [sem utility Reference] ()
+   * [sem command line tool Reference] (https://docs.semaphoreci.com/article/53-sem-reference)
