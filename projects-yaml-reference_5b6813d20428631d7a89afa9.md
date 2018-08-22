@@ -1,4 +1,4 @@
-  * [About Projects YAML](#projects-yaml-reference)
+  * [Overview](#overview)
   * [Properties](#properties)
   * [apiVersion](#apiversion)
   * [kind](#kind)
@@ -10,7 +10,7 @@
   * [Example](#example)
   * [See also](#see-also)
  
-# Projects YAML Reference
+## Overview
 
 This document is the reference for the YAML grammar used for adding Semaphore
 2.0 projects to the active Semaphore 2.0 organization using the `create`
@@ -52,8 +52,8 @@ be displayed in the Semaphore 2.0 user interface and the output of the
 `sem get projects` command.
 
 The value of the `name` property should be unique among all Semaphore 2.0
-projects of the same organization and must only contain ASCII characters,
-dashes and underscores – space characters are not allowed.
+projects of the same organization and must only contain [a-z], [A-Z] or [0-9]
+characters, dashes and underscores – space characters are not allowed.
 
 Using the same YAML file with different `name` values, will create
 multiple copies of the same GitHub repository in Semaphore 2.0.
