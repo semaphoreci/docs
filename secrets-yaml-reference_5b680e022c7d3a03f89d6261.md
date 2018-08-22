@@ -34,10 +34,10 @@ The list of values for `apiVersion`: `v1alpha`.
 ### kind
 
 The `kind` property defines the purpose of the YAML file. For a YAML file that
-will be used for defining `secrets`, the value of the `kind` property should
+will be used for defining secrets, the value of the `kind` property should
 be `Secret`.
 
-The list of values for `kind`: `Secret`, `Project`.
+The list of values for `kind`: `Secret`.
 
 ### metadata
 
@@ -53,10 +53,10 @@ the Pipeline YAML file for importing a specific secret or as an
 argument to the `sem delete secret` command for deleting a specific secret.
 
 The value of each `name` property should be unique among all secrets
-that exist under the same organization and must only contain ASCII characters,
+that exist under the same organization and must only contain [a-z], [A-Z] or [0-9] characters,
 dashes and underscores – space characters are not allowed.
 
-### data:
+### data
 
 The `data` property, which is compulsory, currently holds a single `env_vars`
 property.
@@ -71,6 +71,9 @@ variables that will be inserted in the current secret.
 
 The value of the `name` property under the `env_vars` property defines the
 name of an environment variable.
+
+The name of an environment variable should follow
+[these guidelines](http://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html).
 
 #### value
 
@@ -91,12 +94,12 @@ that was previously defined using a `name` property.
           value: "This is the value of SECRET_TWO"
 
 The previous example defines a secret named `a-secrets-name`
-that contains two secret environment variables named `SECRET_ONE` and
+that contains two environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
 
 ## See also
 
-* [sem utility Reference]
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Projects YAML Reference]
 * [Pipeline YAML Reference]
