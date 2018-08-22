@@ -25,4 +25,4 @@ blocks:
 
       secrets:
         - name: helpscout-docs
-          env_var_names: []
+
