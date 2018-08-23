@@ -319,6 +319,6 @@ directory, `sem init` will fail.
 
 ## See also
 
-* [Secrets YAML reference]  ()
-* [Projects YAML reference]  ()
+* [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+* [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 
