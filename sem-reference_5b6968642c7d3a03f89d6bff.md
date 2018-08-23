@@ -122,7 +122,8 @@ that can be handled by `sem create`: secrets and projects configuration files.
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference).
+and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+pages of the Semaphore 2.0 documentation.
 
 ### sem delete
 
