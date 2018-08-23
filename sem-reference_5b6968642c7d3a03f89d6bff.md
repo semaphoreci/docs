@@ -58,7 +58,7 @@ You can consider a `secret` as a place where you can store your sensitive data.
 
 Each `secret` is associated with a single organization. In other words, a
 `secret` belongs to an organization. In order to use a specific `secret` you
-should be connected to its organization.
+should be connected to the organization that owns it.
 
 ### Projects
 
@@ -119,6 +119,11 @@ The `sem create` command is used for creating new resources and should always
 be followed by the `-f` flag, which should be followed by a valid path to a
 proper YAML file. Currently there exist two types of YAML configuration files
 that can be handled by `sem create`: secrets and projects configuration files.
+
+Should you wish to learn more about creating new resources, you can visit
+the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+pages of the Semaphore 2.0 documentation.
 
 ### sem delete
 
@@ -185,9 +190,9 @@ information about a `sem` command or `sem`.
 
 The `--verbose` flag, which can also be used as `-v` displays verbose
 output – you will see the interaction and the data exchanged between
-`sem` and the Semaphore 2.0 servers.
+`sem` and the Semaphore 2.0 API.
 
-The `-v` flag is useful for debugging.
+The flag is useful for debugging.
 
 ### The -f flag
 
@@ -198,33 +203,6 @@ Semaphore 2.0 project.
 ## Examples
 
 This section will present examples for all `sem` commands.
-
-### sem version
-
-The `sem version` command displays the used version of the `sem` tool. As an
-example, if you are using `sem` version 0.4.1, the output of `sem version`
-will be as follows:
-
-    $ sem version
-    v0.4.1
-
-Your actual output might be different on your machine.
-
-Additionally, the `sem version` command does not work with the `-f` flag and
-does not create any additional output when used with the `-v` flag.
-
-### sem help
-
-The output of the `sem help` command is static and identical to the output of
-the `sem` command when executed without any command line arguments.
-
-Additionally, the `help` command can be also used as follows (the `connect`
-command is used as an example here):
-
-    sem connect help
-
-In that case, `help` will generate information about the use of the
-`sem connect` command.
 
 ### sem connect
 
@@ -317,8 +295,35 @@ As `sem init` requires no command line arguments, you execute it as follows:
 If the `.semaphore/semaphore.yml` file is already present in the current
 directory, `sem init` will fail.
 
+### sem version
+
+The `sem version` command displays the used version of the `sem` tool. As an
+example, if you are using `sem` version 0.4.1, the output of `sem version`
+will be as follows:
+
+    $ sem version
+    v0.4.1
+
+Your actual output might be different on your machine.
+
+Additionally, the `sem version` command does not work with the `-f` flag and
+does not create any additional output when used with the `-v` flag.
+
+### sem help
+
+The output of the `sem help` command is static and identical to the output of
+the `sem` command when executed without any command line arguments.
+
+Additionally, the `help` command can be also used as follows (the `connect`
+command is used as an example here):
+
+    sem connect help
+
+In that case, `help` will generate information about the use of the
+`sem connect` command.
+
 ## See also
 
-* [Secrets YAML reference]  ()
-* [Projects YAML reference]  ()
+* [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+* [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 
