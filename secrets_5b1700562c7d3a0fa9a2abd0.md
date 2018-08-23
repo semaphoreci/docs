@@ -186,7 +186,7 @@ The Semaphore 2.0 pipeline that will be used for the example project is
 defined as follows:
 
     $ cat .semaphore/semaphore.yml
-    version: "v1.0"
+    version: v1.0
     name: Basic YAML configuration file example.
     agent:
       machine:
@@ -219,7 +219,7 @@ Now, it is time to learn what will happen when you try to use a
 
 The `.semaphore/semaphore.yml` file that will be used is the following:
 
-    version: "v1.0"
+    version: v1.0
     name: Using secrets in Semaphore 2.0
     agent:
       machine:

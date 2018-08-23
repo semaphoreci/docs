@@ -9,7 +9,7 @@ The contents of the `.semaphore/semaphore.yml` file for a GitHub project
 named `goDemo` are as follows:
 
     $ cat .semaphore/semaphore.yml
-    version: "v1.0"
+    version: v1.0
     name: YAML file example for Go project.
     agent:
       machine:
@@ -95,7 +95,7 @@ visiting <a href="https://id.semaphoreci.com/" target="_blank">https://id.semaph
 The following three lines in `.semaphore/semaphore.yml` are the preamble
 and you can consider them as mandatory:
 
-    version: "v1.0"
+    version: v1.0
     name: YAML file example for Go project.
     agent:
       machine:
