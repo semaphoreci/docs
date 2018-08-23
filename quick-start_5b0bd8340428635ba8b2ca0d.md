@@ -38,7 +38,7 @@ make Semaphore 2.0 rerun the pipeline of the project as defined in the
 The contents of the `.semaphore/semaphore.yml` file that will be used
 for this project are as follows:
 
-    version: "v1.0"
+    version: v1.0
     name: Basic, 1 block YAML file example.
     agent:
       machine:
@@ -76,7 +76,7 @@ project will be explained in full detail. The following lines are the
 preamble of `.semaphore/semaphore.yml` and you can consider them as
 mandatory:
 
-    version: "v1.0"
+    version: v1.0
     name: Basic, 1 block YAML file example.
     agent:
       machine:

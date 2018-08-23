@@ -19,7 +19,7 @@ Each Semaphore 2.0 pipeline configuration file has a preamble, which is
 mandatory and should be present on every `.semaphore/semaphore.yml` file you create.
 This preamble includes the following seven lines:
 
-    version: "v1.0"
+    version: v1.0
     name: "The name of the Semaphore 2.0 project"
     agent:
       machine:
@@ -145,7 +145,7 @@ able to use them.
 The following is an example of a working `.semaphore/semaphore.yml`
 file that uses the `commands` property:
 
-    version: "v1.0"
+    version: v1.0
     name: Single Job YAML file.
     agent:
       machine:
@@ -186,7 +186,7 @@ The following is an example of a working `.semaphore/semaphore.yml` file
 that uses the `cmd_file` property to execute the commands found
 in `command_file`:
 
-    version: "v1.0"
+    version: v1.0
     name: Using cmd_file.
     agent:
       machine:
@@ -240,7 +240,7 @@ A `prologue` property definition can be defined as follows:
 The following is an example of a working `.semaphore/semaphore.yml` file
 that uses the `prologue` and `epilogue` properties:
 
-    version: "v1.0"
+    version: v1.0
     name: Pipeline epilogue and prologue YAML example.
     agent:
       machine:
@@ -334,7 +334,7 @@ included in double quotes.
 The following code presents a complete `.semaphore/semaphore.yml` file
 that defines and uses two environment variables:
 
-    version: "v1.0"
+    version: v1.0
     name: Using Environment Variable.
     agent:
       machine:
@@ -378,7 +378,7 @@ start putting the commands for each job.
 The following `.semaphore/semaphore.yml` configuration file defines a
 minimalistic pipeline configuration file with a single job:
 
-    version: "v1.0"
+    version: v1.0
     name: Basic pipeline YAML configuration file example.
     agent:
       machine:
@@ -414,7 +414,7 @@ the required capacity (boxes) available.
 
 The following code presents a complete `.semaphore/semaphore.yml` file:
 
-    version: "v1.0"
+    version: v1.0
     name: YAML file example for Go project.
     agent:
       machine:
@@ -480,7 +480,7 @@ avoided.
 However, the following sample `.semaphore/semaphore.yml` file proves
 that it can be done:
 
-    version: "v1.0"
+    version: v1.0
     name: Basic YAML configuration file example.
     agent:
       machine:

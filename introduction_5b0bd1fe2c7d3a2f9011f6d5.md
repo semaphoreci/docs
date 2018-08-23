@@ -59,7 +59,7 @@ Semaphore 2.0 project that has two jobs under the same `task` property
 and uses two secrets named `mySecrets` and `more-mihalis-secrets`:
 
     $ cat .semaphore/semaphore.yml
-    version: "v1.0"
+    version: v1.0
     name: Basic YAML configuration file example.
     agent:
       machine:
