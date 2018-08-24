@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 
 In the document you will learn how to connect to an organization with
 the  `sem` command line utility. The key point is that you need a file
@@ -7,7 +7,7 @@ active user. This file contains the necessary information for connecting
 to one or more organizations. However, only one organization is active
 at any given time.
 
-###  Connecting to an organization for the first time
+##  Connecting to an organization for the first time
 
 If  `.sem.yaml` does not exist, `sem` will guide you through the process
 and help you create the required YAML configuration file. So, imagine
@@ -63,7 +63,7 @@ shell.
 You are now good to go and start using the  `sem` utility to work with
 your Semaphore 2.0 projects.
 
-### Changing between the organizations of a Semaphore 2.0 user
+## Changing between the organizations of a Semaphore 2.0 user
 
 Once you have added your organizations to `./sem.yaml` using `sem
 connect`, you will not need to use `sem connect` to change organization,
@@ -86,3 +86,6 @@ follows:
       semaphore_semaphoreci_com
     * tsoukalos_semaphoreci_com
 
+## See also
+
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)

@@ -326,4 +326,5 @@ In that case, `help` will generate information about the use of the
 
 * [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 * [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-
+* [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
+* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
