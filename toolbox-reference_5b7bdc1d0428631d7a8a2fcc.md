@@ -1,6 +1,6 @@
 # Toolbox Reference
 
-- [Introduction](#introduction)
+- [Overview](#overview)
 - [Essentials](#essentials)
   * [libcheckout](#libcheckout)
   * [sem-service](#sem-service)
@@ -8,7 +8,7 @@
 - [See also](#see-also)
   
   
-## Introduction
+## Overview
 
 
 ## Essentials
