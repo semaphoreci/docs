@@ -10,7 +10,8 @@
 
 This document explains the use of the command line tools found in the
 `https://github.com/semaphoreci/toolbox` repository and are automatically
-available to Semaphore 2.0 VM used for executing the jobs of a pipeline.
+available to Semaphore 2.0 and the Virtual Machines (VM) used for executing the
+jobs of a pipeline.
 
 ## Essentials
 
@@ -22,8 +23,10 @@ toolbox.
 #### Description
 
 The `libcheckout` script includes the implementation of a single function
-named `checkout()` that is used for replicating the GitHub repository of the
-Semaphore 2.0 into the VM used for executing the job of the pipeline.
+named `checkout()` that is used for making available the entire GitHub
+repository of the running Semaphore 2.0 project to the VM used for executing a
+job of the pipeline. The `checkout()` function is called as `checkout` from the
+command line.
 
 #### Command Line Parameters
 
@@ -48,21 +51,21 @@ All these environment variables are automatically defined by Semaphore 2.0.
 
     checkout
 
-Notice that the `checkout` command automatically changes the current directory
-of the VM to the directory defined in the `SEMAPHORE_GIT_DIR` environment
-variable.
+Notice that the `checkout` command automatically changes the current working
+directory in the Operating System of the VM to the directory defined in the
+`SEMAPHORE_GIT_DIR` environment variable.
 
 ### sem-service
 
 #### Description
 
 The `sem-service` script is a utility for starting, stopping and restarting
-background services with Docker that listen on 0.0.0.0, which includes all the
-available network interfaces.
+background services with Docker that listens on 0.0.0.0. The 0.0.0.0 IP address
+includes all the available network interfaces.
 
 #### Command Line Parameters
 
-The general form of a sem-service command is as follows
+The general form of a sem-service command is as follows:
 
     sem-service [start|stop|status] image_name
 
@@ -72,17 +75,10 @@ will be used for the task.
 
 #### Dependencies
 
-The `sem-service` utility starts background services with docker.
+The `sem-service` utility has no dependencies but it needs to be executed in a
+Docker environment.
 
 #### Examples
-
-If the first command line argument is invalid, `sem-service` will print its help screen.
-
-	sem-service abc an_image
-	#####################################################################################################
-	service 0.5 | Utility for starting background services, listening on 0.0.0.0, using Docker
-	service [start|stop|status] image_name
-	#####################################################################################################
 
 The following are valid uses of `sem-service`:
 
@@ -90,14 +86,23 @@ The following are valid uses of `sem-service`:
 	sem-service start redis
 	sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
 
+If the first command line argument of `sem-service` is invalid, `sem-service`
+will print its help screen:
+
+	sem-service abc an_image
+	#####################################################################################################
+	service 0.5 | Utility for starting background services, listening on 0.0.0.0, using Docker
+	service [start|stop|status] image_name
+	#####################################################################################################
+
 ### retry
 
 #### Description
 
-The `retry` script is used for retrying a command for a give amount of times at
-a given time interval – waiting for resources to become available or waiting
+The `retry` script is used for retrying a command for a given amount of times at
+given time intervals – waiting for resources to become available or waiting
 for network connectivity issues to be resolved is the main reason for using
-that command.
+the `retry` command.
 
 #### Command Line Parameters
 
