@@ -1,4 +1,3 @@
-# Toolbox Reference
 
 - [Overview](#overview)
 - [Essentials](#essentials)
@@ -7,16 +6,18 @@
   * [retry](#retry)
 - [See also](#see-also)
   
-  
 ## Overview
 
+This document explains the use of the command line tools found in the
+`https://github.com/semaphoreci/toolbox` repository and are automatically
+available to Semaphore 2.0 VM used for executing the jobs of a pipeline.
 
 ## Essentials
 
-This section contains the most useful entries of Semaphore 2.0 toolbox
+This section contains the most frequently used tools of the Semaphore 2.0
+toolbox.
 
 ### libcheckout
-
 
 #### Description
 
@@ -46,6 +47,10 @@ All these environment variables are automatically defined by Semaphore 2.0.
 
     checkout
 
+Notice that the `checkout` command automatically changes the current directory
+of the CM to the directory defined in the `SEMAPHORE_GIT_DIR` environment
+variable.
+
 ### sem-service
 
 #### Description
@@ -58,11 +63,13 @@ The general form of a sem-service command is as follows
 
     sem-service [start|stop|status] image_name
 
-Therefore, each `sem-service` command requires two parameters: the first one is the task you want to perform and the second parameter is the Docker image that will be used for the task.
+Therefore, each `sem-service` command requires two parameters: the first one is
+the task you want to perform and the second parameter is the Docker image that
+will be used for the task.
 
 #### Dependencies
 
-The `sem-service` utility
+The `sem-service` utility starts background services with docker.
 
 #### Examples
 
@@ -73,6 +80,12 @@ If the first command line argument is invalid, `sem-service` will print its help
 	service 0.5 | Utility for starting background services, listening on 0.0.0.0, using Docker
 	service [start|stop|status] image_name
 	#####################################################################################################
+
+The following are valid uses of `sem-service`:
+
+	sem-service start postgres:9.6
+	sem-service start redis
+	sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
 
 ### retry
 
