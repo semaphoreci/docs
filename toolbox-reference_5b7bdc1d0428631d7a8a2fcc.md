@@ -4,6 +4,7 @@
   * [libcheckout](#libcheckout)
   * [sem-service](#sem-service)
   * [retry](#retry)
+  * [cache](#cache)
 - [See also](#see-also)
   
 ## Overview
@@ -151,6 +152,23 @@ the `lsa` command does not exist.
     -rwxr-xr-x   1 mtsouk  staff  1550 Aug 30 10:58 retry.sh
 
 In the previous example, the `retry` script succeeded after three failed tries!
+
+
+### cache
+
+
+#### Description
+
+The `cache` script is used
+
+#### Command Line Parameters
+
+#### Dependencies
+
+
+#### Examples
+
+
 
 ## See also
 
