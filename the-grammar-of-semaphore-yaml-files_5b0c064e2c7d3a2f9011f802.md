@@ -87,9 +87,9 @@ allow you to define the commands that you want to execute.
 ###  Creating a new job
 
 A job item can contain various sections including `name`, `commands` and
-`cmd_file`, which can be considered as the parameters of a job.
-The `commands` and `cmd_file` properties can help you define jobs either
-inline or using an external plain text file, respectively.
+`commands_file`, which can be considered as the parameters of a job.
+The `commands` and `commands_file` properties can help you define jobs either
+inline or using external plain text files, respectively.
 
 The general structure of a job when using the `commands` property is as
 follows:
@@ -103,18 +103,18 @@ follows:
 The list of the `commands` property can contain as many jobs as you
 want.
 
-The general structure of a job when using the `cmd_file` property is as
+The general structure of a job when using the `commands_file` property is as
 follows:
 
     jobs:    
       - name: A name for this job
-         cmd_file: /path/to/file/plain_text_file
+         commands_file: /path/to/file/plain_text_file
 
 As you will learn in a while, the type of the value of the
-`cmd_file` property is string, which means that you can only have a
-single `cmd_file` value. Should you wish to call multiple UNIX scripts,
+`commands_file` property is string, which means that you can only have a
+single `commands_file` value. Should you wish to call multiple UNIX scripts,
 you can put all of them into a single file or call them directly from
-the plain text file used as the value of `cmd_file`.
+the plain text file used as the value of `commands_file`.
 
 #### About name
 
@@ -136,7 +136,7 @@ example that uses the `commands` property is the following:
       - echo $SEMAPHORE_PIPELINE_ID
       - go run hw.go
 
-Notice that you cannot use both `commands` and `cmd_file` for defining a
+Notice that you cannot use both `commands` and `commands_file` for defining a
 single job. Additionally, notice that the `checkout` command is specific
 to Semaphore 2.0 pipelines YAML files and is used for fetching the files
 of the GitHub repository into the Linux virtual machine in order to be
@@ -160,34 +160,34 @@ file that uses the `commands` property:
                 - echo $SEMAPHORE_PIPELINE_ID
                 - echo "Hello World!"
 
-#### About cmd_file
+#### About commands_file
 
-Strictly speaking, the `cmd_file` is a string property that points to a
+Strictly speaking, the `commands_file` is a string property that points to a
 plain text file that can be found in the GitHub repository of your
 Semaphore 2.0 project.
 
 Some information about what happens behind the scenes: Semaphore 2.0
 reads the plain text file and creates the equivalent job using a
 `commands` block, which is what is finally executed. This means that
-the `cmd_file` property is replaced before the job is started and a
+the `commands_file` property is replaced before the job is started and a
 machine begins its execution.
 
-An example of a job defined using `cmd_file` is the following:
+An example of a job defined using `commands_file` is the following:
 
     jobs:    
       - name: A name for this job
-         cmd_file: /path/to/GitHub/file/plain_text_file
+         commands_file: /path/to/GitHub/file/plain_text_file
 
-Notice that you cannot use both `commands` and `cmd_file` for defining
+Notice that you cannot use both `commands` and `commands_file` for defining
 a job. Moreover, you cannot have a job properly defined if both
-the `commands` and `cmd_file` properties are missing.
+the `commands` and `commands_file` properties are missing.
 
 The following is an example of a working `.semaphore/semaphore.yml` file
-that uses the `cmd_file` property to execute the commands found
+that uses the `commands_file` property to execute the commands found
 in `command_file`:
 
     version: v1.0
-    name: Using cmd_file.
+    name: Using commands_file.
     agent:
       machine:
         type: e1-standard-2
@@ -197,7 +197,7 @@ in `command_file`:
        task:
           jobs:
             - name: Using command_file
-              cmd_file: command_file
+              commands_file: command_file
           prologue:
               commands:
                 - checkout
@@ -220,7 +220,7 @@ unsuccessfully.
 
 Apart from these details, the syntax of a `prologue` or an `epilogue`
 block is similar to the syntax of a job without support for the `name`
-property. Both the `commands` and `cmd_file` properties are supported by
+property. Both the `commands` and `commands_file` properties are supported by
 `prologue` and `epilogue` blocks and their restrictions still apply.
 Last, the indentation level of `prologue`, `epilogue` and `jobs`
 properties should be the same.
@@ -235,7 +235,7 @@ An `epilogue` property definition can look as follows:
 A `prologue` property definition can be defined as follows:
 
     prologue:
-        cmd_file: /path/to/GitHub/file/plain_text_file
+        commands_file: /path/to/GitHub/file/plain_text_file
 
 The following is an example of a working `.semaphore/semaphore.yml` file
 that uses the `prologue` and `epilogue` properties:
@@ -271,7 +271,7 @@ block, that is a `prologue` or `epilogue` definition that will be
 defined outside a `block` item and would be applied to each `block` item
 of the entire `.semaphore/semaphore.yml` file. However, you can put the
 desired commands on an external file and define your `prologue` or
-`epilogue` blocks using a `cmd_file` item.
+`epilogue` blocks using a `commands_file` item.
 
 ###  What happens to prologue or epilogue blocks when a job fails?
 
@@ -447,7 +447,7 @@ The following code presents a complete `.semaphore/semaphore.yml` file:
        task:
           jobs:
             - name: Using command_file
-              cmd_file: command_file
+              commands_file: command_file
           prologue:
               commands:
                 - checkout
