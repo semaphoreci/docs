@@ -59,24 +59,30 @@ directory in the Operating System of the VM to the directory defined in the
 
 #### Description
 
-The `sem-service` script is a utility for starting, stopping and restarting
-background services with Docker that listens on 0.0.0.0. The 0.0.0.0 IP address
-includes all the available network interfaces.
+The `sem-service` script is a utility for starting, stopping and getting the
+status of background services based on Docker images. Started services will
+listens on 0.0.0.0 and their default port. The 0.0.0.0 IP address includes
+all the available network interfaces.
 
 #### Command Line Parameters
 
-The general form of a sem-service command is as follows:
+The general form of a `sem-service` command is as follows:
 
-    sem-service [start|stop|status] image_name
+    sem-service [start|stop|status] image_name [additional parameters]
 
 Therefore, each `sem-service` command requires two parameters: the first one is
 the task you want to perform and the second parameter is the Docker image that
 will be used for the task.
 
+All `additional parameters` will be forwarded directly to `docker run`.
+
 #### Dependencies
 
 The `sem-service` utility has no dependencies but it needs to be executed in a
 Docker environment.
+
+Additionally, `image_name` should be a valid Docker image name. The full list
+of available Docker images is available at https://hub.docker.com/u/library/.
 
 #### Examples
 
@@ -84,7 +90,11 @@ The following are valid uses of `sem-service`:
 
 	sem-service start postgres:9.6
 	sem-service start redis
+	sem-service stop redis
+	sem-service status redis
 	sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
+
+The last example uses `additional parameters`.
 
 If the first command line argument of `sem-service` is invalid, `sem-service`
 will print its help screen:
