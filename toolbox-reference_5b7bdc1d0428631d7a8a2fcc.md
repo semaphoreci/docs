@@ -22,7 +22,8 @@ toolbox.
 #### Description
 
 The `libcheckout` script includes the implementation of a single function
-named `checkout()` that is used for 
+named `checkout()` that is used for replicating the GitHub repository of the
+Semaphore 2.0 into the VM used for executing the job of the pipeline.
 
 #### Command Line Parameters
 
@@ -48,14 +49,16 @@ All these environment variables are automatically defined by Semaphore 2.0.
     checkout
 
 Notice that the `checkout` command automatically changes the current directory
-of the CM to the directory defined in the `SEMAPHORE_GIT_DIR` environment
+of the VM to the directory defined in the `SEMAPHORE_GIT_DIR` environment
 variable.
 
 ### sem-service
 
 #### Description
 
-The `sem-service` script is a utility for starting, stopping and restarting background services with Docker that listen on 0.0.0.0, which includes all the available network interfaces.
+The `sem-service` script is a utility for starting, stopping and restarting
+background services with Docker that listen on 0.0.0.0, which includes all the
+available network interfaces.
 
 #### Command Line Parameters
 
@@ -118,10 +121,11 @@ The `retry` bash script only depends on the `/bin/bash` executable.
 	[2/3] Execution Failed with exit status 127. Retrying.
 	/usr/bin/retry: line 46: lsa: command not found
 	[3/3] Execution Failed with exit status 127. No more retries.
-	
-In the previous example the `retry` command will never be successful because the `lsa` command is invalid.
 
-	$  ./retry.sh -t 5 -s 10 lsa -l
+In the previous example the `retry` command will never be successful because
+the `lsa` command does not exist.
+
+	$ ./retry.sh -t 5 -s 10 lsa -l
     ./retry.sh: line 46: lsa: command not found
     [1/5] Execution Failed with exit status 127. Retrying.
     ./retry.sh: line 46: lsa: command not found
@@ -131,7 +135,7 @@ In the previous example the `retry` command will never be successful because the
     total 8
     -rwxr-xr-x   1 mtsouk  staff  1550 Aug 30 10:58 retry.sh
 
-In the previous example, the `retry` script succeeded!
+In the previous example, the `retry` script succeeded after three failed tries!
 
 ## See also
 
