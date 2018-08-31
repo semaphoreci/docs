@@ -169,9 +169,10 @@ In the *store* mode the general form of the `cache` command is the following:
 
     cache store --key key_value --path cache_dir
 
-The value of the `--key` parameter should be unique. However, what is important
-about `key_value` is that it should be available in some way to all the jobs of
-the pipeline that want to use it afterwards.
+The value of the `--key` parameter should be unique among the cache keys of the
+same Semaphore 2.0 project. However, what is important about `key_value` is
+that it should be available in some way to all the jobs of the pipeline that
+want to use it afterwards.
 
 The value of the `--path` parameter should be an existing directory the
 contents of which you want to store in the cache. Note that if you use a path
