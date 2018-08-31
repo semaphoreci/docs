@@ -165,32 +165,32 @@ jobs of a Semaphore 2.0 project.
 
 The `cache` utility operates in two modes: *store* and *restore*.
 
-In the *store* mode the general form of the `cache` command is the following:
+The general form of the `cache` command in *store* mode is the following:
 
     cache store --key key_value --path cache_dir
 
 The value of the `--key` parameter should be unique among the cache keys of the
 same Semaphore 2.0 project. However, what is important about `key_value` is
-that it should be available in some way to all the jobs of the pipeline that
-want to use it afterwards.
+that it should be available to all the jobs of the pipeline that want to use it
+afterwards.
 
 The value of the `--path` parameter should be an existing directory the
 contents of which you want to store in the cache. Note that if you use a path
-with more than two directories as the parameter to `--path`, `cache` will only store
-the last part of the directory will be stored and retrieved. So, for a value of
-`dirA/dirB`, `cache` will store the contents of `dirA/dirB` but the `restore`
-command will bring back the `dirB` directory – not the given path that was
-initially given.
+with more than two directories as the parameter to `--path`, `cache` will only
+store the last directory of the directory path will be stored and retrieved.
+So, for a value of `dirA/dirB`, `cache` will store the contents of `dirA/dirB`
+but the `restore` command will bring back the contents in the `dirB` directory
+– not the path that was initially given.
 
-In the *restore* mode the general form of the `cache` command is the following:
+The general form of the `cache` command in *restore* mode is the following:
 
     cache restore --key key_value
 
 The `key_value` should already exists or the `cache restore` command will
 return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
-*Each `key` in the cache is created on a per Semaphore 2.0 project basis to help
-you share files between jobs.*
+*Each `key` in the cache is created on a per Semaphore 2.0 project basis to
+help you share files between jobs.*
 
 #### Dependencies
 
