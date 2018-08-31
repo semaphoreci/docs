@@ -5,6 +5,7 @@
   * [sem-service](#sem-service)
   * [retry](#retry)
   * [cache](#cache)
+    - [Example Semaphore 2.0 project ](#example-Semaphore-2.0-project)
 - [See also](#see-also)
   
 ## Overview
@@ -165,7 +166,7 @@ The `cache` script is used
 
 #### Dependencies
 
-The `cache` utility depends on the following three environment varialbes:
+The `cache` utility depends on the following three environment variables:
 
 - `SEMAPHORE_CACHE_URL`:
 - `SEMAPHORE_CACHE_USERNAME`:
@@ -186,7 +187,7 @@ variable as follows:
 
     cache restore --key $KEY
 
-#### Example Semaphore 2.0 project with cache
+#### Example Semaphore 2.0 project
 
 The following is a complete Semaphore 2.0 project that uses the `cache`
 utility:
