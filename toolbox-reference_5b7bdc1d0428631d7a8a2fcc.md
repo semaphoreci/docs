@@ -168,6 +168,17 @@ The `cache` script is used
 
 #### Examples
 
+You can store a new key as follows:
+
+
+You can restore an existing key as follows:
+
+
+
+#### Example Semaphore 2.0 project with cache
+
+The following is a complete Semaphore 2.0 project that uses the `cache`
+utility:
 
 
 ## See also
