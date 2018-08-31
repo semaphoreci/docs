@@ -5,7 +5,7 @@
   * [sem-service](#sem-service)
   * [retry](#retry)
   * [cache](#cache)
-    - [Example Semaphore 2.0 project](#example-semaphore-2.0-project)
+    - [Example Semaphore 2.0 project](#example-semaphore-2-0-project)
 - [See also](#see-also)
   
 ## Overview
