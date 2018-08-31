@@ -165,21 +165,75 @@ The `cache` script is used
 
 #### Dependencies
 
+The `cache` utility depends on the following three environment varialbes:
+
+- `SEMAPHORE_CACHE_URL`:
+- `SEMAPHORE_CACHE_USERNAME`:
+- `SSH_PRIVATE_KEY_PATH`:
+
+All these three environment variables are automatically defined and initialized
+by Semaphore 2.0.
 
 #### Examples
 
-You can store a new key as follows:
+You can store a new key that is kept in the `KEY` environment variable as
+follows:
 
+    cache store --key $KEY --path cache_dir
 
-You can restore an existing key as follows:
+You can restore an existing key that is saved is in the `KEY` environment
+variable as follows:
 
-
+    cache restore --key $KEY
 
 #### Example Semaphore 2.0 project with cache
 
 The following is a complete Semaphore 2.0 project that uses the `cache`
 utility:
 
+	version: v1.0
+	name: Using cache utility
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
+    
+	blocks:
+	  - name: Create cache
+	    task:
+	      env_vars:
+	        - name: APP_ENV
+	          value: prod
+	      jobs:
+	      - name: Check environment variables
+	        commands:
+	          - echo $SEMAPHORE_CACHE_URL
+	          - echo $SEMAPHORE_CACHE_USERNAME
+	          - echo $SSH_PRIVATE_KEY_PATH
+              - cat $SSH_PRIVATE_KEY_PATH
+	      - name: Create cache key
+	        commands:
+	          - checkout
+	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
+	          - mkdir -p cache_dir
+	          - touch cache_dir/my_data
+	          - echo $KEY > cache_dir/my_data
+	          - echo $KEY
+	          - cache store --key $KEY --path cache_dir
+	          - cat cache_dir/my_data
+    
+	  - name: Use cache
+	    task:
+	      jobs:
+	      - name: Get cache directory
+	        commands:
+	          - checkout
+	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
+	          - echo $KEY
+	          - cache restore --key $KEY
+	          - ls -l cache_dir
+	          - cat cache_dir/my_data
+    
 
 ## See also
 
