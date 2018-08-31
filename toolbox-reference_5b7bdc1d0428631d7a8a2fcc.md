@@ -5,7 +5,7 @@
   * [sem-service](#sem-service)
   * [retry](#retry)
   * [cache](#cache)
-    - [Example Semaphore 2.0 project ](#example-semaphore-2.0-project)
+    - [Example Semaphore 2.0 project](#example-semaphore-2.0-project)
 - [See also](#see-also)
   
 ## Overview
@@ -153,7 +153,6 @@ the `lsa` command does not exist.
     -rwxr-xr-x   1 mtsouk  staff  1550 Aug 30 10:58 retry.sh
 
 In the previous example, the `retry` script succeeded after three failed tries!
-
 
 ### cache
 
