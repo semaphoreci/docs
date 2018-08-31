@@ -158,31 +158,35 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-The `cache` script is used for storing files that you want to reuse among the
+The `cache` script is used for storing files that you want to share among the
 jobs of a Semaphore 2.0 project.
 
-#### Command Line Parameters
+#### Commands and Command Line Parameters
 
-The `cache` utility operates in two modes: *store* and *restore*.
+The `cache` utility supports two commands: `cache store` and `cache restore`.
 
-The general form of the `cache` command in *store* mode is the following:
+The general form of the `cache store` command is the following:
 
     cache store --key key_value --path cache_dir
 
-The value of the `--key` parameter should be unique among the cache keys of the
-same Semaphore 2.0 project. However, what is important about `key_value` is
-that it should be available to all the jobs of the pipeline that want to use it
-afterwards.
+The value of the `--key` parameter is the key that will be used for saving the
+desired files and should be unique among the cache keys of the same Semaphore
+2.0 project. However, what is important about `key_value` is that you should be
+able to recover it afterwards in order to become available to all the jobs of
+the pipeline that want to use that `key_value` afterwards.
 
 The value of the `--path` parameter should be an existing directory the
-contents of which you want to store in the cache. Note that if you use a path
-with more than two directories as the parameter to `--path`, `cache` will only
-store the last directory of the directory path will be stored and retrieved.
+contents of which you want to store in the cache. If you use a path with more
+than two directories in it as the parameter to `--path`, `cache` will restore
+the desired contents in the last directory of the directory path that was given.
 So, for a value of `dirA/dirB`, `cache` will store the contents of `dirA/dirB`
-but the `restore` command will bring back the contents in the `dirB` directory
-– not the path that was initially given.
+as desired but the `restore` command will bring back the contents of `dirA/dirB`
+in the `dirB` directory path, not in `dirA/dirB`.
 
-The general form of the `cache` command in *restore* mode is the following:
+Analogously, for a `--path` value of `dirA/dirB/dirC`, the contents of `dirC`
+will be restored in `dirC` not in `dirA/dirB/dirC`.
+
+The general form of the `cache restore` command is the following:
 
     cache restore --key key_value
 
@@ -190,7 +194,7 @@ The `key_value` should already exists or the `cache restore` command will
 return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
 *Each `key` in the cache is created on a per Semaphore 2.0 project basis to
-help you share files between jobs.*
+help you share file resources between jobs.*
 
 #### Dependencies
 
@@ -216,8 +220,9 @@ kept in the `KEY` environment variable as follows:
 
     cache store --key $KEY --path cache_dir
 
-If the given `$KEY` value already exists in the cache, the `cache store`
-command will not update the contents of the `cache_dir` directory.
+If the given `$KEY` value already exists in the cache of the current Semaphore
+2.0 project, the `cache store` command *will not update* the contents of the
+`cache_dir` directory.
 
 You can restore the directory that is saved in the `KEY` environment variable
 along with its contents as follows:
