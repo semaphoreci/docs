@@ -158,17 +158,17 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-The `cache` script is used for storing files that you want to reuse between
+The `cache` script is used for storing files that you want to reuse among the
 jobs of a Semaphore 2.0 project.
 
-A key is created on a per Semaphore 2.0 project basis to help you store files
-between jobs.
+Each key is created on a per Semaphore 2.0 project basis to help you share
+files between jobs.
 
 #### Command Line Parameters
 
 The `cache` utility operates in two modes: *store* and *restore*.
 
-In the *store* code the general form of the `cache` command is the following:
+In the *store* mode the general form of the `cache` command is the following:
 
     cache store --key key_value --path cache_dir
 
@@ -177,25 +177,26 @@ about `key_value` is that it should be available in some way to all the jobs of
 the pipeline that want to use it afterwards.
 
 The value of the `--path` parameter should be an existing directory the
-contents of which you want to store in the cache. Note that if you use a value
-with more than two directories as the parameter to `--path` only the last part
-of the directory will be stored and retrieved. So, for a value of `dirA/dirB`,
-`cache` will store the contents of `dirA/dirB` but the `restore` command will
-bring back the `dirB` directory – not the given path that was initially given.
+contents of which you want to store in the cache. Note that if you use a path
+with more than two directories as the parameter to `--path`, `cache` will only store
+the last part of the directory will be stored and retrieved. So, for a value of
+`dirA/dirB`, `cache` will store the contents of `dirA/dirB` but the `restore`
+command will bring back the `dirB` directory – not the given path that was
+initially given.
 
-In the *restore* code the general form of the `cache` command is the following:
+In the *restore* mode the general form of the `cache` command is the following:
 
     cache restore --key key_value
 
 The `key_value` should already exists or the `cache restore` command will
-return nothing.
+return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
 #### Dependencies
 
 The `cache` utility depends on the following three environment variables:
 
 - `SEMAPHORE_CACHE_URL`: this environment variable stores the IP address and
-    the port number of the cache server (`94.130.158.146:29920`).
+    the port number of the cache server (`x.y.z.w:29920`).
 - `SEMAPHORE_CACHE_USERNAME`: this environment variable stores the username
     that will be used for connecting to the cache server
 	(`5b956eef90cb4c91ab14bd2726bf261b`).
@@ -217,8 +218,8 @@ kept in the `KEY` environment variable as follows:
 If the given `$KEY` value already exists in the cache, the `cache store`
 command will not update the contents of the `cache_dir` directory.
 
-You can restore an existing key that is saved is in the `KEY` environment
-variable as follows:
+You can restore the directory that is saved in the `KEY` environment variable
+as follows:
 
     cache restore --key $KEY
 
