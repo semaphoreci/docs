@@ -188,8 +188,8 @@ In the *restore* mode the general form of the `cache` command is the following:
 The `key_value` should already exists or the `cache restore` command will
 return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
-**Each key is created on a per Semaphore 2.0 project basis to help you share
-files between jobs.**
+*Each key is created on a per Semaphore 2.0 project basis to help you share
+files between jobs.*
 
 #### Dependencies
 
