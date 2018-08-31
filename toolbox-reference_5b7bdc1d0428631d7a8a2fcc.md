@@ -219,7 +219,7 @@ If the given `$KEY` value already exists in the cache, the `cache store`
 command will not update the contents of the `cache_dir` directory.
 
 You can restore the directory that is saved in the `KEY` environment variable
-as follows:
+along with its contents as follows:
 
     cache restore --key $KEY
 
