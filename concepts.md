@@ -1,38 +1,34 @@
 # Concepts
 
-The new version of Semaphore uses an entirely different model than the
-previous version. The new version supports complex deployment
-pipelines through _blocks_ and _switches_. Blocks represent steps in a
-pipelinel. Blocks are the real unit work representing what to do.
-Switches support conditional loading new pipelines, for example taking
-a manual approval to deploy to production. Semaphore schedules and
-runs the blocks on agents. The agent manages the environment the
-blocks run in.
-
-The new version is also more focused on configuration files and CLI,
-then working in GUIs. The pipeline is defined in
-`.semaphore/config.yml` and the `sem` CLI bootstraps new projects.
+Semaphore manages your test and deployment workflows with _pipelines_,
+_blocks_, and _promotions_. Workflows may be separated with different
+pipelines, say one for tests and another for deployment. _Blocks_
+define what to do at each step in the pipeline. _Promotions_ connect
+different pipelines. Semaphore schedules and runs the blocks on
+agents. The agent manages the environment the blocks run in. All
+configuration is written in YAML and kept in `.semaphore/config.yml`.
 
 ## Blocks & Tasks
 
-_Blocks_ are the heart of pipeline. Blocks may define multiple
-_tasks_.  Here's an example. Consider an application that runs
-multiple kinds of tests. The test could run in parallel or in a
-series. Blocks are flexible enough to support that. Of course
-pipelines may have multiple blocks, so your pipeline may be as long or
-short as needed. _Tasks_ can be configured to run a list of commands,
-set environment variables, and manage secrets. Refer to the [reference
-docs][pipeline_reference] for complete information.
+_Blocks_ are the heart of a pipeline. Each block has a _task_ that
+defines _jobs_. Jobs define the commands to run. Tasks with multiple
+jobs are executed in parallel. So, the "test" block could define tasks
+for "linting", "unit", and "integration" for faster parallel
+execution. _Blocks_ execute in sequence, waiting for all tasks in
+previous block to complete before continuing. _Tasks_ can be
+configured to run a list of commands, set environment variables, and
+manage secrets. Refer to the [reference docs][pipeline_reference] for
+complete information.
 
-## Switches
+## Promotions
 
-_Switches_ are like railroad switches in the pipeline because they force
-the pipeline to move in a different direction. _Switches_ are commonly
-used for promoting builds to different environments. Pipelines may
-have multiple switches, but they must come at the end of a pipeline.
-Switching loads an entirely new pipeline, so you can build up complex
-pipelines with only configuration files. Refer to the [reference
-docs][switch_reference] for complete information.
+_Promotions_ are junctions blocks in your larger workflow.
+_Promotions_ are commonly used for promoting builds to different
+environments. Pipelines may have multiple switches, but they must
+come at the end of a pipeline. Promoting loads an entirely new
+pipeline, so you can build up complex pipelines with only
+configuration files. Refer to the [reference docs][switch_reference]
+for complete information.
 
 ## Secrets
 
@@ -49,3 +45,9 @@ Semaphore maintains a pool of agents to run tasks. You can select from
 memory/CPU combinations and OS image. The standard OS image has all
 the common tools and full `sudo` access so you can install extra
 software.
+
+## Organization and Projects
+
+Everything in Semaphore is part of an _Organization_. The organization
+connects team members with their _Projects_. You'll have a _Project_
+for each code repository connected to Semaphore.
