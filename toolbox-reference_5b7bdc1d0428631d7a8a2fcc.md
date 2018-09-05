@@ -24,6 +24,9 @@ toolbox.
 
 #### Description
 
+The GitHub repository used in a Semaphore 2.0 project is not automatically
+cloned for reasons of efficiency.
+
 The `libcheckout` script includes the implementation of a single function
 named `checkout()` that is used for making available the entire GitHub
 repository of the running Semaphore 2.0 project to the VM used for executing a
