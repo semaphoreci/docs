@@ -166,11 +166,11 @@ command line parameters or arguments.
 
 #### --project-name
 
-The `--project-name`
+The value of the `--project-name` command line option
 
 #### --repo-url
 
-The `--repo-url`
+The value of the `--repo-url` command line option
 
 ## Help commands
 
