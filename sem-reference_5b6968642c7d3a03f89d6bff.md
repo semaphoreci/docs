@@ -163,6 +163,15 @@ GitHub repository that has been either created locally and pushed to GitHub or
 cloned using the `git clone` command. The command is executed without any other
 command line parameters or arguments.
 
+
+#### --project-name
+
+The `--project-name`
+
+#### --repo-url
+
+The `--repo-url`
+
 ## Help commands
 
 The last group of `sem` commands includes the `sem help` and `sem version`
