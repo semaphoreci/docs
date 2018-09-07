@@ -1,26 +1,26 @@
 ### Introduction
 
-The `sem` command line tool is used extensively by Semaphore 2.0 for
+The `sem` command line tool is used extensively by Semaphore 2.0 for
 working with projects, secrets and organizations.
 
-The purpose of this document is to help you installing  `sem` on your
-UNIX machine. Please note that currently only Linux and macOS are
-supported.
+The purpose of this document is to help you installing `sem` on your
+UNIX machine.
+
+Please note that currently only Linux and macOS are supported.
 
 ### Installing sem
 
-You can get and install the `sem` command line utility by executing the
+You can get and install the `sem` command line utility by executing the
 following command from your UNIX shell:
 
     $ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 
 Please notice that the `sem` command line tool is a binary executable,
 which means that you should get the version of `sem` that is suitable
-for your operating system – this is being handled by the installation
+for your operating system – this is being handled by the installation
 command.
 
-You can find out the version of `sem` you are using by executing `sem
-version`.
+You can find out the version of `sem` you are using by executing `sem version`.
 
 Last, executing the `sem` command line tool without any parameters will
 generate the following kind of output:
@@ -48,39 +48,3 @@ generate the following kind of output:
       -v, --verbose   verbose output
     
     Use "sem [command] --help" for more information about a command.
-
-The  `-v` parameter can be very handy when you have problems with
-the `sem` command.
-
-
-### What if a command does not exist
-
-If you try to execute a `sem` command and this command does not exist, you will get an error message similar to the following:
-
-    $ sem doesNotExist
-    Error: unknown command "doesNotExist" for "sem"
-    Run 'sem --help' for usage.
-    unknown command "doesNotExist" for "sem"
-
-
-On the other hand, if you try to access a resource type that does not exist, you will gent the following kind of error message:
-
-    $ sem get doesNotExist
-    error: Unknown resource kind doesNotExist.
-
-Last, if you execute a `sem` command with fewer arguments than required, `sem` will respond with an error message similar to the following:
-
-    $ sem describe
-    Error: accepts 2 arg(s), received 0
-    Usage:
-      sem describe [KIND] [NAME] [flags]
-    
-    Flags:
-      -h, --help   help for describe
-    
-    Global Flags:
-      -v, --verbose   verbose output
-    
-    accepts 2 arg(s), received 0
-
-
