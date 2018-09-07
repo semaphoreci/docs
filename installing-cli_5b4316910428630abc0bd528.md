@@ -1,12 +1,12 @@
-### Introduction
+## Overview
 
-The `sem` command line tool is used extensively by Semaphore 2.0 for
+The `sem` command line tool is used extensively in Semaphore 2.0 for
 working with projects, secrets and organizations.
 
-The purpose of this document is to help you installing `sem` on your
-UNIX machine.
+The purpose of this document is to help you install `sem` on your UNIX machine.
 
-Please note that currently only Linux and macOS are supported.
+Please note that currently only Linux and macOS binary files of `sem` are
+provided.
 
 ### Installing sem
 
@@ -20,31 +20,13 @@ which means that you should get the version of `sem` that is suitable
 for your operating system – this is being handled by the installation
 command.
 
-You can find out the version of `sem` you are using by executing `sem version`.
+After a successful installation, you can find out the version of `sem` you are
+using by executing `sem version`.
 
 Last, executing the `sem` command line tool without any parameters will
-generate the following kind of output:
+generate a help screen.
 
-    $ sem
-    Semaphore 2.0 command line interface
-    
-    Usage:
-      sem [command]
-    
-    Available Commands:
-      config      Get and set configuration options.
-      connect     Connect to a Semaphore endpoint
-      context     Manage contexts for connecting to Semaphore
-      create      Create a resource from a file.
-      delete      Delete a resource.
-      describe    Describe a resource
-      get         List of resources.
-      help        Help about any command
-      init        Initialize a project
-      version     Display the version
-    
-    Flags:
-      -h, --help      help for sem
-      -v, --verbose   verbose output
-    
-    Use "sem [command] --help" for more information about a command.
+## See also
+
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
