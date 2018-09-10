@@ -195,7 +195,7 @@ The general form of the `cache restore` command is the following:
 
     cache restore --key key_value
 
-The `key_value` should already exists or the `cache restore` command will
+The `key_value` should already exist or the `cache restore` command will
 return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
 *Each `key` in the cache is created on a per Semaphore 2.0 project basis to
