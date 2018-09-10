@@ -161,8 +161,10 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-The `cache` script is used for storing files that you want to share among the
-jobs of a Semaphore 2.0 project.
+Semaphore 2.0 offers the `cache` utility for storing the dependencies of
+projects. As a result, the `cache` utility can be used for reducing
+installation time by restoring installed packages quickly in order to be
+reused between jobs.
 
 #### Commands and Command Line Parameters
 
@@ -213,8 +215,7 @@ The `cache` utility depends on the following three environment variables:
 	(`/home/semaphore/.ssh/semaphore_cache_key`).
 
 All these three environment variables are automatically defined and initialized
-by Semaphore 2.0 and remain the same for during the lifetime of each Semaphore
-2.0 project.
+by Semaphore 2.0.
 
 #### Examples
 
@@ -231,6 +232,16 @@ You can restore the directory that is saved in the `KEY` environment variable
 along with its contents as follows:
 
     cache restore --key $KEY
+
+The following command saves the contents of the `dirA/dirB/dirC` directory
+and associates that directory with the `directory-C-v1` key:
+
+    cache store --key directory-C-v1 --path dirA/dirB/dirC
+
+The following command will restore `dirC` along with its contents inside the
+directory where the `cache restore` command was called:
+
+    cache restore --key directory-C-v1
 
 #### Example Semaphore project
 
