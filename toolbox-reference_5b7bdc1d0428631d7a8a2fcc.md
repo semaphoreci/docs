@@ -83,8 +83,8 @@ All `additional parameters` will be forwarded directly to `docker run`.
 
 #### Dependencies
 
-The `sem-service` utility has no dependencies but it needs to be executed in a
-Docker environment.
+The `sem-service` utility has no dependencies but presumes that Docker is
+already installed, which is the case for every Semaphore Virtual Machine (VM).
 
 Additionally, `image_name` should be a valid Docker image name. The full list
 of available Docker images is available at https://hub.docker.com/u/library/.
