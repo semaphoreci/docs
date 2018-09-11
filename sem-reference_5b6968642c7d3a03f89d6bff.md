@@ -163,7 +163,6 @@ GitHub repository that has been either created locally and pushed to GitHub or
 cloned using the `git clone` command. The command is executed without any other
 command line parameters or arguments.
 
-
 #### --project-name
 
 The value of the `--project-name` command line option
