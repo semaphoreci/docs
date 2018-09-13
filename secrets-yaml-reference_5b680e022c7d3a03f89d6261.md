@@ -152,6 +152,19 @@ The example is equivalent to the previous one:
 The data in the `content` field is the output of the `base64 file.txt` command
 because the contents of the file are in Base64 representation.
 
+## Example with an empty secret
+
+If you want to create an `empty` secret you can define the `data` block as
+follows:
+
+	apiVersion: v1beta
+	kind: Secret
+	metadata:
+	  name: empty-secret
+	data:
+	  env_vars: []
+	  files: []
+
 ## See also
 
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
