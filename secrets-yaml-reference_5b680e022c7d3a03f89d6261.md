@@ -64,14 +64,14 @@ dashes and underscores – space characters are not allowed.
 
 ### data
 
-The `data` property, which is compulsory, currently holds a single `env_vars`
-property.
+The `data` property, which is compulsory and should not be empty, holds a
+single `env_vars` property and/or a single `files` property.
 
 ### env_vars
 
-The `env_vars` property, which is compulsory, is a list of `name` and `value`
-pairs that allows you to define the names and the values of the environment
-variables that will be inserted in the current secret.
+The `env_vars` property is a list of `name` and `value` pairs that allows you
+to define the names and the values of the environment variables that will be
+inserted in the current secret.
 
 #### name in env_vars
 
@@ -94,13 +94,14 @@ is used for storing files in `secrets`.
 #### path
 
 The `path` property holds the name of the file that will be stored – this
-value is related to the way the file is going to be referenced and restored in
-the future and should not exist in the GitHub repository.
+value defines the way the file is going to be referenced and restored in the
+future and should not exist in the GitHub repository.
 
 #### content
 
-The `content` property holds the contents of the file that is defined in the
-`path` property. The data of the `content` field is in Base64 representation.
+The `content` property holds the contents of the file that will be referenced
+by the value of the `path` property. The data of the `content` field is in
+*Base64 representation*.
 
 ## Example
 
@@ -120,7 +121,7 @@ that contains two environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
 
-The next file is equivalent to the previous one:
+The example is equivalent to the previous one:
 
     apiVersion: v1beta
     kind: Secret
@@ -149,7 +150,7 @@ The next file is equivalent to the previous one:
 	    content: SGVsbG8gU2VtYXBob3JlIDIuMAo=
 
 The data in the `content` field is the output of the `base64 file.txt` command
-because the file is stored using Base64 representation.
+because the contents of the file are in Base64 representation.
 
 ## See also
 
