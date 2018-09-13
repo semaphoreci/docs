@@ -54,7 +54,8 @@ resource related operations also require a resource name.
 
 ### Secrets
 
-You can consider a `secret` as a place where you can store your sensitive data.
+A `secret` is a bucket that stores environment variables and files. You can
+consider a `secret` as a place where you can store your sensitive data.
 
 Each `secret` is associated with a single organization. In other words, a
 `secret` belongs to an organization. In order to use a specific `secret` you
