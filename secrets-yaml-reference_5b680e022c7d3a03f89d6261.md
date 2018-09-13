@@ -86,12 +86,14 @@ that was previously defined using a `name` property.
 
 ### files
 
-The `files` property holds a list of `path` and `content` pairs and is used for
-storing files.
+The `files` property holds a list of items with `path` and `content` pairs and
+is used for storing files in `secrets`.
 
 #### path
 
-The `path` property holds the name of the file that will be stored.
+The `path` property holds the name of the file that will be stored – this
+value is related to the way the file is going to be referenced and restored in
+the future and should not exist in the GitHub repository.
 
 #### content
 
@@ -116,15 +118,26 @@ that contains two environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
 
+The next file is equivalent to the previous one:
+
+    apiVersion: v1beta
+    kind: Secret
+    metadata:
+      name: a-secret-name
+    data:
+      env_vars:
+        - name: SECRET_ONE
+          value: "This is the value of SECRET_ONE"
+        - name: SECRET_TWO
+          value: "This is the value of SECRET_TWO"
+	  files: []
+
 ## Example with files
 
 	apiVersion: v1beta
 	kind: Secret
 	metadata:
 	  name: my-secrets
-	  id: 24d1932b-1c9b-4068-ac6a-1845a7816889
-	  create_time: 1536679082
-	  update_time: 1536755195
 	data:
 	  env_vars:
 	  - name: SECRET_ONE
