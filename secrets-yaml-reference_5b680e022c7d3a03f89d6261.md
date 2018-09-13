@@ -19,10 +19,12 @@
 
 This document is the reference for the YAML grammar used for creating secrets.
 
-A secret along with its contents is created under the current
-organization and is available in this organization only unless you add it to
-other organizations. Additionally, a secret is visible to all the
-users of an organization.
+A `secret` is a bucket that stores environment variables and files.
+
+A secret along with its contents is created under the current organization and
+is available in this organization only unless you add it to other
+organizations. Additionally, a secret is visible to all the users of an
+organization.
 
 ## Properties
 
