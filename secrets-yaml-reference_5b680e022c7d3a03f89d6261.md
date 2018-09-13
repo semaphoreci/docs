@@ -29,7 +29,7 @@ The `apiVersion` property defines the version of the YAML grammar that will be
 used in the current YAML file. Different versions might have different
 features.
 
-The list of values for `apiVersion`: `v1alpha`.
+The list of values for `apiVersion`: `v1beta`.
 
 ### kind
 
@@ -82,7 +82,7 @@ that was previously defined using a `name` property.
 
 ## Example
 
-    apiVersion: v1alpha
+    apiVersion: v1beta
     kind: Secret
     metadata:
       name: a-secrets-name
