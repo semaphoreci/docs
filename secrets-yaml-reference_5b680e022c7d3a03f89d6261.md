@@ -13,6 +13,7 @@
 	  * [content](#content)
 * [Example](#example)
 * [Example with files](#example-with-files)
+* [Example with an empty secret](#example-with-an-empty-secret)
 * [See also](#see-also)
 
 ## Overview
