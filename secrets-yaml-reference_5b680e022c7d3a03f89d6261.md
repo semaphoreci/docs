@@ -8,7 +8,11 @@
    * [env_vars](#env_vars)
       * [name](#name-in-env_vars)
       * [value](#value)
+    * [files](#files)
+	  * [path](#path)
+	  * [content](#content)
 * [Example](#example)
+* [Example with files](#example-with-files)
 * [See also](#see-also)
 
 ## Overview
@@ -80,12 +84,26 @@ The name of an environment variable should follow
 The value of the `value` property defines the value of the environment variable
 that was previously defined using a `name` property.
 
+### files
+
+The `files` property holds a list of `path` and `content` pairs and is used for
+storing files.
+
+#### path
+
+The `path` property holds the name of the file that will be stored.
+
+#### content
+
+The `content` property holds the contents of the file that is defined in the
+`path` property. The data of the `content` field is in Base64 representation.
+
 ## Example
 
     apiVersion: v1beta
     kind: Secret
     metadata:
-      name: a-secrets-name
+      name: a-secret-name
     data:
       env_vars:
         - name: SECRET_ONE
@@ -97,6 +115,26 @@ The previous example defines a secret named `a-secrets-name`
 that contains two environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
+
+## Example with files
+
+	apiVersion: v1beta
+	kind: Secret
+	metadata:
+	  name: my-secrets
+	  id: 24d1932b-1c9b-4068-ac6a-1845a7816889
+	  create_time: 1536679082
+	  update_time: 1536755195
+	data:
+	  env_vars:
+	  - name: SECRET_ONE
+	    value: This is a little secret
+	  files:
+	  - path: file.txt
+	    content: SGVsbG8gU2VtYXBob3JlIDIuMAo=
+
+The data in the `content` field is the output of the `base64 file.txt` command
+because the file is stored using Base64 representation.
 
 ## See also
 
