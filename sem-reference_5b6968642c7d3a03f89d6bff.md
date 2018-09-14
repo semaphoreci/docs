@@ -362,6 +362,16 @@ As `sem init` requires no command line arguments, you execute it as follows:
 If the `.semaphore/semaphore.yml` file is already present in the current
 directory, `sem init` will fail.
 
+If you decide to use `--project-name`, then you can call `sem init` as follows:
+
+    sem init --project-name my-own-name
+
+The previous command creates a new Semaphore 2.0 project that will be called
+`my-own-name`.
+
+Using `--repo-url` with `sem init` is much trickier because you should know
+what you are doing.
+
 ### sem version
 
 The `sem version` command displays the used version of the `sem` tool. As an
@@ -369,7 +379,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.4.1
+    v0.5.0
 
 Your actual output might be different on your machine.
 
