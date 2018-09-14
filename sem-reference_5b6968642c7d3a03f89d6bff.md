@@ -112,7 +112,7 @@ will change the active organization to the given one.
 ## Working with resources
 
 This group of `sem` commands includes the four most commonly and frequently
-used commands: `sem create`, `sem delete`, `sem describe`, `sem edit secrets`,
+used commands: `sem create`, `sem delete`, `sem describe`, `sem edit secret`,
 `sem apply -f` and `sem get`. This mainly happens because these are the
 commands that allow you to work with resources.
 
@@ -126,7 +126,7 @@ handled by `sem create`: secrets and projects configuration files.
 However, for `secrets` only, you can use `sem create` to create an empty
 `secret` without the need for a YAML file as follows:
 
-    sem create secrets <name>
+    sem create secret <name>
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
@@ -278,7 +278,7 @@ project under the current organization:
 Additionally, the following command will create a new and empty `secret` that
 will be called `my-new-secret`:
 
-    sem create secrets my-new-secret
+    sem create secret my-new-secret
 
 ### sem delete project
 
@@ -334,7 +334,7 @@ suitable for being further processed by traditional UNIX command line tools.
 The following command will edit a `secret` that is named `my-secret` and will
 automatically execute your favorite text editor:
 
-    sem edit secrets my-secret
+    sem edit secret my-secret
 
 What you are going to see on your screen is the YAML representation of the
 `my-secret` secret.
