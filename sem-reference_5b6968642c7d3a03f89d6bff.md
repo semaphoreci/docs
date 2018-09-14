@@ -43,6 +43,8 @@ The following list briefly describes the `sem` operations:
 * *delete*: The `delete` command is used for deleting existing resources.
 * *describe*: The `describe` command is used for getting information about existing resources.
 * *get*: The `get` command is used for getting the list of an existing type of resource.
+* *edit*: The `edit` command is used for editing existing `secrets` using your favorite editor.
+* *apply*: The `apply` command is used for updating existing `secrets` using a `secrets` YAML file.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository to Semaphore 2.0 for the first time.
 * *version*: The `version` command is used for getting the version of the `sem` utility.
@@ -110,16 +112,21 @@ will change the active organization to the given one.
 ## Working with resources
 
 This group of `sem` commands includes the four most commonly and frequently
-used commands: `sem create`, `sem delete`, `sem describe` and `sem get`. This
-mainly happens because these are the commands that allow you to work with
-resources.
+used commands: `sem create`, `sem delete`, `sem describe`, `sem edit secrets`,
+`sem apply -f` and `sem get`. This mainly happens because these are the
+commands that allow you to work with resources.
 
 ### sem create
 
-The `sem create` command is used for creating new resources and should always
-be followed by the `-f` flag, which should be followed by a valid path to a
-proper YAML file. Currently there exist two types of YAML configuration files
-that can be handled by `sem create`: secrets and projects configuration files.
+The `sem create` command is used for creating new resources and can be followed
+by the `-f` flag, which should be followed by a valid path to a proper YAML
+file. Currently there exist two types of YAML configuration files that can be
+handled by `sem create`: secrets and projects configuration files.
+
+However, for `secrets` only, you can use `sem create` to create an empty
+`secret` without the need for a YAML file as follows:
+
+    sem create secrets <name>
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
@@ -150,6 +157,24 @@ The `sem get` command returns the list of items for the given resource type
 that can be found in the active organization and requires a command line
 argument, which is the resource type.
 
+Additionally, `sem get` can be used instead of `sem describe`:
+
+    sem get [RESOURCE] <name>
+
+The previous command is completely equivalent to the next one:
+
+    sem describe [RESOURCE] <name>
+
+### sem edit
+
+The `sem edit` command works for `secrets` only and allows you to edit the
+YAML representation of a `secret` using your favorite editor.
+
+### sem apply
+
+The `sem apply` command works for `secrets` only and allows you to update the
+contents of an existing `secret` using an external `secrets` YAML file.
+
 ## Project Initialization
 
 This group only includes the `sem init` command.
@@ -161,16 +186,20 @@ the active organization.
 
 The `sem init` command should be executed from within the root directory of a
 GitHub repository that has been either created locally and pushed to GitHub or
-cloned using the `git clone` command. The command is executed without any other
-command line parameters or arguments.
+cloned using the `git clone` command. Although the command can be executed
+without any other command line parameters or arguments, it also supports the
+`--project-name` and `--repo-url` options.
 
 #### --project-name
 
-The value of the `--project-name` command line option
+The `--project-name` command line option is used for manually setting the name
+of the Semaphore 2.0 project.
 
 #### --repo-url
 
-The value of the `--repo-url` command line option
+The `--repo-url` command line option allows allows you to manually specify the
+URL of the GitHub repository in case `sem init` has difficulties finding that
+out.
 
 ## Help commands
 
@@ -246,6 +275,11 @@ project under the current organization:
 
     sem create -f /tmp/valid.yaml
 
+Additionally, the following command will create a new and empty `secret` that
+will be called `my-new-secret`:
+
+    sem create secrets my-new-secret
+
 ### sem delete project
 
 In order to delete an existing project named `be-careful` from the current
@@ -294,6 +328,30 @@ current user under the active organization:
 
 Each entry is printed on a separate line, which makes the generated output
 suitable for being further processed by traditional UNIX command line tools.
+
+### sem edit
+
+The following command will edit a `secret` that is named `my-secret` and will
+automatically execute your favorite text editor:
+
+    sem edit secrets my-secret
+
+What you are going to see on your screen is the YAML representation of the
+`my-secret` secret.
+
+### sem apply
+
+The following command will update the `my-secret` secret according to the
+contents of the `aFile`, which should be a valid `secrets` YAML file:
+
+    sem apply -f aFile
+
+If everything is OK with `aFile`, the output of the previous command will be as
+follows:
+
+    Secret 'my-secrets' updated.
+
+This means that the `secret` is updated.
 
 ### sem init
 
