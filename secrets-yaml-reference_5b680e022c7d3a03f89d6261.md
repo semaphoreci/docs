@@ -8,17 +8,24 @@
    * [env_vars](#env_vars)
       * [name](#name-in-env_vars)
       * [value](#value)
+    * [files](#files)
+	  * [path](#path)
+	  * [content](#content)
 * [Example](#example)
+* [Example with files](#example-with-files)
+* [Example with an empty secret](#example-with-an-empty-secret)
 * [See also](#see-also)
 
 ## Overview
 
 This document is the reference for the YAML grammar used for creating secrets.
 
-A secret along with its contents is created under the current
-organization and is available in this organization only unless you add it to
-other organizations. Additionally, a secret is visible to all the
-users of an organization.
+A `secret` is a bucket that stores environment variables and files.
+
+A secret along with its contents is created under the current organization and
+is available in this organization only unless you add it to other
+organizations. Additionally, a secret is visible to all the users of an
+organization.
 
 ## Properties
 
@@ -29,7 +36,7 @@ The `apiVersion` property defines the version of the YAML grammar that will be
 used in the current YAML file. Different versions might have different
 features.
 
-The list of values for `apiVersion`: `v1alpha`.
+The list of values for `apiVersion`: `v1beta`.
 
 ### kind
 
@@ -58,14 +65,14 @@ dashes and underscores – space characters are not allowed.
 
 ### data
 
-The `data` property, which is compulsory, currently holds a single `env_vars`
-property.
+The `data` property, which is compulsory and should not be empty, holds a
+single `env_vars` property and/or a single `files` property.
 
 ### env_vars
 
-The `env_vars` property, which is compulsory, is a list of `name` and `value`
-pairs that allows you to define the names and the values of the environment
-variables that will be inserted in the current secret.
+The `env_vars` property is a list of `name` and `value` pairs that allows you
+to define the names and the values of the environment variables that will be
+inserted in the current secret.
 
 #### name in env_vars
 
@@ -80,12 +87,29 @@ The name of an environment variable should follow
 The value of the `value` property defines the value of the environment variable
 that was previously defined using a `name` property.
 
+### files
+
+The `files` property holds a list of items with `path` and `content` pairs and
+is used for storing files in `secrets`.
+
+#### path
+
+The `path` property holds the name of the file that will be stored – this
+value defines the way the file is going to be referenced and restored in the
+future and should not exist in the GitHub repository.
+
+#### content
+
+The `content` property holds the contents of the file that will be referenced
+by the value of the `path` property. The data of the `content` field is in
+*Base64 representation*.
+
 ## Example
 
-    apiVersion: v1alpha
+    apiVersion: v1beta
     kind: Secret
     metadata:
-      name: a-secrets-name
+      name: a-secret-name
     data:
       env_vars:
         - name: SECRET_ONE
@@ -97,6 +121,50 @@ The previous example defines a secret named `a-secrets-name`
 that contains two environment variables named `SECRET_ONE` and
 `SECRET_TWO` with values `This is the value of SECRET_ONE` and
 `This is the value of SECRET_TWO`, respectively.
+
+The example is equivalent to the previous one:
+
+    apiVersion: v1beta
+    kind: Secret
+    metadata:
+      name: a-secret-name
+    data:
+      env_vars:
+        - name: SECRET_ONE
+          value: "This is the value of SECRET_ONE"
+        - name: SECRET_TWO
+          value: "This is the value of SECRET_TWO"
+	  files: []
+
+## Example with files
+
+	apiVersion: v1beta
+	kind: Secret
+	metadata:
+	  name: my-secrets
+	data:
+	  env_vars:
+	  - name: SECRET_ONE
+	    value: This is a little secret
+	  files:
+	  - path: file.txt
+	    content: SGVsbG8gU2VtYXBob3JlIDIuMAo=
+
+The data in the `content` field is the output of the `base64 file.txt` command
+because the contents of the file are in Base64 representation.
+
+## Example with an empty secret
+
+If you want to create an `empty` secret you can define the `data` block as
+follows:
+
+	apiVersion: v1beta
+	kind: Secret
+	metadata:
+	  name: empty-secret
+	data:
+	  env_vars: []
+	  files: []
 
 ## See also
 
