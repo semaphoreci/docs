@@ -97,7 +97,16 @@ there is currently no support for regular expressions.
 
 ###### github_uid
 
+The `github_uid` property allows you to filter by GitHub username.
+
+There exist a special value of `github_uid`, which is `'{{gitgub_uid}}'` and is
+automatically be expanded to the GitHub username of the current user.
+
 ###### pipeline_file
+
+The `pipeline_file` property allows you to filter by the name of the pipeline
+file as it appears on a pipeline YAML file. The value of the default pipeline
+YAML is file `.semaphore/semaphore.yml`.
 
 ## Example
 
