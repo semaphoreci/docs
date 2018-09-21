@@ -14,7 +14,7 @@
 ## Overview of sem
 
 `sem` is the command line interface to Semaphore 2.0. This reference page
-covers the syntax and the commands of `sem` and presents examples of the `sem`
+covers the syntax and the commands of `sem` and presents examples of `sem`
 commands.
 
 ## Syntax
@@ -25,7 +25,7 @@ The general syntax of the `sem` utility is as follows:
 
 where `[COMMAND]` is the name of the command as explained in this reference
 page, `[RESOURCE]` is the resource type that interests us, `[NAME]` is the
-actual name of the resource and `[flags]` are optional flags.
+actual name of the resource and `[flags]` are optional command line flags.
 
 Not all `sem` commands require a `[RESOURCE]` value and most `sem` commands do
 not have a `[flag]` part.
@@ -47,9 +47,10 @@ The following list briefly describes the `sem` operations:
 * *edit*: The `edit` command is used for editing existing `secrets` and
     `dashboards` using your favorite text editor.
 * *apply*: The `apply` command is used for updating existing `secrets` and
-    `dashborads` using a `secrets` or a `dashaboard` YAML file.
+    `dashborads` using a `secret` or a `dashaboard` YAML file.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
-* *init*: The `init` command is used for adding an existing GitHub repository to Semaphore 2.0 for the first time.
+* *init*: The `init` command is used for adding an existing GitHub repository
+    to Semaphore 2.0 for the first time and creating a new project.
 * *version*: The `version` command is used for getting the version of the `sem` utility.
 
 ## Resource types
@@ -59,8 +60,13 @@ Semaphore 2.0 supports three types of resources: `secret`, `project` and
 
 ### Secrets
 
-A `secret` is a bucket that stores environment variables and files. You can
-consider a `secret` as a place where you can store your sensitive data.
+A `secret` is a bucket for keeping sensitive information in the form of
+environment variables and small files. Therefore, you can consider a `secret`
+as a place where you can store small amounts of sensitive data such as
+passwords, tokens or keys. Sharing sensitive data in a `secret` is both
+safer and more flexible than storing it using plain text files or environment
+variables that anyone can access.
+
 
 Each `secret` is associated with a single organization. In other words, a
 `secret` belongs to an organization. In order to use a specific `secret` you
@@ -69,7 +75,7 @@ should be connected to the organization that owns it.
 ### Projects
 
 A project is the way Semaphore 2.0 organizes, stores and processes GitHub
-repositories. As a result each Semaphore 2.0 project has a one-to-one
+repositories. As a result each Semaphore 2.0 project has an one-to-one
 relationship with a GitHub repository.
 
 However, the same GitHub repository can be assigned to multiple Semaphore 2.0
@@ -84,14 +90,15 @@ use the same project name more than once under a single organization.
 
 ### Dashboards
 
-A Semaphore 2.0 `Dashboard` is a place when you can define multiple `widgets`
-in order to overview the operations of your current Semaphore 2.0 organization.
+A Semaphore 2.0 `Dashboard` is a place when you can keep the `widgets` that you
+define in order to overview the operations of your current Semaphore 2.0
+organization.
 
 A `widget` is used for watching the activity of pipelines and workflows
 according to certain criteria that are defined using filters that help you
 narrow down the displayed information.
 
-As it happens with `secrets`, each `dashboards` is associated with a given
+As it happens with `secrets`, each `dashboard` is associated with a given
 organization. Therefore, in order to view a specific `dashboard` you should be
 connected to the organization the `dashboard` belongs to.
 
@@ -157,21 +164,23 @@ pages of the Semaphore 2.0 documentation.
 The `sem delete` command is used for deleting existing resources, which means
 that is used for deleting Semaphore 2.0 projects, dashboards and secrets.
 
-Note that when you delete a secret, then that particular secret will disappear
-from the active organization and all Semaphore 2.0 projects that are using it
-will be affected.
+When you delete a secret, then that particular secret will disappear from the
+active organization, which will affect all the Semaphore 2.0 projects that were
+using it.
 
 When you use `sem delete` to delete a project then that particular project is
 deleted from the active organization of the active user.
 
+Deleting a `dashboard` will not affect any Semaphore 2.0 projects.
+
 ### sem get
 
 The `sem get` command can do two things. First, it can return a list of items
-for the given resource type that can be found in the active organization and.
-This option requires a command line argument, which is the resource type.
-Second, it can return analytical information for an existing resource. In this
-case you should provide `sem get` with the type of the resource and the name of
-the resource, in that order.
+for the given resource type that can be found in the active organization. This
+option requires a command line argument, which is the resource type. Second, it
+can return analytical information for an existing resource. In this case you
+should provide `sem get` with the type of the resource and the name of the
+resource that interests you, in that exact order.
 
 In the first case, `sem get` can be used as follows:
 
@@ -185,13 +194,14 @@ In the second case, `sem get` should be used as follows:
 
 The `sem edit` command works for `secrets` and `dashboards` only and allows
 you to edit the YAML representation of a `secret` or a `dashboard` using your
-favorite editor.
+favorite plain text editor.
 
 ### sem apply
 
 The `sem apply` command works for `secrets` and `dashboards` and allows you to
 update the contents of an existing `secret` or `dashboard` using an external
-`secrets` or `dashboards` YAML file.
+`secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
+line option followed by a valid path to an appropriate YAML file.
 
 ## Project Initialization
 
@@ -253,12 +263,11 @@ The flag is useful for debugging.
 ### The -f flag
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
-be used with the `sem create` command in order to create a new secret, a new
-Semaphore 2.0 project or a new dashboard.
+be used with the `sem create` or `sem apply` commands.
 
 ## Examples
 
-This section will present examples for all `sem` commands.
+This section will present examples for all the `sem` commands.
 
 ### sem connect
 
@@ -285,9 +294,7 @@ execute the next command:
 
 ### sem create
 
-The `sem create` command goes hand by hand with the `-f` flag because you
-always need to provide a valid YAML file with the `sem create` command. So,
-if you have a valid secret, dashboard or project YAML file stored at
+If you have a valid secret, dashboard or project YAML file stored at
 `/tmp/valid.yaml`, you should execute the next command in order to add that
 secret, dashboard or project under the current organization:
 
@@ -303,7 +310,10 @@ be called `my-dashboard`:
 
     sem create dashboard my-dashboard
 
-### sem delete [resource type] <resource name>
+You cannot execute `sem create project <name>` in order to create an empty
+Semaphore 2.0 project.
+
+### sem delete
 
 In order to delete an existing project named `be-careful` from the current
 organization, you should execute the next command:
@@ -321,18 +331,16 @@ Last, you can delete an existing secret named `my-secret` as follows:
 
 ### sem get
 
-As the `sem get` command returns the list of available items that belong to the
-specified resource type, you will need to specify the resource type that
-interests you.
+As the `sem get` command works with resources, you will need to specify a
+resource type when issuing a `sem get` command all the time.
 
-So, in order to get a list of the available projects for the current user
-under the active organization, you should execute one of the following two
-equivalent commands:
+So, in order to get the list of the available projects for the current user
+under the active organization, you should execute the following command:
 
     sem get project
 
-Similarly, the next command returns the list of available secrets for the
-current user under the active organization:
+Similarly, the next command returns the list of the names of the available
+secrets for the current user under the active organization:
 
 	sem get secret
 
@@ -348,6 +356,8 @@ Similarly, in order to find out the contents of a `secret` named `mySecrets`,
 you should execute the next command:
 
     sem get secret mySecrets
+
+You can also use `sem get` for displaying information about a `dashboard`.
 
 ### sem edit
 
@@ -383,12 +393,14 @@ You can also use `sem apply -f` in a similar way to update existing dashboards.
 
 ### sem init
 
-As `sem init` requires no command line arguments, you execute it as follows:
+As `sem init` requires no command line arguments, you execute it as follows
+from the root directory of a GitHub repository that resides on your local
+machine:
 
     sem init
 
-If the `.semaphore/semaphore.yml` file is already present in the current
-directory, `sem init` will keep the existing `.semaphore/semaphore.yml` file
+If a `.semaphore/semaphore.yml` file already exists in the root directory of a
+GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
 and continue its operation.
 
 If you decide to use `--project-name`, then you can call `sem init` as follows:
