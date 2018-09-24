@@ -35,11 +35,11 @@ Each dashboard is associated to a given organization. Therefore, in order to vie
 
 The `apiVersion` property
 
-The list of valid values for `apiVersion`:
+The list of valid values for `apiVersion`: `v1alpha`.
 
 ### kind
 
-The list of valid values for `kind`:
+The list of valid values for `kind`: `Dashboard`.
 
 ### metadata
 
