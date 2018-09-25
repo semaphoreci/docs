@@ -16,10 +16,11 @@
          * [filters](#filters)
             - [project_id](#project_id)
             - [branch](#branch)
-<!---           - [github_uid](#github_uid) --->
             - [pipeline_file](#pipeline_file)
 * [Example](#example)
 * [See also](#see-also)
+
+<!---           - [github_uid](#github_uid) --->
 
 ## Overview
 
