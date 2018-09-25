@@ -32,8 +32,8 @@ for complete information.
 
 ## Secrets
 
-A _secrets_ is sensitive data such as API keys. They **shoult not** be
-commited to source control. Instead they should be read from
+A _secrets_ is sensitive data such as API keys. They **should not** be
+committed to source control. Instead they should be read from
 environments variables. Semaphore securely manages sensitive data for
 use in _blocks_ and _tasks_ via environment variables. Secretes are
 created with the `sem` CLI and configured in the YML pipeline. Refer

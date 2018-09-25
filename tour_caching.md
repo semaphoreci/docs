@@ -1,11 +1,10 @@
 # Caching Dependencies
 
-Since each jobs runs on a fresh machine, common tasks like install
+Since each jobs runs on a fresh machine, common tasks like installing
 dependencies must be repeated. This slows down builds and may make
-things less reliable. Semaphore includes a utility to cache files and
-directories backed by an exteremly fast local network, so even
-Gigabytes may be cached with ease. The cache is specific to each
-project, so cache entries may be shared between jobs.
+them less reliable. Semaphore includes a utility to cache files and
+directories backed by an extremely fast network, so even
+gigabytes may be cached with ease.
 
 Here's an example of caching `npm` dependencies:
 
@@ -37,10 +36,15 @@ blocks:
 ```
 
 This example generates a `VERSION` environment variable based on
-`package.json`. This way caches will be invalidated and updated
-correctly as `package.json` changes. The approach applies to other
-languages and uses cases as well.
+`package.json`. This invalidates the cache and updates correctly as
+`package.json` changes. The approach applies to other languages and
+uses cases as well.
 
-Also note that `cache store` must be called before `cache restore`.
-This is why the example uses a block to fill the cache, then use the
-cache in subsequent blocks.
+`cache store` must be called before `cache restore`. This is why the
+example uses a block to warm the cache, then uses the cache in
+subsequent blocks.
+
+That wraps up the tour. We've covered configuring pipelines,
+installing software, using databases, setting environment variables,
+managing secrets, and connecting pipelines with promotions, and
+caching dependencies. You're ready to start shipping with SeamphoreCI.

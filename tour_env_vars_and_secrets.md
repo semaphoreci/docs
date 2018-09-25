@@ -87,8 +87,9 @@ Now create the secrets with `sem`:
 $ sem create -f aws-secret.yml
 ```
 
-Now list the secret's `name` in the pipeline file. Secrets can be
-configured for the block or for the job like environment variables.
+Now list the secret's `name` in the pipeline file. Secrets may be
+configured for the block or for the job just like environment
+variables.
 
 ```yml
 # .semaphore/semaphore.yml
@@ -108,7 +109,7 @@ blocks:
             - echo "$AWS_SECRET_ACCESS_KEY"
 ```
 
-Now that you can configure envrionment variable and secrets, you're
+Now that you can configure environment variable and secrets, you're
 ready to move onto [deploying with promotions][next].
 
 [next]: http://placeholder.com

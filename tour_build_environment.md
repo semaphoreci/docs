@@ -1,7 +1,7 @@
 # Customizing the Build Environment
 
 Agents run each job in a clean environment. The default [Ubuntu
-VM][machine] includes the common tools and databases for most
+VM][machine] includes common tools and databases needed by most
 projects. You also have full `sudo` access, so you can install new
 software or change whatever you need.
 
@@ -21,9 +21,30 @@ blocks:
             - echo 'running tests'
 ```
 
-Notice, the command requires root access so it's run with `sudo`. You
-can use this to install any other dependencies. Assume your projects
-uses [bats][] for testing. Just add more commands to prologue:
+The [Ubuntu machine][machine] includes common databases installed as
+services. If the proper version is not pre-installed or your
+dependency is not available as a package, then you can start it as a
+Docker container with `sem-service`. [sem-service][sem-service]
+exposes default ports. Here's an example that starts [local
+DynamoDB][local-dynamodb]:
+
+```yml
+#.semaphore/semaphore.yml
+blocks:
+  - name: "Test"
+    task:
+      prologue:
+        commands:
+          - sem-service start amazon/dynamodb-local
+      jobs:
+        - name: Tests
+          commands:
+            - echo 'running tests'
+```
+
+You also have full access to install any other dependencies. Assume
+your projects uses [bats][] for testing. Just add more commands to
+prologue:
 
 ```yml
 #.semaphore/semaphore.yml
@@ -44,7 +65,8 @@ blocks:
 
 Refer back [Ubuntu VM][machine] reference to a complete list of
 pre-installed databases and software. Next, [configure secrets and
-enviornment variables][next].
+environment variables][next].
 
-[machine]: http://placeholder.com
+[machine]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [next]: http://placeholder.com
+[sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
