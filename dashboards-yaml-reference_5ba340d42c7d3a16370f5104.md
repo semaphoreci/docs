@@ -185,7 +185,7 @@ default pipeline is `.semaphore/semaphore.yml`.
       - name: Using list_workflows
         type: list_workflows
         filters:
-		  branch: master
+          branch: master
       - name: All projects on branch mt/sem-init
         type: list_workflows
         filters:
