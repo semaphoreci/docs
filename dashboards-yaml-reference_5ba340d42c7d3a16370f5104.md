@@ -16,7 +16,7 @@
          * [filters](#filters)
             - [project_id](#project_id)
             - [branch](#branch)
-            - [github_uid](#github_uid)
+<!---           - [github_uid](#github_uid) --->
             - [pipeline_file](#pipeline_file)
 * [Example](#example)
 * [See also](#see-also)
@@ -143,6 +143,8 @@ of the GitHub repository of a Semaphore 2.0 project.
 Note that the value of the `branch` property should be an exact match and that
 there is currently no support for regular expressions in the `branch` property.
 
+
+<!---
 ###### github_uid
 
 The `github_uid` property allows you to filter the results by GitHub username
@@ -150,6 +152,8 @@ and can only be used with the `list_workflows` type.
 
 There exist a special value for `github_uid`, which is `'{{gitgub_uid}}'` that
 is automatically expanded to the GitHub username of the current user.
+
+--->
 
 ###### pipeline_file
 
