@@ -24,7 +24,7 @@
 
 ## Overview
 
-This document is the official reference of the Dashboard YAML grammar used for
+This document is the reference of the Dashboard YAML grammar used for
 defining `dashboards` in Semaphore 2.0.
 
 A Semaphore 2.0 `Dashboard` is a place where you can define `widgets` in order
@@ -95,12 +95,11 @@ time you make changes to a dashboard.
 
 ### spec
 
-The `spec` property is used for holding the list of widgets your dashboard will
-have.
+The `spec` property is used for holding the `widgets` property.
 
 #### widgets
 
-A Dashboard is a place for holding a list of `widgets` items. Each widget
+The `widgets` property holds a list of widgets. Each widget
 defines the actual information that will be displayed on Semaphore 2.0 UI using
 the `name`, `type` and `filters` properties.
 
@@ -133,12 +132,15 @@ If you are using a `list_worflows` type and you have no filters, the value of
 The `project_id` property is compulsory for the `list_pipelines` type of
 widgets and optional for the `list_worflows` type of widgets.
 
+The `project_id` property allows to display workflows or pipelines from a
+given Semaphore 2.0 project.
+
 You can find the project ID of an existing Semaphore 2.0 project with the help
-of the `sem get projects <name>` command.
+of the `sem get project <name>` command.
 
 ###### branch
 
-The `branch` property allows you to filter the output by the name of the branch
+The `branch` property allows you to filter the widget output by the branch name
 of the GitHub repository of a Semaphore 2.0 project.
 
 Note that the value of the `branch` property should be an exact match and that
@@ -158,8 +160,9 @@ is automatically expanded to the GitHub username of the current user.
 
 ###### pipeline_file
 
-The `pipeline_file` property allows you to filter the generated output using
-the filename of the pipeline file that is being executed. The filename of the
+The `pipeline_file` property, which can only appear in the `list_pipelines` widget type,
+allows you to filter the generated output using the filename of the pipeline
+file that is being executed. The filename of the
 default pipeline is `.semaphore/semaphore.yml`.
 
 ## Example
@@ -193,4 +196,5 @@ default pipeline is `.semaphore/semaphore.yml`.
 
 ## See also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Installing sem utility](https://docs.semaphoreci.com/article/26-installing-cli)
+* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
