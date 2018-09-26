@@ -292,6 +292,22 @@ utility:
 	          - cat cache_dir/my_data
     
 
+
+## sem-version
+
+### Description
+
+The `sem-version` utility
+
+### Command Line Parameters
+
+The general form of the `sem-version` utility is as follows:
+
+### Dependencies
+
+### Examples
+
+
 ## See also
 
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
