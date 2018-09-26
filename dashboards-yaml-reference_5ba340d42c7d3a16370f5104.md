@@ -40,12 +40,36 @@ view a specific dashboard you should be connected to the organization the
 dashboard belongs to.
 
 
-## list_workflows
+## Widgets
 
 
+### Workflows list
 
-## list_pipelines
+In order to create a workflows list you will need to use `list_workflows` as
+the value of `type`.
 
+The supported properties in `filters` for a workflows list are the following:
+
+*
+*
+*
+
+#### Example
+
+
+### Pipelines list
+
+In order to create a pipelines list you will need to use `list_pipelines` as
+the value of `type`.
+
+The supported properties in `filters` for a pipelines list are the following:
+
+*
+*
+*
+
+
+#### Example
 
 
 ## Properties
