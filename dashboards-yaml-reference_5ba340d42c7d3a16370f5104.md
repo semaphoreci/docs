@@ -39,36 +39,6 @@ Each dashboard is associated to a given organization. Therefore, in order to
 view a specific dashboard you should be connected to the organization the
 dashboard belongs to.
 
-
-## Widgets
-
-
-### Workflows list
-
-In order to create a workflows list you will need to use `list_workflows` as
-the value of `type`.
-
-The supported properties in `filters` for a workflows list are the following:
-
-*
-*
-*
-
-#### Example
-
-
-### Pipelines list
-
-In order to create a pipelines list you will need to use `list_pipelines` as
-the value of `type`.
-
-The supported properties in `filters` for a pipelines list are the following:
-
-*
-*
-*
-
-
 #### Example
 
 
@@ -128,77 +98,91 @@ time you make changes to a dashboard.
 
 ### spec
 
-The `spec` property is used for holding the `widgets` property.
+The `spec` property is currently used for holding the `widgets` property.
 
-#### widgets
+## Widgets
 
 The `widgets` property holds a list of widgets. Each widget
 defines the actual information that will be displayed on Semaphore 2.0 UI using
 the `name`, `type` and `filters` properties.
 
-##### name in widgets
+### The filters property
+
+The `filters` property holds a list of items that can help you filter the
+output to match certain criteria.
+
+### name in widgets
 
 The `name` property used in each item of the `widgets` list defines the name of
 a `widget` as it will appear on the UI of Semaphore 2.0.
 
-##### type
+### type
 
 The value of `type` defines whether you want your widget to display information
 about pipelines or workflows.
 
 The list of valid values for `type`: `list_workflows` and `list_pipelines`.
 
-##### filters
+### Workflows list
 
-The `filters` property holds a list of items that can help you filter the
-output to match certain criteria.
+In order to create a workflows list you will need to use `list_workflows` as
+the value of the `type` property.
 
-Notice that the `filters` property is compulsory when used with a
-`list_pipelines` widget type and optional when used with a `list_workflows`
-widget type.
+The supported properties in `filters` for a workflows list are the following:
+
+* project_id (optional): allows to display workflows from a given Semaphore 2.0 project. You can find
+    the project ID of an existing Semaphore 2.0 project using the `sem get project <name>` command.
+* branch (optional): The `branch` property allows you to filter the widget output by the branch name
+    of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
+    should be an exact match and that there is currently no support for regular expressions
+    in the `branch` property.
+* github_uid (optional): The `github_uid` property allows you to filter the results by
+    GitHub username and can only be used with the `list_workflows` type. There
+    exist a special value for `github_uid`, which is `'{{gitgub_uid}}'` that
+    is automatically expanded to the GitHub username of the current user.
 
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
 
-###### project_id
+#### Example
 
-The `project_id` property is compulsory for the `list_pipelines` type of
-widgets and optional for the `list_worflows` type of widgets.
+    apiVersion: v1alpha
+    kind: Dashboard
+    metadata:
+      name: my-dashboard
+      title: My Dashboard
+      id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
+      create_time: "1537445699"
+      update_time: "1537445713"
+    spec:
+      widgets:
+      - name: Using list_workflows
+        type: list_workflows
+        filters:
+          branch: master
+      - name: All projects on branch mt/sem-init
+        type: list_workflows
+        filters: {}
 
-The `project_id` property allows to display workflows or pipelines from a
-given Semaphore 2.0 project.
+### Pipelines list
 
-You can find the project ID of an existing Semaphore 2.0 project with the help
-of the `sem get project <name>` command.
+In order to create a pipelines list you will need to use `list_pipelines` as
+the value of the `type` property.
 
-###### branch
+The supported properties in `filters` for a pipelines list are the following:
 
-The `branch` property allows you to filter the widget output by the branch name
-of the GitHub repository of a Semaphore 2.0 project.
+* project_id (required): restricts the widget output to pipelines from a single
+    Semaphore 2.0 project. You can find the project ID of an existing Semaphore 2.0 project
+    using the `sem get project <name>` command.
+* branch (optional): The `branch` property allows you to filter the widget output by the branch name
+    of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
+    should be an exact match and that there is currently no support for regular expressions
+    in the `branch` property.
+* pipeline_file (optional): the `pipeline_file` property allows you to filter the generated output using
+    the filename of the pipeline file that is being executed. The filename of the default pipeline
+    is `.semaphore/semaphore.yml`.
 
-Note that the value of the `branch` property should be an exact match and that
-there is currently no support for regular expressions in the `branch` property.
-
-
-<!---
-###### github_uid
-
-The `github_uid` property allows you to filter the results by GitHub username
-and can only be used with the `list_workflows` type.
-
-There exist a special value for `github_uid`, which is `'{{gitgub_uid}}'` that
-is automatically expanded to the GitHub username of the current user.
-
---->
-
-###### pipeline_file
-
-The `pipeline_file` property, which can only appear in the `list_pipelines` widget type,
-allows you to filter the generated output using the filename of the pipeline
-file that is being executed. The filename of the
-default pipeline is `.semaphore/semaphore.yml`.
-
-## Example
+#### Example
 
     apiVersion: v1alpha
     kind: Dashboard
@@ -214,18 +198,12 @@ default pipeline is `.semaphore/semaphore.yml`.
         type: list_pipelines
         filters:
           project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+          branch: demo
+          pipeline_file: .semaphore/p1.yml
       - name: docs projects
         type: list_pipelines
         filters:
           project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
-      - name: Using list_workflows
-        type: list_workflows
-        filters:
-          branch: master
-      - name: All projects on branch mt/sem-init
-        type: list_workflows
-        filters:
-          branch: mt/sem-init
 
 ## See also
 
