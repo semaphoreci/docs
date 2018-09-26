@@ -147,8 +147,8 @@ If you are using a `list_worflows` type and you have no filters, the value of
       name: my-dashboard
       title: My Dashboard
       id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
-      create_time: "1537445699"
-      update_time: "1537445713"
+      create_time: "1537888191"
+      update_time: "1537889560"
     spec:
       widgets:
       - name: Using list_workflows
