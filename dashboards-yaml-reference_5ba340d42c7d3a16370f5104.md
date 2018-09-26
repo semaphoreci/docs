@@ -130,13 +130,13 @@ the value of the `type` property.
 
 The supported properties in `filters` for a workflows list are the following:
 
-* project_id (optional): allows to display workflows from a given Semaphore 2.0 project. You can find
+* **project_id** (optional): allows to display workflows from a given Semaphore 2.0 project. You can find
     the project ID of an existing Semaphore 2.0 project using the `sem get project <name>` command.
-* branch (optional): The `branch` property allows you to filter the widget output by the branch name
+* **branch** (optional): The `branch` property allows you to filter the widget output by the branch name
     of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
     should be an exact match and that there is currently no support for regular expressions
     in the `branch` property.
-* github_uid (optional): The `github_uid` property allows you to filter the results by
+* **github_uid** (optional): The `github_uid` property allows you to filter the results by
     GitHub username and can only be used with the `list_workflows` type. There
     exist a special value for `github_uid`, which is `'{{gitgub_uid}}'` that
     is automatically expanded to the GitHub username of the current user.
@@ -171,14 +171,14 @@ the value of the `type` property.
 
 The supported properties in `filters` for a pipelines list are the following:
 
-* project_id (required): restricts the widget output to pipelines from a single
+* **project_id** (required): restricts the widget output to pipelines from a single
     Semaphore 2.0 project. You can find the project ID of an existing Semaphore 2.0 project
     using the `sem get project <name>` command.
-* branch (optional): The `branch` property allows you to filter the widget output by the branch name
+* **branch** (optional): The `branch` property allows you to filter the widget output by the branch name
     of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
     should be an exact match and that there is currently no support for regular expressions
     in the `branch` property.
-* pipeline_file (optional): the `pipeline_file` property allows you to filter the generated output using
+* **pipeline_file** (optional): the `pipeline_file` property allows you to filter the generated output using
     the filename of the pipeline file that is being executed. The filename of the default pipeline
     is `.semaphore/semaphore.yml`.
 
