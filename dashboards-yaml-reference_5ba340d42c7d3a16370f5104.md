@@ -39,6 +39,15 @@ Each dashboard is associated to a given organization. Therefore, in order to
 view a specific dashboard you should be connected to the organization the
 dashboard belongs to.
 
+
+## list_workflows
+
+
+
+## list_pipelines
+
+
+
 ## Properties
 
 ### apiVersion
