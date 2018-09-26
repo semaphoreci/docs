@@ -6,6 +6,8 @@
   * [retry](#retry)
   * [cache](#cache)
     - [Example Semaphore 2.0 project](#example-semaphore-project)
+  * [sem-version](#sem-version)
+    - [Example Semaphore 2.0 project](#example-sem-version-project)
 - [See also](#see-also)
   
 ## Overview
@@ -305,7 +307,13 @@ The general form of the `sem-version` utility is as follows:
 
 ### Dependencies
 
+
 ### Examples
+
+
+### Example sem-version project
+
+The following is an example Semaphore 2.0 project that uses `sem-version`:
 
 
 ## See also
