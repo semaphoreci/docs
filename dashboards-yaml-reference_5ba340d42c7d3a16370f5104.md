@@ -10,17 +10,15 @@
       * [create_time](#create_time)
       * [update_time](#update_time)
    * [spec](#spec)
-      * [widgets](#widgets)
-         * [name](#name-in-widgets)
-         * [type](#type)
-         * [filters](#filters)
-            - [project_id](#project_id)
-            - [branch](#branch)
-            - [pipeline_file](#pipeline_file)
-* [Example](#example)
+ * [widgets](#widgets)
+   * [The filters property](#the-filters-property)
+   * [name](#name-in-widgets)
+   * [type](#type)
+   * [Workflows list](#workflows-list)
+      * [Workflows example](#workflows-example)
+   * [Pipelines list](#pipelines-list)
+      * [Pipelines example](#pipelines-example)
 * [See also](#see-also)
-
-<!---           - [github_uid](#github_uid) --->
 
 ## Overview
 
@@ -38,9 +36,6 @@ that can help you narrow down the displayed information.
 Each dashboard is associated to a given organization. Therefore, in order to
 view a specific dashboard you should be connected to the organization the
 dashboard belongs to.
-
-#### Example
-
 
 ## Properties
 
@@ -144,7 +139,7 @@ The supported properties in `filters` for a workflows list are the following:
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
 
-#### Example
+#### Workflows example
 
     apiVersion: v1alpha
     kind: Dashboard
@@ -182,7 +177,7 @@ The supported properties in `filters` for a pipelines list are the following:
     the filename of the pipeline file that is being executed. The filename of the default pipeline
     is `.semaphore/semaphore.yml`.
 
-#### Example
+#### Pipelines example
 
     apiVersion: v1alpha
     kind: Dashboard
