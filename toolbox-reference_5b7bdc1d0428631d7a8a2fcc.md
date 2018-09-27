@@ -294,13 +294,13 @@ utility:
 	          - cat cache_dir/my_data
     
 
-
 ## sem-version
 
 ### Description
 
 The `sem-version` utility is used for changing the version of a programming
-language, which mainly happens for compatibility issues.
+language on the executed Virtual Machine (VM), which mainly happens for
+compatibility issues.
 
 The supported programming languages are `elixir`, `go`, `java`, `php`, `ruby`,
 `python` and `node`.
@@ -314,18 +314,18 @@ The general form of the `sem-version` utility is as follows:
 where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `go`, `java`, `php`, `ruby`,
 `python` and `node`. The value of the `[VERSION]` parameter depends on the
 programming language used as different programming languages have different
-versioning.
+versioning systems.
 
 ### Dependencies
 
 The `sem-version` utility mainly depends on the programming languages and the
 versions of the programming languages that are installed on the Virtual
-Machine (VM) used.
+Machine (VM) used for executing a job of a pipeline.
 
 ### Examples
 
 Changing the active Go version to 1.9 is as simple as executing the next
-command:
+command in a job of a pipeline:
 
     sem-version go 1.9
 
