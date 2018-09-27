@@ -94,7 +94,7 @@ A Semaphore 2.0 `Dashboard` is a place when you can keep the `widgets` that you
 define in order to overview the operations of your current Semaphore 2.0
 organization.
 
-A `widget` is used for watching the activity of pipelines and workflows
+A `widget` is used for following the activity of pipelines and workflows
 according to certain criteria that are defined using filters that help you
 narrow down the displayed information.
 
@@ -161,19 +161,11 @@ the [Dashboard YAML reference]()
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
-### sem delete
+### sem edit
 
-The `sem delete` command is used for deleting existing resources, which means
-that is used for deleting Semaphore 2.0 projects, dashboards and secrets.
-
-When you delete a secret, then that particular secret will disappear from the
-active organization, which will affect all the Semaphore 2.0 projects that are
-using it.
-
-When you use `sem delete` to delete a project then that particular project is
-deleted from the active organization of the active user.
-
-Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
+The `sem edit` command works for `secrets` and `dashboards` only and allows
+you to edit the YAML representation of a `secret` or a `dashboard` using your
+favorite text editor.
 
 ### sem get
 
@@ -192,18 +184,26 @@ In the second case, `sem get` should be used as follows:
 
     sem get [RESOURCE] <name>
 
-### sem edit
-
-The `sem edit` command works for `secrets` and `dashboards` only and allows
-you to edit the YAML representation of a `secret` or a `dashboard` using your
-favorite text editor.
-
 ### sem apply
 
 The `sem apply` command works for `secrets` and `dashboards` and allows you to
 update the contents of an existing `secret` or `dashboard` using an external
 `secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
+
+### sem delete
+
+The `sem delete` command is used for deleting existing resources, which means
+that is used for deleting Semaphore 2.0 projects, dashboards and secrets.
+
+When you delete a secret, then that particular secret will disappear from the
+active organization, which will affect all the Semaphore 2.0 projects that are
+using it.
+
+When you use `sem delete` to delete a project then that particular project is
+deleted from the active organization of the active user.
+
+Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
 ## Project Initialization
 
