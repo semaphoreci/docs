@@ -156,11 +156,11 @@ If you are using a `list_worflows` type and you have no filters, the value of
       update_time: "1537889560"
     spec:
       widgets:
-      - name: Using list_workflows
+      - name: Master branch from all projects
         type: list_workflows
         filters:
           branch: master
-      - name: All projects on branch mt/sem-init
+      - name: All projects on the current organization
         type: list_workflows
         filters: {}
 
@@ -182,7 +182,10 @@ The supported properties in `filters` for a pipelines list are the following:
     `branch` property.
 * **pipeline_file** (optional): the `pipeline_file` property allows you to filter
     the generated output using the filename of the pipeline file that is being
-    executed. The filename of the default pipeline is `.semaphore/semaphore.yml`.
+    executed. Please note that the `pipeline_file` value should not be just the name
+	of the pipeline file but the full path starting from the root directory of the
+	GitHub repository. Therefore, the filename of the default pipeline is
+	`.semaphore/semaphore.yml`.
 
 #### Pipelines example
 
@@ -196,13 +199,13 @@ The supported properties in `filters` for a pipelines list are the following:
       update_time: "1537445713"
     spec:
       widgets:
-      - name: Workflows
+      - name: Pipelines
         type: list_pipelines
         filters:
           project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
           branch: demo
           pipeline_file: .semaphore/p1.yml
-      - name: docs projects
+      - name: docs project pipelines
         type: list_pipelines
         filters:
           project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
