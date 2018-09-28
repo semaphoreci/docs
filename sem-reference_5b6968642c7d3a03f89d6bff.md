@@ -152,8 +152,8 @@ However, for `secrets` and `dashboards` only, you can use `sem create` to
 create an *empty* `secret` or `dashbord` without the need for a YAML file as
 follows:
 
-    sem create secret name
-    sem create dashbord name
+    sem create secret [name]
+    sem create dashbord [name]
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
@@ -182,7 +182,7 @@ In the first case, `sem get` can be used as follows:
 
 In the second case, `sem get` should be used as follows:
 
-    sem get [RESOURCE] name
+    sem get [RESOURCE] [name]
 
 ### sem apply
 
