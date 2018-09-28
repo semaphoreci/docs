@@ -48,7 +48,7 @@ The following list briefly describes all `sem` operations:
     `dashboards` using your favorite text editor.
 * *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
-	the use of the `-f` flag.
+    the use of the `-f` flag.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
@@ -343,7 +343,7 @@ under the active organization, you should execute the following command:
 Similarly, the next command returns the list of the names of the available
 secrets for the current user under the active organization:
 
-	sem get secret
+    sem get secret
 
 Each entry is printed on a separate line, which makes the generated output
 suitable for being further processed by traditional UNIX command line tools.
