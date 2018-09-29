@@ -314,15 +314,18 @@ not uses any `secrets`:
               commands:
                 - checkout
 
-If you know that name of one or more secrets, which for the purposes of this
-page will be `aws-secrets`, `docker-secrets` and `ssh-keys`, you can quickly
-add them to a Semaphore project by including the following lines into its
-pipeline YAML file:
+If you know the names of one or more secrets, which for the purposes of this
+section will be `aws-secrets`, `docker-secrets` and `ssh-keys`, you can quickly
+add them to a Semaphore task by including the following lines into the desired
+task block of the pipeline YAML file:
 
           secrets:
             - name: aws-secrets
             - name: docker-secrets
             - name: ssh-keys
+
+This will make the contents of `aws-secrets`, `docker-secrets` and `ssh-keys`
+available to all the jobs of that particular task.
 
 After that, the original `.semaphore/semaphore.yml` file will look as follows:
 
