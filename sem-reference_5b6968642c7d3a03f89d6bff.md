@@ -423,7 +423,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.6.1
+    v0.7.0
 
 Your output might be different.
 
