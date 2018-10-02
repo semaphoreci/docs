@@ -461,7 +461,13 @@ the following command:
 
     base64 .ssh/server_key
 
-On a Linux machine you will need to execute the following command:
+Please note that the `base64` encoding of the file should be pasted into the
+`secret` as a single line. The macOS version of `base64` generates the output
+in a single line by default.
+
+However, the Linux version of `base64` does not do that by default. Therefore,
+on a Linux machine you will need to execute the `base64` command with the
+`-w 0` options to prevent line wrapping from happening:
 
     base64 -w 0 .ssh/server_key
 
