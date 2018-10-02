@@ -9,6 +9,7 @@
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
+* [Command aliases](#command-aliases)
 * [See also](#see-also)
 
 ## Overview of sem
@@ -442,6 +443,22 @@ command is used as an example here):
 
 In that case, `help` will generate information about the use of the
 `sem connect` command.
+
+## Command aliases
+
+The words of each line that follows, which represent resource types, are
+equivalent:
+
+* `project`, `projects` and `prj`
+* `dashboard`, `dashboards` and `dash`
+* `secret` and `secrets`
+* `job` and `jobs`
+
+As an example, the following two commands are equivalent and will return the
+same output:
+
+    sem get prj
+	sem get projects
 
 ## See also
 
