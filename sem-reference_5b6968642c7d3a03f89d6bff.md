@@ -54,9 +54,7 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
-    network traffic from a running job to the local machine and for specifying
-	the remote port number, which is used in the Virtual Machine (VM), and the
-	local port number, which is used by the local machine.
+    network traffic from a running job to the local machine.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
@@ -112,7 +110,9 @@ connected to the organization the `dashboard` belongs to.
 
 ### Jobs
 
-A Semaphore 2.0 `job` is
+A `job` is the only Semaphore 2.0 entity that can be executed in a Virtual
+Machine (VM). Therefore a `job` in Semaphore 2.0 is independent and essential
+in the sense that you cannot have a pipeline without at least one `job`.
 
 ## Working with organizations
 
@@ -252,9 +252,9 @@ the GitHub repository in case `sem init` has difficulties finding that out.
 ## Working with jobs
 
 Apart from the `sem get` command that can be used for all kinds of resources,
-the commands for working with `jobs` cannot be used with other kinds of
-resources. The list of commands for working with `jobs` includes the
-`sem attach`, `sem logs` and `sem port-forward` commands.
+the commands for working with `jobs` cannot be used with the other kinds of
+Semaphore 2.0 resources. The list of commands for working with `jobs` includes
+the `sem attach`, `sem logs` and `sem port-forward` commands.
 
 ### sem attach
 
@@ -263,7 +263,19 @@ running job using SSH. However, as soon as the job ends, the SSH session will
 automatically finish and the SSH connection will be closed.
 
 The `sem attach` command works with running jobs only and is helpful for
-debugging purposes.
+debugging the operations of a `job`.
+
+In order to be able to connect to the VM of the `job` that interests you, you
+will need to include the following command in the relevant `job` block of the
+Pipeline YAML file:
+
+    - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
+
+Please replace `mactsouk` with the GitHub username that you are using.
+
+If you need that command on every `job`, you can include it in the `prologue`
+block of the `task`. An alternative way is to create a `secret` and put that
+information there.
 
 ### sem logs
 
@@ -276,7 +288,11 @@ The `sem logs` command works with both finished and running jobs.
 
 The general form of the `sem port-forward` command is the following:
 
-    sem port-forward [JOB ID of running job] [REMOVE TCP PORT] [LOCAL TCP PORT]
+    sem port-forward [JOB ID of running job] [REMOTE TCP PORT] [LOCAL TCP PORT]
+
+So, the `sem port-forward` command needs three command line arguments: the Job
+ID, the remote TCP port number, which is used in the Virtual Machine (VM), and
+the local TCP port number, which is used by the local machine.
 
 The `sem port-forward` command works with running jobs only.
 
@@ -489,8 +505,8 @@ what you are doing.
 ### sem attach
 
 The `sem attach` command requires the *Job ID* of a running job as its
-parameter. So, The following command attaches to job with Job ID 
-`6ed18e81-0541-4873-93e3-61025af0363b`:
+single parameter. So, the following command will connect to the VM of the job
+with Job ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
     sem attach 6ed18e81-0541-4873-93e3-61025af0363b
 
@@ -520,7 +536,7 @@ The `sem port-forward` command is executed as follows:
 
 The previous command tells `sem` to forward the network traffic of the TCP port
 8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` to the TCP
-port 80 of the current machine.
+port 80 of the local machine.
 
 ### sem version
 
