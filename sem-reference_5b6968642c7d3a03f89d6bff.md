@@ -200,6 +200,9 @@ In the second case, `sem get` should be used as follows:
 
     sem get [RESOURCE] [name]
 
+In the case of a `job` resource, you should give the Job ID of the job that
+interests you and not its name.
+
 ### sem apply
 
 The `sem apply` command works for `secrets` and `dashboards` and allows you to
@@ -249,17 +252,33 @@ the GitHub repository in case `sem init` has difficulties finding that out.
 ## Working with jobs
 
 Apart from the `sem get` command that can be used for all kinds of resources,
-the commands for working with `jobs` cannot be used for the other kinds of
-resources.
+the commands for working with `jobs` cannot be used with other kinds of
+resources. The list of commands for working with `jobs` includes the
+`sem attach`, `sem logs` and `sem port-forward` commands.
 
 ### sem attach
 
+The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
+running job using SSH. However, as soon as the job ends, the SSH session will
+automatically finish and the SSH connection will be closed.
+
+The `sem attach` command works with running jobs only and is helpful for
+debugging purposes.
 
 ### sem logs
 
+The `sem logs` command allows you to see the log entries of a job, which is
+specified by its Job ID.
+
+The `sem logs` command works with both finished and running jobs.
 
 ### sem port-forward
 
+The general form of the `sem port-forward` command is the following:
+
+    sem port-forward [JOB ID of running job] [REMOVE TCP PORT] [LOCAL TCP PORT]
+
+The `sem port-forward` command works with running jobs only.
 
 ## Help commands
 
@@ -296,7 +315,6 @@ This flag is useful for debugging.
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
 be used with the `sem create` or `sem apply` commands.
-
 
 ### The --all flag
 
@@ -412,7 +430,7 @@ You can also use `sem get` for displaying information about a `dashboard`:
 In order to find more information about a specific job, either running or
 finished, you should execute the next command:
 
-    sem get job [job_id]
+    sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
 ### sem edit
 
@@ -485,8 +503,8 @@ The `sem logs` command requires the *Job ID* of a job as its parameter:
 
     sem logs 6ed18e81-0541-4873-93e3-61025af0363b
 
-The last lines of the output of the previous command should be similar to the
-following:
+The last lines of the output of the previous command of a PASSED job should be
+similar to the following output:
 
 ```
 ✻ export SEMAPHORE_JOB_RESULT=passed
@@ -541,10 +559,11 @@ equivalent:
 * `secret` and `secrets`
 * `job` and `jobs`
 
-As an example, the following two commands are equivalent and will return the
+As an example, the following three commands are equivalent and will return the
 same output:
 
-    sem get prj
+    sem get project
+	sem get prj
 	sem get projects
 
 ## See also
