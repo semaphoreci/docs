@@ -6,6 +6,7 @@
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
 * [Project initialization](#project-initialization)
+* [Working with jobs](#working-with-jobs)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -50,6 +51,12 @@ The following list briefly describes all `sem` operations:
 * *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
+* *attach*: The `attach` command is used for attaching to a running `job`.
+* *logs*: The `logs` command is used for getting the logs of a `job`.
+* *port-forward*: The `port-forward` command is used for redirecting the
+    network traffic from a running job to the local machine and for specifying
+	the remote port number, which is used in the Virtual Machine (VM), and the
+	local port number, which is used by the local machine.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
@@ -57,7 +64,7 @@ The following list briefly describes all `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 supports three types of resources: `secret`, `project` and
+Semaphore 2.0 supports four types of resources: `secret`, `project`, `job` and
 `dashboard`. Most resource related operations require a resource name.
 
 ### Secrets
@@ -91,7 +98,7 @@ use the same project name more than once under the same organization.
 
 ### Dashboards
 
-A Semaphore 2.0 `Dashboard` is a place when you can keep the `widgets` that you
+A Semaphore 2.0 `dashboard` is a place when you can keep the `widgets` that you
 define in order to overview the operations of your current Semaphore 2.0
 organization.
 
@@ -102,6 +109,10 @@ narrow down the displayed information.
 As it happens with `secrets`, each `dashboard` is associated with a given
 organization. Therefore, in order to view a specific `dashboard` you should be
 connected to the organization the `dashboard` belongs to.
+
+### Jobs
+
+A Semaphore 2.0 `job` is
 
 ## Working with organizations
 
@@ -162,11 +173,15 @@ the [Dashboard YAML reference]()
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
+The `sem create` command does not support the `job` resource type.
+
 ### sem edit
 
 The `sem edit` command works for `secrets` and `dashboards` only and allows
 you to edit the YAML representation of a `secret` or a `dashboard` using your
 favorite text editor.
+
+The `sem edit` command does not support the `job` resource type.
 
 ### sem get
 
@@ -231,6 +246,21 @@ of the Semaphore 2.0 project.
 The `--repo-url` command line option allows you to manually specify the URL of
 the GitHub repository in case `sem init` has difficulties finding that out.
 
+## Working with jobs
+
+Apart from the `sem get` command that can be used for all kinds of resources,
+the commands for working with `jobs` cannot be used for the other kinds of
+resources.
+
+### sem attach
+
+
+### sem logs
+
+
+### sem port-forward
+
+
 ## Help commands
 
 The last group of `sem` commands includes the `sem help` and `sem version`
@@ -266,6 +296,13 @@ This flag is useful for debugging.
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
 be used with the `sem create` or `sem apply` commands.
+
+
+### The --all flag
+
+The `--all` flag can only be used with the `sem get jobs` command in order to
+display the most recent jobs of the current organization, both running and
+finished.
 
 ## Examples
 
@@ -349,6 +386,15 @@ secrets for the current user under the active organization:
 Each entry is printed on a separate line, which makes the generated output
 suitable for being further processed by traditional UNIX command line tools.
 
+Additionally, you can use `sem get` to display all running jobs:
+
+    sem get jobs
+
+Last, you can use `sem get jobs` with `--all` to display the more recent jobs
+of the current organization, both running and finished:
+
+    sem get jobs --all
+
 In order to find out more information about a specific project named `docs`,
 you should execute the next command:
 
@@ -362,6 +408,11 @@ you should execute the next command:
 You can also use `sem get` for displaying information about a `dashboard`:
 
     sem get dashboard my-dashboard
+
+In order to find more information about a specific job, either running or
+finished, you should execute the next command:
+
+    sem get job [job_id]
 
 ### sem edit
 
@@ -416,6 +467,42 @@ The previous command creates a new Semaphore 2.0 project that will be called
 
 Using `--repo-url` with `sem init` is much trickier because you should know
 what you are doing.
+
+### sem attach
+
+The `sem attach` command requires the *Job ID* of a running job as its
+parameter. So, The following command attaches to job with Job ID 
+`6ed18e81-0541-4873-93e3-61025af0363b`:
+
+    sem attach 6ed18e81-0541-4873-93e3-61025af0363b
+
+The job with the given Job ID must be in running state at the time of
+execution of `sem attach`.
+
+### sem logs
+
+The `sem logs` command requires the *Job ID* of a job as its parameter:
+
+    sem logs 6ed18e81-0541-4873-93e3-61025af0363b
+
+The last lines of the output of the previous command should be similar to the
+following:
+
+```
+✻ export SEMAPHORE_JOB_RESULT=passed
+exit status: 0
+Job passed.
+````
+
+### sem port-forward
+
+The `sem port-forward` command is executed as follows:
+
+    sem port-forward 6ed18e81-0541-4873-93e3-61025af0363b 8000 80
+
+The previous command tells `sem` to forward the network traffic of the TCP port
+8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` to the TCP
+port 80 of the current machine.
 
 ### sem version
 
