@@ -54,7 +54,7 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
-    network traffic from a running job to the local machine.
+    network traffic from a job that is running in the VM to your local machine.
 * *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
@@ -63,7 +63,7 @@ The following list briefly describes all `sem` operations:
 ## Resource types
 
 Semaphore 2.0 supports four types of resources: `secret`, `project`, `job` and
-`dashboard`. Most resource related operations require a resource name.
+`dashboard`. Most resource related operations require a resource name or ID.
 
 ### Secrets
 
@@ -81,15 +81,15 @@ should be connected to the organization that owns it.
 ### Projects
 
 A project is the way Semaphore 2.0 organizes, stores and processes GitHub
-repositories. As a result each Semaphore 2.0 project has a relationship with
-a single GitHub repository.
+repositories. As a result each Semaphore 2.0 project has a direct relationship
+with a single GitHub repository.
 
 However, the same GitHub repository can be assigned to multiple Semaphore 2.0
-projects. Additionally, the same project can exist under multiple Semaphore 2.0
-organizations and deleting a Semaphore 2.0 project from an organization
-will not automatically delete that project from the other organizations that
-project exists in. Last, the related GitHub repository will remain intact after
-deleting a project from Semaphore 2.0.
+projects under different names. Additionally, the same project name can exist
+under multiple Semaphore 2.0 organizations and deleting a Semaphore 2.0 project
+from an organization will not automatically delete that project from the other
+organizations that project exists in. Last, the related GitHub repository will
+remain intact after deleting a project from Semaphore 2.0.
 
 You can use the same project name in multiple organizations but you cannot
 use the same project name more than once under the same organization.
@@ -111,8 +111,10 @@ connected to the organization the `dashboard` belongs to.
 ### Jobs
 
 A `job` is the only Semaphore 2.0 entity that can be executed in a Virtual
-Machine (VM). Therefore a `job` in Semaphore 2.0 is independent and essential
-in the sense that you cannot have a pipeline without at least one `job`.
+Machine (VM). You cannot have a pipeline without at least one `job`.
+
+`jobs` in Semaphore 2.0 are independent from each other and cannot directly
+exchange any data.
 
 ## Working with organizations
 
@@ -252,18 +254,19 @@ the GitHub repository in case `sem init` has difficulties finding that out.
 ## Working with jobs
 
 Apart from the `sem get` command that can be used for all kinds of resources,
-the commands for working with `jobs` cannot be used with the other kinds of
+the commands for working with `jobs` cannot be used with the other types of
 Semaphore 2.0 resources. The list of commands for working with `jobs` includes
 the `sem attach`, `sem logs` and `sem port-forward` commands.
 
 ### sem attach
 
-The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
-running job using SSH. However, as soon as the job ends, the SSH session will
-automatically finish and the SSH connection will be closed.
-
 The `sem attach` command works with running jobs only and is helpful for
 debugging the operations of a `job`.
+
+The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
+running job using SSH and execute any commands you want. However, as soon as
+the job ends, the SSH session will automatically end and the SSH connection
+will be closed.
 
 In order to be able to connect to the VM of the `job` that interests you, you
 will need to include the following command in the relevant `job` block of the
@@ -271,11 +274,11 @@ Pipeline YAML file:
 
     - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
 
-Please replace `mactsouk` with the GitHub username that you are using.
+Replace `mactsouk` with the GitHub username that you are using.
 
-If you need that command on every `job`, you can include it in the `prologue`
-block of the `task`. An alternative way is to create a `secret` and put that
-information there.
+If you need the `curl` command on every `job`, you can include it in the
+`prologue` block of the `task`. An alternative way is to create a `secret` and
+put that information there.
 
 ### sem logs
 
@@ -291,8 +294,8 @@ The general form of the `sem port-forward` command is the following:
     sem port-forward [JOB ID of running job] [REMOTE TCP PORT] [LOCAL TCP PORT]
 
 So, the `sem port-forward` command needs three command line arguments: the Job
-ID, the remote TCP port number, which is used in the Virtual Machine (VM), and
-the local TCP port number, which is used by the local machine.
+ID, the remote TCP port number that is used in the Virtual Machine (VM), and
+the local TCP port number, which will be used in the local machine.
 
 The `sem port-forward` command works with running jobs only.
 
@@ -462,7 +465,7 @@ Similarly, the next command will edit a `dashboard` named `my-activity`:
 
     sem edit dashboard my-activity
 
-`sem edit` cannot be used for editing projects.
+`sem edit` cannot be used for editing projects or jobs.
 
 ### sem apply
 
@@ -476,7 +479,7 @@ follows:
 
     Secret 'my-secrets' updated.
 
-This means that the `secret` was updated successfully.
+This means that the `my-secrets` secret was updated successfully.
 
 You can also use `sem apply -f` in a similar way to update an existing dashboard.
 
@@ -490,7 +493,8 @@ your local machine:
 
 If a `.semaphore/semaphore.yml` file already exists in the root directory of a
 GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
-and continue its operation.
+and continue its operation. If there is no `.semaphore/semaphore.yml` file,
+`sem init` will create one.
 
 If you decide to use `--project-name`, then you can call `sem init` as follows:
 
@@ -504,9 +508,9 @@ what you are doing.
 
 ### sem attach
 
-The `sem attach` command requires the *Job ID* of a running job as its
-single parameter. So, the following command will connect to the VM of the job
-with Job ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
+The `sem attach` command requires the *Job ID* of a running job as its single
+parameter. So, the following command will connect to the VM of the job with Job
+ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
     sem attach 6ed18e81-0541-4873-93e3-61025af0363b
 
@@ -532,11 +536,11 @@ Job passed.
 
 The `sem port-forward` command is executed as follows:
 
-    sem port-forward 6ed18e81-0541-4873-93e3-61025af0363b 8000 80
+    sem port-forward 6ed18e81-0541-4873-93e3-61025af0363b 8000 8080
 
-The previous command tells `sem` to forward the network traffic of the TCP port
-8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` to the TCP
-port 80 of the local machine.
+The previous command tells `sem` to forward the network traffic from the TCP
+port 8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` that is
+running in the VM to TCP port 8080 of your local machine.
 
 ### sem version
 
