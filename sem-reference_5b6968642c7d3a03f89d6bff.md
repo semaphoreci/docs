@@ -113,8 +113,8 @@ connected to the organization the `dashboard` belongs to.
 A `job` is the only Semaphore 2.0 entity that can be executed in a Virtual
 Machine (VM). You cannot have a pipeline without at least one `job`.
 
-`jobs` in Semaphore 2.0 are independent from each other and cannot directly
-exchange any data.
+The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
+are running in completely different Virtual Machines.
 
 ## Working with organizations
 
@@ -253,10 +253,16 @@ the GitHub repository in case `sem init` has difficulties finding that out.
 
 ## Working with jobs
 
-Apart from the `sem get` command that can be used for all kinds of resources,
-the commands for working with `jobs` cannot be used with the other types of
-Semaphore 2.0 resources. The list of commands for working with `jobs` includes
-the `sem attach`, `sem logs` and `sem port-forward` commands.
+The list of commands for working with `jobs` includes the `sem attach`,
+`sem logs` and `sem port-forward` commands.
+
+Additionally, you can use the the `sem get` command for getting a list of all
+jobs or getting a description for a particular job.
+
+The `sem get jobs` command returns the list of all running jobs.
+
+The `sem get jobs --all` command returns the list of all recent jobs of the
+current organization, both running and finished.
 
 ### sem attach
 
@@ -278,7 +284,7 @@ Replace `mactsouk` with the GitHub username that you are using.
 
 If you need the `curl` command on every `job`, you can include it in the
 `prologue` block of the `task`. An alternative way is to create a `secret` and
-put that information there.
+put you public SSH keys there.
 
 ### sem logs
 
@@ -540,7 +546,9 @@ The `sem port-forward` command is executed as follows:
 
 The previous command tells `sem` to forward the network traffic from the TCP
 port 8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` that is
-running in the VM to TCP port 8080 of your local machine.
+running in a VM to TCP port 8080 of your local machine.
+
+All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
 
 ### sem version
 
