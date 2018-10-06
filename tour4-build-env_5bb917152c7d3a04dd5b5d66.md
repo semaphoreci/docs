@@ -1,5 +1,3 @@
-# Customizing the Build Environment
-
 Agents run each job in a clean environment. The default [Ubuntu
 VM][machine] includes common tools and databases needed by most
 projects. You also have full `sudo` access, so you can install new
@@ -14,7 +12,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sudo systemctl start postgresql
+          - sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
       jobs:
         - name: Tests
           commands:
@@ -68,5 +66,5 @@ pre-installed databases and software. Next, [configure secrets and
 environment variables][next].
 
 [machine]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[next]: http://placeholder.com
+[next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service

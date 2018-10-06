@@ -27,4 +27,4 @@ everything worked, you'll see the build running in your browser.
 Now you're ready to [customize your pipeline][next].
 
 [app]: https://id.semaphoreci.com
-[next]: http://placeholder.com
+[next]: https://docs.semaphoreci.com/article/64-customizing-your-pipeline

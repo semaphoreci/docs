@@ -53,6 +53,6 @@ Blocks, Tasks, and Jobs are covered in the [concepts][]. Learn more
 about pipelines in the [reference docs][pipeline]. Next onto
 customizing the [build environment][next].
 
-[concepts]: http://placeholder.com
+[concepts]: https://docs.semaphoreci.com/article/62-concepts
 [pipeline]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[next]: http://placeholder.com
+[next]: https://docs.semaphoreci.com/article/65-customizing-build-environment
