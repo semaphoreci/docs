@@ -1,8 +1,8 @@
 # Customizing Your Pipeline
 
 You'll need to customize the pipeline after connecting a project to
-Semaphore. Pipelines are composed of multiple blocks. Blocks execute
-in sequence. Blocks have a task and jobs. Jobs execute in parallel.
+Semaphore 2.0. Pipelines are composed of one or more blocks. Blocks are executed
+in sequence. Each Block has a single task and one or more jobs. Jobs are executed in parallel.
 Let's start out with a single block that runs various tests in
 parallel.
 
@@ -23,12 +23,13 @@ blocks:
             - echo 'Integration tests'
 ```
 
-Next, configure pipeline to checkout the code. You'll need to add the
-`checkout` command to each job. You could do that by adding that to
-each command, but there's no need to do that. Blocks support a list of
+Next, you should configure the pipeline to checkout the code,
+which means downloading the contents of the GitHub repository to
+the Virtual Machine that will be used. You'll need to add the
+`checkout` command to each job that needs to access any of the contents of the GitHub repository.
+You could do that by adding that to each command, but there's no need to do that. Blocks support a list of
 `prologue` commands that run before each job. That's the right place
-for setup like checkout or building the code. Here's the updated
-version:
+for setup commands like `checkout`. Here's the updated version:
 
 ```yml
 # .semaphore/semaphore.yml
