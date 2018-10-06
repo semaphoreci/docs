@@ -1,5 +1,3 @@
-# Deploying With Promotions
-
 Each project starts with the default pipeline specified in
 `.semaphore/semaphore.yml`. Real world pipelines tend to branch out
 when certain conditions are meant. Examples may be deploying to
