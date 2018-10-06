@@ -99,4 +99,4 @@ information.
 There's one last thing to cover: [caching dependencies][next].
 
 [auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote_on
-[next]: http://placeholder.com
+[next]: https://docs.semaphoreci.com/article/68-caching-dependencies

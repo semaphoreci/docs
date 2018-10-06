@@ -110,4 +110,4 @@ blocks:
 Now that you can configure environment variable and secrets, you're
 ready to move onto [deploying with promotions][next].
 
-[next]: http://placeholder.com
+[next]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
