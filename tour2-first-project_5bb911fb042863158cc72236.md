@@ -1,5 +1,3 @@
-# Your First Project
-
 All projects are part of an organization. You're prompted to create
 your first organization when you first login. Open the [website][app]
 and follow a long. Or, go directly the [new
