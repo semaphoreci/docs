@@ -1,5 +1,3 @@
-# Caching Dependencies
-
 Since each jobs runs on a fresh machine, common tasks like installing
 dependencies must be repeated. This slows down builds and may make
 them less reliable. Semaphore includes a utility to cache files and
