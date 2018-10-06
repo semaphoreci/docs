@@ -1,5 +1,3 @@
-# Customizing Your Pipeline
-
 You'll need to customize the pipeline after connecting a project to
 Semaphore. Pipelines are composed of multiple blocks. Blocks execute
 in sequence. Blocks have a task and jobs. Jobs execute in parallel.
