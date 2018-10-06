@@ -1,5 +1,3 @@
-# Concepts
-
 Semaphore manages your test and deployment workflows with _pipelines_,
 _blocks_, and _promotions_. Workflows may be separated with different
 pipelines, say one for tests and another for deployment. _Blocks_
