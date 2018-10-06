@@ -4,7 +4,7 @@ pipelines, say one for tests and another for deployment. _Blocks_
 define what to do at each step in the pipeline. _Promotions_ connect
 different pipelines. Semaphore schedules and runs the blocks on
 agents. The agent manages the environment the blocks run in. All
-configuration is written in YAML and kept in `.semaphore/config.yml`.
+configuration is written in YAML and kept in `.semaphore/semaphore.yml`.
 
 ## Blocks & Tasks
 
@@ -15,7 +15,7 @@ for "linting", "unit", and "integration" for faster parallel
 execution. _Blocks_ execute in sequence, waiting for all tasks in
 previous block to complete before continuing. _Tasks_ can be
 configured to run a list of commands, set environment variables, and
-manage secrets. Refer to the [reference docs][pipeline_reference] for
+manage secrets. Refer to the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml) for
 complete information.
 
 ## Promotions
@@ -25,17 +25,17 @@ _Promotions_ are commonly used for promoting builds to different
 environments. Pipelines may have multiple switches, but they must
 come at the end of a pipeline. Promoting loads an entirely new
 pipeline, so you can build up complex pipelines with only
-configuration files. Refer to the [reference docs][switch_reference]
+configuration files. Refer to the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions)
 for complete information.
 
 ## Secrets
 
-A _secrets_ is sensitive data such as API keys. They **should not** be
+A _secret_ is sensitive data such as API keys. They **should not** be
 committed to source control. Instead they should be read from
 environments variables. Semaphore securely manages sensitive data for
-use in _blocks_ and _tasks_ via environment variables. Secretes are
-created with the `sem` CLI and configured in the YML pipeline. Refer
-to the [reference docs][secrets] for more information.
+use in _blocks_ and _tasks_ via environment variables. Secrets are
+created with the `sem` CLI and configured in the YAML pipeline. Refer
+to the [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference) for more information.
 
 ## Agents and Machine
 
