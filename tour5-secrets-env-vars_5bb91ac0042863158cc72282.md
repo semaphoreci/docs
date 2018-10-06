@@ -1,5 +1,3 @@
-# Environment Variables and Secrets
-
 Semaphore has flexible support for environment variables and secrets.
 They may be configured for the task or job. This example applies to
 all jobs in the block:
