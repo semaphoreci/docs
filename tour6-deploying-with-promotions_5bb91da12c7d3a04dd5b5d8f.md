@@ -6,8 +6,7 @@ branches. Promotions may be automatic or manual.
 
 Let's start by adding a manual confirmation to promote to production.
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 agent:
   machine:
     type: e1-standard-2
@@ -22,12 +21,11 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
-```
+</code></pre>
 
 Now create a new pipeline file in `.semaphore/production-deploy.yml`:
 
-```yml
-# .semaphore/production-deploy.yml
+<pre><code class="language-yaml"># .semaphore/production-deploy.yml
 agent:
   machine:
     type: e1-standard-2
@@ -39,15 +37,14 @@ blocks:
         - name: 'Everything'
           commands:
             - echo 'Deploying to production!'
-```
+</code></pre>
 
 Users will see a "Production Deploy" button once the pipeline
 completes. Promotions may also be [triggered
 automatically][auto-promotions]. Let's add another that automatically
 promotes builds to staging.
 
-```yml
-.semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -55,12 +52,11 @@ promotions:
     pipeline_file: staging-deploy.yml
     auto_promote_on:
       - result: passed
-```
+</code></pre>
 
 Create the new `staging-deploy.yml` file:
 
-```yml
-# .semaphore/staging-deploy.yml
+<pre><code class="language-yaml"># .semaphore/staging-deploy.yml
 agent:
   machine:
     type: e1-standard-2
@@ -72,13 +68,12 @@ blocks:
         - name: 'Everything'
           commands:
             - echo 'Deploying to staging!'
-```
+</code></pre>
 
 Auto-promotions may be also combined with branches. Here's how to
 automatically promote passed builds on master:
 
-```yml
-.semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -90,7 +85,7 @@ promotions:
     pipeline_file: staging-deploy.yml
     auto_promote_on:
       - result: passed
-```
+</code></pre>
 
 Promotions are powerful tools to build up complex multi-pipeline
 workflows. Refer to the [promotions reference][reference] for complete

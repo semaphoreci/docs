@@ -5,8 +5,7 @@ software or change whatever you need.
 
 Let's assume you need to start PostgreSQL before each job.
 
-```yml
-#.semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -17,7 +16,7 @@ blocks:
         - name: Tests
           commands:
             - echo 'running tests'
-```
+</code></pre>
 
 The [Ubuntu machine][machine] includes common databases installed as
 services. If the proper version is not pre-installed or your
@@ -26,8 +25,7 @@ Docker container with `sem-service`. [sem-service][sem-service]
 exposes default ports. Here's an example that starts [local
 DynamoDB][local-dynamodb]:
 
-```yml
-#.semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -38,14 +36,13 @@ blocks:
         - name: Tests
           commands:
             - echo 'running tests'
-```
+</code></pre>
 
 You also have full access to install any other dependencies. Assume
 your projects uses [bats][] for testing. Just add more commands to
 prologue:
 
-```yml
-#.semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -59,7 +56,7 @@ blocks:
         - name: Tests
           commands:
             - echo 'running tests'
-```
+</code></pre>
 
 Refer back [Ubuntu VM][machine] reference to a complete list of
 pre-installed databases and software. Next, [configure secrets and

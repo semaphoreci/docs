@@ -2,8 +2,7 @@ Semaphore has flexible support for environment variables and secrets.
 They may be configured for the task or job. This example applies to
 all jobs in the block:
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -23,12 +22,11 @@ blocks:
           commands:
             - echo "${CI}"
             - echo 'Integration tests'
-```
+</code></pre>
 
 Occasionally you'll need to customize a specific job:
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -52,7 +50,7 @@ blocks:
           env_vars:
             - name: OUTPUT_FORMAT
               echo: "json"
-```
+</code></pre>
 
 Using environment variables inevitably leads to configuring secrets.
 Secrets are private values like API keys or passwords. They shouldn't
@@ -65,8 +63,7 @@ Let's configure a secret for the `AWS_ACCESS_KEY_ID` and
 `AWS_SECRET_ACCESS_KEY` environment variables. Start by creating a new
 file named `aws-secret.yml`.
 
-```yml
-# aws-secret.yml
+<pre><code class="language-yaml"># aws-secret.yml
 apiVersion: v1alpha
 kind: Secret
 metadata:
@@ -77,7 +74,7 @@ data:
       value: "placholder"
     - name: AWS_SECRET_ACCESS_KEY
       value: "placeholder"
-```
+</code></pre>
 
 Now create the secrets with `sem`:
 
@@ -89,8 +86,7 @@ Now list the secret's `name` in the pipeline file. Secrets may be
 configured for the block or for the job just like environment
 variables.
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Deploy"
     task:
@@ -105,7 +101,7 @@ blocks:
             - echo "$CI"
             - echo "$AWS_ACCESS_KEY_ID"
             - echo "$AWS_SECRET_ACCESS_KEY"
-```
+</code></pre>
 
 Now that you can configure environment variable and secrets, you're
 ready to move onto [deploying with promotions][next].
