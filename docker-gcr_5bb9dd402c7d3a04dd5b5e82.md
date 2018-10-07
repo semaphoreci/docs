@@ -1,5 +1,3 @@
-# Pushing Images to Google Container Registry
-
 Semaphore includes the `gcloud` command for authenticating to the
 various Google Container Registry endpoints. You'll need to create a
 service account with access to Cloud Storage with an authenication key

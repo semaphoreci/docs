@@ -1,5 +1,3 @@
-# Pushing Images to AWS Elastic Container Registry (ECR)
-
 Pushing images to your AWS ECR is straight forward. Your workflow
 simply needs to call the appropriate `aws` command to login to the
 Docker registry. Then `docker push` works as expected. First, create a

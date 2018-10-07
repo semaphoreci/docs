@@ -1,5 +1,3 @@
-# Pushing Image to Official Docker Registry
-
 Pushing images to the official registry is straightforward. You'll
 need to create a secret for the login username and password. Then,
 call `docker login` with the appropriate environment variables. The
