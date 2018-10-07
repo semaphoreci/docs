@@ -4,8 +4,7 @@ in sequence. Blocks have a task and jobs. Jobs execute in parallel.
 Let's start out with a single block that runs various tests in
 parallel.
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -19,7 +18,7 @@ blocks:
         - name: Integration
           commands:
             - echo 'Integration tests'
-```
+</code></pre>
 
 Next, configure pipeline to checkout the code. You'll need to add the
 `checkout` command to each job. You could do that by adding that to
@@ -28,8 +27,7 @@ each command, but there's no need to do that. Blocks support a list of
 for setup like checkout or building the code. Here's the updated
 version:
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -47,7 +45,7 @@ blocks:
         - name: Integration
           commands:
             - echo 'Integration tests'
-```
+</code></pre>
 
 Blocks, Tasks, and Jobs are covered in the [concepts][]. Learn more
 about pipelines in the [reference docs][pipeline]. Next onto
