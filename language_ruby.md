@@ -1,0 +1,111 @@
+# Language Guide: Ruby
+
+* [Supported Versions](#supported-versions)
+* [Dependency Caching](#dependency-caching)
+* [Environment Variables](#environment-variables)
+* [C-Extensions & Dependencies](#c-extensions-dependendices)
+
+## Supported Versions
+
+Semaphore uses [rbenv][] to manage Ruby versions. Any version
+installable with rbenv is supported on Semaphore. Versions 2.3, 2.4,
+and 2.5 are pre-installed. The default version is set from
+`.ruby-version` in your repo. You can change this by calling `rbenv
+local`. Here's an example:
+
+```yml
+blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - rbenv local 2.5.1
+      jobs:
+        - name: Tests
+          commands:
+            - ruby --version
+```
+
+## Dependency Caching
+
+You can use Semaphores `cache` command to store and load a gem bundle.
+This requires setting the `BUNDLE_PATH` environment variable. You'll
+need one block to warm the cache, then use the cache in subsequent
+blocks.
+
+```yml
+version: "v1.0"
+name: First pipeline example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Warm cache
+    task:
+      jobs:
+        - name: cache bundle
+          commands:
+            - checkout
+            # XXX: According to the docs "cache restore" should exit 0 if the key doesn't exist.
+            # This is not true in production. If this works correctly, then partial dependency
+            # caching will work as expected.
+            # - cache restore --key v1-bundle-$(sha1sum Gemfile.lock | cut -d ' ' -f 1)
+            - bundle install --deployment
+            - cache store --key v1-bundle-$(sha1sum Gemfile.lock | cut -d ' ' -f 1) --path vendor/bundle
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore --key v1-bundle-$(sha1sum Gemfile.lock | cut -d ' ' -f 1)
+      env_vars:
+        - name: BUNDLE_PATH
+          value: vendor/bundle
+      jobs:
+        - name: Everything
+          commands:
+            - bundle exec rake test
+```
+
+## Environment Variables
+
+Semaphore doesn't set language specific environment variables like
+`RAILS_ENV` or `RACK_ENV`. You should set these at the task level.
+
+```yml
+blocks:
+  - name: Tests
+    task:
+      env_vars:
+        - name: RACK_ENV
+          value: test
+      jobs:
+        - name: Everything
+          commands:
+            - rake test
+```
+
+## C-Extensions & Dependencies
+
+Projects may need system packages to install gems like `pg`. You have
+full `sudo` access so you may install required packages. Here's an
+example of installing the `pg` gem.
+
+```yml
+blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - sudo apt-get update && sudo apt-get install -y libpq-dev
+          - gem install pg
+      jobs:
+        - name: Everything
+          commands:
+            - rake test
+```
+
+[rbenv]: https://github.com/rbenv/rbenv
