@@ -20,16 +20,14 @@ blocks:
           commands:
             - checkout
             - npm install
-            - export VERSION="$(md5sum package.json | grep -o "^\w*\b")"
-            - cache store --key v1-node-modules-$VERSION node_modules
+            - cache store --key v1-node-modules-$(checksum package.json) node_modules
   - name: Tests
     task:
       jobs:
         - name: 'npm'
           commands:
             - checkout
-            - export VERSION="$(md5sum package.json | grep -o "^\w*\b")"
-            - cache restore --key v1-node-modules-$VERSION
+            - cache restore --key v1-node-modules-$(checksum package.json)
             - npm test
 ```
 
