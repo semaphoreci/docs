@@ -254,7 +254,7 @@ the GitHub repository in case `sem init` has difficulties finding that out.
 ## Working with jobs
 
 The list of commands for working with `jobs` includes the `sem attach`,
-`sem logs` and `sem port-forward` commands.
+`sem logs`, `sem port-forward` and `sem debug` commands.
 
 Additionally, you can use the the `sem get` command for getting a list of all
 jobs or getting a description for a particular job.
@@ -304,6 +304,9 @@ ID, the remote TCP port number that is used in the Virtual Machine (VM), and
 the local TCP port number, which will be used in the local machine.
 
 The `sem port-forward` command works with running jobs only.
+
+### sem debug
+
 
 ## Help commands
 
