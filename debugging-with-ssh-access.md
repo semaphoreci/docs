@@ -4,12 +4,12 @@ gives you the option to access all running jobs via SSH, to restart your jobs
 in debug mode, or to start on-demand virtual machines to explore the build
 environment.
 
-* [Explore the build environment](#explore-the-build-environment)
-* [Inspect the state of a running job](#inspect-the-state-of-a-running-job)
-* [Restart a job in debug mode](#restart-a-job-in-debug-mode)
-* [Port forward your web server and debug UI issues](#port-forward-your-web-server-and-debug-ui-issues)
+* [Exploring the build environment](#exploring-the-build-environment)
+* [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
+* [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
+* [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
 
-## Explore the build environment
+## Exploring the build environment
 
 Setting up a pipeline can be challenging if you are not familiar with the
 software stack installed in Semaphore's virtual machines. Starting a debug
@@ -24,7 +24,7 @@ sem debug project <name-of-your-project>
 The above command will start a virtual machine connected with your git
 repository and attach you to it via an SSH session.
 
-## Inspect the state of a running job
+## Inspecting the state of a running job
 
 Often the best way to inspect failures is to SSH into a running job, explore the
 running processes, inspect the environment variables, and take a peek at the
@@ -49,7 +49,7 @@ echo '<your-public-key>' >> .ssh/authorized_keys
 To manage multiple public keys for SSH access
 [store your public keys in a secret](https://docs.semaphoreci.com/article/61-using-secrets).
 
-## Restart a job in debug mode
+## Restarting a job in debug mode
 
 To find the root cause of a failed job, Semaphore allows you to restart your job
 in debug mode with:
@@ -66,7 +66,7 @@ Commands in the debug mode are not executed automatically, instead they are
 stored in `/home/semaphore/commands.sh`. This allows you to execute them
 step-by-step, and inspect the changes in the environment.
 
-## Port Forward your web server and debug UI issues
+## Port Forwarding your web server and debug UI issues
 
 Sometimes SSH access to your build environment is not enough to fully explore
 the problem. For example, Selenium based tests will fail if the html elements
