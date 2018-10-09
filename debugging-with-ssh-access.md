@@ -36,6 +36,8 @@ Semaphore allows you to SSH into any running job with:
 sem attach <job-id>
 ```
 
+Use `sem get jobs` to list running jobs.
+
 Access to the job's virtual machine is managed by the public SSH keys in the
 `.ssh/authorized_keys` file. To add your public key to the machine add the
 following command to your pipeline definition:
@@ -45,12 +47,12 @@ echo '<your-public-key>' >> .ssh/authorized_keys
 ```
 
 To manage multiple public keys for SSH access
-[store your public keys in a secret](#link).
+[store your public keys in a secret](https://docs.semaphoreci.com/article/61-using-secrets).
 
 ## Restart a job in debug mode
 
-To find the root cause of a finished failed job, Semaphore allows you to restart
-your job in debug mode with:
+To find the root cause of a failed job, Semaphore allows you to restart your job
+in debug mode with:
 
 ``` bash
 sem debug job <job-id>
@@ -61,8 +63,8 @@ export the same environment variables, inject the same secrets, and connect to
 the same git commit.
 
 Commands in the debug mode are not executed automatically, instead they are
-stored in the home directory `/home/semaphore/commands.sh`. This allows you to
-execute them step-by-step, and inspect the changes in the environment.
+stored in `/home/semaphore/commands.sh`. This allows you to execute them
+step-by-step, and inspect the changes in the environment.
 
 ## Port Forward your web server and debug UI issues
 
@@ -72,10 +74,10 @@ are not visible on the screen when you are running the tests.
 
 Semaphore allows you to forward ports to your local machine and explore the UI
 of your application from your browser. If your application is running on port
-`3000`, you can port forward to your local port `3000` with:
+`3000`, you can port forward to your local port `6000` with:
 
 ``` bash
-sem port-forward <job-id> 3000 3000
+sem port-forward <job-id> 6000 3000
 ```
 
-The `http://localhost:3000` should now be accessible in your browser.
+The `http://localhost:6000` should now be accessible in your browser.
