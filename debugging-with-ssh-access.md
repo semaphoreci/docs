@@ -8,6 +8,7 @@ environment.
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
 * [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
 * [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
+* [See also](#see-also)
 
 ## Exploring the build environment
 
@@ -66,7 +67,7 @@ Commands in the debug mode are not executed automatically, instead they are
 stored in `/home/semaphore/commands.sh`. This allows you to execute them
 step-by-step, and inspect the changes in the environment.
 
-## Port Forwarding your web server and debug UI issues
+## Port forwarding your web server and debug UI issues
 
 Sometimes SSH access to your build environment is not enough to fully explore
 the problem. For example, Selenium based tests will fail if the html elements
@@ -81,3 +82,8 @@ sem port-forward <job-id> 6000 3000
 ```
 
 The `http://localhost:6000` should now be accessible in your browser.
+
+## See also
+
+- [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Secrets YAML Reference](https://docs.semaphoreci.com/article/61-using-secrets)
