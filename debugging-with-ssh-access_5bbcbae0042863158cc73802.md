@@ -19,7 +19,7 @@ session for your project is a great place to start exploring.
 To start a debug session for your project, run:
 
 ``` bash
-sem debug project <name-of-your-project>
+sem debug project [name-of-your-project]
 ```
 
 The above command will start a virtual machine connected with your git
@@ -34,7 +34,7 @@ log files.
 Semaphore allows you to SSH into any running job with:
 
 ``` bash
-sem attach <job-id>
+sem attach [job-id]
 ```
 
 Use `sem get jobs` to list running jobs.
@@ -44,7 +44,7 @@ Access to the job's virtual machine is managed by the public SSH keys in the
 following command to your pipeline definition:
 
 ``` bash
-echo '<your-public-key>' >> .ssh/authorized_keys
+echo '[your-public-key]' >> .ssh/authorized_keys
 ```
 
 To manage multiple public keys for SSH access
@@ -56,7 +56,7 @@ To find the root cause of a failed job, Semaphore allows you to restart your job
 in debug mode with:
 
 ``` bash
-sem debug job <job-id>
+sem debug job [job-id]
 ```
 
 This will start a new interactive job based on the specification of the old one,
@@ -78,7 +78,7 @@ of your application from your browser. If your application is running on port
 `3000`, you can port forward to your local port `6000` with:
 
 ``` bash
-sem port-forward <job-id> 6000 3000
+sem port-forward [job-id] 6000 3000
 ```
 
 The `http://localhost:6000` should now be accessible in your browser.
