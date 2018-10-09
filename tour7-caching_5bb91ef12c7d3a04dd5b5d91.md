@@ -20,14 +20,14 @@ blocks:
           commands:
             - checkout
             - npm install
-            - cache store --key v1-node-modules-$(checksum package.json) node_modules
+            - cache store v1-node-modules-$(checksum package.json) node_modules
   - name: Tests
     task:
       jobs:
         - name: 'npm'
           commands:
             - checkout
-            - cache restore --key v1-node-modules-$(checksum package.json)
+            - cache restore v1-node-modules-$(checksum package.json)
             - npm test
 ```
 

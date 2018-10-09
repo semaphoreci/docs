@@ -9,7 +9,7 @@
   * [sem-version](#sem-version)
     - [Example Semaphore 2.0 project](#example-sem-version-project)
 - [See also](#see-also)
-  
+
 ## Overview
 
 This document explains the use of the command line tools found in the
@@ -51,7 +51,7 @@ three Semaphore environment variables:
      repository will be placed on the VM (`/home/semaphore/S1`).
    - `SEMAPHORE_GIT_SHA`: This environment variable holds the SHA key for the
      HEAD reference that is used when executing `git reset -q --hard`.
-   
+
 All these environment variables are automatically defined by Semaphore 2.0.
 
 #### Examples
@@ -174,30 +174,21 @@ The `cache` utility supports two commands: `cache store` and `cache restore`.
 
 The general form of the `cache store` command is the following:
 
-    cache store --key key_value --path cache_dir
+    cache store key_value cache_dir
 
-The value of the `--key` parameter is the key that will be used for saving the
+The first parameter is the `key` that will be used for saving the
 desired files and should be unique among the cache keys of the same Semaphore
-2.0 project. However, what is important about `key_value` is that you should be
-able to recover it afterwards in order to become available to all the jobs of
-the pipeline that want to use that `key_value` afterwards.
-
-The value of the `--path` parameter should be an existing directory the
-contents of which you want to store in the cache. If you use a path with more
-than two directories in it as the parameter to `--path`, `cache` will restore
-the desired contents in the last directory of the directory path that was given.
-So, for a value of `dirA/dirB`, `cache` will store the contents of `dirA/dirB`
-as desired but the `restore` command will bring back the contents of `dirA/dirB`
-in the `dirB` directory path, not in `dirA/dirB`.
-
-Analogously, for a `--path` value of `dirA/dirB/dirC`, the contents of `dirC`
-will be restored in `dirC` not in `dirA/dirB/dirC`.
+2.0 project. Second parameter should hold the path of an existing directory or file.
 
 The general form of the `cache restore` command is the following:
 
-    cache restore --key key_value
+    cache restore key_value
 
-The `key_value` should already exist or the `cache restore` command will
+Note: However, what is important about `key_value` is that you should be
+able to recover it afterwards in order to become available to all the jobs of
+the pipeline that want to use that `key_value` afterwards.
+
+The `key_value` should already exists or the `cache restore` command will
 return nothing. However, this will not make your Semaphore 2.0 job to fail.
 
 *Each `key` in the cache is created on a per Semaphore 2.0 project basis to
@@ -221,29 +212,19 @@ by Semaphore 2.0.
 
 #### Examples
 
-You can store the contents of the `cache_dir` directory in a new key that is
+You can store the contents of the `cache_dir` directory under a new key that is
 kept in the `KEY` environment variable as follows:
 
-    cache store --key $KEY --path cache_dir
+    cache store $KEY cache_dir
 
 If the given `$KEY` value already exists in the cache of the current Semaphore
 2.0 project, the `cache store` command *will not update* the contents of the
 `cache_dir` directory.
 
-You can restore the directory that is saved in the `KEY` environment variable
-along with its contents as follows:
+You can restore the directory that is saved under the `KEY` environment variable
+as follows:
 
-    cache restore --key $KEY
-
-The following command saves the contents of the `dirA/dirB/dirC` directory
-and associates that directory with the `directory-C-v1` key:
-
-    cache store --key directory-C-v1 --path dirA/dirB/dirC
-
-The following command will restore `dirC` along with its contents inside the
-directory where the `cache restore` command was called:
-
-    cache restore --key directory-C-v1
+    cache restore $KEY
 
 #### Example Semaphore project
 
@@ -256,7 +237,7 @@ utility:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-    
+
 	blocks:
 	  - name: Create cache
 	    task:
@@ -269,7 +250,7 @@ utility:
 	          - echo $SEMAPHORE_CACHE_URL
 	          - echo $SEMAPHORE_CACHE_USERNAME
 	          - echo $SSH_PRIVATE_KEY_PATH
-              - cat $SSH_PRIVATE_KEY_PATH
+            - cat $SSH_PRIVATE_KEY_PATH
 	      - name: Create cache key
 	        commands:
 	          - checkout
@@ -278,9 +259,9 @@ utility:
 	          - touch cache_dir/my_data
 	          - echo $KEY > cache_dir/my_data
 	          - echo $KEY
-	          - cache store --key $KEY --path cache_dir
+	          - cache store $KEY cache_dir/my_data
 	          - cat cache_dir/my_data
-    
+
 	  - name: Use cache
 	    task:
 	      jobs:
@@ -289,10 +270,10 @@ utility:
 	          - checkout
 	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
 	          - echo $KEY
-	          - cache restore --key $KEY
+	          - cache restore $KEY
 	          - ls -l cache_dir
 	          - cat cache_dir/my_data
-    
+
 
 ## sem-version
 
@@ -339,7 +320,7 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-    
+
 	blocks:
 	  - name: sem-version
 	    task:
