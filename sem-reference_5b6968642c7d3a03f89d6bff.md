@@ -181,7 +181,10 @@ pages of the Semaphore 2.0 documentation.
 #### Adding one or more files in a new secret
 
 There exists a unique way for adding one or more files and creating a new
-`secret` with them that uses the `sem create` command.
+`secret` with them that uses the `sem create` command. The general form of the
+command is the following:
+
+    sem create secret [NAME] -f local1:secret1 [local2:secret2]
 
 Each entry has two parts, which are the path to the local file and the path to
 the file as it will appear in the `secret`. This is very convenient as you do
@@ -259,9 +262,10 @@ You can use `sem create -f` to create a new job that will be running without
 being added to an existing Pipeline. This means that it will run much faster
 than the same Pipeline with that job.
 
-This can be very useful for checking things.
+This can be very useful for checking things out before adding a command into
+a pipeline.
 
-When a job is created this way, it cannot be seen in the UI of Semaphore 2.0.
+When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
 
 ### sem attach
 
@@ -296,7 +300,7 @@ The `sem logs` command works with both finished and running jobs.
 
 The general form of the `sem port-forward` command is the following:
 
-    sem port-forward [JOB ID of running job] [REMOTE TCP PORT] [LOCAL TCP PORT]
+    sem port-forward [JOB ID of running job] [LOCAL TCP PORT] [REMOTE TCP PORT]
 
 So, the `sem port-forward` command needs three command line arguments: the Job
 ID, the remote TCP port number that is used in the Virtual Machine (VM), and
@@ -369,7 +373,6 @@ project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the master branch available on the
 GitHub repository of the Semaphore 2.0 project.
-
 
 ## Help commands
 
@@ -458,7 +461,7 @@ be called `my-dashboard`:
 
     sem create dashboard my-dashboard
 
-You cannot execute `sem create project <name>` in order to create an empty
+You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
 
 ### sem delete
