@@ -304,12 +304,30 @@ the local TCP port number, which will be used in the local machine.
 
 The `sem port-forward` command works with running jobs only.
 
-### sem debug
+### sem debug for jobs
 
+The `sem debug` command can help you troubleshoot all types of jobs (*running*,
+*stopped* and *finished*) that are not working as you might have expected.
+
+The general form of the `sem debug` command for jobs is the following:
+
+    sem debug job [Job ID]
+
+What the command does is reading the specification of a job, using that
+specification to build a VM and connecting you to that Virtual Machine (VM)
+using SSH in order to be able to execute all the commands manually.
+Additionally, there is a file in the home directory named `commands.sh` that
+contains all the commands of that job, including the commands in `prologue` and
+`epilogue` blocks.
+
+The VM that is used with `sem debug job` is on the *task level*, which means
+that it is the real VM with the real environment that is used for the job when
+that job is executed in a pipeline – this includes all `secrets` and
+environment variables.
 
 ## Working with projects
 
-This group only includes the `sem init` and the `sem debug` command.
+This group only includes the `sem init` and `sem debug` commands.
 
 ### sem init
 
@@ -332,10 +350,25 @@ of the Semaphore 2.0 project.
 The `--repo-url` command line option allows you to manually specify the URL of
 the GitHub repository in case `sem init` has difficulties finding that out.
 
-
 ### sem debug for projects
 
 You can use the `sem debug` command to debug an existing Semaphore 2.0 project.
+
+The `sem debug` command can help you specify the commands of a job before
+adding and executing it in a pipeline. This can be particularly helpful when
+you do not know whether the Virtual Machine you are using has the latest
+version of a programming language or a package and when you want to know what
+you need to download in order to perform the task you want.
+
+The general form of the `sem debug project` command is the following:
+
+    sem debug project [Project NAME]
+
+After that you are going to get automatically connected to the VM of the
+project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
+whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
+you will be using the latest version of the master branch available on the
+GitHub repository of the Semaphore 2.0 project.
 
 
 ## Help commands
@@ -547,7 +580,7 @@ what you are doing.
 
 ### sem attach
 
-The `sem attach` command requires the *Job ID* of a running job as its single
+The `sem attach` command requires the *Job ID* of a **running** job as its single
 parameter. So, the following command will connect to the VM of the job with Job
 ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
@@ -582,6 +615,45 @@ port 8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` that is
 running in a VM to TCP port 8080 of your local machine.
 
 All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
+
+### sem debug job
+
+The first time you execute `sem debug job`, you are going to get an output
+similar to the following:
+
+```
+$ sem debug job 415b252c-b2b2-4ced-96ea-f8268d365d96
+error: Public SSH key for debugging is not configured.
+
+Before creating a debug session job, configure the debug.PublicSshKey value.
+
+Examples:
+
+  # Configuring public ssh key with a literal
+  sem config set debug.PublicSshKey "ssh-rsa AX3....DD"
+
+  # Configuring public ssh key with a file
+  sem config set debug.PublicSshKey "$(cat ~/.ssh/id_rsa.pub)"
+
+  # Configuring public ssh key with your GitHub keys
+  sem config set debug.PublicSshKey "$(curl -s https://github.com/<username>.keys)"
+```
+
+What this output tells us is that we need to configure our Public SSH key
+before using `sem debug job` for the first time – you can choose any one of
+the three proposed ways.
+
+You will need to **manually terminate** the VM using either `sudo poweroff` or
+`sudo shutdown -r now`.
+
+### sem debug project
+
+You can debug a project named `docker-push` by executing the following command:
+
+    sem debug project docker-push
+
+You will need to **manually terminate** the VM using either `sudo poweroff` or
+`sudo shutdown -r now`.
 
 ### sem version
 
