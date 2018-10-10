@@ -303,8 +303,8 @@ The general form of the `sem port-forward` command is the following:
     sem port-forward [JOB ID of running job] [LOCAL TCP PORT] [REMOTE TCP PORT]
 
 So, the `sem port-forward` command needs three command line arguments: the Job
-ID, the remote TCP port number that is used in the Virtual Machine (VM), and
-the local TCP port number, which will be used in the local machine.
+ID, the local TCP port number that will be used in the local machine, and
+the remote TCP port number, which is defined in the Virtual Machine (VM).
 
 The `sem port-forward` command works with running jobs only.
 
