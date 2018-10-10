@@ -5,6 +5,7 @@
 * [Resource types](#resource-types)
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
+* [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Project initialization](#project-initialization)
 * [Working with jobs](#working-with-jobs)
 * [Help commands](#help-commands)
@@ -159,8 +160,9 @@ work with resources.
 
 The `sem create` command is used for creating new resources and can be followed
 by the `-f` flag, which should be followed by a valid path to a proper YAML
-file. Currently there exist three types of YAML configuration files that can be
-handled by `sem create`: secrets, dashboards and projects configuration files.
+file. Currently there exist four types of YAML configuration files that can be
+handled by `sem create`: secrets, dashboards, jobs and projects configuration
+files.
 
 However, for `secrets` and `dashboards` only, you can use `sem create` to
 create an *empty* `secret` or `dashbord` without the need for a YAML file as
@@ -171,11 +173,21 @@ follows:
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
-the [Dashboard YAML reference]()
+the [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference),
+the [Jobs YAML reference]()
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
-The `sem create` command does not support the `job` resource type.
+#### Adding one or more files in a new secret
+
+There exists a unique way for adding one or more files and creating a new
+`secret` with them that uses the `sem create` command.
+
+Each entry has two parts, which are the path to the local file and the path to
+the file as it will appear in the `secret`. This is very convenient as you do
+not have to rename the local file before inserting it to the `secret`.
+
+After that you can edit, delete or use that new `secret` as usual.
 
 ### sem edit
 
@@ -183,7 +195,7 @@ The `sem edit` command works for `secrets` and `dashboards` only and allows
 you to edit the YAML representation of a `secret` or a `dashboard` using your
 favorite text editor.
 
-The `sem edit` command does not support the `job` resource type.
+The `sem edit` command does not support the `job` and `project` resource types.
 
 ### sem get
 
@@ -226,35 +238,12 @@ deleted from the active organization of the active user.
 
 Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
-## Project Initialization
-
-This group only includes the `sem init` command.
-
-### sem init
-
-The `sem init` command adds a GitHub repository as a Semaphore 2.0 project to
-the active organization.
-
-The `sem init` command should be executed from within the root directory of the
-GitHub repository that has been either created locally and pushed to GitHub or
-cloned using the `git clone` command. Although the command can be executed
-without any other command line parameters or arguments, it also supports the
-`--project-name` and `--repo-url` options.
-
-#### --project-name
-
-The `--project-name` command line option is used for manually setting the name
-of the Semaphore 2.0 project.
-
-#### --repo-url
-
-The `--repo-url` command line option allows you to manually specify the URL of
-the GitHub repository in case `sem init` has difficulties finding that out.
-
 ## Working with jobs
 
 The list of commands for working with `jobs` includes the `sem attach`,
-`sem logs`, `sem port-forward` and `sem debug` commands.
+`sem logs`, `sem port-forward` and `sem debug` commands. Additionally, you can
+use `sem create -f` to create a new job that is different from the usual jobs
+of a pipeline.
 
 Additionally, you can use the the `sem get` command for getting a list of all
 jobs or getting a description for a particular job.
@@ -263,6 +252,16 @@ The `sem get jobs` command returns the list of all running jobs.
 
 The `sem get jobs --all` command returns the list of all recent jobs of the
 current organization, both running and finished.
+
+### sem create -f
+
+You can use `sem create -f` to create a new job that will be running without
+being added to an existing Pipeline. This means that it will run much faster
+than the same Pipeline with that job.
+
+This can be very useful for checking things.
+
+When a job is created this way, it cannot be seen in the UI of Semaphore 2.0.
 
 ### sem attach
 
@@ -306,6 +305,37 @@ the local TCP port number, which will be used in the local machine.
 The `sem port-forward` command works with running jobs only.
 
 ### sem debug
+
+
+## Working with projects
+
+This group only includes the `sem init` and the `sem debug` command.
+
+### sem init
+
+The `sem init` command adds a GitHub repository as a Semaphore 2.0 project to
+the active organization.
+
+The `sem init` command should be executed from within the root directory of the
+GitHub repository that has been either created locally and pushed to GitHub or
+cloned using the `git clone` command. Although the command can be executed
+without any other command line parameters or arguments, it also supports the
+`--project-name` and `--repo-url` options.
+
+#### --project-name
+
+The `--project-name` command line option is used for manually setting the name
+of the Semaphore 2.0 project.
+
+#### --repo-url
+
+The `--repo-url` command line option allows you to manually specify the URL of
+the GitHub repository in case `sem init` has difficulties finding that out.
+
+
+### sem debug for projects
+
+You can use the `sem debug` command to debug an existing Semaphore 2.0 project.
 
 
 ## Help commands
@@ -605,3 +635,4 @@ same output:
 * [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
+* [Job YAML reference]()
