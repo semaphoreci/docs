@@ -242,7 +242,7 @@ deleted from the active organization of the active user.
 
 Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
-## projects
+## Working with jobs
 
 The list of commands for working with `jobs` includes the `sem attach`,
 `sem logs`, `sem port-forward` and `sem debug` commands. Additionally, you can
