@@ -704,8 +704,8 @@ What this output tells us is that we need to configure our Public SSH key
 before using `sem debug job` for the first time – you can choose any one of
 the three proposed ways.
 
-You will need to **manually terminate** the VM using either `sudo poweroff` or
-`sudo shutdown -r now`.
+Note that you will need to **manually terminate** the VM using either `sudo poweroff`
+or `sudo shutdown -r now`.
 
 ### sem debug project
 
