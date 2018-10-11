@@ -242,7 +242,7 @@ deleted from the active organization of the active user.
 
 Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
-## Working with jobs
+## projects
 
 The list of commands for working with `jobs` includes the `sem attach`,
 `sem logs`, `sem port-forward` and `sem debug` commands. Additionally, you can
@@ -329,6 +329,18 @@ The VM that is used with `sem debug job` is on the *task level*, which means
 that it is the real VM with the real environment that is used for the job when
 that job is executed in a pipeline – this includes all `secrets` and
 environment variables.
+
+### On demand job creation
+
+There is a quick way to create a job and executing it right way:
+
+    sem create job [name] --project [existing project name] --command "[Valid command]"
+
+You will need to provide the name of an existing project as well as a valid
+command that can be executed in the Virtual Machine. The output of the
+aforementioned command is a Job ID.
+
+The only way to see the results of such a job is with the `sem logs` command.
 
 ## Working with projects
 
@@ -465,7 +477,15 @@ be called `my-dashboard`:
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
 
-### sem create
+### On demand job creation
+
+    sem create job "On Demand Job" --project S2 --command "go version"
+
+The aforementioned command creates a job named `On Demand Job` that will be
+added to the `S2` Semaphore 2.0 project. The command that will be executed by 
+this job is `go version`.
+
+### sem create secret with files
 
 Imagine that you have two files that are located at `/etc/hosts` and
 `/home/rtext/docker-secrets` that you want to add to a secret. Although you
