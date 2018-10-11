@@ -6,7 +6,6 @@
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
-* [Project initialization](#project-initialization)
 * [Working with jobs](#working-with-jobs)
 * [Working with projects](#working-with-projects)
 * [Help commands](#help-commands)
@@ -186,7 +185,7 @@ There exists a unique way for adding one or more files and creating a new
 `secret` with them that uses the `sem create` command. The general form of the
 command is the following:
 
-    sem create secret [NAME] -f local1:secret1 [local2:secret2]
+    sem create secret [NAME] -f local1:secret1 [-f local2:secret2]
 
 Each entry has two parts, which are the path to the local file and the path to
 the file as it will appear in the `secret`. This is very convenient as you do
@@ -465,6 +464,42 @@ be called `my-dashboard`:
 
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
+
+### sem create
+
+Imagine that you have two files that are located at `/etc/hosts` and
+`/home/rtext/docker-secrets` that you want to add to a secret. Although you
+can manually add them to an existing secret, you can also use `sem create` with
+the following syntax:
+
+    sem create secret newSecret -f /etc/hosts:/var/hosts -f /home/rtext/docker-secrets:docker-secrets
+
+After the execution of the aforementioned command, there will be a new secret
+named `newSecret` with two files in it. The path of the first file will be
+`/var/hosts` and the path of the second file will be `docker-secrets`.
+
+You can verify the results of the command as follows:
+
+    sem get secrets newSecret
+
+The output of the previous command will be the following:
+
+```
+apiVersion: v1beta
+kind: Secret
+metadata:
+  name: newSecret
+  id: 9851fa6a-681e-439c-b366-2c7283c6b363
+  create_time: "1539247272"
+  update_time: "1539247272"
+data:
+  env_vars: []
+  files:
+  - path: /var/log/hosts
+    content: IyMKMTI3LjAuMC4xCWxvY2FsaG9zdAoyNTUuMjU1LjI1NS4yNTUJYnJvYWR
+  - path: docker-secrets
+    content: ICAtIG5hbWdWU6IG1hY3Rzb3Vcwo=
+```
 
 ### sem delete
 
