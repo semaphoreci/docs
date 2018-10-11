@@ -8,6 +8,7 @@
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Project initialization](#project-initialization)
 * [Working with jobs](#working-with-jobs)
+* [Working with projects](#working-with-projects)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -53,6 +54,7 @@ The following list briefly describes all `sem` operations:
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
 * *attach*: The `attach` command is used for attaching to a running `job`.
+* *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
