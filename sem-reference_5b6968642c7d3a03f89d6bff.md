@@ -284,7 +284,7 @@ Pipeline YAML file:
 
     - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
 
-Replace `mactsouk` with the GitHub username that you are using.
+Replace `mactsouk` with the GitHub username that *you* are using.
 
 If you need the `curl` command on every `job`, you can include it in the
 `prologue` block of the `task`. An alternative way is to create a `secret` and
@@ -502,7 +502,8 @@ You can verify the results of the command as follows:
 
     sem get secrets newSecret
 
-The output of the previous command will be the following:
+The output you will get from the previous command will be similar to the
+following:
 
 ```
 apiVersion: v1beta
