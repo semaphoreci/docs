@@ -56,6 +56,20 @@ This reference page will begin with an YAML example as returned by the
         - name: ssh
           number: 57693
 
+## apiVersion
+
+
+## kind
+
+
+## metadata
+
+
+## spec
+
+
+## status
 
 
 ## See also
+
