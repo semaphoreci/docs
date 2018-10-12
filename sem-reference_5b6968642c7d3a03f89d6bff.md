@@ -294,6 +294,10 @@ If you need to include the `curl` command on every `job`, you can include it in
 the `prologue` block of the `task`. An alternative way is to create a `secret`
 and put you public SSH keys there.
 
+The `sem attach` command might be a better choice than `sem debug job` while a
+job is running because you can see what is happening in real time.
+`sem debug job` is better when a job has finished.
+
 ### sem logs
 
 The `sem logs` command allows you to see the log entries of a job, which is
@@ -334,6 +338,8 @@ that it will be the real VM with the real environment that is used for the job
 when that job is executed in a pipeline – this includes all `secrets` and
 environment variables. This also means that you will be working on the actual
 GitHub repository with the actual branch.
+
+The `sem debug job` command is ideal for debugging jobs that are finished.
 
 ### On demand job creation
 
