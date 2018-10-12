@@ -189,9 +189,12 @@ command is the following:
 
 Each entry has two parts, which are the path to the local file and the path to
 the file as it will appear in the `secret`. This is very convenient as you do
-not have to rename the local file before inserting it to the `secret`.
+not have to rename the local files before inserting them to the `secret`.
 
 After that you can edit, delete or use that new `secret` as usual.
+
+The only downside of this method is that after creating a `secret` you can only
+add more environment variables and files by editing the `secret`.
 
 ### sem edit
 
@@ -261,10 +264,11 @@ current organization, both running and finished.
 
 You can use `sem create -f` to create a new job that will be running without
 being added to an existing Pipeline. This means that it will run much faster
-than the same Pipeline with that job.
+than the same Pipeline with that job but it will not be attached to any
+pipeline.
 
-This can be very useful for checking things out before adding a command into
-a pipeline.
+This can be very useful for checking things out like compiler versions and
+package availability before adding a command into a pipeline.
 
 When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
 
@@ -286,9 +290,9 @@ Pipeline YAML file:
 
 Replace `mactsouk` with the GitHub username that *you* are using.
 
-If you need the `curl` command on every `job`, you can include it in the
-`prologue` block of the `task`. An alternative way is to create a `secret` and
-put you public SSH keys there.
+If you need to include the `curl` command on every `job`, you can include it in
+the `prologue` block of the `task`. An alternative way is to create a `secret`
+and put you public SSH keys there.
 
 ### sem logs
 
@@ -319,16 +323,17 @@ The general form of the `sem debug` command for jobs is the following:
     sem debug job [Job ID]
 
 What the command does is reading the specification of a job, using that
-specification to build a VM and connecting you to that Virtual Machine (VM)
+specification to build a Virtual Machine (VM) and connecting you to that VM
 using SSH in order to be able to execute all the commands manually.
 Additionally, there is a file in the home directory named `commands.sh` that
 contains all the commands of that job, including the commands in `prologue` and
 `epilogue` blocks.
 
 The VM that is used with `sem debug job` is on the *task level*, which means
-that it is the real VM with the real environment that is used for the job when
-that job is executed in a pipeline – this includes all `secrets` and
-environment variables.
+that it will be the real VM with the real environment that is used for the job
+when that job is executed in a pipeline – this includes all `secrets` and
+environment variables. This also means that you will be working on the actual
+GitHub repository with the actual branch.
 
 ### On demand job creation
 
@@ -384,7 +389,7 @@ The general form of the `sem debug project` command is the following:
 After that you are going to get automatically connected to the VM of the
 project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
-you will be using the latest version of the master branch available on the
+you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
 
 ## Help commands
@@ -422,6 +427,10 @@ This flag is useful for debugging.
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
 be used with the `sem create` or `sem apply` commands.
+
+Additionally, `-f` can be used for creating new `secrets` with multiple files.
+
+Last, the `-f` flag can be used as `--file`.
 
 ### The --all flag
 
@@ -538,6 +547,8 @@ Last, you can delete an existing secret named `my-secret` as follows:
 
     sem delete secret my-secret
 
+The `sem delete` command does not work with `jobs`.
+
 ### sem get
 
 As the `sem get` command works with resources, you will need to specify a
@@ -579,8 +590,8 @@ You can also use `sem get` for displaying information about a `dashboard`:
 
     sem get dashboard my-dashboard
 
-In order to find more information about a specific job, either running or
-finished, you should execute the next command:
+In order to find more information about a specific job, given its Job ID,
+either running or finished, you should execute the next command:
 
     sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
@@ -597,8 +608,6 @@ What you are going to see on your screen is the YAML representation of the
 Similarly, the next command will edit a `dashboard` named `my-activity`:
 
     sem edit dashboard my-activity
-
-`sem edit` cannot be used for editing projects or jobs.
 
 ### sem apply
 
@@ -723,7 +732,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.7.0
+    v0.7.5
 
 Your output might be different.
 
