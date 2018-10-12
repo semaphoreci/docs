@@ -170,47 +170,37 @@ projects. As a result, the `cache` utility can be used for reducing
 installation time by restoring installed packages quickly in order to be
 reused between jobs.
 
-#### Commands and Command Line Parameters
+Cache is created per project basis and it is exposed to every its job.
 
-The `cache` utility supports two commands: `cache store` and `cache restore`.
+TODO: Describe paramets key and path. Point out that key is normalized, cache is
+managed explicitly by using the commands.
 
-The general form of the `cache store` command is the following:
+#### Commands
 
-    cache store key_value cache_dir
+The `cache` utility supports the following options:
 
-The first parameter is the `key` that will be used for saving the
-desired files and should be unique among the cache keys of the same Semaphore
-2.0 project. Second parameter should hold the path of an existing directory or file.
+    cache store
+    cache restore
+    cache has_key
+    cache list
+    cache delete
+    cache clear
 
-The general form of the `cache restore` command is the following:
-
-    cache restore key_value
-
-Note: However, what is important about `key_value` is that you should be
-able to recover it afterwards in order to become available to all the jobs of
-the pipeline that want to use that `key_value` afterwards.
-
-The `key_value` should already exists or the `cache restore` command will
-return nothing. However, this will not make your Semaphore 2.0 job to fail.
-
-*Each `key` in the cache is created on a per Semaphore 2.0 project basis to
-help you share file resources between jobs.*
+TODO: Add that only has_key can return non-zero exit status.
 
 #### Dependencies
 
-The `cache` utility depends on the following three environment variables:
+The `cache` utility depends on the following environment variables
+which are automatically set in every job environment:
 
 - `SEMAPHORE_CACHE_URL`: this environment variable stores the IP address and
     the port number of the cache server (`x.y.z.w:29920`).
 - `SEMAPHORE_CACHE_USERNAME`: this environment variable stores the username
     that will be used for connecting to the cache server
 	(`5b956eef90cb4c91ab14bd2726bf261b`).
-- `SSH_PRIVATE_KEY_PATH`: this environment variable stores the path to the
+- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: this environment variable stores the path to the
     SSH key that will be used for connecting to the cache server
 	(`/home/semaphore/.ssh/semaphore_cache_key`).
-
-All these three environment variables are automatically defined and initialized
-by Semaphore 2.0.
 
 #### Examples
 
