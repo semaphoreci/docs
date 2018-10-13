@@ -13,9 +13,8 @@
 ## Overview
 
 This document explains the use of the command line tools found in the
-`https://github.com/semaphoreci/toolbox` repository and are automatically
-available to Semaphore 2.0 and the Virtual Machines (VM) used for executing the
-jobs of a pipeline.
+open source [semaphoreci/toolbox][toolbox-repo] repository and are
+preinstalled in all Semaphore 2.0 Virtual Machines (VM).
 
 ## Essentials
 
@@ -67,15 +66,17 @@ directory in the Operating System of the VM to the directory defined in the
 #### Description
 
 The `sem-service` script is a utility for starting, stopping and getting the
-status of background services based on Docker images. Started services will
-listens on 0.0.0.0 and their default port. The 0.0.0.0 IP address includes
-all the available network interfaces.
+status of background services based on Docker images hosted on Docker Hub.
+Started services will listen on 0.0.0.0 and their default port.
+The 0.0.0.0 IP address includes all available network interfaces.
+Essentially, you'll be using services as if they were natively installed
+in the OS.
 
 #### Command Line Parameters
 
 The general form of a `sem-service` command is as follows:
 
-    sem-service [start|stop|status] image_name [additional parameters]
+    sem-service [start|stop|status] image_name[:tag] [additional parameters]
 
 Therefore, each `sem-service` command requires two parameters: the first one is
 the task you want to perform and the second parameter is the Docker image that
@@ -83,25 +84,26 @@ will be used for the task.
 
 All `additional parameters` will be forwarded directly to `docker run`.
 
-#### Dependencies
+#### Assumptions
 
 The `sem-service` utility has no dependencies but presumes that Docker is
-already installed, which is the case for every Semaphore Virtual Machine (VM).
+already installed, which is the case for every Semaphore VM.
 
 Additionally, `image_name` should be a valid Docker image name. The full list
-of available Docker images is available at https://hub.docker.com/u/library/.
+of available Docker images is available at [Docker Hub](dockerhub).
 
 #### Examples
 
 The following are valid uses of `sem-service`:
 
-	sem-service start postgres:9.6
 	sem-service start redis
 	sem-service stop redis
 	sem-service status redis
 	sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
 
 The last example uses `additional parameters`.
+
+If you don't specify container image tag, the `latest` will be pulled.
 
 If the first command line argument of `sem-service` is invalid, `sem-service`
 will print its help screen:
@@ -334,3 +336,6 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 ## See also
 
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+
+[toolbox-repo]: https://github.com/semaphoreci/toolbox
+[dockerhub]: https://hub.docker.com/u/library/
