@@ -1,9 +1,13 @@
-Agents run each job in a clean environment. The default [Ubuntu
-VM][machine] includes common tools and databases needed by most
-projects. You also have full `sudo` access, so you can install new
-software or change whatever you need.
+Semaphore runs each job in a clean and isolated environment.
+The default [Ubuntu environment][ubuntu] includes common tools needed by most
+projects. With unrestricted `sudo` access and fast network, you can
+install additional software and customize the environment however you need.
 
-Let's assume you need to start PostgreSQL before each job.
+## Installing additional dependencies
+
+Let's say that your project uses Bats, which is hosted on GitHub, to test
+your Bash scripts. You can easily make it available on Semaphore by copying
+the installation commands from the project's Readme into your prologue:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
@@ -11,6 +15,26 @@ blocks:
     task:
       prologue:
         commands:
+          - git clone https://github.com/bats-core/bats-core.git
+          - cd bats
+          - sudo ./install.sh /usr/local
+      jobs:
+        - name: Tests
+          commands:
+            - bats addition.bats
+</code></pre>
+
+## Using databases and other services
+
+Let's say that your CI build needs Redis and a specific version of PostgreSQL:
+
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
+blocks:
+  - name: "Test"
+    task:
+      prologue:
+        commands:
+          - sem-service start redis
           - sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
       jobs:
         - name: Tests
@@ -18,12 +42,13 @@ blocks:
             - echo 'running tests'
 </code></pre>
 
-The [Ubuntu machine][machine] includes common databases installed as
-services. If the proper version is not pre-installed or your
-dependency is not available as a package, then you can start it as a
-Docker container with `sem-service`. [sem-service][sem-service]
-exposes default ports. Here's an example that starts [local
-DynamoDB][local-dynamodb]:
+To manage database engines and other services on Semaphore 2.0,
+use the [sem-service utility][sem-service]. Services are based on public Docker
+images hosted on [Docker Hub Library](dockerhub-lib) and exposed on
+default ports in localhost.
+
+You can use any image available on Docker Hub Library.
+Here's an example that starts RabbitMQ and ElasticSearch:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
@@ -31,37 +56,21 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-service start amazon/dynamodb-local
+          - sem-service start rabbitmq
+          - sem-service start elasticsearch:6.4.2
       jobs:
         - name: Tests
           commands:
             - echo 'running tests'
 </code></pre>
 
-You also have full access to install any other dependencies. Assume
-your projects uses [bats][] for testing. Just add more commands to
-prologue:
+## Next steps
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
-blocks:
-  - name: "Test"
-    task:
-      prologue:
-        commands:
-          - sudo systemctl start postgresql
-          - git clone https://github.com/sstephenson/bats.git
-          - cd bats
-          - sudo ./install.sh /usr/local
-      jobs:
-        - name: Tests
-          commands:
-            - echo 'running tests'
-</code></pre>
+Production CI/CD often requires use of environment variables and private API
+keys. Let's move on to learn how to
+[manage sensitive data and environment  variables][next].
 
-Refer back [Ubuntu VM][machine] reference to a complete list of
-pre-installed databases and software. Next, [configure secrets and
-environment variables][next].
-
-[machine]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[dockerhub-lib]: https://hub.docker.com/u/library/
+[next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets

@@ -66,7 +66,8 @@ directory in the Operating System of the VM to the directory defined in the
 #### Description
 
 The `sem-service` script is a utility for starting, stopping and getting the
-status of background services based on Docker images hosted on Docker Hub.
+status of background services based on Docker images hosted on
+[Docker Hub Library][dockerhub-lib].
 Started services will listen on 0.0.0.0 and their default port.
 The 0.0.0.0 IP address includes all available network interfaces.
 Essentially, you'll be using services as if they were natively installed
@@ -90,7 +91,7 @@ The `sem-service` utility has no dependencies but presumes that Docker is
 already installed, which is the case for every Semaphore VM.
 
 Additionally, `image_name` should be a valid Docker image name. The full list
-of available Docker images is available at [Docker Hub](dockerhub).
+of available Docker images is available on [Docker Hub Library][dockerhub-lib].
 
 #### Examples
 
@@ -103,7 +104,9 @@ The following are valid uses of `sem-service`:
 
 The last example uses `additional parameters`.
 
-If you don't specify container image tag, the `latest` will be pulled.
+If you don't specify the container image tag, `latest` will be pulled.
+Note that some images don't support the `latest` tag; you can check that in the
+"Supported tags" section of the image on Docker Hub.
 
 If the first command line argument of `sem-service` is invalid, `sem-service`
 will print its help screen:
@@ -338,4 +341,4 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
 [toolbox-repo]: https://github.com/semaphoreci/toolbox
-[dockerhub]: https://hub.docker.com/u/library/
+[dockerhub-lib]: https://hub.docker.com/u/library/
