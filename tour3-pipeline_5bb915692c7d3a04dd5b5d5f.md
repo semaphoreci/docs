@@ -1,56 +1,103 @@
-You'll need to customize the pipeline after connecting a project to
-Semaphore. Pipelines are composed of multiple blocks. Blocks execute
-in sequence. Blocks have a task and jobs. Jobs execute in parallel.
-Let's start out with a single block that runs various tests in
-parallel.
+After [creating your first project][first-project], you've initialized
+it with a working demo pipeline. Now we'll see how we can define our own
+pipelines on Semaphore.
+
+Let's say that our CI build consists of 4 steps:
+1. Compile
+2. Run unit tests
+3. Run integration tests
+4. Run performance tests
+
+Semaphore can run CI jobs in parallel, so we can use that to run integration
+and performance tests simultaneously and save us time. We'll keep the unit
+tests separate since we want them to finish fast, and halt the build in case
+of failure.
+
+Recall what we've covered in [concepts]. Sequential phases maps to blocks.
+Parallel stuff maps to jobs within a block's task. Commands within a job run
+sequentially.
+
+Let's start with two sequential blocks:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
-  - name: "Test"
+  - name: "Set things up"
     task:
       jobs:
-        - name: Lint
+        - name: Compile
           commands:
-            - echo 'Linting code'
+            - checkout
+            - echo "Linting code"
+            - echo "Compiling code"
+  - name: "Unit tests"
+    task:
+      jobs:
         - name: Unit
           commands:
-            - echo 'Unit tests'
-        - name: Integration
-          commands:
-            - echo 'Integration tests'
+            - checkout
+            - echo "Running unit tests"
 </code></pre>
 
-Next, configure pipeline to checkout the code. You'll need to add the
-`checkout` command to each job. You could do that by adding that to
-each command, but there's no need to do that. Blocks support a list of
-`prologue` commands that run before each job. That's the right place
-for setup like checkout or building the code. Here's the updated
-version:
+With this configuration, commands in the "Compile" job run sequentially.
+If all of them pass, the "Set things up" block passes, and the pipeline
+proceeds to run the "Unit tests" block.
+
+Notice how each block includes the [`checkout` command][checkout].
+This is Semaphore's built-in command which loads your code in the job's
+environment.
+
+## Defining blocks with parallel jobs
+
+Let's add another block with two parallel jobs:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
-  - name: "Test"
+  - name: "Set things up"
+    task:
+      jobs:
+        - name: Compile
+          commands:
+            - checkout
+            - echo "Linting code"
+            - echo "Compiling code"
+  - name: "Unit tests"
+    task:
+      jobs:
+        - name: Unit
+          commands:
+            - checkout
+            - echo "Running unit tests"
+  - name: "E2E tests"
     task:
       prologue:
         commands:
           - checkout
-          - echo 'Building code'
       jobs:
-        - name: Lint
+        # these two jobs run in parallel, if "Unit tests" block passes:
+        # (also, comments are ok ;)
+        - name: "Integration tests"
           commands:
-            - echo 'Linting code'
-        - name: Unit
+            - echo "Running integration tests"
+        - name: "Performance tests"
           commands:
-            - echo 'Unit tests'
-        - name: Integration
-          commands:
-            - echo 'Integration tests'
+            - echo "Running performance tests"
 </code></pre>
 
-Blocks, Tasks, and Jobs are covered in the [concepts][]. Learn more
-about pipelines in the [reference docs][pipeline]. Next onto
-customizing the [build environment][next].
+In the new "E2E tests" block, commands in `prologue` run before each job,
+so that we don't repeat ourselves. Prologue is the right place for setup tasks
+like checking out or building the code. Blocks also support a list of commands
+that run after each job, called `epilogue`. This is covered in depth in the
+[Pipeline YAML reference][pipeline].
 
+## Next steps
+
+Running a CI build in practice usually requires us to install and run
+dependencies, set environment variables, etc. Semaphore has several features
+which make this very easy. Let's move on to
+[customizing the build environment][next].
+
+[first-project]: https://docs.semaphoreci.com/article/63-your-first-project
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
+[checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
 [pipeline]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [next]: https://docs.semaphoreci.com/article/65-customizing-build-environment
