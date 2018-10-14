@@ -165,28 +165,56 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-Semaphore 2.0 offers the `cache` utility for storing the dependencies of
-projects. As a result, the `cache` utility can be used for reducing
-installation time by restoring installed packages quickly in order to be
-reused between jobs.
+Semaphore cache helps reducing the job duration by reusing dependencies
+retreived from external services (e.g. Ruby gems, node_modules etc).
+Cache is created on a per project basis and it is available to every project's job.
 
-Cache is created per project basis and it is exposed to every its job.
+Project's dependencies are not automatically cached and
+Semaphore 2.0 offers the `cache` tool for exploiting the caching mechanism efficently.
 
-TODO: Describe paramets key and path. Point out that key is normalized, cache is
-managed explicitly by using the commands.
+`cache` CLI is a script which uses key-path pairs for managing cached archives.
 
 #### Commands
 
-The `cache` utility supports the following options:
+`cache` supports the following options:
 
-    cache store
-    cache restore
-    cache has_key
-    cache list
-    cache delete
-    cache clear
+    store [key] [path]
+        example:
+            cache store gems-master-branch vendor/bundle
+        Archives file or directory specified by PATH and associates it with the KEY.
+        When an archive with a specific KEY is saved,
+        next command execution does not update it. The command always passes.
+    restore [first-key,second-key]
+        example:
+            cache restore gems-master-revision-1234445
+            cache restore gems-master-revision-1234445,gems-master
+        Checks if an archive with name KEY exists in the cache.
+        In case of a cache hit, archive is retrieved and available at its path
+        in the job environment. Otherwise, the fallback takes over
+        and command looks up the next key.
+        Eventually, if no archives are restored command does not fail.
+    has_key [key]
+        example:
+            cache has_key gems-master-revision-1234445
+        It checks if archive named KEY exists in cache.
+        Command passes if KEY is found in the cache, otherwise is fails.
+    list
+        example:
+            cache list
+        Lists cache for the project.
+    delete [key]
+        example:
+            cache delete gems-master-revision-1234445
+        Removes an archive under KEY if it is available in cache.
+        The command always passes.
+    clear
+        example:
+            cache clear
+        Removes all cached archives for the project.
+        The command always passes.
 
-TODO: Add that only has_key can return non-zero exit status.
+Note that only `cache has_key` command might fail.
+Specifically it fails in case when specified archive is not found in cache.
 
 #### Dependencies
 
@@ -204,68 +232,21 @@ which are automatically set in every job environment:
 
 #### Examples
 
-You can store the contents of the `cache_dir` directory under a new key that is
-kept in the `KEY` environment variable as follows:
+You can store the contents of a directory under a key which utilizes available
+environment variables.
+For example, every job environment includes `SEMAPHORE_GIT_BRANCH` variable.
+Let's use it and make sure that jobs on the each branch always the same cache.
 
-    cache store $KEY cache_dir
+    cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
 
-If the given `$KEY` value already exists in the cache of the current Semaphore
-2.0 project, the `cache store` command *will not update* the contents of the
-`cache_dir` directory.
+Later on, all of the project's succeeding jobs could retrive
+the `vendor/bundle` from cache with the following command in the yaml file:
 
-You can restore the directory that is saved under the `KEY` environment variable
-as follows:
+    cache restore gems-$SEMAPHORE_GIT_BRANCH
 
-    cache restore $KEY
+Additionally, we can also use the fallback key option.
 
-#### Example Semaphore project
-
-The following is a complete Semaphore 2.0 project that uses the `cache`
-utility:
-
-	version: v1.0
-	name: Using cache utility
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
-
-	blocks:
-	  - name: Create cache
-	    task:
-	      env_vars:
-	        - name: APP_ENV
-	          value: prod
-	      jobs:
-	      - name: Check environment variables
-	        commands:
-	          - echo $SEMAPHORE_CACHE_URL
-	          - echo $SEMAPHORE_CACHE_USERNAME
-	          - echo $SSH_PRIVATE_KEY_PATH
-            - cat $SSH_PRIVATE_KEY_PATH
-	      - name: Create cache key
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - mkdir -p cache_dir
-	          - touch cache_dir/my_data
-	          - echo $KEY > cache_dir/my_data
-	          - echo $KEY
-	          - cache store $KEY cache_dir/my_data
-	          - cat cache_dir/my_data
-
-	  - name: Use cache
-	    task:
-	      jobs:
-	      - name: Get cache directory
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - echo $KEY
-	          - cache restore $KEY
-	          - ls -l cache_dir
-	          - cat cache_dir/my_data
-
+    cache restore gems-$SEMAPHORE_GIT_BRANCH,gems-master
 
 ## sem-version
 
