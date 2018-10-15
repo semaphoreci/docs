@@ -5,8 +5,6 @@ A solution that does not require the data to be fetched from open internet
 is clearly the most ideal. In order to address this Semaphore 2.0 offers
 the cache storage and the [`cache` CLI](todo: add toolbox url).
 
-Since cache is available to every job it is not recommended to store sensitive data.
-
 * [Saving and retrieving cache](#saving-and-retrieving-cache)
 * [The fallback key](#the-fallback-key)
 * [Removing dependencies from cache](#removing-dependencies-from-cache)
@@ -18,21 +16,39 @@ Every cached archive is associated with a key-path pair.
 This action makes a cached archive accessible to every succeeding job
 and it is available under the `key` value.
 
-The following command sequence saves and restores `vendor/bundle` from cache:
+## Saving dependencies into cache
 
-    cache store gems-v1 vendor/bundle
-    cache restore gems-v1
+In cache you can store any file or directory. Anything that you store into a
+cache needs to be indentified with a key. Example of storing something into cache:
 
-To achieve that jobs on the each branch always use the same cache, we can add
-the following commands to Semaphore yaml file:
+    cache store mykey dependencies_dir/
+
+or in case of single file:
+
+    cache store mykey deps.tar.gz
+
+## Restoring dependencies from cache
+
+To restore dependencies from cache you have to specify the key under which you
+have previously stored file or directory.
+
+    cache restore mykey
+
+## Optimizing caching efficiency with cache key composition
+
+Since dependencies can differ across branches, you can include branch name in the
+cache key and increase caches of using most similar dependencies.
 
     cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
+    ...
     cache restore gems-$SEMAPHORE_GIT_BRANCH
 
 Yet, with this setup jobs on the master branch will restore the archive cached
 by the first execution of the `cache store` on this branch.
 To always store the newest gems version to the cache,
 you can  use the `checksum` function.
+
+To futher increase
 
     cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
     cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock)
@@ -59,3 +75,11 @@ command tried restoring all specified keys
 Command `cache delete gems-master` removes the archive under `gems-master` key
 from cache. Also, the `cache clear` command is used to clear project's dependency
 cache.
+
+## Summary
+
+The `cache store` command is responsible for adding new archive to the cache.
+An existing archive can not be updated, but its key can be used to delete it
+and store its new version.
+
+Additionally, to
