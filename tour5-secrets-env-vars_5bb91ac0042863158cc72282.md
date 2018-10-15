@@ -1,109 +1,131 @@
-Semaphore has flexible support for environment variables and secrets.
-They may be configured for the task or job. This example applies to
-all jobs in the block:
+Semaphore supports setting environment variables on a
+[per-block][envvars-perblock] and [per-job level][envvars-perjob].
+Here's an example which applies one to all jobs in the block:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
       env_vars:
-        - name: CI
+        - name: GUIDED_TOUR
           value: "TRUE"
       jobs:
         - name: Lint
           commands:
-            - echo "${CI}"
+            - echo "${GUIDED_TOUR}"
             - echo 'Linting code'
         - name: Unit
           commands:
-            - echo "${CI}"
+            - echo "${GUIDED_TOUR}"
             - echo 'Unit tests'
-        - name: Integration
-          commands:
-            - echo "${CI}"
-            - echo 'Integration tests'
 </code></pre>
 
-Occasionally you'll need to customize a specific job:
+## Managing sensitive data with secrets
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
-blocks:
-  - name: "Test"
-    task:
-      env_vars:
-        - name: CI
-          value: "TRUE"
-      jobs:
-        - name: Lint
-          commands:
-            - echo "$CI"
-            - echo 'Linting code'
-        - name: Unit
-          commands:
-            - echo "$CI"
-            - echo 'Unit tests'
-        - name: Integration
-          commands:
-            - echo "$CI"
-            - echo "$OUTPUT_FORMAT"
-            - echo 'Integration tests'
-          env_vars:
-            - name: OUTPUT_FORMAT
-              echo: "json"
-</code></pre>
-
-Using environment variables inevitably leads to configuring secrets.
-Secrets are private values like API keys or passwords. They shouldn't
-be committed to source control or written directly into the pipeline.
-Instead, they're created with the `sem` command line. Secrets are
-shared by all projects in the organization. This makes it easier to
-reuse shared secrets like AWS credentials or deploy keys.
+Private information like API keys or deploy credentials shouldn't be
+written in the pipeline definition file or elsewhere committed to source
+control. On Semaphore you define these values as _secrets_ using the `sem` tool.
+Secrets are shared by all projects in the organization.
 
 Let's configure a secret for the `AWS_ACCESS_KEY_ID` and
 `AWS_SECRET_ACCESS_KEY` environment variables. Start by creating a new
-file named `aws-secret.yml`.
+file called `aws-secret.yml`:
 
 <pre><code class="language-yaml"># aws-secret.yml
-apiVersion: v1alpha
+apiVersion: v1beta
 kind: Secret
 metadata:
-  name: aws
+  name: myapp-aws
 data:
   env_vars:
     - name: AWS_ACCESS_KEY_ID
-      value: "placholder"
+      value: "123"
     - name: AWS_SECRET_ACCESS_KEY
-      value: "placeholder"
+      value: "456"
 </code></pre>
 
-Now create the secrets with `sem`:
+Now create a secret resource with `sem`:
 
 ```
 $ sem create -f aws-secret.yml
 ```
 
-Now list the secret's `name` in the pipeline file. Secrets may be
-configured for the block or for the job just like environment
-variables.
+We recommend that after this step you either remove the secret definition file,
+or add it to your `.gitignore` list.
+
+Now we can use the environment variables defined in our secret by referencing
+the secret's `name` in the pipeline definition file. Just like regular
+environment variables, secrets can be configured on the block or job level.
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
   - name: "Deploy"
     task:
-      env_vars:
-        - name: AWS_DEFAULT_REGION
-          value: ap-southeast-1
-      secerts:
-        - name: aws
+      secrets:
+        - name: myapp-aws
       jobs:
         - name: Push to S3
           commands:
-            - echo "$CI"
             - echo "$AWS_ACCESS_KEY_ID"
             - echo "$AWS_SECRET_ACCESS_KEY"
 </code></pre>
 
-Now that you can configure environment variable and secrets, you're
-ready to move onto [deploying with promotions][next].
+### Storing files in secrets
 
+Let's say that we've changed our mind and instead of environment variables,
+we'd actually like to use configuration files, such as `.aws/config` and
+`.aws/credentials`. We can define files and their content in a secret too.
+
+Using `sem`, we can edit any secret definition file. The following command will
+fetch a secret and open its' current definition in your default editor:
+
+```
+sem edit secret myapp-aws
+```
+
+Change the `data` section to define files:
+
+<pre><code class="language-yaml"># aws-secret.yml
+apiVersion: v1beta
+kind: Secret
+metadata:
+  name: myapp-aws
+data:
+  env_vars: []
+  files:
+  - path: /home/semaphore/.aws/config
+    content: ICBzc2gtZHNzIEFBQUFCM...
+  - path: /home/semaphore/.aws/credentials
+    content: RudFlSSjh3cDNEWDdo...
+</code></pre>
+
+In `content` you should paste the output of `base64 your-file`.
+If you don't specify an absolute path, the file will appear in the root
+of your repository.
+
+Once you save and exit your editor, `sem` will automatically update
+the secret on Semaphore.
+
+You can also inspect a secret's definition using:
+
+```
+sem get secrets myapp-aws
+```
+
+## Next steps
+
+By now you've learned a lot! These are the essentials which should guide you
+in most use cases, but in case you need more information you can consult the
+reference guides:
+
+- [Secrets YAML reference][secrets]
+- [sem command line tool reference][sem]
+
+Now that you've learned how to configure environment variables and secrets,
+you're ready to move on to [deploying with promotions][next].
+
+[envvars-perblock]: https://docs.semaphoreci.com/article/50-pipeline-yaml#env_vars
+[envvars-perjob]: https://docs.semaphoreci.com/article/50-pipeline-yaml#env_vars-in-jobs
 [next]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
+[secrets]: https://docs.semaphoreci.com/article/51-secrets-yaml-reference
+[sem]: https://docs.semaphoreci.com/article/53-sem-reference
