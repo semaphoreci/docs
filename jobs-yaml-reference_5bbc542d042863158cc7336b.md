@@ -132,13 +132,27 @@ The `spec` property and its list of properties hold the specification of a job.
 
 #### agent
 
+The `agent` property
+
 #### machine
+
+The `machine` property
 
 #### type
 
+The `type` property
+
+The list of values for `type`:
+
 #### os_image
 
+The `os_image` property
+
+The list of values for `os_image`:
+
 #### files
+
+The `files` property
 
 #### envvars
 
@@ -146,10 +160,15 @@ The `envvars` property holds a list
 
 ##### name
 
+The `name` property
+
 ##### value
+
+The `value` property
 
 #### secrets
 
+The `secrets` property
 
 #### commands
 
@@ -161,7 +180,36 @@ The value of the `commands` property is a list of strings, which are commands.
 
 The `status` property
 
+#### state
+
+The `state` property
+
+The list of values for `state`:
+
+#### result
+
+The `result` property
+
+The list of values for `result`:
+
+#### agent
+
+The `agent` property
+
+##### ip
+
+The value of the `ip` property is the IP address of the Virtual Machine used
+for executing the job. This value is provided by Semaphore 2.0 and should not
+be changed.
+
+##### ports
+
+The `ports` property holds a `name` and `number` pair. The value of the `name`
+property is the protocol used, which is `ssh`, and the value of the `number`
+property is the port number used for the `ssh` connection.
 
 ## See also
 
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
