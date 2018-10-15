@@ -56,10 +56,10 @@ for more information.
 
 Semaphore makes sure that there are always agents ready to run all your tasks.
 When specifying agent type, you can select from a number of memory/CPU
-combinations and operating system images.
+combinations and operating system environments.
 
-The standard Linux image has all the common build tools and programming
-languages preinstalled, so you can run your code without overhead.
+The standard Ubuntu Linux environment has all the common build tools and
+programming languages preinstalled, so you can run your code without overhead.
 Agents also provide full `sudo` access so you can install additional
 software when needed.
 
