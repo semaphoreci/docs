@@ -2,7 +2,7 @@
 
 # TODO
 
-## Defining variables in pipeline yaml configuration
+## Defining variables in pipeline YAML configuration
 
 # TODO
 
@@ -40,7 +40,7 @@ Example value: 5c84719708b9b649b9ef3b56af214f38cee6acde
 
 ##### SEMAPHORE_GIT_URL
 
-Example value: [http://git@github.com:semaphoreci/toolbox.git][1]
+Example value: [http://git@github.com:semaphoreci/toolbox.git](http://git@github.com:semaphoreci/toolbox.git)
 
 ##### SEMAPHORE_GIT_REPO_SLUG
 
@@ -63,5 +63,5 @@ Example value: toolbox
 Example value: /home/semaphore/foo
 
 
+## See Also
 
-[1]: http://git@github.com:semaphoreci/toolbox.git
