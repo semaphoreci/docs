@@ -32,9 +32,12 @@ everything worked, you'll see the build running in your browser.
 
 Congratulations! You've successfully created your first project,
 and initialized it with a working pipeline definition file.
-Let's move on to [customizing your pipeline][next] so that it runs
-the commands that you want.
+Take some time to explore the Semaphore web interface, and compare what you
+see with the generated YAML file.
+
+Let's move on to [an overview of key Semaphore concepts][next] to learn what
+each part means.
 
 [app]: https://id.semaphoreci.com
-[next]: https://docs.semaphoreci.com/article/64-customizing-your-pipeline
+[next]: https://docs.semaphoreci.com/article/62-concepts
 [sem]: https://docs.semaphoreci.com/article/53-sem-reference
