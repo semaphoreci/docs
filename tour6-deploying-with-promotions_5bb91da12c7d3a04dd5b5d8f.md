@@ -1,8 +1,13 @@
 Each project starts with the default pipeline specified in
 `.semaphore/semaphore.yml`. Real world pipelines tend to branch out
-when certain conditions are meant. Examples may be deploying to
-production on master builds or deploying to a dev environment on topic
-branches. Promotions may be automatic or manual.
+when certain conditions are met. Examples may be deploying to
+production on master builds or deploying to a pre-production environment
+on topic branches.
+
+On Semaphore deployment and delivery is managed with _promotions_, which may
+be automatic or manual and optionally depend on conditions.
+
+## Manual deployment
 
 Let's start by adding a manual confirmation to promote to production.
 
@@ -39,10 +44,20 @@ blocks:
             - echo 'Deploying to production!'
 </code></pre>
 
-Users will see a "Production Deploy" button once the pipeline
-completes. Promotions may also be [triggered
-automatically][auto-promotions]. Let's add another that automatically
-promotes builds to staging.
+In the Semaphore web interface, users will see a "Production Deploy" button
+once all blocks in the pipeline defined in `semaphore.yml` pass.
+When a user promotes a revision, Semaphore records the time and name of the
+person who initiated it, and proceeds by executing the pipeline defined in
+`production-deploy.yml`.
+
+Note that [all pipeline features][pipeline-reference] are available in delivery
+pipelines, same as in `semaphore.yml`. This enables you to chain multiple
+pipelines together and automate complex workflows.
+
+## Continuous deployment with auto-promotions
+
+Promotions can also be [triggered automatically][auto-promotions].
+Let's create another that automatically promotes builds to staging.
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 promotions:
@@ -70,7 +85,7 @@ blocks:
             - echo 'Deploying to staging!'
 </code></pre>
 
-Auto-promotions may be also combined with branches. Here's how to
+Auto-promotions can also be associated to specific branches. Here's how to
 automatically promote passed builds on master:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
@@ -91,7 +106,11 @@ Promotions are powerful tools to build up complex multi-pipeline
 workflows. Refer to the [promotions reference][reference] for complete
 information.
 
+## Next steps
+
 There's one last thing to cover: [caching dependencies][next].
 
 [auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote_on
+[pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
 [next]: https://docs.semaphoreci.com/article/68-caching-dependencies
