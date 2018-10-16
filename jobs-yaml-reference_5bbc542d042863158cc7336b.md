@@ -37,7 +37,7 @@ This reference page will begin with an YAML example as returned by the
       - name: SEMAPHORE_GIT_SHA
         value: f7da446084515d25db52b4fe6146db6e81ded482
       - name: SEMAPHORE_GIT_BRANCH
-        value: mt/sem-0.7.4
+        value: master
       - name: SEMAPHORE_WORKFLOW_ID
         value: 0137eba3-fb19-41f8-87ac-77e040d437f6
       - name: SEMAPHORE_PIPELINE_ARTEFACT_ID
@@ -47,7 +47,7 @@ This reference page will begin with an YAML example as returned by the
       - name: SEMAPHORE_PIPELINE_0_ARTEFACT_ID
         value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
       secrets:
-      - name: helpscout-docs
+      - name: docker-secrets
       commands:
       - checkout
       - gem install redcarpet
@@ -132,23 +132,37 @@ The `spec` property and its list of properties hold the specification of a job.
 
 #### agent
 
-The `agent` property
+The `agent` property requires one additional property named `machine`, that
+identifies the environment, that is the hardware of the Virtual machine and the
+Operating System of the Virtual Machine, in which the job will get executed.
+
+The values that are found under the `agent` property are defined in the
+pipeline file that the job belongs to – in this case you should not change
+them on your own. However, if you are creating a new job, you can define the
+values of `type` and `os_image` as you wish, provided that you will be using
+valid values.
+
+You can learn more about the `agent` property and the properties under it at
+the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml).
 
 #### machine
 
-The `machine` property
+The `machine` property, which can only be defined under `agent`, requires two
+properties named `type` and `os_image`.
 
 #### type
 
-The `type` property
+The `type` property is intended for specifying the machine (hardware) you would
+use on the Virtual Machine of your builds.
 
-The list of values for `type`:
+The list of values for `type`: `e1-standard-2`.
 
 #### os_image
 
-The `os_image` property
+The `os_image` property specifies the operating system and the version of the
+operating system that will be used.
 
-The list of values for `os_image`:
+The list of values for `os_image`: `ubuntu1804`.
 
 #### files
 
@@ -168,7 +182,8 @@ The `value` property
 
 #### secrets
 
-The `secrets` property
+The `secrets` property holds a list with the `secrets` names that will be
+imported for this job.
 
 #### commands
 
@@ -184,13 +199,24 @@ The `status` property
 
 The `state` property
 
-The list of values for `state`:
+The list of values for `state`: `PENDING`, `QUEUED`, `RUNNING` and `FINISHED`.
+
+* `PENDING`: the job is accepted by the Semaphore 2.0 system.
+* `QUEUED`: the job is waiting for available capacity.
+* `RUNNING`: the job is processing commands.
+* `FINISHED`: the job processing has finished and its result has been calculated.
 
 #### result
 
 The `result` property
 
-The list of values for `result`:
+The list of values for `result`: `NONE`, `PASSED`, `FAILED` and `STOPPED`.
+
+* `NONE`: the jobs has not yet finished.
+* `PASSED`: the job has successfully finished.
+* `FAILED`: the job has failed, either because a command has failed or because
+    one or more dependancies were not available.
+* `STOPPED`: the job was terminated before finishing.
 
 #### agent
 
@@ -213,3 +239,4 @@ property is the port number used for the `ssh` connection.
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+* [Environment Variables Reference]()
