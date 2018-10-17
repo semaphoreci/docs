@@ -5,8 +5,9 @@
 * [Resource types](#resource-types)
 * [Working with organizations](#working-with-organizations)
 * [Working with resources](#working-with-resources)
-* [Project initialization](#project-initialization)
+* [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
+* [Working with projects](#working-with-projects)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -52,6 +53,7 @@ The following list briefly describes all `sem` operations:
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
 * *attach*: The `attach` command is used for attaching to a running `job`.
+* *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
@@ -159,8 +161,8 @@ work with resources.
 
 The `sem create` command is used for creating new resources and can be followed
 by the `-f` flag, which should be followed by a valid path to a proper YAML
-file. Currently there exist three types of YAML configuration files that can be
-handled by `sem create`: secrets, dashboards and projects configuration files.
+file. Currently there exist four types of YAML resource files that can be
+handled by `sem create`: secrets, dashboards, jobs and projects resource files.
 
 However, for `secrets` and `dashboards` only, you can use `sem create` to
 create an *empty* `secret` or `dashbord` without the need for a YAML file as
@@ -171,11 +173,27 @@ follows:
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
-the [Dashboard YAML reference]()
+the [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference),
+the [Jobs YAML reference]()
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
-The `sem create` command does not support the `job` resource type.
+#### Adding one or more files in a new secret
+
+There exists a unique way for adding one or more files and creating a new
+`secret` with them that uses the `sem create` command. The general form of the
+command is the following:
+
+    sem create secret [NAME] -f local1:secret1 [-f local2:secret2]
+
+Each entry has two parts, which are the path to the local file and the path to
+the file as it will appear in the `secret`. This is very convenient as you do
+not have to rename the local files before inserting them to the `secret`.
+
+After that you can edit, delete or use that new `secret` as usual.
+
+The only downside of this method is that after creating a `secret` you can only
+add more environment variables and files by editing the `secret`.
 
 ### sem edit
 
@@ -183,7 +201,7 @@ The `sem edit` command works for `secrets` and `dashboards` only and allows
 you to edit the YAML representation of a `secret` or a `dashboard` using your
 favorite text editor.
 
-The `sem edit` command does not support the `job` resource type.
+The `sem edit` command does not support the `job` and `project` resource types.
 
 ### sem get
 
@@ -226,9 +244,117 @@ deleted from the active organization of the active user.
 
 Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
-## Project Initialization
+## Working with jobs
 
-This group only includes the `sem init` command.
+The list of commands for working with `jobs` includes the `sem attach`,
+`sem logs`, `sem port-forward` and `sem debug` commands. Additionally, you can
+use `sem create -f` to create a new job that is different from the usual jobs
+of a pipeline.
+
+Additionally, you can use the the `sem get` command for getting a list of all
+jobs or getting a description for a particular job.
+
+The `sem get jobs` command returns the list of all running jobs.
+
+The `sem get jobs --all` command returns the list of all recent jobs of the
+current organization, both running and finished.
+
+### sem create -f
+
+You can use `sem create -f` to create a new job that will be running without
+being added to an existing Pipeline. This means that it will run much faster
+than the same Pipeline with that job but it will not be attached to any
+pipeline.
+
+This can be very useful for checking things out like compiler versions and
+package availability before adding a command into a pipeline.
+
+When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
+
+### sem attach
+
+The `sem attach` command works with running jobs only and is helpful for
+debugging the operations of a `job`.
+
+The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
+running job using SSH and execute any commands you want. However, as soon as
+the job ends, the SSH session will automatically end and the SSH connection
+will be closed.
+
+In order to be able to connect to the VM of the `job` that interests you, you
+will need to include the following command in the relevant `job` block of the
+Pipeline YAML file:
+
+    - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
+
+Replace `mactsouk` with the GitHub username that *you* are using.
+
+If you need to include the `curl` command on every `job`, you can include it in
+the `prologue` block of the `task`. An alternative way is to create a `secret`
+and put you public SSH keys there.
+
+The `sem attach` command might be a better choice than `sem debug job` while a
+job is running because you can see what is happening in real time.
+`sem debug job` is better when a job has finished.
+
+### sem logs
+
+The `sem logs` command allows you to see the log entries of a job, which is
+specified by its Job ID.
+
+The `sem logs` command works with both finished and running jobs.
+
+### sem port-forward
+
+The general form of the `sem port-forward` command is the following:
+
+    sem port-forward [JOB ID of running job] [LOCAL TCP PORT] [REMOTE TCP PORT]
+
+So, the `sem port-forward` command needs three command line arguments: the Job
+ID, the local TCP port number that will be used in the local machine, and
+the remote TCP port number, which is defined in the Virtual Machine (VM).
+
+The `sem port-forward` command works with running jobs only.
+
+### sem debug for jobs
+
+The `sem debug` command can help you troubleshoot all types of jobs (*running*,
+*stopped* and *finished*) that are not working as you might have expected.
+
+The general form of the `sem debug` command for jobs is the following:
+
+    sem debug job [Job ID]
+
+What the command does is reading the specification of a job, using that
+specification to build a Virtual Machine (VM) and connecting you to that VM
+using SSH in order to be able to execute all the commands manually.
+Additionally, there is a file in the home directory named `commands.sh` that
+contains all the commands of that job, including the commands in `prologue` and
+`epilogue` blocks.
+
+The VM that is used with `sem debug job` is on the *task level*, which means
+that it will be the real VM with the real environment that is used for the job
+when that job is executed in a pipeline – this includes all `secrets` and
+environment variables. This also means that you will be working on the actual
+GitHub repository with the actual branch.
+
+The `sem debug job` command is ideal for debugging jobs that are finished.
+
+### On demand job creation
+
+There is a quick way to create a job and executing it right way:
+
+    sem create job [name] --project [existing project name] --command "[Valid command]"
+
+You will need to provide the name of an existing project as well as a valid
+command that can be executed in the Virtual Machine. The output of the
+aforementioned command is a Job ID.
+
+The only way to see the results of such a job is with the `sem logs` command.
+
+## Working with projects
+
+This group only includes the `sem init` and `sem debug` commands.
 
 ### sem init
 
@@ -251,59 +377,25 @@ of the Semaphore 2.0 project.
 The `--repo-url` command line option allows you to manually specify the URL of
 the GitHub repository in case `sem init` has difficulties finding that out.
 
-## Working with jobs
+### sem debug for projects
 
-The list of commands for working with `jobs` includes the `sem attach`,
-`sem logs` and `sem port-forward` commands.
+You can use the `sem debug` command to debug an existing Semaphore 2.0 project.
 
-Additionally, you can use the the `sem get` command for getting a list of all
-jobs or getting a description for a particular job.
+The `sem debug` command can help you specify the commands of a job before
+adding and executing it in a pipeline. This can be particularly helpful when
+you do not know whether the Virtual Machine you are using has the latest
+version of a programming language or a package and when you want to know what
+you need to download in order to perform the task you want.
 
-The `sem get jobs` command returns the list of all running jobs.
+The general form of the `sem debug project` command is the following:
 
-The `sem get jobs --all` command returns the list of all recent jobs of the
-current organization, both running and finished.
+    sem debug project [Project NAME]
 
-### sem attach
-
-The `sem attach` command works with running jobs only and is helpful for
-debugging the operations of a `job`.
-
-The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
-running job using SSH and execute any commands you want. However, as soon as
-the job ends, the SSH session will automatically end and the SSH connection
-will be closed.
-
-In order to be able to connect to the VM of the `job` that interests you, you
-will need to include the following command in the relevant `job` block of the
-Pipeline YAML file:
-
-    - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
-
-Replace `mactsouk` with the GitHub username that you are using.
-
-If you need the `curl` command on every `job`, you can include it in the
-`prologue` block of the `task`. An alternative way is to create a `secret` and
-put you public SSH keys there.
-
-### sem logs
-
-The `sem logs` command allows you to see the log entries of a job, which is
-specified by its Job ID.
-
-The `sem logs` command works with both finished and running jobs.
-
-### sem port-forward
-
-The general form of the `sem port-forward` command is the following:
-
-    sem port-forward [JOB ID of running job] [REMOTE TCP PORT] [LOCAL TCP PORT]
-
-So, the `sem port-forward` command needs three command line arguments: the Job
-ID, the remote TCP port number that is used in the Virtual Machine (VM), and
-the local TCP port number, which will be used in the local machine.
-
-The `sem port-forward` command works with running jobs only.
+After that you are going to get automatically connected to the VM of the
+project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
+whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
+you will be using the latest version of the `master` branch available on the
+GitHub repository of the Semaphore 2.0 project.
 
 ## Help commands
 
@@ -340,6 +432,10 @@ This flag is useful for debugging.
 
 The `-f` flag allows you to specify the path to the desired YAML file that will
 be used with the `sem create` or `sem apply` commands.
+
+Additionally, `-f` can be used for creating new `secrets` with multiple files.
+
+Last, the `-f` flag can be used as `--file`.
 
 ### The --all flag
 
@@ -392,8 +488,53 @@ be called `my-dashboard`:
 
     sem create dashboard my-dashboard
 
-You cannot execute `sem create project <name>` in order to create an empty
+You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
+
+### On demand job creation
+
+    sem create job "On Demand Job" --project S2 --command "go version"
+
+The aforementioned command creates a job named `On Demand Job` that will be
+added to the `S2` Semaphore 2.0 project. The command that will be executed by 
+this job is `go version`.
+
+### sem create secret with files
+
+Imagine that you have two files that are located at `/etc/hosts` and
+`/home/rtext/docker-secrets` that you want to add to a secret. Although you
+can manually add them to an existing secret, you can also use `sem create` with
+the following syntax:
+
+    sem create secret newSecret -f /etc/hosts:/var/hosts -f /home/rtext/docker-secrets:docker-secrets
+
+After the execution of the aforementioned command, there will be a new secret
+named `newSecret` with two files in it. The path of the first file will be
+`/var/hosts` and the path of the second file will be `docker-secrets`.
+
+You can verify the results of the command as follows:
+
+    sem get secrets newSecret
+
+The output you will get from the previous command will be similar to the
+following:
+
+```
+apiVersion: v1beta
+kind: Secret
+metadata:
+  name: newSecret
+  id: 9851fa6a-681e-439c-b366-2c7283c6b363
+  create_time: "1539247272"
+  update_time: "1539247272"
+data:
+  env_vars: []
+  files:
+  - path: /var/log/hosts
+    content: IyMKMTI3LjAuMC4xCWxvY2FsaG9zdAoyNTUuMjU1LjI1NS4yNTUJYnJvYWR
+  - path: docker-secrets
+    content: ICAtIG5hbWdWU6IG1hY3Rzb3Vcwo=
+```
 
 ### sem delete
 
@@ -410,6 +551,8 @@ follows:
 Last, you can delete an existing secret named `my-secret` as follows:
 
     sem delete secret my-secret
+
+The `sem delete` command does not work with `jobs`.
 
 ### sem get
 
@@ -452,8 +595,8 @@ You can also use `sem get` for displaying information about a `dashboard`:
 
     sem get dashboard my-dashboard
 
-In order to find more information about a specific job, either running or
-finished, you should execute the next command:
+In order to find more information about a specific job, given its Job ID,
+either running or finished, you should execute the next command:
 
     sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
@@ -470,8 +613,6 @@ What you are going to see on your screen is the YAML representation of the
 Similarly, the next command will edit a `dashboard` named `my-activity`:
 
     sem edit dashboard my-activity
-
-`sem edit` cannot be used for editing projects or jobs.
 
 ### sem apply
 
@@ -514,7 +655,7 @@ what you are doing.
 
 ### sem attach
 
-The `sem attach` command requires the *Job ID* of a running job as its single
+The `sem attach` command requires the *Job ID* of a **running** job as its single
 parameter. So, the following command will connect to the VM of the job with Job
 ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
@@ -550,6 +691,45 @@ running in a VM to TCP port 8080 of your local machine.
 
 All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
 
+### sem debug job
+
+The first time you execute `sem debug job`, you are going to get an output
+similar to the following:
+
+```
+$ sem debug job 415b252c-b2b2-4ced-96ea-f8268d365d96
+error: Public SSH key for debugging is not configured.
+
+Before creating a debug session job, configure the debug.PublicSshKey value.
+
+Examples:
+
+  # Configuring public ssh key with a literal
+  sem config set debug.PublicSshKey "ssh-rsa AX3....DD"
+
+  # Configuring public ssh key with a file
+  sem config set debug.PublicSshKey "$(cat ~/.ssh/id_rsa.pub)"
+
+  # Configuring public ssh key with your GitHub keys
+  sem config set debug.PublicSshKey "$(curl -s https://github.com/<username>.keys)"
+```
+
+What this output tells us is that we need to configure our Public SSH key
+before using `sem debug job` for the first time – you can choose any one of
+the three proposed ways.
+
+Note that you will need to **manually terminate** the VM using either `sudo poweroff`
+or `sudo shutdown -r now`.
+
+### sem debug project
+
+You can debug a project named `docker-push` by executing the following command:
+
+    sem debug project docker-push
+
+You will need to **manually terminate** the VM using either `sudo poweroff` or
+`sudo shutdown -r now`.
+
 ### sem version
 
 The `sem version` command displays the used version of the `sem` tool. As an
@@ -557,7 +737,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.7.0
+    v0.7.5
 
 Your output might be different.
 
@@ -602,3 +782,4 @@ same output:
 * [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
+* [Job YAML reference]()
