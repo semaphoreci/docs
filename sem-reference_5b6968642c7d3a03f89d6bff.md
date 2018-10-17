@@ -161,9 +161,8 @@ work with resources.
 
 The `sem create` command is used for creating new resources and can be followed
 by the `-f` flag, which should be followed by a valid path to a proper YAML
-file. Currently there exist four types of YAML configuration files that can be
-handled by `sem create`: secrets, dashboards, jobs and projects configuration
-files.
+file. Currently there exist four types of YAML resource files that can be
+handled by `sem create`: secrets, dashboards, jobs and projects resource files.
 
 However, for `secrets` and `dashboards` only, you can use `sem create` to
 create an *empty* `secret` or `dashbord` without the need for a YAML file as
