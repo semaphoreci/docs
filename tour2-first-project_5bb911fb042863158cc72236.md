@@ -35,7 +35,7 @@ see the pipeline running in your browser. You can also see all running
 jobs in your terminal via `sem get jobs`.
 
 Congratulations! You've successfully created your first project,
-and initialized it with a working pipeline definition file.
+and initialized it with a working pipeline.
 Take some time to explore the Semaphore web interface, and compare what you
 see with the generated YAML file.
 
