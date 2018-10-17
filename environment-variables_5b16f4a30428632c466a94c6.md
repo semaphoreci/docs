@@ -90,7 +90,7 @@ is used in the current Semaphore 2.0 project.
 
 The value of the `SEMAPHORE_GIT_SHA` environment variable
 
-Example value: 5c84719708b9b649b9ef3b56af214f38cee6acde
+Example value: `5c84719708b9b649b9ef3b56af214f38cee6acde`
 
 #### SEMAPHORE\_GIT\_URL
 
