@@ -128,11 +128,12 @@ its execution.
 
 ### spec
 
-The `spec` property and its list of properties hold the specification of a job.
+The `spec` property holds a list of properties that hold the full specification
+of a job.
 
 #### agent
 
-The `agent` property requires one additional property named `machine`, that
+The `agent` property holds one additional property named `machine`, that
 identifies the environment, that is the hardware of the Virtual machine and the
 Operating System of the Virtual Machine, in which the job will get executed.
 
@@ -166,38 +167,42 @@ The list of values for `os_image`: `ubuntu1804`.
 
 #### files
 
-The `files` property
+The `files` property holds a list of file items used for the job. Each file is
+represented by a `path` and `content` pair.
 
 #### envvars
 
-The `envvars` property holds a list
+The `envvars` property holds a list of `name` and `value` pairs that represent
+environment variables.
 
 ##### name
 
-The `name` property
+The `name` property defines the name of the environment variable.
 
 ##### value
 
-The `value` property
+The `value` property defines the value of the environment variable.
 
 #### secrets
 
-The `secrets` property holds a list with the `secrets` names that will be
-imported for this job.
+The `secrets` property holds a list with the `secrets` that will be imported
+for this job.
 
 #### commands
 
-The `commands` property 
-
-The value of the `commands` property is a list of strings, which are commands.
+The `commands` property holds the commands of the job. As a result the value of
+the `commands` property is a list of strings, which are the commands of the
+job.
 
 ### status
 
-The `status` property
+The `status` property is for holding a list of other properties that define
+the status of the job. This list includes the `state`, `result` and `agent`
+properties.
 
 #### state
 
-The `state` property
+The `state` property holds the state of the job.
 
 The list of values for `state`: `PENDING`, `QUEUED`, `RUNNING` and `FINISHED`.
 
@@ -208,7 +213,8 @@ The list of values for `state`: `PENDING`, `QUEUED`, `RUNNING` and `FINISHED`.
 
 #### result
 
-The `result` property
+The `result` property holds the result of the job. If the job is in running
+state then the value of `result` will be `""`.
 
 The list of values for `result`: `NONE`, `PASSED`, `FAILED` and `STOPPED`.
 
@@ -220,7 +226,9 @@ The list of values for `result`: `NONE`, `PASSED`, `FAILED` and `STOPPED`.
 
 #### agent
 
-The `agent` property
+The `agent` property holds two other properties, named `ip` and `ports` that
+specify the IP address and the TCP port number used by the agent that runs the
+job.
 
 ##### ip
 
@@ -232,7 +240,7 @@ be changed.
 
 The `ports` property holds a `name` and `number` pair. The value of the `name`
 property is the protocol used, which is `ssh`, and the value of the `number`
-property is the port number used for the `ssh` connection.
+property is the TCP port number used for the `ssh` connection.
 
 ## See also
 
