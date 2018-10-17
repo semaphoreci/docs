@@ -3,6 +3,7 @@ it with a working demo pipeline. Now we'll see how we can define our own
 pipelines on Semaphore.
 
 Let's say that our CI build consists of 4 steps:
+
 1. Compile
 2. Run unit tests
 3. Run integration tests
