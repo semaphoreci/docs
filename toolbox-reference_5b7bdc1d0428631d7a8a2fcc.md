@@ -66,12 +66,10 @@ directory in the Operating System of the VM to the directory defined in the
 #### Description
 
 The `sem-service` script is a utility for starting, stopping and getting the
-status of background services based on Docker images hosted on
-[Docker Hub Library][dockerhub-lib].
-Started services will listen on 0.0.0.0 and their default port.
-The 0.0.0.0 IP address includes all available network interfaces.
-Essentially, you'll be using services as if they were natively installed
-in the OS.
+status of background services. Started services will listen on 0.0.0.0 and
+their default port. The 0.0.0.0 IP address includes all available network
+interfaces. Essentially, you'll be using services as if they were natively
+installed in the OS.
 
 #### Command Line Parameters
 
@@ -341,4 +339,3 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
 [toolbox-repo]: https://github.com/semaphoreci/toolbox
-[dockerhub-lib]: https://hub.docker.com/u/library/
