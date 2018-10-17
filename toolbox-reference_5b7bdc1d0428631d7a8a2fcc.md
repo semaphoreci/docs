@@ -184,52 +184,78 @@ can be a single file or a directory.
 
 `cache` supports the following options:
 
-    store [key] [path]
-        examples:
-            cache store our-gems vendor/bundle
-            cache store gems-$SEMAPHORE_GIT_BRANCH
-            cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
-        Archives file or directory specified by `path` and associates it with the `key`.
-        Any further changes of `path` after the store operation completes will not be automatically propagated to cache.
-        The command always passes (exits with 0).
-    restore [first-key,second-key]
-        examples:
-            cache restore our-gems
-            cache restore gems-$SEMAPHORE_GIT_BRANCH
-            cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
-        Restores an archive with given key.
-        In case of a cache hit, archive is retrieved and available at its original path in the job environment.
-        In case of cache miss, the comma-separated fallback takes over and command looks up the next key.
-        If no archives are restored command exits with 0.
-    has_key [key]
-        example:
-            cache has_key our-gems
-            cache has_key gems-$SEMAPHORE_GIT_BRANCH
-            cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
-        It checks if an archive with provided key exists in cache.
-        Command passes if key is found in the cache, otherwise is fails.
-    list
-        example:
-            cache list
-        Lists all cache archives for the project.
-    delete [key]
-        example:
-            cache delete our-gems
-            cache delete gems-$SEMAPHORE_GIT_BRANCH
-            cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
-        Removes an archive with given key if it is found in cache.
-        The command always passes.
-    clear
-        example:
-            cache clear
-        Removes all cached archives for the project.
-        The command always passes.
+##### cache store key path
 
-Note that only `cache has_key` command might fail.
+Examples:
+
+    cache store our-gems vendor/bundle
+    cache store gems-$SEMAPHORE_GIT_BRANCH
+    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+
+Archives file or directory specified by path and associates it with key.
+Any further changes of path after the store operation completes will not
+be automatically propagated to cache. The command always passes (exits with 0).
+
+##### cache restore key[,second-key,...]
+
+Examples:
+
+    cache restore our-gems
+    cache restore gems-$SEMAPHORE_GIT_BRANCH
+    cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
+
+Restores an archive with given key.
+In case of a cache hit, archive is retrieved and available at its original
+path in the job environment.
+In case of cache miss, the comma-separated fallback takes over and command
+looks up the next key.
+If no archives are restored command exits with 0.
+
+##### cache has_key key
+
+Example:
+
+    cache has_key our-gems
+    cache has_key gems-$SEMAPHORE_GIT_BRANCH
+    cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+
+Checks if an archive with provided key exists in cache.
+Command passes if key is found in the cache, otherwise is fails.
+
+##### cache list
+
+Example:
+
+    cache list
+
+Lists all cache archives for the project.
+
+##### cache delete key
+
+Example:
+
+    cache delete our-gems
+    cache delete gems-$SEMAPHORE_GIT_BRANCH
+    cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+
+Removes an archive with given key if it is found in cache.
+The command always passes.
+
+##### cache clear
+
+Example:
+
+    cache clear
+
+Removes all cached archives for the project.
+The command always passes.
+
+Note that in all commands of `cache`, only `cache has_key` command can fail
+(exit with non-zero status).
 
 #### Dependencies
 
-The `cache` utility depends on the following environment variables
+The `cache` tool depends on the following environment variables
 which are automatically set in every job environment:
 
 - `SEMAPHORE_CACHE_URL`: stores the IP address and
