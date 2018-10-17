@@ -168,47 +168,56 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-Semaphore cache helps reducing the job duration by reusing dependencies
-retreived from external services (e.g. Ruby gems, node_modules etc).
-Cache is created on a per project basis and it is available to every project's job.
+Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
+project depends on but are not part of version control. You can use caching to
+reuse your project's dependencies, so that Semaphore fetches and installs
+them only when the dependency list changes. Or you can propagate a file from
+one block to the next.
 
-Project's dependencies are not automatically cached and
-Semaphore 2.0 offers the `cache` tool for exploiting the caching mechanism efficently.
+Cache is created on a per project basis and available in every pipeline job.
+All cache keys are scoped per project.
 
-`cache` CLI is a script which uses key-path pairs for managing cached archives.
+`cache` tool uses key-path pairs for managing cached archives. An archive
+can be a single file or a directory.
 
 #### Commands
 
 `cache` supports the following options:
 
     store [key] [path]
-        example:
-            cache store gems-master-branch vendor/bundle
+        examples:
+            cache store our-gems vendor/bundle
+            cache store gems-$SEMAPHORE_GIT_BRANCH
+            cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
         Archives file or directory specified by `path` and associates it with the `key`.
-        When an archive with a specific `key` is saved,
-        next command execution does not update it. The command always passes.
+        Any further changes of `path` after the store operation completes will not be automatically propagated to cache.
+        The command always passes (exits with 0).
     restore [first-key,second-key]
-        example:
-            cache restore gems-master-revision-1234445
-            cache restore gems-master-revision-1234445,gems-master
-        Checks if an archive with name KEY exists in the cache.
-        In case of a cache hit, archive is retrieved and available at its path
-        in the job environment. Otherwise, the fallback takes over
-        and command looks up the next key.
-        Eventually, if no archives are restored command does not fail.
+        examples:
+            cache restore our-gems
+            cache restore gems-$SEMAPHORE_GIT_BRANCH
+            cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
+        Restores an archive with given key.
+        In case of a cache hit, archive is retrieved and available at its original path in the job environment.
+        In case of cache miss, the comma-separated fallback takes over and command looks up the next key.
+        If no archives are restored command exits with 0.
     has_key [key]
         example:
-            cache has_key gems-master-revision-1234445
-        It checks if archive named `key` exists in cache.
-        Command passes if KEY is found in the cache, otherwise is fails.
+            cache has_key our-gems
+            cache has_key gems-$SEMAPHORE_GIT_BRANCH
+            cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+        It checks if an archive with provided key exists in cache.
+        Command passes if key is found in the cache, otherwise is fails.
     list
         example:
             cache list
-        Lists cache for the project.
+        Lists all cache archives for the project.
     delete [key]
         example:
-            cache delete gems-master-revision-1234445
-        Removes an archive under `key` if it is found in cache.
+            cache delete our-gems
+            cache delete gems-$SEMAPHORE_GIT_BRANCH
+            cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+        Removes an archive with given key if it is found in cache.
         The command always passes.
     clear
         example:
@@ -217,39 +226,20 @@ Semaphore 2.0 offers the `cache` tool for exploiting the caching mechanism effic
         The command always passes.
 
 Note that only `cache has_key` command might fail.
-Specifically it fails in case when specified archive is not found in cache.
 
 #### Dependencies
 
 The `cache` utility depends on the following environment variables
 which are automatically set in every job environment:
 
-- `SEMAPHORE_CACHE_URL`: this environment variable stores the IP address and
+- `SEMAPHORE_CACHE_URL`: stores the IP address and
     the port number of the cache server (`x.y.z.w:29920`).
-- `SEMAPHORE_CACHE_USERNAME`: this environment variable stores the username
+- `SEMAPHORE_CACHE_USERNAME`: stores the username
     that will be used for connecting to the cache server
   (`5b956eef90cb4c91ab14bd2726bf261b`).
-- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: this environment variable stores the path to the
+- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: stores the path to the
     SSH key that will be used for connecting to the cache server
   (`/home/semaphore/.ssh/semaphore_cache_key`).
-
-#### Examples
-
-You can store the contents of a directory under a key which utilizes available
-environment variables.
-For example, every job environment includes `SEMAPHORE_GIT_BRANCH` variable.
-Let's use it and make sure that jobs on the each branch always the same cache.
-
-    cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
-
-Later on, all of the project's succeeding jobs could retrive
-the `vendor/bundle` from cache with the following command in the yaml file:
-
-    cache restore gems-$SEMAPHORE_GIT_BRANCH
-
-Additionally, we can also use the fallback key option.
-
-    cache restore gems-$SEMAPHORE_GIT_BRANCH,gems-master
 
 ## sem-version
 
