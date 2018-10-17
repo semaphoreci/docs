@@ -168,117 +168,104 @@ In the previous example, the `retry` script succeeded after three failed tries!
 
 #### Description
 
-Semaphore 2.0 offers the `cache` utility for storing the dependencies of
-projects. As a result, the `cache` utility can be used for reducing
-installation time by restoring installed packages quickly in order to be
-reused between jobs.
+Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
+project depends on but are not part of version control. You can use caching to
+reuse your project's dependencies, so that Semaphore fetches and installs
+them only when the dependency list changes. Or you can propagate a file from
+one block to the next.
 
-#### Commands and Command Line Parameters
+Cache is created on a per project basis and available in every pipeline job.
+All cache keys are scoped per project.
 
-The `cache` utility supports two commands: `cache store` and `cache restore`.
+`cache` tool uses key-path pairs for managing cached archives. An archive
+can be a single file or a directory.
 
-The general form of the `cache store` command is the following:
+#### Commands
 
-    cache store key_value cache_dir
+`cache` supports the following options:
 
-The first parameter is the `key` that will be used for saving the
-desired files and should be unique among the cache keys of the same Semaphore
-2.0 project. Second parameter should hold the path of an existing directory or file.
+##### cache store key path
 
-The general form of the `cache restore` command is the following:
+Examples:
 
-    cache restore key_value
+    cache store our-gems vendor/bundle
+    cache store gems-$SEMAPHORE_GIT_BRANCH
+    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 
-Note: However, what is important about `key_value` is that you should be
-able to recover it afterwards in order to become available to all the jobs of
-the pipeline that want to use that `key_value` afterwards.
+Archives file or directory specified by path and associates it with key.
+Any further changes of path after the store operation completes will not
+be automatically propagated to cache. The command always passes (exits with 0).
 
-The `key_value` should already exists or the `cache restore` command will
-return nothing. However, this will not make your Semaphore 2.0 job to fail.
+##### cache restore key[,second-key,...]
 
-*Each `key` in the cache is created on a per Semaphore 2.0 project basis to
-help you share file resources between jobs.*
+Examples:
+
+    cache restore our-gems
+    cache restore gems-$SEMAPHORE_GIT_BRANCH
+    cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
+
+Restores an archive with given key.
+In case of a cache hit, archive is retrieved and available at its original
+path in the job environment.
+In case of cache miss, the comma-separated fallback takes over and command
+looks up the next key.
+If no archives are restored command exits with 0.
+
+##### cache has_key key
+
+Example:
+
+    cache has_key our-gems
+    cache has_key gems-$SEMAPHORE_GIT_BRANCH
+    cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+
+Checks if an archive with provided key exists in cache.
+Command passes if key is found in the cache, otherwise is fails.
+
+##### cache list
+
+Example:
+
+    cache list
+
+Lists all cache archives for the project.
+
+##### cache delete key
+
+Example:
+
+    cache delete our-gems
+    cache delete gems-$SEMAPHORE_GIT_BRANCH
+    cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+
+Removes an archive with given key if it is found in cache.
+The command always passes.
+
+##### cache clear
+
+Example:
+
+    cache clear
+
+Removes all cached archives for the project.
+The command always passes.
+
+Note that in all commands of `cache`, only `cache has_key` command can fail
+(exit with non-zero status).
 
 #### Dependencies
 
-The `cache` utility depends on the following three environment variables:
+The `cache` tool depends on the following environment variables
+which are automatically set in every job environment:
 
-- `SEMAPHORE_CACHE_URL`: this environment variable stores the IP address and
+- `SEMAPHORE_CACHE_URL`: stores the IP address and
     the port number of the cache server (`x.y.z.w:29920`).
-- `SEMAPHORE_CACHE_USERNAME`: this environment variable stores the username
+- `SEMAPHORE_CACHE_USERNAME`: stores the username
     that will be used for connecting to the cache server
-	(`5b956eef90cb4c91ab14bd2726bf261b`).
-- `SSH_PRIVATE_KEY_PATH`: this environment variable stores the path to the
+  (`5b956eef90cb4c91ab14bd2726bf261b`).
+- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: stores the path to the
     SSH key that will be used for connecting to the cache server
-	(`/home/semaphore/.ssh/semaphore_cache_key`).
-
-All these three environment variables are automatically defined and initialized
-by Semaphore 2.0.
-
-#### Examples
-
-You can store the contents of the `cache_dir` directory under a new key that is
-kept in the `KEY` environment variable as follows:
-
-    cache store $KEY cache_dir
-
-If the given `$KEY` value already exists in the cache of the current Semaphore
-2.0 project, the `cache store` command *will not update* the contents of the
-`cache_dir` directory.
-
-You can restore the directory that is saved under the `KEY` environment variable
-as follows:
-
-    cache restore $KEY
-
-#### Example Semaphore project
-
-The following is a complete Semaphore 2.0 project that uses the `cache`
-utility:
-
-	version: v1.0
-	name: Using cache utility
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
-
-	blocks:
-	  - name: Create cache
-	    task:
-	      env_vars:
-	        - name: APP_ENV
-	          value: prod
-	      jobs:
-	      - name: Check environment variables
-	        commands:
-	          - echo $SEMAPHORE_CACHE_URL
-	          - echo $SEMAPHORE_CACHE_USERNAME
-	          - echo $SSH_PRIVATE_KEY_PATH
-            - cat $SSH_PRIVATE_KEY_PATH
-	      - name: Create cache key
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - mkdir -p cache_dir
-	          - touch cache_dir/my_data
-	          - echo $KEY > cache_dir/my_data
-	          - echo $KEY
-	          - cache store $KEY cache_dir/my_data
-	          - cat cache_dir/my_data
-
-	  - name: Use cache
-	    task:
-	      jobs:
-	      - name: Get cache directory
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - echo $KEY
-	          - cache restore $KEY
-	          - ls -l cache_dir
-	          - cat cache_dir/my_data
-
+  (`/home/semaphore/.ssh/semaphore_cache_key`).
 
 ## sem-version
 
