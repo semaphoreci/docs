@@ -68,52 +68,76 @@ directory in the Operating System of the VM to the directory defined in the
 The `sem-service` script is a utility for starting, stopping and getting the
 status of background services. Started services will listen on 0.0.0.0 and
 their default port. The 0.0.0.0 IP address includes all available network
-interfaces. Essentially, you'll be using services as if they were natively
+interfaces. Essentially, you will be using services as if they were natively
 installed in the OS.
 
 #### Command Line Parameters
 
 The general form of a `sem-service` command is as follows:
 
-    sem-service [start|stop|status] image_name[:tag] [additional parameters]
+    sem-service start [mysql | postgres | redis | memcached]
 
 Therefore, each `sem-service` command requires two parameters: the first one is
-the task you want to perform and the second parameter is the Docker image that
-will be used for the task.
-
-All `additional parameters` will be forwarded directly to `docker run`.
+the task you want to perform and the second parameter is the name of the service
+that will be used for the task.
 
 #### Assumptions
 
-The `sem-service` utility has no dependencies but presumes that Docker is
-already installed, which is the case for every Semaphore VM.
-
-Additionally, `image_name` should be a valid Docker image name. The full list
-of available Docker images is available on [Docker Hub Library][dockerhub-lib].
+The `sem-service` utility has no dependencies. However, depending on the
+service you want to use, you might need to install additional software such as
+a client for connecting to the service.
 
 #### Examples
 
 The following are valid uses of `sem-service`:
 
-	sem-service start redis
-	sem-service stop redis
-	sem-service status redis
-	sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
+    sem-service start redis
+    sem-service stop redis
+    sem-service status postgres
+	sem-service status mysql
+	sem-service start memcached
 
-The last example uses `additional parameters`.
+#### Example Semaphore 2.0 project with sem-service
 
-If you don't specify the container image tag, `latest` will be pulled.
-Note that some images don't support the `latest` tag; you can check that in the
-"Supported tags" section of the image on Docker Hub.
-
-If the first command line argument of `sem-service` is invalid, `sem-service`
-will print its help screen:
-
-	sem-service abc an_image
-	#####################################################################################################
-	service 0.5 | Utility for starting background services, listening on 0.0.0.0, using Docker
-	service [start|stop|status] image_name
-	#####################################################################################################
+    version: v1.0
+    name: Testing sem-service
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    blocks:
+      - name: Databases
+        task:
+          env_vars:
+            - name: APP_ENV
+              value: prod
+          jobs:
+          - name: MySQL
+            commands:
+              - sem-service start mysql
+              - sudo apt-get install -y -qq mysql-client
+              - mysql --host=0.0.0.0 -uroot -e "create database Project"
+              - mysql --host=0.0.0.0 -uroot -e "show databases" | grep Project
+              - sem-service status mysql
+    
+          - name: PostgreSQL
+            commands:
+              - sem-service start postgres
+              - sudo apt-get install -y -qq postgresql-client
+              - createdb -U postgres -h 0.0.0.0 Project
+              - psql -h 0.0.0.0 -U postgres -c "\l" | grep Project
+              - sem-service status postgres
+    
+          - name: Redis
+            commands:
+              - sem-service start redis
+              - sem-service status redis
+    
+          - name: Memcached
+            commands:
+              - sem-service start memcached
+              - sem-service status memcached
 
 ### retry
 
@@ -139,18 +163,18 @@ The `retry` bash script only depends on the `/bin/bash` executable.
 
 #### Examples
 
-	$ retry lsa -l
-	/usr/bin/retry: line 46: lsa: command not found
-	[1/3] Execution Failed with exit status 127. Retrying.
-	/usr/bin/retry: line 46: lsa: command not found
-	[2/3] Execution Failed with exit status 127. Retrying.
-	/usr/bin/retry: line 46: lsa: command not found
-	[3/3] Execution Failed with exit status 127. No more retries.
+    $ retry lsa -l
+    /usr/bin/retry: line 46: lsa: command not found
+    [1/3] Execution Failed with exit status 127. Retrying.
+    /usr/bin/retry: line 46: lsa: command not found
+    [2/3] Execution Failed with exit status 127. Retrying.
+    /usr/bin/retry: line 46: lsa: command not found
+    [3/3] Execution Failed with exit status 127. No more retries.
 
 In the previous example the `retry` command will never be successful because
 the `lsa` command does not exist.
 
-	$ ./retry.sh -t 5 -s 10 lsa -l
+    $ ./retry.sh -t 5 -s 10 lsa -l
     ./retry.sh: line 46: lsa: command not found
     [1/5] Execution Failed with exit status 127. Retrying.
     ./retry.sh: line 46: lsa: command not found
@@ -205,10 +229,10 @@ The `cache` utility depends on the following three environment variables:
     the port number of the cache server (`x.y.z.w:29920`).
 - `SEMAPHORE_CACHE_USERNAME`: this environment variable stores the username
     that will be used for connecting to the cache server
-	(`5b956eef90cb4c91ab14bd2726bf261b`).
+    (`5b956eef90cb4c91ab14bd2726bf261b`).
 - `SSH_PRIVATE_KEY_PATH`: this environment variable stores the path to the
     SSH key that will be used for connecting to the cache server
-	(`/home/semaphore/.ssh/semaphore_cache_key`).
+    (`/home/semaphore/.ssh/semaphore_cache_key`).
 
 All these three environment variables are automatically defined and initialized
 by Semaphore 2.0.
@@ -234,48 +258,48 @@ as follows:
 The following is a complete Semaphore 2.0 project that uses the `cache`
 utility:
 
-	version: v1.0
-	name: Using cache utility
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Using cache utility
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
 
-	blocks:
-	  - name: Create cache
-	    task:
-	      env_vars:
-	        - name: APP_ENV
-	          value: prod
-	      jobs:
-	      - name: Check environment variables
-	        commands:
-	          - echo $SEMAPHORE_CACHE_URL
-	          - echo $SEMAPHORE_CACHE_USERNAME
-	          - echo $SSH_PRIVATE_KEY_PATH
+    blocks:
+      - name: Create cache
+        task:
+          env_vars:
+            - name: APP_ENV
+              value: prod
+          jobs:
+          - name: Check environment variables
+            commands:
+              - echo $SEMAPHORE_CACHE_URL
+              - echo $SEMAPHORE_CACHE_USERNAME
+              - echo $SSH_PRIVATE_KEY_PATH
             - cat $SSH_PRIVATE_KEY_PATH
-	      - name: Create cache key
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - mkdir -p cache_dir
-	          - touch cache_dir/my_data
-	          - echo $KEY > cache_dir/my_data
-	          - echo $KEY
-	          - cache store $KEY cache_dir/my_data
-	          - cat cache_dir/my_data
+          - name: Create cache key
+            commands:
+              - checkout
+              - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
+              - mkdir -p cache_dir
+              - touch cache_dir/my_data
+              - echo $KEY > cache_dir/my_data
+              - echo $KEY
+              - cache store $KEY cache_dir/my_data
+              - cat cache_dir/my_data
 
-	  - name: Use cache
-	    task:
-	      jobs:
-	      - name: Get cache directory
-	        commands:
-	          - checkout
-	          - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
-	          - echo $KEY
-	          - cache restore $KEY
-	          - ls -l cache_dir
-	          - cat cache_dir/my_data
+      - name: Use cache
+        task:
+          jobs:
+          - name: Get cache directory
+            commands:
+              - checkout
+              - export KEY=$(echo $(md5sum README.md) | grep -o "^\w*\b")
+              - echo $KEY
+              - cache restore $KEY
+              - ls -l cache_dir
+              - cat cache_dir/my_data
 
 
 ## sem-version
@@ -317,25 +341,24 @@ command in a job of a pipeline:
 
 The following is an example Semaphore 2.0 project that uses `sem-version`:
 
-	version: v1.0
-	name: Testing sem-version
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Testing sem-version
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
 
-	blocks:
-	  - name: sem-version
-	    task:
-	      jobs:
-	      - name: Using sem-version
-	        commands:
-	          - go version
-	          - sem-version go 1.9
-	          - go version
+    blocks:
+      - name: sem-version
+        task:
+          jobs:
+          - name: Using sem-version
+            commands:
+              - go version
+              - sem-version go 1.9
+              - go version
 
 ## See also
 
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
-[toolbox-repo]: https://github.com/semaphoreci/toolbox
