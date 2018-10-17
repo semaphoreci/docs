@@ -26,7 +26,7 @@ blocks:
 
 ## Using databases and other services
 
-Let's say that your CI build needs Redis and a specific version of PostgreSQL:
+Let's say that your CI build needs Redis and PostgreSQL:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 blocks:
@@ -35,34 +35,23 @@ blocks:
       prologue:
         commands:
           - sem-service start redis
-          - sem-service start postgres:9.6 -e POSTGRES_PASSWORD=password
+          - sem-service start postgres
       jobs:
         - name: Tests
           commands:
+            - createdb -U postgres -h 0.0.0.0 myapp_database
             - echo 'running tests'
 </code></pre>
 
 To manage database engines and other services on Semaphore 2.0,
 use the [sem-service utility][sem-service]. Services are based on public Docker
-images hosted on [Docker Hub Library](dockerhub-lib) and exposed on
-default ports in localhost.
+images hosted on Docker Hub and exposed on default ports in localhost.
+If `sem-service` currently doesn't support the service you'd like to use,
+please send us a support request and we'll make sure to include it soon.
 
-You can use any image available on Docker Hub Library.
-Here's an example that starts RabbitMQ and ElasticSearch:
-
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
-blocks:
-  - name: "Test"
-    task:
-      prologue:
-        commands:
-          - sem-service start rabbitmq
-          - sem-service start elasticsearch:6.4.2
-      jobs:
-        - name: Tests
-          commands:
-            - echo 'running tests'
-</code></pre>
+Since you have unrestricted access to the job's environment, other options for
+running services include installing native packages with `sudo` and using
+Docker Compose.
 
 ## Next steps
 
@@ -72,5 +61,4 @@ keys. Let's move on to learn how to
 
 [ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
-[dockerhub-lib]: https://hub.docker.com/u/library/
 [next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
