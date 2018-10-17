@@ -43,4 +43,4 @@ subsequent blocks.
 That wraps up the tour. We've covered configuring pipelines,
 installing software, using databases, setting environment variables,
 managing secrets, and connecting pipelines with promotions, and
-caching dependencies. You're ready to start shipping with SeamphoreCI.
+caching dependencies. You're ready to start shipping with Semaphore.
