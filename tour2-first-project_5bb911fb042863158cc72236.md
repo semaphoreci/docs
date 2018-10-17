@@ -26,12 +26,16 @@ sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
 ```
 
 Finally, run `sem init` inside the Git repository you'd like to connect
-to Semaphore. The command creates the pipeline file
-`./semaphore/semaphore.yml` and triggers the first build. If
-everything worked, you'll see the build running in your browser.
+to Semaphore. The command creates a deploy key and webhook on GitHub, so
+that Semaphore can access your code as it changes, and creates a pipeline
+definition file `./semaphore/semaphore.yml` on your computer.
+
+After you follow the last instruction to `git push` the file, you should
+see the pipeline running in your browser. You can also see all running
+jobs in your terminal via `sem get jobs`.
 
 Congratulations! You've successfully created your first project,
-and initialized it with a working pipeline definition file.
+and initialized it with a working pipeline.
 Take some time to explore the Semaphore web interface, and compare what you
 see with the generated YAML file.
 
