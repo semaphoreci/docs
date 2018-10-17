@@ -11,9 +11,13 @@
 This document describes the environment variables used in Semaphore 2.0
 projects.
 
+Although some of the presented environment variables are defined on a per
+project or on a per task basis, all the presented environment variables can be
+seen on a per job basis.
+
 ## Defining variables in pipeline files
 
-You can define your own environment variables
+You can define your own environment variables in a pipeline file.
 
 ## Defining variables in secrets
 
@@ -44,41 +48,47 @@ Example value:
 
 #### SEMAPHORE\_PROJECT\_NAME
 
-The value of the `SEMAPHORE_PROJECT_NAME` environment variable
+The value of the `SEMAPHORE_PROJECT_NAME` environment variable holds the name
+of the project a job belongs to.
 
 Example value:
 
 #### SEMAPHORE\_PROJECT\_ID
 
-The value of the `SEMAPHORE_PROJECT_ID` environment variable
+The value of the `SEMAPHORE_PROJECT_ID` environment variable holds the project
+ID of the project that a job belongs to.
 
-Example value:
+Example value: `0dd982e8-32f5-4037-983e-4de01ac7fb1e`
 
 #### SEMAPHORE\_JOB\_NAME
 
-The value of the `SEMAPHORE_JOB_NAME` environment variable
+The value of the `SEMAPHORE_JOB_NAME` environment variable is a string that
+holds the name of the job.
 
-Example value:
+Example value: `Push image to Docker`
 
 #### SEMAPHORE\_JOB\_ID
 
 The `SEMAPHORE_JOB_ID` environment variable holds the Job ID of the job that is
-being executed. It is the same value of is displayed in the output of the
-`sem get jobs` or the `sem get jobs --all` commands.
+being executed. It is the same value as is displayed in the output of the
+`sem get jobs` or the `sem get jobs --all` commands and is assigned by
+Semaphore 2.0.
 
-Example value:
+Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
 #### SEMAPHORE\_JOB\_RESULT
 
-The value of the `SEMAPHORE_JOB_RESULT` environment variable
+The value of the `SEMAPHORE_JOB_RESULT` environment variable holds the result
+of a job. The list of values includes `none`, `passed`, `failed` and `stopped`.
 
-Example value:
+Example value: `passed`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
-The value of the `SEMAPHORE_PIPELINE_ID` environment variable
+The value of the `SEMAPHORE_PIPELINE_ID` environment variable is the pipeline
+ID that is used for the active execution of a job.
 
-Example value:
+Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
 
 ### Git repository related
 
