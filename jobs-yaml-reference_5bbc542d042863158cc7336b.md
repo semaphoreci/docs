@@ -62,9 +62,12 @@ This reference page will begin with an YAML example as returned by the
         - name: ssh
           number: 57693
 
+So, the description of a job as returned by Semaphore 2.0 contains many
+properties. Some of them are defined by Semaphore 2.0 whereas other can be
+defined by the user. You can visit the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+page for learning how to define a job using the `sem create -f` command.
 
 ## Properties
-
 
 ### apiVersion
 
@@ -77,7 +80,7 @@ The list of values for `apiVersion`: `v1alpha`.
 ### kind
 
 The `kind` property defines the purpose of the YAML file. For a YAML file that
-will be used for defining secrets, the value of the `kind` property should
+will be used for defining jobs, the value of the `kind` property should
 be `Secret`.
 
 The list of values for `kind`: `Job`.
@@ -97,7 +100,7 @@ The value of the `name` property, which is a string, in the `metadata` context
 defines the name of the job.
 
 As each job is uniquely identified by its Job ID, multiple jobs can share the
-same job name without any problems.
+same job name without conflicts.
 
 #### id
 
@@ -144,7 +147,8 @@ values of `type` and `os_image` as you wish, provided that you will be using
 valid values.
 
 You can learn more about the `agent` property and the properties under it at
-the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml).
+the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+page.
 
 #### machine
 
@@ -154,14 +158,14 @@ properties named `type` and `os_image`.
 #### type
 
 The `type` property is intended for specifying the machine (hardware) you would
-use on the Virtual Machine of your builds.
+use on the Virtual Machine for building a specific job.
 
 The list of values for `type`: `e1-standard-2`.
 
 #### os_image
 
 The `os_image` property specifies the operating system and the version of the
-operating system that will be used.
+operating system that will be used on the Virtual Machine.
 
 The list of values for `os_image`: `ubuntu1804`.
 
