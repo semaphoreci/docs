@@ -10,7 +10,7 @@
 
 ## Overview
 
-This document is the reference to the YAML grammar used for describing jobs.
+This document is the reference to the YAML grammar used for managing jobs.
 
 ## An example
 
@@ -65,7 +65,7 @@ This reference page will begin with an YAML example as returned by the
 So, the description of a job as returned by Semaphore 2.0 contains many
 properties. Some of them are defined by Semaphore 2.0 whereas other can be
 defined by the user. You can visit the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-page for learning how to define a job using the `sem create -f` command.
+page for learning how to define a job using the `sem create` command.
 
 ## Properties
 
@@ -81,7 +81,7 @@ The list of values for `apiVersion`: `v1alpha`.
 
 The `kind` property defines the purpose of the YAML file. For a YAML file that
 will be used for defining jobs, the value of the `kind` property should
-be `Secret`.
+be `Job`.
 
 The list of values for `kind`: `Job`.
 
@@ -91,8 +91,8 @@ The `metadata` property defines the metadata of the Jobs YAML file and supports
 the `name`, `id`, `create_time`, `update_time`, `start_time` and `finish_time`
 properties.
 
-Currently, only the `name` property can be changed by the user but this might
-change in future versions.
+Currently, only the `name` property can be defined by the user when creating
+a new job but this might change in future versions.
 
 #### name
 
@@ -140,11 +140,8 @@ The `agent` property holds one additional property named `machine`, that
 identifies the environment, that is the hardware of the Virtual machine and the
 Operating System of the Virtual Machine, in which the job will get executed.
 
-The values that are found under the `agent` property are defined in the
-pipeline file that the job belongs to – in this case you should not change
-them on your own. However, if you are creating a new job, you can define the
-values of `type` and `os_image` as you wish, provided that you will be using
-valid values.
+If you are creating a new job, you can define the values of `type` and
+`os_image` as you wish, provided that you will be using valid values.
 
 You can learn more about the `agent` property and the properties under it at
 the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
@@ -200,9 +197,11 @@ job.
 
 ### status
 
-The `status` property is for holding a list of other properties that define
-the status of the job. This list includes the `state`, `result` and `agent`
-properties.
+The `status` property is defined by Semaphore 2.0, describes the current
+status of a job and holds three other properties. This list of properties
+is `state`, `result` and `agent`.
+
+This property can be modified only by Semaphore 2.0.
 
 #### state
 
