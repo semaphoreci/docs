@@ -782,4 +782,4 @@ same output:
 * [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
-* [Job YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
+* [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
