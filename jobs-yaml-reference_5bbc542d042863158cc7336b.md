@@ -251,4 +251,4 @@ property is the TCP port number used for the `ssh` connection.
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Environment Variables Reference]()
+* [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
