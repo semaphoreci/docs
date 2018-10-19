@@ -174,7 +174,7 @@ follows:
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
 the [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference),
-the [Jobs YAML reference]()
+the [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
@@ -782,4 +782,4 @@ same output:
 * [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
-* [Job YAML reference]()
+* [Job YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
