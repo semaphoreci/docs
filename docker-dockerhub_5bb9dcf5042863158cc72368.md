@@ -19,7 +19,7 @@ data:
     - name: DOCKER_USERNAME
       value: "REPLACE WITH YOUR USERNAME"
     - name: DOCKER_PASSWORD
-      value: "RELACE WITH YOUR PASSWORD"
+      value: "REPLACE WITH YOUR PASSWORD"
 ```
 
 Then create it:
