@@ -20,15 +20,22 @@ In order to use an existing Docker image from Docker Hub, you i
 
 ## Building a Docker image from a Dockerfile
 
-The task of this section 
+The task of this section is to build a Docker image from a Dockerfile in
+Semaphore 2.0.
 
 ## Pushing a Docker image to a registry
 
+The task of this section is to push a Docker image that you have built into
+Docker Hub.
 
 ## Using Docker compose
 
+In this section you will learn how to use the Docker compose utility in
+Semaphore 2.0.
 
 ## Installing a newer Docker version
+
+The task of this section is to learn how to update Docker into a newer version.
 
 
 ## Examples
