@@ -9,12 +9,18 @@
 
 ## Overview
 
+The key idea behind using Docker in Semaphore 2.0 is to have the Docker username
+and password stored inside Semaphore 2.0. The best way to do that is to use a
+`secret`.
 
 ## Using an existing Docker image from a repository
+
+In order to use an existing Docker image from Docker Hub, you i
 
 
 ## Building a Docker image from a Dockerfile
 
+The task of this section 
 
 ## Pushing a Docker image to a registry
 
