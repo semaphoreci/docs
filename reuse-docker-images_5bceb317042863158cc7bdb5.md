@@ -52,3 +52,6 @@ The pipeline of `p1.yml` auto promotes `p2.yml`, which is as follows:
 
 
 ## See Also
+
+* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)

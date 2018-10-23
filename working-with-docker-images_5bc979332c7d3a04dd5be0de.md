@@ -252,3 +252,5 @@ TODO
 
 ## See also
 
+* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
