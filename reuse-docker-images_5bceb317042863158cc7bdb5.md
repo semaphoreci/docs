@@ -3,15 +3,16 @@
 ## Overview
 
 This document will illustrate how you can reuse Docker images between the
-blocks of the same Semaphore 2.0 project and its promotions
+blocks of the same Semaphore 2.0 project and its promotions.
 
+The problem that we are trying to solve has to do with creating unique
+filenames that can be discovered in all the blocks of a Semaphore pipeline as
+well as in promoted pipelines.
 
 ## Environment variables
 
-### SEMAPHORE\_PROJECT\_ID
-
-The `SEMAPHORE_PROJECT_ID` environment variable
-
+In this section you will learn about the Semaphore 2.0 environment variables
+that can help you create filenames that are unique while discoverable.
 
 ### SEMAPHORE\_WORKFLOW\_ID
 
