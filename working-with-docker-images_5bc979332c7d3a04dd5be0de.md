@@ -79,7 +79,7 @@ In order to use a Docker image from a **private** Docker Hub repository, you wil
 need to login to that repository first using the Docker credentials you stored
 in your `secret`. The necessary commands are the following:
 
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
     docker pull REPOSITORY_NAME/IMAGE_NAME
 
 The previous command implies that you want to download a Docker image that is
@@ -102,7 +102,7 @@ The Semaphore pipeline file for that case will look as follows:
           - name: Docker Hub
             commands:
               - checkout
-              - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+              - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
               - docker pull "$DOCKER_USERNAME"/semaphore
               - docker images
 			  - docker run "$DOCKER_USERNAME"/semaphore
@@ -181,7 +181,7 @@ The contents of the Semaphore 2.0 pipeline file will be as follows:
 	      - name: Docker Hub
 	        commands:
 	          - checkout
-	          - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+	          - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
 	          - docker build -t go_hw:v1 .
 	          - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:v1
 	          - docker push "$DOCKER_USERNAME"/go_hw:v1
