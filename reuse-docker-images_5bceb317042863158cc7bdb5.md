@@ -8,6 +8,11 @@ blocks of the same Semaphore 2.0 project and its promotions
 
 ## Environment variables
 
+### SEMAPHORE\_PROJECT\_ID
+
+The `SEMAPHORE_PROJECT_ID` environment variable
+
+
 ### SEMAPHORE\_WORKFLOW\_ID
 
 The `SEMAPHORE_WORKFLOW_ID` environment variable
@@ -55,3 +60,4 @@ The pipeline of `p1.yml` auto promotes `p2.yml`, which is as follows:
 
 * [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+* [Toolbox reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
