@@ -244,11 +244,27 @@ other OS versions you will need to modify the presented commands.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
 
-TODO
+	version: v1.0
+	name: Update Docker
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
+    
+	blocks:
+	  - name: Update docker-ce utility
+	    task:
+	      jobs:
+	      - name: Update docker utility
+	        commands:
+	          - checkout
+	          - docker --version
+	          - sudo apt-get update
+	          - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+	          - docker --version
 
-    sudo apt-get update
-    sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-
+The two `docker --version` commands are not necessary – they are used for
+printing out the version of `docker` before and after the update.
 
 ## See also
 
