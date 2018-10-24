@@ -20,24 +20,29 @@ Machines, which means that you can use `docker` right away.
 
 The `secret` that will be used in this documentation page is as follows:
 
-	$ sem get secrets docker-hub
-	apiVersion: v1beta
-	kind: Secret
-	metadata:
-	  name: docker-hub
-	  id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
-	  create_time: "1538456457"
-	  update_time: "1538456537"
-	data:
-	  env_vars:
-	  - name: DOCKER_USERNAME
-	    value: docker-username
-	  - name: DOCKER_PASSWORD
-	    value: docker-password
-	  files: []
+    $ sem get secrets docker-hub
+    apiVersion: v1beta
+    kind: Secret
+    metadata:
+      name: docker-hub
+      id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
+      create_time: "1538456457"
+      update_time: "1538456537"
+    data:
+      env_vars:
+      - name: DOCKER_USERNAME
+        value: docker-username
+      - name: DOCKER_PASSWORD
+        value: docker-password
+      files: []
 
 Please note that the names of the two environment variables used can be
 anything you want. It is just more convenient to use descriptive names.
+
+You can learn more about `secrets` in Semaphore 2.0 at the
+[Using Secrets](https://docs.semaphoreci.com/article/61-using-secrets) and
+[Environment Variables and Secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
+documentation pages.
 
 ## Using an existing Docker image from a repository
 
@@ -56,23 +61,23 @@ the VM.
 
 So, your Semaphore pipeline file will look as follows:
 
-	version: v1.0
-	name: Using a public Docker image
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Using a public Docker image
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     
-	blocks:
-	  - name: Pull Nginx image
-	    task:
-	      jobs:
-	      - name: Docker Hub
-	        commands:
-	          - checkout
-	          - docker run -d -p 1234:80 nginx:alpine
-	          - wget http://localhost:1234
-	          - docker images
+    blocks:
+      - name: Pull Nginx image
+        task:
+          jobs:
+          - name: Docker Hub
+            commands:
+              - checkout
+              - docker run -d -p 1234:80 nginx:alpine
+              - wget http://localhost:1234
+              - docker images
 
 In order to use a Docker image from a **private** Docker Hub repository, you will
 need to login to that repository first using the Docker credentials you stored
@@ -104,14 +109,14 @@ The Semaphore pipeline file for that case will look as follows:
               - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
               - docker pull "$DOCKER_USERNAME"/semaphore
               - docker images
-			  - docker run "$DOCKER_USERNAME"/semaphore
+              - docker run "$DOCKER_USERNAME"/semaphore
     
           secrets:
           - name: docker-hub
 
-In this case the Docker repository is named `semaphore`. In order to use that
-repository, you will have to attach the username of the Docker user in front of
-it.
+In this case the Docker repository connected to the login credentials is named
+after the value of `$DOCKER_USERNAME` and the Docker image is named `semaphore`.
+
 
 ## Building a Docker image from a Dockerfile
 
@@ -135,6 +140,8 @@ there. Then, it compiles that Go file and the executable is stored as
 `files/hw`. The `ENTRYPOINT` Docker command will automatically execute
 `files/hw` when the Docker image is run.
 
+Please note that the `Dockerfile` should be committed to GitHub.
+
 After that, the contents of your Semaphore 2.0 pipeline file should look as
 follows:
 
@@ -153,7 +160,7 @@ follows:
             commands:
               - checkout
               - docker build -t go_hw:v1 .
-			  - docker run go_hw:v1
+              - docker run go_hw:v1
 
 The name of the image will be `go_hw:v1` – you can choose any name you want.
 
@@ -166,29 +173,29 @@ Docker Hub. For this purpose you will need to login to your Docker Hub first.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
 
-	version: v1.0
-	name: Pushing a Docker image
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Pushing a Docker image
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     
-	blocks:
-	  - name: Push Docker image to Docker Hub
-	    task:
-	      jobs:
-	      - name: Docker Hub
-	        commands:
-	          - checkout
-	          - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-	          - docker build -t go_hw:v1 .
-	          - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:v1
-	          - docker push "$DOCKER_USERNAME"/go_hw:v1
-	          - docker pull "$DOCKER_USERNAME"/go_hw:v1
-	          - docker images
+    blocks:
+      - name: Push Docker image to Docker Hub
+        task:
+          jobs:
+          - name: Docker Hub
+            commands:
+              - checkout
+              - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+              - docker build -t go_hw:v1 .
+              - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:v1
+              - docker push "$DOCKER_USERNAME"/go_hw:v1
+              - docker pull "$DOCKER_USERNAME"/go_hw:v1
+              - docker images
     
-	      secrets:
-	      - name: docker-hub
+          secrets:
+          - name: docker-hub
 
 The name of the image will be `"$DOCKER_USERNAME"/go_hw` and its tag will be
 `v1`. Therefore, in order to `docker pull` that image, you will have to use its
@@ -207,29 +214,29 @@ to do is to delete the existing version of `docker-compose`.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
 
-	version: v1.0
-	name: Install docker-compose
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Install docker-compose
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     
-	blocks:
-	  - name: Install desired version of docker-compose
-	    task:
-	      env_vars:
-	      - name: DOCKER_COMPOSE_VERSION
-	        value: 1.4.2
-	      jobs:
-	      - name: Get docker-compose
-	        commands:
-	          - checkout
-	          - docker-compose -v
-	          - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-	          - chmod +x docker-compose
-	          - ./docker-compose -v
-	          - sudo mv docker-compose /usr/bin
-	          - docker-compose -v
+    blocks:
+      - name: Install desired version of docker-compose
+        task:
+          env_vars:
+          - name: DOCKER_COMPOSE_VERSION
+            value: 1.4.2
+          jobs:
+          - name: Get docker-compose
+            commands:
+              - checkout
+              - docker-compose -v
+              - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+              - chmod +x docker-compose
+              - ./docker-compose -v
+              - sudo mv docker-compose /usr/bin
+              - docker-compose -v
 
 The only thing that you should take care of is using a valid value for the
 `DOCKER_COMPOSE_VERSION` environment variable.
@@ -243,29 +250,31 @@ other OS versions you will need to modify the presented commands.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
 
-	version: v1.0
-	name: Update Docker
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Update Docker
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     
-	blocks:
-	  - name: Update docker-ce utility
-	    task:
-	      jobs:
-	      - name: Update docker utility
-	        commands:
-	          - checkout
-	          - docker --version
-	          - sudo apt-get update
-	          - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-	          - docker --version
+    blocks:
+      - name: Update docker-ce utility
+        task:
+          jobs:
+          - name: Update docker utility
+            commands:
+              - checkout
+              - docker --version
+              - sudo apt-get update
+              - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+              - docker --version
 
 The two `docker --version` commands are not necessary – they are used for
 printing out the version of `docker` before and after the update.
 
 ## See also
 
-* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+* [Using Secrets](https://docs.semaphoreci.com/article/61-using-secrets)
+* [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
