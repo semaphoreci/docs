@@ -36,7 +36,7 @@ data inside the same pipeline.
 
 ### SEMAPHORE\_PIPELINE\_ARTEFACT_ID
 
-This section will explain the use of the `SEMAPHORE_ARTEFACT_ID` environment
+This section will explain the use of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment
 variable and its derivatives in caching and reusing Docker images in Semaphore
 2.0 projects that include promotions.
 
@@ -73,7 +73,6 @@ This section will explain how you can do that.
 A sample pipeline file that uses `SEMAPHORE_WORKFLOW_ID` will look as follows:
 
 
-
 ### Using Artefacts
 
 For the purposes of this section we will use three pipeline files. The scenario
@@ -91,19 +90,41 @@ This section will explain how you can do that.
 The contents of the `.semaphore/semaphore.yml` file are the following:
 
 
+In this pipeline, the values of `SEMAPHORE_PIPELINE_ID` and
+`SEMAPHORE_PIPELINE_ARTEFACT_ID` are the same as this is the initial
+pipeline.
+
 There is a Docker images created inside `.semaphore/semaphore.yml` that is
-stored in the caching server.
+stored in the caching server – the name of that Docker image will be
+`SEMAPHORE_PIPELINE_ID`.
 
 
 `.semaphore/semaphore.yml` auto promotes `p1.yml`, which is as follows:
 
 
+In `.semaphore/p1.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
+the value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will be the value of the
+`SEMAPHORE_PIPELINE_ID` environment value of `.semaphore/semaphore.yml`.
+At this point there is not need for having defined a
+`SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable.
+
+In order for `.semaphore/p1.yml` to access the Docker image defined in 
+`.semaphore/semaphore.yml`, it has to use the value of the
+`SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable.
+
 As discussed, the pipeline of `p1.yml` auto promotes `p2.yml`, which has the
 following contents:
 
+In `.semaphore/p2.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
+the value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will be the same of the value
+of the `SEMAPHORE_PIPELINE_ID` environment variable in `.semaphore/p1.yml`.
+This time, there exist a `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable
+that holds the value of the `SEMAPHORE_PIPELINE_ID` environment variable defined
+in the pipeline of `.semaphore/semaphore.yml`.
 
-
-
+So, in order for `.semaphore/p2.yml` to access the Docker image defined in
+`.semaphore/semaphore.yml`, it has to be the value of the
+`SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable.
 
 ## See Also
 
