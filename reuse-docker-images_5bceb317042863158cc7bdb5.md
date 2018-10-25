@@ -9,6 +9,13 @@ The problem that we are trying to solve has to do with creating unique
 filenames that can be discovered in all the blocks of a Semaphore pipeline as
 well as in promoted pipelines.
 
+In order to be able to reuse a Docker image, you will need to use the `cache`
+utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
+pull it from there. For reasons of simplicity all the presented examples will
+use the `cache` utility from the Semaphore Toolbox. You can find more about
+the `cache` utility in the
+[Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
+
 ## Environment variables
 
 In this section you will learn about the Semaphore 2.0 environment variables
@@ -48,7 +55,6 @@ pipeline. This means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
 
 ## Using SEMAPHORE\_WORKFLOW\_ID
 
-
 A sample pipeline file that uses `SEMAPHORE_WORKFLOW_ID` will look as follows:
 
 
@@ -76,6 +82,7 @@ contents:
 
 ## See Also
 
-* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Toolbox reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
+* [Toolbox Reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
+* [Environment variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
