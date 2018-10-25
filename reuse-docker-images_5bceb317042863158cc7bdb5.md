@@ -16,19 +16,35 @@ that can help you create filenames that are unique while discoverable.
 
 ### SEMAPHORE\_WORKFLOW\_ID
 
-The `SEMAPHORE_WORKFLOW_ID` environment variable
+The `SEMAPHORE_WORKFLOW_ID` environment variable is
 
 ### SEMAPHORE\_PIPELINE\_ID
 
-The `SEMAPHORE_PIPELINE_ID` environment variable
+The `SEMAPHORE_PIPELINE_ID` environment variable is
 
 
-### SEMAPHORE\_ARTEFACT\_ID
+### SEMAPHORE\_PIPELINE\_ARTEFACT_ID
 
 This section will explain the use of the `SEMAPHORE_ARTEFACT_ID` environment
 variable and its derivatives in caching and reusing Docker images in Semaphore
 2.0 projects that include promotions.
 
+
+### SEMAPHORE\_PIPELINE\_0\_ARTEFACT\_ID
+
+The `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable will only appear if
+there is a promotion in the pipeline. This means that it will only appear in
+the promoted pipeline.
+
+### SEMAPHORE\_PIPELINE\_1\_ARTEFACT\_ID
+
+The `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable will only appear if
+there are two promotions in a pipeline. This means that it will only appear in
+the second promoted pipeline.
+
+The numbering will continue for as long as there exist more promotions in a
+pipeline. This means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
+`SEMAPHORE_PIPELINE_3_ARTEFACT_ID`, etc.
 
 ## Using SEMAPHORE\_WORKFLOW\_ID
 
