@@ -67,7 +67,8 @@ stored in the caching server.
 `.semaphore/semaphore.yml` auto promotes `p1.yml`, which is as follows:
 
 
-The pipeline of `p1.yml` auto promotes `p2.yml`, which is as follows:
+The pipeline of `p1.yml` auto promotes `p2.yml`, which has the following
+contents:
 
 
 
