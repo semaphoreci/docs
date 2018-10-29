@@ -119,6 +119,29 @@ The contents of `.semaphore/semaphore.yml` are as follows:
                 - docker run -d -p 8000:80 go_hw:v1
                 - wget localhost:80
 
+The contents of `Dockerfile` are the following:
+
+    FROM golang:alpine
+    
+    RUN mkdir /files
+    COPY hw.go /files
+    WORKDIR /files
+    
+    RUN go build -o /files/hw hw.go
+    ENTRYPOINT ["/files/hw"]
+
+The contents of `hw.go` are the following:
+
+    package main
+    
+    import (
+        "fmt"
+    )
+    
+    func main() {
+        fmt.Println("Hello World!")
+    }
+
 The contents of `.semaphore/p1.yml` are as follows:
 
     version: v1.0
@@ -189,6 +212,48 @@ This section will explain how you can do that.
 
 The contents of the `.semaphore/semaphore.yml` file are the following:
 
+    version: v1.0
+    name: Reuse Docker Images in S2
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    promotions:
+    - name: Staging
+      pipeline_file: p1.yml
+      auto_promote_on:
+        - result: passed
+          branch:
+            - "master"
+    
+    blocks:
+      - name: Create and Store Docker image
+        task:
+          jobs:
+            - name: Store Docker image in cache
+              commands:
+                - checkout
+                - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - cp v1.go hw.go
+                - docker build -t go_hw:v1 .
+                - mkdir v1
+                - docker save go_hw:v1 -o v1/go_hw.tar
+                - ls -l v1
+                - cache store $SEMAPHORE_PIPELINE_ARTEFACT_ID v1
+    
+      - name: Test Docker image
+        task:
+          jobs:
+            - name: Restore Docker image from cache
+              commands:
+                - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - echo $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
+                - cache restore $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
+                - ls -l v1
+                - docker load -i v1/go_hw.tar
+                - docker images
+                - docker run go_hw:v1
 
 In this pipeline, the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` are the same as this is the initial
@@ -204,9 +269,74 @@ There is a Docker image created inside `.semaphore/semaphore.yml` that is
 stored in the caching server – the name of that Docker image will be the
 value of `SEMAPHORE_PIPELINE_ARTEFACT_ID`.
 
+The contents of `Dockerfile` are the following:
 
-`.semaphore/semaphore.yml` auto promotes `p1.yml`, which is as follows:
+    FROM golang:alpine
+    
+    RUN mkdir /files
+    COPY hw.go /files
+    WORKDIR /files
+    
+    RUN go build -o /files/hw hw.go
+    ENTRYPOINT ["/files/hw"]
 
+The contents of `v1.go` are the following:
+
+    package main
+    
+    import (
+        "fmt"
+    )
+    
+    func main() {
+        fmt.Println("Hello from v1!")
+    }
+
+The `.semaphore/semaphore.yml` pipeline auto promotes `p1.yml`, which is as
+follows:
+
+    version: v1.0
+    name: 1st promotion
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    promotions:
+    - name: Publish image
+      pipeline_file: p2.yml
+      auto_promote_on:
+        - result: passed
+          branch:
+            - "master"
+    
+    blocks:
+      - name: Create and Store Docker image
+        task:
+          jobs:
+            - name: Store Docker image in cache
+              commands:
+                - checkout
+                - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - cp v2.go hw.go
+                - docker build -t go_hw:v2 .
+                - mkdir v2
+                - docker save go_hw:v2 -o v2/go_hw.tar
+                - ls -l v2
+                - cache store $SEMAPHORE_PIPELINE_ARTEFACT_ID v2
+    
+      - name: Test Docker image
+        task:
+          jobs:
+            - name: Restore Docker image from cache
+              commands:
+                - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - cache restore $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - ls -l v2
+                - docker load -i v2/go_hw.tar
+                - docker images
+                - docker run go_hw:v2
+    
 
 There is a Docker image created inside `.semaphore/p1.yml` that is
 stored in the caching server – the name of that Docker image will be
@@ -222,10 +352,43 @@ In order for `.semaphore/p1.yml` to access the Docker image defined in
 `.semaphore/semaphore.yml`, it has to use the value of the
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable.
 
+The contents of `v2.go` are the following:
+
+    package main
+    
+    import (
+        "fmt"
+    )
+    
+    func main() {
+        fmt.Println("Hello from v2!")
+    }
+
 As discussed, the pipeline of `p1.yml` auto promotes `p2.yml`, which has the
 following contents:
 
-
+    version: v1.0
+    name: 2nd promotion
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    blocks:
+      - name: Test Docker images
+        task:
+          jobs:
+            - name: Restore Docker image from cache
+              commands:
+                - echo $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
+                - echo $SEMAPHORE_PIPELINE_1_ARTEFACT_ID
+                - cache restore $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
+                - docker load -i v1/go_hw.tar
+                - cache restore $SEMAPHORE_PIPELINE_1_ARTEFACT_ID
+                - docker load -i v2/go_hw.tar
+                - docker images
+                - docker run go_hw:v1
+                - docker run go_hw:v2
 
 In `.semaphore/p2.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` will be the same of the value
