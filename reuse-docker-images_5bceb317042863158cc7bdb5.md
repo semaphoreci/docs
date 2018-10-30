@@ -42,7 +42,7 @@ However, using `SEMAPHORE_PIPELINE_ARTEFACT_ID` is the recommended way because
 the value of `SEMAPHORE_PIPELINE_ARTEFACT_ID` does not change if there are
 rebuilds in a pipeline.
 
-### SEMAPHORE\_PIPELINE\_ARTEFACT_ID
+### SEMAPHORE\_PIPELINE\_ARTEFACT\_ID
 
 The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable always exists. Its
 value is the same as the value of the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`
