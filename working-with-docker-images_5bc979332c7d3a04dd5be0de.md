@@ -50,7 +50,7 @@ Docker image with the Nginx web server is working and listening to TCP port
 number 1234, as specified in the `docker run` command.
 
 For more information on using Docker, refer to the
-[Docker user guide](https://docs.docker.com/)
+[Docker user guide](https://docs.docker.com/).
 
 ## Using a Docker image from a private registry
 
