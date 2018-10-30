@@ -253,11 +253,11 @@ that is going to be used is the following: the initial pipeline begins using the
 the `.semaphore/p1.yml` pipeline. Last, `.semaphore/p1.yml` auto promotes another
 pipeline that is defined using `.semaphore/p2.yml`.
 
-As the third pipeline is promoted by the second pipeline, we have linear path,
+As the third pipeline is promoted by the second pipeline, we have a linear path,
 which means that there are no splits.
 
 There is a Docker image that is created in `.semaphore/semaphore.yml`. That
-Docker image needs to be accessible in both `.semaphore/p1.yml` and
+Docker image needs to be accessible from both `.semaphore/p1.yml` and
 `.semaphore/p2.yml` using caching. Additionally, `.semaphore/p1.yml` creates
 another Docker image that we also want to make available to `.semaphore/p2.yml`
 through caching.
@@ -312,14 +312,14 @@ The contents of the `.semaphore/semaphore.yml` file are the following:
 In this pipeline, the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` are the same as this is the initial
 pipeline. If this is the **initial build** of this pipeline, then 
-`SEMAPHORE_PIPELINE_ID` will also have the same value as both
+`SEMAPHORE_PIPELINE_ID` will also have the same value as the values of both
 `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`.
 
 If you rebuild that pipeline only, then the value of `SEMAPHORE_PIPELINE_ID`
 will change whereas the values of both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will remain the same.
 
-There is a Docker image created inside `.semaphore/semaphore.yml` that is
+Last, a Docker image was created in `.semaphore/semaphore.yml` that is
 stored in the caching server – the name of that Docker image will be the
 value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable.
 
@@ -406,7 +406,7 @@ The contents of `v2.go` are the following:
 
 There is a Docker image created inside `.semaphore/p1.yml` that is
 stored in the caching server – the name of that Docker image will be
-the value of `SEMAPHORE_PIPELINE_ARTEFACT_ID`.
+the current value of `SEMAPHORE_PIPELINE_ARTEFACT_ID`.
 
 In `.semaphore/p1.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will be the value of the
