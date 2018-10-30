@@ -27,20 +27,28 @@ that can help you create filenames that are unique while discoverable.
 
 The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
-all promoted or auto promoted pipelines.
+all promoted and auto promoted pipelines.
+
+If you need to reuse just a single resource, using the `SEMAPHORE_WORKFLOW_ID`
+environment variable is simplest and quickest solution.
 
 ### SEMAPHORE\_PIPELINE\_ID
 
 The `SEMAPHORE_PIPELINE_ID` environment variable remains the same throughout
-all the blocks of a pipeline, which makes it a perfect candidate for sharing
-data inside the same pipeline.
+all the blocks of a pipeline, which, at first, makes it the perfect candidate
+for sharing data inside the same pipeline.
+
+However, using `SEMAPHORE_PIPELINE_ARTEFACT_ID` is the recommended way because
+the value of `SEMAPHORE_PIPELINE_ARTEFACT_ID` does not change if there are
+rebuilds in a pipeline.
 
 ### SEMAPHORE\_PIPELINE\_ARTEFACT_ID
 
 The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable always exists. Its
 value is the same as the value of the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`
 environment variables, where `X` is the biggest number among all
-`SEMAPHORE_PIPELINE_X_ARTEFACT_ID` environment variables.
+the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID` environment variables of a given
+pipeline.
 
 So, in the pipeline that is initiated by `.semaphore/semaphore.yml`, you will
 have both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`
@@ -55,13 +63,17 @@ created by `.semaphore/semaphore.yml`.
 ### SEMAPHORE\_PIPELINE\_1\_ARTEFACT\_ID
 
 The `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable will only appear if
-there is at least one promotions in a pipeline. This means that it will only
-appear in the first promoted pipeline.
+there is at least one promotion in a pipeline. This means that it will begin
+appearing in the first promoted pipeline.
 
-The numbering will continue for as long as there exist more promotions in a
-pipeline. This means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
-`SEMAPHORE_PIPELINE_3_ARTEFACT_ID`, etc., provided that you have more
-promotions.
+The numbering and the creation of new `ARTEFACT_ID` environment variables
+will continue for as long as there exist more promotions in a pipeline. This
+means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
+`SEMAPHORE_PIPELINE_3_ARTEFACT_ID`, `SEMAPHORE_PIPELINE_4_ARTEFACT_ID`, etc,
+depending on the number of promotions that exist.
+
+As the numbering begins with `0`, the `10th` pipeline will have a
+`SEMAPHORE_PIPELINE_9_ARTEFACT_ID` environment variable.
 
 ## The Rules of Artefacts
 
@@ -70,35 +82,35 @@ rules that govern them and their values.
 
 * The value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` always references the
     `SEMAPHORE_PIPELINE_ARTEFACT_ID` of the pipeline specified in 
-    `.semaphore/semaphore.yml`
+    `.semaphore/semaphore.yml`.
+* Each promotion adds a new `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`, where the value
+    of `X` is increased by 1 from the biggest value of the previous pipeline.
 * The value of `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` will always reference the
     `SEMAPHORE_PIPELINE_ARTEFACT_ID` of the pipeline of the first promotion
     of the current branch.
-* The value of `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` will always reference the
-    `SEMAPHORE_PIPELINE_ARTEFACT_ID` of the pipeline on the second promotion
-    of the current branch. This rule keeps going.
-* Each promotion adds a new `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`, where the value
-    of `X` is increased by 1 from the bigger value of the previous pipeline.
+* The value of `SEMAPHORE_PIPELINE_2_ARTEFACT_ID` will always reference the
+    `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variables of the pipeline
+	on the **second** **promotion** of the current branch. This rule keeps going.
 * If the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_ARTEFACT_ID`
     are the same, then you are not on a **rebuild**.
 * Promotions work **linearly**. Therefore pipelines can use the Artefact IDs of
-    previously defined pipelines as long as there is a shared path among them.
-	Put simply, there must be a **direct**, linear connection between the
+    all previously defined pipelines as long as there is a shared path among
+	them. Put simply, there must be a **direct**, linear connection between the
 	pipelines you want to connect using Artefact IDs.
 * This means that if there is a split somewhere, only the Artefact IDs of the
     common path of one or more pipelines can be used as you cannot reference
-	the pipelines from the other branch.
+	the pipelines from the other branch(es).
 * The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable offers a convenient
     and standard way of using the Artefact ID of the current pipeline without
-    the need for knowing the environment variable that holds the Artefact ID with
-    the biggest number.
+    the need for knowing the name of the environment variable with the biggest
+	number that holds the current Artefact ID (`SEMAPHORE_PIPELINE_9_ARTEFACT_ID`).
 * If you promote a pipeline more than once, the Artefact ID of that pipeline, as
-    well as the Artefact IDs of the pipelines that depend on that pipeline will
+    well as the Artefact IDs of the pipelines that are after that pipeline will
 	change. However, the values of all previous Artefact IDs will remain the same.
 
 ## Two Examples
 
-Please note that both examples are using caching for reasons of simplicity.
+Please note that both examples are using *caching* for reasons of simplicity.
 They can be easily modified in order to store the generated Docker images to
 Docker Hub or to a similar service.
 
@@ -107,12 +119,13 @@ Docker Hub or to a similar service.
 There is a Docker image that is created in a pipeline that is defined in
 `.semaphore/semaphore.yml` and stored in the cache. You want to be able
 to access that Docker image from all the blocks of `.semaphore/semaphore.yml`
-as well as two pipelines that are auto promoted and are defined in
-`.semaphore/p1.yml` and `.semaphore/p2.yml`.
+as well as the two pipelines that are auto promoted and are defined in
+`.semaphore/p1.yml` and `.semaphore/p2.yml`. `.semaphore/semaphore.yml` auto
+promotes `.semaphore/p1.yml`, which auto promotes `.semaphore/p2.yml`.
 
-This section will explain how you can do that by presenting a sample pipeline
-file that auto promotes two other pipelines. All three pipelines are using the
-`SEMAPHORE_WORKFLOW_ID` environment variable.
+This section will explain how you can do that by presenting three sample
+pipeline files. All three pipelines are using the `SEMAPHORE_WORKFLOW_ID`
+environment variable.
 
 The contents of `.semaphore/semaphore.yml` are as follows:
 
