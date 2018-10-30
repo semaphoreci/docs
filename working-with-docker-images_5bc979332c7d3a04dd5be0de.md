@@ -1,5 +1,6 @@
 * [Overview](#overview)
-* [Using an existing Docker image from a repository](#using-an-existing-docker-image-from-a-repository)
+* [Using a public Docker image in CI/CD jobs](#using-a-public-docker-image-in-ci-cd-jobs)
+* [Using a Docker image from a private registry](#using-a-docker-image-from-a-private-registry)
 * [Building a Docker image from a Dockerfile](#building-a-docker-image-from-a-dockerfile)
 * [Pushing a Docker image to a registry](#pushing-a-docker-image-to-a-registry)
 * [Using a specific version of docker-compose](#using-a-specific-version-of-docker-compose)
@@ -8,17 +9,87 @@
 
 ## Overview
 
-The key idea behind the use of Docker in Semaphore 2.0 is to have the Docker
-username and password stored inside Semaphore 2.0. The best way to do that is
-to use a `secret`.
+Semaphore CI/CD jobs can run and build Docker images, and can also push images
+to Docker repositories or other remote storage.
 
-The `docker` utility is installed on all Semaphore 2.0 Virtual Machines, which
-means that you can use `docker` right away.
+Docker CLI is [preinstalled](ubuntu-vm) on Semaphore 2.0 VMs, which means that
+you can use Docker right away.
 
-## Storing Docker credentials to a secret
+## Using a public Docker image in CI/CD jobs
 
-The `secret` that will be used in this documentation page is named `docker-hub`
-and is defined as follows:
+In order to use an existing Docker image from a public Docker Hub repository,
+you only need to execute `docker run` as follows:
+
+    docker run -d -p 1234:80 nginx:alpine
+
+The command will download the public `nginx:alpine` image and run it in your
+Semaphore job.
+
+An example Semaphore pipeline file:
+
+    # .semaphore/semaphore.yml
+    version: v1.0
+    name: Using a public Docker image
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+
+    blocks:
+      - name: Pull Nginx image
+        task:
+          jobs:
+          - name: Docker Hub
+            commands:
+              - checkout
+              - docker run -d -p 1234:80 nginx:alpine
+              - wget http://localhost:1234
+
+The `wget http://localhost:1234` command is an example to verify that the
+Docker image with the Nginx web server is working and listening to TCP port
+number 1234, as specified in the `docker run` command.
+
+For more information on using Docker, refer to the
+[Docker user guide](https://docs.docker.com/)
+
+## Using a Docker image from a private registry
+
+In order to use a Docker image from a private Docker registry, you will first
+need to log in to that registry. The commands that you need to run are:
+
+    echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin registry.example.com
+    docker pull registry-owner/image-name
+
+We also need a secure way to store and use account credentials, without storing
+them in version control. A way to do that on Semaphore is by
+[using secrets](using-secrets).
+
+The Semaphore configuration file in this case would look as follows:
+
+    # .semaphore/semaphore.yml
+    version: v1.0
+    name: Using a private Docker image
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+
+    blocks:
+      - name: Using private Docker image
+        task:
+          jobs:
+          - name: Run container from Docker Hub
+            commands:
+              - checkout
+              - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+              - docker pull "$DOCKER_USERNAME"/myimage
+              - docker images
+              - docker run "$DOCKER_USERNAME"/myimage
+          secrets:
+          - name: docker-hub
+
+Define the `docker-hub` secret referenced in the example using the
+[sem CLI](sem-reference):
 
     $ sem get secrets docker-hub
     apiVersion: v1beta
@@ -36,123 +107,48 @@ and is defined as follows:
         value: docker-password
       files: []
 
-Please note that the names of the two environment variables used can be
-anything you want. It is just more convenient to use descriptive names.
+Note that the names of the two environment variables used can be anything
+you want. We recommend always using descriptive names.
 
-You can learn more about `secrets` in Semaphore 2.0 at the
-[Using Secrets](https://docs.semaphoreci.com/article/61-using-secrets) and
-[Environment Variables and Secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
-pages.
-
-## Using an existing Docker image from a repository
-
-In order to use an existing Docker image from a public Docker Hub repository,
-you just have to execute `docker run` as follows:
-
-    docker run -d -p 1234:80 nginx:alpine
-    wget http://localhost:1234
-
-The `docker run -d -p 1234:80 nginx:alpine` command will also download the
-`nginx:alpine` image as it will not be on the Semaphore Virtual Machine (VM).
-
-The `wget http://localhost:1234` command just verifies that the Docker image
-with the Nginx web server is working and listening to TCP port number 1234 on
-the VM.
-
-So, your Semaphore pipeline file will look as follows:
-
-    version: v1.0
-    name: Using a public Docker image
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
-    
-    blocks:
-      - name: Pull Nginx image
-        task:
-          jobs:
-          - name: Docker Hub
-            commands:
-              - checkout
-              - docker run -d -p 1234:80 nginx:alpine
-              - wget http://localhost:1234
-              - docker images
-
-In order to use a Docker image from a **private** Docker Hub repository, you will
-need to login to that repository first using the Docker credentials you stored
-in your `secret`. The necessary commands are the following:
-
-    echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-    docker pull REPOSITORY_NAME/IMAGE_NAME
-
-The previous command implies that you want to download a Docker image that is
-called `IMAGE_NAME` from a private repository named `REPOSITORY_NAME`. After
-that you can use your Docker image as before.
-
-The Semaphore pipeline file for that case will look as follows:
-
-    version: v1.0
-    name: Using a private Docker image
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
-    
-    blocks:
-      - name: Using private Docker image
-        task:
-          jobs:
-          - name: Docker Hub
-            commands:
-              - checkout
-              - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-              - docker pull "$DOCKER_USERNAME"/semaphore
-              - docker images
-              - docker run "$DOCKER_USERNAME"/semaphore
-    
-          secrets:
-          - name: docker-hub
-
-In this case the Docker repository connected to the Docker Hub login credentials
-is named after the value of `$DOCKER_USERNAME` and the Docker image is named
-`semaphore`.
+You can learn more about working with secrets in Semaphore 2.0 in the
+[guided tour](using-secrets).
 
 ## Building a Docker image from a Dockerfile
 
-The task of this section is to build a Docker image from a `Dockerfile` in
-Semaphore 2.0.
+You can use Semaphore to build Docker images directly from a `Dockerfile`
+in your source code repository.
 
-The contents of the `Dockerfile` will be as follows:
+Let's say that you have the following `Dockerfile`:
 
     FROM golang:alpine
-    
+
     RUN mkdir /files
-    COPY hw.go /files
+    COPY hello.go /files
     WORKDIR /files
-    
-    RUN go build -o /files/hw hw.go
-    ENTRYPOINT ["/files/hw"]
 
-You should already have a file named `hw.go` in your GitHub repository. The
-`Dockerfile` creates a new directory in the Docker image and puts `hw.go` in
+    RUN go build -o /files/hello hello.go
+    ENTRYPOINT ["/files/hello"]
+
+This assumes that you have a file named `hello.go` in your Git repository. The
+`Dockerfile` creates a new directory in the Docker image and puts `hello.go` in
 there. Then, it compiles that Go file and the executable file is stored as
-`files/hw`. The `ENTRYPOINT` Docker command will automatically execute
-`files/hw` when the Docker image is run.
+`files/hello`. The `ENTRYPOINT` Docker command will automatically execute
+`files/hello` when the Docker image is run.
 
-Please note that the `Dockerfile` should be committed to GitHub as it will be
+Please note that the `Dockerfile` should be committed to Git as it will be
 used by Semaphore 2.0.
 
 After that, the contents of your Semaphore 2.0 pipeline file should look as
 follows:
 
+    # .semaphore/semaphore.yml
     version: v1.0
     name: Building Docker images
     agent:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-    
+
     blocks:
       - name: Build Go executable
         task:
@@ -160,68 +156,77 @@ follows:
           - name: Docker Hub
             commands:
               - checkout
-              - docker build -t go_hw:v1 .
-              - docker run go_hw:v1
+              - docker build -t hello:v1 .
+              - docker run hello:v1
 
-The name of the image will be `go_hw:v1` – you can choose any name you want.
-
-The `docker run` command executes the image to make sure that it works.
+The name of the image will be `hello:v1` – you can choose any name you want.
 
 ## Pushing a Docker image to a registry
 
-The task of this section is to push a Docker image that you have built into
-Docker Hub. For this purpose you will need to login to your Docker Hub first.
+Once you create a container image, you usually need to push it to a registry.
+For this purpose you will first need to authenticate via `docker login`.
 
-The contents of the Semaphore 2.0 pipeline file will be as follows:
+Here's an example Semaphore configuration file in which we push to a private
+registry on Docker Hub. You can use any other container registry as well:
 
+    # .semaphore/semaphore.yml
     version: v1.0
     name: Pushing a Docker image
     agent:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-    
+
     blocks:
-      - name: Push Docker image to Docker Hub
+      - name: Push Docker image to registry
         task:
           jobs:
           - name: Docker Hub
             commands:
               - checkout
               - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-              - docker build -t go_hw:v1 .
-              - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:v1
-              - docker push "$DOCKER_USERNAME"/go_hw:v1
-              - docker pull "$DOCKER_USERNAME"/go_hw:v1
+              - docker build -t hello:v1 .
+              - docker tag hello:v1 "$DOCKER_USERNAME"/hello:v1
+              - docker push "$DOCKER_USERNAME"/hello:v1
+              - docker pull "$DOCKER_USERNAME"/hello:v1
               - docker images
-    
+
           secrets:
           - name: docker-hub
 
-The name of the image will be `"$DOCKER_USERNAME"/go_hw` and its tag will be
+The name of the image will be `"$DOCKER_USERNAME"/hello` and its tag will be
 `v1`. Therefore, in order to `docker pull` that image, you will have to use its
-full name that is `"$DOCKER_USERNAME"/go_hw:v1`.
+full name that is `"$DOCKER_USERNAME"/hello:v1`.
 
-The `docker images` command executed at the end of the job block verifies that
-the desired image was downloaded and is available on the Semaphore 2.0 VM.
+The `docker images` command executed at the end of the job is an example to
+verify that the desired image was downloaded and is available for further
+commands.
+
+In the example we are using the `docker-hub` secret as defined in a
+[previous section](#using-a-docker-image-from-a-private-registry) on pulling
+from a private registry.
+
+Note that you can use promotions to build images only on certain branches,
+for example. Refer to the [guided tour](using-promotions) and the
+[pipeline reference](pipeline-reference) for more information on orchestrating
+workflows.
 
 ## Using a specific version of docker-compose
 
-In this section you will learn how to use a specific version of `docker-compose` in
-the Virtual Machine of Semaphore 2.0.
-
-As `docker-compose` is installed by default, the first thing that you will need
-to do is to delete the existing version of `docker-compose`.
+A recent version of Docker Compose is [preinstalled by default](ubuntu-vm).
+If you'd like to use another version, the first thing that you'll need
+to do is to delete the existing version.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
 
+    # .semaphore/semaphore.yml
     version: v1.0
     name: Install docker-compose
     agent:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-    
+
     blocks:
       - name: Install desired version of docker-compose
         task:
@@ -244,25 +249,23 @@ The only thing that you should take care of is using a valid value for the
 
 ## Installing a newer Docker version
 
-The task of this section is to learn how to update Docker into a newer version.
+A recent version of Docker toolchain is [preinstalled by default](ubuntu-vm).
+In case there's a newer version which hasn't yet been added to Semaphore,
+this is an example that you can use to set it up:
 
-The Virtual Machine that will be used in this section uses Linux Ubuntu. For
-other OS versions you will need to modify the presented commands.
-
-The contents of the Semaphore 2.0 pipeline file will be as follows:
-
+    # .semaphore/semaphore.yml
     version: v1.0
     name: Update Docker
     agent:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-    
+
     blocks:
-      - name: Update docker-ce utility
+      - name: Update docker-ce
         task:
           jobs:
-          - name: Update docker utility
+          - name: Update docker
             commands:
               - checkout
               - docker --version
@@ -270,12 +273,14 @@ The contents of the Semaphore 2.0 pipeline file will be as follows:
               - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
               - docker --version
 
-The two `docker --version` commands are not necessary – they are used for
-printing out the version of `docker` before and after the update.
-
 ## See also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Using Secrets](https://docs.semaphoreci.com/article/61-using-secrets)
-* [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+* [sem command line tool Reference](sem-reference)
+* [Pipeline YAML Reference](pipeline-reference)
+* [Using secrets to manage sensitive data](using-secrets)
+
+[using-secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#docker
+[sem-reference]: https://docs.semaphoreci.com/article/53-sem-reference
+[using-promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
+[pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
