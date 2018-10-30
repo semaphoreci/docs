@@ -83,9 +83,11 @@ rules that govern them and their values.
     are the same, then you are not on a **rebuild**.
 * Promotions work **linearly**. Therefore pipelines can use the Artefact IDs of
     previously defined pipelines as long as there is a shared path among them.
-* This means that if there is a split somewhere, only the Artefact IDs of common
-    paths can be used as you cannot reference the pipelines from the other
-    branch.
+	Put simply, there must be a **direct**, linear connection between the
+	pipelines you want to connect using Artefact IDs.
+* This means that if there is a split somewhere, only the Artefact IDs of the
+    common path of one or more pipelines can be used as you cannot reference
+	the pipelines from the other branch.
 * The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable offers a convenient
     and standard way of using the Artefact ID of the current pipeline without
     the need for knowing the environment variable that holds the Artefact ID with
