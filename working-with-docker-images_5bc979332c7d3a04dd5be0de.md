@@ -8,17 +8,17 @@
 
 ## Overview
 
-The key idea behind using Docker in Semaphore 2.0 is to have the Docker username
-and password stored inside Semaphore 2.0. The best way to do that is to use a
-`secret`.
+The key idea behind the use of Docker in Semaphore 2.0 is to have the Docker
+username and password stored inside Semaphore 2.0. The best way to do that is
+to use a `secret`.
 
-Additionally, the `docker` utility is installed on all Semaphore 2.0 Virtual
-Machines, which means that you can use `docker` right away.
-
+The `docker` utility is installed on all Semaphore 2.0 Virtual Machines, which
+means that you can use `docker` right away.
 
 ## Storing Docker credentials to a secret
 
-The `secret` that will be used in this documentation page is as follows:
+The `secret` that will be used in this documentation page is named `docker-hub`
+and is defined as follows:
 
     $ sem get secrets docker-hub
     apiVersion: v1beta
@@ -42,7 +42,7 @@ anything you want. It is just more convenient to use descriptive names.
 You can learn more about `secrets` in Semaphore 2.0 at the
 [Using Secrets](https://docs.semaphoreci.com/article/61-using-secrets) and
 [Environment Variables and Secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
-documentation pages.
+pages.
 
 ## Using an existing Docker image from a repository
 
@@ -114,9 +114,9 @@ The Semaphore pipeline file for that case will look as follows:
           secrets:
           - name: docker-hub
 
-In this case the Docker repository connected to the login credentials is named
-after the value of `$DOCKER_USERNAME` and the Docker image is named `semaphore`.
-
+In this case the Docker repository connected to the Docker Hub login credentials
+is named after the value of `$DOCKER_USERNAME` and the Docker image is named
+`semaphore`.
 
 ## Building a Docker image from a Dockerfile
 
@@ -136,11 +136,12 @@ The contents of the `Dockerfile` will be as follows:
 
 You should already have a file named `hw.go` in your GitHub repository. The
 `Dockerfile` creates a new directory in the Docker image and puts `hw.go` in
-there. Then, it compiles that Go file and the executable is stored as
+there. Then, it compiles that Go file and the executable file is stored as
 `files/hw`. The `ENTRYPOINT` Docker command will automatically execute
 `files/hw` when the Docker image is run.
 
-Please note that the `Dockerfile` should be committed to GitHub.
+Please note that the `Dockerfile` should be committed to GitHub as it will be
+used by Semaphore 2.0.
 
 After that, the contents of your Semaphore 2.0 pipeline file should look as
 follows:
@@ -201,15 +202,15 @@ The name of the image will be `"$DOCKER_USERNAME"/go_hw` and its tag will be
 `v1`. Therefore, in order to `docker pull` that image, you will have to use its
 full name that is `"$DOCKER_USERNAME"/go_hw:v1`.
 
-The `docker images` command executed at the end verifies that the desired image
-was downloaded.
+The `docker images` command executed at the end of the job block verifies that
+the desired image was downloaded and is available on the Semaphore 2.0 VM.
 
 ## Using a specific version of docker-compose
 
 In this section you will learn how to use a specific version of `docker-compose` in
 the Virtual Machine of Semaphore 2.0.
 
-As `docker-compose` is installed by default the first thing that you will need
+As `docker-compose` is installed by default, the first thing that you will need
 to do is to delete the existing version of `docker-compose`.
 
 The contents of the Semaphore 2.0 pipeline file will be as follows:
