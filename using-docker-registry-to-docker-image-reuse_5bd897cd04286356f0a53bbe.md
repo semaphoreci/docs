@@ -12,11 +12,29 @@ filenames that can be discovered in all the blocks of a Semaphore pipeline as
 well as in promoted pipelines.
 
 In order to be able to reuse a Docker image, you will need to use the `cache`
-utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
-pull it from there. For reasons of simplicity all the presented examples will
-use the `cache` utility from the Semaphore Toolbox. You can find more about
-the `cache` utility in the
-[Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
+utility from the Semaphore Toolbox or push the Docker image to Docker Registry
+and pull it from there.
+
+This document will illustrate how you can use Docker Registry to reuse Docker
+images. The first thing that you will need is to create a `secret` in Semaphore
+2.0. If your `secret` with the Docker Registry data is called `docker-hub`, you
+can find out more about it as follows:
+
+    $ sem get secrets docker-hub
+    apiVersion: v1beta
+    kind: Secret
+    metadata:
+      name: docker-hub
+      id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
+      create_time: "1538456457"
+      update_time: "1538456537"
+    data:
+      env_vars:
+      - name: DOCKER_USERNAME
+        value: docker-username
+      - name: DOCKER_PASSWORD
+        value: docker-password
+      files: []
 
 ## Environment variables
 
