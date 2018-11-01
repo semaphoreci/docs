@@ -129,9 +129,9 @@ rules that govern them and their values.
 
 ## Two Examples
 
-Please note that both examples are using *caching* for reasons of simplicity.
-They can be easily modified in order to store the generated Docker images to
-Docker Hub or to a similar service.
+The following two examples are using Docker Registry for storing the generated
+Docker images, which means that you will have to login to Docker Registry
+first.
 
 ### Using SEMAPHORE\_WORKFLOW\_ID
 
