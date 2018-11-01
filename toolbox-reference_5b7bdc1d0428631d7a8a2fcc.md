@@ -3,11 +3,11 @@
 - [Essentials](#essentials)
   * [libcheckout](#libcheckout)
   * [sem-service](#sem-service)
+      - [Example Semaphore 2.0 project](#example-sem-service-project)
   * [retry](#retry)
   * [cache](#cache)
-    - [Example Semaphore 2.0 project](#example-semaphore-project)
   * [sem-version](#sem-version)
-    - [Example Semaphore 2.0 project](#example-sem-version-project)
+      - [Example Semaphore 2.0 project](#example-sem-version-project)
 - [See also](#see-also)
 
 ## Overview
@@ -97,7 +97,7 @@ The following are valid uses of `sem-service`:
     sem-service status mysql
     sem-service start memcached
 
-#### Example Semaphore 2.0 project with sem-service
+#### Example sem-service Project
 
     version: v1.0
     name: Testing sem-service
