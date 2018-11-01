@@ -109,23 +109,23 @@ rules that govern them and their values.
     of the current branch.
 * The value of `SEMAPHORE_PIPELINE_2_ARTEFACT_ID` will always reference the
     `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variables of the pipeline
-	on the **second** **promotion** of the current branch. This rule keeps going.
+    on the **second** **promotion** of the current branch. This rule keeps going.
 * If the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_ARTEFACT_ID`
     are the same, then you are not on a **rebuild**.
 * Promotions work **linearly**. Therefore pipelines can use the Artefact IDs of
     all previously defined pipelines as long as there is a shared path among
-	them. Put simply, there must be a **direct**, linear connection between the
-	pipelines you want to connect using Artefact IDs.
+    them. Put simply, there must be a **direct**, linear connection between the
+    pipelines you want to connect using Artefact IDs.
 * This means that if there is a split somewhere, only the Artefact IDs of the
     common path of one or more pipelines can be used as you cannot reference
-	the pipelines from the other branch(es).
+    the pipelines from the other branch(es).
 * The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable offers a convenient
     and standard way of using the Artefact ID of the current pipeline without
     the need for knowing the name of the environment variable with the biggest
-	number that holds the current Artefact ID (`SEMAPHORE_PIPELINE_9_ARTEFACT_ID`).
+    number that holds the current Artefact ID (`SEMAPHORE_PIPELINE_9_ARTEFACT_ID`).
 * If you promote a pipeline more than once, the Artefact ID of that pipeline, as
     well as the Artefact IDs of the pipelines that are after that pipeline will
-	change. However, the values of all previous Artefact IDs will remain the same.
+    change. However, the values of all previous Artefact IDs will remain the same.
 
 ## Two Examples
 
@@ -149,7 +149,7 @@ environment variable.
 The contents of `.semaphore/semaphore.yml` are as follows:
 
     version: v1.0
-    name: Testing Auto Promoting
+    name: Reusing Docker images
     agent:
       machine:
         type: e1-standard-2
@@ -167,27 +167,33 @@ The contents of `.semaphore/semaphore.yml` are as follows:
       - name: Create Docker image
         task:
           jobs:
-            - name: Store Docker image in cache
+            - name: Store Docker image in Registry
               commands:
                 - checkout
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
                 - echo $SEMAPHORE_WORKFLOW_ID
                 - docker build -t go_hw:v1 .
-                - mkdir docker_image
-                - docker save go_hw:v1 -o docker_image/go_hw.tar
-                - ls -l docker_image
-                - cache store docker-image-$SEMAPHORE_WORKFLOW_ID docker_image
+                - docker tag go_hw:v1 "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+                - docker push "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+                - docker images
+    
+          secrets:
+          - name: docker-hub
+    
       - name: Test Docker image
         task:
           jobs:
-            - name: restore Docker image from cache
+            - name: restore Docker image from Registry
               commands:
                 - echo $SEMAPHORE_WORKFLOW_ID
-                - cache restore docker-image-$SEMAPHORE_WORKFLOW_ID
-                - ls -l docker_image
-                - docker load -i docker_image/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
                 - docker images
-                - docker run -d -p 8000:80 go_hw:v1
-                - wget localhost:80
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+                - docker images
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+    
+          secrets:
+          - name: docker-hub
 
 The contents of `Dockerfile` are the following:
 
@@ -236,12 +242,14 @@ The contents of `.semaphore/p1.yml` are as follows:
             - name: Restore Docker image from cache
               commands:
                 - echo $SEMAPHORE_WORKFLOW_ID
-                - cache restore docker-image-$SEMAPHORE_WORKFLOW_ID
-                - ls -l docker_image
-                - docker load -i docker_image/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
                 - docker images
-                - docker run -d -p 8000:80 go_hw:v1
-                - wget localhost:80
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+    
+          secrets:
+          - name: docker-hub
+
 
 The contents of `.semaphore/p2.yml` are as follows:
 
@@ -259,10 +267,13 @@ The contents of `.semaphore/p2.yml` are as follows:
             - name: Restore Docker image from cache
               commands:
                 - echo $SEMAPHORE_WORKFLOW_ID
-                - cache restore docker-image-$SEMAPHORE_WORKFLOW_ID
-                - ls -l docker_image
-                - docker load -i docker_image/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_WORKFLOW_ID"
                 - docker images
+    
+          secrets:
+          - name: docker-hub
 
 ### Using Artefacts
 
