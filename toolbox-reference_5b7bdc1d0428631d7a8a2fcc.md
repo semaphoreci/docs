@@ -211,8 +211,8 @@ can be a single file or a directory.
 Examples:
 
     cache store our-gems vendor/bundle
-    cache store gems-$SEMAPHORE_GIT_BRANCH
-    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+    cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
+    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/bundle
 
 Archives file or directory specified by path and associates it with key.
 Any further changes of path after the store operation completes will not
