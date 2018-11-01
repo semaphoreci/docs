@@ -5,7 +5,8 @@
 ## Overview
 
 This document will illustrate how you can reuse Docker images among the
-blocks of the same Semaphore 2.0 project and its promoted pipelines.
+blocks of the same Semaphore 2.0 project and its promoted pipelines using
+the Docker Registry.
 
 The problem that we are trying to solve has to do with creating unique
 filenames that can be discovered in all the blocks of a Semaphore pipeline as
@@ -303,29 +304,34 @@ The contents of the `.semaphore/semaphore.yml` file are the following:
       - name: Create and Store Docker image
         task:
           jobs:
-            - name: Store Docker image in cache
+            - name: Store Docker image in Registry
               commands:
                 - checkout
                 - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
                 - cp v1.go hw.go
                 - docker build -t go_hw:v1 .
-                - mkdir v1
-                - docker save go_hw:v1 -o v1/go_hw.tar
-                - ls -l v1
-                - cache store $SEMAPHORE_PIPELINE_ARTEFACT_ID v1
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker tag go_hw:v1 "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
+                - docker push "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
+                - docker images
     
-      - name: Test Docker image
+          secrets:
+          - name: docker-hub
+    
+      - name: Pull Docker image
         task:
           jobs:
-            - name: Restore Docker image from cache
+            - name: Restore Docker image from Registry
               commands:
                 - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
                 - echo $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
-                - cache restore $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
-                - ls -l v1
-                - docker load -i v1/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
                 - docker images
-                - docker run go_hw:v1
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
+    
+          secrets:
+          - name: docker-hub
 
 In this pipeline, the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` are the same as this is the initial
@@ -375,7 +381,7 @@ follows:
         os_image: ubuntu1804
     
     promotions:
-    - name: Publish image
+    - name: Publish Docker image
       pipeline_file: p2.yml
       auto_promote_on:
         - result: passed
@@ -386,29 +392,33 @@ follows:
       - name: Create and Store Docker image
         task:
           jobs:
-            - name: Store Docker image in cache
+            - name: Store Docker image in Registry
               commands:
                 - checkout
                 - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
                 - cp v2.go hw.go
                 - docker build -t go_hw:v2 .
-                - mkdir v2
-                - docker save go_hw:v2 -o v2/go_hw.tar
-                - ls -l v2
-                - cache store $SEMAPHORE_PIPELINE_ARTEFACT_ID v2
+                - docker tag go_hw:v2 "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
+                - docker push "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
+                - docker images
+    
+          secrets:
+          - name: docker-hub
     
       - name: Test Docker image
         task:
           jobs:
-            - name: Restore Docker image from cache
+            - name: Restore Docker image from Registry
               commands:
                 - echo $SEMAPHORE_PIPELINE_ARTEFACT_ID
-                - cache restore $SEMAPHORE_PIPELINE_ARTEFACT_ID
-                - ls -l v2
-                - docker load -i v2/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
                 - docker images
-                - docker run go_hw:v2
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_ARTEFACT_ID"
     
+          secrets:
+          - name: docker-hub
 
 The contents of `v2.go` are the following:
 
@@ -450,17 +460,19 @@ following contents:
       - name: Test Docker images
         task:
           jobs:
-            - name: Restore Docker image from cache
+            - name: Restore Two Docker images from Registry
               commands:
                 - echo $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
                 - echo $SEMAPHORE_PIPELINE_1_ARTEFACT_ID
-                - cache restore $SEMAPHORE_PIPELINE_0_ARTEFACT_ID
-                - docker load -i v1/go_hw.tar
-                - cache restore $SEMAPHORE_PIPELINE_1_ARTEFACT_ID
-                - docker load -i v2/go_hw.tar
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_1_ARTEFACT_ID"
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_0_ARTEFACT_ID"
                 - docker images
-                - docker run go_hw:v1
-                - docker run go_hw:v2
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_1_ARTEFACT_ID"
+                - docker run "$DOCKER_USERNAME"/"$SEMAPHORE_PIPELINE_0_ARTEFACT_ID"
+    
+          secrets:
+          - name: docker-hub
 
 In `.semaphore/p2.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` will be the same of the value
