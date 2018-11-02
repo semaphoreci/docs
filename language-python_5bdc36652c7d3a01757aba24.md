@@ -3,7 +3,7 @@
 * [Environment variables](#environment-variables)
 * [C-Extensions & system dependencies](#c-extensions-system-dependendices)
 
-This guide covers configuring Python projects in Semaphore.
+This guide covers configuring Python projects on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 

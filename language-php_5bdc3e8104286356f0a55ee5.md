@@ -1,9 +1,17 @@
-* [Supported Versions](#supported-versions)
-* [Dependency Caching](#dependency-caching)
-* [Environment Variables](#environment-variables)
-* [System Dependencies](#system-dependendices)
+* [Supported PHP versions](#supported-php-versions)
+* [Dependency caching](#dependency-caching)
+* [Environment variables](#environment-variables)
+* [System dependencies](#system-dependendices)
 
-## Supported Versions
+This guide covers configuring PHP projects on Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Supported PHP versions
+
+Semaphore provides major PHP versions and tools preinstalled.
+You can find information about them in the
+[Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#php).
 
 Semaphore uses [phpbrew](https://github.com/phpbrew/phpbrew) to manage
 PHP versions. Any version installable with phpbrew is supported on
@@ -24,11 +32,12 @@ blocks:
             - php --version
 </code></pre>
 
-## Dependency Caching
+## Dependency caching
 
-`composer` is preinstalled, so you can use the `cache` command to
-store and restore the `vendor` directory. You'll need one block to
-warm the cache, then use the cache in subsequent blocks.
+Composer is preinstalled, so you can use the `cache` command to
+store and restore the `vendor` directory.
+In the following configuration example, we install dependencies
+and warm the cache in the first block, then use the cache in subsequent blocks.
 
 <pre><code class="language-yaml">
 version: "v1.0"
@@ -39,15 +48,15 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Warm cache
+  - name: Install dependencies
     task:
       jobs:
-        - name: Dependencies
+        - name: Composer install
           commands:
             - checkout
-            - cache restore v1-composer-$(checksum composer.lock)
+            - cache restore composer-$(checksum composer.lock)
             - composer install
-            - cache store v1-composer-$(checksum composer.lock) vendor
+            - cache store composer-$(checksum composer.lock) vendor
 
   - name: Tests
     task:
@@ -63,10 +72,10 @@ blocks:
             - codecept test
 </code></pre>
 
-## Environment Variables
+## Environment variables
 
 Semaphore doesn't set specific environment variables like `APP_ENV`.
-You should set these at the task level.
+You can set these at the task level.
 
 <pre><code class="language-yaml">blocks:
   - name: Tests
@@ -80,11 +89,11 @@ You should set these at the task level.
             - codecept run
 </code></pre>
 
-## System Dependencies
+## System dependencies
 
 Projects may need system packages to install libraries for things like
-database drivers. You have full `sudo` access to install required
-packages. Here's an example:
+database drivers. Semaphore provides full `sudo` access so you can install
+all required packages. Here's an example:
 
 <pre><code class="language-yaml">
 blocks:
