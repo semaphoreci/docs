@@ -1,7 +1,15 @@
-* [Supported Versions](#supported-versions)
+* [Supported Java versions](#supported-java-versions)
 * [Dependency Caching](#dependency-caching)
 
-## Supported Versions
+This guide covers configuring Java projects on Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Supported Java versions
+
+Semaphore provides major Java versions and tools preinstalled.
+You can find information about them in the
+[Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages).
 
 Java 8 and 10 are supported. Java 8 is the default. You can switch to
 Java 10 with `sem-version`. Here's an example:
@@ -19,16 +27,16 @@ blocks:
             - java --version
 </code></pre>
 
-## Dependency Caching
+## Dependency caching
 
-Assuming you're using Maven, then it's possible to cache dependencies.
-You may also cache compiled code and tests as well. The extract
-implementation varies depending on your tools. You'll need on block to
-download all dependencies and compile the code. Then use the cache in
+Assuming you're using Maven, it's possible to cache dependencies.
+You may also cache compiled code and tests as well. The exact
+implementation varies depending on your tools.
+In the following configuration example, we download dependencies, compile
+code and warm the cache in the first block, then use the cache in
 subsequent blocks.
 
-<pre><code class="language-yaml">
-version: v1.0
+<pre><code class="language-yaml">version: v1.0
 name: Java & Maven Example
 agent:
   machine:
@@ -36,23 +44,23 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Warm cache
+  - name: Setup
     task:
       env_vars:
         # Set maven to use a local directory. This is required for
-        # the cache util. It must be set for all blocks.
+        # the cache util. It must be set in all blocks.
         - name: MAVEN_OPTS
           value: "-Dmaven.repo.local=.m2"
       jobs:
         - name: Dependencies
           commands:
             - checkout
-            - cache restore v1-maven-$(checksum pom.xml)
+            - cache restore maven-$(checksum pom.xml)
             # Download all JARs possible and compile as much as possible
             # Use -q to reduce output spam
             - mvn -q dependency:go-offline test-compile
-            - cache store v1-maven-$(checksum pom.xml) .m2
-            - cache store v1-build-$SEMAPHORE_GIT_SHA target
+            - cache store maven-$(checksum pom.xml) .m2
+            - cache store build-$SEMAPHORE_GIT_SHA target
   - name: Tests
     task:
       env_vars:
@@ -61,8 +69,8 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore v1-maven-$(checksum pom.xml)
-          - cache restore v1-build-$SEMAPHORE_GIT_SHA
+          - cache restore maven-$(checksum pom.xml)
+          - cache restore build-$SEMAPHORE_GIT_SHA
       jobs:
         - name: Everything
           commands:
