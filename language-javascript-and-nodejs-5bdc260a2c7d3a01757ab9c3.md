@@ -1,7 +1,6 @@
 * [Supported Versions](#supported-versions)
 * [Dependency Caching](#dependency-caching)
 * [Environment Variables](#environment-variables)
-* [C-Extensions & Dependencies](#c-extensions-dependendices)
 
 ## Supported Versions
 
@@ -86,25 +85,6 @@ Semaphore doesn't set language specific environment variables like
       env_vars:
         - name: NODE_ENV
           value: test
-      jobs:
-        - name: Everything
-          commands:
-            - npm test
-</code></pre>
-
-## C-Extensions & Dependencies
-
-Projects may need system packages to install gems like `pg`. You have
-full `sudo` access so you may install required packages. Here's an
-example of installing the `pg` gem.
-
-<pre><code class="language-yaml">blocks:
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - sudo apt-get update && sudo apt-get install -y libpq-dev
-          - npm install
       jobs:
         - name: Everything
           commands:
