@@ -13,7 +13,7 @@ pipeline as well as in promoted pipelines.
 
 In order to be able to reuse a Docker image, you will need to use the `cache`
 utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
-pull it from there.
+pull it from there each time you need it.
 
 This document will show how to use the `cache` utility from the Semaphore
 Toolbox. You can find more about the `cache` utility in the
