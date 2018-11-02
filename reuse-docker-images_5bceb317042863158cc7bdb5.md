@@ -8,14 +8,15 @@ This document will illustrate how you can reuse Docker images among the
 blocks of the same Semaphore 2.0 project and its promoted pipelines.
 
 The problem that we are trying to solve has to do with creating unique
-filenames that can be discovered in all the blocks of a Semaphore pipeline as
-well as in promoted pipelines.
+filenames that can be discovered later on in all the blocks of a Semaphore
+pipeline as well as in promoted pipelines.
 
 In order to be able to reuse a Docker image, you will need to use the `cache`
 utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
-pull it from there. For reasons of simplicity all the presented examples will
-use the `cache` utility from the Semaphore Toolbox. You can find more about
-the `cache` utility in the
+pull it from there.
+
+This document will show how to use the `cache` utility from the Semaphore
+Toolbox. You can find more about the `cache` utility in the
 [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
 
 ## Environment variables
@@ -110,9 +111,16 @@ rules that govern them and their values.
 
 ## Two Examples
 
-Please note that both examples are using *caching* for reasons of simplicity.
-They can be easily modified in order to store the generated Docker images to
-Docker Hub or to a similar service.
+Please note that both examples are using *caching*.
+
+The main advantage of the `cache` utility is that it uses servers that are
+provided by RenderedText and are in the same network as Virtual Machines,
+which makes the saving and restoring operations pretty fast.
+
+The main disadvantage of the `cache` utility is that it has a limited disk
+space, which means that the cache server might end up delete some of the stored
+information when there is not enough disk space. This might invalidate some
+of the data stored in the cache server.
 
 ### Using SEMAPHORE\_WORKFLOW\_ID
 
