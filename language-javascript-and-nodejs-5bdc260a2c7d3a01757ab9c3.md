@@ -1,0 +1,107 @@
+* [Supported Node.js versions](#supported-node-js-versions)
+* [Dependency caching](#dependency-caching)
+* [Environment variables](#environment-variables)
+
+This guide covers configuring JavaScript and Node.js projects in Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Supported Node.js versions
+
+Semaphore uses [nvm](https://github.com/creationix/nvm) to manage
+Node.js versions. Any version installable with `nvm` is supported on
+Semaphore. Version 8.11 is pre-installed. The default
+version is set from `.nvmrc` file in your repo. You can change this
+by calling `sem-version node`. Here's an example:
+
+<pre><code class="language-yaml">blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - sem-version node 10.13.0
+      jobs:
+        - name: Tests
+          commands:
+            - node --version
+</code></pre>
+
+If you need a version other than the preinstalled versions, then you
+can install it with `nvm`. Here's an example:
+
+<pre><code class="language-yaml">blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - nvm install --lts carbon
+          - sem-version node --lts carbon
+      jobs:
+        - name: Tests
+          commands:
+            - node --version
+</code></pre>
+
+## Dependency caching
+
+You can use Semaphores `cache` command to store and load
+`node_modules`. In the following configuration example, we install dependencies
+and warm the cache in the first block, then use the cache in subsequent blocks.
+
+<pre><code class="language-yaml">version: "v1.0"
+name: First pipeline example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: Install and cache Node modules
+          commands:
+            - checkout
+            - cache restore node-modules-$(checksum package-lock.json)
+            - npm install
+            - cache store node-modules-$(checksum package-lock.json) node_modules
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore node-modules-$(checksum package-lock.json)
+      jobs:
+        - name: Everything
+          commands:
+            - npm test
+</code></pre>
+
+If you need to clear cache for your project, launch a
+[debug session](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access)
+and execute `cache clear` or `cache delete <key>`.
+
+### Yarn is supported
+
+Besides NPM, Semaphore also supports Yarn for managing Node.js dependencies.
+
+To get started, use the configuration example above and replace
+`package-lock.json` with `yarn.lock`.
+
+## Environment Variables
+
+Semaphore doesn't set language specific environment variables like
+`NODE_ENV` You can set these at the task level.
+
+<pre><code class="language-yaml">blocks:
+  - name: Tests
+    task:
+      env_vars:
+        - name: NODE_ENV
+          value: test
+      jobs:
+        - name: Everything
+          commands:
+            - npm test
+</code></pre>
