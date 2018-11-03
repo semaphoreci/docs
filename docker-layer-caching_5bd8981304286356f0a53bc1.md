@@ -33,6 +33,7 @@ The `RUN` command
 
 ### The COPY Command
 
+The `COPY` command in a `Dockerfile`
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `COPY` to be
@@ -41,6 +42,7 @@ steps concerned with doing the same action are not unnecessarily rebuilt.
 
 ### The ADD Command
 
+The `ADD` command in a `Dockerfile` allows you to
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `ADD` to be
@@ -55,11 +57,104 @@ a new image using a pre-existing one as the cache source.
 
 ## An example Semaphore 2.0 project
 
+The first thing that you will need is to create a secret in Semaphore 2.0. If
+your secret with the Docker Registry data is called `docker-hub`, you can find
+out more information about it as follows:
 
+    $ sem get secrets docker-hub
+    apiVersion: v1beta
+    kind: Secret
+    metadata:
+      name: docker-hub
+      id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
+      create_time: "1538456457"
+      update_time: "1538456537"
+    data:
+      env_vars:
+      - name: DOCKER_USERNAME
+        value: docker-username
+      - name: DOCKER_PASSWORD
+        value: docker-password
+      files: []
 
-To ensure a good cache hit, you should choose The BRANCH_NAME Semaphore 2.0
-environment variable as a tag. This way, each branch will have its own cache
-and therefore avoid cache collision.
+The following Semaphore 2.0 project illustrates the use of Docker Layer Caching
+in Semaphore 2.0 projects:
+
+    version: v1.0
+    name: Using Docker Layer Cache
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    blocks:
+      - name: Create Docker image
+        task:
+          jobs:
+            - name: Store Docker image in Registry
+              commands:
+                - checkout
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - cp D1 Dockerfile
+                - docker build -t go_hw:v1 .
+                - docker tag go_hw:v1 "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
+                - docker push "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
+                - docker images
+    
+          secrets:
+          - name: docker-hub
+    
+      - name: Use previous image
+        task:
+          jobs:
+            - name: Use restored Docker image as cache
+              commands:
+                - checkout
+                - docker images
+                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+                - cp D2 Dockerfile
+                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
+                - docker build --cache-from "$CACHE_IMAGE:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+                - docker images
+                - docker run go_hw:v2
+    
+          secrets:
+          - name: docker-hub
+
+The `.semaphore/semaphore.yml` file has two `blocks` blocks. The first one
+creates a Docker image that is reused in the second `blocks` block using the
+`--cache-from` command line parameter.
+
+The contents of the `D1` file are as follows:
+
+	$ cat D1
+	FROM golang:alpine
+    
+	RUN mkdir /files
+	COPY hw.go /files
+	WORKDIR /files
+    
+	RUN go build -o /files/hw hw.go
+
+The contents of the `D2` file are as follows:
+
+	cat D2
+	FROM golang:alpine
+    
+	RUN mkdir /files
+	COPY hw.go /files
+	WORKDIR /files
+    
+	RUN go build -o /files/hw hw.go
+	ENTRYPOINT ["/files/hw"]
+
+The `D2` file includes all the contents of the `D1` file and adds one more
+line at the end of it, which makes it a perfect candidate for using the
+Docker image created using `D1` as a cache.
+
+To ensure a better cache hit, you should choose The `SEMAPHORE_GIT_BRANCH`
+Semaphore 2.0 environment variable as a tag. This way, each GitHub branch will
+have its own cache and therefore you will avoid cache collision.
 
 In order to improve the speed of pushing and pulling images in your Semaphore
 builds, the Docker container registry should be geographically as close as
