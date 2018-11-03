@@ -1,6 +1,7 @@
 * [Supported Node.js versions](#supported-node-js-versions)
 * [Dependency caching](#dependency-caching)
 * [Environment variables](#environment-variables)
+* [Browser testing](#browser-testing)
 
 ## Supported Node.js versions
 
@@ -101,3 +102,16 @@ Semaphore doesn't set language specific environment variables like
           commands:
             - npm test
 </code></pre>
+
+## Browser testing
+
+Install the
+[selenium-webdriver-](https://www.npmjs.com/package/selenium-webdriver)
+library and it should work out of the box, same goes for higher level
+libraries that leverage Selenium. See the official [Node
+examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).
+
+Refer to the [Ubuntu image reference](browser-ref) for details on preinstalled
+browsers and testing tools on Semaphore.
+
+[browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
