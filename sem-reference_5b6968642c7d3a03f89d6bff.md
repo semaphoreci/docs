@@ -737,7 +737,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.7.5
+    v0.8.0
 
 Your output might be different.
 
@@ -766,6 +766,7 @@ equivalent:
 * `dashboard`, `dashboards` and `dash`
 * `secret` and `secrets`
 * `job` and `jobs`
+* `pipeline`, `pipelines` and `ppl`
 
 As an example, the following three commands are equivalent and will return the
 same output:
