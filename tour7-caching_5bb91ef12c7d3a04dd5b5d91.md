@@ -40,7 +40,7 @@ blocks:
 In this example we dynamically generate a cache key based on the current
 content of `package-lock.json`. If we change any our list of dependencies,
 the content of `package-lock.json` will change, and the cache would be
-invalidated. cache and checksum are part of the Semaphore [toolbox](toolbox).
+invalidated. cache and checksum are part of the Semaphore [toolbox][toolbox].
 The approach applies to other languages and uses cases as well.
 
 ## Next steps
