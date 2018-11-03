@@ -57,7 +57,7 @@ Docker Compose.
 
 Almost every project has dependencies, and we can save a lot of time by
 installing them once and reusing them from a cache. Let's learn how to do that
-in [the next section](next).
+in [the next section][next].
 
 [ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
