@@ -4,7 +4,7 @@
    - [The RUN Command](the-run-command)
    - [The COPY Command](the-copy-command)
    - [The ADD Command](the-add-command)
-* [About --cache-from](#About--cache-from)
+* [About --cache-from](#About---cache-from)
 * [An example Semaphore 2.0 project](#an-example-semaphore-2.0-project)
 * [See Also](#see-also)
 
