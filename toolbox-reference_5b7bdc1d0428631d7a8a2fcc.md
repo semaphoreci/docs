@@ -3,11 +3,11 @@
 - [Essentials](#essentials)
   * [libcheckout](#libcheckout)
   * [sem-service](#sem-service)
+      - [Example Semaphore 2.0 project](#example-sem-service-project)
   * [retry](#retry)
   * [cache](#cache)
-    - [Example Semaphore 2.0 project](#example-semaphore-project)
   * [sem-version](#sem-version)
-    - [Example Semaphore 2.0 project](#example-sem-version-project)
+      - [Example Semaphore 2.0 project](#example-sem-version-project)
 - [See also](#see-also)
 
 ## Overview
@@ -97,7 +97,7 @@ The following are valid uses of `sem-service`:
     sem-service status mysql
     sem-service start memcached
 
-#### Example Semaphore 2.0 project with sem-service
+#### Example sem-service Project
 
     version: v1.0
     name: Testing sem-service
@@ -211,8 +211,8 @@ can be a single file or a directory.
 Examples:
 
     cache store our-gems vendor/bundle
-    cache store gems-$SEMAPHORE_GIT_BRANCH
-    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+    cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
+    cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/bundle
 
 Archives file or directory specified by path and associates it with key.
 Any further changes of path after the store operation completes will not

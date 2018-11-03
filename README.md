@@ -1,7 +1,21 @@
-HelpScout Docs
----
+# Semaphore 2.0 Documentation
 
-## Usage
+## Contributing
+
+If you'd like to update an existing page, edit the corresponding file
+and submit a pull request.
+
+If you'd like to create a new page, create an `.md` file with any name
+and submit a pull request. Someone from the Semaphore team will make
+sure it's published.
+
+## Managing pages
+
+Docs are hosted on Help Scout. Changes are continuously deployed via
+Semaphore to the live website.
+
+The following instructions apply for Semaphore team members with access
+to Help Scout:
 
 ### Creating new file
 

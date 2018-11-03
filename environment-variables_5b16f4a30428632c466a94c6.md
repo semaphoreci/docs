@@ -81,12 +81,20 @@ Example value: `passed`
 The value of the `SEMAPHORE_WORKFLOW_ID` environment variable is the ID of the
 workflow of the current job.
 
+The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
+a pipeline run and is available in all the blocks of a pipeline as well as in
+all promoted and auto promoted pipelines.
+
 Example value: `65c9bb1c-aeb6-41f0-b8d9-6fa177241cdf`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
 The value of the `SEMAPHORE_PIPELINE_ID` environment variable is the pipeline
 ID that is used for the execution of the active job.
+
+The `SEMAPHORE_PIPELINE_ID` environment variable remains the same throughout
+all the blocks of a pipeline, which makes it the perfect candidate for sharing
+data inside the same pipeline.
 
 Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
 
@@ -95,6 +103,16 @@ Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
 The value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable is
 used internally by Semaphore 2.0.
 
+The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable always exists. Its
+value is the same as the value of the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`
+environment variables, where `X` is the biggest number among all
+the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID` environment variables of a given
+pipeline.
+
+So, in the pipeline that is initiated by `.semaphore/semaphore.yml`, you will
+have both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`
+and their values will be the same.
+
 Example value: `83360523-5359-4c79-adcd-41a80ec67815`
 
 #### SEMAPHORE\_PIPELINE\_0\_ARTEFACT\_ID
@@ -102,7 +120,26 @@ Example value: `83360523-5359-4c79-adcd-41a80ec67815`
 The value of the `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable is
 used internally by Semaphore 2.0.
 
+The `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable always exists and
+always points to the `SEMAPHORE_PIPELINE_ARTEFACT_ID` value of the pipeline
+created by `.semaphore/semaphore.yml`.
+
 Example value: `83360523-5359-4c79-adcd-41a80ec67815`
+
+### SEMAPHORE\_PIPELINE\_1\_ARTEFACT\_ID
+
+The `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable will only appear if
+there is at **least one promotion** in a pipeline. This means that it will begin
+appearing in the first promoted pipeline.
+
+The numbering and the creation of new `ARTEFACT_ID` environment variables
+will continue for as long as there exist more promotions in a pipeline. This
+means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
+`SEMAPHORE_PIPELINE_3_ARTEFACT_ID`, `SEMAPHORE_PIPELINE_4_ARTEFACT_ID`, etc,
+depending on the number of promotions that exist.
+
+As the numbering begins with `0`, the `10th` pipeline will have a
+`SEMAPHORE_PIPELINE_9_ARTEFACT_ID` environment variable.
 
 ### Git repository related
 

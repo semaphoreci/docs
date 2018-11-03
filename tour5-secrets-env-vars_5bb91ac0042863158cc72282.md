@@ -74,7 +74,7 @@ blocks:
 
 Let's say that we've changed our mind and instead of environment variables,
 we'd actually like to use configuration files, such as `.aws/config` and
-`.aws/credentials`. We can define files and their content in a secret too.
+`.aws/credentials`. We can store files in a secret too.
 
 Using `sem`, we can edit any secret definition file. The following command will
 fetch a secret and open its' current definition in your default editor:
@@ -106,10 +106,20 @@ of your repository.
 Once you save and exit your editor, `sem` will automatically update
 the secret on Semaphore.
 
-You can also inspect a secret's definition using:
+There's also a quicker way of creating a new secret from local files.
+In the following example, we source our local configuration files and tell
+Semaphore to mount them in the job environment's home folder:
 
 ```
-sem get secrets myapp-aws
+sem create secret aws-secrets \
+  --file ~/.aws/config:/home/semaphore/.aws/config \
+  --file ~/.aws/credentials:/home/semaphore/.aws/credentials
+```
+
+You can inspect a secret's definition using:
+
+```
+sem get secrets aws-secrets
 ```
 
 ## Next steps
