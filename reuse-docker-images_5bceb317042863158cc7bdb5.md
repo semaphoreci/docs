@@ -5,19 +5,19 @@
 
 ## Overview
 
-This document will illustrate how you can reuse Docker images among the
-blocks of the same Semaphore 2.0 project and its promoted pipelines.
+This document will illustrate how to reuse Docker images among the blocks of
+a Semaphore 2.0 project and its promoted pipelines.
 
-The problem that we are trying to solve has to do with creating unique
-filenames that can be discovered later on in all the blocks of a Semaphore
-pipeline as well as in promoted pipelines.
+The problem that we are trying to solve is creating unique filenames that can
+be discovered afterwards in the blocks of a Semaphore 2.0 pipeline as well as
+in its promoted pipelines.
 
 In order to be able to reuse a Docker image, you will need to use the `cache`
-utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
-pull it from there each time you need it.
+utility from the Semaphore Toolbox or push the Docker image to Docker Registry
+and pull it from there each time you need to use it.
 
 This document will show how to use the `cache` utility from the Semaphore
-Toolbox. You can find more about the `cache` utility in the
+Toolbox. You can find more information about the `cache` utility in the
 [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
 
 ## Environment variables
@@ -112,21 +112,21 @@ rules that govern them and their values.
 
 ## Two Examples
 
-Please note that both examples are using *caching*.
+Please note that both presented examples are using *caching*.
 
 The main advantage of the `cache` utility is that it uses servers that are
-provided by RenderedText and are in the same network as Virtual Machines,
-which makes the saving and restoring operations pretty fast.
+provided by RenderedText and are on the same network as the Virtual Machines,
+which makes both saving and restoring files pretty fast.
 
 The main disadvantage of the `cache` utility is that it has a limited disk
-space, which means that the cache server might end up delete some of the stored
+space, which means that the cache server might delete some of the stored
 information when there is not enough disk space. This might invalidate some
 of the data stored in the cache server.
 
 ### Using SEMAPHORE\_WORKFLOW\_ID
 
 There is a Docker image that is created in a pipeline that is defined in
-`.semaphore/semaphore.yml` and stored in the cache. You want to be able
+`.semaphore/semaphore.yml` and stored in the cache server. You want to be able
 to access that Docker image from all the blocks of `.semaphore/semaphore.yml`
 as well as the two pipelines that are auto promoted and are defined in
 `.semaphore/p1.yml` and `.semaphore/p2.yml`. `.semaphore/semaphore.yml` auto
@@ -134,7 +134,10 @@ promotes `.semaphore/p1.yml`, which auto promotes `.semaphore/p2.yml`.
 
 This section will explain how you can do that by presenting three sample
 pipeline files. All three pipelines are using the `SEMAPHORE_WORKFLOW_ID`
-environment variable.
+environment variable for storing and retrieving the directory that contains the
+desired Docker image. The filename of the Docker image will be `go_hw.tar`
+whereas the key used in the caching server for storing and retrieving the
+desired directory will be `SEMAPHORE_WORKFLOW_ID`.
 
 The contents of `.semaphore/semaphore.yml` are as follows:
 
@@ -265,7 +268,7 @@ pipeline that is defined using `.semaphore/p2.yml`.
 As the third pipeline is promoted by the second pipeline, we have a linear path,
 which means that there are no splits.
 
-There is a Docker image that is created in `.semaphore/semaphore.yml`. That
+There is a Docker image that is created by `.semaphore/semaphore.yml`. That
 Docker image needs to be accessible from both `.semaphore/p1.yml` and
 `.semaphore/p2.yml` using caching. Additionally, `.semaphore/p1.yml` creates
 another Docker image that we also want to make available to `.semaphore/p2.yml`
@@ -328,9 +331,10 @@ If you rebuild that pipeline only, then the value of `SEMAPHORE_PIPELINE_ID`
 will change whereas the values of both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will remain the same.
 
-Last, a Docker image was created in `.semaphore/semaphore.yml` that is
-stored in the caching server – the name of that Docker image will be the
-value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable.
+Last, a Docker image was created in `.semaphore/semaphore.yml` that is stored
+in the caching server – the filename of that Docker image will be `go_hw.tar`
+and its key will be the value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID`
+environment variable.
 
 The contents of `Dockerfile` are the following:
 
@@ -413,9 +417,10 @@ The contents of `v2.go` are the following:
         fmt.Println("Hello from v2!")
     }
 
-There is a Docker image created inside `.semaphore/p1.yml` that is
-stored in the caching server – the name of that Docker image will be
-the current value of `SEMAPHORE_PIPELINE_ARTEFACT_ID`.
+There is a Docker image created inside `.semaphore/p1.yml` that is stored in
+the Semaphore 2.0 caching server – the path for that Docker image will be
+`v2/go_hw.tar` and the cache server key will be the current value of the
+`SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable.
 
 In `.semaphore/p1.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will be the value of the
@@ -456,17 +461,19 @@ following contents:
 In `.semaphore/p2.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` will be the same of the value
 of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable in `.semaphore/p1.yml`.
-There exist a `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable
-that holds the value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable
+There exist a `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable that
+holds the value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable
 defined in the pipeline of `.semaphore/semaphore.yml`.
 
 So, in order for `.semaphore/p2.yml` to access the Docker image defined in
 `.semaphore/semaphore.yml`, it has to use the value of the
-`SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable.
+`SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable as the key to the
+Semaphore 2.0 caching server.
 
 Last, in order for `.semaphore/p2.yml` to access the Docker image defined in
 `.semaphore/p1.yml`, it has to use the value of the
-`SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable.
+`SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable as the key to the
+Semaphore 2.0 caching server.
 
 ## See Also
 
