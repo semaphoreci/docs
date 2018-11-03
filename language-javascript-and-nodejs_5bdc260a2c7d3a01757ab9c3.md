@@ -53,10 +53,10 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Warm cache
+  - name: Install dependencies
     task:
       jobs:
-        - name: Install dependencies
+        - name: npm install and cache
           commands:
             - checkout
             - cache restore node-modules-$(checksum package-lock.json)

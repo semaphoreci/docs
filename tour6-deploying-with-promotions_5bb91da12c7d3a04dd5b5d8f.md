@@ -108,7 +108,16 @@ information.
 
 ## Next steps
 
-There's one last thing to cover: [caching dependencies][next].
+This chapter concludes the guided tour of Semaphore. Hopefully you're now able
+to see what Semaphore can do and how it could help improve your development
+workflow.
+
+As a next step, we recommend that you put this new knowledge to use by setting
+up CI/CD pipelines for some of your existing projects. Use links in this guide
+and rest of the documentation to find answers to the questions that you have
+along the way.
+
+Happy building!
 
 [auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote_on
 [pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml

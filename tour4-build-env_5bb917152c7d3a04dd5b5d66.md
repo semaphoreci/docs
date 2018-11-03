@@ -43,7 +43,7 @@ blocks:
             - echo 'running tests'
 </code></pre>
 
-To manage database engines and other services on Semaphore 2.0,
+To manage database engines and other services on Semaphore,
 use the [sem-service utility][sem-service]. Services are based on public Docker
 images hosted on Docker Hub and exposed on default ports in localhost.
 If `sem-service` currently doesn't support the service you'd like to use,
@@ -55,10 +55,10 @@ Docker Compose.
 
 ## Next steps
 
-Production CI/CD often requires use of environment variables and private API
-keys. Let's move on to learn how to
-[manage sensitive data and environment  variables][next].
+Almost every project has dependencies, and we can save a lot of time by
+installing them once and reusing them from a cache. Let's learn how to do that
+in [the next section](next).
 
 [ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
-[next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[next]: https://docs.semaphoreci.com/article/68-caching-dependencies

@@ -1,10 +1,12 @@
-Since each jobs runs on a fresh machine, common tasks like installing
-dependencies must be repeated. This slows down builds and may make
-them less reliable. Semaphore includes a utility to cache files and
-directories backed by an extremely fast network, so even
-gigabytes may be cached with ease.
+Since each job runs in a clean and isolated VM, we need to explicitly configure
+project dependencies. Installing them in every stage and every block from
+scratch would slow down the pipeline and make it less reliable.
 
-Here's an example of caching `npm` dependencies:
+Semaphore includes a tool to cache files and directories backed by an extremely
+fast network, so even gigabytes may be cached with ease.
+
+Here's an example of installing and caching `npm` dependencies in one block,
+then reusing them in subsequent blocks:
 
 ```yml
 # .semaphore/semaphore.yml
@@ -13,34 +15,39 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Cache dependencies
+  - name: Install dependencies
     task:
       jobs:
-        - name: 'npm'
+        - name: npm install and cache
           commands:
             - checkout
+            - cache restore node-modules-$(checksum package-lock.json)
             - npm install
-            - cache store v1-node-modules-$(checksum package.json) node_modules
+            - cache store node-modules-$(checksum package-lock.json) node_modules
+
   - name: Tests
     task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore node-modules-$(checksum package-lock.json)
       jobs:
-        - name: 'npm'
+        - name: Everything
           commands:
-            - checkout
-            - cache restore v1-node-modules-$(checksum package.json)
             - npm test
 ```
 
-This example generates a `VERSION` environment variable based on
-`package.json`. This invalidates the cache and updates correctly as
-`package.json` changes. The approach applies to other languages and
-uses cases as well.
+In this example we dynamically generate a cache key based on the current
+content of `package-lock.json`. If we change any our list of dependencies,
+the content of `package-lock.json` will change, and the cache would be
+invalidated. cache and checksum are part of the Semaphore [toolbox](toolbox).
+The approach applies to other languages and uses cases as well.
 
-`cache store` must be called before `cache restore`. This is why the
-example uses a block to warm the cache, then uses the cache in
-subsequent blocks.
+## Next steps
 
-That wraps up the tour. We've covered configuring pipelines,
-installing software, using databases, setting environment variables,
-managing secrets, and connecting pipelines with promotions, and
-caching dependencies. You're ready to start shipping with Semaphore.
+Production CI/CD often requires use of environment variables and private API
+keys. Let's move on to learn how to
+[manage sensitive data and environment variables][next].
+
+[toolbox]: https://docs.semaphoreci.com/article/54-toolbox-reference
+[next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
