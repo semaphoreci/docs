@@ -58,7 +58,7 @@ Example value: `0dd982e8-32f5-4037-983e-4de01ac7fb1e`
 The value of the `SEMAPHORE_JOB_NAME` environment variable is a string that
 holds the name of the job.
 
-Example value: `Push image to Docker`
+Example value: `Push image to Docker`.
 
 #### SEMAPHORE\_JOB\_ID
 
