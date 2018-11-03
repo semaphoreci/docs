@@ -4,19 +4,19 @@ key differences and provide you with a direction to migrate to the new product.
 Even if you're a pro Semaphore user, we recommend that you read through the
 [Guided tour](guideed-tour) for hands-on examples.
 
-## Semaphore Classic and Semaphore 2.0 are distinct products
+### Semaphore Classic and Semaphore 2.0 are distinct products
 
 If you have an account on Semaphore Classic, you will need to create a new
 account on Semaphore 2.0.
 
-## You don't have to migrate
+### You don't have to migrate
 
 We know how much you rely on Semaphore to do your work and don't want to impose
 an uncomfortable migration timeline. We don't have any plans to sunset Semaphore
 Classic, and will continue to support it. However it won't receive any major new
 features, as our R&D will be focused on Semaphore 2.0.
 
-## Semaphore 2.0 is a superset of Semaphore Classic
+### Semaphore 2.0 is a superset of Semaphore Classic
 
 Everything that you've been able to do with Semaphore as you know it, you'll be
 able to do with 2.0 — and much more.
@@ -24,14 +24,14 @@ able to do with 2.0 — and much more.
 The only features of Classic that are currently not present in 2.0 are Boosters
 and Bitbucket support, which will be addressed soon.
 
-## Pipelines can orchestrate any workflow
+### Pipelines can orchestrate any workflow
 
 Semaphore 2.0 gives you unlimited flexibility in automating CI/CD workflows. You
 can still run simple builds easily. You can also run multi-stage builds, each
 stage with its' own configuration. You can set up conditions for manual or
 automatic promotion that trigger other pipelines, and more.
 
-## All configuration is in YML and executed in command line
+### All configuration is in YML and executed in command line
 
 You'll primarily interact with Semaphore 2.0 as you do your other development
 tools and platforms, through command line.
@@ -44,7 +44,7 @@ As you explore the [sem command line tool](sem-reference), you'll discover how
 you can do much more in Semaphore 2.0. Things like running one-off jobs and
 attaching to live-running jobs is one command away.
 
-## Pay only for what you use with autoscaling
+### Pay only for what you use with autoscaling
 
 In Semaphore Classic, your CI/CD capacity was fixed to a certain number of
 boxes. Semaphore 2.0 adopts the ["pay only what you use"](pricing) cloud model,
@@ -54,7 +54,7 @@ needs.
 S2 also introduces several machine types with different CPU/memory capacity
 which you use in your pipelines.
 
-## Less assumptions, more transparency
+### Less assumptions, more transparency
 
 Because you can use Semaphore 2.0 to automate just about anything with code, it
 doesn't make assumptions about what you might want to do in each stage of your
