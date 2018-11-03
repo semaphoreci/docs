@@ -1,4 +1,4 @@
-As each job runs in a clean and isolated VM, we need to explicitly configure
+Since each job runs in a clean and isolated VM, we need to explicitly configure
 project dependencies. Installing them in every stage and every block from
 scratch would slow down the pipeline and make it less reliable.
 
