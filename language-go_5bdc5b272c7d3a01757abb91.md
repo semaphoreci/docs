@@ -21,13 +21,12 @@ Here's an example of how you can select and use Go 1.11:
             - go version
 </code></pre>
 
-## GOPATH
+## Using GOPATH
 
-If you're not using Go 1.11 then you will need to prepare the directory
+If you are not using Go 1.11 then you will need to prepare the directory
 structure Go tooling expects. This requires creating `$GOPATH/src` and
-cloning your code into the correct directory. Luckily this is possible
-by changing some environment variables and using the existing
-Semaphore toolbox.
+cloning your code into the correct directory. This is possible by changing some
+environment variables and using the existing Semaphore 2.0 toolbox.
 
 <pre><code class="language-yaml">
 version: v1.0
@@ -56,8 +55,14 @@ blocks:
 ## Dependency Caching
 
 Go projects use multiple approaches to dependency management. If you are using
-`dep` then the strategy is similar to other projects. Use the `cache` utility
-to store and restore `vendor`.
+`dep` then the strategy is similar to other projects.
+
+After downloading `dep`, you should use the `cache` utility to store and
+restore the directory you put your source code files.
+
+You can download and install `dep` as follows:
+
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
 <pre><code class="language-yaml">
 version: v1.0
@@ -102,30 +107,12 @@ blocks:
             - make test
 </code></pre>
 
-## System Dependencies
-
-On each Semaphore 2.0 Virtual Machine, you have full `sudo` access in case you
-want to execute some commands with root privileges, which also includes
-installing a new system package. Here is an example:
-
-<pre><code class="language-yaml">
-blocks:
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - sudo apt-get update && sudo apt-get install -y libpq-dev
-      jobs:
-        - name: Everything
-          commands:
-            - make test
-</code></pre>
-
 ## A sample Go project in Semaphore 2.0
 
 The following is a simple Semaphore 2.0 project that works with a Go source
 file named `hw.go`:
 
+<pre><code class="language-yaml">
     version: v1.0
     name: A Go project in Semaphore 2.0
     agent:
@@ -151,4 +138,4 @@ file named `hw.go`:
                 - checkout
                 - sem-version go 1.11
                 - go run hw.go
-
+</code></pre>
