@@ -1,7 +1,7 @@
 * [Supported Go Versions](#supported-go-versions)
 * [GOPATH](#gopath)
 * [Dependency Caching](#dependency-caching)
-* [System Dependencies](#c-system-dependencies)
+* [A sample Go project in Semaphore 2.0](a-sample-go-project-in-semaphore-2.0)
 
 ## Supported Go Versions
 
@@ -58,20 +58,16 @@ Go projects use multiple approaches to dependency management. If you are using
 `dep` then the strategy is similar to other projects.
 
 After downloading `dep`, you should use the `cache` utility to store and
-restore the directory you put your source code files.
+restore the directory you put your source code files, which for the purposes
+of this document will be named `vendor`.
 
 You can download and install `dep` as follows:
 
     curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-<pre><code class="language-yaml">
-version: v1.0
-name: Go Example
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
+You can initialize the cache as follows:
 
+<pre><code class="language-yaml">
 blocks:
   - name: Warm cache
     task:
@@ -90,6 +86,12 @@ blocks:
             - cache restore v1-deps-$(checksum Gopkg.lock)
             - dep ensure -v
             - cache store v1-deps-$(checksum Gopkg.lock) vendor
+</code></pre>
+
+After that you can reuse that case as follows:
+
+<pre><code class="language-yaml">
+blocks:
   - name: Tests
       prologue:
         commands:
