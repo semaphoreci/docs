@@ -36,8 +36,7 @@ environment variable.
 In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">
-version: "v1.0"
+<pre><code class="language-yaml">version: v1.0
 name: Python Example
 agent:
   machine:
