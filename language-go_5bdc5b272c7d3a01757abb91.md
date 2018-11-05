@@ -1,12 +1,13 @@
-* [Supported Versions](#supported-versions)
+* [Supported Go Versions](#supported-go-versions)
 * [GOPATH](#gopath)
 * [Dependency Caching](#dependency-caching)
-* [System Dependencies](#c-system-dependencies)
+* [A sample Go project in Semaphore 2.0](a-sample-go-project-in-semaphore-2.0)
 
-## Supported Versions
+## Supported Go Versions
 
-Go 1.10 is the default version. Go 1.11 is supported as well. You can
-change versions with `sem-version`. Here's an example:
+Go 1.10 is the default version in the Virtual Machine used by Semaphore 2.0.
+Go 1.11 is supported as well. You can change versions with `sem-version`.
+Here's an example of how you can select and use Go 1.11:
 
 <pre><code class="language-yaml">blocks:
   - name: Tests
@@ -20,13 +21,12 @@ change versions with `sem-version`. Here's an example:
             - go version
 </code></pre>
 
-## GOPATH
+## Using GOPATH
 
-If you're not using Go 1.11 then you'll need to prepare the directory
+If you are not using Go 1.11 then you will need to prepare the directory
 structure Go tooling expects. This requires creating `$GOPATH/src` and
-cloning your code into the correct directory. Luckily this is possible
-by changing some environment variables and using the existing
-Semaphore toolbox.
+cloning your code into the correct directory. This is possible by changing some
+environment variables and using the existing Semaphore 2.0 toolbox.
 
 <pre><code class="language-yaml">
 version: v1.0
@@ -54,18 +54,20 @@ blocks:
 
 ## Dependency Caching
 
-Go projects use multiple approaches to dependency management. If
-you're using `dep` then strategy is similar to other projects. Use the
-`cache` util to store and restore `vendor`.
+Go projects use multiple approaches to dependency management. If you are using
+`dep` then the strategy is similar to other projects.
+
+After downloading `dep`, you should use the `cache` utility to store and
+restore the directory you put your source code files, which for the purposes
+of this document will be named `vendor`.
+
+You can download and install `dep` as follows:
+
+    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+You can initialize the cache as follows:
 
 <pre><code class="language-yaml">
-version: v1.0
-name: Go Example
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
 blocks:
   - name: Warm cache
     task:
@@ -84,6 +86,12 @@ blocks:
             - cache restore v1-deps-$(checksum Gopkg.lock)
             - dep ensure -v
             - cache store v1-deps-$(checksum Gopkg.lock) vendor
+</code></pre>
+
+After that you can reuse that cache as follows:
+
+<pre><code class="language-yaml">
+blocks:
   - name: Tests
       prologue:
         commands:
@@ -101,20 +109,35 @@ blocks:
             - make test
 </code></pre>
 
-## System Dependencies
+## A sample Go project in Semaphore 2.0
 
-You have full `sudo` access if you need to install a system package.
-Here's an example:
+The following is a simple Semaphore 2.0 project that works with a Go source
+file named `hw.go`:
 
 <pre><code class="language-yaml">
-blocks:
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - sudo apt-get update && sudo apt-get install -y libpq-dev
-      jobs:
-        - name: Everything
-          commands:
-            - make test
+    version: v1.0
+    name: A Go project in Semaphore 2.0
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+
+    blocks:
+     - name: Build with default Go version
+       task:
+          jobs:
+            - name: Build and Execute hw.go
+              commands:
+                - checkout
+                - go build hw.go
+                - ./hw
+
+     - name: Run with Go 1.11
+       task:
+          jobs:
+            - name: Run hw.go
+              commands:
+                - checkout
+                - sem-version go 1.11
+                - go run hw.go
 </code></pre>
