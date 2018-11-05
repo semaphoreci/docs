@@ -23,7 +23,7 @@ Here's an example of how you can select and use Go 1.11:
 
 ## GOPATH
 
-If you're not using Go 1.11 then you'll need to prepare the directory
+If you're not using Go 1.11 then you will need to prepare the directory
 structure Go tooling expects. This requires creating `$GOPATH/src` and
 cloning your code into the correct directory. Luckily this is possible
 by changing some environment variables and using the existing
@@ -156,7 +156,7 @@ file:
                 - sem-version go 1.11
                 - go run hw.go
 
-The contents of hw.go are as follows:
+The contents of `hw.go` are as follows:
 
     package main
 
