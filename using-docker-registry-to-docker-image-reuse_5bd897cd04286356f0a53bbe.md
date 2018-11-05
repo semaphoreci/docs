@@ -10,8 +10,8 @@ blocks of the same Semaphore 2.0 project and its promoted pipelines using
 the Docker Registry.
 
 The problem that we are trying to solve has to do with creating unique
-filenames that can be discovered in all the blocks of a Semaphore pipeline as
-well as in promoted pipelines.
+filenames that can be discovered later on in all the blocks of a Semaphore
+pipeline as well as in promoted pipelines.
 
 In order to be able to reuse a Docker image, you will need to use the `cache`
 utility from the Semaphore Toolbox or push the Docker image to Docker Registry
