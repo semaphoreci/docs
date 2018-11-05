@@ -1,7 +1,7 @@
 * [Supported Go Versions](#supported-go-versions)
 * [Using GOPATH](#using-gopath)
 * [Dependency Caching](#dependency-caching)
-* [A sample Go project in Semaphore 2.0](#a-sample-go-project)
+* [A sample Semaphore 2.0 Go project](#a-sample-go-project)
 
 ## Supported Go Versions
 
