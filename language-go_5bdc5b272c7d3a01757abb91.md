@@ -9,7 +9,7 @@ Go 1.10 is the default version in the Virtual Machine used by Semaphore 2.0.
 Go 1.11 is supported as well. You can change versions with `sem-version`.
 Here's an example of how you can select and use Go 1.11:
 
-<code class="language-yaml">blocks:
+<pre><code class="language-yaml">blocks:
   - name: Tests
     task:
       prologue:
@@ -19,7 +19,7 @@ Here's an example of how you can select and use Go 1.11:
         - name: Tests
           commands:
             - go version
-</code>
+</code></pre>
 
 ## GOPATH
 
@@ -55,9 +55,9 @@ blocks:
 
 ## Dependency Caching
 
-Go projects use multiple approaches to dependency management. If
-you're using `dep` then strategy is similar to other projects. Use the
-`cache` util to store and restore `vendor`.
+Go projects use multiple approaches to dependency management. If you are using
+`dep` then the strategy is similar to other projects. Use the `cache` utility
+to store and restore `vendor`.
 
 <pre><code class="language-yaml">
 version: v1.0
@@ -104,8 +104,9 @@ blocks:
 
 ## System Dependencies
 
-You have full `sudo` access if you need to install a system package.
-Here's an example:
+On each Semaphore 2.0 Virtual Machine, you have full `sudo` access in case you
+want to execute some commands with root privileges, which also includes
+installing a new system package. Here is an example:
 
 <pre><code class="language-yaml">
 blocks:
@@ -119,3 +120,50 @@ blocks:
           commands:
             - make test
 </code></pre>
+
+## A sample Go project in Semaphore 2.0
+
+    version: v1.0
+    name: A Go project in Semaphore 2.0
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+
+    blocks:
+     - name: Build with default Go version
+       task:
+          jobs:
+            - name: Build and Execute hw.go
+              commands:
+                - checkout
+                - echo $SEMAPHORE_GIT_DIR
+                - pwd
+                - ls -al
+                - cat hw.go
+                - go build hw.go
+                - ./hw
+
+     - name: Run with Go 1.11
+       task:
+          jobs:
+            - name: Run hw.go
+              commands:
+                - checkout
+                - sem-version go 1.11
+                - go run hw.go
+
+The contents of hw.go are as follows:
+
+    package main
+
+    import (
+        "fmt"
+        "os"
+    )
+
+    func main() {
+        fmt.Println("Hello World!")
+        fmt.Println("SEMAPHORE_PIPELINE_ID:", os.Getenv("SEMAPHORE_PIPELINE_ID"))
+    }
+
