@@ -123,6 +123,9 @@ blocks:
 
 ## A sample Go project in Semaphore 2.0
 
+The following is a simple Semaphore 2.0 project that works with a Go source
+file:
+
     version: v1.0
     name: A Go project in Semaphore 2.0
     agent:
