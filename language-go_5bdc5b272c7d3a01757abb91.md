@@ -1,7 +1,7 @@
 * [Supported Go Versions](#supported-go-versions)
 * [Using GOPATH](#using-gopath)
 * [Dependency Caching](#dependency-caching)
-* [A sample Go project in Semaphore 2.0](#a-sample-go-project-in-semaphore-2.0)
+* [A sample Go project in Semaphore 2.0](#a-sample-go-project)
 
 ## Supported Go Versions
 
@@ -109,7 +109,7 @@ blocks:
             - make test
 </code></pre>
 
-## A sample Go project in Semaphore 2.0
+## A sample Go project
 
 The following is a simple Semaphore 2.0 project that works with a Go source
 file named `hw.go`:
