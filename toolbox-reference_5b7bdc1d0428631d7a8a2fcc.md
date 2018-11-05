@@ -232,6 +232,10 @@ Archives file or directory specified by path and associates it with key.
 Any further changes of path after the store operation completes will not
 be automatically propagated to cache. The command always passes (exits with 0).
 
+Allocated disk space for cache is currently limited to 9.6G. 
+Also, in case of insufficient disk space, command `cache store` allocates space
+for new archive by deleting the oldest keys. 
+
 ##### cache restore key[,second-key,...]
 
 Examples:
