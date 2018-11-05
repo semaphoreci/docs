@@ -1,6 +1,7 @@
 
 * [Environment variables](#environment-variables)
 * [The Rules of Artefacts](#the-rules-of-artefacts)
+* [Other Suggestions](#other-suggestions)
 * [Two Examples](#two-examples)
 
 ## Overview
