@@ -20,62 +20,6 @@ This document will show how to use the `cache` utility from the Semaphore
 Toolbox. You can find more information about the `cache` utility in the
 [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
 
-## Environment variables
-
-In this section you will learn about the Semaphore 2.0 environment variables
-that can help you create filenames that are unique while discoverable.
-
-### SEMAPHORE\_WORKFLOW\_ID
-
-The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
-a pipeline run and is available in all the blocks of a pipeline as well as in
-all promoted and auto promoted pipelines.
-
-If you need to reuse just a single resource, using the `SEMAPHORE_WORKFLOW_ID`
-environment variable is simplest and quickest solution.
-
-### SEMAPHORE\_PIPELINE\_ID
-
-The `SEMAPHORE_PIPELINE_ID` environment variable remains the same throughout
-all the blocks of a pipeline, which, at first, makes it the perfect candidate
-for sharing data inside the same pipeline.
-
-However, using `SEMAPHORE_PIPELINE_ARTEFACT_ID` is the recommended way because
-the value of `SEMAPHORE_PIPELINE_ARTEFACT_ID` does not change if there are
-rebuilds in a pipeline.
-
-### SEMAPHORE\_PIPELINE\_ARTEFACT\_ID
-
-The `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable always exists. Its
-value is the same as the value of the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID`
-environment variables, where `X` is the biggest number among all
-the `SEMAPHORE_PIPELINE_X_ARTEFACT_ID` environment variables of a given
-pipeline.
-
-So, in the pipeline that is initiated by `.semaphore/semaphore.yml`, you will
-have both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`
-and their values will be the same.
-
-### SEMAPHORE\_PIPELINE\_0\_ARTEFACT\_ID
-
-The `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` environment variable always exists and
-always points to the `SEMAPHORE_PIPELINE_ARTEFACT_ID` value of the pipeline
-created by `.semaphore/semaphore.yml`.
-
-### SEMAPHORE\_PIPELINE\_1\_ARTEFACT\_ID
-
-The `SEMAPHORE_PIPELINE_1_ARTEFACT_ID` environment variable will only appear if
-there is at least one promotion in a pipeline. This means that it will begin
-appearing in the first promoted pipeline.
-
-The numbering and the creation of new `ARTEFACT_ID` environment variables
-will continue for as long as there exist more promotions in a pipeline. This
-means that you might have `SEMAPHORE_PIPELINE_2_ARTEFACT_ID`,
-`SEMAPHORE_PIPELINE_3_ARTEFACT_ID`, `SEMAPHORE_PIPELINE_4_ARTEFACT_ID`, etc,
-depending on the number of promotions that exist.
-
-As the numbering begins with `0`, the `10th` pipeline will have a
-`SEMAPHORE_PIPELINE_9_ARTEFACT_ID` environment variable.
 
 ## The Rules of Artefacts
 
@@ -109,6 +53,17 @@ rules that govern them and their values.
 * If you promote a pipeline more than once, the Artefact ID of that pipeline, as
     well as the Artefact IDs of the pipelines that are after that pipeline will
 	change. However, the values of all previous Artefact IDs will remain the same.
+
+## Other Suggestions
+
+* If you need to reuse just a single resource, using the `SEMAPHORE_WORKFLOW_ID`
+    environment variable is the simplest and quickest solution.
+* The `SEMAPHORE_PIPELINE_ID` environment variable remains the same throughout
+    all the blocks of a pipeline, which, at first, makes it the perfect candidate
+    for sharing data inside the same pipeline. However, using
+    `SEMAPHORE_PIPELINE_ARTEFACT_ID` is the recommended way because the value of
+    `SEMAPHORE_PIPELINE_ARTEFACT_ID` does not change if there are rebuilds in a
+    pipeline.
 
 ## Two Examples
 
