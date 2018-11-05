@@ -124,7 +124,7 @@ blocks:
 ## A sample Go project in Semaphore 2.0
 
 The following is a simple Semaphore 2.0 project that works with a Go source
-file:
+file named `hw.go`:
 
     version: v1.0
     name: A Go project in Semaphore 2.0
@@ -140,10 +140,6 @@ file:
             - name: Build and Execute hw.go
               commands:
                 - checkout
-                - echo $SEMAPHORE_GIT_DIR
-                - pwd
-                - ls -al
-                - cat hw.go
                 - go build hw.go
                 - ./hw
 
@@ -155,18 +151,4 @@ file:
                 - checkout
                 - sem-version go 1.11
                 - go run hw.go
-
-The contents of `hw.go` are as follows:
-
-    package main
-
-    import (
-        "fmt"
-        "os"
-    )
-
-    func main() {
-        fmt.Println("Hello World!")
-        fmt.Println("SEMAPHORE_PIPELINE_ID:", os.Getenv("SEMAPHORE_PIPELINE_ID"))
-    }
 
