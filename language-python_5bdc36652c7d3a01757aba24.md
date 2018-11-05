@@ -36,7 +36,8 @@ environment variable.
 In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">version: "v1.0"
+<pre><code class="language-yaml">
+version: "v1.0"
 name: Python Example
 agent:
   machine:
@@ -48,7 +49,7 @@ blocks:
     task:
       env_vars:
         - name: PIPENV_VENV_IN_PROJECT
-          value: true
+          value: "true"
       prologue:
         commands:
           - sudo pip install pipenv
@@ -64,7 +65,7 @@ blocks:
     task:
       env_vars:
         - name: PIPENV_VENV_IN_PROJECT
-          value: true
+          value: "true"
       prologue:
         commands:
           - sudo pip install pipenv
