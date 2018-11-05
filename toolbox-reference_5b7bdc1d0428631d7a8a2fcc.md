@@ -229,7 +229,8 @@ Examples:
     cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/bundle
 
 Archives file or directory specified by path and associates it with key.
-Any further changes of path after the store operation completes will not
+As `cache store` uses `tar` leading `/` is automatically removed from the path.
+Also, any further changes of path after the store operation completes will not
 be automatically propagated to cache. The command always passes (exits with 0).
 
 Allocated disk space for cache is currently limited to 9.6G. 
@@ -247,6 +248,9 @@ Examples:
 Restores an archive with given key.
 In case of a cache hit, archive is retrieved and available at its original
 path in the job environment.
+Cached directory (or file) is restored on the current path, 
+from where the function is called.
+
 In case of cache miss, the comma-separated fallback takes over and command
 looks up the next key.
 If no archives are restored command exits with 0.
@@ -306,6 +310,8 @@ which are automatically set in every job environment:
 - `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: stores the path to the
     SSH key that will be used for connecting to the cache server
   (`/home/semaphore/.ssh/semaphore_cache_key`).
+
+Additionally, `cache` uses `tar` to archive a specified directory or file.
 
 ## sem-version
 
