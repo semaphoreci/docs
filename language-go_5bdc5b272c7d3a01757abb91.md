@@ -1,15 +1,15 @@
-* [Supported Versions](#supported-versions)
+* [Supported Go Versions](#supported-go-versions)
 * [GOPATH](#gopath)
 * [Dependency Caching](#dependency-caching)
 * [System Dependencies](#c-system-dependencies)
 
-## Supported Versions
+## Supported Go Versions
 
 Go 1.10 is the default version in the Virtual Machine used by Semaphore 2.0.
 Go 1.11 is supported as well. You can change versions with `sem-version`.
-Here's an example:
+Here's an example of how you can select and use Go 1.11:
 
-<pre><code class="language-yaml">blocks:
+<code class="language-yaml">blocks:
   - name: Tests
     task:
       prologue:
@@ -19,7 +19,7 @@ Here's an example:
         - name: Tests
           commands:
             - go version
-</code></pre>
+</code>
 
 ## GOPATH
 
