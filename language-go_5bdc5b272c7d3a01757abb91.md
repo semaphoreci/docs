@@ -88,7 +88,7 @@ blocks:
             - cache store v1-deps-$(checksum Gopkg.lock) vendor
 </code></pre>
 
-After that you can reuse that case as follows:
+After that you can reuse that cache as follows:
 
 <pre><code class="language-yaml">
 blocks:
