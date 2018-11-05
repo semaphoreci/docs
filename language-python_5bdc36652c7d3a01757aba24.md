@@ -37,44 +37,44 @@ In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
 <pre><code class="language-yaml">version: v1.0
-name: Python Example
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
-blocks:
-  - name: Install dependencies
-    task:
-      env_vars:
-        - name: PIPENV_VENV_IN_PROJECT
-          value: "true"
-      prologue:
-        commands:
-          - sudo pip install pipenv
-          - checkout
-      jobs:
-        - name: Install and cache dependencies
-          commands:
-            - cache restore pipenv-$(checksum Pipfile.lock)
-            # --deploy also checks python version requirements
-            - pipenv install --dev --deploy
-            - cache store pipenv-$(checksum Pipfile.lock) .venv
-  - name: Tests
-    task:
-      env_vars:
-        - name: PIPENV_VENV_IN_PROJECT
-          value: "true"
-      prologue:
-        commands:
-          - sudo pip install pipenv
-          - checkout
-          - cache restore pipenv-$(checksum Pipfile.lock)
-      jobs:
-        - name: Everything
-          commands:
-            # assuming you have "test" in your Pipfile scripts
-            - pipenv run test
+ name: Python Example
+ agent:
+   machine:
+     type: e1-standard-2
+     os_image: ubuntu1804
+ 
+ blocks:
+   - name: Install dependencies
+     task:
+       env_vars:
+         - name: PIPENV_VENV_IN_PROJECT
+           value: "true"
+       prologue:
+         commands:
+           - sudo pip install pipenv
+           - checkout
+       jobs:
+         - name: Install and cache dependencies
+           commands:
+             - cache restore pipenv-$(checksum Pipfile.lock)
+             # --deploy also checks python version requirements
+             - pipenv install --dev --deploy
+             - cache store pipenv-$(checksum Pipfile.lock) .venv
+   - name: Tests
+     task:
+       env_vars:
+         - name: PIPENV_VENV_IN_PROJECT
+           value: "true"
+       prologue:
+         commands:
+           - sudo pip install pipenv
+           - checkout
+           - cache restore pipenv-$(checksum Pipfile.lock)
+       jobs:
+         - name: Everything
+           commands:
+             # assuming you have "test" in your Pipfile scripts
+             - pipenv run test
 </code></pre>
 
 If you need to clear cache for your project, launch a
