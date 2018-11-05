@@ -5,6 +5,10 @@
 
 ## Overview
 
+In order to be able to reuse a Docker image, you will need to either use the
+`cache` utility from the Semaphore Toolbox or push the Docker image to Docker
+Registry and pull it from there.
+
 This document will illustrate how you can reuse Docker images among the
 blocks of the same Semaphore 2.0 project and its promoted pipelines using
 the Docker Registry.
@@ -13,14 +17,9 @@ The problem that we are trying to solve has to do with creating unique
 filenames that can be discovered later on in all the blocks of a Semaphore
 pipeline as well as in promoted pipelines.
 
-In order to be able to reuse a Docker image, you will need to use the `cache`
-utility from the Semaphore Toolbox or push the Docker image to Docker Registry
-and pull it from there.
-
-This document will illustrate how you can use Docker Registry to reuse Docker
-images. The first thing that you will need is to create a `secret` in Semaphore
-2.0. If your `secret` with the Docker Registry data is called `docker-hub`, you
-can find out more about it as follows:
+The first thing that you will need is to create a `secret` in Semaphore 2.0.
+If your `secret` with the Docker Registry data is called `docker-hub`, you can
+find out more about it as follows:
 
     $ sem get secrets docker-hub
     apiVersion: v1beta
@@ -84,22 +83,23 @@ rules that govern them and their values.
 
 ## Two Examples
 
-The following two examples are using Docker Registry for storing the generated
-Docker images, which means that you will have to login to Docker Registry
-first.
+The following two examples are using Docker Registry for storing and retrieving
+the generated Docker images, which means that you will have to login to the
+Docker Registry first.
 
 ### Using SEMAPHORE\_WORKFLOW\_ID
 
 There is a Docker image that is created in a pipeline that is defined in
-`.semaphore/semaphore.yml` and stored in the cache. You want to be able
-to access that Docker image from all the blocks of `.semaphore/semaphore.yml`
-as well as the two pipelines that are auto promoted and are defined in
-`.semaphore/p1.yml` and `.semaphore/p2.yml`. `.semaphore/semaphore.yml` auto
-promotes `.semaphore/p1.yml`, which auto promotes `.semaphore/p2.yml`.
+`.semaphore/semaphore.yml` and stored in the Docker Registry. You want to be
+able to access that Docker image from all the blocks of
+`.semaphore/semaphore.yml` as well as the two pipelines that are auto promoted
+and are defined in `.semaphore/p1.yml` and `.semaphore/p2.yml`.
+`.semaphore/semaphore.yml` auto promotes `.semaphore/p1.yml`,
+which auto promotes `.semaphore/p2.yml`.
 
 This section will explain how you can do that by presenting three sample
 pipeline files. All three pipelines are using the `SEMAPHORE_WORKFLOW_ID`
-environment variable.
+environment variable to name the Docker image.
 
 The contents of `.semaphore/semaphore.yml` are as follows:
 
@@ -194,7 +194,7 @@ The contents of `.semaphore/p1.yml` are as follows:
       - name: Test Docker image
         task:
           jobs:
-            - name: Restore Docker image from cache
+            - name: Restore Docker image from Registry
               commands:
                 - echo $SEMAPHORE_WORKFLOW_ID
                 - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
@@ -204,7 +204,6 @@ The contents of `.semaphore/p1.yml` are as follows:
     
           secrets:
           - name: docker-hub
-
 
 The contents of `.semaphore/p2.yml` are as follows:
 
@@ -219,7 +218,7 @@ The contents of `.semaphore/p2.yml` are as follows:
       - name: Test Docker image
         task:
           jobs:
-            - name: Restore Docker image from cache
+            - name: Restore Docker image from Registry
               commands:
                 - echo $SEMAPHORE_WORKFLOW_ID
                 - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
@@ -234,18 +233,18 @@ The contents of `.semaphore/p2.yml` are as follows:
 
 For the purposes of this section we will use three pipeline files. The scenario
 that is going to be used is the following: the initial pipeline begins using the
-`.semaphore/semaphore.yml` file. That file auto promotes another pipeline using
-the `.semaphore/p1.yml` pipeline. Last, `.semaphore/p1.yml` auto promotes another
-pipeline that is defined using `.semaphore/p2.yml`.
+`.semaphore/semaphore.yml` file. That pipeline auto promotes another pipeline
+using the `.semaphore/p1.yml` pipeline. Last, `.semaphore/p1.yml` auto promotes
+another pipeline that is defined using `.semaphore/p2.yml`.
 
 As the third pipeline is promoted by the second pipeline, we have a linear path,
 which means that there are no splits.
 
 There is a Docker image that is created in `.semaphore/semaphore.yml`. That
 Docker image needs to be accessible from both `.semaphore/p1.yml` and
-`.semaphore/p2.yml` using caching. Additionally, `.semaphore/p1.yml` creates
-another Docker image that we also want to make available to `.semaphore/p2.yml`
-through caching.
+`.semaphore/p2.yml` using Docker Registry. Additionally, `.semaphore/p1.yml`
+creates another Docker image that we also want to make available to
+`.semaphore/p2.yml` through the Docker Registry.
 
 This section will explain how you can do that.
 
@@ -302,15 +301,15 @@ The contents of the `.semaphore/semaphore.yml` file are the following:
 In this pipeline, the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` are the same as this is the initial
 pipeline. If this is the **initial build** of this pipeline, then 
-`SEMAPHORE_PIPELINE_ID` will also have the same value as the values of both
+`SEMAPHORE_PIPELINE_ID` will also have the same value with both
 `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`.
 
-If you rebuild that pipeline only, then the value of `SEMAPHORE_PIPELINE_ID`
+If you **rebuild** that pipeline only, then the value of `SEMAPHORE_PIPELINE_ID`
 will change whereas the values of both `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will remain the same.
 
 Last, a Docker image was created in `.semaphore/semaphore.yml` that is
-stored in the caching server – the name of that Docker image will be the
+stored in Docker Registry – the name of that Docker image will be the
 value of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable.
 
 The contents of `Dockerfile` are the following:
@@ -398,9 +397,9 @@ The contents of `v2.go` are the following:
         fmt.Println("Hello from v2!")
     }
 
-There is a Docker image created inside `.semaphore/p1.yml` that is
-stored in the caching server – the name of that Docker image will be
-the current value of `SEMAPHORE_PIPELINE_ARTEFACT_ID`.
+There is a Docker image created inside `.semaphore/p1.yml` that is stored in
+the Docker Registry – the name of that Docker image will be the current value
+of the `SEMAPHORE_PIPELINE_ARTEFACT_ID` environment variable.
 
 In `.semaphore/p1.yml`, the value of `SEMAPHORE_PIPELINE_ID` is new. However,
 the value of `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` will be the value of the
