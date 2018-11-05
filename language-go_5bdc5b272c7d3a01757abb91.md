@@ -1,7 +1,7 @@
 * [Supported Go Versions](#supported-go-versions)
-* [GOPATH](#gopath)
+* [Using GOPATH](#using-gopath)
 * [Dependency Caching](#dependency-caching)
-* [A sample Go project in Semaphore 2.0](a-sample-go-project-in-semaphore-2.0)
+* [A sample Go project in Semaphore 2.0](#a-sample-go-project-in-semaphore-2.0)
 
 ## Supported Go Versions
 
@@ -115,29 +115,29 @@ The following is a simple Semaphore 2.0 project that works with a Go source
 file named `hw.go`:
 
 <pre><code class="language-yaml">
-    version: v1.0
-    name: A Go project in Semaphore 2.0
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
-
-    blocks:
-     - name: Build with default Go version
-       task:
-          jobs:
-            - name: Build and Execute hw.go
-              commands:
-                - checkout
-                - go build hw.go
-                - ./hw
-
-     - name: Run with Go 1.11
-       task:
-          jobs:
-            - name: Run hw.go
-              commands:
-                - checkout
-                - sem-version go 1.11
-                - go run hw.go
+ version: v1.0
+ name: A Go project in Semaphore 2.0
+ agent:
+   machine:
+     type: e1-standard-2
+     os_image: ubuntu1804
+ 
+ blocks:
+  - name: Build with default Go version
+    task:
+       jobs:
+         - name: Build and Execute hw.go
+           commands:
+             - checkout
+             - go build hw.go
+             - ./hw
+ 
+  - name: Run with Go 1.11
+    task:
+       jobs:
+         - name: Run hw.go
+           commands:
+             - checkout
+             - sem-version go 1.11
+             - go run hw.go
 </code></pre>
