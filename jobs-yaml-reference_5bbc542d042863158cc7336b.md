@@ -157,7 +157,8 @@ properties named `type` and `os_image`.
 The `type` property is intended for specifying the machine (hardware) you would
 use on the Virtual Machine for building a specific job.
 
-The list of values for `type`: `e1-standard-2`.
+You can learn about the list of valid values for the `type` property by visiting
+the [Machine Types](https://docs.semaphoreci.com/article/20-machine-types) page.
 
 #### os_image
 
@@ -251,3 +252,4 @@ property is the TCP port number used for the `ssh` connection.
 * [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
+* [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
