@@ -157,7 +157,8 @@ properties named `type` and `os_image`.
 The `type` property is intended for specifying the machine (hardware) you would
 use on the Virtual Machine for building a specific job.
 
-The list of values for `type`: `e1-standard-2`, `e1-standard-4` and `e1-standard-8`.
+You can learn about the list of valid values for the `type` property by visiting
+the [Machine Types](https://docs.semaphoreci.com/article/20-machine-types) page.
 
 #### os_image
 
