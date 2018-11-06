@@ -767,6 +767,7 @@ equivalent:
 * `dashboard`, `dashboards` and `dash`
 * `secret` and `secrets`
 * `job` and `jobs`
+* `pipelines`, `pipeline` and `ppl`
 
 As an example, the following three commands are equivalent and will return the
 same output:
