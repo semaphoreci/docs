@@ -48,7 +48,8 @@ echo '[your-public-key]' >> .ssh/authorized_keys
 ```
 
 To manage multiple public keys for SSH access
-[store your public keys in a secret](https://docs.semaphoreci.com/article/61-using-secrets).
+[store your public keys in a
+secret](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets).
 
 ## Restarting a job in debug mode
 
@@ -86,4 +87,5 @@ The `http://localhost:6000` should now be accessible in your browser.
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Secrets YAML Reference](https://docs.semaphoreci.com/article/61-using-secrets)
+- [Secrets YAML
+  Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
