@@ -8,6 +8,9 @@
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
 * [Working with projects](#working-with-projects)
+* [Working with Pipelines](#working-with-pipelines)
+* [Working with Workflows](#working-with-workflows)
+* [Working with Notifications](#working-with-notifications)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -64,8 +67,9 @@ The following list briefly describes all `sem` operations:
 
 ## Resource types
 
-Semaphore 2.0 supports four types of resources: `secret`, `project`, `job` and
-`dashboard`. Most resource related operations require a resource name or ID.
+Semaphore 2.0 supports seven types of resources: `secret`, `project`, `job`,
+`dashboard`, `pipeline`, `workflow` and `notification`. Most resource related
+operations require a resource name or ID.
 
 ### Secrets
 
@@ -117,6 +121,22 @@ Machine (VM). You cannot have a pipeline without at least one `job`.
 
 The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
 are running in completely different Virtual Machines.
+
+
+### Pipelines
+
+A `Pipeline` is
+
+
+### Workflows
+
+A `Workflow` is
+
+
+### Notifications
+
+A `Notification` is
+
 
 ## Working with organizations
 
@@ -396,6 +416,18 @@ project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
+
+
+## Working with Pipelines
+
+There are many interesting and unique things that you can do with pipelines.
+
+
+## Working with Workflows
+
+
+## Working with Notifications
+
 
 ## Help commands
 
@@ -730,6 +762,22 @@ You can debug a project named `docker-push` by executing the following command:
 You will need to **manually terminate** the VM using either `sudo poweroff` or
 `sudo shutdown -r now`.
 
+
+### sem and pipelines
+
+In this subsection you will find `sem` examples related to pipelines.
+
+
+### sem and workflows
+
+In this subsection you will find `sem` examples related to workflows.
+
+
+### sem and notifications
+
+In this subsection you will find `sem` examples related to notifications.
+
+
 ### sem version
 
 The `sem version` command displays the used version of the `sem` tool. As an
@@ -768,6 +816,7 @@ equivalent:
 * `secret` and `secrets`
 * `job` and `jobs`
 * `pipelines`, `pipeline` and `ppl`
+* `workflows`, `workflow` and `wf`
 
 As an example, the following three commands are equivalent and will return the
 same output:
