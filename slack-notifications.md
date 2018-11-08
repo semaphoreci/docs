@@ -95,7 +95,7 @@ if you want to get notified about every notification on a project that matches
 
 ```
 sem create notifications example \
-  --branches "/.*-api$/" \
+  --projects "/.*-api$/" \
   --branches "master" \
   --pipelines "prod.yml" \
   --slack-endpoint [slack-webhook-endpoint] \
