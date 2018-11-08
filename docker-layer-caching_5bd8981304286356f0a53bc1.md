@@ -21,8 +21,8 @@ Docker creates container images using layers. Each command that is found in a
 of the image between the state before the execution of the command and the
 state after the execution of the command.
 
-Docker uses a layer cache to optimize that process and make it faster. This
-works as follows:
+Docker uses a layer cache to optimize the process of building Docker images
+and make it faster.
 
 Docker Layer Caching mainly works on `RUN`, `COPY` and `ADD` commands, which are
 going to be explained in more detail.
@@ -73,7 +73,7 @@ steps concerned with doing the same action are not unnecessarily rebuilt.
 
 ## About --cache-from
 
-The `--cache-from` command line option in the `docker` utility allows to build
+The `--cache-from` command line option in the `docker` command allows to build
 a new image using a pre-existing one as the cache source. You will see that in
 action in the next section.
 
@@ -119,10 +119,12 @@ in Semaphore 2.0 projects:
                 - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
                 - cp D1 Dockerfile
                 - docker build -t go_hw:v1 .
-                - docker tag go_hw:v1 "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
-                - docker push "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
-                - docker images
-    
+                - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+                - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+				
+                - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+				- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+				    
           secrets:
           - name: docker-hub
     
@@ -135,8 +137,8 @@ in Semaphore 2.0 projects:
                 - docker images
                 - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
                 - cp D2 Dockerfile
-                - docker pull "$DOCKER_USERNAME"/"$SEMAPHORE_GIT_BRANCH"
-                - docker build --cache-from "$CACHE_IMAGE:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+                - docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+                - docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
                 - docker images
                 - docker run go_hw:v2
     
@@ -146,6 +148,33 @@ in Semaphore 2.0 projects:
 The `.semaphore/semaphore.yml` file has two `blocks` blocks. The first one
 creates a Docker image that is reused in the second `blocks` block using the
 `--cache-from` command line parameter.
+
+The block named "Use previous image" simulates the case where a number of
+unchanged layers will be reused from an image that was pulled from the Docker
+Registry. In this case all layers will be reused. The `docker` commands that
+use this functionality are the following:
+
+    - docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+    - docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+
+The `docker pull` command gets an existing Docker image from the Docker
+Registry whereas the `docker build` command uses the `--cache-from` option in
+order to try to reuse as many of the existing layers of the
+`$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH` image as possible.
+
+    - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+    - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+
+The aforementioned commands tar an existing Docker image and push it to the
+Docker registry in a way that can be found and reused as a cache Docker image.
+
+    - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+	- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+
+The last two `docker` commands should be executed when you want to deploy a
+Docker image to production. The first one tags an existing Docker image in a
+way that can be associated to the Git SHA value and the Workflow ID of the
+Semaphore 2.0 project and the second one pushes that image to Docker Registry.
 
 The contents of the `D1` file are as follows:
 
@@ -160,7 +189,7 @@ The contents of the `D1` file are as follows:
 
 The contents of the `D2` file are as follows:
 
-	cat D2
+	$ cat D2
 	FROM golang:alpine
     
 	RUN mkdir /files
@@ -177,10 +206,6 @@ Docker image created using `D1` as a cache.
 To ensure a better cache hit, you should choose The `SEMAPHORE_GIT_BRANCH`
 Semaphore 2.0 environment variable as a tag. This way, each GitHub branch will
 have its own cache and therefore you will avoid cache collision.
-
-In order to improve the speed of pushing and pulling images in your Semaphore
-builds, the Docker container registry should be geographically as close as
-possible to the Semaphore 2.0 build servers that are located in Germany.
 
 ## See Also
 
