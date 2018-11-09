@@ -121,10 +121,10 @@ in Semaphore 2.0 projects:
                 - docker build -t go_hw:v1 .
                 - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
                 - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-				
+                
                 - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-				- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-				    
+                - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+                    
           secrets:
           - name: docker-hub
     
@@ -169,7 +169,7 @@ The aforementioned commands tar an existing Docker image and push it to the
 Docker registry in a way that can be found and reused as a cache Docker image.
 
     - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-	- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+    - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
 
 The last two `docker` commands should be executed when you want to deploy a
 Docker image to production. The first one tags an existing Docker image in a
@@ -178,26 +178,26 @@ Semaphore 2.0 project and the second one pushes that image to Docker Registry.
 
 The contents of the `D1` file are as follows:
 
-	$ cat D1
-	FROM golang:alpine
+    $ cat D1
+    FROM golang:alpine
     
-	RUN mkdir /files
-	COPY hw.go /files
-	WORKDIR /files
+    RUN mkdir /files
+    COPY hw.go /files
+    WORKDIR /files
     
-	RUN go build -o /files/hw hw.go
+    RUN go build -o /files/hw hw.go
 
 The contents of the `D2` file are as follows:
 
-	$ cat D2
-	FROM golang:alpine
+    $ cat D2
+    FROM golang:alpine
     
-	RUN mkdir /files
-	COPY hw.go /files
-	WORKDIR /files
+    RUN mkdir /files
+    COPY hw.go /files
+    WORKDIR /files
     
-	RUN go build -o /files/hw hw.go
-	ENTRYPOINT ["/files/hw"]
+    RUN go build -o /files/hw hw.go
+    ENTRYPOINT ["/files/hw"]
 
 The `D2` file includes all the contents of the `D1` file and adds one more
 line at the end of it, which makes it a perfect candidate for using the
