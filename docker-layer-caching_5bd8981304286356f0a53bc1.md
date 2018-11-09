@@ -165,7 +165,7 @@ order to try to reuse as many of the existing layers of the
     - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
     - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
 
-The aforementioned commands tar an existing Docker image and push it to the
+The aforementioned commands tag an existing Docker image and push it to the
 Docker registry in a way that can be found and reused as a cache Docker image.
 
     - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
