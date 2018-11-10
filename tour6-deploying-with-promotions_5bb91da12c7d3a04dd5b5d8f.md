@@ -94,7 +94,7 @@ promotions:
     pipeline_file: production-deploy.yml
     auto_promote_on:
       - result: passed
-        branches:
+        branch:
           - master
   - name: Staging deploy
     pipeline_file: staging-deploy.yml
