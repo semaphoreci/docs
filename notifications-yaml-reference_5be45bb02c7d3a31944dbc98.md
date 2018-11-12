@@ -100,9 +100,15 @@ The `slack` property
 
 ##### endpoint
 
-The `endpoint` property
+The `endpoint` property holds the URL of the Incoming WebHook that will be used.
+Incoming WebHooks offer a simple way for posting messages from external sources
+into Slack.
 
 You can learn more about defining the value of the `endpoint` property by
+visiting https://slack.com/apps/A0F7XDUAZ-incoming-webhooks.
+
+Please note that if a notification does not work as expected, you might want to
+begin the debugging process by verifying the Slack WebHook used.
 
 ##### message
 
@@ -111,7 +117,7 @@ on the Slack channel by the notification. The `message` property supports
 certain keywords that allow you to include specific and dynamic information in
 your output.
 
-The list of supported keywords is the following:
+The list of supported dynamic keywords is the following:
 
 * pipeline.name:
 * pipeline.result:
@@ -121,9 +127,8 @@ The list of supported keywords is the following:
 
 ##### channels
 
-The `channels` property holds a list of strings. Each string value is the name
+The `channels` property holds a list of strings. Each string item is the name
 of a Slack channel.
-
 
 ## An example
 
