@@ -1,10 +1,22 @@
 
  * [Overview](#overview)
  * [Properties](#properties)
- * [version](#version)
+ * [The rules property in more detail](#the-rules-property-in-more-detail)
+ * [See Also](#see-also)
 
 ## Overview
 
+
+## Rules of Notifications
+
+Notifications are governed by certain rules:
+
+* Notifications can be sent only when a pipeline is finished. Notifications for
+    started pipelines are not yet implemented.
+* Currently, notifications can only filter by project name, pipeline filename
+    and branch name. Other filters like block filters, state filters and result
+    filters are not yet implemented.
+* 
 
 ## Properties
 
@@ -37,8 +49,11 @@ Each `rules` property holds the definition of a notification. In order to have
 multiple notifications, you will need to have multiple `rules` items.
 
 
-## The properties of the rules property
+## The rules property in more detail
 
+In this section we are going to explain the properties that are stored in a
+`rules` property – the logic of notifications is stored under `rules`
+property.
 
 ### name
 
@@ -50,15 +65,26 @@ defines the name of the notification.
 
 The `filter` property is used for holding
 
-The `filter` property holds the `filters` and the `pipelines` properties.
+The `filter` property holds the `filters`, `bracnhes` and `pipelines`
+properties.
+
+For a filter to be `true` all of its conditions should be true. If a conditions
+such as `branches` has multiple cases, only one of these cases should be a
+match.
 
 #### projects
 
-The `projects` property
+The `projects` property is used for holding
 
 #### pipelines
 
 The `pipelines` property
+
+#### branches
+
+The `branches` property holds a list of strings, which should be GitHub branch
+names.
+
 
 ### notify
 
@@ -80,7 +106,18 @@ You can learn more about defining the value of the `endpoint` property by
 
 ##### message
 
-The `message` property
+The `message` property allows you to define the message that will be displayed
+on the Slack channel by the notification. The `message` property supports
+certain keywords that allow you to include specific and dynamic information in
+your output.
+
+The list of supported keywords is the following:
+
+* pipeline.name:
+* pipeline.result:
+* pipeline.duration:
+* project.name:
+* commit.message:
 
 ##### channels
 
