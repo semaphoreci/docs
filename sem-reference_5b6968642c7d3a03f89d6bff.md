@@ -428,6 +428,33 @@ There are many interesting and unique things that you can do with pipelines.
 
 ## Working with Notifications
 
+### List all notifications
+
+You can list all the available notifications under the current orginization
+with the `sem get notifications` command.
+
+    sem get notifications
+
+### Describe a notification
+
+You can describe a notification using the `sem get notifications` command
+followed by the `name` of the desired notification.
+
+    sem get notifications [name]
+
+### Edit a notification
+
+You can edit a notification using the `sem edit notification` command
+followed by the `name` of the desired notification.
+
+    sem edit notification [name]
+
+### Delete a notification
+
+You can delete an existing notification using the `sem delete notification`
+command followed by the `name` of the notification you want to delete.
+
+    sem delete notifications [name]
 
 ## Help commands
 
@@ -777,6 +804,22 @@ In this subsection you will find `sem` examples related to workflows.
 
 In this subsection you will find `sem` examples related to notifications.
 
+You can list all existing notifications under the current organization as
+follows:
+
+    sem get notifications
+
+You can find more information about a specific notification as follows:
+
+    sem get notifications [name]
+
+You can edit an existing notification as follows:
+
+    sem edit notifications [name]
+
+Last, you can delete an existing notification as follows:
+
+    sem delete notifications [name]
 
 ### sem version
 
@@ -817,6 +860,7 @@ equivalent:
 * `job` and `jobs`
 * `pipelines`, `pipeline` and `ppl`
 * `workflows`, `workflow` and `wf`
+* `notifications`, `notification`, `notifs` and `notif`
 
 As an example, the following three commands are equivalent and will return the
 same output:
