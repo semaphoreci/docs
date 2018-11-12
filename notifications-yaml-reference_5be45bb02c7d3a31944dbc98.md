@@ -124,20 +124,6 @@ The list of supported keywords is the following:
 The `channels` property holds a list of strings. Each string value is the name
 of a Slack channel.
 
-    - name: "On QA cluster creation"
-      filter:
-        projects:
-          - cluster-creator
-        pipelines:
-          - .semaphore/qa-*.yml
-      notify:
-        slack:
-          endpoint: "https://slack.com/api/8742d286-e067-4dc9-a5f7-7e2009635485"
-          message: "QA cluster {{ pipeline.name }} created"
-          channels:
-            - "#qa"
-
-
 
 ## An example
 
