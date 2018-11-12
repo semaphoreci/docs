@@ -4,7 +4,8 @@
 
 ## Overview
 
-This 
+This document will describe how you can work with the Heroku Container Registry
+from Semaphore 2.0.
 
 ## Properties
 
