@@ -16,7 +16,9 @@ Notifications are governed by certain rules:
 * Currently, notifications can only filter by project name, pipeline filename
     and branch name. Other filters like block filters, state filters and result
     filters are not yet implemented.
-* 
+* When creating a notification, you can specify multiple projects as source
+    and multiple slack channels as the target of your notifications.
+* You need the `sem` command line tool in order to work with notifications.
 
 ## Properties
 
@@ -129,6 +131,8 @@ The list of supported dynamic keywords is the following:
 
 The `channels` property holds a list of strings. Each string item is the name
 of a Slack channel.
+
+A notification can send a message to multiple Slack channels.
 
 ## An example
 
