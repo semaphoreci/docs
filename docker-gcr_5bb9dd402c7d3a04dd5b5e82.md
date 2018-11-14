@@ -44,7 +44,7 @@ blocks:
       prologue:
         commands:
           # Authenticate using the file injected from the secret
-          - gcloud auth activate-service-account --key-file=.secrets.gcp_service_account.json
+          - gcloud auth activate-service-account --key-file=.secrets.gcp.json
           # Don't forget -q to silence confirmation prompts
           - gcloud auth configure-docker -q
           - checkout
