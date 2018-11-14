@@ -154,21 +154,20 @@ Then, apply the resource to your organization:
 sem create notification -f release-cycle-notifications.yml
 ```
 
-See the [reference of notification resources](TODO) for further details.
+<!--See the [reference of notification resources](TODO) for further details.-->
 
 ## Modifying notification settings
 
 Notification settings can be listed, described, edited and deleted in your
-organization by using the [sem command line tool](TODO).
+organization by using the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference).
 
 - List notifications with: `sem get notifications`
 - Describe a notification with: `sem get notifications [name]`
 - Edit a notification with: `sem edit notification [name]`
 - Delete a notification with: `sem delete notification [name]`
 
-See the [sem command line tool ](TODO) for further details.
+See the [sem command line tool ](https://docs.semaphoreci.com/article/53-sem-reference) for further details.
 
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Notifications YAML Reference](TODO)
