@@ -417,7 +417,6 @@ whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
 
-
 ## Working with Pipelines
 
 There are many interesting and unique things that you can do with pipelines.
@@ -438,22 +437,41 @@ with the help of the `sem` utility.
 
 The general form of the `sem create notification` command is as follows:
 
+    sem create notification [name] \
+	--projects [list of projects] \
+	--branches [list of branches] \
+	--slack-endpoint [slack-webhook-endpoint] \
+	--slack-channels [list of slack channels] \
+	--pipelines [list of pipelines]
 
 You do not need to use all the command line options of the `sem create notification`
 command when creating a new notification. However, the `--projects` as well as the
-`--slack-endpoint` options are mandatory. The former specifies the list of Semaphore
-2.0 projects that will be included in that notification and the latter specifies
-the URL for the Incoming WebHook that will be associated with this particular
-notification.
+`--slack-endpoint` options are mandatory. The former specifies the list of
+Semaphore 2.0 projects that will be included in that notification and the
+latter specifies the URL for the Incoming WebHook that will be associated with
+this particular notification. All `--branches`, `--pipelines` and
+`--slack-channels` are optional.
+
+If the `--slack-channels` option is not set, the default Slack channel that is
+associated with the specified Incoming WebHook will be used. If you want to
+test notifications, you might need to create a new Slack channel for that
+purpose.
+
+Additionally, the values of `--branches`, `--projects` and `--pipelines` can
+contain regular expressions. Regex matches must be wrapped in forward slashes
+(`/.*/`). Specifying a branch name without slashes (example: `.*`) would
+execute a direct equality match.
 
 Therefore, the minimum `sem create notification` command that can be executed
-will have the next format:
+will have the following format:
 
+    sem create notification [name]
+	--projects [list of projects] \
+	--slack-endpoint [slack-webhook-endpoint]
 
 The `sem create notification` command can only create a single rule under the
 newly created notification. However, you can now use the `sem edit notification`
-command to add as many rules as you like in the specified notification.
-
+command to add as many rules as you like to the specified notification.
 
 Tip: you can use just a single Incoming WebHook from Slack for all your
 notifications as this Incoming WebHook has access to all the channels of a
@@ -461,7 +479,7 @@ Slack Workspace.
 
 ### List all notifications
 
-You can list all the available notifications under the current orginization
+You can list all the available notifications under the current organization
 with the `sem get notifications` command.
 
     sem get notifications
@@ -473,12 +491,20 @@ followed by the `name` of the desired notification.
 
     sem get notifications [name]
 
+The output of the previous command will be a YAML file – you can learn more
+about the Notifications YAML grammar by visiting the
+[Notifications YAML reference](https://docs.semaphoreci.com/).
+
 ### Edit a notification
 
 You can edit a notification using the `sem edit notification` command
 followed by the `name` of the desired notification.
 
     sem edit notification [name]
+
+The `sem edit notification` command will start your favorite text editor.
+In order for the changes to take effect, you will have to save the changes and
+exit your text editor.
 
 ### Delete a notification
 
