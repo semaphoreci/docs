@@ -428,6 +428,14 @@ There are many interesting and unique things that you can do with pipelines.
 
 ## Working with Notifications
 
+In this section you will learn how to work with notifications with the `sem`
+utility.
+
+### Creating a notification
+
+The first thing that you will need to do is to create one or more notifications
+with the help of the `sem` utility.
+
 ### List all notifications
 
 You can list all the available notifications under the current orginization
