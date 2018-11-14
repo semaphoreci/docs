@@ -436,6 +436,29 @@ utility.
 The first thing that you will need to do is to create one or more notifications
 with the help of the `sem` utility.
 
+The general form of the `sem create notification` command is as follows:
+
+
+You do not need to use all the command line options of the `sem create notification`
+command when creating a new notification. However, the `--projects` as well as the
+`--slack-endpoint` options are mandatory. The former specifies the list of Semaphore
+2.0 projects that will be included in that notification and the latter specifies
+the URL for the Incoming WebHook that will be associated with this particular
+notification.
+
+Therefore, the minimum `sem create notification` command that can be executed
+will have the next format:
+
+
+The `sem create notification` command can only create a single rule under the
+newly created notification. However, you can now use the `sem edit notification`
+command to add as many rules as you like in the specified notification.
+
+
+Tip: you can use just a single Incoming WebHook from Slack for all your
+notifications as this Incoming WebHook has access to all the channels of a
+Slack Workspace.
+
 ### List all notifications
 
 You can list all the available notifications under the current orginization
@@ -886,3 +909,5 @@ same output:
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 * [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
+* [Notifications YAML reference](https://docs.semaphoreci.com/)
+
