@@ -68,7 +68,7 @@ defines the name of the rule of the notification.
 
 ### filter
 
-The `filter` property holds the `filters`, `bracnhes` and `pipelines`
+The `filter` property holds the `projects`, `branches` and `pipelines`
 properties.
 
 The values of `--branches`, `--projects` and `--pipelines` can contain regular
@@ -198,6 +198,8 @@ in the main pipeline that begins with a `semaphore.yml` file only.
 
 Once these three filters are evaluated to `true`, the rule will send a
 notification to the `#dev-null` channel.
+
+Please note that the `status` property at the end is not currently being used.
 
 ## See Also
 
