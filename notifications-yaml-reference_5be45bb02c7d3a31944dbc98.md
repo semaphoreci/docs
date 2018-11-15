@@ -137,10 +137,18 @@ A notification can send a message to multiple Slack channels and multiple users.
 
 ## An example
 
-The following YAML code present an example of a notification:
+The following YAML code present an example of a notification as returned by the
+`sem get notification [name]` command:
 
 
-What this notification does is
+This notification has two rules, one named `Send notifications for docs` and
+another named `Send notifications for S1`.
+
+The first rule of then notification specifies a single project name that is
+called `docs`. The notification will go to the `#dev-null` channel and to the
+`mtsoukalos` user using the specified Incoming WebHook of Slack.
+
+The second rule is more complex than the first one.
 
 ## See Also
 
