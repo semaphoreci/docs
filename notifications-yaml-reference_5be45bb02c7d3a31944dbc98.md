@@ -6,6 +6,10 @@
 
 ## Overview
 
+You can find out how to create new notifications by visiting the
+[Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
+and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+pages of the Semaphore 2.0 documentation.
 
 ## Rules of Notifications
 
@@ -36,7 +40,8 @@ supports the `name` property only.
 #### name
 
 The value of the `name` property, which is a string, in the `metadata` context
-defines the name of the notification.
+defines the name of the notification. This is what will appear when you execute
+a `sem get notifications` command.
 
 ### spec
 
@@ -54,43 +59,44 @@ multiple notifications, you will need to have multiple `rules` items.
 ## The rules property in more detail
 
 In this section we are going to explain the properties that are stored in a
-`rules` property – the logic of notifications is stored under `rules`
+`rules` property – the logic of each notification is stored under a `rules`
 property.
 
 ### name
 
 The value of the `name` property, which is a string, in the `metadata` context
-defines the name of the notification.
-
+defines the name of the rule of the notification.
 
 ### filter
-
-The `filter` property is used for holding
 
 The `filter` property holds the `filters`, `bracnhes` and `pipelines`
 properties.
 
-For a filter to be `true` all of its conditions should be true. If a conditions
+The values of `--branches`, `--projects` and `--pipelines` can contain regular
+expressions. Regex matches must be wrapped in forward slashes (`/.*/`).
+Specifying a branch name without slashes (example: `.*`) would execute a direct
+equality match.
+
+For a filter to be `true` all of its conditions should be true. If a condition
 such as `branches` has multiple cases, only one of these cases should be a
 match.
 
 #### projects
 
-The `projects` property is used for holding
+The `projects` property is used for holding a list of Semaphore 2.0 projects
+that interest us.
 
 #### pipelines
 
-The `pipelines` property
+The `pipelines` property is used for holding a list of pipeline filenames that
+interest us.
 
 #### branches
 
 The `branches` property holds a list of strings, which should be GitHub branch
-names.
-
+names, that interest us.
 
 ### notify
-
-The `notify` property
 
 The `notify` property holds the `slack` property that is used for defining
 information related to the Slack channel or channels related to the defined
@@ -98,7 +104,8 @@ notification.
 
 #### slack
 
-The `slack` property
+The `slack` property holds information related to Slack such as the URL of the
+Incoming WebHook, the message that will be displayed, etc.
 
 ##### endpoint
 
@@ -112,27 +119,21 @@ visiting https://slack.com/apps/A0F7XDUAZ-incoming-webhooks.
 Please note that if a notification does not work as expected, you might want to
 begin the debugging process by verifying the Slack WebHook used.
 
+Tip: you can use just a single Incoming WebHook from Slack for all your
+notifications as this Incoming WebHook has access to all the channels of a
+Slack Workspace.
+
 ##### message
 
 The `message` property allows you to define the message that will be displayed
-on the Slack channel by the notification. The `message` property supports
-certain keywords that allow you to include specific and dynamic information in
-your output.
-
-The list of supported dynamic keywords is the following:
-
-* pipeline.name:
-* pipeline.result:
-* pipeline.duration:
-* project.name:
-* commit.message:
+on the Slack channel or the Slack user by the rule of the notification.
 
 ##### channels
 
 The `channels` property holds a list of strings. Each string item is the name
-of a Slack channel.
+of a Slack channel or the name of a Slack user.
 
-A notification can send a message to multiple Slack channels.
+A notification can send a message to multiple Slack channels and multiple users.
 
 ## An example
 
@@ -144,3 +145,4 @@ What this notification does is
 ## See Also
 
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
