@@ -189,7 +189,15 @@ property specify two exact project names named `S1` and `docs` as well as a
 regular expression that will be evaluated against all the project names of the
 current organization.
 
-Similarly, the `branches` property has two items. The first one
+Similarly, the `branches` property has two items. The first one is a regular
+expression that matches all branches that contain the `mt` sequence of
+characters and the second one is an exact match to the `master` branch.
+
+After than, you specify in the `pipelines` filter that you are only interested
+in the main pipeline that begins with a `semaphore.yml` file only.
+
+Once these three filters are evaluated to `true`, the rule will send a
+notification to the `#dev-null` channel.
 
 ## See Also
 
