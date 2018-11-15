@@ -55,7 +55,6 @@ In order to define a notification you will need to have a `rules` item.
 Each `rules` property holds the definition of a notification. In order to have
 multiple notifications, you will need to have multiple `rules` items.
 
-
 ## The rules property in more detail
 
 In this section we are going to explain the properties that are stored in a
@@ -140,15 +139,57 @@ A notification can send a message to multiple Slack channels and multiple users.
 The following YAML code present an example of a notification as returned by the
 `sem get notification [name]` command:
 
+     sem get notifs docs
+    apiVersion: v1alpha
+    kind: Notification
+    metadata:
+      name: docs
+      id: 2222f08c-93f9-459b-8825-ab8be49c9d19
+      create_time: "1542024088"
+      update_time: "1542280192"
+    spec:
+      rules:
+      - name: Send notifications for docs
+        filter:
+          projects:
+          - docs
+        notify:
+          slack:
+            endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
+            channels:
+            - '#dev-null'
+            - '@mtsoukalos'
+      - name: Send notifications for S1
+        filter:
+          projects:
+          - S1
+          - /.*-api$/
+          - docs
+          branches:
+          - /.*mt/
+          - master
+          pipelines:
+          - semaphore.yml
+        notify:
+          slack:
+            endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
+            channels:
+            - '#dev-null'
+    status: {}
 
 This notification has two rules, one named `Send notifications for docs` and
 another named `Send notifications for S1`.
 
 The first rule of then notification specifies a single project name that is
-called `docs`. The notification will go to the `#dev-null` channel and to the
-`mtsoukalos` user using the specified Incoming WebHook of Slack.
+called `docs`. The notification will go to the `#dev-null` **channel** and to the
+`mtsoukalos` **user** using the specified Incoming WebHook of Slack.
 
-The second rule is more complex than the first one.
+The second rule is more complex than the first one. The values of the `projects`
+property specify two exact project names named `S1` and `docs` as well as a
+regular expression that will be evaluated against all the project names of the
+current organization.
+
+Similarly, the `branches` property has two items. The first one
 
 ## See Also
 
