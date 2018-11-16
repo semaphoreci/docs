@@ -194,7 +194,7 @@ expression that matches all branches that contain the `mt` sequence of
 characters and the second one is an exact match to the `master` branch.
 
 After that, you specify in the `pipelines` filter that you are only interested
-in the main pipeline that begins with a `semaphore.yml` file only.
+in the main pipeline that always begins with a `semaphore.yml` file.
 
 Once these three filters are evaluated to `true`, the rule will send a
 notification to the `#dev-null` channel.
