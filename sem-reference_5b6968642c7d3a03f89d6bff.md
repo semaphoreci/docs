@@ -50,8 +50,8 @@ The following list briefly describes all `sem` operations:
 * *get*: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-* *edit*: The `edit` command is used for editing existing `secrets` and
-    `dashboards` using your favorite text editor.
+* *edit*: The `edit` command is used for editing existing `secrets`, `notifications`
+    and `dashboards` using your favorite text editor.
 * *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
@@ -68,8 +68,8 @@ The following list briefly describes all `sem` operations:
 ## Resource types
 
 Semaphore 2.0 supports seven types of resources: `secret`, `project`, `job`,
-`dashboard`, `pipeline`, `workflow` and `notification`. Most resource related
-operations require a resource name or ID.
+`dashboard`, ` and `notification`. Most resource related operations require a
+resource name or ID.
 
 ### Secrets
 
@@ -122,20 +122,10 @@ Machine (VM). You cannot have a pipeline without at least one `job`.
 The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
 are running in completely different Virtual Machines.
 
-
-### Pipelines
-
-A `Pipeline` is
-
-
-### Workflows
-
-A `Workflow` is
-
-
 ### Notifications
 
-A `Notification` is
+A `Notification` offers a way to send messages to one or more desired Slack
+channels
 
 
 ## Working with organizations
@@ -416,14 +406,6 @@ project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
-
-## Working with Pipelines
-
-There are many interesting and unique things that you can do with pipelines.
-
-
-## Working with Workflows
-
 
 ## Working with Notifications
 
@@ -846,17 +828,6 @@ You can debug a project named `docker-push` by executing the following command:
 You will need to **manually terminate** the VM using either `sudo poweroff` or
 `sudo shutdown -r now`.
 
-
-### sem and pipelines
-
-In this subsection you will find `sem` examples related to pipelines.
-
-
-### sem and workflows
-
-In this subsection you will find `sem` examples related to workflows.
-
-
 ### sem and notifications
 
 In this subsection you will find `sem` examples related to notifications.
@@ -866,6 +837,16 @@ follows:
 
     sem get notifications
 
+The output that you will get from the previous command will look similar to the
+following:
+
+	$ sem get notifications
+	NAME     AGE
+	docs     18h
+	master   17h
+
+The `AGE` column shows the time since the last change.
+
 You can find more information about a specific notification as follows:
 
     sem get notifications [name]
@@ -873,6 +854,12 @@ You can find more information about a specific notification as follows:
 You can edit an existing notification as follows:
 
     sem edit notifications [name]
+
+The aforementioned command will take you to your favorite text editor. If your
+changes are syntactically correct, you will get an output similar to the next:
+
+	$ sem edit notifications master
+	Notification 'master' updated.
 
 Last, you can delete an existing notification as follows:
 
@@ -915,8 +902,6 @@ equivalent:
 * `dashboard`, `dashboards` and `dash`
 * `secret` and `secrets`
 * `job` and `jobs`
-* `pipelines`, `pipeline` and `ppl`
-* `workflows`, `workflow` and `wf`
 * `notifications`, `notification`, `notifs` and `notif`
 
 As an example, the following three commands are equivalent and will return the
