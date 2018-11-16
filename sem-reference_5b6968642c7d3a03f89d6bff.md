@@ -861,9 +861,19 @@ changes are syntactically correct, you will get an output similar to the next:
 	$ sem edit notifications master
 	Notification 'master' updated.
 
+If there is a syntactical error in the new file, the `sem` reply will tell you
+more information about the error but any changes you made to the notification
+will be lost.
+
 Last, you can delete an existing notification as follows:
 
-    sem delete notifications [name]
+    sem delete notification [name]
+
+The output of the `sem delete notification` command is similar to the
+following:
+
+	$ sem delete notification master
+	Notification 'master' deleted.
 
 ### sem version
 
@@ -872,8 +882,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    mt/sem-0.8.0
-    v0.8.2
+    v0.8.11
 
 Your output might be different.
 
