@@ -4,11 +4,29 @@ gives you the option to access all running jobs via SSH, to restart your jobs
 in debug mode, or to start on-demand virtual machines to explore the build
 environment.
 
+* [Setting Your SSH Key](#Setting Your SSH Key)
 * [Exploring the build environment](#exploring-the-build-environment)
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
 * [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
 * [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
 * [See also](#see-also)
+
+## Setting Your SSH Key
+
+You'll need to set your debug SSH key before continuing. You can use
+the same key you use for Github. Here's an example:
+
+``` bash
+sem config set debug.PublicSshKey $(curl https://github.com/YOUR_USERNAME.keys)
+```
+
+Replace `YOUR_USERNAME` with your Github username.
+
+Or you can use the first key in your SSH agent:
+
+``` bash
+sem config set debug.PublicSshKey $(ssh-add -L | head -n 1)
+```
 
 ## Exploring the build environment
 
