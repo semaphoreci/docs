@@ -193,7 +193,7 @@ Similarly, the `branches` property has two items. The first one is a regular
 expression that matches all branches that contain the `mt` sequence of
 characters and the second one is an exact match to the `master` branch.
 
-After than, you specify in the `pipelines` filter that you are only interested
+After that, you specify in the `pipelines` filter that you are only interested
 in the main pipeline that begins with a `semaphore.yml` file only.
 
 Once these three filters are evaluated to `true`, the rule will send a
