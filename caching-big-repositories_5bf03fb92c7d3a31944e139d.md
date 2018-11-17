@@ -46,7 +46,8 @@ The Semaphore 2.0 environment variables that will be used are the following:
 
 ## Evaluating the results
 
-The same project was executed with and without using
+The same project was executed with and without using the Semaphore 2.0 cache
+server.
 
 ## See Also
 
