@@ -8,7 +8,7 @@
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
 * [Working with projects](#working-with-projects)
-* [Working with Notifications](#working-with-notifications)
+* [Working with notifications](#working-with-notifications)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -41,15 +41,16 @@ with the `-f` flag, which requires a valid path to a local file.
 
 The following list briefly describes all `sem` operations:
 
-* *connect*: The `connect` command is used for connecting to an organization for the first time.
+* *connect*: The `connect` command is used for connecting to an organization
+    for the first time.
 * *context*: The `context` command is used for switching organizations.
 * *create*: The `create` command is used for creating new resources.
 * *delete*: The `delete` command is used for deleting existing resources.
 * *get*: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-* *edit*: The `edit` command is used for editing existing `secrets`, `notifications`
-    and `dashboards` using your favorite text editor.
+* *edit*: The `edit` command is used for editing existing `secrets`,
+    `notifications` and `dashboards` using your favorite text editor.
 * *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
@@ -58,16 +59,18 @@ The following list briefly describes all `sem` operations:
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
-* *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
+* *help*: The `help` command is used for getting help about `sem` or an
+    existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
-* *version*: The `version` command is used for getting the version of the `sem` utility.
+* *version*: The `version` command is used for getting the version of the `sem`
+    utility.
 
 ## Resource types
 
 Semaphore 2.0 supports seven types of resources: `secret`, `project`, `job`,
-`dashboard`, ` and `notification`. Most resource related operations require a
-resource name or ID.
+`dashboard`, and `notification`. Most resource related operations require a
+valid resource name or resource ID.
 
 ### Secrets
 
@@ -124,7 +127,7 @@ are running in completely different Virtual Machines.
 
 A `Notification` offers a way for sending messages to one or more Slack
 channels or users. Notifications are delivered on the success or failure of a
-pipeline and follow certain user-defined criteria and filters.
+pipeline. Notification rules contain user-defined criteria and filters.
 
 A `Notification` can contain multiple rules that are being evaluated each time
 a pipeline ends, either successfully or unsuccessfully.
@@ -411,7 +414,7 @@ GitHub repository of the Semaphore 2.0 project.
 The projects that are created using the `sem debug project` command support the
 `--duration` parameter for specifying the timeout period of the project.
 
-## Working with Notifications
+## Working with notifications
 
 In this section you will learn how to work with notifications with the `sem`
 utility starting with how to create a new notification with a single rule.
@@ -440,16 +443,16 @@ this particular notification rule. All `--branches`, `--pipelines` and
 
 If the `--slack-channels` option is not set, the default Slack channel that is
 associated with the specified Incoming WebHook will be used. If you want to
-test notifications, you might need to create a dedicated Slack channel for that
-purpose.
+test your notifications, you might need to create a dedicated Slack channel for
+that purpose.
 
 Additionally, the values of `--branches`, `--projects` and `--pipelines` can
 contain regular expressions. Regex matches must be wrapped in forward slashes
 (`/.*/`). Specifying a branch name without slashes (example: `.*`) would
 execute a direct equality match.
 
-Therefore, the minimum `sem create notification` command that can be executed
-will have the following format:
+Therefore, the minimum valid `sem create notification` command that can be
+executed will have the following form:
 
     sem create notification [name]
 	--projects [list of projects] \
