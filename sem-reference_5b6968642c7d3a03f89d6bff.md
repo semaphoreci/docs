@@ -8,8 +8,6 @@
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
 * [Working with projects](#working-with-projects)
-* [Working with Pipelines](#working-with-pipelines)
-* [Working with Workflows](#working-with-workflows)
 * [Working with Notifications](#working-with-notifications)
 * [Help commands](#help-commands)
 * [Flags](#flags)
@@ -124,9 +122,12 @@ are running in completely different Virtual Machines.
 
 ### Notifications
 
-A `Notification` offers a way to send messages to one or more desired Slack
-channels
+A `Notification` offers a way for sending messages to one or more Slack
+channels or users. Notifications are delivered on the success or failure of a
+pipeline and follow certain user-defined criteria and filters.
 
+A `Notification` can contain multiple rules that are being evaluated each time
+a pipeline ends, either successfully or unsuccessfully.
 
 ## Working with organizations
 
@@ -407,10 +408,13 @@ whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
 
+The projects that are created using the `sem debug project` command support the
+`--duration` parameter for specifying the timeout period of the project.
+
 ## Working with Notifications
 
 In this section you will learn how to work with notifications with the `sem`
-utility.
+utility starting with how to create a new notification with a single rule.
 
 ### Creating a notification
 
@@ -429,14 +433,14 @@ The general form of the `sem create notification` command is as follows:
 You do not need to use all the command line options of the `sem create notification`
 command when creating a new notification. However, the `--projects` as well as the
 `--slack-endpoint` options are mandatory. The former specifies the list of
-Semaphore 2.0 projects that will be included in that notification and the
+Semaphore 2.0 projects that will be included in that notification rule and the
 latter specifies the URL for the Incoming WebHook that will be associated with
-this particular notification. All `--branches`, `--pipelines` and
+this particular notification rule. All `--branches`, `--pipelines` and
 `--slack-channels` are optional.
 
 If the `--slack-channels` option is not set, the default Slack channel that is
 associated with the specified Incoming WebHook will be used. If you want to
-test notifications, you might need to create a new Slack channel for that
+test notifications, you might need to create a dedicated Slack channel for that
 purpose.
 
 Additionally, the values of `--branches`, `--projects` and `--pipelines` can
@@ -479,8 +483,8 @@ about the Notifications YAML grammar by visiting the
 
 ### Edit a notification
 
-You can edit a notification using the `sem edit notification` command
-followed by the `name` of the desired notification.
+You can edit a notification using the `sem edit notification` command followed
+by the `name` of the existing notification.
 
     sem edit notification [name]
 
@@ -847,19 +851,20 @@ following:
 
 The `AGE` column shows the time since the last change.
 
-You can find more information about a specific notification as follows:
+You can find more information about a notification called `documents` as
+follows:
 
-    sem get notifications [name]
+    sem get notifications documents
 
-You can edit an existing notification as follows:
+You can edit that notification as follows:
 
-    sem edit notifications [name]
+    sem edit notifications documents
 
 The aforementioned command will take you to your favorite text editor. If your
 changes are syntactically correct, you will get an output similar to the next:
 
-	$ sem edit notifications master
-	Notification 'master' updated.
+	$ sem edit notifications documents
+	Notification 'documents' updated.
 
 If there is a syntactical error in the new file, the `sem` reply will tell you
 more information about the error but any changes you made to the notification
@@ -872,8 +877,8 @@ Last, you can delete an existing notification as follows:
 The output of the `sem delete notification` command is similar to the
 following:
 
-	$ sem delete notification master
-	Notification 'master' deleted.
+	$ sem delete notification documents
+	Notification 'documents' deleted.
 
 ### sem version
 
@@ -930,4 +935,3 @@ same output:
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 * [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
 * [Notifications YAML reference](https://docs.semaphoreci.com/)
-
