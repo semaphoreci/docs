@@ -6,22 +6,18 @@
 
 ## Overview
 
-You can find out how to create new notifications by visiting the
-[Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
-and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-pages of the Semaphore 2.0 documentation.
+This document is the reference to the YAML grammar used for describing
+notifications and notification rules.
 
 ## Rules of Notifications
 
 Notifications are governed by certain rules:
 
-* Notifications can be sent only when a pipeline is finished. Notifications for
-    started pipelines are not yet implemented.
-* Currently, notifications can only filter by project name, pipeline filename
-    and branch name. Other filters like block filters, state filters and result
-    filters are not yet implemented.
-* When creating a notification, you can specify multiple projects as source
-    and multiple slack channels as the target of your notifications.
+* Notifications can be sent only when a pipeline is finished.
+* Notifications can filter by project name, pipeline filename and branch name.
+* When creating a new notification rule, you can specify multiple projects as
+    source and multiple slack channels and users as the target of your
+	notifications.
 * You need the `sem` command line tool in order to work with notifications.
 
 ## Properties
@@ -104,7 +100,7 @@ notification.
 #### slack
 
 The `slack` property holds information related to Slack such as the URL of the
-Incoming WebHook, the message that will be displayed, etc.
+Incoming WebHook, etc.
 
 ##### endpoint
 
@@ -122,17 +118,13 @@ Tip: you can use just a single Incoming WebHook from Slack for all your
 notifications as this Incoming WebHook has access to all the channels of a
 Slack Workspace.
 
-##### message
-
-The `message` property allows you to define the message that will be displayed
-on the Slack channel or the Slack user by the rule of the notification.
-
 ##### channels
 
 The `channels` property holds a list of strings. Each string item is the name
 of a Slack channel or the name of a Slack user.
 
-A notification can send a message to multiple Slack channels and multiple users.
+A notification can send a message to multiple Slack channels and/or multiple
+users.
 
 ## An example
 
@@ -149,24 +141,24 @@ The following YAML code present an example of a notification as returned by the
       update_time: "1542280192"
     spec:
       rules:
-      - name: Send notifications for docs
+      - name: Send notifications for docs project
         filter:
           projects:
-          - docs
+          - API-docs
         notify:
           slack:
             endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
             channels:
-            - '#dev-null'
+            - '#devops'
             - '@mtsoukalos'
-      - name: Send notifications for S1
+      - name: On finished pipelines for S1, docs, or *-api projects
         filter:
           projects:
-          - S1
+          - website
           - /.*-api$/
           - docs
           branches:
-          - /.*mt/
+          - /^feature-.*/
           - master
           pipelines:
           - semaphore.yml
@@ -174,32 +166,41 @@ The following YAML code present an example of a notification as returned by the
           slack:
             endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
             channels:
-            - '#dev-null'
+            - '#engineering'
     status: {}
 
-This notification has two rules, one named `Send notifications for docs` and
-another named `Send notifications for S1`.
+This notification has two rules, one named `Send notifications for docs project` and
+another named `On finished pipelines for S1, docs, or *-api projects`.
 
-The first rule of then notification specifies a single project name that is
-called `docs`. The notification will go to the `#dev-null` **channel** and to the
-`mtsoukalos` **user** using the specified Incoming WebHook of Slack.
+The first rule of the notification specifies a single project name that is
+called `API-docs`. All notifications will go to the `#devops` **channel** and
+to the `mtsoukalos` **user** using the specified Incoming WebHook of Slack. In
+this case the Slack channel associated with the specified Incoming WebHook will
+be ignored.
 
 The second rule is more complex than the first one. The values of the `projects`
-property specify two exact project names named `S1` and `docs` as well as a
-regular expression that will be evaluated against all the project names of the
-current organization.
+property specify two exact project names named `website` and `docs` as well as
+a regular expression (`/.*-api$/`) that will be evaluated against all the
+project names of the current organization. For this filter to be `true`, at
+least one of the matches must be `true`.
 
 Similarly, the `branches` property has two items. The first one is a regular
-expression that matches all branches that contain the `mt` sequence of
-characters and the second one is an exact match to the `master` branch.
+expression that matches all branches that begin with the `feature` string
+and the second one is an exact match to the `master` branch.
 
 After that, you specify in the `pipelines` filter that you are only interested
-in the main pipeline that always begins with a `semaphore.yml` file.
+in the main pipeline that always begins with the `semaphore.yml` file.
 
 Once these three filters are evaluated to `true`, the rule will send a
-notification to the `#dev-null` channel.
+notification to the `#engineering` channel. Once again, the Slack channel
+associated with the specified Incoming WebHook will be ignored.
 
 Please note that the `status` property at the end is not currently being used.
+
+You can find out how to create new notifications by visiting the
+[Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
+and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+pages of the Semaphore 2.0 documentation.
 
 ## See Also
 
