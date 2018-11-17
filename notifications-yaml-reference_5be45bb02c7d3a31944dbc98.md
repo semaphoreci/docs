@@ -1,7 +1,6 @@
 
  * [Overview](#overview)
  * [Properties](#properties)
- * [Disciplines of Notifications](#disciplines-of-notifications)
  * [The rules property in more detail](#the-rules-property-in-more-detail)
  * [See Also](#see-also)
 
@@ -10,21 +9,11 @@
 This document is the reference to the YAML grammar used for describing
 notifications and specifying notification rules.
 
-## Disciplines of Notifications
-
-Notifications are governed by the following disciplines:
-
-* Notifications can be sent only when a pipeline is finished, either
-    successfully or unsuccessfully.
-* Notification rules can use filters for project name, pipeline filename and
-    branch name.
-* When creating a new notification rule, you can specify multiple projects as
-    source and multiple slack channels and/or users as the target of your
-	notifications.
-* You need the `sem` command line tool in order to work with notifications.
+Notifications can be sent only when a pipeline is finished, either successfully
+or unsuccessfully. Additionally, you will need the `sem` command line tool in
+order to work with notifications.
 
 ## Properties
-
 
 ### apiVersion
 
@@ -49,13 +38,13 @@ supports the `name`, `id`, `create_time` and `update_time`.
 
 #### name
 
-The value of the `name` property, which is a string, in the `metadata` context
+The value of the `name` property in the `metadata` context, which is a string,
 defines the name of the notification. This is what will appear when you execute
-a `sem get notifications` command.
+the `sem get notifications` command.
 
 #### id
 
-The value of the id property is automatically generated and assigned by
+The value of the `id` property is automatically generated and assigned by
 Semaphore 2.0 and is unique among all notifications. It should not be edited.
 
 #### create_time
@@ -72,8 +61,7 @@ was altered.
 
 ### spec
 
-The `spec` property holds a list of rules that hold the entire specification
-of a notification.
+The `spec` property holds the list of notification rules.
 
 #### rules
 
@@ -85,7 +73,6 @@ item.
 ## The rules property in more detail
 
 In this section we are going to explain the properties that are used in a
-`rules` property – the logic of each notification rule is stored under a
 `rules` property.
 
 ### name
@@ -100,33 +87,39 @@ properties. The `projects` property is the only mandatory one.
 
 The values of `--branches`, `--projects` and `--pipelines` can contain regular
 expressions. Regex matches must be wrapped in forward slashes (`/.*/`).
-Specifying a branch name without slashes (example: `.*`) would execute a direct
-equality match.
+Specifying a branch name without slashes (`.*`) would execute a direct equality
+match.
 
-For a filter to be `true` each one of its properties should be `true`. If a
+For a filter to be `true`, each one of its properties should be `true`. If a
 property such as `branches` has multiple values, at least one of these values
 should be `true` for the entire property to be `true`.
+
+The `filter` property holds the logic of the notification rule.
 
 #### projects
 
 The `projects` property is used for holding the list of the Semaphore 2.0
 projects that interest us.
 
+The `projects` property is mandatory.
+
 #### branches
 
 The `branches` property holds a list of strings, which should be the GitHub
 branch names that interest us.
+
+The `branches` property is optional.
 
 #### pipelines
 
 The `pipelines` property is used for holding the list of the pipeline filenames
 that interest us.
 
+The `pipelines` property is optional.
+
 ### notify
 
-The `notify` property holds the `slack` property that is used for defining
-information related to the Slack channel or channels related to the defined
-notification rule.
+The `notify` property holds the `slack` property.
 
 #### slack
 
@@ -148,6 +141,8 @@ Tip: you can use just a single Incoming WebHook from Slack for all your
 notifications as this Incoming WebHook has access to all the channels of a
 Slack Workspace.
 
+The `endpoint` property is mandatory.
+
 ##### channels
 
 The `channels` property holds a list of strings. Each string item is the name
@@ -156,6 +151,10 @@ character and Slack users begin with a `@` character.
 
 A notification can send a message to multiple Slack channels and/or multiple
 users.
+
+The `channels` property is optional. When the `channels` property is not
+defined, all notifications go to the default channel associated with the
+Incoming WebHook used.
 
 ## An example
 
