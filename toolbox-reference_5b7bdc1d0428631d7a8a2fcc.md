@@ -61,6 +61,17 @@ Notice that the `checkout` command automatically changes the current working
 directory in the Operating System of the VM to the directory defined in the
 `SEMAPHORE_GIT_DIR` environment variable.
 
+### libchecksum
+
+The `libchecksum` scripts loads the `checksum` command. `checksum` is
+useful for tagging artifcats or generating cache keys. It takes a
+single argument and outputs an `md5` hash.
+
+#### Examples
+
+    $ checksum package.json
+    3dc6f33834092c93d26b71f9a35e4bb3
+
 ### sem-service
 
 #### Description
