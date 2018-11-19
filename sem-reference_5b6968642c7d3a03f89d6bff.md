@@ -8,6 +8,7 @@
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
 * [Working with projects](#working-with-projects)
+* [Working with notifications](#working-with-notifications)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -40,15 +41,16 @@ with the `-f` flag, which requires a valid path to a local file.
 
 The following list briefly describes all `sem` operations:
 
-* *connect*: The `connect` command is used for connecting to an organization for the first time.
+* *connect*: The `connect` command is used for connecting to an organization
+    for the first time.
 * *context*: The `context` command is used for switching organizations.
 * *create*: The `create` command is used for creating new resources.
 * *delete*: The `delete` command is used for deleting existing resources.
 * *get*: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-* *edit*: The `edit` command is used for editing existing `secrets` and
-    `dashboards` using your favorite text editor.
+* *edit*: The `edit` command is used for editing existing `secrets`,
+    `notifications` and `dashboards` using your favorite text editor.
 * *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
@@ -57,15 +59,18 @@ The following list briefly describes all `sem` operations:
 * *logs*: The `logs` command is used for getting the logs of a `job`.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
-* *help*: The `help` command is used for getting help about `sem` or an existing `sem` command.
+* *help*: The `help` command is used for getting help about `sem` or an
+    existing `sem` command.
 * *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
-* *version*: The `version` command is used for getting the version of the `sem` utility.
+* *version*: The `version` command is used for getting the version of the `sem`
+    utility.
 
 ## Resource types
 
-Semaphore 2.0 supports four types of resources: `secret`, `project`, `job` and
-`dashboard`. Most resource related operations require a resource name or ID.
+Semaphore 2.0 supports seven types of resources: `secret`, `project`, `job`,
+`dashboard`, and `notification`. Most resource related operations require a
+valid resource name or resource ID.
 
 ### Secrets
 
@@ -117,6 +122,15 @@ Machine (VM). You cannot have a pipeline without at least one `job`.
 
 The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
 are running in completely different Virtual Machines.
+
+### Notifications
+
+A `Notification` offers a way for sending messages to one or more Slack
+channels or users. Notifications are delivered on the success or failure of a
+pipeline. Notification rules contain user-defined criteria and filters.
+
+A `Notification` can contain multiple rules that are being evaluated each time
+a pipeline ends, either successfully or unsuccessfully.
 
 ## Working with organizations
 
@@ -396,6 +410,100 @@ project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
 you will be using the latest version of the `master` branch available on the
 GitHub repository of the Semaphore 2.0 project.
+
+The projects that are created using the `sem debug project` command support the
+`--duration` parameter for specifying the timeout period of the project.
+
+## Working with notifications
+
+In this section you will learn how to work with notifications with the `sem`
+utility starting with how to create a new notification with a single rule.
+
+### Creating a notification
+
+The first thing that you will need to do is to create one or more notifications
+with the help of the `sem` utility.
+
+The general form of the `sem create notification` command is as follows:
+
+    sem create notification [name] \
+    --projects [list of projects] \
+    --branches [list of branches] \
+    --slack-endpoint [slack-webhook-endpoint] \
+    --slack-channels [list of slack channels] \
+    --pipelines [list of pipelines]
+
+Please refer to the [Examples](#examples) section to learn more about the use
+of the `sem create notification` command.
+
+You do not need to use all the command line options of the `sem create notification`
+command when creating a new notification. However, the `--projects` as well as the
+`--slack-endpoint` options are mandatory. The former specifies the list of
+Semaphore 2.0 projects that will be included in that notification rule and the
+latter specifies the URL for the Incoming WebHook that will be associated with
+this particular notification rule. All `--branches`, `--pipelines` and
+`--slack-channels` are optional.
+
+If the `--slack-channels` option is not set, the default Slack channel that is
+associated with the specified Incoming WebHook will be used. If you want to
+test your notifications, you might need to create a dedicated Slack channel for
+that purpose.
+
+Additionally, the values of `--branches`, `--projects` and `--pipelines` can
+contain regular expressions. Regex matches must be wrapped in forward slashes
+(`/.*/`). Specifying a branch name without slashes (example: `.*`) would
+execute a direct equality match.
+
+Therefore, the minimum valid `sem create notification` command that can be
+executed will have the following form:
+
+    sem create notification [name]
+    --projects [list of projects] \
+    --slack-endpoint [slack-webhook-endpoint]
+
+The `sem create notification` command can only create a single rule under the
+newly created notification. However, you can now use the `sem edit notification`
+command to add as many rules as you like to the specified notification.
+
+Tip: you can use just a single Incoming WebHook from Slack for all your
+notifications as this Incoming WebHook has access to all the channels of a
+Slack Workspace.
+
+### List all notifications
+
+You can list all the available notifications under the current organization
+with the `sem get notifications` command.
+
+    sem get notifications
+
+### Describe a notification
+
+You can describe a notification using the `sem get notifications` command
+followed by the `name` of the desired notification.
+
+    sem get notifications [name]
+
+The output of the previous command will be a YAML file – you can learn more
+about the Notifications YAML grammar by visiting the
+[Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference).
+
+### Edit a notification
+
+You can edit a notification using the `sem edit notification` command followed
+by the `name` of the existing notification.
+
+    sem edit notification [name]
+
+The `sem edit notification` command will start your favorite text editor.
+In order for the changes to take effect, you will have to save the changes and
+exit your text editor.
+
+### Delete a notification
+
+You can delete an existing notification using the `sem delete notification`
+command followed by the `name` of the notification you want to delete.
+
+    sem delete notifications [name]
 
 ## Help commands
 
@@ -730,6 +838,62 @@ You can debug a project named `docker-push` by executing the following command:
 You will need to **manually terminate** the VM using either `sudo poweroff` or
 `sudo shutdown -r now`.
 
+### sem and notifications
+
+In this subsection you will find `sem` examples related to notifications.
+
+You can create a new notification named `documents` as follows:
+
+    sem create notifications documents \
+      --projects "/.*-api$/" \
+      --branches "master" \
+      --pipelines "semaphore.yml" \
+      --slack-endpoint https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD \
+      --slack-channels "#dev-team,@mtsoukalos"
+
+You can list all existing notifications under the current organization as
+follows:
+
+    sem get notifications
+
+The output that you will get from the previous command will look similar to the
+following:
+
+    $ sem get notifications
+    NAME     	AGE
+    documents   18h
+    master   	17h
+
+The `AGE` column shows the time since the last change.
+
+You can find more information about a notification called `documents` as
+follows:
+
+    sem get notifications documents
+
+You can edit that notification as follows:
+
+    sem edit notifications documents
+
+The aforementioned command will take you to your favorite text editor. If your
+changes are syntactically correct, you will get an output similar to the next:
+
+    $ sem edit notifications documents
+    Notification 'documents' updated.
+
+If there is a syntactical error in the new file, the `sem` reply will tell you
+more information about the error but any changes you made to the notification
+will be lost.
+
+Last, you can delete an existing notification named `documents` as follows:
+
+    sem delete notification documents
+
+The output of the `sem delete notification documents` command is as follows:
+
+    $ sem delete notification documents
+    Notification 'documents' deleted.
+
 ### sem version
 
 The `sem version` command displays the used version of the `sem` tool. As an
@@ -737,7 +901,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.7.5
+    v0.8.11
 
 Your output might be different.
 
@@ -766,13 +930,14 @@ equivalent:
 * `dashboard`, `dashboards` and `dash`
 * `secret` and `secrets`
 * `job` and `jobs`
+* `notifications`, `notification`, `notifs` and `notif`
 
 As an example, the following three commands are equivalent and will return the
 same output:
 
     sem get project
-	sem get prj
-	sem get projects
+    sem get prj
+    sem get projects
 
 ## See also
 
@@ -783,3 +948,4 @@ same output:
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 * [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
+* [Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference)
