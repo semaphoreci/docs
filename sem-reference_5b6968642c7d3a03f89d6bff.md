@@ -889,8 +889,7 @@ Last, you can delete an existing notification named `documents` as follows:
 
     sem delete notification documents
 
-The output of the `sem delete notification` command is similar to the
-following:
+The output of the `sem delete notification documents` command is as follows:
 
     $ sem delete notification documents
     Notification 'documents' deleted.
