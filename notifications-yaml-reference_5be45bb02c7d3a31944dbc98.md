@@ -85,10 +85,10 @@ defines the name of the notification rule.
 The `filter` property holds the `projects`, `branches` and `pipelines`
 properties. The `projects` property is the only mandatory one.
 
-The values of `--branches`, `--projects` and `--pipelines` can contain regular
-expressions. Regex matches must be wrapped in forward slashes (`/.*/`).
-Specifying a branch name without slashes (`.*`) would execute a direct equality
-match.
+The values of `branches`, `projects` and `pipelines` properties can contain
+regular expressions. Regex matches must be wrapped in forward slashes (`/.*/`).
+Specifying a branch/project/pipeline name without slashes (`.*`) would execute
+a direct equality match.
 
 For a filter to be `true`, each one of its properties should be `true`. If a
 property such as `branches` has multiple values, at least one of these values
