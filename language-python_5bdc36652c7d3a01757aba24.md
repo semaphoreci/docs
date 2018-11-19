@@ -47,7 +47,7 @@ example:
           - checkout
           - mkdir .pip_cache
           - cache restore v1-pip-$(checksum requirements.txt)
-          # User --user to avoid permission conflicts
+          # Use --user to avoid permission conflicts
           - pip install --user --cache-dir .pip_cache -r requirements.txt
           - cache store v1-pip-$(checksum requirements.txt) .pip_cache
       jobs:
