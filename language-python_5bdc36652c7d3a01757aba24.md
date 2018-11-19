@@ -30,6 +30,34 @@ Python 2.7 is the default version. This can be switched to 3.7 with
 
 ## Dependency caching
 
+### Caching Pip Downloads
+
+You can use Semaphore's `cache` command to store and load a pip
+download cache directory. This does not cache the installations, just
+the downloads but it will speed up builds significantly. Here's an
+example:
+
+<pre><code class="language-yaml">blocks:
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          # Add --local pip bin to $PATH
+          - export PATH=$HOME/.local/bin:$PATH
+          - checkout
+          - mkdir .pip_cache
+          - cache restore v1-pip-$(checksum requirements.txt)
+          # Use --user to avoid permission conflicts
+          - pip install --user --cache-dir .pip_cache -r requirements.txt
+          - cache store v1-pip-$(checksum requirements.txt) .pip_cache
+      jobs:
+        - name: Everything
+          commands:
+            - py.test
+</code></pre>
+
+### Pipenv
+
 You can use Semaphore's `cache` command to store and load `pipenv`'s
 virtualenv. This requires setting the `PIPENV_VENV_IN_PROJECT`
 environment variable.
@@ -42,7 +70,7 @@ and warm the cache in the first block, then use the cache in subsequent blocks.
    machine:
      type: e1-standard-2
      os_image: ubuntu1804
- 
+
  blocks:
    - name: Install dependencies
      task:
