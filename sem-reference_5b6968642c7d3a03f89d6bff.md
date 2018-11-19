@@ -427,11 +427,14 @@ with the help of the `sem` utility.
 The general form of the `sem create notification` command is as follows:
 
     sem create notification [name] \
-	--projects [list of projects] \
-	--branches [list of branches] \
-	--slack-endpoint [slack-webhook-endpoint] \
-	--slack-channels [list of slack channels] \
-	--pipelines [list of pipelines]
+    --projects [list of projects] \
+    --branches [list of branches] \
+    --slack-endpoint [slack-webhook-endpoint] \
+    --slack-channels [list of slack channels] \
+    --pipelines [list of pipelines]
+
+Please refer to the [Examples](#examples) section to learn more about the use
+of the `sem create notification` command.
 
 You do not need to use all the command line options of the `sem create notification`
 command when creating a new notification. However, the `--projects` as well as the
@@ -455,8 +458,8 @@ Therefore, the minimum valid `sem create notification` command that can be
 executed will have the following form:
 
     sem create notification [name]
-	--projects [list of projects] \
-	--slack-endpoint [slack-webhook-endpoint]
+    --projects [list of projects] \
+    --slack-endpoint [slack-webhook-endpoint]
 
 The `sem create notification` command can only create a single rule under the
 newly created notification. However, you can now use the `sem edit notification`
@@ -482,7 +485,7 @@ followed by the `name` of the desired notification.
 
 The output of the previous command will be a YAML file – you can learn more
 about the Notifications YAML grammar by visiting the
-[Notifications YAML reference](https://docs.semaphoreci.com/).
+[Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference).
 
 ### Edit a notification
 
@@ -839,6 +842,15 @@ You will need to **manually terminate** the VM using either `sudo poweroff` or
 
 In this subsection you will find `sem` examples related to notifications.
 
+You can create a new notification named `documents` as follows:
+
+    sem create notifications documents \
+      --projects "/.*-api$/" \
+      --branches "master" \
+      --pipelines "semaphore.yml" \
+      --slack-endpoint https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD \
+      --slack-channels "#dev-team,@mtsoukalos"
+
 You can list all existing notifications under the current organization as
 follows:
 
@@ -847,10 +859,10 @@ follows:
 The output that you will get from the previous command will look similar to the
 following:
 
-	$ sem get notifications
-	NAME     AGE
-	docs     18h
-	master   17h
+    $ sem get notifications
+    NAME     	AGE
+    documents   18h
+    master   	17h
 
 The `AGE` column shows the time since the last change.
 
@@ -866,22 +878,22 @@ You can edit that notification as follows:
 The aforementioned command will take you to your favorite text editor. If your
 changes are syntactically correct, you will get an output similar to the next:
 
-	$ sem edit notifications documents
-	Notification 'documents' updated.
+    $ sem edit notifications documents
+    Notification 'documents' updated.
 
 If there is a syntactical error in the new file, the `sem` reply will tell you
 more information about the error but any changes you made to the notification
 will be lost.
 
-Last, you can delete an existing notification as follows:
+Last, you can delete an existing notification named `documents` as follows:
 
-    sem delete notification [name]
+    sem delete notification documents
 
 The output of the `sem delete notification` command is similar to the
 following:
 
-	$ sem delete notification documents
-	Notification 'documents' deleted.
+    $ sem delete notification documents
+    Notification 'documents' deleted.
 
 ### sem version
 
@@ -925,8 +937,8 @@ As an example, the following three commands are equivalent and will return the
 same output:
 
     sem get project
-	sem get prj
-	sem get projects
+    sem get prj
+    sem get projects
 
 ## See also
 
@@ -937,4 +949,4 @@ same output:
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 * [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
-* [Notifications YAML reference](https://docs.semaphoreci.com/)
+* [Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference)
