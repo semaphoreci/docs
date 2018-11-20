@@ -9,6 +9,7 @@ environment.
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
 * [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
 * [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
+* [Stopping a debug session](#stopping-a-debug-session)
 * [See also](#see-also)
 
 ## Setting Your SSH Key
@@ -102,8 +103,22 @@ sem port-forward [job-id] 6000 3000
 
 The `http://localhost:6000` should now be accessible in your browser.
 
+## Stopping a debug session
+
+The easiest way to stop a debug session is to exit its Virtual Machine using
+`sudo poweroff` or `sudo shutdown -r now`. However, if you exit a debug
+session without powering off the VM, the job of that debug session will keep
+running and you will be able to see it in the output of `sem get jobs`.
+
+This section will tell you how to properly exit such a session after logging
+out. First, execute `sem get jobs` and copy the Job ID of the related job,
+which we will call `JOBID`.
+
+Then, execute `sem attach JOBID` to connect to that VM using SSH and then
+execute `sudo poweroff` or `sudo shutdown -r now`. After that, that particular
+job should be stopped and not visible in the output of `sem get jobs`.
+
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Secrets YAML
-  Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+- [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
