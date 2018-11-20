@@ -34,14 +34,19 @@ remain intact during the lifetime of the Semaphore 2.0 project.
 
 ## An example project
 
-The example project of this section will use a single large file.
+The example project of this section will use multiple large files. Each one of
+the 10 files is around 100MB in size.
+
+Each file was generated using the following command:
+
+    dd if=/dev/random of=filename bs=1024 count=100000
 
 The `semaphore.yml` file for the example project will be the following:
 
 
 The Semaphore 2.0 environment variables that will be used are the following:
 
-* `SEMAPHORE_GIT_REPO_NAME`:
+* `SEMAPHORE_PROJECT_NAME`:
 * `SEMAPHORE_GIT_SHA`:
 
 ## Evaluating the results
