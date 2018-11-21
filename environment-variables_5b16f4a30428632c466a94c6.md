@@ -78,8 +78,8 @@ Example value: `passed`
 
 #### SEMAPHORE\_WORKFLOW\_ID
 
-The value of the `SEMAPHORE_WORKFLOW_ID` environment variable is the ID of the
-workflow of the current job.
+The value of the `SEMAPHORE_WORKFLOW_ID` environment variable is the workflow
+ID that is used during the execution of the active job.
 
 The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
@@ -167,13 +167,6 @@ The value of the `SEMAPHORE_GIT_BRANCH` environment variable is the name of
 the GitHub branch that is used in the current job.
 
 Example value: `development`
-
-#### SEMAPHORE\_GIT\_REPO_NAME
-
-The value of the `SEMAPHORE_GIT_REPO_NAME` environment variable is the name
-of the GitHub repository used in the current Semaphore 2.0 project.
-
-Example value: `toolbox`
 
 #### SEMAPHORE\_GIT\_DIR
 
