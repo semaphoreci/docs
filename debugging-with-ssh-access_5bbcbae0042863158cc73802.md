@@ -117,7 +117,7 @@ The easiest way to stop a debug session is to exit its Virtual Machine using
 session without powering off the VM, the job of that debug session will keep
 running and you will be able to see it in the output of `sem get jobs`.
 
-Alternatively, you can stop the debug session by running `sem stop job <job-id>`.
+Alternatively, you can stop the debug session with `sem stop job <job-id>`.
 
 ## See also
 
