@@ -44,6 +44,13 @@ sem debug project [name-of-your-project]
 The above command will start a virtual machine connected with your git
 repository and attach you to it via an SSH session.
 
+By default, the SSH session is limited to one hour. To run longer debug
+sessions, pass the duration flag to the above command:
+
+``` bash
+sem debug project [name-of-your-project] --duration 3h
+```
+
 ## Inspecting the state of a running job
 
 Often the best way to inspect failures is to SSH into a running job, explore the
@@ -110,13 +117,7 @@ The easiest way to stop a debug session is to exit its Virtual Machine using
 session without powering off the VM, the job of that debug session will keep
 running and you will be able to see it in the output of `sem get jobs`.
 
-This section will tell you how to properly exit such a session after logging
-out. First, execute `sem get jobs` and copy the Job ID of the related job,
-which we will call `JOBID`.
-
-Then, execute `sem attach JOBID` to connect to that VM using SSH and then
-execute `sudo poweroff` or `sudo shutdown -r now`. After that, that particular
-job should be stopped and not visible in the output of `sem get jobs`.
+Alternatively, you can stop the debug session with `sem stop job [job-id]`.
 
 ## See also
 
