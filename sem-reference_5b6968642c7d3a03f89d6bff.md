@@ -57,6 +57,8 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
+* *stop*: The *stop* command is used for stopping `pipelines` and `jobs` from
+    running.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
 * *help*: The `help` command is used for getting help about `sem` or an
