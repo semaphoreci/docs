@@ -9,8 +9,7 @@ Let's say that your project uses Bats, which is hosted on GitHub, to test
 your Bash scripts. You can easily make it available on Semaphore by copying
 the installation commands from the project's Readme into your prologue:
 
-```yml
-# .semaphore/semaphore.yml
+<pre class="prettyprint"><code># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -23,13 +22,13 @@ blocks:
         - name: Tests
           commands:
             - bats addition.bats
-```
+</code></pre>
 
 ## Using databases and other services
 
 Let's say that your CI build needs Redis and PostgreSQL:
 
-<pre class="prettyprint"><code class="language-yaml"># .semaphore/semaphore.yml
+<pre class="prettyprint"><code># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
