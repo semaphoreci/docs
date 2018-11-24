@@ -878,8 +878,9 @@ What this output tells us is that we need to configure our Public SSH key
 before using `sem debug job` for the first time – you can choose any one of
 the three proposed ways.
 
-Note that you will need to **manually terminate** the VM using either `sudo poweroff`
-or `sudo shutdown -r now`.
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
 
 ### sem debug project
 
@@ -887,8 +888,9 @@ You can debug a project named `docker-push` by executing the following command:
 
     sem debug project docker-push
 
-You will need to **manually terminate** the VM using either `sudo poweroff` or
-`sudo shutdown -r now`.
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
 
 ### The --duration flag
 
