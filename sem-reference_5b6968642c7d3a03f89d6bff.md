@@ -7,6 +7,7 @@
 * [Working with resources](#working-with-resources)
 * [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
 * [Working with jobs](#working-with-jobs)
+* [The sem stop command](#the-sem-stop-command)
 * [Working with projects](#working-with-projects)
 * [Working with notifications](#working-with-notifications)
 * [Help commands](#help-commands)
@@ -57,6 +58,8 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
+* *stop*: The *stop* command is used for stopping `pipelines` and `jobs` from
+    running.
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
 * *help*: The `help` command is used for getting help about `sem` or an
@@ -273,6 +276,9 @@ The `sem get jobs` command returns the list of all running jobs.
 The `sem get jobs --all` command returns the list of all recent jobs of the
 current organization, both running and finished.
 
+The `sem stop` command presented [here](#the-sem-stop-command) allows you to
+stop a running job.
+
 ### sem create -f
 
 You can use `sem create -f` to create a new job that will be running without
@@ -354,6 +360,16 @@ GitHub repository with the actual branch.
 
 The `sem debug job` command is ideal for debugging jobs that are finished.
 
+#### The --duration flag
+
+By default the SSH session of a `sem debug` command is limited to **one hour**.
+In order to change that, you can pass the `--duration` flag to the `sem debug`
+command.
+
+You can define the time duration using numeric values in the `XXhYYmZZs` format
+using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
+or even as `60m`.
+
 ### On demand job creation
 
 There is a quick way to create a job and executing it right way:
@@ -365,6 +381,20 @@ command that can be executed in the Virtual Machine. The output of the
 aforementioned command is a Job ID.
 
 The only way to see the results of such a job is with the `sem logs` command.
+
+## The sem stop command
+
+`sem` gives you the capability to stop a running `job` or a running `pipeline`
+without the need to visit the Semaphore 2.0 UI with the help of the `sem stop`
+command.
+
+The `sem stop` command works as follows:
+
+    sem stop job|pipeline [ID]
+
+If you are executing `sem stop job`, you will need to provide the `ID` of a
+running job. Similarly, if you are executing `sem stop pipeline`, you will need
+to provided the `ID` of a running pipeline.
 
 ## Working with projects
 
@@ -413,6 +443,16 @@ GitHub repository of the Semaphore 2.0 project.
 
 The projects that are created using the `sem debug project` command support the
 `--duration` parameter for specifying the timeout period of the project.
+
+#### The --duration flag
+
+By default the SSH session of a `sem debug` command is limited to **one hour**.
+In order to change that, you can pass the `--duration` flag to the `sem debug`
+command.
+
+You can define the time duration using numeric values in the `XXhYYmZZs` format
+using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
+or even as `60m`.
 
 ## Working with notifications
 
@@ -738,6 +778,18 @@ This means that the `my-secrets` secret was updated successfully.
 
 You can also use `sem apply -f` in a similar way to update an existing dashboard.
 
+### sem stop
+
+The following command will stop the `job` with a Job ID of
+`0ae14ece-17b1-428d-99bd-5ec6b04494e9`:
+
+    sem stop job 0ae14ece-17b1-428d-99bd-5ec6b04494e9
+
+The following command will stop the `pipeline` with a Pipeline ID of
+`ea3e6bba-d19a-45d7-86a0-e78a2301b616`:
+
+    sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
+
 ### sem init
 
 As `sem init` can be used without any command line arguments, you can execute
@@ -826,8 +878,9 @@ What this output tells us is that we need to configure our Public SSH key
 before using `sem debug job` for the first time – you can choose any one of
 the three proposed ways.
 
-Note that you will need to **manually terminate** the VM using either `sudo poweroff`
-or `sudo shutdown -r now`.
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
 
 ### sem debug project
 
@@ -835,8 +888,26 @@ You can debug a project named `docker-push` by executing the following command:
 
     sem debug project docker-push
 
-You will need to **manually terminate** the VM using either `sudo poweroff` or
-`sudo shutdown -r now`.
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
+
+### The --duration flag
+
+The next command specifies that the SSH session for the `deployment` project
+will time out in 2 minutes:
+
+    sem debug project deployment --duration 2m
+
+The next command specifies that the SSH session for the `job` with JOB ID
+`d7caf99e-de65-4dbb-ad63-91829bc8a693` will time out in 2 hours:
+
+    sem debug job d7caf99e-de65-4dbb-ad63-91829bc8a693 --duration 2h
+
+Last, the following command specifies that the SSH session of the `deployment`
+project will time out in 20 minutes and 10 seconds:
+
+    sem debug project deployment --duration 20m10s
 
 ### sem and notifications
 
