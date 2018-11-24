@@ -3,6 +3,12 @@ The default [Ubuntu environment][ubuntu] includes common tools needed by most
 projects. With unrestricted `sudo` access and fast network, you can
 install additional software and customize the environment however you need.
 
+### Services are not shared
+
+Please note that services **are not shared** among jobs. Therefore you will
+need to start a service within each individual job that interests you and
+migrate/populate your data in every job.
+
 ## Installing additional dependencies
 
 Let's say that your project uses Bats, which is hosted on GitHub, to test
@@ -46,8 +52,8 @@ blocks:
 To manage database engines and other services on Semaphore,
 use the [sem-service utility][sem-service]. Services are based on public Docker
 images hosted on Docker Hub and exposed on default ports in localhost.
-If `sem-service` currently doesn't support the service you'd like to use,
-please send us a support request and we'll make sure to include it soon.
+If `sem-service` currently does not support the service you would like to use,
+please send us a support request and we will make sure to include it soon.
 
 Since you have unrestricted access to the job's environment, other options for
 running services include installing native packages with `sudo` and using
