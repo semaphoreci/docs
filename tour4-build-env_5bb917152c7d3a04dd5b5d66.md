@@ -29,7 +29,7 @@ blocks:
 
 Let's say that your CI build needs Redis and PostgreSQL:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+<pre><code class="prettyprint"># .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
