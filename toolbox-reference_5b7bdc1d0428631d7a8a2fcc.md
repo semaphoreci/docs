@@ -193,16 +193,17 @@ In the previous example, the `retry` script succeeded after three failed tries!
 ### Description
 
 Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
-project depends on but are not part of version control. You can use caching to
-reuse your project's dependencies, so that Semaphore fetches and installs
-them only when the dependency list changes. Or you can propagate a file from
-one block to the next.
+project depends on but are not part of version control. You should typically
+use caching to:
+
+- Reuse your project's dependencies, so that Semaphore fetches and installs
+them only when the dependency list changes.
+- Propagate a file from one block to the next.
 
 Cache is created on a per project basis and available in every pipeline job.
-All cache keys are scoped per project. Also, allocated disk space for cache is
-currently limited to 9.6G.
+All cache keys are scoped per project. Total cache size is 9.6GB.
 
-`cache` tool uses key-path pairs for managing cached archives. An archive
+The `cache` tool uses key-path pairs for managing cached archives. An archive
 can be a single file or a directory.
 
 ### Commands
@@ -217,14 +218,17 @@ Examples:
     cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
     cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/bundle
 
-Archives file or directory specified by path and associates it with key.
-As `cache store` uses `tar` leading `/` is automatically removed from the path.
-Also, any further changes of path after the store operation completes will not
-be automatically propagated to cache. The command always passes (exits with 0).
+The `cache store` command archives a file or directory specified by `path` and
+associates it with a given `key`.
 
-In case of insufficient disk space command `cache store`
-frees disk space by deleting the oldest keys.
-Cache size is limited to 9.6G of disk space.
+As `cache store` uses `tar`, it automatically removes any leading `/` from the
+given `path` value.
+Any further changes of `path` after the store command completes will not
+be automatically propagated to cache. The command always passes, i.e. exits
+with return code 0.
+
+In case of insufficient disk space, `cache store` frees disk space by deleting
+the oldest keys.
 
 #### cache restore key[,second-key,...]
 
@@ -234,7 +238,7 @@ Examples:
     cache restore gems-$SEMAPHORE_GIT_BRANCH
     cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
 
-Restores an archive with given key.
+Restores an archive with the given `key`.
 In case of a cache hit, archive is retrieved and available at its original
 path in the job environment.
 Each archive is restored in the current path from where the function is called.
