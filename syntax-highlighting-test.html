@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Syntax highlighting test</title>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  </head>
+  <body>
+    <h1>Syntax highlighting with google/code-prettify</h1>
+    <pre class="prettyprint language-yaml"># .semaphore/semaphore.yml
+blocks:
+  - name: "Test"
+    task:
+      prologue:
+        commands:
+          - git clone https://github.com/bats-core/bats-core.git
+          - cd bats
+          - sudo ./install.sh /usr/local
+      jobs:
+        - name: Tests
+          commands:
+            - bats addition.bats
+    </pre>
+  </body>
+</html>
