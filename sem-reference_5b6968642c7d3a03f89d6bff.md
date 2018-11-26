@@ -43,7 +43,7 @@
 ## Overview of sem
 
 sem is the command line interface to Semaphore 2.0. This reference page
-covers the syntax and the commands of sem and presents examples of its'
+covers the syntax and the commands of sem and presents examples of its
 various commands.
 
 ### Syntax
