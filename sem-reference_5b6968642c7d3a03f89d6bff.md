@@ -1,15 +1,39 @@
 
 * [Overview](#overview-of-sem)
-* [Syntax](#syntax)
-* [Operations](#operations)
-* [Resource types](#resource-types)
+  * [Syntax](#syntax)
+  * [Operations](#operations)
+  * [Resource types](#resource-types)
+    * [Dashboards](#dashboards)
+    * [Jobs](#jobs)
+    * [Notifications](#notifications)
+    * [Projects](#projects)
+    * [Secrets](#secrets)
 * [Working with organizations](#working-with-organizations)
+  * [sem connect](#sem-connect)
+  * [sem context](#sem-context)
 * [Working with resources](#working-with-resources)
-* [Adding one or more files in a new secret](#adding-one-or-more-files-in-a-new-secret)
+  * [sem create](#sem-create)
+  * [sem edit](#sem-edit)
+  * [sem get](#sem-get)
+  * [sem apply](#sem-apply)
+  * [sem delete](#sem-delete)
 * [Working with jobs](#working-with-jobs)
-* [The sem stop command](#the-sem-stop-command)
+  * [Creating one-off jobs](#creating-one-off-jobs)
+  * [sem attach](#sem-attach)
+  * [sem logs](#sem-logs)
+  * [sem port-forward](#sem-port-forward)
+  * [sem debug for jobs](#sem-debug-for-jobs)
+  * [On demand job creation](#on-demand-job-creation)
+  * [sem stop](#sem-stop)
 * [Working with projects](#working-with-projects)
+  * [sem init](#sem-init)
+  * [sem debug for projects](#sem-debug-for-projects)
 * [Working with notifications](#working-with-notifications)
+  * [Create a notification](#creating-a-notification)
+  * [List notifications](#list-notifications)
+  * [Describe a notification](#describe-a-notification)
+  * [Edit a notification](#edit-a-notification)
+  * [Delete a notification](#delete-a-notification)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Examples](#examples)
@@ -18,11 +42,11 @@
 
 ## Overview of sem
 
-`sem` is the command line interface to Semaphore 2.0. This reference page
-covers the syntax and the commands of `sem` and presents examples of the
-various `sem` commands.
+sem is the command line interface to Semaphore 2.0. This reference page
+covers the syntax and the commands of sem and presents examples of its
+various commands.
 
-## Syntax
+### Syntax
 
 The general syntax of the `sem` utility is as follows:
 
@@ -38,7 +62,7 @@ not have a `[flag]` part.
 Some of the `[flags]` values need an additional argument, as it is the case
 with the `-f` flag, which requires a valid path to a local file.
 
-## Operations
+### Operations
 
 The following list briefly describes all `sem` operations:
 
@@ -69,26 +93,44 @@ The following list briefly describes all `sem` operations:
 * *version*: The `version` command is used for getting the version of the `sem`
     utility.
 
-## Resource types
+### Resource types
 
-Semaphore 2.0 supports seven types of resources: `secret`, `project`, `job`,
-`dashboard`, and `notification`. Most resource related operations require a
-valid resource name or resource ID.
+You can use sem to manipulate five types of Semaphore resources: dashboards,
+jobs, notifications, projects and secrets. Most resource related operations
+require a valid resource name or ID.
 
-### Secrets
+#### Dashboards
 
-A `secret` is a bucket for keeping sensitive information in the form of
-environment variables and small files. Therefore, you can consider a `secret`
-as a place where you can store small amounts of sensitive data such as
-passwords, tokens or keys. Sharing sensitive data in a `secret` is both
-safer and more flexible than storing it using plain text files or environment
-variables that anyone can access.
+A Semaphore 2.0 `dashboard` is a place when you can keep the `widgets` that you
+define in order to overview the operations of your current Semaphore 2.0
+organization.
 
-Each `secret` is associated with a single organization. In other words, a
-`secret` belongs to an organization. In order to use a specific `secret` you
-should be connected to the organization that owns it.
+A `widget` is used for following the activity of pipelines and workflows
+according to certain criteria that are defined using filters that help you
+narrow down the displayed information.
 
-### Projects
+As it happens with `secrets`, each `dashboard` is associated with a given
+organization. Therefore, in order to view a specific `dashboard` you should be
+connected to the organization the `dashboard` belongs to.
+
+#### Jobs
+
+A `job` is the only Semaphore 2.0 entity that can be executed in a Virtual
+Machine (VM). You cannot have a pipeline without at least one `job`.
+
+The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
+are running in completely different Virtual Machines.
+
+#### Notifications
+
+A notification offers a way for sending messages to one or more Slack
+channels or users. Notifications are delivered on the success or failure of a
+pipeline. Notification rules contain user-defined criteria and filters.
+
+A notification can contain multiple rules that are being evaluated each time
+a pipeline ends, either successfully or unsuccessfully.
+
+#### Projects
 
 A project is the way Semaphore 2.0 organizes, stores and processes GitHub
 repositories. As a result each Semaphore 2.0 project has a direct relationship
@@ -104,36 +146,18 @@ remain intact after deleting a project from Semaphore 2.0.
 You can use the same project name in multiple organizations but you cannot
 use the same project name more than once under the same organization.
 
-### Dashboards
+#### Secrets
 
-A Semaphore 2.0 `dashboard` is a place when you can keep the `widgets` that you
-define in order to overview the operations of your current Semaphore 2.0
-organization.
+A `secret` is a bucket for keeping sensitive information in the form of
+environment variables and small files. Therefore, you can consider a `secret`
+as a place where you can store small amounts of sensitive data such as
+passwords, tokens or keys. Sharing sensitive data in a `secret` is both
+safer and more flexible than storing it using plain text files or environment
+variables that anyone can access.
 
-A `widget` is used for following the activity of pipelines and workflows
-according to certain criteria that are defined using filters that help you
-narrow down the displayed information.
-
-As it happens with `secrets`, each `dashboard` is associated with a given
-organization. Therefore, in order to view a specific `dashboard` you should be
-connected to the organization the `dashboard` belongs to.
-
-### Jobs
-
-A `job` is the only Semaphore 2.0 entity that can be executed in a Virtual
-Machine (VM). You cannot have a pipeline without at least one `job`.
-
-The `jobs` of a Semaphore 2.0 pipelines are independent from each other as they
-are running in completely different Virtual Machines.
-
-### Notifications
-
-A `Notification` offers a way for sending messages to one or more Slack
-channels or users. Notifications are delivered on the success or failure of a
-pipeline. Notification rules contain user-defined criteria and filters.
-
-A `Notification` can contain multiple rules that are being evaluated each time
-a pipeline ends, either successfully or unsuccessfully.
+Each `secret` is associated with a single organization. In other words, a
+`secret` belongs to an organization. In order to use a specific `secret` you
+should be connected to the organization that owns it.
 
 ## Working with organizations
 
@@ -170,7 +194,7 @@ which should be a valid organization name the active user belongs to,
 ## Working with resources
 
 This group of `sem` commands includes the five most commonly and frequently
-used commands: `sem create`, `sem delete`, `sem edit`, `sem apply -f` and
+used commands: `sem create`, `sem delete`, `sem edit`, `sem apply` and
 `sem get`. This mainly happens because these are the commands that allow you to
 work with resources.
 
@@ -264,9 +288,8 @@ Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 ## Working with jobs
 
 The list of commands for working with `jobs` includes the `sem attach`,
-`sem logs`, `sem port-forward` and `sem debug` commands. Additionally, you can
-use `sem create -f` to create a new job that is different from the usual jobs
-of a pipeline.
+`sem logs`, `sem port-forward` and `sem debug` commands. You can also
+use `sem create -f` to create a one-off job that is not part of a pipeline.
 
 Additionally, you can use the the `sem get` command for getting a list of all
 jobs or getting a description for a particular job.
@@ -276,15 +299,12 @@ The `sem get jobs` command returns the list of all running jobs.
 The `sem get jobs --all` command returns the list of all recent jobs of the
 current organization, both running and finished.
 
-The `sem stop` command presented [here](#the-sem-stop-command) allows you to
-stop a running job.
+The `sem stop` command allows you to stop a running job or entire pipeline.
 
-### sem create -f
+### Creating one-off jobs
 
-You can use `sem create -f` to create a new job that will be running without
-being added to an existing Pipeline. This means that it will run much faster
-than the same Pipeline with that job but it will not be attached to any
-pipeline.
+You can use `sem create -f` to create a one-off job that runs without
+being part of an existing pipeline.
 
 This can be very useful for checking things out like compiler versions and
 package availability before adding a command into a pipeline.
@@ -382,19 +402,15 @@ aforementioned command is a Job ID.
 
 The only way to see the results of such a job is with the `sem logs` command.
 
-## The sem stop command
+### sem stop
 
-`sem` gives you the capability to stop a running `job` or a running `pipeline`
-without the need to visit the Semaphore 2.0 UI with the help of the `sem stop`
-command.
-
-The `sem stop` command works as follows:
+You can stop a running job or pipeline with `sem stop`:
 
     sem stop job|pipeline [ID]
 
-If you are executing `sem stop job`, you will need to provide the `ID` of a
-running job. Similarly, if you are executing `sem stop pipeline`, you will need
-to provided the `ID` of a running pipeline.
+If you are executing `sem stop job`, you will need to provide an `ID` of a
+running job. If you are executing `sem stop pipeline`, you will need
+to provide an `ID` of a running pipeline.
 
 ## Working with projects
 
@@ -459,7 +475,7 @@ or even as `60m`.
 In this section you will learn how to work with notifications with the `sem`
 utility starting with how to create a new notification with a single rule.
 
-### Creating a notification
+### Create a notification
 
 The first thing that you will need to do is to create one or more notifications
 with the help of the `sem` utility.
@@ -509,7 +525,7 @@ Tip: you can use just a single Incoming WebHook from Slack for all your
 notifications as this Incoming WebHook has access to all the channels of a
 Slack Workspace.
 
-### List all notifications
+### List notifications
 
 You can list all the available notifications under the current organization
 with the `sem get notifications` command.
@@ -644,7 +660,7 @@ Semaphore 2.0 project.
     sem create job "On Demand Job" --project S2 --command "go version"
 
 The aforementioned command creates a job named `On Demand Job` that will be
-added to the `S2` Semaphore 2.0 project. The command that will be executed by 
+added to the `S2` Semaphore 2.0 project. The command that will be executed by
 this job is `go version`.
 
 ### sem create secret with files
