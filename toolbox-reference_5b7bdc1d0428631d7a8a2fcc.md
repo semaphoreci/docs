@@ -17,6 +17,8 @@ This document explains the use of the command line tools found in the
 open source [semaphoreci/toolbox][toolbox-repo] repository and are
 preinstalled in all Semaphore 2.0 Virtual Machines (VM).
 
+[toolbox-repo]: https://github.com/semaphoreci/toolbox
+
 ## Essentials
 
 This section contains the most frequently used tools of the Semaphore 2.0
