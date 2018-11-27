@@ -1,17 +1,18 @@
-Each project starts with the default pipeline specified in
+Each Semaphore 2.0 project starts with the default pipeline specified in
 `.semaphore/semaphore.yml`. Real world pipelines tend to branch out
-when certain conditions are met. Examples may be deploying to
-production on master builds or deploying to a pre-production environment
-on topic branches.
+when certain conditions are met. Examples may be deploying to production on
+master builds or deploying to a pre-production environment on topic branches.
 
-On Semaphore deployment and delivery is managed with _promotions_, which may
-be automatic or manual and optionally depend on conditions.
+On Semaphore 2.0, deployment and delivery is managed with _promotions_, which
+may be performed automatically or manually and may optionally depend on
+user-defined conditions.
 
 ## Manual deployment
 
 Let's start by adding a manual confirmation to promote to production.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+<pre><code class="language-yaml">
+# .semaphore/semaphore.yml
 agent:
   machine:
     type: e1-standard-2
@@ -30,7 +31,8 @@ promotions:
 
 Now create a new pipeline file in `.semaphore/production-deploy.yml`:
 
-<pre><code class="language-yaml"># .semaphore/production-deploy.yml
+<pre><code class="language-yaml">
+# .semaphore/production-deploy.yml
 agent:
   machine:
     type: e1-standard-2
@@ -59,7 +61,8 @@ pipelines together and automate complex workflows.
 Promotions can also be [triggered automatically][auto-promotions].
 Let's create another that automatically promotes builds to staging.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+<pre><code class="language-yaml">
+# .semaphore/semaphore.yml
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -71,7 +74,8 @@ promotions:
 
 Create the new `staging-deploy.yml` file:
 
-<pre><code class="language-yaml"># .semaphore/staging-deploy.yml
+<pre><code class="language-yaml">
+# .semaphore/staging-deploy.yml
 agent:
   machine:
     type: e1-standard-2
@@ -88,7 +92,8 @@ blocks:
 Auto-promotions can also be associated to specific branches. Here's how to
 automatically promote passed builds on master:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+<pre><code class="language-yaml">
+# .semaphore/semaphore.yml
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
