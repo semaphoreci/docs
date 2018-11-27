@@ -43,9 +43,13 @@ Each file was generated using the following command:
 
 The Semaphore 2.0 environment variables that will be used are the following:
 
-* `SEMAPHORE_PROJECT_NAME`:
-* `SEMAPHORE_GIT_SHA`:
+* `SEMAPHORE_PROJECT_NAME`: This environment variable holds the name of the
+    current Semaphore 2.0 project.
+* `SEMAPHORE_GIT_SHA`: This variable holds the current revision of the GitHub
+    code that the pipeline is using.
 
+The combination of `SEMAPHORE_PROJECT_NAME` and `SEMAPHORE_GIT_SHA` gets
+updated each time you make changes to the GitHub repository.
 
 The `semaphore.yml` file for the example project will be the following:
 
@@ -104,7 +108,6 @@ The `semaphore.yml` file for the example project will be the following:
 	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
 	          - ls -al "$SEMAPHORE_PROJECT_NAME"
 	          - du -k -s
-
 
 ## Evaluating the results
 
