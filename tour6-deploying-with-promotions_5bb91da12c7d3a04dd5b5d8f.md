@@ -51,10 +51,10 @@ blocks:
             - echo 'Deploying to production!'
 </code></pre>
 
-In the Semaphore web interface, users will see a "Production Deploy" button
-once all blocks in the pipeline defined in `semaphore.yml` pass.
-When a user promotes a revision, Semaphore records the time and name of the
-person who initiated it, and proceeds by executing the pipeline defined in
+In the Semaphore 2.0 web interface, users will see a `Production Deploy` button
+once all blocks in the pipeline defined in `semaphore.yml` pass. When a user
+promotes a revision, Semaphore records the time and name of the person who
+initiated it, and proceeds by executing the pipeline defined in
 `production-deploy.yml`.
 
 Note that [all pipeline features][pipeline-reference] are available in delivery
@@ -91,7 +91,7 @@ promotions:
       - result: passed
 </code></pre>
 
-Create the new `staging-deploy.yml` file:
+Next, create the required `staging-deploy.yml` file:
 
 <pre><code class="language-yaml">
 # .semaphore/staging-deploy.yml
@@ -111,7 +111,7 @@ blocks:
 </code></pre>
 
 Auto-promotions can also be associated to specific branches. Here's how to
-automatically promote passed builds on master:
+automatically promote passed builds on the `master` branch:
 
 <pre><code class="language-yaml">
 # .semaphore/semaphore.yml
