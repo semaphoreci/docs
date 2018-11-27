@@ -41,18 +41,120 @@ Each file was generated using the following command:
 
     dd if=/dev/random of=filename bs=1024 count=100000
 
-The `semaphore.yml` file for the example project will be the following:
-
-
 The Semaphore 2.0 environment variables that will be used are the following:
 
 * `SEMAPHORE_PROJECT_NAME`:
 * `SEMAPHORE_GIT_SHA`:
 
+
+The `semaphore.yml` file for the example project will be the following:
+
+	version: v1.0
+	name: Recipe of Caching Big Repositories
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
+    
+	blocks:
+	  - name: Reuse GitHub repository
+	    task:
+	      jobs:
+	      - name: Cache GitHub repository
+	        commands:
+	          - checkout
+	          - cd ..
+	          - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
+    
+	  - name: Task 2 - Single Job
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 1
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+    
+	  - name: Task 3 - Single Job
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 2
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"
+	          - du -k -s
+    
+	  - name: Task 4 - Two jobs
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 3
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+    
+	      - name: Use Cache - Job 4
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - du -k -s
+    
+	  - name: Task 5 - Single Job
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 5
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"
+	          - du -k -s
+
+
 ## Evaluating the results
 
-The same project was executed with and without using the Semaphore 2.0 cache
+The same project was executed with and without using the Semaphore 2.0 Cache
 server.
+
+The output of the `diff` command shows the differences between the two
+versions:
+
+	diff .semaphore/semaphore.yml.cache .semaphore/semaphore.yml.nocache
+	16d15
+	<           - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
+	23,24c22,23
+	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	<           - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+	---
+	>           - checkout
+	>           - ls -al
+	31c30,31
+	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	---
+	>           - checkout
+	>           - cd ..
+	40,41c40,41
+	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	<           - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+	---
+	>           - checkout
+	>           - ls -al
+	45c45,46
+	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	---
+	>           - checkout
+	>           - cd ..
+	53c54,55
+	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	---
+	>           - checkout
+	>           - cd ..
+
+The total time it took the version that **uses** `cache` to finish the
+Semaphore 2.0 project was 332 seconds.
+
+The total time it took the version that uses `checkout` instead of `cache` to
+finish the Semaphore 2.0 project was 348 seconds.
+
+The improvement from using Semaphore 2.0 cache server was not that big due to
+the overhead introduced by the `cache store` command, which was 129 seconds.
+
+Nevertheless, there was still a 16 seconds improvement!
 
 ## See Also
 
