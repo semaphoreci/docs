@@ -13,17 +13,20 @@ Let's start by adding a manual confirmation to promote to production.
 
 <pre><code class="language-yaml">
 # .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+
 blocks:
-  - name: Test
+  - name: Promotions
     task:
       jobs:
-        - name: 'Everything'
+        - name: Everything
           commands:
-            - echo 'running tests'
+            - echo 'Running tests'
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -33,6 +36,8 @@ Now create a new pipeline file in `.semaphore/production-deploy.yml`:
 
 <pre><code class="language-yaml">
 # .semaphore/production-deploy.yml
+version: v1.0
+name: File .semaphore/production-deploy.yml
 agent:
   machine:
     type: e1-standard-2
@@ -63,6 +68,20 @@ Let's create another that automatically promotes builds to staging.
 
 <pre><code class="language-yaml">
 # .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Promotions
+    task:
+      jobs:
+        - name: Everything
+          commands:
+            - echo 'Running tests'
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -76,6 +95,8 @@ Create the new `staging-deploy.yml` file:
 
 <pre><code class="language-yaml">
 # .semaphore/staging-deploy.yml
+version: v1.0
+name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
@@ -84,7 +105,7 @@ blocks:
   - name: Deploy
     task:
       jobs:
-        - name: 'Everything'
+        - name: Staging
           commands:
             - echo 'Deploying to staging!'
 </code></pre>
@@ -94,6 +115,21 @@ automatically promote passed builds on master:
 
 <pre><code class="language-yaml">
 # .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Promotions
+    task:
+      jobs:
+        - name: Everything
+          commands:
+            - echo 'Running tests'
+
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -119,8 +155,8 @@ workflow.
 
 As a next step, we recommend that you put this new knowledge to use by setting
 up CI/CD pipelines for some of your existing projects. Use links in this guide
-and rest of the documentation to find answers to the questions that you have
-along the way.
+and the rest of the documentation to find answers to the questions that you
+have along the way.
 
 Happy building!
 
