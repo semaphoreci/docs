@@ -1,13 +1,13 @@
 
-* [Supported C++ versions](#supported-c++-versions)
-* [Changing gcc version](#changing-gcc-version)
+* [Supported C++ versions](#supported-compiler-versions)
+* [Changing compiler version](#changing-compiler-version)
 * [Dependency Management](#dependency-management)
 * [Environment variables](#environment-variables)
 * [System dependencies](#system-dependencies)
-* [A sample C project](#a-sample-c-project)
+* [A sample C++ project](#a-sample-c++-project)
 * [See also](#see-also)
 
-## Supported C++ versions
+## Supported compiler versions
 
 Currently the Semaphore Virtual Machines support the following versions of the
 `g++` C++ compiler:
@@ -23,7 +23,7 @@ The default version of the G++ compiler can be found as follows:
 	$ g++ --version
 	
 
-## Changing g++ version
+## Changing compiler version
 
 The following Semaphore 2.0 project selects two different `g++` versions:
 
