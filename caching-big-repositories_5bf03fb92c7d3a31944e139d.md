@@ -8,36 +8,35 @@
 ## Overview
 
 The purpose of this document is to provide a recipe for caching big
-repositories in order to reuse them faster.
+repositories in order to save time.
 
 ## The scenario
 
-Imagine that you have one or more large files on a GitHub repository and that
-you want to make the downloading of them as fast as possible.
+Imagine that you have one or multiple large files on a GitHub repository and
+that you want to make the downloading of them as fast as possible.
 
 ## The logic behind the recipe
 
 Using the Cache server provided by Semaphore 2.0 for getting the files of your
 GitHub repository is much faster than using the GitHub server machines for the
-same task because the Semaphore 2.0 Cache server in on the same network as the
-Virtual Machines used for executing the jobs of the Semaphore 2.0 pipeline.
-Therefore using the Semaphore 2.0 Cache server is faster than downloading files
-from the GitHub servers.
+same task because the Semaphore Cache server is on the same network as the
+Virtual Machines used for executing the jobs of a Semaphore pipeline.
 
 What the example project that follows will do is getting all the files of the
-GitHub repository using `checkout` in the first job and the storing them into
-the Semaphore 2.0 Cache server. The remaining jobs of the project will use
-these files from the Cache server without calling `checkout` again.
+GitHub repository in the first job using `checkout` and then storing them into
+the Semaphore 2.0 Cache server using `cache store`. The remaining jobs of the
+project will use these files from the Cache server using `cache restore`
+without calling `checkout` again.
 
 Note that for this recipe to work, the files of the GitHub repository should
-remain intact during the lifetime of the Semaphore 2.0 project.
+remain intact through the lifetime of the Semaphore project.
 
 ## An example project
 
-The example project of this section will use multiple large files. Each one of
-the 10 files is around 100MB in size.
+The example project of this section will use 10 large files. Each one of these
+10 files is around 100MB in size.
 
-Each file was generated using the following command:
+Each one file was generated using the following command:
 
     dd if=/dev/random of=filename bs=1024 count=100000
 
@@ -45,11 +44,11 @@ The Semaphore 2.0 environment variables that will be used are the following:
 
 * `SEMAPHORE_PROJECT_NAME`: This environment variable holds the name of the
     current Semaphore 2.0 project.
-* `SEMAPHORE_GIT_SHA`: This variable holds the current revision of the GitHub
-    code that the pipeline is using.
+* `SEMAPHORE_GIT_SHA`: This environment variable holds the current revision of
+    the GitHub code that the pipeline is using.
 
-The combination of `SEMAPHORE_PROJECT_NAME` and `SEMAPHORE_GIT_SHA` gets
-updated each time you make changes to the GitHub repository.
+Note that the combination of `SEMAPHORE_PROJECT_NAME` and `SEMAPHORE_GIT_SHA`
+gets updated each time you make changes to the GitHub repository.
 
 The `semaphore.yml` file for the example project will be the following:
 
@@ -114,10 +113,10 @@ The `semaphore.yml` file for the example project will be the following:
 The same project was executed with and without using the Semaphore 2.0 Cache
 server.
 
-The output of the `diff` command shows the differences between the two
-versions:
+The output of the next `diff` command shows the differences between the
+pipeline files of the two versions:
 
-	diff .semaphore/semaphore.yml.cache .semaphore/semaphore.yml.nocache
+	$ diff .semaphore/semaphore.yml.cache .semaphore/semaphore.yml.nocache
 	16d15
 	<           - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
 	23,24c22,23
@@ -155,7 +154,8 @@ The total time it took the version that uses `checkout` instead of `cache` to
 finish the Semaphore 2.0 project was 348 seconds.
 
 The improvement from using Semaphore 2.0 cache server was not that big due to
-the overhead introduced by the `cache store` command, which was 129 seconds.
+the overhead introduced by the `cache store` command, which took 129 seconds
+to finish.
 
 Nevertheless, there was still a 16 seconds improvement!
 
