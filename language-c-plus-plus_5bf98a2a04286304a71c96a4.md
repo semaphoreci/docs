@@ -4,7 +4,7 @@
 * [Dependency Management](#dependency-management)
 * [Environment variables](#environment-variables)
 * [System dependencies](#system-dependencies)
-* [A sample C++ project](#a-sample-c++-project)
+* [A sample C++ project](#a-sample-project)
 * [See also](#see-also)
 
 ## Supported compiler versions
@@ -46,7 +46,7 @@ have to define them on your own at the task level.
 C++ projects might need packages like database drivers. As you have full `sudo`
 access on each Semaphore 2.0 VM, you are free to install all required packages.
 
-## A sample C++ project
+## A sample project
 
 The following `.semaphore/semaphore.yml` file compiles and executes a C++ source
 file using two different versions of the `g++` C++ compiler:
