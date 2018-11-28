@@ -113,3 +113,4 @@ The contents of the `hw.cpp` file are as follows:
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+* [update-alternatives man page](http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html)
