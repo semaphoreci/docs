@@ -1,28 +1,31 @@
-Each project starts with the default pipeline specified in
+Each Semaphore project starts with the default pipeline specified in
 `.semaphore/semaphore.yml`. Real world pipelines tend to branch out
-when certain conditions are met. Examples may be deploying to
-production on master builds or deploying to a pre-production environment
-on topic branches.
+when certain conditions are met. Examples may be deploying to production on
+master builds or deploying to a pre-production environment on topic branches.
 
-On Semaphore deployment and delivery is managed with _promotions_, which may
-be automatic or manual and optionally depend on conditions.
+On Semaphore 2.0, deployment and delivery is managed with _promotions_, which
+may be performed automatically or manually and may optionally depend on
+user-defined conditions.
 
 ## Manual deployment
 
 Let's start by adding a manual confirmation to promote to production.
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+
 blocks:
-  - name: Test
+  - name: Promotions
     task:
       jobs:
-        - name: 'Everything'
+        - name: Everything
           commands:
-            - echo 'running tests'
+            - echo 'Running tests'
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -31,6 +34,8 @@ promotions:
 Now create a new pipeline file in `.semaphore/production-deploy.yml`:
 
 <pre><code class="language-yaml"># .semaphore/production-deploy.yml
+version: v1.0
+name: Deploy to production
 agent:
   machine:
     type: e1-standard-2
@@ -44,11 +49,10 @@ blocks:
             - echo 'Deploying to production!'
 </code></pre>
 
-In the Semaphore web interface, users will see a "Production Deploy" button
-once all blocks in the pipeline defined in `semaphore.yml` pass.
-When a user promotes a revision, Semaphore records the time and name of the
-person who initiated it, and proceeds by executing the pipeline defined in
-`production-deploy.yml`.
+In the Semaphore 2.0 web interface, you will see a Production Deploy button
+once all blocks in the pipeline defined in `semaphore.yml` pass. When you promote
+a revision, Semaphore records the time and name of the person who initiated it
+and proceeds by executing the pipeline defined in `production-deploy.yml`.
 
 Note that [all pipeline features][pipeline-reference] are available in delivery
 pipelines, same as in `semaphore.yml`. This enables you to chain multiple
@@ -60,6 +64,20 @@ Promotions can also be [triggered automatically][auto-promotions].
 Let's create another that automatically promotes builds to staging.
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Promotions
+    task:
+      jobs:
+        - name: Everything
+          commands:
+            - echo 'Running tests'
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -69,9 +87,11 @@ promotions:
       - result: passed
 </code></pre>
 
-Create the new `staging-deploy.yml` file:
+Next, create the required `staging-deploy.yml` file:
 
 <pre><code class="language-yaml"># .semaphore/staging-deploy.yml
+version: v1.0
+name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
@@ -80,15 +100,32 @@ blocks:
   - name: Deploy
     task:
       jobs:
-        - name: 'Everything'
+        - name: Staging
           commands:
             - echo 'Deploying to staging!'
 </code></pre>
 
+### Continuous deployment on specific branch
+
 Auto-promotions can also be associated to specific branches. Here's how to
-automatically promote passed builds on master:
+automatically promote passed builds on the `master` branch:
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Promotions
+    task:
+      jobs:
+        - name: Everything
+          commands:
+            - echo 'Running tests'
+
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
@@ -114,8 +151,8 @@ workflow.
 
 As a next step, we recommend that you put this new knowledge to use by setting
 up CI/CD pipelines for some of your existing projects. Use links in this guide
-and rest of the documentation to find answers to the questions that you have
-along the way.
+and the rest of the documentation to find answers to the questions that you
+have along the way.
 
 Happy building!
 
