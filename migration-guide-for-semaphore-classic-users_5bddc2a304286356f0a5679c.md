@@ -28,8 +28,14 @@ and Bitbucket support, which will be addressed soon.
 
 Semaphore 2.0 gives you unlimited flexibility in automating CI/CD workflows. You
 can still run simple builds easily. You can also run multi-stage builds, each
-stage with its' own configuration. You can set up conditions for manual or
-automatic promotion that trigger other pipelines, and more.
+stage with its' own configuration.
+
+Servers on Semaphore Classic are superseded by
+[promotions](https://docs.semaphoreci.com/article/67-deploying-with-promotions).
+Promotions connect different pipelines together, with optional conditions.
+For example, you could set up an auto-promotion on master branch that triggers
+deployment to production and runs smoke tests, and a manual promotion for any
+branch which deploys to staging environment.
 
 ### All configuration is in YML and executed in command line
 
