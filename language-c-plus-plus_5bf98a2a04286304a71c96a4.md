@@ -1,16 +1,14 @@
 
 * [Supported C++ versions](#supported-compiler-versions)
 * [Changing compiler version](#changing-compiler-version)
-* [Dependency Management](#dependency-management)
-* [Environment variables](#environment-variables)
+* [Dependency management](#dependency-management)
 * [System dependencies](#system-dependencies)
 * [A sample C++ project](#a-sample-project)
 * [See also](#see-also)
 
 ## Supported compiler versions
 
-Currently the Semaphore Virtual Machines support the following versions of the
-`g++` C++ compiler:
+Semaphore VM is 64-bit and provides the following versions of the g++ compiler:
 
 * g++ 4.8: found as `/usr/bin/g++-4.8`
 * g++ 5: found as `/usr/bin/g++-5`
@@ -18,7 +16,7 @@ Currently the Semaphore Virtual Machines support the following versions of the
 * g++ 7: found as `/usr/bin/g++-7`
 * g++ 8: found as `/usr/bin/g++-8`
 
-The default version of the G++ compiler can be found as follows:
+The default version of the g++ compiler can be found as follows:
 
 	$ g++ --version
 	g++ (Ubuntu 4.8.5-4ubuntu8) 4.8.5
@@ -28,7 +26,7 @@ The default version of the G++ compiler can be found as follows:
 
 ## Changing compiler version
 
-The following Semaphore 2.0 project selects two different `g++` versions:
+The following Semaphore 2.0 project selects two different versions of g++:
 
 	version: v1.0
 	name: Using C++ in Semaphore 2.0
@@ -36,7 +34,7 @@ The following Semaphore 2.0 project selects two different `g++` versions:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-    
+
 	blocks:
 	  - name: Change G++ version
 	    task:
@@ -46,25 +44,17 @@ The following Semaphore 2.0 project selects two different `g++` versions:
 	          - g++ --version
 	          - sudo update-alternatives --set gcc "/usr/bin/gcc-6"
 	          - g++ --version
-    
+
 	      - name: Select g++ version 8
 	        commands:
 	          - g++ --version
 	          - sudo update-alternatives --set gcc "/usr/bin/gcc-8"
 	          - g++ --version
 
-## Dependency Management
+## Dependency management
 
-As there is no standard way to perform dependency management in C++, we will
-skip that in this guide.
-
-You can use the `cache` Semaphore 2.0 utility to store and load any files or
-C++ libraries that you want to reuse in other jobs.
-
-## Environment variables
-
-Semaphore 2.0 does not set environment variables related to C++ so you will
-have to define them on your own at the task level.
+You can use Semaphore's [cache tool][cache-ref] to store and load any files or
+C++ libraries that you want to reuse between jobs.
 
 ## System dependencies
 
@@ -74,7 +64,7 @@ access on each Semaphore 2.0 VM, you are free to install all required packages.
 ## A sample project
 
 The following `.semaphore/semaphore.yml` file compiles and executes a C++ source
-file using two different versions of the `g++` C++ compiler:
+file using two different versions of the g++ C++ compiler:
 
 	version: v1.0
 	name: Using C++ in Semaphore 2.0
@@ -82,7 +72,7 @@ file using two different versions of the `g++` C++ compiler:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-    
+
 	blocks:
 	  - name: Compile C++ code
 	    task:
@@ -101,7 +91,7 @@ The contents of the `hw.cpp` file are as follows:
 
 	#include <iostream>
 	using namespace std;
-    
+
 	int main()
 	{
 	    cout << "Hello, World!\n";
@@ -110,7 +100,10 @@ The contents of the `hw.cpp` file are as follows:
 
 ## See Also
 
+* [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [update-alternatives man page](http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html)
+
+[cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
