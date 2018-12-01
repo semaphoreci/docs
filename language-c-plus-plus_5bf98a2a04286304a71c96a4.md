@@ -90,14 +90,14 @@ file using two different versions of the g++ C++ compiler:
 The contents of the `hw.cpp` file are as follows:
 
 <pre><code class="language-c++">
-	#include < iostream >
-	using namespace std;
-    
-	int main()
-	{
-	    cout << "Hello, World!\n";
-	    return 0;
-	}
+#include < iostream >
+using namespace std;
+
+int main()
+{
+    cout << "Hello, World!\n";
+    return 0;
+}
 </code></pre>
 
 ## See Also
