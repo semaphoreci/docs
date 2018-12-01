@@ -59,16 +59,16 @@ blocks:
         - name: npm install and cache
           commands:
             - checkout
-            - cache restore node-modules-$(checksum package-lock.json)
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             - npm install
-            - cache store node-modules-$(checksum package-lock.json) node_modules
+            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
 
   - name: Tests
     task:
       prologue:
         commands:
           - checkout
-          - cache restore node-modules-$(checksum package-lock.json)
+          - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
       jobs:
         - name: Everything
           commands:
