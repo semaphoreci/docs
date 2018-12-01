@@ -90,7 +90,6 @@ file using two different versions of the g++ C++ compiler:
 The contents of the `hw.cpp` file are as follows:
 
 <pre><code class="language-c++">
-
 	#include < iostream >
 	using namespace std;
     
@@ -99,7 +98,6 @@ The contents of the `hw.cpp` file are as follows:
 	    cout << "Hello, World!\n";
 	    return 0;
 	}
-
 </code></pre>
 
 ## See Also
