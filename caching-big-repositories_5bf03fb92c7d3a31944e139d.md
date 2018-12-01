@@ -1,35 +1,24 @@
 
 * [Overview](#overview)
-* [The scenario](#the-scenario)
 * [The logic behind the recipe](#the-logic-behind-the-recipe)
 * [An example project](#an-example-project)
 * [See Also](#see-also)
 
 ## Overview
 
-The purpose of this document is to provide a recipe for caching big
-repositories in order to save time.
-
-## The scenario
-
 Imagine that you have one or multiple large files on a GitHub repository and
-that you want to make the downloading of them as fast as possible.
-
-## The logic behind the recipe
-
-Using the Cache server provided by Semaphore 2.0 for getting the files of your
-GitHub repository is much faster than using the GitHub server machines for the
-same task because the Semaphore Cache server is on the same network as the
-Virtual Machines used for executing the jobs of a Semaphore pipeline.
-
-What the example project that follows will do is getting all the files of the
-GitHub repository in the first job using `checkout` and then storing them into
-the Semaphore 2.0 Cache server using `cache store`. The remaining jobs of the
-project will use these files from the Cache server using `cache restore`
-without calling `checkout` again.
+you want to make the downloading of them as fast as possible.
 
 Note that for this recipe to work, the files of the GitHub repository should
 remain intact through the lifetime of the Semaphore project.
+
+## The logic behind the recipe
+
+The example project that follows is getting all the files of the GitHub
+repository in the first job using `checkout` and then is storing them into the
+Semaphore 2.0 Cache server using `cache store`. The remaining jobs of the
+project will use these files from the Cache server using `cache restore`
+without calling `checkout` again.
 
 ## An example project
 
@@ -107,57 +96,6 @@ The `semaphore.yml` file for the example project will be the following:
 	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
 	          - ls -al "$SEMAPHORE_PROJECT_NAME"
 	          - du -k -s
-
-## Evaluating the results
-
-The same project was executed with and without using the Semaphore 2.0 Cache
-server.
-
-The output of the next `diff` command shows the differences between the
-pipeline files of the two versions:
-
-	$ diff .semaphore/semaphore.yml.cache .semaphore/semaphore.yml.nocache
-	16d15
-	<           - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
-	23,24c22,23
-	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	<           - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
-	---
-	>           - checkout
-	>           - ls -al
-	31c30,31
-	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	---
-	>           - checkout
-	>           - cd ..
-	40,41c40,41
-	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	<           - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
-	---
-	>           - checkout
-	>           - ls -al
-	45c45,46
-	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	---
-	>           - checkout
-	>           - cd ..
-	53c54,55
-	<           - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	---
-	>           - checkout
-	>           - cd ..
-
-The total time it took the version that **uses** `cache` to finish the
-Semaphore 2.0 project was 332 seconds.
-
-The total time it took the version that uses `checkout` instead of `cache` to
-finish the Semaphore 2.0 project was 348 seconds.
-
-The improvement from using Semaphore 2.0 cache server was not that big due to
-the overhead introduced by the `cache store` command, which took 129 seconds
-to finish.
-
-Nevertheless, there was still a 16 seconds improvement!
 
 ## See Also
 
