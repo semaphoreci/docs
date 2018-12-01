@@ -46,10 +46,10 @@ example:
           - export PATH=$HOME/.local/bin:$PATH
           - checkout
           - mkdir .pip_cache
-          - cache restore v1-pip-$(checksum requirements.txt)
+          - cache restore pip-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt),pip-$SEMAPHORE_GIT_BRANCH,pip-master
           # Use --user to avoid permission conflicts
           - pip install --user --cache-dir .pip_cache -r requirements.txt
-          - cache store v1-pip-$(checksum requirements.txt) .pip_cache
+          - cache store pip-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt) .pip_cache
       jobs:
         - name: Everything
           commands:
@@ -84,10 +84,10 @@ and warm the cache in the first block, then use the cache in subsequent blocks.
        jobs:
          - name: Install and cache dependencies
            commands:
-             - cache restore pipenv-$(checksum Pipfile.lock)
+             - cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master
              # --deploy also checks python version requirements
              - pipenv install --dev --deploy
-             - cache store pipenv-$(checksum Pipfile.lock) .venv
+             - cache store pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock) .venv
    - name: Tests
      task:
        env_vars:
@@ -97,7 +97,7 @@ and warm the cache in the first block, then use the cache in subsequent blocks.
          commands:
            - sudo pip install pipenv
            - checkout
-           - cache restore pipenv-$(checksum Pipfile.lock)
+           - cache restore cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master
        jobs:
          - name: Everything
            commands:

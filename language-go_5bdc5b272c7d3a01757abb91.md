@@ -83,9 +83,9 @@ blocks:
       jobs:
         - name:
           commands:
-            - cache restore v1-deps-$(checksum Gopkg.lock)
+            - cache restore deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock),deps-$SEMAPHORE_GIT_BRANCH,deps-master
             - dep ensure -v
-            - cache store v1-deps-$(checksum Gopkg.lock) vendor
+            - cache store deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock) vendor
 </code></pre>
 
 After that you can reuse that cache as follows:
@@ -102,7 +102,7 @@ blocks:
           # Dep install db
           - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
           - checkout
-          - cache restore v1-deps-$(checksum Gopkg.lock)
+          - cache restore deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock),deps-$SEMAPHORE_GIT_BRANCH,deps-master
       jobs:
         - name: Suite
           commands:
@@ -121,7 +121,7 @@ file named `hw.go`:
    machine:
      type: e1-standard-2
      os_image: ubuntu1804
- 
+
  blocks:
   - name: Build with default Go version
     task:
@@ -131,7 +131,7 @@ file named `hw.go`:
              - checkout
              - go build hw.go
              - ./hw
- 
+
   - name: Run with Go 1.11
     task:
        jobs:

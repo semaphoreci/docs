@@ -67,7 +67,7 @@ Examples:
     cache restore gems-$SEMAPHORE_GIT_BRANCH
     cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
 
-Restores an archive with the given `key`.
+Restores an archive which *partially matches* any given `key`.
 In case of a cache hit, archive is retrieved and available at its original
 path in the job environment.
 Each archive is restored in the current path from where the function is called.

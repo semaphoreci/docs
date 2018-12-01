@@ -54,7 +54,7 @@ blocks:
         - name: Composer install
           commands:
             - checkout
-            - cache restore composer-$(checksum composer.lock)
+            - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
             - composer install
             - cache store composer-$(checksum composer.lock) vendor
 
@@ -63,7 +63,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore v1-composer-$(checksum composer.lock)
+          - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),composer-$SEMAPHORE_GIT_BRANCH,composer-master
           # Prepend vendor/bin to the path so you can use dependency executables
           - export "PATH=./vendor/bin:${PATH}"
       jobs:
