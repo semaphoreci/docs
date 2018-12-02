@@ -22,8 +22,7 @@ to time consuming integration tests.
 
 For these reasons our pipeline is composed of three blocks of tests:
 
-```yml
-# .semaphore/semaphore.yml
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 version: v1.0
 name: Demo Rails 5 app
 agent:
@@ -88,13 +87,12 @@ blocks:
       - name: RSpec - feature specs
         commands:
           - bundle exec rspec spec/features
-```
+</code></pre>
 
 The example is based on a Rails 5 application, with the following database
 configuration:
 
-```yml
-# config/database.yml
+<pre><code class="language-yaml"># config/database.yml
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -109,7 +107,7 @@ development:
 test:
   <<: *default
   database: demo-rails5_test
-```
+</code></pre>
 
 PostgreSQL and MySQL instances run inside each job and can be accessed with
 a blank password. For more information on configuring database access,
@@ -120,7 +118,15 @@ Firefox, Chrome, and Chrome Headless drivers for Capybara work out of the box,
 so you will not need to make any adjustment for browser tests to work on
 Semaphore.
 
-### See also
+## Next steps
+
+Congratulations! You have set up your first Rails 5 continuous integration
+project on Semaphore. Here’s some recommended reading:
+
+- [Heroku deployment guide][heroku-guide] shows you how to set up continuous
+deployment to Heroku.
+
+## See also
 
 - [Semaphore guided tour][guided-tour]
 - [Pipelines reference][pipelines-ref]
@@ -133,3 +139,4 @@ Semaphore.
 [pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[heroku-guide]: https://docs.semaphoreci.com/article/100-heroku-deployment
