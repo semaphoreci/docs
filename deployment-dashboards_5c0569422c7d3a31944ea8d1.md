@@ -17,10 +17,7 @@ Open the dashboard configuration:
 At this point you have the dashboard definition open in your default editor.
 It looks something like this:
 
- <pre><code class="language-yaml"># Editing Dashboards/demo-deployment.
-# When you close the editor, the content will be updated on yourorg.semaphoreci.com.
-
-apiVersion: v1alpha
+ <pre><code class="language-yaml">apiVersion: v1alpha
 kind: Dashboard
 metadata:
   name: demo-deployment
