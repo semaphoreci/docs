@@ -172,6 +172,8 @@ Here’s some recommended reading:
 
 - [Explore the promotions reference][promotions-ref] to learn more about what
 options you have available when designing delivery pipelines on Semaphore.
+- [Set up a deployment dashboard][deployment-dashboards] to keep track of
+your team's activities.
 
 [create-project]: https://docs.semaphoreci.com/article/63-your-first-project
 [use-cases]: https://docs.semaphoreci.com/category/59-use-cases
@@ -182,3 +184,4 @@ options you have available when designing delivery pipelines on Semaphore.
 [sem-create-ref]: https://docs.semaphoreci.com/article/53-sem-reference#sem-create
 [heroku-keys]: https://devcenter.heroku.com/articles/keys
 [heroku-ssh-git]: https://devcenter.heroku.com/articles/git#ssh-git-transport
+[deployment-dashboards]: https://docs.semaphoreci.com/article/101-deployment-dashboards
