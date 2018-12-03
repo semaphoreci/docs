@@ -100,11 +100,13 @@ data:
 </code></pre>
 
 In `content` you should paste the output of `base64 your-file`.
-If you don't specify an absolute path, the file will appear in the root
-of your repository.
+If you specify a relative path, the file will be mounted on a path
+relative to `/home/semaphore/`.
 
 Once you save and exit your editor, `sem` will automatically update
 the secret on Semaphore.
+
+### A shortcut for creating file-based secrets
 
 There's also a quicker way of creating a new secret from local files.
 In the following example, we source our local configuration files and tell
