@@ -34,27 +34,27 @@ The following Semaphore 2.0 project selects two different versions of g++:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-
+    
 	blocks:
-	  - name: Change G++ version
+	  - name: Change g++ version
 	    task:
 	      jobs:
 	      - name: Select g++ version 6
 	        commands:
 	          - g++ --version
-	          - sudo update-alternatives --set gcc "/usr/bin/gcc-6"
+	          - sem-version cpp 6
 	          - g++ --version
-
+    
 	      - name: Select g++ version 8
 	        commands:
 	          - g++ --version
-	          - sudo update-alternatives --set gcc "/usr/bin/gcc-8"
+	          - sem-version cpp 8
 	          - g++ --version
 
 ## Dependency management
 
-You can use Semaphore's [cache tool][cache-ref] to store and load any files or
-C++ libraries that you want to reuse between jobs.
+You can use Semaphore's [cache tool](https://docs.semaphoreci.com/article/54-toolbox-reference#cache)
+to store and load any files or C++ libraries that you want to reuse between jobs.
 
 ## System dependencies
 
@@ -72,9 +72,9 @@ file using two different versions of the g++ C++ compiler:
 	  machine:
 	    type: e1-standard-2
 	    os_image: ubuntu1804
-
+    
 	blocks:
-	  - name: Compile C++ code
+	  - name: Compile and run C++ code
 	    task:
 	      jobs:
 	      - name: Hello World!
@@ -82,21 +82,22 @@ file using two different versions of the g++ C++ compiler:
 	          - checkout
 	          - g++ hw.cpp -o hw_4
 	          - ./hw_4
-	          - sudo update-alternatives --set gcc "/usr/bin/gcc-8"
+	          - sem-version cpp 8
 	          - g++ hw.cpp -o hw_8
 	          - ./hw_8
 	          - ls -l hw_4 hw_8
 
 The contents of the `hw.cpp` file are as follows:
 
-	#include <iostream>
-	using namespace std;
+<pre><code class="language-c++">#include < iostream >
+using namespace std;
 
-	int main()
-	{
-	    cout << "Hello, World!\n";
-	    return 0;
-	}
+int main()
+{
+    cout << "Hello, World!\n";
+    return 0;
+}
+</code></pre>
 
 ## See Also
 
@@ -105,5 +106,3 @@ The contents of the `hw.cpp` file are as follows:
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 * [update-alternatives man page](http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html)
-
-[cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
