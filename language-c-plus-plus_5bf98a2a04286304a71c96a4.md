@@ -36,7 +36,7 @@ The following Semaphore 2.0 project selects two different versions of g++:
 	    os_image: ubuntu1804
     
 	blocks:
-	  - name: Change G++ version
+	  - name: Change g++ version
 	    task:
 	      jobs:
 	      - name: Select g++ version 6
@@ -74,7 +74,7 @@ file using two different versions of the g++ C++ compiler:
 	    os_image: ubuntu1804
     
 	blocks:
-	  - name: Compile C++ code
+	  - name: Compile and run C++ code
 	    task:
 	      jobs:
 	      - name: Hello World!
