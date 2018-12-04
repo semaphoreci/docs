@@ -5,8 +5,8 @@
 
 ## Overview
 
-This document illustrates the use of the `matrix` property using C and C code
-as an example.
+This document illustrates the use of the `matrix` property using the C compiler
+and C code as an example.
 
 ## A sample Semaphore project
 
