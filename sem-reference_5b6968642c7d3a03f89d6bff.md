@@ -675,6 +675,32 @@ The aforementioned command creates a job named `On Demand Job` that will be
 added to the `S2` Semaphore 2.0 project. The command that will be executed by
 this job is `go version`.
 
+### One-off job creation
+
+    sem create -f /tmp/aJob.yml
+
+The aforementioned command creates a new job based on the contents of
+`/tmp/aJob.yml`, which are as follows:
+
+	apiVersion: v1alpha
+	kind: Job
+	metadata:
+	  name: A new job
+	spec:
+	  files: []
+	  envvars: []
+	  secrets: []
+	  commands:
+	    - go version
+	  project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+
+The value of `project_id` must be valid or the `sem create -f` command will
+fail.
+
+The output of the `sem create -f` command looks as follows:
+
+    Job '686b3ed4-be56-4e95-beee-b3bbcc3981b3' created.
+
 ### sem create secret with files
 
 Imagine that you have two files that are located at `/etc/hosts` and
