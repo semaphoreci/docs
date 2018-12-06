@@ -56,8 +56,12 @@ Fortunately, the downloaded package has no dependencies.
 
 Note that the current version of the Semaphore VM uses Ubuntu **bionic**.
 
+Last, the value of the `SEMAPHORE_WORKFLOW_ID` environment variable remains the
+same during a pipeline run and is available in all the blocks of a pipeline.
+
 ## See also
 
 * [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+* [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+* [Environment variables](https://docs.semaphoreci.com/article/12-environment-variables)
