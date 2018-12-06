@@ -308,10 +308,11 @@ part of an existing pipeline. You will need to provide `sem create -f` a valid
 YAML file as described in the
 [Jobs YAML Reference page](https://docs.semaphoreci.com/article/74-jobs-yaml-reference).
 
-This can be very useful for checking things out like compiler versions and
-package availability before adding a command into a big and slow pipeline.
+This can be very useful for checking out things like compiler versions and
+package availability before adding a command into a bigger and slower pipeline.
 
 When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
+The only way to see the results of such a job is with the `sem logs` command.
 
 ### sem attach
 
@@ -398,11 +399,21 @@ There is a quick way to create a job and executing it right way:
 
     sem create job [name] --project [existing project name] --command "[Valid command]"
 
-You will need to provide the name of an existing project as well as a valid
-command that can be executed in the Virtual Machine. The output of the
-aforementioned command is a Job ID.
+You will need to provide the name of an existing Semaphore 2.0 project as well
+as a valid command that can be executed in the Virtual Machine. The output of
+the aforementioned command is a Job ID. The only way to see the results of such
+a job is with the `sem logs` command.
 
-The only way to see the results of such a job is with the `sem logs` command.
+This way has certain limitations:
+
+* You cannot define new environment variables.
+* You cannot use any existing `secrets`.
+* You cannot redefine the properties of the `agent` property.
+* You cannot easily use multiple commands in the `--command` flag.
+
+If you find that you are restricted by the limitations of `sem create job [name] ...`
+you can use the `sem create -f` command described
+[here](https://docs.semaphoreci.com/article/53-sem-reference#creating-one-off-jobs).
 
 ### sem stop
 
