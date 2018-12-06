@@ -412,7 +412,7 @@ This way has certain limitations:
 * You cannot easily use multiple commands in the `--command` flag.
 
 If you find that you are restricted by the limitations of `sem create job [name] ...`
-you can use the `sem create -f` command described
+you can always use the `sem create -f` command described
 [here](https://docs.semaphoreci.com/article/53-sem-reference#creating-one-off-jobs).
 
 ### sem stop
