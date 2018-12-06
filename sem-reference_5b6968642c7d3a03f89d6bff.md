@@ -303,11 +303,13 @@ The `sem stop` command allows you to stop a running job or entire pipeline.
 
 ### Creating one-off jobs
 
-You can use `sem create -f` to create a one-off job that runs without
-being part of an existing pipeline.
+You can use `sem create -f` to create a one-off job that runs without being
+part of an existing pipeline. You will need to provide `sem create -f` a valid
+YAML file as described in the
+[Jobs YAML Reference page](https://docs.semaphoreci.com/article/74-jobs-yaml-reference).
 
 This can be very useful for checking things out like compiler versions and
-package availability before adding a command into a pipeline.
+package availability before adding a command into a big and slow pipeline.
 
 When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
 
