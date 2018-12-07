@@ -1,38 +1,44 @@
-In Semaphore 2.0 organizations there are no limitations in number of members and there are different permissions based on your role.
+Semaphore organizations can have unlimited members. Members have different permissions based on their role.
 
 ## Owner
 
-Only the creator of the organization can be its Owner. There cannot be multiple owners, but it is possible to transfer the ownership if it's needed. In order to do that, please contact us at [support@semaphoreci.com](mailto:support@semaphoreci.com).
+The creator of organization is its owner. There cannot be multiple owners, but it is possible to transfer the ownership. In order to do that, please [contact support](mailto:support@semaphoreci.com).
 
-Projects:
+### Project permissions
 
-The Owner can:
+Owner can:
 
-- See all projects
-- Add projects, if they have admin access for a particular repository on GitHub
-- Delete projects
+- See all projects;
+- Add projects, if they have admin access to the repository on GitHub;
+- Delete projects.
 
-The Owner has the access to the Owner's area, which includes:
+### Owner's area
 
-1. _People_
+Owner also has access to the Owner's area, which includes:
 
-- **Add new members to the organization**. Members can be invited by their GitHub username. New members will be able to enter the organization the first time they sign in with their GitHub accounts. _Note_: If you want someone to have access to a project on Semaphore you need to add this person to project on Github, and then add him as a member to a Semaphore on `ORG.semaphoreci.com/people` page.
-- **Remove members from the organization**. Upon removal, their access to all projects in this organization will be revoked. Please note that this won't change their permissions on GitHub.
+#### People management
 
-2. _Billing_
+Owners can:
 
-Owner can see the billing section and perform changes, such as enter credit card information, see the current spending, edit invoice related information etc. For more info on billing, here. (link to billing docs)
+- **Add new members to organization**. Members can be invited by their GitHub username. New members will be able to enter the organization the first time they sign in with their GitHub accounts. _Note_: If you want someone to have access to a project on Semaphore, you first need to give this person access to the repository on GitHub, and then add them as a member to Semaphore on `ORG.semaphoreci.com/people` page.
+- **Remove members from organization**. Upon removal, their access to all projects in the organization will be revoked. Please note that this won't change their permissions on GitHub.
 
-3. _Settings_
+#### Billing management
 
-Owner can change the name of the organization. However, organization's ID (unique URL) can be set up only upon the creation of org, and cannot be changed later.
+Owner can see the billing section and perform changes, such as enter credit card information, see the current spending, and edit invoice related information.
+
+#### Organization settings
+
+Owner can change the name of the organization. Note that this will not change the ID and unique URL of the organization.
 
 ## Members
 
-Members cannot see the Owner’s area.
+Members can't access the Owner’s area.
 
-Projects:
+### Project permissions
 
-- Can see projects they can see on GitHub
-- Add projects to Semaphore 2.0, if they have admin access for a particular repository on GitHub
-- Delete their own projects
+Members can:
+
+- See all projects they can see on GitHub;
+- Add projects to Semaphore, if they have admin access to a particular repository on GitHub;
+- Delete the projects they created.
