@@ -23,7 +23,6 @@
   * [sem logs](#sem-logs)
   * [sem port-forward](#sem-port-forward)
   * [sem debug for jobs](#sem-debug-for-jobs)
-  * [On demand job creation](#on-demand-job-creation)
   * [sem stop](#sem-stop)
 * [Working with projects](#working-with-projects)
   * [sem init](#sem-init)
@@ -393,27 +392,6 @@ You can define the time duration using numeric values in the `XXhYYmZZs` format
 using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
 or even as `60m`.
 
-### On demand job creation
-
-There is a quick way to create a job and executing it right way:
-
-    sem create job [name] --project [existing project name] --command "[Valid command]"
-
-You will need to provide the name of an existing Semaphore 2.0 project as well
-as a valid command that can be executed in the Virtual Machine. The output of
-the aforementioned command is a Job ID. The only way to see the results of such
-a job is with the `sem logs` command.
-
-This way has certain limitations:
-
-* You cannot define new environment variables.
-* You cannot use any existing `secrets`.
-* You cannot redefine the properties of the `agent` property.
-* You cannot easily use multiple commands in the `--command` flag.
-
-If you find that you are restricted by the limitations of `sem create job [name] ...`
-you can always use the `sem create -f` command described [here](#creating-one-off-jobs).
-
 ### sem stop
 
 You can stop a running job or pipeline with `sem stop`:
@@ -666,14 +644,6 @@ be called `my-dashboard`:
 
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
-
-### On demand job creation
-
-    sem create job "On Demand Job" --project S2 --command "go version"
-
-The aforementioned command creates a job named `On Demand Job` that will be
-added to the `S2` Semaphore 2.0 project. The command that will be executed by
-this job is `go version`.
 
 ### One-off job creation
 
