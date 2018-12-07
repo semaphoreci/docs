@@ -1,14 +1,15 @@
 In Semaphore 2.0 organizations there are no limitations in number of members and there are different permissions based on your role.
 
 ## Owner
-On Semaphore 2.0, only the creator of the organization can be its Owner. There cannot be multiple owners, but it is possible to transfer the ownership if it's needed. In order to do that, please contact us at [support@semaphoreci.com](mailto:support@semaphoreci.com).
+
+Only the creator of the organization can be its Owner. There cannot be multiple owners, but it is possible to transfer the ownership if it's needed. In order to do that, please contact us at [support@semaphoreci.com](mailto:support@semaphoreci.com).
 
 Projects:
 
 The Owner can:
 
 - See all projects
-- Add projects to Semaphore 2.0, if they have admin access for a particular repository on GitHub
+- Add projects, if they have admin access for a particular repository on GitHub
 - Delete projects
 
 The Owner has the access to the Owner's area, which includes:
