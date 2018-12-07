@@ -31,6 +31,7 @@ Owner can change the name of the organization. However, organization's ID (uniqu
 Members cannot see the Owner’s area.
 
 Projects:
+
 - Can see projects they can see on GitHub
 - Add projects to Semaphore 2.0, if they have admin access for a particular repository on GitHub
 - Delete their own projects
