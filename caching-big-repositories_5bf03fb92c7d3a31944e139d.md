@@ -6,11 +6,13 @@
 
 ## Overview
 
-Imagine that you have one or multiple large files on a GitHub repository and
-you want to make the downloading of them as fast as possible.
+This guide shows you how to cache a large Git repository and avoid cloning it
+from scratch in every block.
 
 Note that for this recipe to work, the files of the GitHub repository should
-remain intact through the lifetime of the Semaphore project.
+remain intact during the execution of the pipeline or you will end up having
+a different version of the files in the GitHub repository and in the Semaphore
+Cache server.
 
 ## The logic behind the recipe
 
