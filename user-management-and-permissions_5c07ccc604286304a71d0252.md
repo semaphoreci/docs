@@ -39,6 +39,6 @@ Members can't access the Owner’s area.
 
 Members can:
 
-- Can see all projects they can see on GitHub;
+- See all projects they can see on GitHub;
 - Add projects to Semaphore, if they have admin access to a particular repository on GitHub;
 - Delete the projects they created.
