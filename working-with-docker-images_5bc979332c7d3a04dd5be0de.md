@@ -1,4 +1,5 @@
 * [Overview](#overview)
+* [Hello world](#hello-world)
 * [Using a public Docker image in CI/CD jobs](#using-a-public-docker-image-in-ci-cd-jobs)
 * [Using a Docker image from a private registry](#using-a-docker-image-from-a-private-registry)
 * [Building a Docker image from a Dockerfile](#building-a-docker-image-from-a-dockerfile)
@@ -12,8 +13,29 @@
 Semaphore CI/CD jobs can run and build Docker images, and can also push images
 to Docker repositories or other remote storage.
 
-Docker CLI is [preinstalled](ubuntu-vm) on Semaphore 2.0 VMs, which means that
-you can use Docker right away.
+Docker CLI is [preinstalled](ubuntu-vm) on Semaphore VMs, so you can use Docker
+right away.
+
+## Hello world
+
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
+version: v1.0
+name: Hello Docker
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "Build"
+    task:
+      jobs:
+      - name: Docker build
+        commands:
+          - checkout
+          - docker build -t awesome-image .
+          - docker images
+</code></pre>
 
 ## Using a public Docker image in CI/CD jobs
 
