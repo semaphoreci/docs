@@ -2,17 +2,13 @@
 * [Overview](#overview)
 * [The logic behind the recipe](#the-logic-behind-the-recipe)
 * [An example project](#an-example-project)
+* [What to expect from this optimization](#what-to-expect-from-this-optimization)
 * [See Also](#see-also)
 
 ## Overview
 
 This guide shows you how to cache a large Git repository and avoid cloning it
 from scratch in every block.
-
-Note that for this recipe to work, the files of the GitHub repository should
-remain intact during the execution of the pipeline or you will end up having
-a different version of the files in the GitHub repository and in the Semaphore
-Cache server.
 
 ## The logic behind the recipe
 
@@ -21,6 +17,10 @@ repository in the first job using `checkout` and then is storing them into the
 Semaphore 2.0 Cache server using `cache store`. The remaining jobs of the
 project will use these files from the Cache server using `cache restore`
 without calling `checkout` again.
+
+Please note that any changes you make to the files that are stored in Semaphore
+Cache servers during the execution of the pipeline will not get automatically
+propagated to GitHub servers.
 
 ## An example project
 
@@ -43,61 +43,77 @@ gets updated each time you make changes to the GitHub repository.
 
 The `semaphore.yml` file for the example project will be the following:
 
-	version: v1.0
-	name: Recipe of Caching Big Repositories
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
+    version: v1.0
+    name: Recipe of Caching Big Repositories
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
     
-	blocks:
-	  - name: Reuse GitHub repository
-	    task:
-	      jobs:
-	      - name: Cache GitHub repository
-	        commands:
-	          - checkout
-	          - cd ..
-	          - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
+    blocks:
+      - name: Reuse GitHub repository
+        task:
+          jobs:
+          - name: Cache GitHub repository
+            commands:
+              - checkout
+              - cd ..
+              - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
     
-	  - name: Task 2 - Single Job
-	    task:
-	      jobs:
-	      - name: Use Cache - Job 1
-	        commands:
-	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	          - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+      - name: Block item 2 - Single Job
+        task:
+          jobs:
+          - name: Use Cache - Job 1
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
     
-	  - name: Task 3 - Single Job
-	    task:
-	      jobs:
-	      - name: Use Cache - Job 2
-	        commands:
-	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	          - ls -al "$SEMAPHORE_PROJECT_NAME"
-	          - du -k -s
+      - name: Block item 3 - Single Job
+        task:
+          jobs:
+          - name: Use Cache - Job 2
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - ls -al "$SEMAPHORE_PROJECT_NAME"
+              - du -k -s
     
-	  - name: Task 4 - Two jobs
-	    task:
-	      jobs:
-	      - name: Use Cache - Job 3
-	        commands:
-	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	          - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+      - name: Block item 4 - Two jobs
+        task:
+          jobs:
+          - name: Use Cache - Job 3
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
     
-	      - name: Use Cache - Job 4
-	        commands:
-	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	          - du -k -s
+          - name: Use Cache - Job 4
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - du -k -s
     
-	  - name: Task 5 - Single Job
-	    task:
-	      jobs:
-	      - name: Use Cache - Job 5
-	        commands:
-	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-	          - ls -al "$SEMAPHORE_PROJECT_NAME"
-	          - du -k -s
+      - name: Block item 5 - Single Job
+        task:
+          jobs:
+          - name: Use Cache - Job 5
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - ls -al "$SEMAPHORE_PROJECT_NAME"
+              - du -k -s
+    
+      - name: Block item 6 - Single Job
+        task:
+          jobs:
+          - name: Use Cache - Job 6
+            commands:
+              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+              - du -k -s
+
+## What to expect from this optimization
+
+* Using the Semaphore Cache server instead of GitHub servers will improve
+    stability.
+* Using the Semaphore Cache server instead of GitHub servers via `checkout`
+    will reduce the total number of seconds all jobs in a pipeline combined
+	spent, which will also reduce the price.
 
 ## See Also
 
