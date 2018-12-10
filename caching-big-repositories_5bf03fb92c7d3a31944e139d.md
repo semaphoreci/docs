@@ -112,10 +112,10 @@ promotions can get executed even if one or more `jobs` of a pipeline fail.
 ## What to expect from this optimization
 
 * Using the Semaphore Cache server instead of GitHub servers will improve
-    stability.
+    the stability of the project.
 * Using the Semaphore Cache server instead of GitHub servers via `checkout`
-    will reduce the total number of seconds all jobs in a pipeline combined
-	spent, which will also reduce the price.
+    will reduce the execution time of the jobs of the pipeline, which will also
+	reduce the price.
 
 ## See Also
 
