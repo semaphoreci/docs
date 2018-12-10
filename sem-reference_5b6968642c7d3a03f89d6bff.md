@@ -23,7 +23,6 @@
   * [sem logs](#sem-logs)
   * [sem port-forward](#sem-port-forward)
   * [sem debug for jobs](#sem-debug-for-jobs)
-  * [On demand job creation](#on-demand-job-creation)
   * [sem stop](#sem-stop)
 * [Working with projects](#working-with-projects)
   * [sem init](#sem-init)
@@ -303,13 +302,16 @@ The `sem stop` command allows you to stop a running job or entire pipeline.
 
 ### Creating one-off jobs
 
-You can use `sem create -f` to create a one-off job that runs without
-being part of an existing pipeline.
+You can use `sem create -f` to create a one-off job that runs without being
+part of an existing pipeline. You will need to provide `sem create -f` a valid
+YAML file as described in the
+[Jobs YAML Reference page](https://docs.semaphoreci.com/article/74-jobs-yaml-reference).
 
-This can be very useful for checking things out like compiler versions and
-package availability before adding a command into a pipeline.
+This can be very useful for checking out things like compiler versions and
+package availability before adding a command into a bigger and slower pipeline.
 
 When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
+The only way to see the results of such a job is with the `sem logs` command.
 
 ### sem attach
 
@@ -389,18 +391,6 @@ command.
 You can define the time duration using numeric values in the `XXhYYmZZs` format
 using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
 or even as `60m`.
-
-### On demand job creation
-
-There is a quick way to create a job and executing it right way:
-
-    sem create job [name] --project [existing project name] --command "[Valid command]"
-
-You will need to provide the name of an existing project as well as a valid
-command that can be executed in the Virtual Machine. The output of the
-aforementioned command is a Job ID.
-
-The only way to see the results of such a job is with the `sem logs` command.
 
 ### sem stop
 
@@ -655,13 +645,31 @@ be called `my-dashboard`:
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
 
-### On demand job creation
+### One-off job creation
 
-    sem create job "On Demand Job" --project S2 --command "go version"
+    sem create -f /tmp/aJob.yml
 
-The aforementioned command creates a job named `On Demand Job` that will be
-added to the `S2` Semaphore 2.0 project. The command that will be executed by
-this job is `go version`.
+The aforementioned command creates a new job based on the contents of
+`/tmp/aJob.yml`, which are as follows:
+
+	apiVersion: v1alpha
+	kind: Job
+	metadata:
+	  name: A new job
+	spec:
+	  files: []
+	  envvars: []
+	  secrets: []
+	  commands:
+	    - go version
+	  project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+
+The value of `project_id` must be valid or the `sem create -f` command will
+fail.
+
+The output of the `sem create -f` command looks as follows:
+
+    Job '686b3ed4-be56-4e95-beee-b3bbcc3981b3' created.
 
 ### sem create secret with files
 
