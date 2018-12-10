@@ -43,69 +43,71 @@ gets updated each time you make changes to the GitHub repository.
 
 The `semaphore.yml` file for the example project will be the following:
 
-    version: v1.0
-    name: Recipe of Caching Big Repositories
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
+	version: v1.0
+	name: Recipe of Caching Big Repositories
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
     
-    blocks:
-      - name: Reuse GitHub repository
-        task:
-          jobs:
-          - name: Cache GitHub repository
-            commands:
-              - checkout
-              - cd ..
-              - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
+	promotions:
+	- name: Cleanup
+	  pipeline_file: cleanup.yml
+	  auto_promote_on:
+	    - result: passed
+	    - result: failed
     
-      - name: Block item 2 - Single Job
-        task:
-          jobs:
-          - name: Use Cache - Job 1
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+	blocks:
+	  - name: Reuse GitHub repository
+	    task:
+	      jobs:
+	      - name: Cache GitHub repository
+	        commands:
+	          - checkout
+	          - cd ..
+	          - cache store "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA" $SEMAPHORE_PROJECT_NAME
     
-      - name: Block item 3 - Single Job
-        task:
-          jobs:
-          - name: Use Cache - Job 2
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - ls -al "$SEMAPHORE_PROJECT_NAME"
-              - du -k -s
+	  - name: Block item 2 - Two Jobs
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 1
+	        commands:
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+	      - name: Use Cache - Job 2
+	        commands:
+	          - du -k -s
+	      prologue:
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
     
-      - name: Block item 4 - Two jobs
-        task:
-          jobs:
-          - name: Use Cache - Job 3
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - ls -al "$SEMAPHORE_PROJECT_NAME"/FILES
+	  - name: Block item 3 - Single Job
+	    task:
+	      jobs:
+	      - name: Use Cache - Job 2
+	        commands:
+	          - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+	          - ls -al "$SEMAPHORE_PROJECT_NAME"
+	          - du -k -s
+
+The contents of `.semaphore/cleanup.yml` are as follows:
+
+	version: v1.0
+	name: Cleanup cache
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
     
-          - name: Use Cache - Job 4
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - du -k -s
-    
-      - name: Block item 5 - Single Job
-        task:
-          jobs:
-          - name: Use Cache - Job 5
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - ls -al "$SEMAPHORE_PROJECT_NAME"
-              - du -k -s
-    
-      - name: Block item 6 - Single Job
-        task:
-          jobs:
-          - name: Use Cache - Job 6
-            commands:
-              - cache restore "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
-              - du -k -s
+	blocks:
+	  - name: Cache delete
+	    task:
+	      jobs:
+	      - name: Delete key from cache
+	        commands:
+	          - cache delete "$SEMAPHORE_PROJECT_NAME-$SEMAPHORE_GIT_SHA"
+
+The main reason for using a promotion to clean up the Cache server is that
+promotions can get executed even if one or more `jobs` of a pipeline fail.
 
 ## What to expect from this optimization
 
