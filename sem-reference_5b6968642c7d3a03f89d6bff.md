@@ -212,7 +212,6 @@ execute the next command:
 
     sem context tsoukalos_semaphoreci_com
 
-
 ## Working with resources
 
 This group of `sem` commands includes the five most commonly and frequently
@@ -324,6 +323,20 @@ favorite text editor.
 
 The `sem edit` command does not support the `job` and `project` resource types.
 
+### sem edit example
+
+The following command will edit an existing `secret` that is named `my-secret`
+and will automatically run your favorite text editor:
+
+    sem edit secret my-secret
+
+What you are going to see on your screen is the YAML representation of the
+`my-secret` secret.
+
+Similarly, the next command will edit a `dashboard` named `my-activity`:
+
+    sem edit dashboard my-activity
+
 ### sem get
 
 The `sem get` command can do two things. First, it can return a list of items
@@ -344,7 +357,7 @@ In the second case, `sem get` should be used as follows:
 In the case of a `job` resource, you should give the Job ID of the job that
 interests you and not its name.
 
-### sem get example
+### sem get examples
 
 As the `sem get` command works with resources, you will need to specify a
 resource type when issuing a `sem get` command all the time.
@@ -396,6 +409,22 @@ The `sem apply` command works for `secrets` and `dashboards` and allows you to
 update the contents of an existing `secret` or `dashboard` using an external
 `secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
+
+### sem apply example
+
+The following command will update the `my-secret` secret according to the
+contents of the `aFile`, which should be a valid `secrets` YAML file:
+
+    sem apply -f aFile
+
+If everything is OK with `aFile`, the output of the previous command will be as
+follows:
+
+    Secret 'my-secrets' updated.
+
+This means that the `my-secrets` secret was updated successfully.
+
+You can also use `sem apply -f` in a similar way to update an existing dashboard.
 
 ### sem delete
 
@@ -510,6 +539,17 @@ The `sem attach` command might be a better choice than `sem debug job` while a
 job is running because you can see what is happening in real time.
 `sem debug job` is better when a job has finished.
 
+### sem attach example
+
+The `sem attach` command requires the *Job ID* of a **running** job as its single
+parameter. So, the following command will connect to the VM of the job with Job
+ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
+
+    sem attach 6ed18e81-0541-4873-93e3-61025af0363b
+
+The job with the given Job ID must be in running state at the time of
+execution of `sem attach`.
+
 ### sem logs
 
 The `sem logs` command allows you to see the log entries of a job, which is
@@ -580,6 +620,37 @@ GitHub repository with the actual branch.
 
 The `sem debug job` command is ideal for debugging jobs that are finished.
 
+### sem debug job example
+
+The first time you execute `sem debug job`, you are going to get an output
+similar to the following:
+
+```
+$ sem debug job 415b252c-b2b2-4ced-96ea-f8268d365d96
+error: Public SSH key for debugging is not configured.
+
+Before creating a debug session job, configure the debug.PublicSshKey value.
+
+Examples:
+
+  # Configuring public ssh key with a literal
+  sem config set debug.PublicSshKey "ssh-rsa AX3....DD"
+
+  # Configuring public ssh key with a file
+  sem config set debug.PublicSshKey "$(cat ~/.ssh/id_rsa.pub)"
+
+  # Configuring public ssh key with your GitHub keys
+  sem config set debug.PublicSshKey "$(curl -s https://github.com/<username>.keys)"
+```
+
+What this output tells us is that we need to configure our Public SSH key
+before using `sem debug job` for the first time – you can choose any one of
+the three proposed ways.
+
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
+
 #### The --duration flag
 
 By default the SSH session of a `sem debug` command is limited to **one hour**.
@@ -599,6 +670,18 @@ You can stop a running job or pipeline with `sem stop`:
 If you are executing `sem stop job`, you will need to provide an `ID` of a
 running job. If you are executing `sem stop pipeline`, you will need
 to provide an `ID` of a running pipeline.
+
+### sem stop example
+
+The following command will stop the `job` with a Job ID of
+`0ae14ece-17b1-428d-99bd-5ec6b04494e9`:
+
+    sem stop job 0ae14ece-17b1-428d-99bd-5ec6b04494e9
+
+The following command will stop the `pipeline` with a Pipeline ID of
+`ea3e6bba-d19a-45d7-86a0-e78a2301b616`:
+
+    sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
 
 ## Working with projects
 
@@ -648,6 +731,16 @@ GitHub repository of the Semaphore 2.0 project.
 The projects that are created using the `sem debug project` command support the
 `--duration` parameter for specifying the timeout period of the project.
 
+### sem debug project example
+
+You can debug a project named `docker-push` by executing the following command:
+
+    sem debug project docker-push
+
+You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
+to pass.
+
 #### The --duration flag
 
 By default the SSH session of a `sem debug` command is limited to **one hour**.
@@ -657,6 +750,46 @@ command.
 You can define the time duration using numeric values in the `XXhYYmZZs` format
 using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
 or even as `60m`.
+
+### The --duration flag example
+
+The next command specifies that the SSH session for the `deployment` project
+will time out in 2 minutes:
+
+    sem debug project deployment --duration 2m
+
+The next command specifies that the SSH session for the `job` with JOB ID
+`d7caf99e-de65-4dbb-ad63-91829bc8a693` will time out in 2 hours:
+
+    sem debug job d7caf99e-de65-4dbb-ad63-91829bc8a693 --duration 2h
+
+Last, the following command specifies that the SSH session of the `deployment`
+project will time out in 20 minutes and 10 seconds:
+
+    sem debug project deployment --duration 20m10s
+
+### sem init example
+
+As `sem init` can be used without any command line arguments, you can execute
+it as follows from the root directory of a GitHub repository that resides on
+your local machine:
+
+    sem init
+
+If a `.semaphore/semaphore.yml` file already exists in the root directory of a
+GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
+and continue its operation. If there is no `.semaphore/semaphore.yml` file,
+`sem init` will create one.
+
+If you decide to use `--project-name`, then you can call `sem init` as follows:
+
+    sem init --project-name my-own-name
+
+The previous command creates a new Semaphore 2.0 project that will be called
+`my-own-name`.
+
+Using `--repo-url` with `sem init` is much trickier because you should know
+what you are doing.
 
 ## Working with notifications
 
