@@ -35,7 +35,6 @@
   * [Delete a notification](#delete-a-notification)
 * [Help commands](#help-commands)
 * [Flags](#flags)
-* [Examples](#examples)
 * [Command aliases](#command-aliases)
 * [See also](#see-also)
 
