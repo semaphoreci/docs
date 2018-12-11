@@ -177,7 +177,7 @@ Once you connect to an organization, you do not need to execute `sem connect`
 for connecting to that organization again – you can connect to any
 organization that you are already a member of using the `sem context` command.
 
-### sem connect example
+#### sem connect example
 
 The `sem connect` command should be executed as follows:
 
@@ -195,7 +195,7 @@ connected to with the `sem` utility. When used with a command line argument,
 which should be a valid organization name the active user belongs to,
 `sem context` will change the active organization to the given one.
 
-### sem context example
+#### sem context example
 
 The next command will just list all the organizations the connected user
 belongs to:
@@ -240,7 +240,7 @@ the [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-refe
 and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 pages of the Semaphore 2.0 documentation.
 
-### sem create example
+#### sem create examples
 
 If you have a valid secret, dashboard or project YAML file stored at
 `/tmp/valid.yaml`, you should execute the next command in order to add that
@@ -278,7 +278,7 @@ After that you can edit, delete or use that new `secret` as usual.
 The only downside of this method is that after creating a `secret` you can only
 add more environment variables and files by editing the `secret`.
 
-#### sem create secret with files example
+##### sem create secret with files example
 
 Imagine that you have two files that are located at `/etc/hosts` and
 `/home/rtext/docker-secrets` that you want to add to a secret. Although you
@@ -323,7 +323,7 @@ favorite text editor.
 
 The `sem edit` command does not support the `job` and `project` resource types.
 
-### sem edit example
+#### sem edit examples
 
 The following command will edit an existing `secret` that is named `my-secret`
 and will automatically run your favorite text editor:
@@ -357,7 +357,7 @@ In the second case, `sem get` should be used as follows:
 In the case of a `job` resource, you should give the Job ID of the job that
 interests you and not its name.
 
-### sem get examples
+#### sem get examples
 
 As the `sem get` command works with resources, you will need to specify a
 resource type when issuing a `sem get` command all the time.
@@ -410,7 +410,7 @@ update the contents of an existing `secret` or `dashboard` using an external
 `secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
 
-### sem apply example
+#### sem apply example
 
 The following command will update the `my-secret` secret according to the
 contents of the `aFile`, which should be a valid `secrets` YAML file:
@@ -440,7 +440,7 @@ deleted from the active organization of the active user.
 
 Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 
-### sem delete example
+#### sem delete example
 
 In order to delete an existing project named `be-careful` from the current
 organization, you should execute the next command:
@@ -487,7 +487,7 @@ package availability before adding a command into a bigger and slower pipeline.
 When a job is created this way, it cannot be viewed in the UI of Semaphore 2.0.
 The only way to see the results of such a job is with the `sem logs` command.
 
-### One-off job creation example
+#### One-off job creation example
 
     sem create -f /tmp/aJob.yml
 
@@ -539,7 +539,7 @@ The `sem attach` command might be a better choice than `sem debug job` while a
 job is running because you can see what is happening in real time.
 `sem debug job` is better when a job has finished.
 
-### sem attach example
+#### sem attach example
 
 The `sem attach` command requires the *Job ID* of a **running** job as its single
 parameter. So, the following command will connect to the VM of the job with Job
@@ -557,7 +557,7 @@ specified by its Job ID.
 
 The `sem logs` command works with both finished and running jobs.
 
-### sem logs example
+#### sem logs example
 
 The `sem logs` command requires the *Job ID* of a job as its parameter:
 
@@ -584,7 +584,7 @@ the remote TCP port number, which is defined in the Virtual Machine (VM).
 
 The `sem port-forward` command works with running jobs only.
 
-### sem port-forward example
+#### sem port-forward example
 
 The `sem port-forward` command is executed as follows:
 
@@ -620,7 +620,7 @@ GitHub repository with the actual branch.
 
 The `sem debug job` command is ideal for debugging jobs that are finished.
 
-### sem debug job example
+#### sem debug job example
 
 The first time you execute `sem debug job`, you are going to get an output
 similar to the following:
@@ -671,7 +671,7 @@ If you are executing `sem stop job`, you will need to provide an `ID` of a
 running job. If you are executing `sem stop pipeline`, you will need
 to provide an `ID` of a running pipeline.
 
-### sem stop example
+#### sem stop example
 
 The following command will stop the `job` with a Job ID of
 `0ae14ece-17b1-428d-99bd-5ec6b04494e9`:
@@ -708,6 +708,29 @@ of the Semaphore 2.0 project.
 The `--repo-url` command line option allows you to manually specify the URL of
 the GitHub repository in case `sem init` has difficulties finding that out.
 
+#### sem init example
+
+As `sem init` can be used without any command line arguments, you can execute
+it as follows from the root directory of a GitHub repository that resides on
+your local machine:
+
+    sem init
+
+If a `.semaphore/semaphore.yml` file already exists in the root directory of a
+GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
+and continue its operation. If there is no `.semaphore/semaphore.yml` file,
+`sem init` will create one.
+
+If you decide to use `--project-name`, then you can call `sem init` as follows:
+
+    sem init --project-name my-own-name
+
+The previous command creates a new Semaphore 2.0 project that will be called
+`my-own-name`.
+
+Using `--repo-url` with `sem init` is much trickier because you should know
+what you are doing.
+
 ### sem debug for projects
 
 You can use the `sem debug` command to debug an existing Semaphore 2.0 project.
@@ -731,7 +754,7 @@ GitHub repository of the Semaphore 2.0 project.
 The projects that are created using the `sem debug project` command support the
 `--duration` parameter for specifying the timeout period of the project.
 
-### sem debug project example
+#### sem debug project example
 
 You can debug a project named `docker-push` by executing the following command:
 
@@ -751,7 +774,7 @@ You can define the time duration using numeric values in the `XXhYYmZZs` format
 using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
 or even as `60m`.
 
-### The --duration flag example
+##### The --duration flag example
 
 The next command specifies that the SSH session for the `deployment` project
 will time out in 2 minutes:
@@ -767,29 +790,6 @@ Last, the following command specifies that the SSH session of the `deployment`
 project will time out in 20 minutes and 10 seconds:
 
     sem debug project deployment --duration 20m10s
-
-### sem init example
-
-As `sem init` can be used without any command line arguments, you can execute
-it as follows from the root directory of a GitHub repository that resides on
-your local machine:
-
-    sem init
-
-If a `.semaphore/semaphore.yml` file already exists in the root directory of a
-GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
-and continue its operation. If there is no `.semaphore/semaphore.yml` file,
-`sem init` will create one.
-
-If you decide to use `--project-name`, then you can call `sem init` as follows:
-
-    sem init --project-name my-own-name
-
-The previous command creates a new Semaphore 2.0 project that will be called
-`my-own-name`.
-
-Using `--repo-url` with `sem init` is much trickier because you should know
-what you are doing.
 
 ## Working with notifications
 
@@ -882,7 +882,7 @@ command followed by the `name` of the notification you want to delete.
 
     sem delete notifications [name]
 
-### Working with notifications examples
+#### Working with notifications examples
 
 In this subsection you will find `sem` examples related to notifications.
 
@@ -949,7 +949,7 @@ The `sem help` command returns information about an existing command when it is
 followed by a valid command name. If no command is given as a command line
 argument to `sem help`, a help screen is printed.
 
-### sem help example
+#### sem help example
 
 The output of the `sem help` command is static and identical to the output of
 the `sem` command when executed without any command line arguments.
@@ -967,7 +967,7 @@ In that case, `help` will generate information about the use of the
 The `sem version` command requires no additional command line parameters and
 returns the current version of the `sem` tool.
 
-### sem version example
+#### sem version example
 
 The `sem version` command displays the used version of the `sem` tool. As an
 example, if you are using `sem` version 0.4.1, the output of `sem version`
