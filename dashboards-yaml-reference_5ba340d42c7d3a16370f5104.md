@@ -136,10 +136,11 @@ The supported properties in `filters` for a workflows list are the following:
     of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
     should be an exact match and that there is currently no support for regular expressions
     in the `branch` property.
-* **github_uid** (optional): The `github_uid` property allows you to display workflows
-    that were initiated by the specified GitHub username. There exist a special
-    value for `github_uid`, which is `'{{gitgub_uid}}'` that is automatically
-    expanded to the GitHub username of the current user.
+* **github_uid** (optional): The `github_uid` property allows you to display
+    workflows that were initiated by the GitHub user with the same GitHub user
+	ID as the value of the `github_uid` property. There exists a special value
+	for the `github_uid` property, which is `'{{github_uid}}'`, that is
+	automatically expanded to the GitHub user ID of the current user.
 
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
