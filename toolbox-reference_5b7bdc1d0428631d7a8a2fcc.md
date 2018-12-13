@@ -12,10 +12,9 @@
 
 ## Overview
 
-This document describes additional [open source command line tools][toolbox-repo]
-that are provided by Semaphore and available in all VMs.
-
-[toolbox-repo]: https://github.com/semaphoreci/toolbox
+This document describes additional
+[open source command line tools](https://github.com/semaphoreci/toolbox) that
+are provided by Semaphore and available in all VMs.
 
 ## cache
 
@@ -180,7 +179,6 @@ single argument, a file path, and outputs an `md5` hash.
     $ checksum package.json
     3dc6f33834092c93d26b71f9a35e4bb3
 
-
 ## retry
 
 ### Description
@@ -303,7 +301,7 @@ The following are valid uses of `sem-service`:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-
+    
     blocks:
       - name: Databases
         task:
@@ -318,7 +316,7 @@ The following are valid uses of `sem-service`:
               - mysql --host=0.0.0.0 -uroot -e "create database Project"
               - mysql --host=0.0.0.0 -uroot -e "show databases" | grep Project
               - sem-service status mysql
-
+    
           - name: PostgreSQL
             commands:
               - sem-service start postgres
@@ -326,12 +324,12 @@ The following are valid uses of `sem-service`:
               - createdb -U postgres -h 0.0.0.0 Project
               - psql -h 0.0.0.0 -U postgres -c "\l" | grep Project
               - sem-service status postgres
-
+    
           - name: Redis
             commands:
               - sem-service start redis
               - sem-service status redis
-
+    
           - name: Memcached
             commands:
               - sem-service start memcached
@@ -382,7 +380,7 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-
+    
     blocks:
       - name: sem-version
         task:
@@ -396,3 +394,4 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 ## See also
 
 * [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
