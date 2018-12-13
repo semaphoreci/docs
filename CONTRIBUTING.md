@@ -30,6 +30,8 @@ Unless agreed otherwise, this is the order of priority by label:
 4. [languages][languages-issues]
 5. [use-case][use-case-issues]
 
+If you're an external contributor, it's best to start from no.4.
+
 ## Writing
 
 - Prefer active over passive voice.
