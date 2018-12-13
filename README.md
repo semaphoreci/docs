@@ -1,8 +1,7 @@
 # Semaphore 2.0 Documentation
 
 This is the source content of [Semaphore 2.0 documentation][docs-website], a
-website hosted by Help Scout and continuously deployed from Markdown files in
-this repository.
+website continuously deployed from Markdown files in this repository.
 
 People from Semaphore team are main contributors of content, but we also welcome
 all contributions from product users.  If you find any errors in our docs or
