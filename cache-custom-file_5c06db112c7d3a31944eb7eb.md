@@ -1,7 +1,3 @@
-
-* [A sample Semaphore project](#a-sample-semaphore-project)
-* [See also](#see-also)
-
 This guide shows you how to download one or more files and store them in
 Semaphore cache indefinitely.
 
@@ -24,8 +20,7 @@ blocks:
         - name: Get .deb from cache or create cache
           commands:
             - checkout
-            - cache restore $SEMAPHORE_PROJECT_NAME-deps
-            - "[ -d 'packages' ] && echo 'Found packages in cache' || source .semaphore/get_packages.sh"
+            - source .semaphore/get_packages.sh
             - ls -l packages
 
   - name: Reuse from cache
@@ -40,10 +35,16 @@ blocks:
 The `get_packages.sh` script referenced above has the following content:
 
 ```bash
-cache delete $SEMAPHORE_PROJECT_NAME-deps
-mkdir packages
-wget http://ge.archive.ubuntu.com/ubuntu/pool/universe/e/enscript/enscript_1.6.5.90-3_amd64.deb -O ./packages/enscript.deb
-cache store $SEMAPHORE_PROJECT_NAME-deps packages
+cache restore $SEMAPHORE_PROJECT_NAME-deps
+
+if [ -d 'packages' ]; then
+  echo 'Found packages in cache'
+else
+  mkdir packages
+  wget http://ge.archive.ubuntu.com/ubuntu/pool/universe/e/enscript/enscript_1.6.5.90-3_amd64.deb -O ./packages/enscript.deb
+  # (add more downloads here if needed)
+  cache store $SEMAPHORE_PROJECT_NAME-deps packages
+fi
 ```
 
 In the example above, the deb package will be downloaded from external source
