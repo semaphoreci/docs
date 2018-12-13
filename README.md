@@ -1,61 +1,16 @@
 # Semaphore 2.0 Documentation
 
-## Contributing
+This is the source content of [Semaphore 2.0 documentation][docs-website], a
+website hosted by Help Scout and continuously deployed from Markdown files in
+this repository.
 
-If you'd like to update an existing page, edit the corresponding file
-and submit a pull request.
+People from Semaphore team are main contributors of content, but we also welcome
+all contributions from product users.  If you find any errors in our docs or
+have suggestions, please follow our [Contributing Guide](CONTRIBUTING.md) to
+submit an issue or pull request.
 
-If you'd like to create a new page, create an `.md` file with any name
-and submit a pull request. Someone from the Semaphore team will make
-sure it's published.
-
-## Managing pages
-
-Docs are hosted on Help Scout. Changes are continuously deployed via
-Semaphore to the live website.
-
-The following instructions apply for Semaphore team members with access
-to Help Scout:
-
-### Creating new file
-
-- create a file in HelpScout docs
-  - HelpScout will assign a URL to it which we'll use for next step (`https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`)
-- create file in repository `just-example_5b4699632c7d3a099f2e742a.md`
-  - `5b4699632c7d3a099f2e742a` is `id` of specific article
-  - `just-example` is article's `slug`
-
-### Updating existing files
-
-When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
-[update] every article which meets the following:
-
-- It is in the project root directory
-- It is a markdown file associated with an article in HelpScout Docs
-- It is named in the following form `article-name_21323321.md`.
-  - `21323321` in this example represents `id` of article in HelpScout Docs
-  - `id` is included in the article's URL (`https://secure.helpscout.net/docs/xxxxxxx/article/21323321/`)
+For information on the internal process of managing pages, see
+[README-dev.md](README-dev.md).
 
 
-### Install dependencies
-
-Currently, script depends on [redcarpet] gem.
-It can be installed with the following command
-
-```
-gem install redcarpet
-```
-
-### Set up secret
-
-- `cp docs_secrets.yml.example docs_secrets.yml`
-- update this file with your HelpScout Docs API Key
-
-### Set up project on Semaphore
-
-- add project to an org with `sem`
-- propagate secret to Semaphore with `sem`
-
-[HelpScout Docs token]: https://developer.helpscout.com/docs-api/
-[redcarpet]: https://github.com/vmg/redcarpet
-[update]: https://developer.helpscout.com/docs-api/articles/update/
+[docs-website]: https://docs.semaphoreci.com
