@@ -12,10 +12,9 @@
 
 ## Overview
 
-This document describes additional [open source command line tools][toolbox-repo]
-that are provided by Semaphore and available in all VMs.
-
-[toolbox-repo]: https://github.com/semaphoreci/toolbox
+This document describes additional
+[open source command line tools](https://github.com/semaphoreci/toolbox) that
+are provided by Semaphore and available in all VMs.
 
 ## cache
 
@@ -180,7 +179,6 @@ single argument, a file path, and outputs an `md5` hash.
     $ checksum package.json
     3dc6f33834092c93d26b71f9a35e4bb3
 
-
 ## retry
 
 ### Description
@@ -236,23 +234,48 @@ The `sem-service` script is a utility for starting, stopping and getting the
 status of background services. Started services will listen on 0.0.0.0 and
 their default port. The 0.0.0.0 IP address includes all available network
 interfaces. Essentially, you will be using services as if they were natively
-installed in the OS.
+installed in the Operating System.
 
 ### Command Line Parameters
 
 The general form of a `sem-service` command is as follows:
 
-    sem-service start [mysql | postgres | redis | memcached]
+    sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearch] [version]
 
-Therefore, each `sem-service` command requires two parameters: the first one is
-the task you want to perform and the second parameter is the name of the service
-that will be used for the task.
+Therefore, each `sem-service` command requires at least two parameters: the
+first one is the task you want to perform and the second parameter is the name
+of the service that will be used for the task. The third parameter is optional
+and is the version of the service that you want to start. If no `version` value
+is given, a default value will be used according to the following list:
+
+* mysql: The default value is `5.6`
+* postgres: The default value is `9.6`
+* redis: The default value is `4`
+* memcached: The default value is `1.5`
+* mongodb: The default value is `4.1`
+* elasticsearch: The default value is `6.5.1`
+
+`sem-service` pulls images from Docker Hub and supports all versions that are
+available in Docker Hub. You can find the list of available versions at the
+following URLs:
+
+* ElasticSearch: https://hub.docker.com/_/elasticsearch/
+* MySQL: https://hub.docker.com/_/mysql/
+* PostgreSQL: https://hub.docker.com/_/postgres/
+* Redis: https://hub.docker.com/_/redis/
+* MongoDB: https://hub.docker.com/_/mongo/
+* Memcached: https://hub.docker.com/_/memcached/
+
+Please note that none of these databases is already installed on the Semaphore
+2.0 VM. Only clients for MySQL and PostgreSQL are installed by default, which
+means that you will need to install clients for the other services on your own.
 
 ### Assumptions
 
-The `sem-service` utility has no dependencies. However, depending on the
-service you want to use, you might need to install additional software such as
-a client for connecting to the service.
+The `sem-service` utility has no dependencies apart from the need for a working
+Docker Hub site. However, depending on the service you want to use, you might
+need to install additional software such as a client for connecting to the
+service.
 
 ### Examples
 
@@ -260,9 +283,15 @@ The following are valid uses of `sem-service`:
 
     sem-service start redis
     sem-service stop redis
+    sem-service start redis 5
     sem-service status postgres
+    sem-service start postgres 11
     sem-service status mysql
     sem-service start memcached
+    sem-service start elasticsearch
+    sem-service start elasticsearch 6.5.2
+    sem-service start mongodb
+    sem-service start mongodb 3.2
 
 ### Example sem-service Project
 
@@ -272,7 +301,7 @@ The following are valid uses of `sem-service`:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-
+    
     blocks:
       - name: Databases
         task:
@@ -287,7 +316,7 @@ The following are valid uses of `sem-service`:
               - mysql --host=0.0.0.0 -uroot -e "create database Project"
               - mysql --host=0.0.0.0 -uroot -e "show databases" | grep Project
               - sem-service status mysql
-
+    
           - name: PostgreSQL
             commands:
               - sem-service start postgres
@@ -295,17 +324,16 @@ The following are valid uses of `sem-service`:
               - createdb -U postgres -h 0.0.0.0 Project
               - psql -h 0.0.0.0 -U postgres -c "\l" | grep Project
               - sem-service status postgres
-
+    
           - name: Redis
             commands:
               - sem-service start redis
               - sem-service status redis
-
+    
           - name: Memcached
             commands:
               - sem-service start memcached
               - sem-service status memcached
-
 
 ## sem-version
 
@@ -324,10 +352,10 @@ The general form of the `sem-version` utility is as follows:
 
     sem-version [PROGRAMMING LANGUAGE] [VERSION]
 
-where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `go`, `java`, `php`, `ruby`,
-`python` and `node`. The value of the `[VERSION]` parameter depends on the
-programming language used as different programming languages have different
-versioning systems.
+where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`,
+`php`, `ruby`, `python` and `node`. The value of the `[VERSION]` parameter
+depends on the programming language used because different programming
+languages have different versioning systems.
 
 ### Dependencies
 
@@ -352,7 +380,7 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
       machine:
         type: e1-standard-2
         os_image: ubuntu1804
-
+    
     blocks:
       - name: sem-version
         task:
@@ -366,3 +394,4 @@ The following is an example Semaphore 2.0 project that uses `sem-version`:
 ## See also
 
 * [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
