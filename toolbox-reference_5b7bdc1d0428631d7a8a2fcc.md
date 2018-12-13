@@ -248,7 +248,7 @@ Therefore, each `sem-service` command requires at least two parameters: the
 first one is the task you want to perform and the second parameter is the name
 of the service that will be used for the task. The third parameter is optional
 and is the version of the service that you want to start. If no `version` value
-is given, a default value will be used as follows:
+is given, a default value will be used according to the following list:
 
 * mysql: The default value is `5.6`
 * postgres: The default value is `9.6`
@@ -336,7 +336,6 @@ The following are valid uses of `sem-service`:
             commands:
               - sem-service start memcached
               - sem-service status memcached
-
 
 ## sem-version
 
