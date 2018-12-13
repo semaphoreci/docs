@@ -3,7 +3,7 @@
 * [See also](#see-also)
 
 This guide shows you how to download one or more files and store them in
-Semaphore cache *indefinitely*.
+Semaphore cache indefinitely.
 
 ## Example Semaphore project
 
@@ -37,7 +37,7 @@ blocks:
           - sudo dpkg -i ./packages/enscript.deb
 </code></pre>
 
-The `get_packages.sh` referenced above is a script with the following content:
+The `get_packages.sh` script referenced above has the following content:
 
 ```bash
 cache delete $SEMAPHORE_PROJECT_NAME-deps
