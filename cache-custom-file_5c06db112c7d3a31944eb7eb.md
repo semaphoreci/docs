@@ -1,0 +1,65 @@
+
+* [A sample Semaphore project](#a-sample-semaphore-project)
+* [See also](#see-also)
+
+This guide shows you how to download one or more files and store them in
+Semaphore cache *indefinitely*.
+
+## Example Semaphore project
+
+The `.semaphore/semaphore.yml` file of the project is as follows:
+
+<pre><code class="language-yaml">
+version: v1.0
+name: Cache custom file
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Use cache or create
+    task:
+      jobs:
+        - name: Get .deb from cache or create cache
+          commands:
+            - checkout
+            - cache restore $SEMAPHORE_PROJECT_NAME-deps
+            - "[ -d 'packages' ] && echo 'Found packages in cache' || source .semaphore/get_packages.sh"
+            - ls -l packages
+
+  - name: Reuse from cache
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore $SEMAPHORE_PROJECT_NAME-deps
+          - sudo dpkg -i ./packages/enscript.deb
+</code></pre>
+
+The `get_packages.sh` referenced above is a script with the following content:
+
+```bash
+cache delete $SEMAPHORE_PROJECT_NAME-deps
+mkdir packages
+wget http://ge.archive.ubuntu.com/ubuntu/pool/universe/e/enscript/enscript_1.6.5.90-3_amd64.deb -O ./packages/enscript.deb
+cache store $SEMAPHORE_PROJECT_NAME-deps packages
+```
+
+In the example above, the deb package will be downloaded from external source
+only once, and reused from cache in all subsequent workflows.
+
+You can extend the example to download any additional files and store them all
+together in the `packages` directory.
+
+Note: `SEMAPHORE_PROJECT_NAME` is one of the [environment variables][env-vars]
+that are available in all blocks of a pipeline.
+
+## See also
+
+* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+* [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+* [Environment variables](env-vars)
+
+[env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
