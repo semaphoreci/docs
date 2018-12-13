@@ -354,10 +354,10 @@ The general form of the `sem-version` utility is as follows:
 
     sem-version [PROGRAMMING LANGUAGE] [VERSION]
 
-where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `go`, `java`, `php`, `ruby`,
-`python` and `node`. The value of the `[VERSION]` parameter depends on the
-programming language used as different programming languages have different
-versioning systems.
+where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`,
+`php`, `ruby`, `python` and `node`. The value of the `[VERSION]` parameter
+depends on the programming language used because different programming
+languages have different versioning systems.
 
 ### Dependencies
 
