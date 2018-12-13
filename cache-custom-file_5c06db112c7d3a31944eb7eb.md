@@ -35,7 +35,7 @@ blocks:
 The `get_packages.sh` script referenced above has the following content:
 
 ```bash
-cache restore $SEMAPHORE_PROJECT_NAME-dep
+cache restore $SEMAPHORE_PROJECT_NAME-deps
 
 if [ -d 'packages' ]; then
   echo 'Found packages in cache'
