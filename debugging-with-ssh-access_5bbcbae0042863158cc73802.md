@@ -15,13 +15,13 @@ environment.
 ## Setting Your SSH Key
 
 You'll need to set your debug SSH key before continuing. You can use
-the same key you use for Github. Here's an example:
+the same key you use for GitHub. Here's an example:
 
 ``` bash
 sem config set debug.PublicSshKey $(curl https://github.com/YOUR_USERNAME.keys)
 ```
 
-Replace `YOUR_USERNAME` with your Github username.
+Replace `YOUR_USERNAME` with your GitHub username.
 
 Or you can use the first key in your SSH agent:
 
@@ -112,12 +112,14 @@ The `http://localhost:6000` should now be accessible in your browser.
 
 ## Stopping a debug session
 
-The easiest way to stop a debug session is to exit its Virtual Machine using
-`sudo poweroff` or `sudo shutdown -r now`. However, if you exit a debug
-session without powering off the VM, the job of that debug session will keep
-running and you will be able to see it in the output of `sem get jobs`.
+To stop a debug session, run `sudo poweroff` or `sudo shutdown -r now` inside
+the Semaphore VM.
 
-Alternatively, you can stop the debug session with `sem stop job [job-id]`.
+Alternatively, you can stop the debug session from your development machine with
+`sem stop job [job-id]`. You can find the ID of your job via `sem get jobs`.
+
+⚠️ Note: if you don't explicitly stop a debug session, the job will keep running
+until it expires, which by default is one hour.
 
 ## See also
 
