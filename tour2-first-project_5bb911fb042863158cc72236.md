@@ -42,6 +42,32 @@ see with the generated YAML file.
 Let's move on to [an overview of key Semaphore concepts][next] to learn what
 each part means.
 
+### Troubleshooting
+
+In case running `sem init` throws an error:
+
+```
+error: http status 422 with message
+"{"message":"POST https://api.github.com/repos/orgname/projectname/keys: 404 - Not Found // See:
+https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key";}"
+received from upstream
+```
+
+or
+
+```
+"{"message":"admin permisssions are required on the repository in order to add the project to Semaphore"}"
+```
+
+You can do the following:
+
+- Check if the user who wants to add a project to Semaphore is a member of the
+  given Semaphore organization, and has Admin-level permissions for the
+  repository on GitHub.
+- Check if the access for Semaphore 2.0 was granted within your GitHub
+  organization. You can do that [here](github-connection).
+
 [app]: https://id.semaphoreci.com
 [next]: https://docs.semaphoreci.com/article/62-concepts
 [sem]: https://docs.semaphoreci.com/article/53-sem-reference
+[github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
