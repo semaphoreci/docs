@@ -236,23 +236,48 @@ The `sem-service` script is a utility for starting, stopping and getting the
 status of background services. Started services will listen on 0.0.0.0 and
 their default port. The 0.0.0.0 IP address includes all available network
 interfaces. Essentially, you will be using services as if they were natively
-installed in the OS.
+installed in the Operating System.
 
 ### Command Line Parameters
 
 The general form of a `sem-service` command is as follows:
 
-    sem-service start [mysql | postgres | redis | memcached]
+    sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearch] [version]
 
-Therefore, each `sem-service` command requires two parameters: the first one is
-the task you want to perform and the second parameter is the name of the service
-that will be used for the task.
+Therefore, each `sem-service` command requires at least two parameters: the
+first one is the task you want to perform and the second parameter is the name
+of the service that will be used for the task. The third parameter is optional
+and is the version of the service that you want to start. If no `version` value
+is given, a default value will be used as follows:
+
+* mysql: The default value is `5.6`
+* postgres: The default value is `9.6`
+* redis: The default value is `4`
+* memcached: The default value is `1.5`
+* mongodb: The default value is `4.1`
+* elasticsearch: The default value is `6.5.1`
+
+`sem-service` pulls images from Docker Hub and supports all versions that are
+available in Docker Hub. You can find the list of available versions at the
+following URLs:
+
+* ElasticSearch: https://hub.docker.com/_/elasticsearch/
+* MySQL: https://hub.docker.com/_/mysql/
+* PostgreSQL: https://hub.docker.com/_/postgres/
+* Redis: https://hub.docker.com/_/redis/
+* MongoDB: https://hub.docker.com/_/mongo/
+* Memcached: https://hub.docker.com/_/memcached/
+
+Please note that none of these databases is already installed on the Semaphore
+2.0 VM. Only clients for MySQL and PostgreSQL are installed by default, which
+means that you will need to install clients for the other services on your own.
 
 ### Assumptions
 
-The `sem-service` utility has no dependencies. However, depending on the
-service you want to use, you might need to install additional software such as
-a client for connecting to the service.
+The `sem-service` utility has no dependencies apart from the need for a working
+Docker Hub site. However, depending on the service you want to use, you might
+need to install additional software such as a client for connecting to the
+service.
 
 ### Examples
 
@@ -260,9 +285,15 @@ The following are valid uses of `sem-service`:
 
     sem-service start redis
     sem-service stop redis
+    sem-service start redis 5
     sem-service status postgres
+    sem-service start postgres 11
     sem-service status mysql
     sem-service start memcached
+    sem-service start elasticsearch
+    sem-service start elasticsearch 6.5.2
+    sem-service start mongodb
+    sem-service start mongodb 3.2
 
 ### Example sem-service Project
 
