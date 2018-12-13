@@ -55,6 +55,7 @@ Semaphore team will make sure it's published.
 [issues]: https://github.com/semaphoreci/docs/issues
 [labels]: https://github.com/semaphoreci/docs/labels
 [docs-website]: https://docs.semaphoreci.com
+[new-issue]: https://github.com/semaphoreci/docs/issues/new
 [reference-issues]: https://github.com/semaphoreci/docs/labels/reference
 [guided-tour-issues]: https://github.com/semaphoreci/docs/labels/guided%20tour
 [account-mgmt-issues]: https://github.com/semaphoreci/docs/labels/account%20mgmt
