@@ -306,8 +306,6 @@ The following are valid uses of `sem-service`:
       - name: Databases
         task:
           env_vars:
-            - name: APP_ENV
-              value: prod
             - name: DB_NAME
               value: "test"
           jobs:
