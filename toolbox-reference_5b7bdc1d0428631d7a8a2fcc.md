@@ -306,23 +306,23 @@ The following are valid uses of `sem-service`:
       - name: Databases
         task:
           env_vars:
-            - name: APP_ENV
-              value: prod
+            - name: DB_NAME
+              value: "test"
           jobs:
           - name: MySQL
             commands:
               - sem-service start mysql
               - sudo apt-get install -y -qq mysql-client
-              - mysql --host=0.0.0.0 -uroot -e "create database Project"
-              - mysql --host=0.0.0.0 -uroot -e "show databases" | grep Project
+              - mysql --host=0.0.0.0 -uroot -e "create database $DB_NAME"
+              - mysql --host=0.0.0.0 -uroot -e "show databases" | grep $DB_NAME
               - sem-service status mysql
     
           - name: PostgreSQL
             commands:
               - sem-service start postgres
               - sudo apt-get install -y -qq postgresql-client
-              - createdb -U postgres -h 0.0.0.0 Project
-              - psql -h 0.0.0.0 -U postgres -c "\l" | grep Project
+              - createdb -U postgres -h 0.0.0.0 $DB_NAME
+              - psql -h 0.0.0.0 -U postgres -c "\l" | grep $DB_NAME
               - sem-service status postgres
     
           - name: Redis
