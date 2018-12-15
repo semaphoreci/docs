@@ -80,8 +80,10 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
-* *stop*: The *stop* command is used for stopping `pipelines` and `jobs` from
-    running.
+* *stop*: The *stop* command is used for stopping `pipelines`, `workflows` and
+    `jobs` from running.
+* *rebuild*: The *rebuild* command is used for rebuilding `workflows` and
+    `pipelines`
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
 * *help*: The `help` command is used for getting help about `sem` or an
@@ -94,8 +96,8 @@ The following list briefly describes all `sem` operations:
 ### Resource types
 
 You can use sem to manipulate five types of Semaphore resources: dashboards,
-jobs, notifications, projects and secrets. Most resource related operations
-require a valid resource name or ID.
+jobs, notifications, projects, pipelines, workflows and secrets. Most resource
+related operations require either a valid resource name or ID.
 
 #### Dashboards
 
@@ -143,6 +145,14 @@ remain intact after deleting a project from Semaphore 2.0.
 
 You can use the same project name in multiple organizations but you cannot
 use the same project name more than once under the same organization.
+
+#### Pipelines
+
+A `pipeline` is
+
+#### Workflows
+
+A `workflow` is
 
 #### Secrets
 
@@ -937,6 +947,27 @@ The output of the `sem delete notification documents` command is as follows:
 
     $ sem delete notification documents
     Notification 'documents' deleted.
+
+## Working with pipelines
+
+### Describing a pipeline
+
+The `sem get pipeline` command
+
+### Rebuilding a pipeline
+
+You can
+
+## Working with workflows
+
+
+### Describing a workflow
+
+The `sem get workflow` command
+
+### Rebuilding a workflow
+
+You can execute
 
 ## Help commands
 
