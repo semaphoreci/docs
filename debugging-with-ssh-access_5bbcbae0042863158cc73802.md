@@ -1,10 +1,10 @@
-Often the best way to troubleshoot failures in your pipelines is to SSH into a
-job and inspect log files, running processes, and directory paths. Semaphore 2.0
-gives you the option to access all running jobs via SSH, to restart your jobs
-in debug mode, or to start on-demand virtual machines to explore the build
-environment.
+Often the best way to troubleshoot failures and bugs in your pipelines is to
+SSH into a job and inspect log files, running processes, and directory paths.
+Semaphore 2.0 gives you the option to access all running jobs via SSH, to
+restart your jobs in debug mode, or to start on-demand virtual machines to
+explore the build environment.
 
-* [Setting Your SSH Key](#setting-your-ssh-key)
+* [Setting Up Your SSH Key](#setting-up-your-ssh-key)
 * [Exploring the build environment](#exploring-the-build-environment)
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
 * [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
@@ -12,7 +12,7 @@ environment.
 * [Stopping a debug session](#stopping-a-debug-session)
 * [See also](#see-also)
 
-## Setting Your SSH Key
+## Setting Up Your SSH Key
 
 You'll need to set your debug SSH key before continuing. You can use
 the same key you use for GitHub. Here's an example:
@@ -52,8 +52,8 @@ sem debug project [name-of-your-project] --duration 3h
 ```
 
 By default, a debug session does not include the contents of the GitHub
-repository related to your Semaphore 2.0 project. However, you can manually
-get the contents of the GitHub repository by executing the `checkout` command.
+repository related to your Semaphore 2.0 project. Run `checkout` in the debug
+session to clone your repository.
 
 ## Inspecting the state of a running job
 
@@ -115,14 +115,11 @@ The `http://localhost:6000` should now be accessible in your browser.
 
 ## Stopping a debug session
 
-To manually stop a debug session, you can run `sudo poweroff` or
-`sudo shutdown -r now` from the UNIX shell of the Semaphore VM. However, the
-debug session will *automatically* end once you exit the SSH session.
-
-Alternatively, you can also stop the job of the debug session from your
-local machine with `sem stop job [job-id]`. You can find the ID of your debug
-job using `sem get jobs`.
-
+The debug session will *automatically* end once you exit the SSH session. To
+manually stop a debug session, you can execute `sudo poweroff` or
+`sudo shutdown -r now` from the UNIX shell of the Semaphore VM or execute
+`sem stop job [job-id]` from your local machine. You can find the ID of your
+debug job using the `sem get jobs` command.
 
 ## See also
 
