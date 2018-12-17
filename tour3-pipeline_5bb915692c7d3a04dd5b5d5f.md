@@ -39,13 +39,13 @@ blocks:
             - echo "Running unit tests"
 </code></pre>
 
-With this configuration, commands in the "Compile" job run sequentially.
-If all of them pass, the "Set things up" block passes, and the pipeline
-proceeds to run the "Unit tests" block.
+With this configuration, commands in the "Compile" job run sequentially. If all
+of them pass, the "Set things up" block passes, and the pipeline proceeds to
+run the "Unit tests" block.
 
-Notice how each block includes the [`checkout` command][checkout].
-This is Semaphore's built-in command which loads your code in the job's
-environment.
+Notice how each job includes the [`checkout` command][checkout]. This is
+Semaphore's built-in command which clones the code from the GitHub repository
+of the Semaphore 2.0 project to the job's Virtual Machine environment.
 
 ## Defining blocks with parallel jobs
 
