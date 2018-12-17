@@ -1,63 +1,69 @@
-## Overview
+* [Create the SSH key](#create-the-ssh-key)
+* [Add the SSH key](#add-the-ssh-key)
+* [Create a secret](#create-a-secret)
+* [Use the secret in your pipeline](#use-the-secret-in-your-pipeline)
 
-Dependency mangagers like bundler, yarn, and Go's module system allow
-specifying dependencies from private git repositories. This makes it
+Dependency mangagers like Bundler, Yarn, and Go's module system allow
+specifying dependencies from private Git repositories. This makes it
 easier for teams to share code without requiring separate package
 hosting. Authentication typically happens over SSH. It's possible
 manage SSH keys using Semaphore's [secrets][] to authenticate to
-private git repos. This article walks you through the process.
+private Git repositories. This article walks you through the process.
 
-### Create the SSH Key
+### Create the SSH key
 
-You'll need to generate an SSH key and associate that directly with
+You'll need to generate an SSH key and associate it directly with
 the project or a user who has access to that project. First, generate
 a new public/private key pair on your local machine:
 
     $ ssh-keygen -t rsa -f id_rsa_semaphoreci
 
-### Add the SSH Key
+### Add the SSH key
 
 Next, connect the SSH key to the project or user. Github [Deploy
 Keys][] are the easiest way to grant access to a single project. The
 trade-off is that you'll need to add a deploy key for all private
-projects. However you may re-use same key. Another solution is to
+projects. However you may re-use same key.
+
+Another solution is to
 create a dedicated "ci" user, grant the "ci" user access to the
 relevant projects, and add the key to the user. Regardless of what you
 use, paste in the contents of `id_rsa.semaphoreci.pub` into relevant
-SSH key configuration.
+SSH key configuration on GitHub.
 
-### Create the Secret
+### Create the secret
 
 Now GitHub is configured with the public key. The next step is
-configure your Semaphore pipline to use the private key. We'll use
+configure your Semaphore pipeline to use the private key. We'll use
 [secret files][secrets] for this. Use the `sem` CLI to create a new
-secret from the existing private key in `id_rsa_semaphoreci`:
+secret from the existing private key in `id_rsa_semaphoreci` on your
+local machine:
 
     $ sem secret create private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
 
-This will create the file `~/.keys/private-repo` in your builds.
+This will create the file `~/.keys/private-repo` in your Semaphore jobs.
 
-### Configure Build Steps
+### Use the secret in your pipeline
 
-The last step is to add the `private-repo` to the relevant build
-steps. This will expose the private key for use with `ssh-add`. Here's
-an example.
+The last step is to add the `private-repo` secret to your Semaphore pipeline.
+This will make the private key file available for use with `ssh-add`.  Here's an
+example:
 
 <pre><code class="language-yaml">
 blocks:
   - name: "Test"
     task:
       secrets:
-        # Add the secret
+        # Mount the secret:
         - name: private-repo
       prologue:
         commands:
-          # correct premissions since they are too open by default
+          # Correct premissions since they are too open by default:
           - chmod 0600 ~/.keys/*
-          # Add the key to the ssh agent
+          # Add the key to the ssh agent:
           - ssh-add ~/.keys/*
           - checkout
-          # Install dependencies with bundler/yarn/etc
+          # Now bundler/yarn/etc are able to pull private dependencies:
           - bundle install
       jobs:
         - name: Test
