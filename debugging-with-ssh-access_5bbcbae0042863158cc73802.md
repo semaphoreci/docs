@@ -118,8 +118,8 @@ The `http://localhost:6000` should now be accessible in your browser.
 The debug session will *automatically* end once you exit the SSH session. To
 manually stop a debug session, you can execute `sudo poweroff` or
 `sudo shutdown -r now` from the UNIX shell of the Semaphore VM or execute
-`sem stop job [job-id]` from your local machine. You can find the ID of your
-debug job using the `sem get jobs` command.
+`sem stop job [job-id]` from your local machine. You can find the Job ID of
+your debug job using the `sem get jobs` command.
 
 ## See also
 
