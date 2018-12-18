@@ -33,6 +33,8 @@
   * [Describe a notification](#describe-a-notification)
   * [Edit a notification](#edit-a-notification)
   * [Delete a notification](#delete-a-notification)
+* [Working with pipelines](#working-with-pipelines)
+* [Working with workflows](#working-with-workflows)
 * [Help commands](#help-commands)
 * [Flags](#flags)
 * [Command aliases](#command-aliases)
@@ -504,17 +506,17 @@ The only way to see the results of such a job is with the `sem logs` command.
 The aforementioned command creates a new job based on the contents of
 `/tmp/aJob.yml`, which are as follows:
 
-	apiVersion: v1alpha
-	kind: Job
-	metadata:
-	  name: A new job
-	spec:
-	  files: []
-	  envvars: []
-	  secrets: []
-	  commands:
-	    - go version
-	  project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+    apiVersion: v1alpha
+    kind: Job
+    metadata:
+      name: A new job
+    spec:
+      files: []
+      envvars: []
+      secrets: []
+      commands:
+        - go version
+      project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
 
 The value of `project_id` must be valid or the `sem create -f` command will
 fail.
@@ -914,9 +916,9 @@ The output that you will get from the previous command will look similar to the
 following:
 
     $ sem get notifications
-    NAME     	AGE
+    NAME        AGE
     documents   18h
-    master   	17h
+    master      17h
 
 The `AGE` column shows the time since the last change.
 
@@ -950,24 +952,127 @@ The output of the `sem delete notification documents` command is as follows:
 
 ## Working with pipelines
 
+### Listing pipelines
+
+The `sem get pipelines` command returns the list of pipeline for a Semaphore
+2.0 project. If you are inside the directory of a Semaphore project, then you
+will not need to provide `sem` the name of the project as this will be
+discovered automatically. However, if you there is a problem with the format of
+the GitHub URL of your repository or if you are outside the directory of a
+GitHub repository you can use the `-p` flag to declare the Semaphore project
+that interests you.
+
+So, the `sem get pipelines` command can have the following two formats:
+
+    sem get pipelines
+	sem get pipelines -p [PROJECT NAME]
+
+#### Listing pipelines example
+
+The following command will return the last 30 pipelines of the S1 project:
+
+    sem get pipelines -p S1
+
 ### Describing a pipeline
 
-The `sem get pipeline` command
+The `sem get pipeline` command followed by a valid Pipeline ID will return
+a description of the provided pipeline.
+
+### Describing a pipeline example
+
+You can find more information about the pipeline with the Pipeline ID of
+`c2016294-d5ac-4af3-9a3d-1212e6652cd8` as follows:
+
+    sem get pipeline c2016294-d5ac-4af3-9a3d-1212e6652cd8
 
 ### Rebuilding a pipeline
 
-You can
+You can rebuild an existing pipeline with the help of the
+`sem rebuild pipeline` command, that has the following format:
+
+    sem rebuild pipeline [Pipeline ID]
+
+#### Rebuilding a pipeline example
+
+Rebuilding the pipeline with a Pipeline ID of
+`b83bce61-fdb8-4ace-b8bc-18be471aa96e` will return the next output:
+
+    $ sem rebuild pipeline b83bce61-fdb8-4ace-b8bc-18be471aa96e
+    {"pipeline_id":"a1e45038-a689-460b-b3bb-ba1605104c08","message":""}
 
 ## Working with workflows
 
+### Listing workflows
+
+The `sem get workflow` command returns the list of workflows for a Semaphore
+2.0 project. If you are inside the directory of a Semaphore project, then you
+will not need to provide `sem` the name of the project as this will be
+discovered automatically. However, if you there is a problem with the format of
+the GitHub URL of your repository or if you are outside the directory of a
+GitHub repository you can use the `-p` flag to declare the Semaphore project
+that interests you.
+
+So the `sem get workflow` has the following two formats:
+
+    sem get workflow
+    sem get workflow -p [Project Name]
+
+### Listing workflows examples
+
+Finding the last 30 workflows for the S1 Semaphore project is as simple as
+executing the following commands:
+
+    sem get workflows -p S1
+
+If the project name does not exist, you will get an error message.
+
+If you are inside the root directory of the S1 Semaphore project, then you can
+also execute the next command to get the same output:
+
+    sem get workflows
 
 ### Describing a workflow
 
-The `sem get workflow` command
+Each workflow has its own unique Workflow ID. Using that unique Workflow ID you
+can find more information about that particular workflow using the next command:
+
+    sem get workflow [WORKFLOW ID]
+
+The output of the previous command is a list of pipelines that includes
+promoted and auto promoted pipelines.
+
+#### Describing a workflow example
+
+Finding more information about the Workflow with ID
+`5bca6294-29d5-4fd3-891b-8ac3179ba196` is as easy as follows:
+
+    $ sem get workflow 5bca6294-29d5-4fd3-891b-8ac3179ba196
+    Label: master
+    
+    PIPELINE ID                            PIPELINE NAME            CREATION TIME         STATE
+    9d5f9986-2694-43b9-bc85-6fee47440ba7   Pipeline 1 - p1.yml      2018-10-03 09:37:59   DONE
+    55e94adb-7aa8-4b1e-b60d-d9a1cb0a443a   Testing Auto Promoting   2018-10-03 09:31:35   DONE
+
+Please note that you should have the required permissions in order to find
+information about a Workflow.
 
 ### Rebuilding a workflow
 
-You can execute
+You can rebuild an existing workflow using the following command:
+
+    sem rebuild workflow [WORKFLOW ID]
+
+#### Rebuilding a workflow example
+
+You can rebuild a workflow with a Workflow ID of
+`99737bcd-a295-4278-8804-fff651fb6a8c` as follows:
+
+    $ sem rebuild wf 99737bcd-a295-4278-8804-fff651fb6a8c
+    {"wf_id":"8480a83c-2d90-4dd3-8e8d-5fb899a58bc0","ppl_id":"c2016294-d5ac-4af3-9a3d-1212e6652cd8"}
+
+The output of `sem rebuild wf` command is a new Workflow ID and a new pipeline
+ID as the `sem rebuild workflow` command creates a new workflow based on an
+existing one.
 
 ## Help commands
 
@@ -1041,6 +1146,17 @@ Last, the `-f` flag can be used as `--file`.
 The `--all` flag can only be used with the `sem get jobs` command in order to
 display the most recent jobs of the current organization, both running and
 finished.
+
+### The --editor flag
+
+The `--editor` flag can help you define the editor that you want to use with
+the `sem edit` command.
+
+### The EDITOR environment variable
+
+The `EDITOR` environment variable offers another way of defining the editor
+that will be used with the `sem edit` command.
+
 
 ## Command aliases
 
