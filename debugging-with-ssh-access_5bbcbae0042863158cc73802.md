@@ -1,10 +1,10 @@
-Often the best way to troubleshoot failures in your pipelines is to SSH into a
-job and inspect log files, running processes, and directory paths. Semaphore 2.0
-gives you the option to access all running jobs via SSH, to restart your jobs
-in debug mode, or to start on-demand virtual machines to explore the build
-environment.
+Often the best way to troubleshoot failures and bugs in your pipelines is to
+SSH into a job and inspect log files, running processes, and directory paths.
+Semaphore 2.0 gives you the option to access all running jobs via SSH, to
+restart your jobs in debug mode, or to start on-demand virtual machines to
+explore the build environment.
 
-* [Setting Your SSH Key](#Setting Your SSH Key)
+* [Setting Up Your SSH Key](#setting-up-your-ssh-key)
 * [Exploring the build environment](#exploring-the-build-environment)
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
 * [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
@@ -12,7 +12,7 @@ environment.
 * [Stopping a debug session](#stopping-a-debug-session)
 * [See also](#see-also)
 
-## Setting Your SSH Key
+## Setting Up Your SSH Key
 
 You'll need to set your debug SSH key before continuing. You can use
 the same key you use for GitHub. Here's an example:
@@ -32,7 +32,7 @@ sem config set debug.PublicSshKey $(ssh-add -L | head -n 1)
 ## Exploring the build environment
 
 Setting up a pipeline can be challenging if you are not familiar with the
-software stack installed in Semaphore's virtual machines. Starting a debug
+software stack installed in Semaphore 2.0 virtual machines. Starting a debug
 session for your project is a great place to start exploring.
 
 To start a debug session for your project, run:
@@ -44,12 +44,16 @@ sem debug project [name-of-your-project]
 The above command will start a virtual machine connected with your git
 repository and attach you to it via an SSH session.
 
-By default, the SSH session is limited to one hour. To run longer debug
-sessions, pass the duration flag to the above command:
+By default, the duration of the SSH session is limited to one hour. To run
+longer debug sessions, pass the `duration` flag to the above command:
 
 ``` bash
 sem debug project [name-of-your-project] --duration 3h
 ```
+
+By default, a debug session does not include the contents of the GitHub
+repository related to your Semaphore 2.0 project. Run `checkout` in the debug
+session to clone your repository.
 
 ## Inspecting the state of a running job
 
@@ -74,13 +78,12 @@ echo '[your-public-key]' >> .ssh/authorized_keys
 ```
 
 To manage multiple public keys for SSH access
-[store your public keys in a
-secret](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets).
+[store your public keys in a secret](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets).
 
 ## Restarting a job in debug mode
 
 To find the root cause of a failed job, Semaphore allows you to restart your job
-in debug mode with:
+in debug mode with the following command:
 
 ``` bash
 sem debug job [job-id]
@@ -102,7 +105,7 @@ are not visible on the screen when you are running the tests.
 
 Semaphore allows you to forward ports to your local machine and explore the UI
 of your application from your browser. If your application is running on port
-`3000`, you can port forward to your local port `6000` with:
+`3000`, you can port forward it to your local port `6000` with:
 
 ``` bash
 sem port-forward [job-id] 6000 3000
@@ -112,14 +115,11 @@ The `http://localhost:6000` should now be accessible in your browser.
 
 ## Stopping a debug session
 
-To stop a debug session, run `sudo poweroff` or `sudo shutdown -r now` inside
-the Semaphore VM.
-
-Alternatively, you can stop the debug session from your development machine with
-`sem stop job [job-id]`. You can find the ID of your job via `sem get jobs`.
-
-⚠️ Note: if you don't explicitly stop a debug session, the job will keep running
-until it expires, which by default is one hour.
+The debug session will *automatically* end once you exit the SSH session. To
+manually stop a debug session, you can execute `sudo poweroff` or
+`sudo shutdown -r now` from the UNIX shell of the Semaphore VM or execute
+`sem stop job [job-id]` from your local machine. You can find the Job ID of
+your debug job using the `sem get jobs` command.
 
 ## See also
 
