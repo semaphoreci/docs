@@ -39,7 +39,7 @@ configure your Semaphore pipeline to use the private key. We'll use
 secret from the existing private key in `id_rsa_semaphoreci` on your
 local machine:
 
-    $ sem secret create private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
+    $ sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
 
 This will create the file `~/.keys/private-repo` in your Semaphore jobs.
 
