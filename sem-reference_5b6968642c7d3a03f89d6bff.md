@@ -978,7 +978,7 @@ that interests you.
 So, the `sem get pipelines` command can have the following two formats:
 
     sem get pipelines
-	sem get pipelines -p [PROJECT NAME]
+    sem get pipelines -p [PROJECT NAME]
 
 #### Listing pipelines example
 
@@ -1123,7 +1123,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.8.16
+    v0.8.17
 
 Your output might be different.
 
@@ -1160,16 +1160,25 @@ The `--all` flag can only be used with the `sem get jobs` command in order to
 display the most recent jobs of the current organization, both running and
 finished.
 
-### The --editor flag
-
-The `--editor` flag can help you define the editor that you want to use with
-the `sem edit` command.
-
 ### The EDITOR environment variable
 
-The `EDITOR` environment variable offers another way of defining the editor
-that will be used with the `sem edit` command.
+The `EDITOR` environment variable offers a way of defining the editor that
+will be used with the session of the `sem edit` command.
 
+You can check whether the `EDITOR` environment variable is set on your UNIX
+machine by executing the following command:
+
+    echo $EDITOR
+
+If the output is an empty line, then then `EDITOR` environment variable is not
+set. You can set it to the `nano` editor as follows:
+
+    $ export EDITOR=nano
+    $ echo $EDITOR
+    nano
+
+The `sem` utility also supports custom flags in the `EDITOR` environment
+variable, like `EDITOR="subl --wait"`.
 
 ## Command aliases
 
