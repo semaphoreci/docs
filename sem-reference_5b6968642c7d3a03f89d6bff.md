@@ -99,7 +99,7 @@ The following list briefly describes all `sem` operations:
 
 You can use sem to manipulate five types of Semaphore resources: dashboards,
 jobs, notifications, projects, pipelines, workflows and secrets. Most resource
-related operations require either a valid resource name or ID.
+related operations require either a valid resource name or an ID.
 
 #### Dashboards
 
