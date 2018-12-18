@@ -150,11 +150,24 @@ use the same project name more than once under the same organization.
 
 #### Pipelines
 
-A `pipeline` is
+A `pipeline` is the smaller entity that can be autonomously executed in
+Semaphore 2.0. If you are familiar with UNIX terminology, you can consider a
+`pipeline` as a UNIX thread.
+
+Each `pipeline` is defined using a YAML file. The YAML file of the initial
+pipeline is always `.semaphore/semaphore.yml`.
 
 #### Workflows
 
-A `workflow` is
+Put simply, a `workflow` is the execution of a Semaphore 2.0 project. Each
+workflow has its own Workflow ID that uniquely identifies a workflow for the
+others.
+
+A `workflow` is composed of one or more `pipelines` depending on whether there
+exist promotions or auto promotions in the `workflow`. In that sense, a
+`workflow` is like a UNIX binary executable file that each time it is being
+executed gets a new and unique UNIX Process ID and can create one or more UNIX
+threads.
 
 #### Secrets
 
