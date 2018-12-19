@@ -151,9 +151,9 @@ use the same project name more than once under the same organization.
 
 #### Pipelines
 
-A `pipeline` is the smaller entity that can be autonomously executed in
-Semaphore 2.0. If you are familiar with UNIX terminology, you can consider a
-`pipeline` as a UNIX thread.
+The smallest unit of scheduling and execution in Semaphore 2.0 is the **Job**.
+A `pipeline` is the Semaphore 2.0 entity where jobs are defined in order to get
+executed in a Virtual Machine.
 
 Each `pipeline` is defined using a YAML file. The YAML file of the initial
 pipeline is always `.semaphore/semaphore.yml`.
@@ -161,14 +161,13 @@ pipeline is always `.semaphore/semaphore.yml`.
 #### Workflows
 
 Put simply, a `workflow` is the execution of a Semaphore 2.0 project. Each
-workflow has its own Workflow ID that uniquely identifies a workflow for the
-others.
+workflow has its own Workflow ID that uniquely differentiates each workflow
+execution from the other workflow executions.
 
 A `workflow` is composed of one or more `pipelines` depending on whether there
-exist promotions or auto promotions in the `workflow`. In that sense, a
-`workflow` is like a UNIX binary executable file that each time it is being
-executed gets a new and unique UNIX Process ID and can create one or more UNIX
-threads.
+exist promotions or auto promotions in the `workflow`. Therefore, a workflow
+should be viewed of as *a group of pipelines* or, if you like strict
+definitions, as a dynamically configurable, n-ary tree of pipelines.
 
 #### Secrets
 
@@ -971,10 +970,11 @@ The output of the `sem delete notification documents` command is as follows:
 The `sem get pipelines` command returns the list of pipeline for a Semaphore
 2.0 project. If you are inside the directory of a Semaphore project, then you
 will not need to provide `sem` the name of the project as this will be
-discovered automatically. However, if there is a problem with the format of the
-GitHub URL of your repository or if you are outside the directory of a GitHub
-repository you can use the `-p` flag to declare the Semaphore project that
-interests you.
+discovered automatically.
+
+However, if you want list of pipelines for some project other than the one you
+are currently in you can use the `-p` flag to declare the Semaphore project
+that interests you.
 
 So, the `sem get pipelines` command can have the following two formats:
 
@@ -1025,10 +1025,11 @@ Rebuilding the pipeline with a Pipeline ID of
 The `sem get workflows` command returns the list of workflows for a Semaphore
 2.0 project. If you are inside the directory of a Semaphore project, then you
 will not need to provide `sem` the name of the project as this will be
-discovered automatically. However, if there is a problem with the format of the
-GitHub URL of your repository or if you are outside the directory of a GitHub
-repository you can use the `-p` flag to declare the Semaphore project that
-interests you.
+discovered automatically.
+
+However, if you want list of workflows for some project other than the one you
+are currently in, you can use the `-p` flag to declare the Semaphore project
+that interests you.
 
 So the `sem get workflows` has the following two formats:
 
@@ -1081,9 +1082,8 @@ You can rebuild an existing workflow using the following command:
     sem rebuild workflow [WORKFLOW ID]
 
 Note that `sem rebuild workflow` will perform a full rebuild of the specified
-workflow, which means that all blocks of the pipelines of the workflow will
-rerun. Additionally, the rebuild of the workflow will be visible in Semaphore
-web interface.
+workflow. A new workflow will be created as if a new commit was pushed to
+GitHub.
 
 #### Rebuilding a workflow example
 
@@ -1175,16 +1175,17 @@ finished.
 
 The `sem` utility chooses which editor to use by following the next process:
 
-* From the value of the `editor` property in `~/.sem.yaml`, if it exists
+* Using the value of the `editor` property. This value can be set using the
+    `sem config set editor` command
 * From the value of the `EDITOR` environment variable, if it is set
 * If none of the above exists, `sem` will try to use the `vim` editor
 
-#### The editor property in .sem.yaml
+#### The `sem config set editor` command
 
-You can define that you want to use the `nano` editor by inserting the
-following line at the beginning of `~/.sem.yaml`:
+You can define that you want to use the `nano` editor for editing Semaphore
+resources by executing the following command:
 
-    editor: nano
+    sem config set editor
 
 #### The EDITOR environment variable
 
