@@ -1017,6 +1017,29 @@ Rebuilding the pipeline with a Pipeline ID of
     $ sem rebuild pipeline b83bce61-fdb8-4ace-b8bc-18be471aa96e
     {"pipeline_id":"a1e45038-a689-460b-b3bb-ba1605104c08","message":""}
 
+### The --follow flag
+
+The general form of the `sem get pipeline` command when used with the
+`--follow` flag is as follows:
+
+    sem get pipeline [RUNNING Pipeline ID] --follow
+
+The `--follow` flag makes the `sem get pipeline [RUNNING Pipeline ID]` command
+to be repeatedly called until the pipeline reaches terminal state.
+
+The `--follow` flag is particularly useful in the following two cases:
+
+* If you want to look at how a build is advancing without using the Semaphore
+    Web Interface (e.g. when you are prototyping something).
+* If you want to be notified when pipeline is done (e.g. in shell scripts).
+
+### The --follow flag example
+
+The `--follow flag` can be used on a running pipeline with a Pipeline ID of
+`9bfaf8d6-05c8-4397-b764-5f0f574c8e64` as follows:
+
+    sem get pipeline 9bfaf8d6-05c8-4397-b764-5f0f574c8e64 --follow
+
 ## Working with workflows
 
 ### Listing workflows
