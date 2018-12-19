@@ -33,8 +33,11 @@
   * [Describe a notification](#describe-a-notification)
   * [Edit a notification](#edit-a-notification)
   * [Delete a notification](#delete-a-notification)
+* [Working with pipelines](#working-with-pipelines)
+* [Working with workflows](#working-with-workflows)
 * [Help commands](#help-commands)
 * [Flags](#flags)
+* [Defining an editor](#defining-an-editor)
 * [Command aliases](#command-aliases)
 * [See also](#see-also)
 
@@ -80,8 +83,10 @@ The following list briefly describes all `sem` operations:
 * *attach*: The `attach` command is used for attaching to a running `job`.
 * *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 * *logs*: The `logs` command is used for getting the logs of a `job`.
-* *stop*: The *stop* command is used for stopping `pipelines` and `jobs` from
-    running.
+* *stop*: The *stop* command is used for stopping `pipelines`, `workflows` and
+    `jobs` from running.
+* *rebuild*: The *rebuild* command is used for rebuilding `workflows` and
+    `pipelines`
 * *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
 * *help*: The `help` command is used for getting help about `sem` or an
@@ -94,8 +99,8 @@ The following list briefly describes all `sem` operations:
 ### Resource types
 
 You can use sem to manipulate five types of Semaphore resources: dashboards,
-jobs, notifications, projects and secrets. Most resource related operations
-require a valid resource name or ID.
+jobs, notifications, projects, pipelines, workflows and secrets. Most resource
+related operations require either a valid resource name or an ID.
 
 #### Dashboards
 
@@ -143,6 +148,26 @@ remain intact after deleting a project from Semaphore 2.0.
 
 You can use the same project name in multiple organizations but you cannot
 use the same project name more than once under the same organization.
+
+#### Pipelines
+
+The smallest unit of scheduling and execution in Semaphore 2.0 is the **Job**.
+A `pipeline` is the Semaphore 2.0 entity where jobs are defined in order to get
+executed in a Virtual Machine.
+
+Each `pipeline` is defined using a YAML file. The YAML file of the initial
+pipeline is always `.semaphore/semaphore.yml`.
+
+#### Workflows
+
+Put simply, a `workflow` is the execution of a Semaphore 2.0 project. Each
+workflow has its own Workflow ID that uniquely differentiates each workflow
+execution from the other workflow executions.
+
+A `workflow` is composed of one or more `pipelines` depending on whether there
+exist promotions or auto promotions in the `workflow`. Therefore, a workflow
+should be viewed of as *a group of pipelines* or, if you like strict
+definitions, as a dynamically configurable, n-ary tree of pipelines.
 
 #### Secrets
 
@@ -494,17 +519,17 @@ The only way to see the results of such a job is with the `sem logs` command.
 The aforementioned command creates a new job based on the contents of
 `/tmp/aJob.yml`, which are as follows:
 
-	apiVersion: v1alpha
-	kind: Job
-	metadata:
-	  name: A new job
-	spec:
-	  files: []
-	  envvars: []
-	  secrets: []
-	  commands:
-	    - go version
-	  project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+    apiVersion: v1alpha
+    kind: Job
+    metadata:
+      name: A new job
+    spec:
+      files: []
+      envvars: []
+      secrets: []
+      commands:
+        - go version
+      project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
 
 The value of `project_id` must be valid or the `sem create -f` command will
 fail.
@@ -904,9 +929,9 @@ The output that you will get from the previous command will look similar to the
 following:
 
     $ sem get notifications
-    NAME     	AGE
+    NAME        AGE
     documents   18h
-    master   	17h
+    master      17h
 
 The `AGE` column shows the time since the last change.
 
@@ -937,6 +962,162 @@ The output of the `sem delete notification documents` command is as follows:
 
     $ sem delete notification documents
     Notification 'documents' deleted.
+
+## Working with pipelines
+
+### Listing pipelines
+
+The `sem get pipelines` command returns the list of pipeline for a Semaphore
+2.0 project. If you are inside the directory of a Semaphore project, then you
+will not need to provide `sem` the name of the project as this will be
+discovered automatically.
+
+However, if you want list of pipelines for some project other than the one you
+are currently in you can use the `-p` flag to declare the Semaphore project
+that interests you.
+
+So, the `sem get pipelines` command can have the following two formats:
+
+    sem get pipelines
+    sem get pipelines -p [PROJECT NAME]
+
+#### Listing pipelines example
+
+The following command will return the last 30 pipelines of the S1 project:
+
+    sem get pipelines -p S1
+
+### Describing a pipeline
+
+The `sem get pipeline` command followed by a valid Pipeline ID will return
+a description of the specified pipeline.
+
+### Describing a pipeline example
+
+You can find more information about the pipeline with the Pipeline ID of
+`c2016294-d5ac-4af3-9a3d-1212e6652cd8` as follows:
+
+    sem get pipeline c2016294-d5ac-4af3-9a3d-1212e6652cd8
+
+### Rebuilding a pipeline
+
+You can rebuild an existing pipeline with the help of the
+`sem rebuild pipeline` command, that has the following format:
+
+    sem rebuild pipeline [Pipeline ID]
+
+Note that `sem rebuild pipeline` will perform a partial rebuild of the pipeline
+as **only the blocks that failed** will be rerun.
+
+#### Rebuilding a pipeline example
+
+Rebuilding the pipeline with a Pipeline ID of
+`b83bce61-fdb8-4ace-b8bc-18be471aa96e` will return the next output:
+
+    $ sem rebuild pipeline b83bce61-fdb8-4ace-b8bc-18be471aa96e
+    {"pipeline_id":"a1e45038-a689-460b-b3bb-ba1605104c08","message":""}
+
+### The --follow flag
+
+The general form of the `sem get pipeline` command when used with the
+`--follow` flag is as follows:
+
+    sem get pipeline [RUNNING Pipeline ID] --follow
+
+The `--follow` flag makes the `sem get pipeline [RUNNING Pipeline ID]` command
+to be repeatedly called until the pipeline reaches terminal state.
+
+The `--follow` flag is particularly useful in the following two cases:
+
+* If you want to look at how a build is advancing without using the Semaphore
+    Web Interface (e.g. when you are prototyping something).
+* If you want to be notified when pipeline is done (e.g. in shell scripts).
+
+### The --follow flag example
+
+The `--follow flag` can be used on a running pipeline with a Pipeline ID of
+`9bfaf8d6-05c8-4397-b764-5f0f574c8e64` as follows:
+
+    sem get pipeline 9bfaf8d6-05c8-4397-b764-5f0f574c8e64 --follow
+
+## Working with workflows
+
+### Listing workflows
+
+The `sem get workflows` command returns the list of workflows for a Semaphore
+2.0 project. If you are inside the directory of a Semaphore project, then you
+will not need to provide `sem` the name of the project as this will be
+discovered automatically.
+
+However, if you want the list of workflows for some project other than the one
+you are currently in, you can use the `-p` flag to directly specify the
+Semaphore project that interests you.
+
+So the `sem get workflows` has the following two formats:
+
+    sem get workflows
+    sem get workflows -p [Project Name]
+
+### Listing workflows examples
+
+Finding the last 30 workflows for the `S1` Semaphore project is as simple as
+executing the following commands:
+
+    sem get workflows -p S1
+
+If the project name does not exist, you will get an error message.
+
+If you are inside the root directory of the `S1` Semaphore project, then you
+can also execute the next command to get the same output:
+
+    sem get workflows
+
+### Describing a workflow
+
+Each workflow has its own unique Workflow ID. Using that unique Workflow ID you
+can find more information about that particular workflow using the next command:
+
+    sem get workflow [WORKFLOW ID]
+
+The output of the previous command is a list of pipelines that includes
+promoted and auto promoted pipelines.
+
+#### Describing a workflow example
+
+Finding more information about the Workflow with ID
+`5bca6294-29d5-4fd3-891b-8ac3179ba196` is as easy as follows:
+
+    $ sem get workflow 5bca6294-29d5-4fd3-891b-8ac3179ba196
+    Label: master
+    
+    PIPELINE ID                            PIPELINE NAME            CREATION TIME         STATE
+    9d5f9986-2694-43b9-bc85-6fee47440ba7   Pipeline 1 - p1.yml      2018-10-03 09:37:59   DONE
+    55e94adb-7aa8-4b1e-b60d-d9a1cb0a443a   Testing Auto Promoting   2018-10-03 09:31:35   DONE
+
+Please note that you should have the required permissions in order to find
+information about a Workflow.
+
+### Rebuilding a workflow
+
+You can rebuild an existing workflow using the following command:
+
+    sem rebuild workflow [WORKFLOW ID]
+
+Note that `sem rebuild workflow` will perform a full rebuild of the specified
+workflow. A new workflow will be created as if a new commit was pushed to
+GitHub.
+
+#### Rebuilding a workflow example
+
+You can rebuild a workflow with a Workflow ID of
+`99737bcd-a295-4278-8804-fff651fb6a8c` as follows:
+
+    $ sem rebuild wf 99737bcd-a295-4278-8804-fff651fb6a8c
+    {"wf_id":"8480a83c-2d90-4dd3-8e8d-5fb899a58bc0","ppl_id":"c2016294-d5ac-4af3-9a3d-1212e6652cd8"}
+
+The output of `sem rebuild wf` command is a new Workflow ID and a new pipeline
+ID as the `sem rebuild workflow` command creates a new workflow based on an
+existing one.
 
 ## Help commands
 
@@ -974,7 +1155,7 @@ example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
     $ sem version
-    v0.8.16
+    v0.8.17
 
 Your output might be different.
 
@@ -1011,6 +1192,43 @@ The `--all` flag can only be used with the `sem get jobs` command in order to
 display the most recent jobs of the current organization, both running and
 finished.
 
+
+### Defining an editor
+
+The `sem` utility chooses which editor to use by following the next process:
+
+* Using the value of the `editor` property. This value can be set using the
+    `sem config set editor` command
+* From the value of the `EDITOR` environment variable, if it is set
+* If none of the above exists, `sem` will try to use the `vim` editor
+
+#### The `sem config set editor` command
+
+You can define that you want to use the `nano` editor for editing Semaphore
+resources by executing the following command:
+
+    sem config set editor
+
+#### The EDITOR environment variable
+
+The `EDITOR` environment variable offers a way of defining the editor that
+will be used with the session of the `sem edit` command.
+
+You can check whether the `EDITOR` environment variable is set on your UNIX
+machine by executing the following command:
+
+    echo $EDITOR
+
+If the output is an empty line, then then `EDITOR` environment variable is not
+set. You can set it to the `nano` editor as follows:
+
+    $ export EDITOR=nano
+    $ echo $EDITOR
+    nano
+
+The `sem` utility also supports custom flags in the `EDITOR` environment
+variable, like `EDITOR="subl --wait"`.
+
 ## Command aliases
 
 The words of each line that follows, which represent resource types, are
@@ -1021,6 +1239,8 @@ equivalent:
 * `secret` and `secrets`
 * `job` and `jobs`
 * `notifications`, `notification`, `notifs` and `notif`
+* `pipelines`, `pipeline` and `ppl`
+* `workflows`, `workflow` and `wf`
 
 As an example, the following three commands are equivalent and will return the
 same output:
