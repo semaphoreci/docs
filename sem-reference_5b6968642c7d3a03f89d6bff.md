@@ -37,6 +37,7 @@
 * [Working with workflows](#working-with-workflows)
 * [Help commands](#help-commands)
 * [Flags](#flags)
+* [Defining an editor](#defining-an-editor)
 * [Command aliases](#command-aliases)
 * [See also](#see-also)
 
@@ -970,10 +971,10 @@ The output of the `sem delete notification documents` command is as follows:
 The `sem get pipelines` command returns the list of pipeline for a Semaphore
 2.0 project. If you are inside the directory of a Semaphore project, then you
 will not need to provide `sem` the name of the project as this will be
-discovered automatically. However, if you there is a problem with the format of
-the GitHub URL of your repository or if you are outside the directory of a
-GitHub repository you can use the `-p` flag to declare the Semaphore project
-that interests you.
+discovered automatically. However, if there is a problem with the format of the
+GitHub URL of your repository or if you are outside the directory of a GitHub
+repository you can use the `-p` flag to declare the Semaphore project that
+interests you.
 
 So, the `sem get pipelines` command can have the following two formats:
 
@@ -1005,6 +1006,10 @@ You can rebuild an existing pipeline with the help of the
 
     sem rebuild pipeline [Pipeline ID]
 
+Note that `sem rebuild pipeline` will perform a partial rebuild of the pipeline
+as **only the blocks that failed** will be rerun. Additionally, there is no way
+to see that pipeline running in the Semaphore web interface.
+
 #### Rebuilding a pipeline example
 
 Rebuilding the pipeline with a Pipeline ID of
@@ -1017,18 +1022,18 @@ Rebuilding the pipeline with a Pipeline ID of
 
 ### Listing workflows
 
-The `sem get workflow` command returns the list of workflows for a Semaphore
+The `sem get workflows` command returns the list of workflows for a Semaphore
 2.0 project. If you are inside the directory of a Semaphore project, then you
 will not need to provide `sem` the name of the project as this will be
-discovered automatically. However, if you there is a problem with the format of
-the GitHub URL of your repository or if you are outside the directory of a
-GitHub repository you can use the `-p` flag to declare the Semaphore project
-that interests you.
+discovered automatically. However, if there is a problem with the format of the
+GitHub URL of your repository or if you are outside the directory of a GitHub
+repository you can use the `-p` flag to declare the Semaphore project that
+interests you.
 
-So the `sem get workflow` has the following two formats:
+So the `sem get workflows` has the following two formats:
 
-    sem get workflow
-    sem get workflow -p [Project Name]
+    sem get workflows
+    sem get workflows -p [Project Name]
 
 ### Listing workflows examples
 
@@ -1074,6 +1079,11 @@ information about a Workflow.
 You can rebuild an existing workflow using the following command:
 
     sem rebuild workflow [WORKFLOW ID]
+
+Note that `sem rebuild workflow` will perform a full rebuild of the specified
+workflow, which means that all blocks of the pipelines of the workflow will
+rerun. Additionally, the rebuild of the workflow will be visible in Semaphore
+web interface.
 
 #### Rebuilding a workflow example
 
@@ -1160,7 +1170,23 @@ The `--all` flag can only be used with the `sem get jobs` command in order to
 display the most recent jobs of the current organization, both running and
 finished.
 
-### The EDITOR environment variable
+
+### Defining an editor
+
+The `sem` utility chooses which editor to use by following the next process:
+
+* From the value of the `editor` property in `~/.sem.yaml`, if it exists
+* From the value of the `EDITOR` environment variable, if it is set
+* If none of the above exists, `sem` will try to use the `vim` editor
+
+#### The editor property in .sem.yaml
+
+You can define that you want to use the `nano` editor by inserting the
+following line at the beginning of `~/.sem.yaml`:
+
+    editor: nano
+
+#### The EDITOR environment variable
 
 The `EDITOR` environment variable offers a way of defining the editor that
 will be used with the session of the `sem edit` command.
