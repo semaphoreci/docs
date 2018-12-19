@@ -1207,7 +1207,7 @@ The `sem` utility chooses which editor to use by following the next process:
 You can define that you want to use the `nano` editor for editing Semaphore
 resources by executing the following command:
 
-    sem config set editor
+    sem config set editor nano
 
 #### The EDITOR environment variable
 
