@@ -990,7 +990,7 @@ The following command will return the last 30 pipelines of the S1 project:
 ### Describing a pipeline
 
 The `sem get pipeline` command followed by a valid Pipeline ID will return
-a description of the provided pipeline.
+a description of the specified pipeline.
 
 ### Describing a pipeline example
 
@@ -1007,8 +1007,7 @@ You can rebuild an existing pipeline with the help of the
     sem rebuild pipeline [Pipeline ID]
 
 Note that `sem rebuild pipeline` will perform a partial rebuild of the pipeline
-as **only the blocks that failed** will be rerun. Additionally, there is no way
-to see that pipeline running in the Semaphore web interface.
+as **only the blocks that failed** will be rerun.
 
 #### Rebuilding a pipeline example
 
@@ -1027,9 +1026,9 @@ The `sem get workflows` command returns the list of workflows for a Semaphore
 will not need to provide `sem` the name of the project as this will be
 discovered automatically.
 
-However, if you want list of workflows for some project other than the one you
-are currently in, you can use the `-p` flag to declare the Semaphore project
-that interests you.
+However, if you want the list of workflows for some project other than the one
+you are currently in, you can use the `-p` flag to directly specify the
+Semaphore project that interests you.
 
 So the `sem get workflows` has the following two formats:
 
@@ -1038,15 +1037,15 @@ So the `sem get workflows` has the following two formats:
 
 ### Listing workflows examples
 
-Finding the last 30 workflows for the S1 Semaphore project is as simple as
+Finding the last 30 workflows for the `S1` Semaphore project is as simple as
 executing the following commands:
 
     sem get workflows -p S1
 
 If the project name does not exist, you will get an error message.
 
-If you are inside the root directory of the S1 Semaphore project, then you can
-also execute the next command to get the same output:
+If you are inside the root directory of the `S1` Semaphore project, then you
+can also execute the next command to get the same output:
 
     sem get workflows
 
