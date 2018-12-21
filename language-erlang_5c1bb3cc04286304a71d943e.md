@@ -8,8 +8,23 @@
 
 ## Supported Erlang versions
 
+The list of supported Erlang versions is the following:
+
+* 20.3
+* 21.0
 
 ## Changing Erlang version
+
+The `kerl` Erlang utility can help you change the Erlang version.
+
+By default Semaphore Virtual Machine uses Erlang version 21.0. You can change
+to Erlang version 20.3 by executing the following command:
+
+    . /home/semaphore/.kerl/installs/20.3/activate
+
+You can change back to Erlang version 21.0 by executing the following command:
+
+    . /home/semaphore/.kerl/installs/21.0/activate
 
 ## Dependency management
 
@@ -25,6 +40,47 @@ access on each Semaphore 2.0 VM, you are free to install all required packages.
 
 The following `.semaphore/semaphore.yml` file compiles and executes an Erlang
 source file using two different versions of the Erlang compiler:
+
+    version: v1.0
+    name: Using Erlang
+    agent:
+      machine:
+        type: e1-standard-2
+        os_image: ubuntu1804
+    
+    blocks:
+      - name: Change Erlang version
+        task:
+          jobs:
+          - name: Erlang version
+            commands:
+              - checkout
+              - kerl status
+              - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+              - . /home/semaphore/.kerl/installs/20.3/activate
+              - kerl active
+              - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+              - . /home/semaphore/.kerl/installs/21.0/activate
+              - kerl active
+              - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
+    
+    - name: Compile Erlang code
+      task:
+        jobs:
+        - name: Hello World 21.0
+          commands:
+            - checkout
+            - erlc hello.erl
+            - ls -l
+            - erl -noshell -s hello helloWorld -s init stop
+    
+        - name: Hello World 20.3
+          commands:
+            - checkout
+            - . /home/semaphore/.kerl/installs/20.3/activate
+            - erlc hello.erl
+            - ls -l
+            - erl -noshell -s hello helloWorld -s init stop
 
 ## See Also
 
