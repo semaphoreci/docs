@@ -82,6 +82,16 @@ source file using two different versions of the Erlang compiler:
             - ls -l
             - erl -noshell -s hello helloWorld -s init stop
 
+The Erlang code of `hello.erl` is as follows:
+
+	%% Programmer: Mihalis Tsoukalos
+	%% Date: Friday 21 December 2018
+    
+	-module(hello).
+		-export([helloWorld/0]).
+    
+		helloWorld() -> io:fwrite("hello, world\n").
+
 ## See Also
 
 * [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
