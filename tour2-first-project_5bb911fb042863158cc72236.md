@@ -65,7 +65,7 @@ You can do the following:
   given Semaphore organization, and has Admin-level permissions for the
   repository on GitHub.
 - Check if the access for Semaphore 2.0 was granted within your GitHub
-  organization. You can do that [here](github-connection).
+  organization. You can do that [here][github-connection].
 
 [app]: https://id.semaphoreci.com
 [next]: https://docs.semaphoreci.com/article/62-concepts
