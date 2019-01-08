@@ -15,7 +15,8 @@ The list of supported Erlang versions is the following:
 
 ## Changing Erlang version
 
-The `kerl` Erlang utility can help you change the Erlang version.
+The [`sem-version` utility](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version)
+can help you change between the available Erlang versions.
 
 By default Semaphore Virtual Machine uses Erlang version 21.0. You can change
 to Erlang version 20.3 by executing the following command:
