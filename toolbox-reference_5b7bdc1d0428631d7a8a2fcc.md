@@ -343,8 +343,8 @@ The `sem-version` utility is used for changing the version of a programming
 language on the executed Virtual Machine (VM), which mainly happens for
 compatibility issues.
 
-The supported programming languages are `elixir`, `go`, `java`, `php`, `ruby`,
-`python` and `node`.
+The supported programming languages are `elixir`, `erlang`, `go`, `java`,
+`php`, `ruby`, `python`, `scala` and `node`.
 
 ### Command Line Parameters
 
@@ -353,9 +353,9 @@ The general form of the `sem-version` utility is as follows:
     sem-version [PROGRAMMING LANGUAGE] [VERSION]
 
 where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`,
-`php`, `ruby`, `python` and `node`. The value of the `[VERSION]` parameter
-depends on the programming language used because different programming
-languages have different versioning systems.
+`php`, `ruby`, `python`, `scala` and `node`. The value of the `[VERSION]`
+parameter depends on the programming language used because different
+programming languages have different versioning systems.
 
 ### Dependencies
 
