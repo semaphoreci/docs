@@ -259,12 +259,12 @@ is given, a default value will be used according to the following list:
 available in Docker Hub. You can find the list of available versions at the
 following URLs:
 
-* ElasticSearch: https://hub.docker.com/_/elasticsearch/
-* MySQL: https://hub.docker.com/_/mysql/
-* PostgreSQL: https://hub.docker.com/_/postgres/
-* Redis: https://hub.docker.com/_/redis/
-* MongoDB: https://hub.docker.com/_/mongo/
-* Memcached: https://hub.docker.com/_/memcached/
+* ElasticSearch: [https://hub.docker.com/_/elasticsearch/](https://hub.docker.com/_/elasticsearch/)
+* MySQL: [https://hub.docker.com/_/mysql/](https://hub.docker.com/_/mysql/)
+* PostgreSQL: [https://hub.docker.com/_/postgres/](https://hub.docker.com/_/postgres/)
+* Redis: [https://hub.docker.com/_/redis/](https://hub.docker.com/_/redis/)
+* MongoDB: [https://hub.docker.com/_/mongo/](https://hub.docker.com/_/mongo/)
+* Memcached: [https://hub.docker.com/_/memcached/](https://hub.docker.com/_/memcached/)
 
 Please note that none of these databases is already installed on the Semaphore
 2.0 VM. Only clients for MySQL and PostgreSQL are installed by default, which
