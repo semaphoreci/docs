@@ -20,11 +20,11 @@ The `kerl` Erlang utility can help you change the Erlang version.
 By default Semaphore Virtual Machine uses Erlang version 21.0. You can change
 to Erlang version 20.3 by executing the following command:
 
-    . /home/semaphore/.kerl/installs/20.3/activate
+    sem-version erlang 20
 
 You can change back to Erlang version 21.0 by executing the following command:
 
-    . /home/semaphore/.kerl/installs/21.0/activate
+    sem-version erlang 21
 
 ## Dependency management
 
@@ -57,10 +57,10 @@ source file using two different versions of the Erlang compiler:
               - checkout
               - kerl status
               - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
-              - . /home/semaphore/.kerl/installs/20.3/activate
+              - sem-version erlang 20
               - kerl active
               - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
-              - . /home/semaphore/.kerl/installs/21.0/activate
+              - sem-version erlang 21
               - kerl active
               - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
     
@@ -77,7 +77,7 @@ source file using two different versions of the Erlang compiler:
         - name: Hello World 20.3
           commands:
             - checkout
-            - . /home/semaphore/.kerl/installs/20.3/activate
+            - sem-version erlang 20
             - erlc hello.erl
             - ls -l
             - erl -noshell -s hello helloWorld -s init stop
