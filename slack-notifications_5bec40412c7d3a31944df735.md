@@ -151,7 +151,7 @@ spec:
 Then, apply the resource to your organization:
 
 ```
-sem create notification -f release-cycle-notifications.yml
+sem create -f release-cycle-notifications.yml
 ```
 
 <!--See the [reference of notification resources](TODO) for further details.-->
