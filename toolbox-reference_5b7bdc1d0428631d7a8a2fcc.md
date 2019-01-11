@@ -164,16 +164,24 @@ All these environment variables are automatically defined by Semaphore 2.0.
 
 The `checkout` command supports the `--use-cache` flag. The purpose of that
 flag is to tell `checkout` to get the contents of the GitHub repository from
-the Semaphore Cache server
+the Semaphore Cache server instead of the GitHub servers because it is faster.
+
+If there is no cache entry for the active GitHub repository, the functionality
+of the `--use-cache` flag will create it.
 
 When using the `--use-cache` flag, `checkout` supports the following
 environment variables:
 
    - `SEMAPHORE_GIT_CACHE_AGE`: This environment variable specifies how often
-     the cache for that GitHub repository will be updated. Its value is always
-     in seconds and by default it is `259200`, which is 3 days.
-   - `SEMAPHORE_GIT_CACHE_KEEP`: This environment variable
-
+     the cache for that GitHub repository will get updated. Its value is always
+     in seconds and by default it is `259200`, which is 3 days. The value that
+     you are going to choose depends on your project and how ofter it gets
+     updated.
+   - `SEMAPHORE_GIT_CACHE_KEEP`: Each time there is an update to the cache, the
+     key in the Cache server is also being updated. Before updating the key,
+     the previous key that is related to the current project is deleted.
+     This environment variable tells Semaphore Cache server to keep a history.
+     The default value of `SEMAPHORE_GIT_CACHE_KEEP` is `0`.
 
 ### Examples
 
@@ -188,9 +196,8 @@ to get the contents of the GitHub repository instead of using GitHub server:
 
     checkout --use-cache
 
-If you set `SEMAPHORE_GIT_CACHE_KEEP=0` then 
-
-If you set `SEMAPHORE_GIT_CACHE_KEEP=1` then
+If you set `SEMAPHORE_GIT_CACHE_KEEP` to `1` then it will keep two copies in
+the Semaphore Cache server: the active one and the previous one.
 
 If you set `SEMAPHORE_GIT_CACHE_AGE=86400`, then the cache for the GitHub
 repository will get updated after 1 day.
