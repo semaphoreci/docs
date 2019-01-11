@@ -160,6 +160,21 @@ three Semaphore environment variables:
 
 All these environment variables are automatically defined by Semaphore 2.0.
 
+### The `--use-cache` flag
+
+The `checkout` command supports the `--use-cache` flag. The purpose of that
+flag is to tell `checkout` to get the contents of the GitHub repository from
+the Semaphore Cache server
+
+When using the `--use-cache` flag, `checkout` supports the following
+environment variables:
+
+   - `SEMAPHORE_GIT_CACHE_AGE`: This environment variable specifies how often
+     the cache for that GitHub repository will be updated. Its value is always
+     in seconds and by default it is `259200`, which is 3 days.
+   - `SEMAPHORE_GIT_CACHE_KEEP`: This environment variable
+
+
 ### Examples
 
     checkout
@@ -167,6 +182,18 @@ All these environment variables are automatically defined by Semaphore 2.0.
 Notice that the `checkout` command automatically changes the current working
 directory in the Operating System of the VM to the directory defined in the
 `SEMAPHORE_GIT_DIR` environment variable.
+
+The following command will tell `checkout` to use the Semaphore Cache server
+to get the contents of the GitHub repository instead of using GitHub server:
+
+    checkout --use-cache
+
+If you set `SEMAPHORE_GIT_CACHE_KEEP=0` then 
+
+If you set `SEMAPHORE_GIT_CACHE_KEEP=1` then
+
+If you set `SEMAPHORE_GIT_CACHE_AGE=86400`, then the cache for the GitHub
+repository will get updated after 1 day.
 
 ## libchecksum
 
