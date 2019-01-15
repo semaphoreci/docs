@@ -194,6 +194,11 @@ for the first time and requires two command line arguments. The first command
 line argument is the organization domain and the second command line argument
 is the user authentication token – the organization must already exist.
 
+The `sem connect` command checks whether the user entered the correct
+authentication token or not. If the authentication token is correct, it is
+stored on the current computer. If the authentication token is incorrect, then
+it is not stored on the current computer.
+
 Organizations are created using the web interface of Semaphore 2.0.
 
 The authentication token depends on the active user.
