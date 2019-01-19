@@ -28,7 +28,7 @@ Then create it:
 sem create -f secret.yml
 ```
 
-Now add the secret to your pipeline and authenticate
+Now add the secret to your pipeline and authenticate.
 
 ## Configuring the Pipeline
 
