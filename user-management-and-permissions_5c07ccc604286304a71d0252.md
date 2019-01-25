@@ -2,7 +2,7 @@ Semaphore organizations can have unlimited members. Members have different permi
 
 ## Owner
 
-The creator of organization is its owner. There cannot be multiple owners, but it is possible to transfer the ownership. In order to do that, please [contact support](mailto:support@semaphoreci.com).
+The creator of organization is its owner. There cannot be multiple owners, but it is possible to [transfer the ownership](https://docs.semaphoreci.com/article/106-user-management-and-permissions#transferring-ownership-of-an-organization).
 
 ### Project permissions
 
@@ -42,3 +42,12 @@ Members can:
 - See all projects they can see on GitHub;
 - Add projects to Semaphore, if they have admin access to a particular repository on GitHub;
 - Delete the projects they created.
+
+## Transferring ownership of an organization
+
+In order to transfer the ownership to a new user, the following conditions need to be met:
+- New owner needs to be a member of the organization;
+- New owner needs to log in to Semaphore 2.0 at least once;
+- Current owner needs to send a confirmation to [support@semaphoreci.com](mailto:support@semaphoreci.com) from an email account related to Semaphore 2.0. In this email, please include name of the organization and GitHub username of the new owner.
+
+After that, we’ll change the ownership on your behalf.
