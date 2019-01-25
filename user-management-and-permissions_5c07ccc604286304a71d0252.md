@@ -46,6 +46,7 @@ Members can:
 ## Transferring ownership of an organization
 
 In order to transfer the ownership to a new user, the following conditions need to be met:
+
 - New owner needs to be a member of the organization;
 - New owner needs to log in to Semaphore 2.0 at least once;
 - Current owner needs to send a confirmation to [support@semaphoreci.com](mailto:support@semaphoreci.com) from an email account related to Semaphore 2.0. In this email, please include name of the organization and GitHub username of the new owner.
