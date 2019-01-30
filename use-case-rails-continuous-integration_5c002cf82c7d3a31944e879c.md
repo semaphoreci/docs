@@ -12,7 +12,7 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 Semaphore maintains an example Ruby on Rails project:
 
-- [Demo Ruby on Rails project on GitHub](rails-demo-project)
+- [Demo Ruby on Rails project on GitHub][rails-demo-project]
 
 In the repository you will find an annotated Semaphore configuration file
 `.semaphore/semaphore.yml`.
