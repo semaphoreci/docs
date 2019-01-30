@@ -1,6 +1,13 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Ruby on Rails web application.
 
+* [Demo project](#demo-project)
+* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+* [Sample configuration](#sample-configuration)
+* [Run the demo Ruby on Rails project yourself](#run-the-demo-ruby-on-rails-project-yourself)
+* [Next steps](#next-steps)
+* [See also](#see-also)
+
 ## Demo project
 
 Semaphore maintains an example Ruby on Rails project:
