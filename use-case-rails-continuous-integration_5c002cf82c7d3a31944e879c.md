@@ -175,7 +175,7 @@ Semaphore.
 A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
-1. Fork the project on GitHub to your own account.
+1. [Fork the project on GitHub][rails-demo-project] to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
    Follow the instructions to install sem CLI, connect it to your
