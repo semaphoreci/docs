@@ -38,7 +38,9 @@ it usually signals a fundamental problem in code. In that case we want fast
 feedback, so we configured the pipeline to fail the build before proceeding
 to time consuming integration tests.
 
-For these reasons our pipeline is composed of three blocks of tests.
+For these reasons our pipeline is composed of three blocks of tests:
+
+![Rails CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/raw/master/public/ci-pipeline.png)
 
 ## Sample configuration
 
