@@ -2,45 +2,84 @@ This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Ruby on Rails web application.
 Before starting, [create a new Semaphore project][create-project].
 
-## Define the pipeline
+## Demo project
 
-Our Rails CI pipeline will perform the following tasks:
+Semaphore maintains an example Ruby on Rails project:
 
-- Scan the code for style and security issues using Rubocop and Brakeman;
-- Run unit tests, using RSpec;
-- Run integration tests.
+- [Demo Ruby on Rails project on
+  GitHub](https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails)
+
+In the repository you will find an annotated Semaphore configuration file
+`.semaphore/semaphore.yml`.
+
+The application uses the latest stable version of Rails, Rubocop, Brakeman,
+RSpec, Capybara, with PostgreSQL as the database.
+
+## Overview of the CI pipeline
+
+The demo Rails CI pipeline performs the following tasks:
+
+- Scans the code for style and security issues using Rubocop and Brakeman;
+- Runs unit tests, using RSpec;
+- Runs integration tests.
 
 Mature applications usually have many tests and optimizing their runtime saves
-a lot of valuable time for development. So for demonstration we'll run
+a lot of valuable time for development. So for demonstration we run
 different types of unit tests in parallel jobs.
 
 When code scanning detects errors, it's a good idea to not run any further
 tests and fail the build early. Similarly, in case any unit tests fail,
 it usually signals a fundamental problem in code. In that case we want fast
-feedback, so we'll configure the pipeline to fail the build before proceeding
+feedback, so we configured the pipeline to fail the build before proceeding
 to time consuming integration tests.
 
-For these reasons our pipeline is composed of three blocks of tests:
+For these reasons our pipeline is composed of three blocks of tests.
+
+## Sample configuration
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
+# Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
+
+# Name your pipeline. In case you connect multiple pipelines with promotions,
+# the name will help you differentiate between, for example, a CI build phase
+# and delivery phases.
 name: Demo Rails 5 app
+
+# An agent defines the environment in which your code runs.
+# It is a combination of one of available machine types and operating
+# system images.
+# See https://docs.semaphoreci.com/article/20-machine-types
+# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
+# Blocks are the heart of a pipeline and are executed sequentially.
+# Each block has a task that defines one or more jobs. Jobs define the
+# commands to execute.
+# See https://docs.semaphoreci.com/article/62-concepts
 blocks:
   - name: Setup
     task:
       jobs:
         - name: bundle
           commands:
+          # Checkout code from Git repository. This step is mandatory if the
+          # job is to work with your code.
+          # Optionally you may use --use-cache flag to avoid roundtrip to
+          # remote repository.
+          # See https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
           - checkout
-          # Partial cache key matching ensures that new branches reuse gems
-          # from the last build of master.
+          # Restore dependencies from cache.
+          # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          # Set Ruby version:
+          - sem-version ruby 2.6.0
           - bundle install --deployment -j 4 --path vendor/bundle
+          # Store the latest version of dependencies in cache,
+          # to be used in next blocks and future workflows:
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
 
   - name: Code scanning
@@ -50,17 +89,28 @@ blocks:
           commands:
             - checkout
             - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+            # Bundler requires `install` to run even though cache has been
+            # restored, but generally this is not the case with other package
+            # managers. Installation will not actually run and command will
+            # finish quickly:
+            - sem-version ruby 2.6.0
             - bundle install --deployment --path vendor/bundle
             - bundle exec rubocop
             - bundle exec brakeman
 
   - name: Unit tests
     task:
+      # This block runs two jobs in parallel and they both share common
+      # setup steps. We can group them in a prologue.
+      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
       prologue:
         commands:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          # Start Postgres database service.
+          # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
           - sem-service start postgres
+          - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
           - bundle exec rake db:setup
 
@@ -73,6 +123,10 @@ blocks:
         commands:
           - bundle exec rspec spec/controllers
 
+  # Note that it's possible to define an agent on a per-block level.
+  # For example, if your integration tests need more RAM, you could override
+  # agent configuration here to use e1-standard-8.
+  # See https://docs.semaphoreci.com/article/50-pipeline-yaml#agent-in-task
   - name: Integration tests
     task:
       prologue:
@@ -80,6 +134,7 @@ blocks:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - sem-service start postgres
+          - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
           - bundle exec rake db:setup
 
@@ -89,8 +144,7 @@ blocks:
           - bundle exec rspec spec/features
 </code></pre>
 
-The example is based on a Rails 5 application, with the following database
-configuration:
+The project is using the following database configuration:
 
 <pre><code class="language-yaml"># config/database.yml
 default: &default
