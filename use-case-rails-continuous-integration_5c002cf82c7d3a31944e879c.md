@@ -172,6 +172,20 @@ Firefox, Chrome, and Chrome Headless drivers for Capybara work out of the box,
 so you will not need to make any adjustment for browser tests to work on
 Semaphore.
 
+## Run the demo Ruby on Rails project yourself
+
+A good way to start using Semaphore is to take a demo project and run it
+yourself. Here’s how to build the demo project with your own account:
+
+1. Fork the project on GitHub to your own account.
+2. Clone the repository on your local machine.
+3. In Semaphore, follow the link in the sidebar to create a new project.
+   Follow the instructions to install sem CLI, connect it to your
+   organization.
+4. Run `sem init` inside your repository.
+5. Edit the .semaphore/semaphore.yml file and make a commit. When you push a
+   commit to GitHub, Semaphore will run the CI pipeline.
+
 ## Next steps
 
 Congratulations! You have set up your first Rails 5 continuous integration
