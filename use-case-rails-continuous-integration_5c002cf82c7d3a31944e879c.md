@@ -1,13 +1,11 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Ruby on Rails web application.
-Before starting, [create a new Semaphore project][create-project].
 
 ## Demo project
 
 Semaphore maintains an example Ruby on Rails project:
 
-- [Demo Ruby on Rails project on
-  GitHub](https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails)
+- [Demo Ruby on Rails project on GitHub](rails-demo-project)
 
 In the repository you will find an annotated Semaphore configuration file
 `.semaphore/semaphore.yml`.
@@ -201,7 +199,7 @@ deployment to Heroku.
 - [Caching reference][cache-ref]
 - [sem-service reference][sem-service]
 
-[create-project]: https://docs.semaphoreci.com/article/63-your-first-project
+[rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
 [ruby-guide]: https://docs.semaphoreci.com/article/73-ruby
 [guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
