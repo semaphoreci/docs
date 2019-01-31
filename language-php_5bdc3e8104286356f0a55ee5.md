@@ -1,11 +1,20 @@
+* [Laravel example](#laravel-example)
 * [Supported PHP versions](#supported-php-versions)
 * [Dependency caching](#dependency-caching)
 * [Environment variables](#environment-variables)
-* [System dependencies](#system-dependendices)
+* [System dependencies](#system-dependencies)
 
 This guide covers configuring PHP projects on Semaphore. If you are new to
-Semaphore please read our
+Semaphore we recommend reading our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Laravel example
+
+Semaphore provides a tutorial and demo Laravel application with a working
+CI pipeline that you can use to get started quickly:
+
+- [Laravel Continuous Integration tutorial][laravel-tutorial]
+- [Demo project on GitHub][laravel-demo-project]
 
 ## Supported PHP versions
 
@@ -108,3 +117,6 @@ blocks:
           commands:
             - codecept run
 </code></pre>
+
+[laravel-tutorial]: https://docs.semaphoreci.com/article/114-laravel-php-continuous-integration
+[laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel
