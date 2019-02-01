@@ -1,3 +1,4 @@
+
 Each Semaphore project starts with the default pipeline specified in
 `.semaphore/semaphore.yml`. Real world pipelines tend to branch out
 when certain conditions are met. Examples may be deploying to production on
@@ -49,10 +50,13 @@ blocks:
             - echo 'Deploying to production!'
 </code></pre>
 
-In the Semaphore 2.0 web interface, you will see a Production Deploy button
-once all blocks in the pipeline defined in `semaphore.yml` pass. When you promote
-a revision, Semaphore records the time and name of the person who initiated it
-and proceeds by executing the pipeline defined in `production-deploy.yml`.
+In the Semaphore 2.0 web interface, you will see a Production Deploy button.
+You can promote the Production Deploy target from the UI at any point, even
+while the pipeline that owns that target is still running.
+
+When you promote a revision, Semaphore records the time and name of the person
+who initiated it and proceeds by executing the pipeline defined in
+`production-deploy.yml`.
 
 Note that [all pipeline features][pipeline-reference] are available in delivery
 pipelines, same as in `semaphore.yml`. This enables you to chain multiple
