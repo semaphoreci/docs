@@ -17,7 +17,7 @@ We want fast feedback through the test pipeline, so we'll fail fast if
 the linting fails. This prevents running time consuming tests for
 semantically incorrect code.
 
-Consider a smaple Django `blog` project with two applications: `posts`
+Consider a sample Django `blog` project with two applications: `posts`
 and `comments`. For these reasons our pipeline is composed of three
 blocks, one for setup and two for tests:
 
@@ -37,9 +37,11 @@ blocks:
           commands:
             - sem-version python 3.7
             - checkout
-            - cache restore requirements-$(checksum requirements.txt)
+            # Partial cache key matching ensures that new branches reuse gems
+            # from the last build of master.
+            - cache restore requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt),requirements-$SEMAPHORE_GIT_BRANCH-,requirements-master-
             - pip download --cache-dir .pip_cache -r requirements.txt
-            - cache store requirements-$(checksum requirements.txt) .pip_cache
+            - cache store requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt) .pip_cache
 
   - name: Lint
     task:
@@ -47,7 +49,7 @@ blocks:
         commands:
           - sem-version python 3.7
           - checkout
-          - cache restore requirements-$(checksum requirements.txt)
+          - cache restore requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt)
           - pip install -r requirements.txt --cache-dir .pip_cache
       jobs:
         - name: Project
@@ -65,10 +67,10 @@ blocks:
           - sem-service start postgres
           - sem-version python 3.7
           - checkout
-          - cache restore requirements-$(checksum requirements.txt)
+          - cache restore requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt)
           - pip install -r requirements.txt --cache-dir .pip_cache
       jobs:
-        # Create a job for each application in the project
+        # Create parallel jobs for each application in the project
         - name: Posts App
           commands:
             - coverage run manage.py test posts
@@ -126,7 +128,7 @@ load-plugins=pylint_django
 
 ## Next steps
 
-Congratulations! You have set up your first Rails 5 continuous integration
+Congratulations! You have set up your first Django continuous integration
 project on Semaphore. Here’s some recommended reading:
 
 - [Heroku deployment guide][heroku-guide] shows you how to set up continuous
