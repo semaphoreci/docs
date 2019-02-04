@@ -1,11 +1,19 @@
+* [Django example](#django-example)
 * [Supported Python versions](#supported-python-versions)
 * [Dependency caching](#dependency-caching)
 * [Environment variables](#environment-variables)
 * [C-Extensions & system dependencies](#c-extensions-system-dependendices)
 
 This guide covers configuring Python projects on Semaphore.
-If you’re new to Semaphore please read our
+If you’re new to Semaphore we recommend reading the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Django example
+
+Semaphore provides a tutorial with a working
+CI pipeline that you can use to get started quickly:
+
+- [Django Continuous Integration tutorial][django-tutorial]
 
 ## Supported Python versions
 
@@ -144,3 +152,5 @@ Here's an example of installing the `postgres` pip:
           commands:
             - python test.py
 </code></pre>
+
+[django-tutorial]: https://docs.semaphoreci.com/article/116-django-continuous-integration

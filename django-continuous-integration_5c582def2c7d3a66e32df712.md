@@ -1,5 +1,5 @@
 This guide shows you how to use Semaphore to set up a continuous integration
-(CI) pipeline for a Django web application.
+(CI) pipeline for a Python Django web application.
 Before starting, [create a new Semaphore project][create-project].
 
 ## Define the pipeline
@@ -142,7 +142,7 @@ deployment to Heroku.
 - [sem-service reference][sem-service]
 
 [create-project]: https://docs.semaphoreci.com/article/63-your-first-project
-[python-guide]: https://docs.semaphoreci.com/article/73-python
+[python-guide]: https://docs.semaphoreci.com/article/83-language-python
 [guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
