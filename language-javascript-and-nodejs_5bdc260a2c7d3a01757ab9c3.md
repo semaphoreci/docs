@@ -5,11 +5,17 @@
 
 ## Supported Node.js versions
 
-Semaphore uses [nvm](https://github.com/creationix/nvm) to manage
-Node.js versions. Any version installable with `nvm` is supported on
-Semaphore. Version 8.11 is pre-installed. The default
-version is set from `.nvmrc` file in your repo. You can change this
-by calling `sem-version node`. Here's an example:
+Semaphore uses [nvm](https://github.com/creationix/nvm) to manage Node.js
+versions. Any version installable with `nvm` is supported by Semaphore. By
+default, version 8.11 of Node.js is pre-installed on the Semaphore VM.
+
+The version of Node.js that will be used can be set from a `.nvmrc` file if
+such a file exists on your repo. If you want to make use of the `.nvmrc` file
+you will need to run `nvm use` so you can actually tell nvm to set the node
+version specified within the `.nvmrc` file.
+
+Alternatively, you can change the Node.js version by calling `sem-version node`.
+Here's an example:
 
 <pre><code class="language-yaml">blocks:
   - name: Tests
@@ -45,7 +51,7 @@ You can use Semaphores `cache` command to store and load
 `node_modules`. In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">version: "v1.0"
+<pre><code class="language-yaml">version: v1.0
 name: First pipeline example
 agent:
   machine:
