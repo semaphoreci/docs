@@ -10,9 +10,9 @@ versions. Any version installable with `nvm` is supported by Semaphore. By
 default, version 8.11 of Node.js is pre-installed on the Semaphore VM.
 
 The version of Node.js that will be used can be set from a `.nvmrc` file if
-such a file exists on your repo. If you want to make use of the `.nvmrc` file
-you will need to run `nvm use` so you can actually tell nvm to set the node
-version specified within the `.nvmrc` file.
+such a file exists in your repository. If you want to make use of the `.nvmrc`
+file you will need to run `nvm use` so you can actually tell nvm to set the
+node version specified within the `.nvmrc` file.
 
 Alternatively, you can change the Node.js version by calling `sem-version node`.
 Here's an example:
