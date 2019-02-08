@@ -283,7 +283,7 @@ and is the version of the service that you want to start. If no `version` value
 is given, a default value will be used according to the following list:
 
 * mysql: The default value is `5.6`
-* postgres: The default value is `9.6`
+* postgres: The default value is `10.6`
 * redis: The default value is `4`
 * memcached: The default value is `1.5`
 * mongodb: The default value is `4.1`
