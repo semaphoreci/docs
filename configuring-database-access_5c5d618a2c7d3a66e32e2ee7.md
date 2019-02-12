@@ -34,7 +34,6 @@ will need to execute the following command:
 
 ## MySQL
 
-
 ### Create a new user
 
 In order to create a new user in MySQL you will need to execute the
@@ -114,14 +113,14 @@ will need to execute the following command:
 In order to create a new user in Elasticsearch you will need to execute the
 following command:
 
-    
+    sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p theshining -r reporting_user
 
 ### Create a new user with administrative privileges
 
 In order to create a new user with administrative privileges in Elasticsearch
 you will need to execute the following command:
 
-    
+    sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p theshining -r superuser
 
 ## A simple project
 
