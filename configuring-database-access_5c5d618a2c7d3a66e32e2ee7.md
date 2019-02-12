@@ -59,20 +59,7 @@ The contents of `adminMySQL.sql` are as follows:
 
 ## Redis
 
-
-### Create a new user
-
-In order to create a new user in Redis you will need to execute the following
-command:
-
-    
-
-### Create a new user with administrative privileges
-
-In order to create a new user with administrative privileges in Redis you will
-need to execute the following command:
-
-    
+The Redis database does not have the ability to define users.
 
 ## MongoDB
 
