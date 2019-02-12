@@ -22,15 +22,15 @@ with administrative privileges on the databases that are supported by Semaphore
 In order to create a new user in Postgres you will need to execute the
 following command:
 
-    psql -h postgres@localhost -c "CREATE USER developer WITH PASSWORD 'developer';
+    psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
 
 ### Create a new user with administrative privileges
 
 In order to create a new user with administrative privileges in Postgres you
 will need to execute the following command:
 
-	psql -h postgres@localhost -c "CREATE USER developer WITH PASSWORD 'developer';
-	psql -h postgres@localhost -c "ALTER USER developer WITH SUPERUSER;"
+	psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
+	psql -U postgres -h localhost -c "ALTER USER developer WITH SUPERUSER;"
 
 ## MySQL
 
