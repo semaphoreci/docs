@@ -189,7 +189,6 @@ The following Semaphore 2.0 project illustrates all these commands in action:
 	          - sudo apt install libmemcached-tools -y
 	          - memcstat --servers="127.0.0.1
 
-
 ## See Also
 
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
