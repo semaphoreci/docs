@@ -101,6 +101,93 @@ you will need to execute the following command:
 
 The following Semaphore 2.0 project illustrates all these commands in action:
 
+	version: v1.0
+	name: Configuring Databases
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
+    
+	blocks:
+	  - name: Postgres
+	    task:
+	      jobs:
+	      - name: Postgres Create user
+	        commands:
+	          - sem-service start postgres
+	          - psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
+	      - name: Postgres Create admin user
+	        commands:
+	          - sem-service start postgres
+	          - psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
+	          - psql -U postgres -h localhost -c "ALTER USER developer WITH SUPERUSER;"
+    
+	  - name: MySQL
+	    task:
+	      jobs:
+	      - name: MySQL Create user
+	        commands:
+	          - checkout
+	          - sem-service start mysql
+	          - mysql -h 127.0.0.1 -P 3306 -u root < rMySQL.sql
+    
+	      - name: MySQL Create admin user
+	        commands:
+	          - checkout
+	          - sem-service start mysql
+	          - mysql -h 127.0.0.1 -P 3306 -u root < adminMySQL.sql
+    
+	  - name: Redis
+	    task:
+	      jobs:
+	      - name: Redis use database
+	        commands:
+	          - sem-service start redis
+	          - sudo apt install redis-tools -y
+	          - redis-cli incr mycounter
+	          - redis-cli incr mycounter
+    
+	  - name: MongoDB
+	    task:
+	      jobs:
+	      - name: MongoDB Create user
+	        commands:
+	          - sem-service start mongodb
+	          - sudo apt install mongodb-clients -y
+	          - echo 'db.createUser( {user:"username", pwd:"password", roles:[], mechanisms:["SCRAM-SHA-1"]  } )' | mongo s2
+	      - name: MongoDB Create admin user
+	        commands:
+	          - sem-service start mongodb
+	          - sudo apt install mongodb-clients -y
+	          - echo 'db.createUser({user:"username", pwd:"password", roles:[{role:"userAdminAnyDatabase",db:"admin"}], mechanisms:["SCRAM-SHA-1"]})' | mongo admin
+    
+	  - name: Elasticsearch
+	    task:
+	      jobs:
+	      - name: Elasticsearch Create user
+	        commands:
+	          - sem-service start elasticsearch
+	          - wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.2.deb
+	          - sudo dpkg -i elasticsearch-6.3.2.deb
+	          - sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p password -r reporting_user
+	          - sudo /usr/share/elasticsearch/bin/elasticsearch-users list
+    
+	      - name: Elasticsearch Create admin user
+	        commands:
+	          - sem-service start elasticsearch
+	          - wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.2.deb
+	          - sudo dpkg -i elasticsearch-6.3.2.deb
+	          - sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p password -r superuser
+	          - sudo /usr/share/elasticsearch/bin/elasticsearch-users list
+    
+	  - name: Memcached
+	    task:
+	      jobs:
+	      - name: Memcached operating status
+	        commands:
+	          - sem-service start memcached
+	          - sudo apt install libmemcached-tools -y
+	          - memcstat --servers="127.0.0.1
 
 
 ## See Also
