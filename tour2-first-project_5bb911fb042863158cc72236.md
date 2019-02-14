@@ -25,6 +25,9 @@ you'll see something similar to:
 sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
 ```
 
+Your access token is always available, and revokable, on your
+[account page](https://me.semaphoreci.com/account).
+
 Finally, run `sem init` inside the Git repository you'd like to connect
 to Semaphore. The command creates a deploy key and webhook on GitHub, so
 that Semaphore can access your code as it changes, and creates a pipeline
