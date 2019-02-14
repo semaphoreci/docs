@@ -136,7 +136,7 @@ blocks:
       jobs:
       - name: Push code
         commands:
-          - checkout
+          - checkout --use-cache
           - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
           - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
           - ssh-add ~/.ssh/id_rsa_semaphore_heroku
@@ -147,6 +147,10 @@ blocks:
 
 **Note**: change the value of `HEROKU_REMOTE` to match your application's
 name as it is registered on Heroku.
+
+**Note**: For deploying to Heroku, it is required that you use `checkout` with
+the `--use-cache` option in order to avoid the shallow clone of your GitHub
+repository.
 
 #### Comments
 

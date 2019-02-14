@@ -1,8 +1,8 @@
 
 * [Overview](#overview)
 * [cache](#cache)
-* [libcheckout](#libcheckout)
-* [libchecksum](#libchecksum)
+* [checkout](#checkout)
+* [checksum](#checksum)
 * [retry](#retry)
 * [sem-service](#sem-service)
   * [Example Semaphore 2.0 project](#example-sem-service-project)
@@ -133,7 +133,7 @@ which are automatically set in every job environment:
 
 Additionally, `cache` uses `tar` to archive the specified directory or file.
 
-## libcheckout
+## checkout
 
 ### Description
 
@@ -145,6 +145,18 @@ named `checkout()` that is used for making available the entire GitHub
 repository of the running Semaphore 2.0 project to the VM used for executing a
 job of the pipeline. The `checkout()` function is called as `checkout` from the
 command line.
+
+### Shallow clone
+
+By default, the implementation of the `checkout` command uses *shallow clone*
+during the clone operation. Without shallow clone, every clone gets not only
+the files found on a repository but every revision of every file ever
+committed, which can be a slow process. So using shallow clone makes the
+process faster. However, some services do not work will with shallow clone.
+Heroku is such as example.
+
+Should you wish not to use shallow clone, you should execute `checkout` with
+the `--use-cache` flag.
 
 ### Dependencies
 
@@ -183,6 +195,9 @@ environment variables:
      This environment variable tells Semaphore Cache server to keep a history.
      The default value of `SEMAPHORE_GIT_CACHE_KEEP` is `0`.
 
+**Note**: When used with the `--use-cache` flag, `checkout` does not use
+shallow clone.
+
 ### Examples
 
     checkout
@@ -202,11 +217,11 @@ the Semaphore Cache server: the active one and the previous one.
 If you set `SEMAPHORE_GIT_CACHE_AGE=86400`, then the cache for the GitHub
 repository will get updated after 1 day.
 
-## libchecksum
+## checksum
 
 The `libchecksum` scripts provides the `checksum` command. `checksum` is
 useful for tagging artifacts or generating cache keys. It takes a
-single argument, a file path, and outputs an `md5` hash.
+single argument, a file path, and outputs an `md5` hash value.
 
 ### Examples
 
