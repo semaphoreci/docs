@@ -118,6 +118,7 @@ First specify the notification in a YAML file:
 
 ```
 apiVersion: v1alpha
+kind: Notification
 metadata:
   name: release-cycle-notifications
 spec:
