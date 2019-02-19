@@ -3,9 +3,9 @@ the success or failure of a pipeline.
 
 * [Setting up Slack notification for a project](#setting-up-slack-notifications-for-a-project)
 * [Setting up Slack notification for multiple projects and channels](#setting-up-slack-notifications-for-multiple-projects-and-channels)
-* [Filtering by project, branch and pipeline names](#filtering-by-branch-and-pipeline-anme)
+* [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
 * [Advanced notification setup](#advanced-notification-setup)
-* [Modifying notification settings](#changing-notification-settings)
+* [Modifying notification settings](#modifying-notification-settings)
 * [See also](#see-also)
 
 ## Setting up Slack notifications for a project
