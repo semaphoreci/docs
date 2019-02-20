@@ -45,6 +45,8 @@ We follow a few rules:
 
 - All text must be limited to 80 characters, to make discussing changes in pull
   requests easier.
+- Wrap all code snippets in `<pre><code class="language-yaml/xyz">` tags
+  to enable syntax highlighting. We use [Prism.js][prismjs].
 - Prefer reference-style links.
 
 When in doubt use any of the current files as an example.
@@ -63,3 +65,4 @@ Semaphore team will make sure it's published.
 [account-mgmt-issues]: https://github.com/semaphoreci/docs/labels/account%20mgmt
 [languages-issues]: https://github.com/semaphoreci/docs/labels/languages
 [use-case-issues]: https://github.com/semaphoreci/docs/labels/use%20case
+[prismjs]: https://prismjs.com
