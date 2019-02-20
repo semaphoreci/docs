@@ -27,7 +27,7 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 
 ## Development
 
-## Managing assets
+### Managing assets
 
 Semaphore team is using a private repository [public-assets]
 to store CSS, JS and image files.
