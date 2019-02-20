@@ -1,7 +1,7 @@
-
 * [Overview](#overview)
 * [Version control](#version-control)
 * [Utilities](#utilities)
+* [Gems](#gems)
 * [Java](#java)
 * [JavaScript via Node.js](#javascript-via-node-js)
 * [Python](#python)
@@ -17,6 +17,33 @@ The user in the environment is named `semaphore`, and has full `sudo` access.
 Image name: `macos-mojave`
 
 OS: `Darwin Kernel Version 18.2.0`
+
+## Version control
+
+Following version control tools are pre-installed:
+
+- Git (2.x)
+- Git LFS (Git Large File Storage)
+- Svn
+
+### Utilities
+
+- homebrew
+- bundler
+- rbenv
+- curl
+- wget
+- jq
+
+### Gems
+
+Following gems are pre-installed:
+
+- fastlane 2.115.0 2.116.0
+- xcode-install 2.5.0
+- cocoapods 1.5.3
+- xcpretty 0.3.0
+
 
 ## Languages
 
@@ -51,29 +78,6 @@ Installed versions:
 
 - 2.3.7 (system)
 - 2.5.1
-
-## Version control
-
-Following version control tools are pre-installed:
-
-- Git (2.x)
-- Git LFS (Git Large File Storage)
-- Svn
-
-### Utilities
-
-- homebrew
-- rbenv
-- curl
-- wget
-- jq
-
-### Gems
-
-- bundler 2.0.1
-- fastlane 2.115.0 2.116.0
-- xcode-install 2.5.0
-
 
 ## Xcode
 
