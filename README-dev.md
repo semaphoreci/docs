@@ -27,6 +27,11 @@ When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 
 ## Development
 
+## Managing assets
+
+Semaphore team is using a private repository [public-assets]
+to store CSS, JS and image files.
+
 ### Install dependencies
 
 Currently, script depends on [redcarpet] gem.
@@ -49,3 +54,4 @@ gem install redcarpet
 [HelpScout Docs token]: https://developer.helpscout.com/docs-api/
 [redcarpet]: https://github.com/vmg/redcarpet
 [update]: https://developer.helpscout.com/docs-api/articles/update/
+[public-assets]: https://github.com/renderedtext/public-assets
