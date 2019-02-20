@@ -11,12 +11,19 @@
 
 ## Overview
 
-The `macos-mojave` image is based on [MacOS 10.14](https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_release_notes).
+The `macos-mojave` image is based on [MacOS 10.14][mojave-release-notes].
+You can use it to build, test and deliver iOS and MacOS projects.
 The user in the environment is named `semaphore`, and has full `sudo` access.
 
 Image name: `macos-mojave`
 
 OS: `Darwin Kernel Version 18.2.0`
+
+This image can be paired with [Apple machine types][machine-types] when defining
+the [agent][agent] of your pipeline or block.
+
+Note: MacOS support on Semaphore is currently in private beta. To get access,
+[please apply][beta-form].
 
 ## Version control
 
@@ -108,3 +115,8 @@ The Xcode 10.1 image comes with the following simulators:
 * [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+
+[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_release_notes
+[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
+[beta-form]: https://semaphoreci.com/product/ios
+[agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
