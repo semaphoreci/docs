@@ -3,6 +3,12 @@ This guide shows you how to use Semaphore to set up a Continuous Integration
 Docker container and deployed to Kubernetes.
 
 * [Demo project](#demo-project)
+* [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
+* [Sample configuration](#sample-configuration)
+  * [Continuous integration block](#continuous-integration-block)
+  * [Docker build block](#docker-build-block)
+  * [Deploy to Kubernetes block](#deploy-to-kubernetes-block)
+* [Run the demo project yourself](#run-the-demo-project-yourself)
 
 ## Demo project
 
@@ -30,10 +36,12 @@ On manual approval:
 
 ![CI/CD pipeline for Kubernetes](https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes/raw/master/pipeline.png)
 
-## Sample pipeline configuration
+## Sample configuration
 
 `semaphore.yml` is the entry of the pipeline and defines the Continuous
-Integration phase:
+Integration phase.
+
+### Continuous integration block
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
@@ -111,7 +119,7 @@ promotions:
       - result: passed
 </code></pre>
 
-### Docker build
+### Docker build block
 
 The next pipeline defines builds a Docker container and pushes it to Docker Hub.
 It relies on existence of [a secret][secrets-guide].
@@ -173,10 +181,15 @@ promotions:
     pipeline_file: deploy-k8s.yml
 </code></pre>
 
-### Deploy to Kubernetes
+### Deploy to Kubernetes block
 
 The last pipeline defines deployment to Kubernetes, based on the previously
-created Docker image:
+created Docker image.
+
+Deployment is done with kubectl, the Kubernetes management CLI. To authenticate
+with a cluster, we place a cluster configuration file inside `~/.kube`
+directory. Ask your system administrator to provide you with such a file for
+your cluster.
 
 <pre><code class="language-yaml"># .semaphore/deploy-k8s.yml
 version: v1.0
@@ -240,7 +253,9 @@ yourself. Here’s how to build the demo project with your own account:
 1. [Fork the project on GitHub][demo-project] to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-4. Edit the .semaphore/semaphore.yml (or any) file and make a commit. When you
+4. Follow the instructions above to create secrets to authenticate with
+   a container registry and Kubernetes cluster.
+5. Edit the .semaphore/semaphore.yml (or any) file and make a commit. When you
    push the commit to GitHub, Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
