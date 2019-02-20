@@ -31,6 +31,7 @@ The pipeline performs the following tasks:
 - Push container to Docker Hub registry
 
 On manual approval:
+
 - Deploy to Kubernetes cluster
 - Tag the `latest` version of container image and push it to registry
 
@@ -255,7 +256,7 @@ yourself. Here’s how to build the demo project with your own account:
 3. In Semaphore, follow the link in the sidebar to create a new project.
 4. Follow the instructions above to create secrets to authenticate with
    a container registry and Kubernetes cluster.
-5. Edit the .semaphore/semaphore.yml (or any) file and make a commit. When you
+5. Edit the `.semaphore/semaphore.yml` (or any) file and make a commit. When you
    push the commit to GitHub, Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
