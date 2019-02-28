@@ -1,9 +1,18 @@
+* [Example project](#example-project-with-spring-boot-and-docker)
 * [Supported Java versions](#supported-java-versions)
 * [Dependency Caching](#dependency-caching)
 
 This guide covers configuring Java projects on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+## Example project with Spring Boot and Docker
+
+Semaphore provides a tutorial and demo application with a working
+CI/CD pipeline that you can use to get started quickly:
+
+- [Java Spring CI/CD tutorial][tutorial]
+- [Demo project on GitHub][demo-project]
 
 ## Supported Java versions
 
@@ -78,3 +87,6 @@ blocks:
             # that executes tests
             - mvn -q package
 </code></pre>
+
+[tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
