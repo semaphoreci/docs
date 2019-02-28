@@ -1,7 +1,16 @@
+* [Example project](#example-project-with-node-js-typescript-and-react)
 * [Supported Node.js versions](#supported-node-js-versions)
 * [Dependency caching](#dependency-caching)
 * [Environment variables](#environment-variables)
 * [Browser testing](#browser-testing)
+
+## Example project with Node.js, TypeScript and React
+
+Semaphore provides a tutorial and demo application with a working
+CI pipeline that you can use to get started quickly:
+
+- [Node.js server and React client tutorial][tutorial]
+- [Demo project on GitHub][demo-project]
 
 ## Supported Node.js versions
 
@@ -121,3 +130,5 @@ Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ub
 browsers and testing tools on Semaphore.
 
 [browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
+[tutorial]: https://docs.semaphoreci.com/article/121-nodejs-typescript-continuous-integration
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
