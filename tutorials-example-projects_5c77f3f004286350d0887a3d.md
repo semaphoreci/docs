@@ -23,6 +23,25 @@ of an example project written in your language and framework.
 
 ### Deployment
 
+<table>
+  <thead>
+    <tr>
+      <th>Platform or tool</th>
+      <th>GitHub repository</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        [Docker registry, Docker Hub][guide-dockerhub]
+      </td>
+      <td>
+        [semaphore-demo-java-spring][demo-java-spring]
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 | Platform or tool | GitHub repository |
 |---|---|
 | [Docker registry, Docker Hub][guide-dockerhub] | [semaphore-demo-java-spring][demo-java-spring] |
