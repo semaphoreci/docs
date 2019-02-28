@@ -9,7 +9,7 @@ of an example project written in your language and framework.
 ### Continuous Integration
 
 | Language | Framework | GitHub repository |
-|:--|--:|--:|
+|---|---|---|
 | Go | Go | coming soon |
 | [Java][guide-java-spring] | [Spring][guide-java-spring] | [semaphore-demo-java-spring][demo-java-spring] |
 | [JavaScript][guide-javascript] | [Node.js, Nest.js / Express, React][guide-javascript] | [semaphore-demo-javascript][demo-javascript] |
@@ -24,7 +24,7 @@ of an example project written in your language and framework.
 ### Deployment
 
 | Platform or tool | GitHub repository |
-|:--|--:|
+|---|---|
 | [Docker registry, Docker Hub][guide-dockerhub] | [semaphore-demo-java-spring][demo-java-spring] |
 | [Docker registry, AWS ECR][guide-ecr] | coming soon |
 | [Docker registry, Google Container Registry][guide-gcr] | coming soon |
