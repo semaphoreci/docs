@@ -21,14 +21,18 @@ You can find all required files in a GitHub
 The contents of the `.semaphore/semaphore.yml` file are as follows:
 
 
+The contents of `webServer.go`, which is a Go implementation of a web server
+are as follows:
+
+
 The contents of `webServer_test.go`, which is the Go test package used in the
 Go project are as follows:
 
 
 ## Explaining the sample project
 
-
-Now, it is time to explain what each `block` does.
+Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
+file does.
 
 
 ### See also
