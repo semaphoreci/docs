@@ -40,7 +40,7 @@ possible and jump-start your own projects.
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/116-django-continuous-integration">Python</a></td>
       <td><a href="https://docs.semaphoreci.com/article/116-django-continuous-integration">Django</a></td>
-      <td>coming soon</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-python-django">semaphore-demo-python-django</a></td>
     </tr>
 
     <tr>
