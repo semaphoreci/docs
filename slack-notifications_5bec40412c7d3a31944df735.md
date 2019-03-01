@@ -5,6 +5,8 @@ the success or failure of a pipeline.
 * [Setting up Slack notification for multiple projects and channels](#setting-up-slack-notifications-for-multiple-projects-and-channels)
 * [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
 * [Advanced notification setup](#advanced-notification-setup)
+  * [Filtering by pipeline result](#filtering-by-pipeline-result)
+  * [Example of notifying multiple teams](#example-of-notifying-multiple-teams)
 * [Modifying notification settings](#modifying-notification-settings)
 * [See also](#see-also)
 
@@ -18,9 +20,9 @@ Use the generated Endpoint URL to set up a notification on Semaphore,
 with the following command:
 
 ```
-sem create notification [name] \
-  --projects [project_name] \
-  --slack-endpoint [slack-webhook-endpoint]
+$ sem create notification [name] \
+    --projects [project_name] \
+    --slack-endpoint [slack-webhook-endpoint]
 ```
 
 For example, if you have a project called `web` and you want to get a Slack
@@ -28,10 +30,10 @@ notification on every finished pipeline on the `master` branch, use the
 following command:
 
 ```
-sem create notification master-pipelines \
-  --projects web \
-  --branches master \
-  --slack-endpoint [slack-webhook-endpoint]
+$ sem create notification master-pipelines \
+    --projects web \
+    --branches master \
+    --slack-endpoint [slack-webhook-endpoint]
 ```
 
 ## Setting up Slack notifications for multiple projects and channels
@@ -44,21 +46,21 @@ and you want to get notified for every finished pipeline on the master branch,
 use the following command:
 
 ```
-sem create notifications teamA-notifications \
-  --projects "web,cli,api" \
-  --branches "master" \
-  --slack-endpoint [slack-webhook-endpoint]
+$ sem create notifications teamA-notifications \
+    --projects "web,cli,api" \
+    --branches "master" \
+    --slack-endpoint [slack-webhook-endpoint]
 ```
 
 If you also want to send these notifications to multiple slack channels, for
 example `#dev-team` and `#qa-team`, use the following command:
 
 ```
-sem create notifications new-releases \
-  --projects "web,cli,api" \
-  --branches "master" \
-  --slack-endpoint [slack-webhook-endpoint] \
-  --slack-channels "#dev-team,#qa-team"
+$ sem create notifications new-releases \
+    --projects "web,cli,api" \
+    --branches "master" \
+    --slack-endpoint [slack-webhook-endpoint] \
+    --slack-channels "#dev-team,#qa-team"
 ```
 
 ## Filtering by project, branch and pipeline names
@@ -70,9 +72,9 @@ For example to send notifications for the `master` and `staging` branches use
 the following:
 
 ```
-sem create notifications example \
-  --branches "master,staging" \
-  --slack-endpoint [slack-webhook-endpoint] \
+$ sem create notifications example \
+    --branches "master,staging" \
+    --slack-endpoint [slack-webhook-endpoint] \
 ```
 
 The branch filter can be a direct match like in the previous example, or a
@@ -80,9 +82,9 @@ regular expression match. For example, to get notified about for `master` and
 every branch that matches `hotfix/*`, use the following:
 
 ```
-sem create notifications example \
-  --branches "master,/hotfix\/.*/" \
-  --slack-endpoint [slack-webhook-endpoint] \
+$ sem create notifications example \
+    --branches "master,/hotfix\/.*/" \
+    --slack-endpoint [slack-webhook-endpoint] \
 ```
 
 Regex matches must be wrapped in forward slashes (example: `/.*/`). Specifying a
@@ -94,29 +96,70 @@ if you want to get notified about every notification on a project that matches
 `/.*-api$/`, on the master branch, when the `prod.yml` pipeline is executed, use:
 
 ```
-sem create notifications example \
-  --projects "/.*-api$/" \
-  --branches "master" \
-  --pipelines "prod.yml" \
-  --slack-endpoint [slack-webhook-endpoint] \
+$ sem create notifications example \
+    --projects "/.*-api$/" \
+    --branches "master" \
+    --pipelines "prod.yml" \
+    --slack-endpoint [slack-webhook-endpoint] \
 ```
 
 ## Advanced notification setup
 
-In the previous examples we looked at simpler use cases where we used the CLI
-interface to setup a new notification.
+In the previous examples we looked at simple use cases where we used the CLI
+interface to set up a new notification.
 
 For more complex use cases, defining a notification YAML resource offers full
 control over the rules used for dispatching notifications.
 
-An example complex notification scenario could be the following:
+### Filtering by pipeline result
 
-- On every pipeline on the staging branch, notify the QA team
+You can specify notifications to be sent only on specific pipeline results.
+
+Available values for the results filter are:
+
+- `passed`
+- `failed`
+- `stopped`
+- `canceled`
+
+Example YAML configuration:
+
+<pre><code class="language-yaml"> # notify-on-fail.yml
+apiVersion: v1alpha
+kind: Notification
+metadata:
+  name: notify-on-fail
+spec:
+  rules:
+    - name: "Example"
+      filter:
+        projects:
+          - example-project
+        results:
+          - failed
+      notify:
+        slack:
+          endpoint: https://hooks.slack.com/services/xxx/yyy/zzz
+</code></pre>
+
+Note that you can list more than value under `results`.
+
+You can create a notification using the file above with:
+
+```
+$ sem create -f notify-on-fail.yml
+```
+
+### Example of notifying multiple teams
+
+In this example example we would like to do the following:
+
+- On every passed pipeline on the staging branch, notify the QA team
 - On every pipeline on the master branch, notify the DevOps and Security teams
 
 First specify the notification in a YAML file:
 
-```
+<pre><code class="language-yaml"> # release-cycle-notifications.yml
 apiVersion: v1alpha
 kind: Notification
 metadata:
@@ -129,6 +172,8 @@ spec:
           - /.*/
         branches:
           - staging
+        results:
+          - passed
       notify:
         slack:
           endpoint: https://hooks.slack.com/XXXXXXXXXXX/YYYYYYYYYYYY/ZZZZZZZZZZ
@@ -147,7 +192,7 @@ spec:
           channels:
             - "#devops-team"
             - "#secops-team"
-```
+</code></pre>
 
 Then, apply the resource to your organization:
 
