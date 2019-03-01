@@ -1,5 +1,10 @@
+sem, the Semaphore Command Line Interface (CLI) makes it easy to create and
+manage your Semaphore projects and resources directly from the terminal. It’s an
+essential part of using Semaphore.
 
-* [Overview](#overview-of-sem)
+#### Table of contents
+
+* [Download and install](#download-and-install)
   * [Syntax](#syntax)
   * [Operations](#operations)
   * [Resource types](#resource-types)
@@ -41,11 +46,28 @@
 * [Command aliases](#command-aliases)
 * [See also](#see-also)
 
-## Overview of sem
+## Download and install
 
-sem is the command line interface to Semaphore 2.0. This reference page
-covers the syntax and the commands of sem and presents examples of its
-various commands.
+To download and install sem, copy and paste the installation command:
+
+```
+$ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
+```
+
+Next, you'll need to connect `sem` to an organization.
+The command includes the URL and access token. In your web browser
+you'll see something similar to:
+
+```
+$ sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
+```
+
+You can find the exact `sem connect` command, which includes your current
+organization name and access token, by invoking the CLI widget in the top-right
+corner of any screen on Semaphore.
+
+Your access token is also always available, and revokable, on your [account
+page](https://me.semaphoreci.com/account).
 
 ### Syntax
 
