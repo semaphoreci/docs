@@ -1,20 +1,20 @@
-* [Overview](#overview)
+Semaphore CI/CD jobs can run and build Docker images, and can also push images
+to Docker repositories or other remote storage.
+
+Docker CLI is [preinstalled](ubuntu-vm) on Semaphore VMs, so you can use Docker
+right away.
+
+Table of contents
+
 * [Hello world](#hello-world)
-* [Using a public Docker image in CI/CD jobs](#using-a-public-docker-image-in-ci-cd-jobs)
+* [Example projects](#example-projects)
+* [Using a public Docker image in CI/CD jobs](#using-a-public-docker-image-in-cicd-jobs)
 * [Using a Docker image from a private registry](#using-a-docker-image-from-a-private-registry)
 * [Building a Docker image from a Dockerfile](#building-a-docker-image-from-a-dockerfile)
 * [Pushing a Docker image to a registry](#pushing-a-docker-image-to-a-registry)
 * [Using a specific version of docker-compose](#using-a-specific-version-of-docker-compose)
 * [Installing a newer Docker version](#installing-a-newer-docker-version)
 * [See also](#see-also)
-
-## Overview
-
-Semaphore CI/CD jobs can run and build Docker images, and can also push images
-to Docker repositories or other remote storage.
-
-Docker CLI is [preinstalled](ubuntu-vm) on Semaphore VMs, so you can use Docker
-right away.
 
 ## Hello world
 
@@ -36,6 +36,17 @@ blocks:
           - docker build -t awesome-image .
           - docker images
 </code></pre>
+
+## Example projects
+
+Semaphore provides tutorials and demo applications with working CI/CD pipelines
+that you can use to get started quickly:
+
+- [CI/CD for Microservices on
+  Kubernetes][microservices-k8s-tutorial] and [demo project on
+  GitHub][semaphore-demo-ruby-kubernetes]
+- [Java Spring CI/CD][java-spring-tutorial] and [demo project on
+  GitHub][semaphore-demo-java-spring]
 
 ## Using a public Docker image in CI/CD jobs
 
@@ -233,6 +244,12 @@ for example. Refer to the [guided tour](using-promotions) and the
 [pipeline reference](pipeline-reference) for more information on orchestrating
 workflows.
 
+### More examples of pushing to Docker registries
+
+- [Pushing Docker images to AWS Elastic Container Registry
+  (ECR)][ecr-tutorial]
+- [Pushing Docker images to Google Container Registry (GCR)][gcr-tutorial]
+
 ## Using a specific version of docker-compose
 
 A recent version of Docker Compose is [preinstalled by default](ubuntu-vm).
@@ -301,6 +318,12 @@ this is an example that you can use to set it up:
 * [Pipeline YAML Reference](pipeline-reference)
 * [Using secrets to manage sensitive data](using-secrets)
 
+[microservices-k8s-tutorial]: https://docs.semaphoreci.com/article/119-ci-cd-for-microservices-on-kubernetes
+[semaphore-demo-ruby-kubernetes]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
+[java-spring-tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
+[semaphore-demo-java-spring]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
+[ecr-tutorial]: https://docs.semaphoreci.com/article/71-aws-elastic-container-registry-ecr
+[gcr-tutorial]: https://docs.semaphoreci.com/article/72-google-container-registry-gcr
 [using-secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
 [ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#docker
 [sem-reference]: https://docs.semaphoreci.com/article/53-sem-reference
