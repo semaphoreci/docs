@@ -4,6 +4,8 @@ Semaphore 2.0 gives you the option to access all running jobs via SSH, to
 restart your jobs in debug mode, or to start on-demand virtual machines to
 explore the build environment.
 
+Before you begin, you'll need to [install the Semaphore CLI][install-cli].
+
 * [Setting Up Your SSH Key](#setting-up-your-ssh-key)
 * [Exploring the build environment](#exploring-the-build-environment)
 * [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
@@ -125,3 +127,5 @@ your debug job using the `sem get jobs` command.
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+
+[install-cli]: https://docs.semaphoreci.com/article/53-sem-reference

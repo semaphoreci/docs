@@ -1,10 +1,11 @@
-sem, the Semaphore Command Line Interface (CLI) makes it easy to create and
+sem, the Semaphore Command Line Interface (CLI), makes it easy to create and
 manage your Semaphore projects and resources directly from the terminal. It’s an
 essential part of using Semaphore.
 
 #### Table of contents
 
 * [Download and install](#download-and-install)
+* [Overview](#overview)
   * [Syntax](#syntax)
   * [Operations](#operations)
   * [Resource types](#resource-types)
@@ -68,6 +69,8 @@ corner of any screen on Semaphore.
 
 Your access token is also always available, and revokable, on your [account
 page](https://me.semaphoreci.com/account).
+
+## Overview
 
 ### Syntax
 
