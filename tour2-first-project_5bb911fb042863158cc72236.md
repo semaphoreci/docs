@@ -20,24 +20,20 @@ process:
 ## Alternative: creating a project from command line
 
 You can also create and manage projects using the Semaphore Command Line
-Interface (CLI).
+Interface (CLI):
 
-To create a new project from a Git repository, [install the sem
-CLI][install-cli] and run the following command from the root of your
-repository:
+1. [Install sem CLI][install-cli];
+2. Run `sem init` in the root of your repository;
+3. `git push` a new commit to run your first workflow.
 
-```
-$ sem init
-```
+`sem init` creates a deploy key and webhook on GitHub, so
+that Semaphore can access your code as it changes. It also creates a pipeline
+definition file `.semaphore/semaphore.yml` in the repository on your computer.
+In case that file already exists, sem will not overwrite it.
 
-The command creates a deploy key and webhook on GitHub, so
-that Semaphore can access your code as it changes, and creates a pipeline
-definition file `.semaphore/semaphore.yml` on your computer.
-In case your repository already contains this file, sem will not overwrite it.
-
-After you follow the last instruction to `git push`, you should
-see the pipeline running in your browser. You can also see all running
-jobs in your terminal via `sem get jobs`.
+After you commit `.semaphore/semaphore.yml` and run `git push`, you should see
+the pipeline running in your browser. You can also see all running jobs in your
+terminal via `sem get jobs`.
 
 ## Moving on
 
