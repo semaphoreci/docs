@@ -23,57 +23,58 @@ Semaphore maintains an example Go project:
 
 The contents of the `.semaphore/semaphore.yml` file are as follows:
 
-	$ cat .semaphore/semaphore.yml
-	version: v1.0
-	name: Go project
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
-    
-	blocks:
-	  - name: Build project
-	    task:
-	      jobs:
-	      - name: Get Go packages
-	        commands:
-	          - checkout
-	          - sem-version go 1.12
-	          - go get github.com/lib/pq
-	          - go build webServer.go
-	          - mkdir bin
-	          - mv webServer bin
-	          - cache store $(checksum webServer.go) bin
-    
-	  - name: Check code style
-	    task:
-	      jobs:
-	      - name: gofmt
-	        commands:
-	          - checkout
-	          - sem-version go 1.12
-	          - yes | sudo apt install gccgo-go
-	          - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
-    
-	  - name: Smoke tests
-	    task:
-	      jobs:
-	      - name: go test
-	        commands:
-	          - checkout
-	          - sem-version go 1.12
-	          - sem-service start postgres
-	          - psql -p 5432 -h localhost -U postgres -c "CREATE DATABASE s2"
-	          - go get github.com/lib/pq
-	          - go test ./... -v
-    
-	      - name: Test Web Server
-	        commands:
-	          - checkout
-	          - sem-version go 1.12
-	          - cache restore $(checksum webServer.go)
-	          - ./bin/webServer 8001 &
-	          - curl --silent localhost:8001/time | grep "The current time is"
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
+version: v1.0
+name: Go project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Build project
+    task:
+      jobs:
+      - name: Get Go packages
+        commands:
+          - checkout
+          - sem-version go 1.12
+          - go get github.com/lib/pq
+          - go build webServer.go
+          - mkdir bin
+          - mv webServer bin
+          - cache store $(checksum webServer.go) bin
+
+  - name: Check code style
+    task:
+      jobs:
+      - name: gofmt
+        commands:
+          - checkout
+          - sem-version go 1.12
+          - yes | sudo apt install gccgo-go
+          - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
+
+  - name: Smoke tests
+    task:
+      jobs:
+      - name: go test
+        commands:
+          - checkout
+          - sem-version go 1.12
+          - sem-service start postgres
+          - psql -p 5432 -h localhost -U postgres -c "CREATE DATABASE s2"
+          - go get github.com/lib/pq
+          - go test ./... -v
+
+      - name: Test Web Server
+        commands:
+          - checkout
+          - sem-version go 1.12
+          - cache restore $(checksum webServer.go)
+          - ./bin/webServer 8001 &
+          - curl --silent localhost:8001/time | grep "The current time is"
+</code></pre>
 
 The contents of `webServer.go`, which is a Go implementation of a web server
 are as follows:
