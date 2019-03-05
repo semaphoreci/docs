@@ -49,6 +49,11 @@ In order to transfer the ownership to a new user, the following conditions need 
 
 - New owner needs to be a member of the organization;
 - New owner needs to log in to Semaphore 2.0 at least once;
-- Current owner needs to send a confirmation to [support@semaphoreci.com](mailto:support@semaphoreci.com) from an email account related to Semaphore 2.0. In this email, please include name of the organization and GitHub username of the new owner.
+- Current owner needs to send a confirmation to [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email account related to Semaphore 2.0. In this email, please include name of the organization and GitHub username of the new owner.
 
 After that, we’ll change the ownership on your behalf.
+
+## Deleting organization and account
+
+In order to delete your account and/or organization, please send an email to [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email connected to the GitHub account you use to log in to Semaphore 2.0. In this email, include your GitHub username and the name of the organization you’d like to delete.
+
