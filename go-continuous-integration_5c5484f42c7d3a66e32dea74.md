@@ -1,6 +1,6 @@
 
 * [Overview](#overview)
-* [The sample project](#the-sample-project)
+* [Demo project](#demo-project)
 * [Explaining the sample project](#explaining-the-sample-project)
 * [See also](#see-also)
 
@@ -13,10 +13,13 @@ The way to select the desired Go version is by using the
 [`sem-version`](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version)
 utility.
 
-You can find all required files in a GitHub
-[repository](https://github.com/renderedtext/semaphore-demo-go).
+## Demo project
 
-## The sample project
+Semaphore maintains an example Go project:
+
+* [Demo Go project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-go)
+
+## Sample configuration
 
 The contents of the `.semaphore/semaphore.yml` file are as follows:
 
