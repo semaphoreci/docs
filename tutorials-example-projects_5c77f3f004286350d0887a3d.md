@@ -16,7 +16,7 @@ possible and jump-start your own projects.
     <tr>
       <td>Go</td>
       <td>Go</td>
-      <td>coming soon</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-go">semaphore-demo-go</a></td>
     </tr>
 
     <tr>
