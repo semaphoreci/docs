@@ -55,5 +55,5 @@ After that, we’ll change the ownership on your behalf.
 
 ## Deleting organization and account
 
-In order to delete your account and organization or just organization, please send an email to [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email connected to the GitHub account you use to log in to Semaphore 2.0. In this email, include your GitHub username and the name of the organization you’d like to delete.
+In order to delete your account and/or organization, please send an email to [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email connected to the GitHub account you use to log in to Semaphore 2.0. In this email, include your GitHub username and the name of the organization you’d like to delete.
 
