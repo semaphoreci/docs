@@ -1,3 +1,5 @@
+This guide shows you how to use Semaphore to set up a continuous integration
+(CI) pipeline for Go project.
 
 * [Overview](#overview)
 * [Demo project](#demo-project)
@@ -15,7 +17,7 @@ utility.
 
 ## Demo project
 
-Semaphore maintains an example Go project:
+Semaphore maintains an example Go project that you can use:
 
 * [Demo Go project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-go)
 
@@ -326,7 +328,9 @@ follows:
 
 In this preamble we are defining the version of the YAML grammar, the name of
 the pipeline and the agent that is going to be used. In this case the agent is
-going to be running Linux (`ubuntu1804`) on a `e1-standard-2` machine.
+going to be running Linux (`ubuntu1804`) on a `e1-standard-2` machine (hardware).
+You can learn more about machine types
+[here(https://docs.semaphoreci.com/article/20-machine-types).
 
 Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
 file does.
@@ -350,8 +354,8 @@ The `sem-version` utility allows us to select and use Go version 1.12 instead
 of the default Go version found in the Semaphore VM. The `checkout` utility is
 used for checking out the source code that can be found at the GitHub
 repository. The `cache store` command is used for keeping the generated
-executable binary file in the Semaphore Cache servers and not having to build
-it again.
+executable binary file in the Semaphore Cache servers in order reuse it and not
+having to build it again.
 
 The second `block` is as follows:
 
@@ -365,9 +369,9 @@ The second `block` is as follows:
             - yes | sudo apt install gccgo-go
             - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
 
-The `gofmt`, which is not installed by default, makes sure that the Go code
-follows the Go code standards. The `yes | sudo apt install gccgo-go` command is
-used for its installation.
+The `gofmt`, which is manually installed, makes sure that the Go code follows
+the Go code standards. The `yes | sudo apt install gccgo-go` command is used
+for its installation.
 
 The last `block` that has two jobs is defined with the following commands:
 
@@ -394,8 +398,8 @@ The last `block` that has two jobs is defined with the following commands:
 The first job runs that automated tests whereas the second job makes sure that
 the developed web server accepts incoming requests. The `sem-service` utility
 is used for starting the desired version of the Postgres database server.
-The `curl` utility, which is installed by default, is used as an HTTP client
-for connecting to the desired URL of the web server.
+The `curl` utility, which is installed by default on Semaphore VM, is used as
+an HTTP client for connecting to the desired URL of the web server.
 
 ### See also
 
