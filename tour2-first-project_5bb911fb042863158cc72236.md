@@ -1,16 +1,13 @@
 To build, test and deploy your code on Semaphore, you'll need to
 create a project for it to live in.
 
-All projects on Semaphore belong to an organization.
-You'll be prompted to create your first organization after
-you [sign up for Semaphore][app]. Once you're inside an organization
-that you've created or were invited to, you're ready to start.
-
 ## Creating a project in the web interface
 
-You can create a project by following the `Projects > New` link in the sidebar
-of Semaphore web interface. Semaphore will guide you through a simple two-step
-process:
+Once you're inside an organization that you've created or were invited to,
+you're ready to create a CI/CD project.
+
+Follow the `Projects > New` link in the sidebar of Semaphore web interface.
+You'll go through a simple two-step process:
 
 1. Select a Git repository;
 2. Commit a configuration file and start your first workflow. You will be able
@@ -70,7 +67,6 @@ You can do the following:
 - Check if the access for Semaphore 2.0 was granted within your GitHub
   organization. You can do that [here][github-connection].
 
-[app]: https://id.semaphoreci.com
 [next]: https://docs.semaphoreci.com/article/62-concepts
 [install-cli]: https://docs.semaphoreci.com/article/53-sem-reference
 [github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
