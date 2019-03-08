@@ -39,6 +39,9 @@ On manual approval:
 
 ## Sample configuration
 
+You can read a step-by-step tutorial to creating this pipeline [on
+Semaphore blog](https://semaphoreci.com/blog/cicd-microservices-digitalocean-kubernetes).
+
 `semaphore.yml` is the entry of the pipeline and defines the Continuous
 Integration phase.
 
