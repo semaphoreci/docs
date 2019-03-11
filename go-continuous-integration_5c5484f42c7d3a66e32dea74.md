@@ -50,13 +50,28 @@ The application uses:
 
 The contents of the `.semaphore/semaphore.yml` file are as follows:
 
-    version: v1.0
-    name: Go project
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
+	# Use the latest stable version of Semaphore 2.0 YAML syntax:
+	version: v1.0
     
+	# Name your pipeline. In case you connect multiple pipelines with promotions,
+	# the name will help you differentiate between, for example, a CI build phase
+	# and delivery phases.
+	name: Go project
+    
+	# An agent defines the environment in which your code runs.
+	# It is a combination of one of available machine types and operating
+	# system images.
+	# See https://docs.semaphoreci.com/article/20-machine-types
+	# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+	agent:
+	  machine:
+	    type: e1-standard-2
+	    os_image: ubuntu1804
+    
+	# Blocks are the heart of a pipeline and are executed sequentially.
+	# Each block has a task that defines one or more jobs. Jobs define the
+	# commands to execute.
+	# See https://docs.semaphoreci.com/article/62-concepts
     blocks:
       - name: Build project
         task:
