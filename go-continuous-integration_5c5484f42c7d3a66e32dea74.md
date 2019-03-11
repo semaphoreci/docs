@@ -3,6 +3,7 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 * [Demo project](#demo-project)
 * [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+* [What the application uses](#what-the-application-uses)
 * [Explaining the sample project](#explaining-the-sample-project)
 * [Run the demo Go project yourself](#run-the-go-demo-project-yourself)
 * [See also](#see-also)
@@ -36,8 +37,14 @@ The pipeline looks as follows:
 
 ![Go CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-go/raw/master/public/ci-pipeline.png)
 
-The application uses the Postgres database server and the
-[lib/pq Go library](https://github.com/lib/pq) for interacting with Postgres.
+## What the application uses
+
+The application uses:
+
+- Go 1.12
+- The `gofmt` Go tool
+- The Postgres database server
+- The [lib/pq Go library](https://github.com/lib/pq) for interacting with Postgres
 
 ## Sample configuration
 
