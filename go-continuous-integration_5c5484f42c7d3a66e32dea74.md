@@ -206,6 +206,6 @@ yourself. Here’s how to build the demo project with your own account:
 ### See also
 
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+* [Sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Ubuntu 18.04 image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
