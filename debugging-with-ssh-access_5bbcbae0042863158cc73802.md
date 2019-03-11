@@ -20,7 +20,7 @@ You'll need to set your debug SSH key before continuing. You can use
 the same key you use for GitHub. Here's an example:
 
 ``` bash
-sem config set debug.PublicSshKey $(curl https://github.com/YOUR_USERNAME.keys)
+sem config set debug.PublicSshKey "$(curl https://github.com/YOUR_USERNAME.keys)"
 ```
 
 Replace `YOUR_USERNAME` with your GitHub username.
@@ -28,7 +28,7 @@ Replace `YOUR_USERNAME` with your GitHub username.
 Or you can use the first key in your SSH agent:
 
 ``` bash
-sem config set debug.PublicSshKey $(ssh-add -L | head -n 1)
+sem config set debug.PublicSshKey "$(ssh-add -L | head -n 1)"
 ```
 
 ## Exploring the build environment
