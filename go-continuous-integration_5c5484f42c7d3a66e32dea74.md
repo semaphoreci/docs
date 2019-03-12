@@ -132,8 +132,7 @@ follows:
 In this preamble we are defining the version of the YAML grammar, the name of
 the pipeline and the agent that is going to be used. In this case the agent is
 going to be running Linux (`ubuntu1804`) on a `e1-standard-2` machine (hardware).
-You can learn more about machine types
-[here(https://docs.semaphoreci.com/article/20-machine-types).
+You can learn more about machine types [here](https://docs.semaphoreci.com/article/20-machine-types).
 
 Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
 file does.
