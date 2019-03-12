@@ -208,7 +208,7 @@ an HTTP client for connecting to the desired URL of the web server.
 A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
-1. [Fork the project on GitHub][https://github.com/semaphoreci-demos/semaphore-demo-go] to your own account.
+1. [Fork the project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-go) to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
    Follow the instructions to install the `sem` CLI and connect it to your
