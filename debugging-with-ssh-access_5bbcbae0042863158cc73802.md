@@ -57,6 +57,13 @@ By default, a debug session does not include the contents of the GitHub
 repository related to your Semaphore 2.0 project. Run `checkout` in the debug
 session to clone your repository.
 
+#### Error: project or job not found
+
+If you get this error and you're part of multiple organizations, check if
+you're currently in the right one by running `sem context`. If not, change
+context to the organization of desired project or job by running
+`sem context <id>`.
+
 ## Inspecting the state of a running job
 
 Often the best way to inspect failures is to SSH into a running job, explore the
