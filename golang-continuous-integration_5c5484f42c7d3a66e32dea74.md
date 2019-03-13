@@ -10,7 +10,7 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 ## Demo project
 
-Semaphore 2.0 has support for building Go projects using the supported Go
+Semaphore 2.0 has support for building Go (Golang) projects using the supported Go
 versions that are listed in the
 [VM reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#go).
 The way to select the desired Go version is by using the
