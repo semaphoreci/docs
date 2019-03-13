@@ -79,8 +79,7 @@ You can download and install `dep` as follows:
 
 You can initialize the cache as follows:
 
-<pre><code class="language-yaml">
-blocks:
+<pre><code class="language-yaml">blocks:
   - name: Warm cache
     task:
       prologue:
@@ -102,8 +101,7 @@ blocks:
 
 After that you can reuse that cache as follows:
 
-<pre><code class="language-yaml">
-blocks:
+<pre><code class="language-yaml">blocks:
   - name: Tests
       prologue:
         commands:
