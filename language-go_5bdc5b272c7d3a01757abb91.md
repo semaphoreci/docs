@@ -40,7 +40,7 @@ structure Go tooling expects. This requires creating `$GOPATH/src` and
 cloning your code into the correct directory. This is possible by changing some
 environment variables and using the existing Semaphore 2.0 toolbox.
 
-<pre><code class="language-yaml">
+<pre><code class="language-yaml"># .semaphore/semaphore.yml
 version: v1.0
 name: Go Example
 agent:
