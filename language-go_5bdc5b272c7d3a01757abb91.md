@@ -1,12 +1,24 @@
+This guide covers configuring Golang projects on Semaphore.
+If you’re new to Semaphore we recommend reading the
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+* [Example project](#example-project)
 * [Supported Go Versions](#supported-go-versions)
 * [Using GOPATH](#using-gopath)
 * [Dependency Caching](#dependency-caching)
-* [A sample Semaphore 2.0 Go project](#a-sample-go-project)
+
+## Example project
+
+Semaphore provides a tutorial and example Go application with a working
+CI pipeline that you can use to get started quickly:
+
+- [Golang Continuous Integration tutorial][go-tutorial]
+- [Demo project on GitHub][go-demo-project]
 
 ## Supported Go Versions
 
-Go 1.10 is the default version in the Virtual Machine used by Semaphore 2.0.
-Go 1.11 and Go 1.12 are supported as well. You can change versions with
+Go 1.10 is the default version in the [Ubuntu1804 VM image][ubuntu1804].  Go
+1.11 and Go 1.12 are supported as well. You can change versions with
 `sem-version`. Here is an example of how you can select and use Go 1.11:
 
 <pre><code class="language-yaml">blocks:
@@ -109,35 +121,6 @@ blocks:
             - make test
 </code></pre>
 
-## A sample Go project
-
-The following is a simple Semaphore 2.0 project that works with a Go source
-file named `hw.go`:
-
-<pre><code class="language-yaml">
- version: v1.0
- name: A Go project in Semaphore 2.0
- agent:
-   machine:
-     type: e1-standard-2
-     os_image: ubuntu1804
-
- blocks:
-  - name: Build with default Go version
-    task:
-       jobs:
-         - name: Build and Execute hw.go
-           commands:
-             - checkout
-             - go build hw.go
-             - ./hw
-
-  - name: Run with Go 1.11
-    task:
-       jobs:
-         - name: Run hw.go
-           commands:
-             - checkout
-             - sem-version go 1.11
-             - go run hw.go
-</code></pre>
+[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+[go-tutorial]: https://docs.semaphoreci.com/article/115-golang-continuous-integration
+[go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
