@@ -112,6 +112,7 @@ The Xcode 10.1 image comes with the following simulators:
 
 ## See Also
 
+* [iOS Continuous Integration guide][ios-guide]
 * [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
 * [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 * [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
@@ -120,3 +121,4 @@ The Xcode 10.1 image comes with the following simulators:
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
+[ios-guide]: https://docs.semaphoreci.com/article/124-ios-continuous-integration

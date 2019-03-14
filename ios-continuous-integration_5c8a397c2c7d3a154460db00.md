@@ -5,7 +5,7 @@ types][machine-types].
 
 iOS support is currently in closed beta. [You can apply for access][beta-apply].
 
-Here's an example configuration for a project using XCode and Fastlane.
+Here's an example configuration for a project using Xcode and Fastlane.
 
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 version: v1.0

@@ -14,11 +14,15 @@ possible and jump-start your own projects.
   </thead>
   <tbody>
     <tr>
-      <td><a
-      href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
-      <td><a
-      href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
+      <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
+      <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-go">semaphore-demo-go</a></td>
+    </tr>
+
+    <tr>
+      <td><a href="https://docs.semaphoreci.com/article/124-ios-continuous-integration">iOS, Swift</a></td>
+      <td><a href="https://docs.semaphoreci.com/article/124-ios-continuous-integration">Xcode</a></td>
+      <td>coming soon</td>
     </tr>
 
     <tr>
