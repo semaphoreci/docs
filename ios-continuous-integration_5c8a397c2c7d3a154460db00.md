@@ -12,7 +12,7 @@ version: v1.0
 name: Semaphore iOS example with Fastlane
 agent:
   machine:
-    type: a1-standard-2
+    type: a1-standard-4
     os_image: macos-mojave
 
 # Blocks are the heart of a pipeline and are executed sequentially.
