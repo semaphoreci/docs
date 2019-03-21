@@ -39,6 +39,10 @@ The final example pipeline is composed of three [blocks][concepts]:
 
 ## Sample configuration
 
+Project is using the following configuration. If you're new to Semaphore, we
+recommend going through the [guided tour][guided-tour] and linked documentation
+pages for more information
+
 <pre><code class="language-yaml"># .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
@@ -71,7 +75,6 @@ blocks:
           # job is to work with your code.
           - checkout
 
-          - bin/setup_ci_elixir
           - sem-version elixir 1.8.1
 
           # Restore dependencies from cache, command won't fail if it's
@@ -180,6 +183,7 @@ deployment. For more information and practical examples, see:
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
+[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
 [promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
