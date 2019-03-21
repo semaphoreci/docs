@@ -33,7 +33,7 @@ blocks:
     task:
       prologue:
         commands:
-          - phpbrew install 5.6
+          - phpbrew --no-progress install 5.6
           - sem-version php 5.6
       jobs:
         - name: Tests
