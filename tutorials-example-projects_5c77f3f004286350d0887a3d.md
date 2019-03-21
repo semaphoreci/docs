@@ -14,6 +14,12 @@ possible and jump-start your own projects.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://docs.semaphoreci.com/article/125-elixir-phoenix-continuous-integration">Elixir</a></td>
+      <td><a href="https://docs.semaphoreci.com/article/125-elixir-phoenix-continuous-integration">Phoenix</a></td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix">semaphore-demo-elixir-phoenix</a></td>
+    </tr>
+
+    <tr>
       <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
       <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-go">semaphore-demo-go</a></td>

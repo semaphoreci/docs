@@ -7,6 +7,8 @@ This guide shows you how to use Semaphore to set up a continuous integration
 * [Run the demo Elixir project yourself](#run-the-demo-elixir-project-yourself)
 * [Next steps](#next-steps)
 
+## Demo project
+
 Semaphore maintains an example Elixir Phoenix project:
 
 - [Demo Elixir Phoenix project on GitHub][demo-project]
