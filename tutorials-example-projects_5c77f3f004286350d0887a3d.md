@@ -74,9 +74,9 @@ possible and jump-start your own projects.
     </tr>
 
     <tr>
-      <td>Scala</td>
-      <td>Play</td>
-      <td>coming soon</td>
+      <td><a href="https://docs.semaphoreci.com/article/126-scala-play-continuous-integration">Scala</a></td>
+      <td><a href="https://docs.semaphoreci.com/article/126-scala-play-continuous-integration">Play</a></td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-scala-play">semaphore-demo-scala-play</a></td>
     </tr>
 
     <tr>

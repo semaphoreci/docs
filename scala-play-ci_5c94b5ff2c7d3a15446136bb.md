@@ -67,12 +67,17 @@ blocks:
         commands:
           - cd $HOME
           - ls -lah
+          # Checkout code from Git repository. This step is mandatory if the
+          # job is to work with your code.
+          - checkout
+          # sem-version expects binary version:
+          - sem-version scala 2.12
           # Restore dependencies from cache, command won't fail if key is
           # missing. More on caching:
           # - https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-          - cache restore sbt-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt),sbt-$SEMAPHORE_GIT_BRANCH,sbt-master
-          - cache restore ivy2-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt),ivy2-$SEMAPHORE_GIT_BRANCH,ivy2-master
-          - cache restore gradle-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt),gradle-$SEMAPHORE_GIT_BRANCH,gradle-master
+          - cache restore sbt-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt),sbt-$SEMAPHORE_GIT_BRANCH,sbt-master
+          - cache restore ivy2-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt),ivy2-$SEMAPHORE_GIT_BRANCH,ivy2-master
+          - cache restore gradle-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt),gradle-$SEMAPHORE_GIT_BRANCH,gradle-master
       jobs:
         - name: Tests
           # Define variables for a build matrix
@@ -81,11 +86,6 @@ blocks:
             - env_var: JAVA_VERSION
               values: ["8", "11"]
           commands:
-            # Checkout code from Git repository. This step is mandatory if the
-            # job is to work with your code.
-            - checkout
-            # sem-version expects binary version:
-            - sem-version scala 2.12
             - sem-version java $JAVA_VERSION
             - ./scripts/test-sbt
             - ./scripts/test-gradle
@@ -94,9 +94,9 @@ blocks:
         commands:
         - cd $HOME
         - ls -lah
-        - cache store sbt-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt) .sbt
-        - cache store ivy2-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt) .ivy2/cache
-        - cache store gradle-$SEMAPHORE_GIT_BRANCH-$(checksum build.sbt) .gradle/caches
+        - cache store sbt-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .sbt
+        - cache store ivy2-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .ivy2/cache
+        - cache store gradle-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .gradle/caches
 </code></pre>
 
 ## Run the demo Play project yourself
