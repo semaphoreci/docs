@@ -90,25 +90,25 @@ Installed versions:
 
 Installed versions:
 
-- 10.1
+- 10.2
 
-Xcode 10.1 images have the following SDKs preinstalled:
+Xcode 10.2 images have the following SDKs preinstalled:
 
 - macosx10.14
-- iphoneos12.1
-- iphonesimulator12.1
-- appletvos12.1
-- appletvsimulator12.1
-- watchos5.1
-- watchsimulator5.1
+- iphoneos12.2
+- iphonesimulator12.2
+- appletvos12.2
+- appletvsimulator12.2
+- watchos5.2
+- watchsimulator5.2
 
 
-The Xcode 10.1 image comes with the following simulators:
+The Xcode 10.2 image comes with the following simulators:
 
 - iOS 11.4
-- iOS 12.1
-- tvOS 12.1
-- watchOS 5.1
+- iOS 12.2
+- tvOS 12.2
+- watchOS 5.2
 
 ## See Also
 
