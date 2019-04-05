@@ -90,7 +90,7 @@ Installed versions:
 
 Installed versions:
 
-- 10.1
+- 10.2
 
 Xcode 10.2 images have the following SDKs preinstalled:
 
