@@ -19,7 +19,7 @@ Testing against multiple language versions
 In the following example, a build matrix is used to run different java
 versions:
 
-``` yaml
+<pre><code class="language-yaml">
 blocks:
   - name: "Java versions"
     task:
@@ -31,28 +31,28 @@ blocks:
         commands:
           - sem-version java $JAVA_VERSION
           - java -version
-```
+</code></pre>
 
 [`sem-version`](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version)
 switches the active Java version.
 `$JAVA_VERSION` takes the values 8 and 11:
 
-``` bash
+<pre><code class="language-bash">
 $ sem-version java 8
 $ java -version
-```
+</code></pre>
 
-``` bash
+<pre><code class="language-bash">
 $ sem-version java 11
 $ java -version
-```
+</code></pre>
 
 Multiple environment variables
 ------------------------------
 
 The following build matrix has 2 variables, each with 3 possible values:
 
-``` yaml
+<pre><code class="language-yaml">
 blocks:
   - name: "Build matrix"
     task:
@@ -65,7 +65,7 @@ blocks:
             values: [ "1", "2", "3" ]
         commands:
           - echo FOO=$FOO BAR=$BAR
-```
+</code></pre>
 
 The matrix has `3 * 3 = 9` possible combinations. As a result, 9
 parallel jobs are executed:
