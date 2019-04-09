@@ -1,5 +1,5 @@
 This guide shows how to set up 
-a [build matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix),
+a [build matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix):
 dynamically created parallel jobs with different environment variables.
 
 To configure a build matrix, you need to set the `matrix` property on
