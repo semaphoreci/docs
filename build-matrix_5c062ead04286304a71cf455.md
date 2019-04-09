@@ -1,12 +1,8 @@
-Build matrix
-============
+This guide shows how to set up 
+a [build matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix),
+dynamically created parallel jobs with different environment variables.
 
-This guide shows how to use 
-[build matrices](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix).
-A build matrix creates multiple concurrent jobs 
-with different environment variables.
-
-In order to use a build matrix, you need to set the `matrix` property on
+To configure a build matrix, you need to set the `matrix` property on
 a job definition. `matrix` takes a list of `env_var` and its possible
 `values`.
 
