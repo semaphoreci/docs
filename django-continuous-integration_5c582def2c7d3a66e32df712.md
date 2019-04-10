@@ -110,7 +110,8 @@ Semaphore.
 This example configures coverage.py and and pylint. Be sure to exclude
 the relevant files from coverage by creating a `.coveragerc`:
 
-<pre><code class="language-conf"># .coveragerc
+``` conf
+# .coveragerc
 [run]
 source = .
 omit =
@@ -124,7 +125,8 @@ omit =
 Finally, you'll want to install `pylint-django` and add to the default
 plugin list. Here's a snippet for `.pylintrc`:
 
-<pre><code class="language-conf"># .pylintrc
+``` conf
+# .pylintrc
 load-plugins=pylint_django
 ```
 

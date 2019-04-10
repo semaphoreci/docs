@@ -45,8 +45,6 @@ We follow a few rules:
 
 - All text must be limited to 80 characters, to make discussing changes in pull
   requests easier.
-- Wrap all code snippets in `<pre><code class="language-yaml/xyz">` tags
-  to enable syntax highlighting. We use [Prism.js][prismjs].
 - Prefer reference-style links.
 
 When in doubt use any of the current files as an example.

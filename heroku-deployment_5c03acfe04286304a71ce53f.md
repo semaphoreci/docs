@@ -37,7 +37,8 @@ transport.
 Create a new SSH key with no passphrase which Semaphore will use to
 authenticate with Heroku:
 
-<pre><code class="language-console">$ ssh-keygen -t rsa -b 4096 -C "semaphore@heroku.com"
+``` bash
+$ ssh-keygen -t rsa -b 4096 -C "semaphore@heroku.com"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/marko/.ssh/id_rsa): /Users/marko/.ssh/id_rsa_semaphore_heroku
 Enter passphrase (empty for no passphrase):
@@ -68,21 +69,24 @@ to Heroku.
 
 [Create a new Semaphore secret][secrets-guide] using the [sem CLI][sem-create-ref]:
 
-<pre><code class="language-console">$ sem create secret demoapp-heroku \
+``` bash
+$ sem create secret demoapp-heroku \
   --file /Users/joe/.ssh/id_rsa_semaphore_heroku:/home/semaphore/.ssh/id_rsa_semaphore_heroku
 Secret 'demoapp-heroku' created.
 ```
 
 You can verify the existence of your new secret:
 
-<pre><code class="language-console">$ sem get secrets
+``` bash
+$ sem get secrets
 NAME             AGE
 demoapp-heroku   26s
 ```
 
 You can also verify the content of your secret:
 
-<pre><code class="language-console">$ sem get secret demoapp-heroku
+``` bash
+$ sem get secret demoapp-heroku
 apiVersion: v1beta
 kind: Secret
 metadata:
@@ -104,7 +108,8 @@ mounted in Semaphore jobs on desired path. All good.
 
 Add the public SSH key to Heroku using `heroku keys:add`:
 
-<pre><code class="language-console">$ heroku keys:add
+``` bash
+$ heroku keys:add
 ? Which SSH key would you like to upload?
   /Users/joe/.ssh/id_rsa.pub
 ❯ /Users/joe/.ssh/id_rsa_semaphore_heroku.pub
