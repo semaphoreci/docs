@@ -97,7 +97,7 @@ DATABASES['default'] = {
     'NAME': 'postgres',
     'HOST': 'localhost'
 }
-</code></pre>
+```
 
 PostgreSQL instances run inside each job and can be accessed with a
 blank password. For more information on configuring database access,
@@ -119,14 +119,14 @@ omit =
   */wsgi.py
   */migrations/*
   */__init__.py
-</code></pre>
+```
 
 Finally, you'll want to install `pylint-django` and add to the default
 plugin list. Here's a snippet for `.pylintrc`:
 
 <pre><code class="language-conf"># .pylintrc
 load-plugins=pylint_django
-</code></pre>
+```
 
 ## Next steps
 

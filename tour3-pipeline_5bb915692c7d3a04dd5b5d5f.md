@@ -38,7 +38,7 @@ blocks:
           commands:
             - checkout
             - echo "Running unit tests"
-</code></pre>
+```
 
 With this configuration, commands in the "Compile" job run sequentially. If all
 of them pass, the "Set things up" block passes, and the pipeline proceeds to
@@ -84,7 +84,7 @@ blocks:
         - name: "Performance tests"
           commands:
             - echo "Running performance tests"
-</code></pre>
+```
 
 In the new "E2E tests" block, commands in `prologue` run before each job,
 so that we don't repeat ourselves. Prologue is the right place for setup tasks

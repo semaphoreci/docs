@@ -6,6 +6,6 @@ class DocsRenderer < Redcarpet::Render::HTML
   end
 
   def block_code(code, language)
-    %(<pre><code class="language-#{language}">#{code}</code></pre>)
+    %(<pre><code class="language-#{language}">#{code}```)
   end
 end

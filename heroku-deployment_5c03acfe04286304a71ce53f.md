@@ -19,7 +19,7 @@ Start by defining a [promotion][promotions-intro] at the end of your
 promotions:
   - name: Deploy to Heroku
     pipeline_file: heroku.yml
-</code></pre>
+```
 
 This defines a simple deployment pipeline which can be triggered manually
 on every revision on every branch. You can generally define as many pipelines
@@ -58,7 +58,7 @@ The key's randomart image is:
 |.o O+oo..  o     |
 | .@++... .o      |
 +----[SHA256]-----+
-</code></pre>
+```
 
 Next we need to make the private key `id_rsa_semaphore_heroku` available on
 Semaphore, and add the corresponding public key `id_rsa_semaphore_heroku.pub`
@@ -71,14 +71,14 @@ to Heroku.
 <pre><code class="language-console">$ sem create secret demoapp-heroku \
   --file /Users/joe/.ssh/id_rsa_semaphore_heroku:/home/semaphore/.ssh/id_rsa_semaphore_heroku
 Secret 'demoapp-heroku' created.
-</code></pre>
+```
 
 You can verify the existence of your new secret:
 
 <pre><code class="language-console">$ sem get secrets
 NAME             AGE
 demoapp-heroku   26s
-</code></pre>
+```
 
 You can also verify the content of your secret:
 
@@ -95,7 +95,7 @@ data:
   files:
   - path: /home/semaphore/.ssh/id_rsa_semaphore_heroku
     content: LS0tLS1CRUdJTiBPUEV...
-</code></pre>
+```
 
 The content of secrets is base64-encoded, and we see that our file will be
 mounted in Semaphore jobs on desired path. All good.
@@ -108,7 +108,7 @@ Add the public SSH key to Heroku using `heroku keys:add`:
 ? Which SSH key would you like to upload?
   /Users/joe/.ssh/id_rsa.pub
 ❯ /Users/joe/.ssh/id_rsa_semaphore_heroku.pub
-</code></pre>
+```
 
 You can do the same through the Heroku user interface, in the "SSH Keys"
 section of your Account Settings. For more information consult
@@ -145,7 +145,7 @@ blocks:
           - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
           - git remote add heroku $HEROKU_REMOTE
           - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
-</code></pre>
+```
 
 **Note**: change the value of `HEROKU_REMOTE` to match your application's
 name as it is registered on Heroku.

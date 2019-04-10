@@ -91,7 +91,7 @@ promotions:
     pipeline_file: staging-deploy.yml
     auto_promote_on:
       - result: passed
-</code></pre>
+```
 
 Next, create the required `staging-deploy.yml` file:
 

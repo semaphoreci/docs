@@ -95,7 +95,7 @@ blocks:
             - bundle exec xcversion select 10.1
             - bundle exec fastlane certificates refresh_certificates:true
             - bundle exec fastlane build use_temporary_keychain:true
-</code></pre>
+```
 
 ## Configuration walkthrough
 
@@ -108,7 +108,7 @@ and delivery phases.
 ``` yaml
 version: v1.0
 name: Semaphore iOS example
-</code></pre>
+```
 
 ### Defining the agent
 
@@ -124,7 +124,7 @@ agent:
   machine:
     type: a1-standard-4
     os_image: macos-mojave
-</code></pre>
+```
 
 ### Defining blocks
 
@@ -160,7 +160,7 @@ blocks:
         - name: Fastlane app
         commands:
           - # ...
-</code></pre>
+```
 
 ### Downloading code
 
@@ -173,7 +173,7 @@ full clone which will be cached by Semaphore, use `checkout --use-cache`.
 ``` yaml
         commands:
           - checkout
-</code></pre>
+```
 
 ### Installing dependencies
 
@@ -186,7 +186,7 @@ across blocks and workflows.
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - bundle install --path vendor/bundle
           - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
-</code></pre>
+```
 
 In example configuration, the first command restores dependencies from cache
 using partial cache key matching:
@@ -214,7 +214,7 @@ Mojave image reference][macos-mojave].
 ``` yaml
         commands:
           - bundle exec xcversion select 10.1
-</code></pre>
+```
 
 ### Running tests
 
@@ -225,7 +225,7 @@ scan][fastlane-scan].
 ``` yaml
         commands:
           - bundle exec fastlane test
-</code></pre>
+```
 
 ### Building your app
 
@@ -235,7 +235,7 @@ In this example we create a temporary keychain and use it with `fastlane build`.
         commands:
           - bundle exec fastlane certificates refresh_certificates:true
           - bundle exec fastlane build use_temporary_keychain:true
-</code></pre>
+```
 
 ### Releasing your app
 
