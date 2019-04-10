@@ -9,7 +9,9 @@ Let's say that your project uses Bats, which is hosted on GitHub, to test
 your Bash scripts. You can easily make it available on Semaphore by copying
 the installation commands from the project's Readme into your prologue:
 
-<pre><code># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
+
 blocks:
   - name: "Test"
     task:
@@ -22,13 +24,15 @@ blocks:
         - name: Tests
           commands:
             - bats addition.bats
-</code></pre>
+```
 
 ## Using databases and other services
 
 Let's say that your CI build needs Redis and PostgreSQL:
 
-<pre><code># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
+
 blocks:
   - name: "Test"
     task:
@@ -41,7 +45,7 @@ blocks:
           commands:
             - createdb -U postgres -h 0.0.0.0 myapp_database
             - echo 'running tests'
-</code></pre>
+```
 
 To manage database engines and other services on Semaphore,
 use the [sem-service utility][sem-service].
@@ -58,7 +62,8 @@ Likewise, starting a service in one job, doesn't automatically make it
 available in other jobs of the same block.
 
 To use a service or populate test data in all parallel jobs within a block,
-specify that in the task [prologue][prologue]. Repeat the same steps in the definition of each block as needed.
+specify that in the task [prologue][prologue]. Repeat the same steps in the
+definition of each block as needed.
 
 ## Next steps
 

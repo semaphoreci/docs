@@ -42,11 +42,11 @@ see with the generated YAML file.
 [Let's move on to an overview of key Semaphore concepts][next] to learn what
 each part means.
 
-#### Troubleshooting
+### Troubleshooting
 
 In case running `sem init` throws an error:
 
-```
+``` txt
 error: http status 422 with message
 "{"message":"POST https://api.github.com/repos/orgname/projectname/keys: 404 - Not Found // See:
 https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key";}"
@@ -55,7 +55,7 @@ received from upstream
 
 or
 
-```
+``` txt
 "{"message":"admin permisssions are required on the repository in order to add the project to Semaphore"}"
 ```
 

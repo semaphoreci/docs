@@ -1,12 +1,12 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for Go (Golang) projects.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [What the application uses](#what-the-application-uses)
-* [Explaining the sample project](#explaining-the-sample-project)
-* [Run the demo Go project yourself](#run-the-go-demo-project-yourself)
-* [See also](#see-also)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [What the application uses](#what-the-application-uses)
+- [Explaining the sample project](#explaining-the-sample-project)
+- [Run the demo Go project yourself](#run-the-go-demo-project-yourself)
+- [See also](#see-also)
 
 ## Demo project
 
@@ -17,7 +17,7 @@ The way to select the desired Go version is by using the
 
 Semaphore maintains an example Go project that you can use:
 
-* [Demo Go project on GitHub][demo-project]
+- [Demo Go project on GitHub][demo-project]
 
 The `webServer.go` file included in the GitHub repository is a Go implementation
 of a web server whereas the `webServer_test.go` file includes the Go `test`
@@ -55,7 +55,7 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-  
+
 blocks:
   - name: Build project
     task:
@@ -69,7 +69,7 @@ blocks:
           - mkdir bin
           - mv webServer bin
           - cache store $(checksum webServer.go) bin
-  
+
   - name: Check code style
     task:
       jobs:
@@ -79,7 +79,7 @@ blocks:
           - sem-version go 1.12
           - yes | sudo apt install gccgo-go
           - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
-  
+
   - name: Smoke tests
     task:
       jobs:
@@ -99,7 +99,7 @@ blocks:
           - cache restore $(checksum webServer.go)
           - ./bin/webServer 8001 &
           - curl --silent localhost:8001/time | grep "The current time is"
-</code></pre>
+```
 
 ## Explaining the sample project
 
@@ -114,12 +114,14 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-</code></pre>
+```
 
 In this preamble we are defining the version of the YAML grammar, the name of
 the pipeline and the agent that is going to be used to run our code.
 
-In this case the agent is going to be running [Linux (`ubuntu1804`)][ubuntu1804] on a [`e1-standard-2` machine type][machine-types].
+In this case the agent is going to be running
+[Linux (`ubuntu1804`)][ubuntu1804] on a
+[`e1-standard-2` machine type][machine-types].
 
 Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
 file does. Blocks are the heart of a pipeline and are executed sequentially.
@@ -142,10 +144,10 @@ blocks:
           - mkdir bin
           - mv webServer bin
           - cache store $(checksum webServer.go) bin
-</code></pre>
+```
 
-The [`sem-version` utility][sem-version] allows us to select and use Go version 1.12 instead
-of the default Go version found in the Semaphore VM.
+The [`sem-version` utility][sem-version] allows us to select and use Go version
+1.12 instead of the default Go version found in the Semaphore VM.
 
 The [`checkout` utility][checkout] is used for checking out the source code from
 the connected GitHub repository.
@@ -168,7 +170,7 @@ blocks:
           - sem-version go 1.12
           - yes | sudo apt install gccgo-go
           - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
-</code></pre>
+```
 
 The `gofmt`, which is manually installed, makes sure that the Go code follows
 the Go code standards. The `yes | sudo apt install gccgo-go` command is used
@@ -190,7 +192,7 @@ blocks:
           - psql -p 5432 -h localhost -U postgres -c "CREATE DATABASE s2"
           - go get github.com/lib/pq
           - go test ./... -v
-  
+
       - name: Test Web Server
         commands:
           - checkout
@@ -198,7 +200,7 @@ blocks:
           - cache restore $(checksum webServer.go)
           - ./bin/webServer 8001 &
           - curl --silent localhost:8001/time | grep "The current time is"
-</code></pre>
+```
 
 The first job runs automated tests whereas the second job runs a simple
 integration test on the web server.
@@ -225,10 +227,10 @@ yourself. Here’s how to build the demo project with your own account:
 
 ### See also
 
-* [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-* [Ubuntu 18.04 image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [Ubuntu 18.04 image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image

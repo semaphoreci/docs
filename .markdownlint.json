@@ -15,7 +15,15 @@
       "table",
       "td",
       "tr",
-      "th"
+      "th",
+      "tr",
+      "tbody",
+      "thead",
+      "sup"
     ]
+  },
+
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:!"
   }
 }

@@ -2,10 +2,10 @@ This guide covers configuring Golang projects on Semaphore.
 If you’re new to Semaphore we recommend reading the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
-* [Example project](#example-project)
-* [Supported Go Versions](#supported-go-versions)
-* [Using GOPATH](#using-gopath)
-* [Dependency Caching](#dependency-caching)
+- [Example project](#example-project)
+- [Supported Go Versions](#supported-go-versions)
+- [Using GOPATH](#using-gopath)
+- [Dependency Caching](#dependency-caching)
 
 ## Example project
 
@@ -21,7 +21,8 @@ Go 1.10 is the default version in the [Ubuntu1804 VM image][ubuntu1804].  Go
 1.11 and Go 1.12 are supported as well. You can change versions with
 `sem-version`. Here is an example of how you can select and use Go 1.11:
 
-``` yamlblocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       prologue:
@@ -31,7 +32,7 @@ Go 1.10 is the default version in the [Ubuntu1804 VM image][ubuntu1804].  Go
         - name: Tests
           commands:
             - go version
-</code></pre>
+```
 
 ## Using GOPATH
 
@@ -63,7 +64,7 @@ blocks:
             # Uses the redefined SEMAPHORE_GIT_DIR to clone code into the correct directory
             - checkout
             # Further setup from this point on
-</code></pre>
+```
 
 ## Dependency Caching
 
@@ -76,11 +77,14 @@ of this document will be named `vendor`.
 
 You can download and install `dep` as follows:
 
-    curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+``` bash
+curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+```
 
 You can initialize the cache as follows:
 
-``` yamlblocks:
+``` yaml
+blocks:
   - name: Warm cache
     task:
       prologue:
@@ -98,11 +102,12 @@ You can initialize the cache as follows:
             - cache restore deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock),deps-$SEMAPHORE_GIT_BRANCH,deps-master
             - dep ensure -v
             - cache store deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock) vendor
-</code></pre>
+```
 
 After that you can reuse that cache as follows:
 
-``` yamlblocks:
+``` yaml
+blocks:
   - name: Tests
       prologue:
         commands:
@@ -118,7 +123,7 @@ After that you can reuse that cache as follows:
         - name: Suite
           commands:
             - make test
-</code></pre>
+```
 
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [go-tutorial]: https://docs.semaphoreci.com/article/115-golang-continuous-integration

@@ -1,10 +1,9 @@
-
-* [Supported Clojure versions](#supported-clojure-versions)
-* [Changing Clojure version](#changing-clojure-version)
-* [Dependency management](#dependency-management)
-* [System dependencies](#system-dependencies)
-* [A sample Clojure project](#a-sample-clojure-project)
-* [See also](#see-also)
+- [Supported Clojure versions](#supported-clojure-versions)
+- [Changing Clojure version](#changing-clojure-version)
+- [Dependency management](#dependency-management)
+- [System dependencies](#system-dependencies)
+- [A sample Clojure project](#a-sample-clojure-project)
+- [See also](#see-also)
 
 ## Supported Clojure versions
 
@@ -34,53 +33,59 @@ access on each Semaphore 2.0 VM, you are free to install all required packages.
 The following `.semaphore/semaphore.yml` file illustrates how to execute two
 Clojure projects created using the Leiningen tool:
 
-	version: v1.0
-	name: Clojure Language Guide
-	agent:
-	  machine:
-	    type: e1-standard-2
-	    os_image: ubuntu1804
-    
-	blocks:
-	  - name: Lein version
-	    task:
-	      jobs:
-	      - name: Print lein version
-	        commands:
-	          - lein version
-    
-	  - name: Compile with Clojure 1.9.0
-	    task:
-	      jobs:
-	      - name: Hello World 1.9.0
-	        commands:
-	          - checkout
-	          - cd one
-	          - lein run
-    
-	  - name: Compile with Clojure 1.10.0
-	    task:
-	      jobs:
-	      - name: Hello World 1.10.0
-	        commands:
-	          - checkout
-	          - cd two
-	          - lein run
+``` yaml
+version: v1.0
+name: Clojure Language Guide
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Lein version
+    task:
+      jobs:
+      - name: Print lein version
+        commands:
+          - lein version
+
+  - name: Compile with Clojure 1.9.0
+    task:
+      jobs:
+      - name: Hello World 1.9.0
+        commands:
+          - checkout
+          - cd one
+          - lein run
+
+  - name: Compile with Clojure 1.10.0
+    task:
+      jobs:
+      - name: Hello World 1.10.0
+        commands:
+          - checkout
+          - cd two
+          - lein run
+```
 
 For the `one` project the contents of `project.clj` are as follows:
 
-    (defproject hw "0.1.0-SNAPSHOT"
-      :main one.core
-      :dependencies [[org.clojure/clojure "1.9.0"]])
+``` clojure
+(defproject hw "0.1.0-SNAPSHOT"
+  :main one.core
+  :dependencies [[org.clojure/clojure "1.9.0"]])
+```
 
 This is the place where you specify the Clojure version you want to use for
 your project, which in this case is 1.9.0.
 
 For the `two` project the contents of `project.clj` are as follows:
 
-    (defproject hw "0.1.0-SNAPSHOT"
-      :main two.core
-      :dependencies [[org.clojure/clojure "1.10.0"]])
+``` clojure
+(defproject hw "0.1.0-SNAPSHOT"
+  :main two.core
+  :dependencies [[org.clojure/clojure "1.10.0"]])
+```
 
 Again, this is the place where you specify the Clojure version you want to use
 for your project, which in this case is 1.10.0.
@@ -91,25 +96,29 @@ Clojure version 1.10.0.
 The contents of the `./src/one/core.clj` file from the `one` project are as
 follows:
 
-    (ns one.core)
-    
-    (defn -main [& args]
-      (println "Hello World!")
-      (println "Clojure 1.9.0"))
+``` clojure
+(ns one.core)
+
+(defn -main [& args]
+  (println "Hello World!")
+  (println "Clojure 1.9.0"))
+```
 
 The contents of the `./src/two/core.clj` file from the `two` project are as
 follows:
 
-    (ns two.core)
-    
-    (defn -main [& args]
-      (println "Hello World!")
-      (println "Clojure 1.10.0!"))
+``` clojure
+(ns two.core)
+
+(defn -main [& args]
+  (println "Hello World!")
+  (println "Clojure 1.10.0!"))
+```
 
 ## See Also
 
-* [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-* [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [The Leiningen home page](https://leiningen.org/)
+- [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [The Leiningen home page](https://leiningen.org/)

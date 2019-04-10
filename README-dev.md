@@ -6,7 +6,7 @@ Semaphore to the live website.
 The following instructions apply for Semaphore team members with access
 to Help Scout:
 
-### Creating new file
+## Creating new file
 
 - create a file in HelpScout docs
   - HelpScout will assign a URL to it which we'll use for next step (`https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`)
@@ -14,7 +14,7 @@ to Help Scout:
   - `5b4699632c7d3a099f2e742a` is `id` of specific article
   - `just-example` is article's `slug`
 
-### Updating existing files
+## Updating existing files
 
 When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
 [update] every article which meets the following:
@@ -37,7 +37,7 @@ to store CSS, JS and image files.
 Currently, script depends on [redcarpet] gem.
 It can be installed with the following command
 
-```
+``` bash
 gem install redcarpet
 ```
 

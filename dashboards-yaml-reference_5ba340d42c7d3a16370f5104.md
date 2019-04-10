@@ -143,11 +143,11 @@ The supported properties in `filters` for a workflows list are the following:
   workflows that were initiated by a specific GitHub user. The value of
   `github_uid` should correspond to the numeric ID of the user account on
   GitHub for which we want to list workflows. The value can be found by
-  visiting the following URL https://api.github.com/users/USERNAME and
+  visiting the following URL <https://api.github.com/users/USERNAME> and
   replacing `USERNAME` with an actual GitHub username. There is a special
-	value for the `github_uid` property, which is `'{{github_uid}}'`, that is
-	automatically expanded to the GitHub user ID of the user that is visiting the
-	page.
+  value for the `github_uid` property, which is `'{{github_uid}}'`, that is
+  automatically expanded to the GitHub user ID of the user that is visiting the
+  page.
 
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
@@ -182,17 +182,17 @@ pipelines.
 
 The supported properties in `filters` for a pipelines list are the following:
 
-* **project_id** (required): restricts the widget output to pipelines from a
+- **project_id** (required): restricts the widget output to pipelines from a
   single Semaphore 2.0 project. You can find the project ID of an existing
   Semaphore 2.0 project using the `sem get project <name>` command.
 
-* **branch** (optional): The `branch` property allows you to filter the widget
+- **branch** (optional): The `branch` property allows you to filter the widget
   output by the specified branch name of the GitHub repository of the Semaphore
   2.0 project. Note that the value of the `branch` property should be an exact
   match and that there is currently no support for regular expressions in the
   `branch` property.
 
-* **pipeline_file** (optional): the `pipeline_file` property allows you to
+- **pipeline_file** (optional): the `pipeline_file` property allows you to
   filter the generated output using the filename of the pipeline file that is
   being executed. Please note that the `pipeline_file` value should not be just
   the name of the pipeline file but the full path starting from the root

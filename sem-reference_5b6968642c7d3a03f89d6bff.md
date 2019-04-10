@@ -4,63 +4,63 @@ essential part of using Semaphore.
 
 #### Table of contents
 
-* [Download and install](#download-and-install)
-* [Overview](#overview)
-  * [Syntax](#syntax)
-  * [Operations](#operations)
-  * [Resource types](#resource-types)
-    * [Dashboards](#dashboards)
-    * [Jobs](#jobs)
-    * [Notifications](#notifications)
-    * [Projects](#projects)
-    * [Secrets](#secrets)
-* [Working with organizations](#working-with-organizations)
-  * [sem connect](#sem-connect)
-  * [sem context](#sem-context)
-* [Working with resources](#working-with-resources)
-  * [sem create](#sem-create)
-  * [sem edit](#sem-edit)
-  * [sem get](#sem-get)
-  * [sem apply](#sem-apply)
-  * [sem delete](#sem-delete)
-* [Working with jobs](#working-with-jobs)
-  * [Creating one-off jobs](#creating-one-off-jobs)
-  * [sem attach](#sem-attach)
-  * [sem logs](#sem-logs)
-  * [sem port-forward](#sem-port-forward)
-  * [sem debug for jobs](#sem-debug-for-jobs)
-  * [sem stop](#sem-stop)
-* [Working with projects](#working-with-projects)
-  * [sem init](#sem-init)
-  * [sem debug for projects](#sem-debug-for-projects)
-* [Working with notifications](#working-with-notifications)
-  * [Create a notification](#creating-a-notification)
-  * [List notifications](#list-notifications)
-  * [Describe a notification](#describe-a-notification)
-  * [Edit a notification](#edit-a-notification)
-  * [Delete a notification](#delete-a-notification)
-* [Working with pipelines](#working-with-pipelines)
-* [Working with workflows](#working-with-workflows)
-* [Help commands](#help-commands)
-* [Flags](#flags)
-* [Defining an editor](#defining-an-editor)
-* [Command aliases](#command-aliases)
-* [See also](#see-also)
+- [Download and install](#download-and-install)
+- [Overview](#overview)
+  - [Syntax](#syntax)
+  - [Operations](#operations)
+  - [Resource types](#resource-types)
+    - [Dashboards](#dashboards)
+    - [Jobs](#jobs)
+    - [Notifications](#notifications)
+    - [Projects](#projects)
+    - [Secrets](#secrets)
+- [Working with organizations](#working-with-organizations)
+  - [sem connect](#sem-connect)
+  - [sem context](#sem-context)
+- [Working with resources](#working-with-resources)
+  - [sem create](#sem-create)
+  - [sem edit](#sem-edit)
+  - [sem get](#sem-get)
+  - [sem apply](#sem-apply)
+  - [sem delete](#sem-delete)
+- [Working with jobs](#working-with-jobs)
+  - [Creating one-off jobs](#creating-one-off-jobs)
+  - [sem attach](#sem-attach)
+  - [sem logs](#sem-logs)
+  - [sem port-forward](#sem-port-forward)
+  - [sem debug for jobs](#sem-debug-for-jobs)
+  - [sem stop](#sem-stop)
+- [Working with projects](#working-with-projects)
+  - [sem init](#sem-init)
+  - [sem debug for projects](#sem-debug-for-projects)
+- [Working with notifications](#working-with-notifications)
+  - [Create a notification](#creating-a-notification)
+  - [List notifications](#list-notifications)
+  - [Describe a notification](#describe-a-notification)
+  - [Edit a notification](#edit-a-notification)
+  - [Delete a notification](#delete-a-notification)
+- [Working with pipelines](#working-with-pipelines)
+- [Working with workflows](#working-with-workflows)
+- [Help commands](#help-commands)
+- [Flags](#flags)
+- [Defining an editor](#defining-an-editor)
+- [Command aliases](#command-aliases)
+- [See also](#see-also)
 
 ## Download and install
 
 To download and install sem, copy and paste the installation command:
 
-```
-$ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
+``` bash
+curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ```
 
 Next, you'll need to connect `sem` to an organization.
 The command includes the URL and access token. In your web browser
 you'll see something similar to:
 
-```
-$ sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
+``` bash
+sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
 ```
 
 You can find the exact `sem connect` command, which includes your current
@@ -76,7 +76,9 @@ page](https://me.semaphoreci.com/account).
 
 The general syntax of the `sem` utility is as follows:
 
-    sem [COMMAND] [RESOURCE] [NAME] [flags]
+``` bash
+sem [COMMAND] [RESOURCE] [NAME] [flags]
+```
 
 where `[COMMAND]` is the name of the command as explained in this reference
 page, `[RESOURCE]` is the resource type that interests us, `[NAME]` is the
@@ -92,33 +94,33 @@ with the `-f` flag, which requires a valid path to a local file.
 
 The following list briefly describes all `sem` operations:
 
-* *connect*: The `connect` command is used for connecting to an organization
+- -connect-: The `connect` command is used for connecting to an organization
     for the first time.
-* *context*: The `context` command is used for switching organizations.
-* *create*: The `create` command is used for creating new resources.
-* *delete*: The `delete` command is used for deleting existing resources.
-* *get*: The `get` command is used for getting a list of items for an existing
+- -context-: The `context` command is used for switching organizations.
+- -create-: The `create` command is used for creating new resources.
+- -delete-: The `delete` command is used for deleting existing resources.
+- -get-: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-* *edit*: The `edit` command is used for editing existing `secrets`,
+- -edit-: The `edit` command is used for editing existing `secrets`,
     `notifications` and `dashboards` using your favorite text editor.
-* *apply*: The `apply` command is used for updating existing `secrets` and
+- -apply-: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
-* *attach*: The `attach` command is used for attaching to a running `job`.
-* *debug*: the `debug` command is used for debugging `jobs` and `projects`.
-* *logs*: The `logs` command is used for getting the logs of a `job`.
-* *stop*: The *stop* command is used for stopping `pipelines`, `workflows` and
+- -attach-: The `attach` command is used for attaching to a running `job`.
+- -debug-: the `debug` command is used for debugging `jobs` and `projects`.
+- -logs-: The `logs` command is used for getting the logs of a `job`.
+- -stop-: The -stop- command is used for stopping `pipelines`, `workflows` and
     `jobs` from running.
-* *rebuild*: The *rebuild* command is used for rebuilding `workflows` and
+- -rebuild-: The -rebuild- command is used for rebuilding `workflows` and
     `pipelines`
-* *port-forward*: The `port-forward` command is used for redirecting the
+- -port-forward-: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
-* *help*: The `help` command is used for getting help about `sem` or an
+- -help-: The `help` command is used for getting help about `sem` or an
     existing `sem` command.
-* *init*: The `init` command is used for adding an existing GitHub repository
+- -init-: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
-* *version*: The `version` command is used for getting the version of the `sem`
+- -version-: The `version` command is used for getting the version of the `sem`
     utility.
 
 ### Resource types
@@ -176,7 +178,7 @@ use the same project name more than once under the same organization.
 
 #### Pipelines
 
-The smallest unit of scheduling and execution in Semaphore 2.0 is the **Job**.
+The smallest unit of scheduling and execution in Semaphore 2.0 is the --Job--.
 A `pipeline` is the Semaphore 2.0 entity where jobs are defined in order to get
 executed in a Virtual Machine.
 
@@ -191,7 +193,7 @@ execution from the other workflow executions.
 
 A `workflow` is composed of one or more `pipelines` depending on whether there
 exist promotions or auto promotions in the `workflow`. Therefore, a workflow
-should be viewed of as *a group of pipelines* or, if you like strict
+should be viewed of as -a group of pipelines- or, if you like strict
 definitions, as a dynamically configurable, n-ary tree of pipelines.
 
 #### Secrets
@@ -236,7 +238,9 @@ organization that you are already a member of using the `sem context` command.
 
 The `sem connect` command should be executed as follows:
 
-    sem connect tsoukalos.semaphoreci.com NeUFkim46BCdpqCAyWXN
+``` bash
+sem connect tsoukalos.semaphoreci.com NeUFkim46BCdpqCAyWXN
+```
 
 ### sem context
 
@@ -255,9 +259,11 @@ which should be a valid organization name the active user belongs to,
 The next command will just list all the organizations the connected user
 belongs to:
 
-    sem context
+``` bash
+sem context
+```
 
-In the output of `sem context`, the active organization will have a `*`
+In the output of `sem context`, the active organization will have a `-`
 character in front of it.
 
 If you use an argument with `sem context`, then that argument should be a valid
@@ -265,7 +271,9 @@ organization name as it appears in the output of `sem context`. So, in order to
 change from the current organization to `tsoukalos_semaphoreci_com`, you should
 execute the next command:
 
-    sem context tsoukalos_semaphoreci_com
+``` bash
+sem context tsoukalos_semaphoreci_com
+```
 
 ## Working with resources
 
@@ -282,11 +290,13 @@ file. Currently there exist four types of YAML resource files that can be
 handled by `sem create`: secrets, dashboards, jobs and projects resource files.
 
 However, for `secrets` and `dashboards` only, you can use `sem create` to
-create an *empty* `secret` or `dashbord` without the need for a YAML file as
+create an -empty- `secret` or `dashbord` without the need for a YAML file as
 follows:
 
-    sem create secret [name]
-    sem create dashbord [name]
+``` bash
+sem create secret [name]
+sem create dashbord [name]
+```
 
 Should you wish to learn more about creating new resources, you can visit
 the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
@@ -301,17 +311,23 @@ If you have a valid secret, dashboard or project YAML file stored at
 `/tmp/valid.yaml`, you should execute the next command in order to add that
 secret, dashboard or project under the current organization:
 
-    sem create -f /tmp/valid.yaml
+``` bash
+sem create -f /tmp/valid.yaml
+```
 
 Additionally, the following command will create a new and empty `secret` that
 will be called `my-new-secret`:
 
-    sem create secret my-new-secret
+``` bash
+sem create secret my-new-secret
+```
 
 Last, the following command will create a new and empty `dashboard` that will
 be called `my-dashboard`:
 
-    sem create dashboard my-dashboard
+``` bash
+sem create dashboard my-dashboard
+```
 
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
@@ -322,7 +338,9 @@ There exists a unique way for adding one or more files and creating a new
 `secret` with them that uses the `sem create` command. The general form of the
 command is the following:
 
-    sem create secret [NAME] -f local1:secret1 [-f local2:secret2]
+``` bash
+sem create secret [NAME] -f local1:secret1 [-f local2:secret2]
+```
 
 Each entry has two parts, which are the path to the local file and the path to
 the file as it will appear in the `secret`. This is very convenient as you do
@@ -340,7 +358,9 @@ Imagine that you have two files that are located at `/etc/hosts` and
 can manually add them to an existing secret, you can also use `sem create` with
 the following syntax:
 
-    sem create secret newSecret -f /etc/hosts:/var/hosts -f /home/rtext/docker-secrets:docker-secrets
+``` bash
+sem create secret newSecret -f /etc/hosts:/var/hosts -f /home/rtext/docker-secrets:docker-secrets
+```
 
 After the execution of the aforementioned command, there will be a new secret
 named `newSecret` with two files in it. The path of the first file will be
@@ -348,12 +368,14 @@ named `newSecret` with two files in it. The path of the first file will be
 
 You can verify the results of the command as follows:
 
-    sem get secrets newSecret
+``` bash
+sem get secrets newSecret
+```
 
 The output you will get from the previous command will be similar to the
 following:
 
-```
+``` yaml
 apiVersion: v1beta
 kind: Secret
 metadata:
@@ -383,14 +405,18 @@ The `sem edit` command does not support the `job` and `project` resource types.
 The following command will edit an existing `secret` that is named `my-secret`
 and will automatically run your favorite text editor:
 
-    sem edit secret my-secret
+``` bash
+sem edit secret my-secret
+```
 
 What you are going to see on your screen is the YAML representation of the
 `my-secret` secret.
 
 Similarly, the next command will edit a `dashboard` named `my-activity`:
 
-    sem edit dashboard my-activity
+``` bash
+sem edit dashboard my-activity
+```
 
 ### sem get
 
@@ -403,11 +429,15 @@ resource that interests you, in that exact order.
 
 In the first case, `sem get` can be used as follows:
 
-    sem get [RESOURCE]
+``` bash
+sem get [RESOURCE]
+```
 
 In the second case, `sem get` should be used as follows:
 
-    sem get [RESOURCE] [name]
+``` bash
+sem get [RESOURCE] [name]
+```
 
 In the case of a `job` resource, you should give the Job ID of the job that
 interests you and not its name.
@@ -420,43 +450,59 @@ resource type when issuing a `sem get` command all the time.
 So, in order to get the list of the available projects for the current user
 under the active organization, you should execute the following command:
 
-    sem get project
+``` bash
+sem get project
+```
 
 Similarly, the next command returns the list of the names of the available
 secrets for the current user under the active organization:
 
-    sem get secret
+``` bash
+sem get secret
+```
 
 Each entry is printed on a separate line, which makes the generated output
 suitable for being further processed by traditional UNIX command line tools.
 
 Additionally, you can use `sem get` to display all running jobs:
 
-    sem get jobs
+``` bash
+sem get jobs
+```
 
 Last, you can use `sem get jobs` with `--all` to display the more recent jobs
 of the current organization, both running and finished:
 
-    sem get jobs --all
+``` bash
+sem get jobs --all
+```
 
 In order to find out more information about a specific project named `docs`,
 you should execute the next command:
 
-    sem get project docs
+``` bash
+sem get project docs
+```
 
 Similarly, in order to find out the contents of a `secret` named `mySecrets`,
 you should execute the next command:
 
-    sem get secret mySecrets
+``` bash
+sem get secret mySecrets
+```
 
 You can also use `sem get` for displaying information about a `dashboard`:
 
-    sem get dashboard my-dashboard
+``` bash
+sem get dashboard my-dashboard
+```
 
 In order to find more information about a specific job, given its Job ID,
 either running or finished, you should execute the next command:
 
-    sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
+``` bash
+sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
+```
 
 ### sem apply
 
@@ -470,12 +516,16 @@ line option followed by a valid path to a proper YAML file.
 The following command will update the `my-secret` secret according to the
 contents of the `aFile`, which should be a valid `secrets` YAML file:
 
-    sem apply -f aFile
+``` bash
+sem apply -f aFile
+```
 
 If everything is OK with `aFile`, the output of the previous command will be as
 follows:
 
-    Secret 'my-secrets' updated.
+``` bash
+Secret 'my-secrets' updated.
+```
 
 This means that the `my-secrets` secret was updated successfully.
 
@@ -500,16 +550,22 @@ Deleting a `dashboard` does not affect any Semaphore 2.0 projects.
 In order to delete an existing project named `be-careful` from the current
 organization, you should execute the next command:
 
-    sem delete project be-careful
+``` bash
+sem delete project be-careful
+```
 
 Similarly, you can delete an existing dashboard named `my-dashboard` as
 follows:
 
-    sem delete dashboard my-dashboard
+``` bash
+sem delete dashboard my-dashboard
+```
 
 Last, you can delete an existing secret named `my-secret` as follows:
 
-    sem delete secret my-secret
+``` bash
+sem delete secret my-secret
+```
 
 The `sem delete` command does not work with `jobs`.
 
@@ -544,29 +600,35 @@ The only way to see the results of such a job is with the `sem logs` command.
 
 #### One-off job creation example
 
-    sem create -f /tmp/aJob.yml
+``` bash
+sem create -f /tmp/aJob.yml
+```
 
 The aforementioned command creates a new job based on the contents of
 `/tmp/aJob.yml`, which are as follows:
 
-    apiVersion: v1alpha
-    kind: Job
-    metadata:
-      name: A new job
-    spec:
-      files: []
-      envvars: []
-      secrets: []
-      commands:
-        - go version
-      project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+``` yaml
+apiVersion: v1alpha
+kind: Job
+metadata:
+  name: A new job
+spec:
+  files: []
+  envvars: []
+  secrets: []
+  commands:
+    - go version
+  project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+```
 
 The value of `project_id` must be valid or the `sem create -f` command will
 fail.
 
 The output of the `sem create -f` command looks as follows:
 
-    Job '686b3ed4-be56-4e95-beee-b3bbcc3981b3' created.
+``` bash
+Job '686b3ed4-be56-4e95-beee-b3bbcc3981b3' created.
+```
 
 ### sem attach
 
@@ -582,9 +644,11 @@ In order to be able to connect to the VM of the `job` that interests you, you
 will need to include the following command in the relevant `job` block of the
 Pipeline YAML file:
 
-    - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
+``` yaml
+- curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
+```
 
-Replace `mactsouk` with the GitHub username that *you* are using.
+Replace `mactsouk` with the GitHub username that -you- are using.
 
 If you need to include the `curl` command on every `job`, you can include it in
 the `prologue` block of the `task`. An alternative way is to create a `secret`
@@ -596,11 +660,13 @@ job is running because you can see what is happening in real time.
 
 #### sem attach example
 
-The `sem attach` command requires the *Job ID* of a **running** job as its single
+The `sem attach` command requires the -Job ID- of a --running-- job as its single
 parameter. So, the following command will connect to the VM of the job with Job
 ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
-    sem attach 6ed18e81-0541-4873-93e3-61025af0363b
+``` bash
+sem attach 6ed18e81-0541-4873-93e3-61025af0363b
+```
 
 The job with the given Job ID must be in running state at the time of
 execution of `sem attach`.
@@ -614,14 +680,16 @@ The `sem logs` command works with both finished and running jobs.
 
 #### sem logs example
 
-The `sem logs` command requires the *Job ID* of a job as its parameter:
+The `sem logs` command requires the -Job ID- of a job as its parameter:
 
-    sem logs 6ed18e81-0541-4873-93e3-61025af0363b
+``` bash
+sem logs 6ed18e81-0541-4873-93e3-61025af0363b
+```
 
 The last lines of the output of the previous command of a PASSED job should be
 similar to the following output:
 
-```
+``` bash
 ✻ export SEMAPHORE_JOB_RESULT=passed
 exit status: 0
 Job passed.
@@ -631,7 +699,9 @@ Job passed.
 
 The general form of the `sem port-forward` command is the following:
 
-    sem port-forward [JOB ID of running job] [LOCAL TCP PORT] [REMOTE TCP PORT]
+``` bash
+sem port-forward [JOB ID of running job] [LOCAL TCP PORT] [REMOTE TCP PORT]
+```
 
 So, the `sem port-forward` command needs three command line arguments: the Job
 ID, the local TCP port number that will be used in the local machine, and
@@ -643,7 +713,9 @@ The `sem port-forward` command works with running jobs only.
 
 The `sem port-forward` command is executed as follows:
 
-    sem port-forward 6ed18e81-0541-4873-93e3-61025af0363b 8000 8080
+``` bash
+sem port-forward 6ed18e81-0541-4873-93e3-61025af0363b 8000 8080
+```
 
 The previous command tells `sem` to forward the network traffic from the TCP
 port 8000 of the job with job ID `6ed18e81-0541-4873-93e3-61025af0363b` that is
@@ -653,12 +725,14 @@ All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
 
 ### sem debug for jobs
 
-The `sem debug` command can help you troubleshoot all types of jobs (*running*,
-*stopped* and *finished*) that are not working as you might have expected.
+The `sem debug` command can help you troubleshoot all types of jobs (-running-,
+-stopped- and -finished-) that are not working as you might have expected.
 
 The general form of the `sem debug` command for jobs is the following:
 
-    sem debug job [Job ID]
+``` bash
+sem debug job [Job ID]
+```
 
 What the command does is reading the specification of a job, using that
 specification to build a Virtual Machine (VM) and connecting you to that VM
@@ -667,7 +741,7 @@ Additionally, there is a file in the home directory named `commands.sh` that
 contains all the commands of that job, including the commands in `prologue` and
 `epilogue` blocks.
 
-The VM that is used with `sem debug job` is on the *task level*, which means
+The VM that is used with `sem debug job` is on the -task level-, which means
 that it will be the real VM with the real environment that is used for the job
 when that job is executed in a pipeline – this includes all `secrets` and
 environment variables. This also means that you will be working on the actual
@@ -680,7 +754,7 @@ The `sem debug job` command is ideal for debugging jobs that are finished.
 The first time you execute `sem debug job`, you are going to get an output
 similar to the following:
 
-```
+``` bash
 $ sem debug job 415b252c-b2b2-4ced-96ea-f8268d365d96
 error: Public SSH key for debugging is not configured.
 
@@ -703,12 +777,12 @@ before using `sem debug job` for the first time – you can choose any one of
 the three proposed ways.
 
 You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
-**manually terminate** the VM. Otherwise, you can wait for the timeout period
+--manually terminate-- the VM. Otherwise, you can wait for the timeout period
 to pass.
 
 #### The --duration flag
 
-By default the SSH session of a `sem debug` command is limited to **one hour**.
+By default the SSH session of a `sem debug` command is limited to --one hour--.
 In order to change that, you can pass the `--duration` flag to the `sem debug`
 command.
 
@@ -720,7 +794,9 @@ or even as `60m`.
 
 You can stop a running job or pipeline with `sem stop`:
 
-    sem stop job|pipeline [ID]
+``` bash
+sem stop job|pipeline [ID]
+```
 
 If you are executing `sem stop job`, you will need to provide an `ID` of a
 running job. If you are executing `sem stop pipeline`, you will need
@@ -731,12 +807,16 @@ to provide an `ID` of a running pipeline.
 The following command will stop the `job` with a Job ID of
 `0ae14ece-17b1-428d-99bd-5ec6b04494e9`:
 
-    sem stop job 0ae14ece-17b1-428d-99bd-5ec6b04494e9
+``` bash
+sem stop job 0ae14ece-17b1-428d-99bd-5ec6b04494e9
+```
 
 The following command will stop the `pipeline` with a Pipeline ID of
 `ea3e6bba-d19a-45d7-86a0-e78a2301b616`:
 
-    sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
+``` bash
+sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
+```
 
 ## Working with projects
 
@@ -769,7 +849,9 @@ As `sem init` can be used without any command line arguments, you can execute
 it as follows from the root directory of a GitHub repository that resides on
 your local machine:
 
-    sem init
+``` bash
+sem init
+```
 
 If a `.semaphore/semaphore.yml` file already exists in the root directory of a
 GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
@@ -778,7 +860,9 @@ and continue its operation. If there is no `.semaphore/semaphore.yml` file,
 
 If you decide to use `--project-name`, then you can call `sem init` as follows:
 
-    sem init --project-name my-own-name
+``` bash
+sem init --project-name my-own-name
+```
 
 The previous command creates a new Semaphore 2.0 project that will be called
 `my-own-name`.
@@ -798,7 +882,9 @@ you need to download in order to perform the task you want.
 
 The general form of the `sem debug project` command is the following:
 
-    sem debug project [Project NAME]
+``` bash
+sem debug project [Project NAME]
+```
 
 After that you are going to get automatically connected to the VM of the
 project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
@@ -813,15 +899,15 @@ The projects that are created using the `sem debug project` command support the
 
 You can debug a project named `docker-push` by executing the following command:
 
-    sem debug project docker-push
+``` bash
+sem debug project docker-push
+```
 
 You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
-**manually terminate** the VM. Otherwise, you can wait for the timeout period
+--manually terminate-- the VM. Otherwise, you can wait for the timeout period
 to pass.
 
-#### The --duration flag
-
-By default the SSH session of a `sem debug` command is limited to **one hour**.
+By default the SSH session of a `sem debug` command is limited to --one hour--.
 In order to change that, you can pass the `--duration` flag to the `sem debug`
 command.
 
@@ -829,22 +915,26 @@ You can define the time duration using numeric values in the `XXhYYmZZs` format
 using any valid combination. One hour can be defined as `1h0m0s` or just `1h`
 or even as `60m`.
 
-##### The --duration flag example
-
 The next command specifies that the SSH session for the `deployment` project
 will time out in 2 minutes:
 
-    sem debug project deployment --duration 2m
+``` bash
+sem debug project deployment --duration 2m
+```
 
 The next command specifies that the SSH session for the `job` with JOB ID
 `d7caf99e-de65-4dbb-ad63-91829bc8a693` will time out in 2 hours:
 
-    sem debug job d7caf99e-de65-4dbb-ad63-91829bc8a693 --duration 2h
+``` bash
+sem debug job d7caf99e-de65-4dbb-ad63-91829bc8a693 --duration 2h
+```
 
 Last, the following command specifies that the SSH session of the `deployment`
 project will time out in 20 minutes and 10 seconds:
 
-    sem debug project deployment --duration 20m10s
+``` bash
+sem debug project deployment --duration 20m10s
+```
 
 ## Working with notifications
 
@@ -858,12 +948,14 @@ with the help of the `sem` utility.
 
 The general form of the `sem create notification` command is as follows:
 
-    sem create notification [name] \
-    --projects [list of projects] \
-    --branches [list of branches] \
-    --slack-endpoint [slack-webhook-endpoint] \
-    --slack-channels [list of slack channels] \
-    --pipelines [list of pipelines]
+``` bash
+sem create notification [name] \
+  --projects [list of projects] \
+  --branches [list of branches] \
+  --slack-endpoint [slack-webhook-endpoint] \
+  --slack-channels [list of slack channels] \
+  --pipelines [list of pipelines]
+```
 
 Please refer to the [Examples](#examples) section to learn more about the use
 of the `sem create notification` command.
@@ -883,15 +975,17 @@ that purpose.
 
 Additionally, the values of `--branches`, `--projects` and `--pipelines` can
 contain regular expressions. Regex matches must be wrapped in forward slashes
-(`/.*/`). Specifying a branch name without slashes (example: `.*`) would
+(`/.-/`). Specifying a branch name without slashes (example: `.-`) would
 execute a direct equality match.
 
 Therefore, the minimum valid `sem create notification` command that can be
 executed will have the following form:
 
-    sem create notification [name]
-    --projects [list of projects] \
-    --slack-endpoint [slack-webhook-endpoint]
+``` bash
+sem create notification [name] \
+  --projects [list of projects] \
+  --slack-endpoint [slack-webhook-endpoint]
+```
 
 The `sem create notification` command can only create a single rule under the
 newly created notification. However, you can now use the `sem edit notification`
@@ -906,14 +1000,18 @@ Slack Workspace.
 You can list all the available notifications under the current organization
 with the `sem get notifications` command.
 
-    sem get notifications
+``` bash
+sem get notifications
+```
 
 ### Describe a notification
 
 You can describe a notification using the `sem get notifications` command
 followed by the `name` of the desired notification.
 
-    sem get notifications [name]
+``` bash
+sem get notifications [name]
+```
 
 The output of the previous command will be a YAML file – you can learn more
 about the Notifications YAML grammar by visiting the
@@ -924,7 +1022,9 @@ about the Notifications YAML grammar by visiting the
 You can edit a notification using the `sem edit notification` command followed
 by the `name` of the existing notification.
 
-    sem edit notification [name]
+``` bash
+sem edit notification [name]
+```
 
 The `sem edit notification` command will start your favorite text editor.
 In order for the changes to take effect, you will have to save the changes and
@@ -935,7 +1035,9 @@ exit your text editor.
 You can delete an existing notification using the `sem delete notification`
 command followed by the `name` of the notification you want to delete.
 
-    sem delete notifications [name]
+``` bash
+sem delete notifications [name]
+```
 
 #### Working with notifications examples
 
@@ -943,42 +1045,54 @@ In this subsection you will find `sem` examples related to notifications.
 
 You can create a new notification named `documents` as follows:
 
-    sem create notifications documents \
-      --projects "/.*-api$/" \
-      --branches "master" \
-      --pipelines "semaphore.yml" \
-      --slack-endpoint https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD \
-      --slack-channels "#dev-team,@mtsoukalos"
+``` bash
+sem create notifications documents \
+  --projects "/.--api$/" \
+  --branches "master" \
+  --pipelines "semaphore.yml" \
+  --slack-endpoint https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD \
+  --slack-channels "#dev-team,@mtsoukalos"
+```
 
 You can list all existing notifications under the current organization as
 follows:
 
-    sem get notifications
+``` bash
+sem get notifications
+```
 
 The output that you will get from the previous command will look similar to the
 following:
 
-    $ sem get notifications
-    NAME        AGE
-    documents   18h
-    master      17h
+``` bash
+$ sem get notifications
+NAME        AGE
+documents   18h
+master      17h
+```
 
 The `AGE` column shows the time since the last change.
 
 You can find more information about a notification called `documents` as
 follows:
 
-    sem get notifications documents
+``` bash
+sem get notifications documents
+```
 
 You can edit that notification as follows:
 
-    sem edit notifications documents
+``` bash
+sem edit notifications documents
+```
 
 The aforementioned command will take you to your favorite text editor. If your
 changes are syntactically correct, you will get an output similar to the next:
 
-    $ sem edit notifications documents
-    Notification 'documents' updated.
+``` bash
+$ sem edit notifications documents
+Notification 'documents' updated.
+```
 
 If there is a syntactical error in the new file, the `sem` reply will tell you
 more information about the error but any changes you made to the notification
@@ -986,12 +1100,16 @@ will be lost.
 
 Last, you can delete an existing notification named `documents` as follows:
 
-    sem delete notification documents
+``` bash
+sem delete notification documents
+```
 
 The output of the `sem delete notification documents` command is as follows:
 
-    $ sem delete notification documents
-    Notification 'documents' deleted.
+``` bash
+$ sem delete notification documents
+Notification 'documents' deleted.
+```
 
 ## Working with pipelines
 
@@ -1008,14 +1126,18 @@ that interests you.
 
 So, the `sem get pipelines` command can have the following two formats:
 
-    sem get pipelines
-    sem get pipelines -p [PROJECT NAME]
+``` bash
+sem get pipelines
+sem get pipelines -p [PROJECT NAME]
+```
 
 #### Listing pipelines example
 
 The following command will return the last 30 pipelines of the S1 project:
 
-    sem get pipelines -p S1
+``` bash
+sem get pipelines -p S1
+```
 
 ### Describing a pipeline
 
@@ -1027,48 +1149,58 @@ a description of the specified pipeline.
 You can find more information about the pipeline with the Pipeline ID of
 `c2016294-d5ac-4af3-9a3d-1212e6652cd8` as follows:
 
-    sem get pipeline c2016294-d5ac-4af3-9a3d-1212e6652cd8
+``` bash
+sem get pipeline c2016294-d5ac-4af3-9a3d-1212e6652cd8
+```
 
 ### Rebuilding a pipeline
 
 You can rebuild an existing pipeline with the help of the
 `sem rebuild pipeline` command, that has the following format:
 
-    sem rebuild pipeline [Pipeline ID]
+``` bash
+sem rebuild pipeline [Pipeline ID]
+```
 
 Note that `sem rebuild pipeline` will perform a partial rebuild of the pipeline
-as **only the blocks that failed** will be rerun.
+as --only the blocks that failed-- will be rerun.
 
 #### Rebuilding a pipeline example
 
 Rebuilding the pipeline with a Pipeline ID of
 `b83bce61-fdb8-4ace-b8bc-18be471aa96e` will return the next output:
 
-    $ sem rebuild pipeline b83bce61-fdb8-4ace-b8bc-18be471aa96e
-    {"pipeline_id":"a1e45038-a689-460b-b3bb-ba1605104c08","message":""}
+``` bash
+$ sem rebuild pipeline b83bce61-fdb8-4ace-b8bc-18be471aa96e
+{"pipeline_id":"a1e45038-a689-460b-b3bb-ba1605104c08","message":""}
+```
 
 ### The --follow flag
 
 The general form of the `sem get pipeline` command when used with the
 `--follow` flag is as follows:
 
-    sem get pipeline [RUNNING Pipeline ID] --follow
+``` bash
+sem get pipeline [RUNNING Pipeline ID] --follow
+```
 
 The `--follow` flag makes the `sem get pipeline [RUNNING Pipeline ID]` command
 to be repeatedly called until the pipeline reaches terminal state.
 
 The `--follow` flag is particularly useful in the following two cases:
 
-* If you want to look at how a build is advancing without using the Semaphore
+- If you want to look at how a build is advancing without using the Semaphore
     Web Interface (e.g. when you are prototyping something).
-* If you want to be notified when pipeline is done (e.g. in shell scripts).
+- If you want to be notified when pipeline is done (e.g. in shell scripts).
 
 ### The --follow flag example
 
 The `--follow flag` can be used on a running pipeline with a Pipeline ID of
 `9bfaf8d6-05c8-4397-b764-5f0f574c8e64` as follows:
 
-    sem get pipeline 9bfaf8d6-05c8-4397-b764-5f0f574c8e64 --follow
+``` bash
+sem get pipeline 9bfaf8d6-05c8-4397-b764-5f0f574c8e64 --follow
+```
 
 ## Working with workflows
 
@@ -1085,29 +1217,37 @@ Semaphore project that interests you.
 
 So the `sem get workflows` has the following two formats:
 
-    sem get workflows
-    sem get workflows -p [Project Name]
+``` bash
+sem get workflows
+sem get workflows -p [Project Name]
+```
 
 ### Listing workflows examples
 
 Finding the last 30 workflows for the `S1` Semaphore project is as simple as
 executing the following commands:
 
-    sem get workflows -p S1
+``` bash
+sem get workflows -p S1
+```
 
 If the project name does not exist, you will get an error message.
 
 If you are inside the root directory of the `S1` Semaphore project, then you
 can also execute the next command to get the same output:
 
-    sem get workflows
+``` bash
+sem get workflows
+```
 
 ### Describing a workflow
 
 Each workflow has its own unique Workflow ID. Using that unique Workflow ID you
 can find more information about that particular workflow using the next command:
 
-    sem get workflow [WORKFLOW ID]
+``` bash
+sem get workflow [WORKFLOW ID]
+```
 
 The output of the previous command is a list of pipelines that includes
 promoted and auto promoted pipelines.
@@ -1117,12 +1257,14 @@ promoted and auto promoted pipelines.
 Finding more information about the Workflow with ID
 `5bca6294-29d5-4fd3-891b-8ac3179ba196` is as easy as follows:
 
-    $ sem get workflow 5bca6294-29d5-4fd3-891b-8ac3179ba196
-    Label: master
-    
-    PIPELINE ID                            PIPELINE NAME            CREATION TIME         STATE
-    9d5f9986-2694-43b9-bc85-6fee47440ba7   Pipeline 1 - p1.yml      2018-10-03 09:37:59   DONE
-    55e94adb-7aa8-4b1e-b60d-d9a1cb0a443a   Testing Auto Promoting   2018-10-03 09:31:35   DONE
+``` bash
+$ sem get workflow 5bca6294-29d5-4fd3-891b-8ac3179ba196
+Label: master
+
+PIPELINE ID                            PIPELINE NAME            CREATION TIME         STATE
+9d5f9986-2694-43b9-bc85-6fee47440ba7   Pipeline 1 - p1.yml      2018-10-03 09:37:59   DONE
+55e94adb-7aa8-4b1e-b60d-d9a1cb0a443a   Testing Auto Promoting   2018-10-03 09:31:35   DONE
+```
 
 Please note that you should have the required permissions in order to find
 information about a Workflow.
@@ -1131,7 +1273,9 @@ information about a Workflow.
 
 You can rebuild an existing workflow using the following command:
 
-    sem rebuild workflow [WORKFLOW ID]
+``` bash
+sem rebuild workflow [WORKFLOW ID]
+```
 
 Note that `sem rebuild workflow` will perform a full rebuild of the specified
 workflow. A new workflow will be created as if a new commit was pushed to
@@ -1142,8 +1286,10 @@ GitHub.
 You can rebuild a workflow with a Workflow ID of
 `99737bcd-a295-4278-8804-fff651fb6a8c` as follows:
 
-    $ sem rebuild wf 99737bcd-a295-4278-8804-fff651fb6a8c
-    {"wf_id":"8480a83c-2d90-4dd3-8e8d-5fb899a58bc0","ppl_id":"c2016294-d5ac-4af3-9a3d-1212e6652cd8"}
+``` bash
+$ sem rebuild wf 99737bcd-a295-4278-8804-fff651fb6a8c
+{"wf_id":"8480a83c-2d90-4dd3-8e8d-5fb899a58bc0","ppl_id":"c2016294-d5ac-4af3-9a3d-1212e6652cd8"}
+```
 
 The output of `sem rebuild wf` command is a new Workflow ID and a new pipeline
 ID as the `sem rebuild workflow` command creates a new workflow based on an
@@ -1168,7 +1314,9 @@ the `sem` command when executed without any command line arguments.
 Additionally, the `help` command can be also used as follows (the `connect`
 command is used as an example here):
 
-    sem connect help
+``` bash
+sem connect help
+```
 
 In that case, `help` will generate information about the use of the
 `sem connect` command.
@@ -1184,8 +1332,10 @@ The `sem version` command displays the used version of the `sem` tool. As an
 example, if you are using `sem` version 0.4.1, the output of `sem version`
 will be as follows:
 
-    $ sem version
-    v0.8.17
+``` bash
+$ sem version
+v0.8.17
+```
 
 Your output might be different.
 
@@ -1222,22 +1372,23 @@ The `--all` flag can only be used with the `sem get jobs` command in order to
 display the most recent jobs of the current organization, both running and
 finished.
 
-
 ### Defining an editor
 
 The `sem` utility chooses which editor to use by following the next process:
 
-* Using the value of the `editor` property. This value can be set using the
+- Using the value of the `editor` property. This value can be set using the
     `sem config set editor` command
-* From the value of the `EDITOR` environment variable, if it is set
-* If none of the above exists, `sem` will try to use the `vim` editor
+- From the value of the `EDITOR` environment variable, if it is set
+- If none of the above exists, `sem` will try to use the `vim` editor
 
 #### The `sem config set editor` command
 
 You can define that you want to use the `nano` editor for editing Semaphore
 resources by executing the following command:
 
-    sem config set editor nano
+``` bash
+sem config set editor nano
+```
 
 #### The EDITOR environment variable
 
@@ -1247,14 +1398,18 @@ will be used with the session of the `sem edit` command.
 You can check whether the `EDITOR` environment variable is set on your UNIX
 machine by executing the following command:
 
-    echo $EDITOR
+``` bash
+echo $EDITOR
+```
 
 If the output is an empty line, then then `EDITOR` environment variable is not
 set. You can set it to the `nano` editor as follows:
 
-    $ export EDITOR=nano
-    $ echo $EDITOR
-    nano
+``` bash
+$ export EDITOR=nano
+$ echo $EDITOR
+nano
+```
 
 The `sem` utility also supports custom flags in the `EDITOR` environment
 variable, like `EDITOR="subl --wait"`.
@@ -1264,28 +1419,30 @@ variable, like `EDITOR="subl --wait"`.
 The words of each line that follows, which represent resource types, are
 equivalent:
 
-* `project`, `projects` and `prj`
-* `dashboard`, `dashboards` and `dash`
-* `secret` and `secrets`
-* `job` and `jobs`
-* `notifications`, `notification`, `notifs` and `notif`
-* `pipelines`, `pipeline` and `ppl`
-* `workflows`, `workflow` and `wf`
+- `project`, `projects` and `prj`
+- `dashboard`, `dashboards` and `dash`
+- `secret` and `secrets`
+- `job` and `jobs`
+- `notifications`, `notification`, `notifs` and `notif`
+- `pipelines`, `pipeline` and `ppl`
+- `workflows`, `workflow` and `wf`
 
 As an example, the following three commands are equivalent and will return the
 same output:
 
-    sem get project
-    sem get prj
-    sem get projects
+``` bash
+sem get project
+sem get prj
+sem get projects
+```
 
 ## See also
 
-* [Installing sem](https://docs.semaphoreci.com/article/63-your-first-project)
-* [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-* [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-* [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
-* [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
-* [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
-* [Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference)
+- [Installing sem](https://docs.semaphoreci.com/article/63-your-first-project)
+- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+- [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+- [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
+- [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
+- [Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference)

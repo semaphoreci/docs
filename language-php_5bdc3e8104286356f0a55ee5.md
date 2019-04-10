@@ -1,8 +1,8 @@
-* [Laravel example](#laravel-example)
-* [Supported PHP versions](#supported-php-versions)
-* [Dependency caching](#dependency-caching)
-* [Environment variables](#environment-variables)
-* [System dependencies](#system-dependencies)
+- [Laravel example](#laravel-example)
+- [Supported PHP versions](#supported-php-versions)
+- [Dependency caching](#dependency-caching)
+- [Environment variables](#environment-variables)
+- [System dependencies](#system-dependencies)
 
 This guide covers configuring PHP projects on Semaphore. If you are new to
 Semaphore we recommend reading our
@@ -39,7 +39,7 @@ blocks:
         - name: Tests
           commands:
             - php --version
-</code></pre>
+```
 
 ## Dependency caching
 
@@ -79,14 +79,15 @@ blocks:
         - name: Everything
           commands:
             - codecept test
-</code></pre>
+```
 
 ## Environment variables
 
 Semaphore does not set specific environment variables like `APP_ENV`. You can
 set these at the task level.
 
-``` yamlblocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       env_vars:
@@ -96,7 +97,7 @@ set these at the task level.
         - name: Everything
           commands:
             - codecept run
-</code></pre>
+```
 
 ## System dependencies
 
@@ -116,7 +117,7 @@ blocks:
         - name: Everything
           commands:
             - codecept run
-</code></pre>
+```
 
 [laravel-tutorial]: https://docs.semaphoreci.com/article/114-laravel-php-continuous-integration
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel

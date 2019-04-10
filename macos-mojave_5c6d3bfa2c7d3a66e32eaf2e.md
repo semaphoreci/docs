@@ -1,13 +1,13 @@
-* [Overview](#overview)
-* [Version control](#version-control)
-* [Utilities](#utilities)
-* [Gems](#gems)
-* [Java](#java)
-* [JavaScript via Node.js](#javascript-via-node-js)
-* [Python](#python)
-* [Ruby](#ruby)
-* [Xcode](#xcode)
-* [See also](#see-also)
+- [Overview](#overview)
+- [Version control](#version-control)
+- [Utilities](#utilities)
+- [Gems](#gems)
+- [Java](#java)
+- [JavaScript via Node.js](#javascript-via-node-js)
+- [Python](#python)
+- [Ruby](#ruby)
+- [Xcode](#xcode)
+- [See also](#see-also)
 
 ## Overview
 
@@ -51,12 +51,11 @@ Following gems are pre-installed:
 - cocoapods 1.5.3
 - xcpretty 0.3.0
 
-
 ## Languages
 
 ### Java
 
- - openjdk 11.0.2
+- openjdk 11.0.2
 
 ### JavaScript via Node.js
 
@@ -102,7 +101,6 @@ Xcode 10.2 images have the following SDKs preinstalled:
 - watchos5.2
 - watchsimulator5.2
 
-
 The Xcode 10.2 image comes with the following simulators:
 
 - iOS 11.4
@@ -112,10 +110,10 @@ The Xcode 10.2 image comes with the following simulators:
 
 ## See Also
 
-* [iOS Continuous Integration guide][ios-guide]
-* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-* [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [iOS Continuous Integration guide][ios-guide]
+- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
 [mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_release_notes
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types

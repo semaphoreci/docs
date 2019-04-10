@@ -1,12 +1,12 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Java Spring application.
 
-* [Demo project](#demo-project)
-* [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
-* [Sample configuration](#sample-configuration)
-  * [Authenticate with a Docker registry](#authenticate-with-a-docker-registry)
-  * [The Docker build pipeline](#the-docker-build-pipeline)
-* [Run the demo project yourself](#run-the-demo-project-yourself)
+- [Demo project](#demo-project)
+- [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
+- [Sample configuration](#sample-configuration)
+  - [Authenticate with a Docker registry](#authenticate-with-a-docker-registry)
+  - [The Docker build pipeline](#the-docker-build-pipeline)
+- [Run the demo project yourself](#run-the-demo-project-yourself)
 
 ## Demo project
 
@@ -30,8 +30,7 @@ The Semaphore pipeline performs the following tasks:
 4. Build Docker image
 5. Push image to a container registry
 
-![Java Spring CI/CD
-pipeline](https://github.com/semaphoreci-demos/semaphore-demo-java-spring/raw/master/assets/pipeline-result.png)
+![Java Spring CI/CD pipeline](https://github.com/semaphoreci-demos/semaphore-demo-java-spring/raw/master/assets/pipeline-result.png)
 
 ## Sample configuration
 
@@ -149,7 +148,7 @@ promotions:
     pipeline_file: docker-build.yml
     auto_promote_on:
       - result: passed
-</code></pre>
+```
 
 The pipeline ends with a promotion which is triggered automatically if all
 blocks finished successfully.
@@ -167,7 +166,7 @@ private, so don't publish them to your Git repository by mistake.
 Create [a secret][secrets-guide] on Semaphore so that you can safely export
 `DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables in your pipeline:
 
-```
+``` bash
 sem create -f docker-hub-secret.yml
 ```
 
@@ -229,7 +228,7 @@ blocks:
 
           # Push a new image to container registry:
           - docker push semaphoredemos/semaphore-demo-java-spring:latest
-</code></pre>
+```
 
 ## Run the demo project yourself
 
@@ -240,7 +239,7 @@ yourself. Here’s how to build the demo project with your own account:
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
 4. Create your secret as per instructions above.
-4. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [secrets-guide]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets

@@ -13,13 +13,13 @@ Dashboard 'demo-deployment' created.
 Open the dashboard configuration:
 
 ``` bash
-$ sem edit dashboard demo-deployment
+sem edit dashboard demo-deployment
 ```
 
 At this point you have the dashboard definition open in your default editor.
 It looks something like this:
 
-```yaml
+``` yaml
 apiVersion: v1alpha
 kind: Dashboard
 metadata:
@@ -39,7 +39,7 @@ activities, we need to use the
 
 The minimal configuration would be as follows:
 
-```
+``` yaml
 spec:
   widgets:
   - name: Deploys to production

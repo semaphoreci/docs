@@ -41,8 +41,7 @@ sem-version java 11
 java -version
 ```
 
-ultiple environment variables
-------------------------------
+## Multiple environment variables
 
 The following build matrix has 2 variables, each with 3 possible values:
 

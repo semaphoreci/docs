@@ -7,7 +7,7 @@ active user. This file contains the necessary information for connecting
 to one or more organizations. However, only one organization is active
 at any given time.
 
-##  Connecting to an organization for the first time
+## Connecting to an organization for the first time
 
 If  `.sem.yaml` does not exist, `sem` will guide you through the process
 and help you create the required YAML configuration file. So, imagine
@@ -56,7 +56,7 @@ S1
 ```
 
 You can get the authentication token as well as your host from the web
-page of your organization, which is this case it will be 
+page of your organization, which is this case it will be
 `https://tsoukalos.semaphoreci.com/`, when you press the `"Start a
 project"` link. The authentication token will be the same for all the
 organizations of the same Semaphore 2.0 user but the host name will be
@@ -101,4 +101,4 @@ $ sem context
 
 ## See also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)

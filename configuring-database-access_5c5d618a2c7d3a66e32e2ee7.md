@@ -16,7 +16,7 @@ with administrative privileges on the databases that are supported by Semaphore
 
 ## Postgres
 
-### Create a new user
+### Create a new Postgres user
 
 In order to create a new user in Postgres you will need to execute the
 following command:
@@ -25,7 +25,7 @@ following command:
 psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
 ```
 
-### Create a new user with administrative privileges
+### Create a new Postgres user with administrative privileges
 
 In order to create a new user with administrative privileges in Postgres you
 will need to execute the following command:
@@ -37,7 +37,7 @@ psql -U postgres -h localhost -c "ALTER USER developer WITH SUPERUSER;"
 
 ## MySQL
 
-### Create a new user
+### Create a new MySQL user
 
 In order to create a new user in MySQL you will need to execute the
 following command:
@@ -52,7 +52,7 @@ The contents of `rMySQL.sql` are as follows:
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 ```
 
-### Create a new user with administrative privileges
+### Create a new MySQL user with administrative privileges
 
 In order to create a new user with administrative privileges in MySQL you will
 need to execute the following command:
@@ -74,7 +74,7 @@ The Redis database does not have the ability to define users.
 
 ## MongoDB
 
-### Create a new user
+### Create a new MongoDB user
 
 In order to create a new user in MongoDB you will need to execute the following
 command:
@@ -83,7 +83,7 @@ command:
 echo 'db.createUser( {user:"username", pwd:"password", roles:[], mechanisms:["SCRAM-SHA-1"]  } )' | mongo s2
 ```
 
-### Create a new user with administrative privileges
+### Create a new MongoDB user with administrative privileges
 
 In order to create a new user with administrative privileges in MongoDB you
 will need to execute the following command:
@@ -98,7 +98,7 @@ The Memcached database does not have users.
 
 ## Elasticsearch
 
-### Create a new user
+### Create a new Elasticsearch user
 
 In order to create a new user in Elasticsearch you will need to execute the
 following command:
@@ -107,7 +107,7 @@ following command:
 sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p password -r reporting_user
 ```
 
-### Create a new user with administrative privileges
+### Create a new Elasticsearch user with administrative privileges
 
 In order to create a new user with administrative privileges in Elasticsearch
 you will need to execute the following command:

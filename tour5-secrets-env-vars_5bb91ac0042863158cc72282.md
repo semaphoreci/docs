@@ -49,7 +49,7 @@ data:
 Now create a secret resource with `sem`:
 
 ``` bash
-$ sem create -f aws-secret.yml
+sem create -f aws-secret.yml
 ```
 
 We recommend that after this step you either remove the secret definition file,
