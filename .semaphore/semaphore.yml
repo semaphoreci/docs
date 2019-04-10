@@ -12,6 +12,7 @@ blocks:
         - name: "Markdown Link"
           commands:
             - npm install -g markdownlint-cli
+            - checkout
             - markdownlint *.md
 
   - name: "Check Changes"
