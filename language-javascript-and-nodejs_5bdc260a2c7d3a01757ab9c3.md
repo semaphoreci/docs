@@ -1,8 +1,8 @@
-* [Example project](#example-project-with-node-js-typescript-and-react)
-* [Supported Node.js versions](#supported-node-js-versions)
-* [Dependency caching](#dependency-caching)
-* [Environment variables](#environment-variables)
-* [Browser testing](#browser-testing)
+- [Example project](#example-project-with-node-js-typescript-and-react)
+- [Supported Node.js versions](#supported-node-js-versions)
+- [Dependency caching](#dependency-caching)
+- [Environment variables](#environment-variables)
+- [Browser testing](#browser-testing)
 
 ## Example project with Node.js, TypeScript and React
 
@@ -26,7 +26,8 @@ node version specified within the `.nvmrc` file.
 Alternatively, you can change the Node.js version by calling `sem-version node`.
 Here's an example:
 
-<pre><code class="language-yaml">blocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       prologue:
@@ -36,12 +37,13 @@ Here's an example:
         - name: Tests
           commands:
             - node --version
-</code></pre>
+```
 
 If you need a version other than the preinstalled versions, then you
 can install it with `nvm`. Here's an example:
 
-<pre><code class="language-yaml">blocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       prologue:
@@ -52,7 +54,7 @@ can install it with `nvm`. Here's an example:
         - name: Tests
           commands:
             - node --version
-</code></pre>
+```
 
 ## Dependency caching
 
@@ -60,7 +62,8 @@ You can use Semaphores `cache` command to store and load
 `node_modules`. In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">version: v1.0
+``` yaml
+version: v1.0
 name: First pipeline example
 agent:
   machine:
@@ -88,7 +91,7 @@ blocks:
         - name: Everything
           commands:
             - npm test
-</code></pre>
+```
 
 If you need to clear cache for your project, launch a
 [debug session](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access)
@@ -106,7 +109,8 @@ To get started, use the configuration example above and replace
 Semaphore doesn't set language specific environment variables like
 `NODE_ENV` You should set these at the task level.
 
-<pre><code class="language-yaml">blocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       env_vars:
@@ -116,7 +120,7 @@ Semaphore doesn't set language specific environment variables like
         - name: Everything
           commands:
             - npm test
-</code></pre>
+```
 
 ## Browser testing
 
@@ -126,8 +130,8 @@ library and it should work out of the box, same goes for higher level
 libraries that leverage Selenium. See the official [Node
 examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).
 
-Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image) for details on preinstalled
-browsers and testing tools on Semaphore.
+Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+for details on pre-installed browsers and testing tools on Semaphore.
 
 [browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
 [tutorial]: https://docs.semaphoreci.com/article/121-nodejs-typescript-continuous-integration

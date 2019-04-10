@@ -1,15 +1,15 @@
-  * [Overview](#overview)
-  * [Properties](#properties)
-  * [apiVersion](#apiversion)
-  * [kind](#kind)
-  * [metadata](#metadata)
-    * [name](#name)
-  * [spec](#spec)
-    * [repository](#repository)
-      * [url](#url)
-  * [Example](#example)
-  * [See also](#see-also)
- 
+- [Overview](#overview)
+- [Properties](#properties)
+- [apiVersion](#apiversion)
+- [kind](#kind)
+- [metadata](#metadata)
+  - [name](#name)
+- [spec](#spec)
+  - [repository](#repository)
+    - [url](#url)
+- [Example](#example)
+- [See also](#see-also)
+
 ## Overview
 
 This document is the reference for the YAML grammar used for adding Semaphore
@@ -26,7 +26,6 @@ command you can visit the
 [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference).
 
 ## Properties
-
 
 ### apiVersion
 
@@ -76,7 +75,9 @@ The `url` property is a string that specifies the URL of the GitHub repository
 you want to add in Semaphore 2.0. The format of the `url` value should be as
 follows:
 
-    git@github.com:github_username/github_repository.git
+``` txt
+git@github.com:github_username/github_repository.git
+```
 
 If the value of `url` is erroneous, you will get various types of error
 messages.
@@ -84,38 +85,45 @@ messages.
 First, if the GitHub repository cannot be found, `sem create` will reply with the
 next error message:
 
-> $ sem create -f goDemo.yaml
->
-> error: http status 422 with message "{"message":"repository \"text/goDemo\" not found"}" received from upstream
+``` bash
+$ sem create -f goDemo.yaml
+
+error: http status 422 with message "{"message":"repository \"text/goDemo\" not found"}" received from upstream
+```
 
 Next, if the Semaphore 2.0 project name is already taken, `sem` will reply with
 the following error message:
 
-> $ sem create -f goDemo.yaml
->
-> error: http status 422 with message "{"message":"project name \"goDemo2.1\" is already taken"}" received from upstream
+``` bash
+$ sem create -f goDemo.yaml
+
+error: http status 422 with message "{"message":"project name \"goDemo2.1\" is already taken"}" received from upstream
+```
 
 Last, if the `url` value does not have the correct format, `sem` will print
 the next kind of error message:
 
-> $ sem create -f goDemo.yaml
->
-> error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
+``` bash
+$ sem create -f goDemo.yaml
+
+error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
+```
 
 ## Example
 
-    apiVersion: v1alpha
-    kind: Project
-    metadata:
-      name: goDemo
-    spec:
-      repository:
-        url: "git@github.com:renderedtext/goDemo.git"
-
+``` yaml
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: goDemo
+spec:
+  repository:
+    url: "git@github.com:renderedtext/goDemo.git"
+```
 
 ## See Also
 
-* [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-* [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)

@@ -52,7 +52,8 @@ beta and release deployment.
 The following configuration is used in the provided [demo
 project][demo-project]:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Semaphore iOS example
 agent:
@@ -104,7 +105,7 @@ In case you connect multiple pipelines with promotions,
 the name will help you differentiate between, for example, a CI build phase
 and delivery phases.
 
-<pre><code class="language-yaml">
+``` yaml
 version: v1.0
 name: Semaphore iOS example
 </code></pre>
@@ -118,7 +119,7 @@ In case of iOS or macOS builds, we want to use one of the Apple [machine
 types][machine-types],
 coupled with the [macOS Mojave OS image][macos-mojave].
 
-<pre><code class="language-yaml">
+``` yaml
 agent:
   machine:
     type: a1-standard-4
@@ -132,7 +133,7 @@ Each block has a task that defines one or many parallel jobs. Jobs define the
 commands to execute. Blocks, tasks and jobs are Semaphore's [core
 concepts][concepts].
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Run tests
     task:
@@ -169,7 +170,7 @@ source script][checkout-source] provided by Semaphore.
 By default this performs a shallow git clone from remote origin. If you want a
 full clone which will be cached by Semaphore, use `checkout --use-cache`.
 
-<pre><code class="language-yaml">
+``` yaml
         commands:
           - checkout
 </code></pre>
@@ -180,7 +181,7 @@ Semaphore can install dependencies from any supported language.
 Using the versatile [cache tool][cache], you can save time by reusing them
 across blocks and workflows.
 
-<pre><code class="language-yaml">
+``` yaml
         commands:
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - bundle install --path vendor/bundle
@@ -210,7 +211,7 @@ blocks and future workflows.
 You can find the list of currently available versions of Xcode in the [macOS
 Mojave image reference][macos-mojave].
 
-<pre><code class="language-yaml">
+``` yaml
         commands:
           - bundle exec xcversion select 10.1
 </code></pre>
@@ -221,7 +222,7 @@ Semaphore can run tests of iOS and Mac apps on a simulator or connected device.
 If you're using Fastlane, see documentation regarding [fastlane
 scan][fastlane-scan].
 
-<pre><code class="language-yaml">
+``` yaml
         commands:
           - bundle exec fastlane test
 </code></pre>
@@ -230,7 +231,7 @@ scan][fastlane-scan].
 
 In this example we create a temporary keychain and use it with `fastlane build`.
 
-<pre><code class="language-yaml">
+``` yaml
         commands:
           - bundle exec fastlane certificates refresh_certificates:true
           - bundle exec fastlane build use_temporary_keychain:true

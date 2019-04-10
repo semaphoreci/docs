@@ -1,12 +1,12 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Laravel PHP web application.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [Sample configuration](#sample-configuration)
-* [Run the demo Laravel project yourself](#run-the-demo-laravel-project-yourself)
-* [Next steps](#next-steps)
-* [See also](#see-also)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [Sample configuration](#sample-configuration)
+- [Run the demo Laravel project yourself](#run-the-demo-laravel-project-yourself)
+- [Next steps](#next-steps)
+- [See also](#see-also)
 
 ## Demo project
 
@@ -40,7 +40,8 @@ of tests:
 
 ## Sample configuration
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -161,7 +162,7 @@ blocks:
             - composer install
             # Finally, run the check
             - php security-checker security:check ../composer.lock
-</code></pre>
+```
 
 ## Run the demo Laravel project yourself
 

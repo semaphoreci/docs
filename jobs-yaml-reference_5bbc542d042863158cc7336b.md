@@ -1,12 +1,12 @@
-* [Overview](#overview)
-* [An example](#an-example)
-* [Properties](#properties)
-  * [apiVersion](#apiversion)
-  * [kind](#kind)
-  * [metadata](#metadata)
-  * [spec](#spec)
-  * [status](#status)
-* [See also](see-also)
+- [Overview](#overview)
+- [An example](#an-example)
+- [Properties](#properties)
+  - [apiVersion](#apiversion)
+  - [kind](#kind)
+  - [metadata](#metadata)
+  - [spec](#spec)
+  - [status](#status)
+- [See also](see-also)
 
 ## Overview
 
@@ -17,50 +17,52 @@ This document is the reference to the YAML grammar used for managing jobs.
 This reference page will begin with an YAML example as returned by the
 `sem get jobs [JOB ID]` command:
 
-    $ sem get jobs 33cbe5af-fafb-424b-b06f-12006929cb08
-    apiVersion: v1alpha
-    kind: Job
-    metadata:
-      name: Deploy
-      id: 33cbe5af-fafb-424b-b06f-12006929cb08
-      create_time: "1539327331"
-      update_time: "1539327332"
-      start_time: "1539327334"
-      finish_time: "1539327340"
-    spec:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu1804
-      files: []
-      envvars:
-      - name: SEMAPHORE_GIT_SHA
-        value: f7da446084515d25db52b4fe6146db6e81ded482
-      - name: SEMAPHORE_GIT_BRANCH
-        value: master
-      - name: SEMAPHORE_WORKFLOW_ID
-        value: 0137eba3-fb19-41f8-87ac-77e040d437f6
-      - name: SEMAPHORE_PIPELINE_ARTEFACT_ID
-        value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
-      - name: SEMAPHORE_PIPELINE_ID
-        value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
-      - name: SEMAPHORE_PIPELINE_0_ARTEFACT_ID
-        value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
-      secrets:
-      - name: docker-secrets
-      commands:
-      - checkout
-      - gem install redcarpet
-      - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
-      project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
-    status:
-      state: FINISHED
-      result: PASSED
-      agent:
-        ip: 94.130.207.151
-        ports:
-        - name: ssh
-          number: 57693
+``` bash
+$ sem get jobs 33cbe5af-fafb-424b-b06f-12006929cb08
+apiVersion: v1alpha
+kind: Job
+metadata:
+  name: Deploy
+  id: 33cbe5af-fafb-424b-b06f-12006929cb08
+  create_time: "1539327331"
+  update_time: "1539327332"
+  start_time: "1539327334"
+  finish_time: "1539327340"
+spec:
+  agent:
+    machine:
+      type: e1-standard-2
+      os_image: ubuntu1804
+  files: []
+  envvars:
+  - name: SEMAPHORE_GIT_SHA
+    value: f7da446084515d25db52b4fe6146db6e81ded482
+  - name: SEMAPHORE_GIT_BRANCH
+    value: master
+  - name: SEMAPHORE_WORKFLOW_ID
+    value: 0137eba3-fb19-41f8-87ac-77e040d437f6
+  - name: SEMAPHORE_PIPELINE_ARTEFACT_ID
+    value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
+  - name: SEMAPHORE_PIPELINE_ID
+    value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
+  - name: SEMAPHORE_PIPELINE_0_ARTEFACT_ID
+    value: b6452489-3bd7-4a09-a73d-a834b6cad1ac
+  secrets:
+  - name: docker-secrets
+  commands:
+  - checkout
+  - gem install redcarpet
+  - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
+  project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
+status:
+  state: FINISHED
+  result: PASSED
+  agent:
+    ip: 94.130.207.151
+    ports:
+    - name: ssh
+      number: 57693
+```
 
 So, the description of a job as returned by Semaphore 2.0 contains many
 properties. Some of them are defined by Semaphore 2.0 whereas other can be
@@ -172,17 +174,12 @@ The list of values for `os_image`: `ubuntu1804`.
 The `files` property holds a list of file items used for the job. Each file is
 represented by a `path` and `content` pair.
 
-#### envvars
+#### env_vars
 
 The `envvars` property holds a list of `name` and `value` pairs that represent
 environment variables.
 
-##### name
-
 The `name` property defines the name of the environment variable.
-
-##### value
-
 The `value` property defines the value of the environment variable.
 
 #### secrets
@@ -210,10 +207,10 @@ The `state` property holds the state of the job.
 
 The list of values for `state`: `PENDING`, `QUEUED`, `RUNNING` and `FINISHED`.
 
-* `PENDING`: the job is accepted by the Semaphore 2.0 system.
-* `QUEUED`: the job is waiting for available capacity.
-* `RUNNING`: the job is processing commands.
-* `FINISHED`: the job processing has finished and its result has been calculated.
+- `PENDING`: the job is accepted by the Semaphore 2.0 system.
+- `QUEUED`: the job is waiting for available capacity.
+- `RUNNING`: the job is processing commands.
+- `FINISHED`: the job processing has finished and its result has been calculated.
 
 #### result
 
@@ -222,13 +219,13 @@ state then the value of `result` will be `""`.
 
 The list of values for `result`: `NONE`, `PASSED`, `FAILED` and `STOPPED`.
 
-* `NONE`: the jobs has not yet finished.
-* `PASSED`: the job has successfully finished.
-* `FAILED`: the job has failed, either because a command has failed or because
+- `NONE`: the jobs has not yet finished.
+- `PASSED`: the job has successfully finished.
+- `FAILED`: the job has failed, either because a command has failed or because
     one or more dependancies were not available.
-* `STOPPED`: the job was terminated before finishing.
+- `STOPPED`: the job was terminated before finishing.
 
-#### agent
+#### agent status
 
 The `agent` property holds two other properties, named `ip` and `ports` that
 specify the IP address and the TCP port number used by the agent that runs the
@@ -248,8 +245,8 @@ property is the TCP port number used for the `ssh` connection.
 
 ## See also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
-* [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
+- [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)

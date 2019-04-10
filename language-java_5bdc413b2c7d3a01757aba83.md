@@ -1,6 +1,6 @@
-* [Example project](#example-project-with-spring-boot-and-docker)
-* [Supported Java versions](#supported-java-versions)
-* [Dependency Caching](#dependency-caching)
+- [Example project](#example-project-with-spring-boot-and-docker)
+- [Supported Java versions](#supported-java-versions)
+- [Dependency Caching](#dependency-caching)
 
 This guide covers configuring Java projects on Semaphore.
 If you’re new to Semaphore please read our
@@ -23,7 +23,7 @@ You can find information about them in the
 Java 8 and 10 are supported. Java 8 is the default. You can switch to
 Java 10 with `sem-version`. Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:
@@ -34,7 +34,7 @@ blocks:
         - name: Tests
           commands:
             - java --version
-</code></pre>
+```
 
 ## Dependency caching
 
@@ -45,7 +45,8 @@ In the following configuration example, we download dependencies, compile
 code and warm the cache in the first block, then use the cache in
 subsequent blocks.
 
-<pre><code class="language-yaml">version: v1.0
+``` yaml
+version: v1.0
 name: Java & Maven Example
 agent:
   machine:
@@ -86,7 +87,7 @@ blocks:
             # Again, -q to reduce output spam. Replace with command
             # that executes tests
             - mvn -q package
-</code></pre>
+```
 
 [tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring

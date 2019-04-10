@@ -20,7 +20,8 @@ sequentially.
 
 Let's start with two sequential blocks:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 blocks:
   - name: "Set things up"
     task:
@@ -51,7 +52,8 @@ of the Semaphore 2.0 project to the job's Virtual Machine environment.
 
 Let's add another block with two parallel jobs:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 blocks:
   - name: "Set things up"
     task:

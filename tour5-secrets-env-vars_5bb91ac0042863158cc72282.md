@@ -2,7 +2,8 @@ Semaphore supports setting environment variables on a
 [per-block][envvars-perblock] and [per-job level][envvars-perjob].
 Here's an example which applies one to all jobs in the block:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 blocks:
   - name: "Test"
     task:
@@ -18,7 +19,7 @@ blocks:
           commands:
             - echo "${GUIDED_TOUR}"
             - echo 'Unit tests'
-</code></pre>
+```
 
 ## Managing sensitive data with secrets
 
@@ -31,7 +32,8 @@ Let's configure a secret for the `AWS_ACCESS_KEY_ID` and
 `AWS_SECRET_ACCESS_KEY` environment variables. Start by creating a new
 file called `aws-secret.yml`:
 
-<pre><code class="language-yaml"># aws-secret.yml
+``` yaml
+# aws-secret.yml
 apiVersion: v1beta
 kind: Secret
 metadata:
@@ -42,12 +44,12 @@ data:
       value: "123"
     - name: AWS_SECRET_ACCESS_KEY
       value: "456"
-</code></pre>
+```
 
 Now create a secret resource with `sem`:
 
-```
-$ sem create -f aws-secret.yml
+``` bash
+sem create -f aws-secret.yml
 ```
 
 We recommend that after this step you either remove the secret definition file,
@@ -57,7 +59,8 @@ Now we can use the environment variables defined in our secret by referencing
 the secret's `name` in the pipeline definition file. Just like regular
 environment variables, secrets can be configured on the block or job level.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 blocks:
   - name: "Deploy"
     task:
@@ -68,7 +71,7 @@ blocks:
           commands:
             - echo "$AWS_ACCESS_KEY_ID"
             - echo "$AWS_SECRET_ACCESS_KEY"
-</code></pre>
+```
 
 ### Storing files in secrets
 
@@ -79,13 +82,14 @@ we'd actually like to use configuration files, such as `.aws/config` and
 Using `sem`, we can edit any secret definition file. The following command will
 fetch a secret and open its' current definition in your default editor:
 
-```
+``` bash
 sem edit secret myapp-aws
 ```
 
 Change the `data` section to define files:
 
-<pre><code class="language-yaml"># aws-secret.yml
+``` yaml
+# aws-secret.yml
 apiVersion: v1beta
 kind: Secret
 metadata:
@@ -97,7 +101,7 @@ data:
     content: ICBzc2gtZHNzIEFBQUFCM...
   - path: /home/semaphore/.aws/credentials
     content: RudFlSSjh3cDNEWDdo...
-</code></pre>
+```
 
 In `content` you should paste the output of `base64 your-file`.
 If you specify a relative path, the file will be mounted on a path
@@ -112,7 +116,7 @@ There's also a quicker way of creating a new secret from local files.
 In the following example, we source our local configuration files and tell
 Semaphore to mount them in the job environment's home folder:
 
-```
+``` bash
 sem create secret aws-secrets \
   --file ~/.aws/config:/home/semaphore/.aws/config \
   --file ~/.aws/credentials:/home/semaphore/.aws/credentials
@@ -120,7 +124,7 @@ sem create secret aws-secrets \
 
 You can inspect a secret's definition using:
 
-```
+``` bash
 sem get secrets aws-secrets
 ```
 

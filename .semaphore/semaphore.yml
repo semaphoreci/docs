@@ -6,6 +6,15 @@ agent:
     os_image: ubuntu1804
 
 blocks:
+  - name: "Markdown Lint"
+    task:
+      jobs:
+        - name: "Markdown Link"
+          commands:
+            - npm install -g markdownlint-cli
+            - checkout
+            - markdownlint *.md
+
   - name: "Check Changes"
     task:
       jobs:

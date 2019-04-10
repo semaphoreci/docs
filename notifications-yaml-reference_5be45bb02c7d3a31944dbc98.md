@@ -1,8 +1,7 @@
-
- * [Overview](#overview)
- * [Properties](#properties)
- * [The rules property in more detail](#the-rules-property-in-more-detail)
- * [See Also](#see-also)
+- [Overview](#overview)
+- [Properties](#properties)
+- [The rules property in more detail](#the-rules-property-in-more-detail)
+- [See Also](#see-also)
 
 ## Overview
 
@@ -75,10 +74,10 @@ item.
 In this section we are going to explain the properties that are used in a
 `rules` property.
 
-### name
+### rule name
 
-The value of the `name` property, which is a string, in the `metadata` context
-defines the name of the notification rule.
+The value of the `name` property, which is a string, defines the name of the
+notification rule.
 
 ### filter
 
@@ -86,8 +85,8 @@ The `filter` property holds the `projects`, `branches` and `pipelines`
 properties. The `projects` property is the only mandatory one.
 
 The values of `branches`, `projects` and `pipelines` properties can contain
-regular expressions. Regex matches must be wrapped in forward slashes (`/.*/`).
-Specifying a branch/project/pipeline name without slashes (`.*`) would execute
+regular expressions. Regex matches must be wrapped in forward slashes (`/.-/`).
+Specifying a branch/project/pipeline name without slashes (`.-`) would execute
 a direct equality match.
 
 For a filter to be `true`, each one of its properties should be `true`. If a
@@ -161,56 +160,58 @@ Incoming WebHook used.
 The following YAML code present an example of a notification as returned by the
 `sem get notification [name]` command:
 
-    $ sem get notifs docs
-    apiVersion: v1alpha
-    kind: Notification
-    metadata:
-      name: docs
-      id: 2222f08c-93f9-459b-8825-ab8be49c9d19
-      create_time: "1542024088"
-      update_time: "1542280192"
-    spec:
-      rules:
-      - name: Send notifications for docs project
-        filter:
-          projects:
-          - API-docs
-        notify:
-          slack:
-            endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
-            channels:
-            - '#devops'
-            - '@mtsoukalos'
-      - name: On finished pipelines for S1, docs, or *-api projects
-        filter:
-          projects:
-          - website
-          - /.*-api$/
-          - docs
-          branches:
-          - /^feature-.*/
-          - master
-          pipelines:
-          - semaphore.yml
-        notify:
-          slack:
-            endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
-            channels:
-            - '#engineering'
-    status: {}
+``` bash
+$ sem get notifs docs
+apiVersion: v1alpha
+kind: Notification
+metadata:
+  name: docs
+  id: 2222f08c-93f9-459b-8825-ab8be49c9d19
+  create_time: "1542024088"
+  update_time: "1542280192"
+spec:
+  rules:
+  - name: Send notifications for docs project
+    filter:
+      projects:
+      - API-docs
+    notify:
+      slack:
+        endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
+        channels:
+        - '#devops'
+        - '@mtsoukalos'
+  - name: On finished pipelines for S1, docs, or --api projects
+    filter:
+      projects:
+      - website
+      - /.--api$/
+      - docs
+      branches:
+      - /^feature-.-/
+      - master
+      pipelines:
+      - semaphore.yml
+    notify:
+      slack:
+        endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
+        channels:
+        - '#engineering'
+status: {}
+```
 
-This notification has two rules, one named `Send notifications for docs project` and
-another named `On finished pipelines for S1, docs, or *-api projects`.
+This notification has two rules, one named `Send notifications for docs project`
+and another named `On finished pipelines for S1, docs, or --api projects`.
 
 The first rule of the notification specifies a single project name that is
-called `API-docs`. All notifications will go to the `#devops` **channel** and
-to the `mtsoukalos` **user** using the specified Incoming WebHook of Slack. In
+called `API-docs`. All notifications will go to the `#devops` --channel-- and
+to the `mtsoukalos` --user-- using the specified Incoming WebHook of Slack. In
 this case the Slack channel associated with the specified Incoming WebHook will
 be ignored.
 
 The second rule is more complex than the first one. The values of the `projects`
 property specify two exact project names named `website` and `docs` as well as
-a regular expression (`/.*-api$/`) that will be evaluated against all the
+a regular expression (`/.--api$/`) that will be evaluated against all the
 project names of the current organization. For this filter to be `true`, at
 least one of the matches must be `true`.
 
@@ -234,5 +235,5 @@ pages of the Semaphore 2.0 documentation.
 
 ## See Also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)

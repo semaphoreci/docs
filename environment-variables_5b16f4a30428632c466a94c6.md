@@ -1,10 +1,10 @@
-* [Overview](#overview)
-* [Predefined environment variables](#predefined-environment-variables)
-   * [Semaphore related](#semaphore-related)
-   * [Git repository related](#git-repository-related)
-   * [Cache related](#cache-related)
-* [See also](#see-also)
-   
+- [Overview](#overview)
+- [Predefined environment variables](#predefined-environment-variables)
+  - [Semaphore related](#semaphore-related)
+  - [Git repository related](#git-repository-related)
+  - [Cache related](#cache-related)
+- [See also](#see-also)
+
 ## Overview
 
 This document describes the environment variables used in Semaphore 2.0
@@ -162,5 +162,5 @@ Example value: `/home/semaphore/.ssh/semaphore_cache_key`
 
 ## See Also
 
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)

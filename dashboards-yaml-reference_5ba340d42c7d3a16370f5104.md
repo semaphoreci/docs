@@ -1,24 +1,23 @@
-
-* [Overview](#overview)
-* [Properties](#properties)
-   * [apiVersion](#apiversion)
-   * [kind](#kind)
-   * [metadata](#metadata)
-      * [name](#name-in-metadata)
-      * [title](#title-in-metadata)
-      * [id](#id)
-      * [create_time](#create_time)
-      * [update_time](#update_time)
-   * [spec](#spec)
- * [widgets](#widgets)
-   * [The filters property](#the-filters-property)
-   * [name](#name-in-widgets)
-   * [type](#type)
-   * [Workflows list](#workflows-list)
-      * [Workflows example](#workflows-example)
-   * [Pipelines list](#pipelines-list)
-      * [Pipelines example](#pipelines-example)
-* [See also](#see-also)
+- [Overview](#overview)
+- [Properties](#properties)
+  - [apiVersion](#apiversion)
+  - [kind](#kind)
+  - [metadata](#metadata)
+    - [name](#name-in-metadata)
+    - [title](#title-in-metadata)
+    - [id](#id)
+    - [create_time](#create_time)
+    - [update_time](#update_time)
+  - [spec](#spec)
+  - [widgets](#widgets)
+  - [The filters property](#the-filters-property)
+  - [name](#name-in-widgets)
+  - [type](#type)
+  - [Workflows list](#workflows-list)
+    - [Workflows example](#workflows-example)
+  - [Pipelines list](#pipelines-list)
+    - [Pipelines example](#pipelines-example)
+- [See also](#see-also)
 
 ## Overview
 
@@ -130,44 +129,50 @@ workflows.
 
 The supported properties in `filters` for a workflows list are the following:
 
-* **project_id** (optional): allows to display workflows from a given Semaphore 2.0 project. You can find
-    the project ID of an existing Semaphore 2.0 project using the `sem get project <name>` command.
-* **branch** (optional): The `branch` property allows you to filter the widget output by the branch name
-    of the GitHub repository of a Semaphore 2.0 project. Note that the value of the `branch` property
-    should be an exact match and that there is currently no support for regular expressions
-    in the `branch` property.
-* **github_uid** (optional): The `github_uid` property allows you to display
-    workflows that were initiated by a specific GitHub user. The value of
-    `github_uid` should correspond to the numeric ID of the user account on GitHub for
-    which we want to list workflows. The value can be found
-	by visiting the following URL https://api.github.com/users/USERNAME and
-	replacing `USERNAME` with an actual GitHub username. There is a special
-	value for the `github_uid` property, which is `'{{github_uid}}'`, that is
-	automatically expanded to the GitHub user ID of the user that is visiting the
-	page.
+- **project_id** (optional): allows to display workflows from a given Semaphore
+  2.0 project. You can find the project ID of an existing Semaphore 2.0 project
+  using the `sem get project <name>` command.
+
+- **branch** (optional): The `branch` property allows you to filter the widget
+  output by the branch name of the GitHub repository of a Semaphore 2.0
+  project. Note that the value of the `branch` property should be an exact
+  match and that there is currently no support for regular expressions in the
+  `branch` property.
+
+- **github_uid** (optional): The `github_uid` property allows you to display
+  workflows that were initiated by a specific GitHub user. The value of
+  `github_uid` should correspond to the numeric ID of the user account on
+  GitHub for which we want to list workflows. The value can be found by
+  visiting the following URL <https://api.github.com/users/USERNAME> and
+  replacing `USERNAME` with an actual GitHub username. There is a special
+  value for the `github_uid` property, which is `'{{github_uid}}'`, that is
+  automatically expanded to the GitHub user ID of the user that is visiting the
+  page.
 
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
 
 #### Workflows example
 
-    apiVersion: v1alpha
-    kind: Dashboard
-    metadata:
-      name: my-dashboard
-      title: My Dashboard
-      id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
-      create_time: "1537888191"
-      update_time: "1537889560"
-    spec:
-      widgets:
-      - name: Master branch from all projects
-        type: list_workflows
-        filters:
-          branch: master
-      - name: All projects on the current organization
-        type: list_workflows
-        filters: {}
+``` yaml
+apiVersion: v1alpha
+kind: Dashboard
+metadata:
+  name: my-dashboard
+  title: My Dashboard
+  id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
+  create_time: "1537888191"
+  update_time: "1537889560"
+spec:
+  widgets:
+  - name: Master branch from all projects
+    type: list_workflows
+    filters:
+      branch: master
+  - name: All projects on the current organization
+    type: list_workflows
+    filters: {}
+```
 
 ### Pipelines list
 
@@ -177,45 +182,49 @@ pipelines.
 
 The supported properties in `filters` for a pipelines list are the following:
 
-* **project_id** (required): restricts the widget output to pipelines from a single
-    Semaphore 2.0 project. You can find the project ID of an existing Semaphore 2.0 project
-    using the `sem get project <name>` command.
-* **branch** (optional): The `branch` property allows you to filter the widget
-    output by the specified branch name of the GitHub repository of the Semaphore
-    2.0 project. Note that the value of the `branch` property should be an exact
-    match and that there is currently no support for regular expressions in the
-    `branch` property.
-* **pipeline_file** (optional): the `pipeline_file` property allows you to filter
-    the generated output using the filename of the pipeline file that is being
-    executed. Please note that the `pipeline_file` value should not be just the name
-	of the pipeline file but the full path starting from the root directory of the
-	GitHub repository. Therefore, the filename of the default pipeline is
-	`.semaphore/semaphore.yml`.
+- **project_id** (required): restricts the widget output to pipelines from a
+  single Semaphore 2.0 project. You can find the project ID of an existing
+  Semaphore 2.0 project using the `sem get project <name>` command.
+
+- **branch** (optional): The `branch` property allows you to filter the widget
+  output by the specified branch name of the GitHub repository of the Semaphore
+  2.0 project. Note that the value of the `branch` property should be an exact
+  match and that there is currently no support for regular expressions in the
+  `branch` property.
+
+- **pipeline_file** (optional): the `pipeline_file` property allows you to
+  filter the generated output using the filename of the pipeline file that is
+  being executed. Please note that the `pipeline_file` value should not be just
+  the name of the pipeline file but the full path starting from the root
+  directory of the GitHub repository. Therefore, the filename of the default
+  pipeline is `.semaphore/semaphore.yml`.
 
 #### Pipelines example
 
-    apiVersion: v1alpha
-    kind: Dashboard
-    metadata:
-      name: my-dashboard
-      title: My Dashboard
-      id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
-      create_time: "1537445699"
-      update_time: "1537445713"
-    spec:
-      widgets:
-      - name: Pipelines
-        type: list_pipelines
-        filters:
-          project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
-          branch: demo
-          pipeline_file: .semaphore/p1.yml
-      - name: docs project pipelines
-        type: list_pipelines
-        filters:
-          project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
+``` yaml
+apiVersion: v1alpha
+kind: Dashboard
+metadata:
+  name: my-dashboard
+  title: My Dashboard
+  id: eb0cc2c7-bbc9-41e4-9e3d-2eb622a673fb
+  create_time: "1537445699"
+  update_time: "1537445713"
+spec:
+  widgets:
+  - name: Pipelines
+    type: list_pipelines
+    filters:
+      project_id: 7384612f-e22f-4710-9f0f-5dcce85ba44b
+      branch: demo
+      pipeline_file: .semaphore/p1.yml
+  - name: docs project pipelines
+    type: list_pipelines
+    filters:
+      project_id: 0dd982e8-32f5-4037-983e-4de01ac7fb1e
+```
 
 ## See also
 
-* [Installing sem utility](https://docs.semaphoreci.com/article/26-installing-cli)
-* [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Installing sem utility](https://docs.semaphoreci.com/article/26-installing-cli)
+- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)

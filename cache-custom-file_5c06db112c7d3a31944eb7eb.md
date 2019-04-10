@@ -5,7 +5,7 @@ Semaphore cache indefinitely.
 
 The `.semaphore/semaphore.yml` file of the project is as follows:
 
-<pre><code class="language-yaml">
+``` yaml
 version: v1.0
 name: Cache custom file
 agent:
@@ -30,11 +30,11 @@ blocks:
           - checkout
           - cache restore $SEMAPHORE_PROJECT_NAME-deps
           - sudo dpkg -i ./packages/enscript.deb
-</code></pre>
+```
 
 The `get_packages.sh` script referenced above has the following content:
 
-```bash
+``` bash
 cache restore $SEMAPHORE_PROJECT_NAME-deps
 
 if [ -d 'packages' ]; then
@@ -58,9 +58,9 @@ that are available in all blocks of a pipeline.
 
 ## See also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-* [Environment variables](env-vars)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [Environment variables](env-vars)
 
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables

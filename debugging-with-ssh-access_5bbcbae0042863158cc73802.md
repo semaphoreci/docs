@@ -6,13 +6,13 @@ explore the build environment.
 
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].
 
-* [Setting Up Your SSH Key](#setting-up-your-ssh-key)
-* [Exploring the build environment](#exploring-the-build-environment)
-* [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
-* [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
-* [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
-* [Stopping a debug session](#stopping-a-debug-session)
-* [See also](#see-also)
+- [Setting Up Your SSH Key](#setting-up-your-ssh-key)
+- [Exploring the build environment](#exploring-the-build-environment)
+- [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
+- [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
+- [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
+- [Stopping a debug session](#stopping-a-debug-session)
+- [See also](#see-also)
 
 ## Setting Up Your SSH Key
 
@@ -57,7 +57,7 @@ By default, a debug session does not include the contents of the GitHub
 repository related to your Semaphore 2.0 project. Run `checkout` in the debug
 session to clone your repository.
 
-#### Error: project or job not found
+### Error: project or job not found
 
 If you get this error and you're part of multiple organizations, check if
 you're currently in the right one by running `sem context`. If not, change

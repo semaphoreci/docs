@@ -1,8 +1,8 @@
-* [Laravel example](#laravel-example)
-* [Supported PHP versions](#supported-php-versions)
-* [Dependency caching](#dependency-caching)
-* [Environment variables](#environment-variables)
-* [System dependencies](#system-dependencies)
+- [Laravel example](#laravel-example)
+- [Supported PHP versions](#supported-php-versions)
+- [Dependency caching](#dependency-caching)
+- [Environment variables](#environment-variables)
+- [System dependencies](#system-dependencies)
 
 This guide covers configuring PHP projects on Semaphore. If you are new to
 Semaphore we recommend reading our
@@ -27,7 +27,7 @@ PHP versions. Any version installable with `phpbrew` is supported on
 Semaphore. Version 7.1 is pre-installed. You can install and switch
 versions using `phpbrew` and `sem-version`.  Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:
@@ -39,7 +39,7 @@ blocks:
         - name: Tests
           commands:
             - php --version
-</code></pre>
+```
 
 ## Dependency caching
 
@@ -48,7 +48,7 @@ restore the `vendor` directory. In the following configuration example, we
 install dependencies and warm the cache in the first block, then use the cache
 in subsequent blocks.
 
-<pre><code class="language-yaml">
+``` yaml
 version: "v1.0"
 name: PHP Example
 agent:
@@ -79,14 +79,15 @@ blocks:
         - name: Everything
           commands:
             - codecept test
-</code></pre>
+```
 
 ## Environment variables
 
 Semaphore does not set specific environment variables like `APP_ENV`. You can
 set these at the task level.
 
-<pre><code class="language-yaml">blocks:
+``` yaml
+blocks:
   - name: Tests
     task:
       env_vars:
@@ -96,7 +97,7 @@ set these at the task level.
         - name: Everything
           commands:
             - codecept run
-</code></pre>
+```
 
 ## System dependencies
 
@@ -104,7 +105,7 @@ Projects may need system packages to install libraries for things like
 database drivers. Semaphore provides full `sudo` access so you can install
 all required packages. Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:
@@ -116,7 +117,7 @@ blocks:
         - name: Everything
           commands:
             - codecept run
-</code></pre>
+```
 
 [laravel-tutorial]: https://docs.semaphoreci.com/article/114-laravel-php-continuous-integration
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel

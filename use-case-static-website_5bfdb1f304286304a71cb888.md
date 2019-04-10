@@ -1,6 +1,5 @@
 This guide shows you how to use Semaphore to set up continuous deployment for
-a static website.
-Before starting, [create a new Semaphore project][create-project].
+a static website. Before starting, [create a new Semaphore project][create-project].
 
 ## Define the pipeline
 
@@ -22,7 +21,7 @@ The example is based on a static website built with a [Node.js][nodejs]
 toolchain. Change the dependency installation and site building steps to match
 your tools.
 
-```yml
+``` yaml
 # .semaphore/semaphore.yml
 version: v1.0
 name: "Deploy website"
@@ -73,7 +72,7 @@ is by defining a [secret][secrets-guide].
 
 Create a new secret based on local `~/.aws` configuration files:
 
-```
+``` bash
 sem create secret aws-website \
   --file ~/.aws/config:/home/semaphore/.aws/config \
   --file ~/.aws/credentials:/home/semaphore/.aws/credentials
@@ -87,7 +86,7 @@ in the home directory of the user which executes our code on Semaphore.
 Finally, create a file `.semaphore/production-deploy.yml` to execute
 deployment, and import the secret for authentication to work:
 
-```yml
+``` yaml
 # .semaphore/production-deploy.yml
 version: v1.0
 name: Deploy website

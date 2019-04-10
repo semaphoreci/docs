@@ -1,11 +1,11 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for an Elixir Phoenix web application.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [Sample configuration](#sample-configuration)
-* [Run the demo Elixir project yourself](#run-the-demo-elixir-project-yourself)
-* [Next steps](#next-steps)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [Sample configuration](#sample-configuration)
+- [Run the demo Elixir project yourself](#run-the-demo-elixir-project-yourself)
+- [Next steps](#next-steps)
 
 ## Demo project
 
@@ -43,7 +43,8 @@ Project is using the following configuration. If you're new to Semaphore, we
 recommend going through the [guided tour][guided-tour] and linked documentation
 pages for more information
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -140,7 +141,7 @@ blocks:
         # https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
         - sem-service start postgres
         - mix test
-</code></pre>
+```
 
 ### Database access
 
@@ -152,10 +153,10 @@ a blank password. For more information on starting and using databases, see
 
 To enable headless Chrome support, add the following to your `config/test.exs`:
 
-<pre><code class="language-elixir">
+``` elixir
 config :wallaby,
   driver: Wallaby.Experimental.Chrome
-</code></pre>
+```
 
 Semaphore provides [Chrome preinstalled][ubuntu1804], so no further action is
 needed on your part.

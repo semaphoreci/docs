@@ -1,12 +1,11 @@
-
-* [Overview](#overview)
-* [About Layer Caching in Docker](#about-layer-caching-in-docker)
-   - [The RUN Command](#the-run-command)
-   - [The COPY Command](#the-copy-command)
-   - [The ADD Command](#the-add-command)
-* [About --cache-from](#about---cache-from)
-* [An example Semaphore 2.0 project](#an-example-semaphore-2.0-project)
-* [See Also](#see-also)
+- [Overview](#overview)
+- [About Layer Caching in Docker](#about-layer-caching-in-docker)
+  - [The RUN Command](#the-run-command)
+  - [The COPY Command](#the-copy-command)
+  - [The ADD Command](#the-add-command)
+- [About --cache-from](#about---cache-from)
+- [An example Semaphore 2.0 project](#an-example-semaphore-2.0-project)
+- [See Also](#see-also)
 
 ## Overview
 
@@ -43,11 +42,11 @@ files into a Docker image. The `COPY` commands always get executed in order to
 have the latest version of the external file.
 
 If the contents of all external files on the first `COPY` command are the
-same, the layer cache will be used and **all subsequent** commands until the
+same, the layer cache will be used and --all subsequent-- commands until the
 next `ADD` or `COPY` command will use the layer cache.
 
 However, if the contents of one or more external files are different, then
-**all subsequent** commands will be executed without using the layer cache.
+--all subsequent-- commands will be executed without using the layer cache.
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `COPY` to be
@@ -57,14 +56,14 @@ steps concerned with doing the same action are not unnecessarily rebuilt.
 ### The ADD Command
 
 The `ADD` command in a `Dockerfile` allows you to import external files into
-a Docker image. 
+a Docker image.
 
 If the contents of all external files on the first `ADD` command are the
-same, the layer cache will be used and **all subsequent** commands until the
+same, the layer cache will be used and --all subsequent-- commands until the
 next `ADD` or `COPY` command will use the layer cache.
 
 However, if the contents of one or more external files are different, then
-**all subsequent** commands will be executed without using the layer cache.
+--all subsequent-- commands will be executed without using the layer cache.
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `ADD` to be
@@ -83,67 +82,71 @@ The first thing that you will need is to create a secret in Semaphore 2.0. If
 your secret with the Docker Registry data is called `docker-hub`, you can find
 out more information about it as follows:
 
-    $ sem get secrets docker-hub
-    apiVersion: v1beta
-    kind: Secret
-    metadata:
-      name: docker-hub
-      id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
-      create_time: "1538456457"
-      update_time: "1538456537"
-    data:
-      env_vars:
-      - name: DOCKER_USERNAME
-        value: docker-username
-      - name: DOCKER_PASSWORD
-        value: docker-password
-      files: []
+``` yaml
+$ sem get secrets docker-hub
+apiVersion: v1beta
+kind: Secret
+metadata:
+  name: docker-hub
+  id: a2aaefdb-a4ff-4bc2-afd9-2afa9c7f3e51
+  create_time: "1538456457"
+  update_time: "1538456537"
+data:
+  env_vars:
+    - name: DOCKER_USERNAME
+      value: docker-username
+    - name: DOCKER_PASSWORD
+      value: docker-password
+  files: []
+```
 
 The following Semaphore 2.0 project illustrates the use of Docker Layer Caching
 in Semaphore 2.0 projects:
 
-    version: v1.0
-    name: Using Docker Layer Cache
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu1804
-    
-    blocks:
-      - name: Create Docker image
-        task:
-          jobs:
-            - name: Store Docker image in Registry
-              commands:
-                - checkout
-                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-                - cp D1 Dockerfile
-                - docker build -t go_hw:v1 .
-                - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-                - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-                
-                - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-                - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-                    
-          secrets:
-          - name: docker-hub
-    
-      - name: Use previous image
-        task:
-          jobs:
-            - name: Use restored Docker image as cache
-              commands:
-                - checkout
-                - docker images
-                - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
-                - cp D2 Dockerfile
-                - docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-                - docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
-                - docker images
-                - docker run go_hw:v2
-    
-          secrets:
-          - name: docker-hub
+``` yaml
+version: v1.0
+name: Using Docker Layer Cache
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Create Docker image
+    task:
+      jobs:
+        - name: Store Docker image in Registry
+          commands:
+            - checkout
+            - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+            - cp D1 Dockerfile
+            - docker build -t go_hw:v1 .
+            - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+            - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+
+            - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+            - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+
+      secrets:
+      - name: docker-hub
+
+  - name: Use previous image
+    task:
+      jobs:
+        - name: Use restored Docker image as cache
+          commands:
+            - checkout
+            - docker images
+            - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+            - cp D2 Dockerfile
+            - docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+            - docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+            - docker images
+            - docker run go_hw:v2
+
+      secrets:
+      - name: docker-hub
+```
 
 The `.semaphore/semaphore.yml` file has two `blocks` blocks. The first one
 creates a Docker image that is reused in the second `blocks` block using the
@@ -154,22 +157,28 @@ unchanged layers will be reused from an image that was pulled from the Docker
 Registry. In this case all layers will be reused. The `docker` commands that
 use this functionality are the following:
 
-    - docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-    - docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+``` yaml
+- docker pull "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+- docker build --cache-from "$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH" -t go_hw:v2 .
+```
 
 The `docker pull` command gets an existing Docker image from the Docker
 Registry whereas the `docker build` command uses the `--cache-from` option in
 order to try to reuse as many of the existing layers of the
 `$DOCKER_USERNAME:go_hw:$SEMAPHORE_GIT_BRANCH` image as possible.
 
-    - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
-    - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+``` yaml
+- docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
+```
 
 The aforementioned commands tag an existing Docker image and push it to the
 Docker registry in a way that can be found and reused as a cache Docker image.
 
-    - docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
-    - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+``` yaml
+- docker tag go_hw:v1 "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+- docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_SHA"-"$SEMAPHORE_WORKFLOW_ID"
+```
 
 The last two `docker` commands should be executed when you want to deploy a
 Docker image to production. The first one tags an existing Docker image in a
@@ -178,26 +187,30 @@ Semaphore 2.0 project and the second one pushes that image to Docker Registry.
 
 The contents of the `D1` file are as follows:
 
-    $ cat D1
-    FROM golang:alpine
-    
-    RUN mkdir /files
-    COPY hw.go /files
-    WORKDIR /files
-    
-    RUN go build -o /files/hw hw.go
+``` bash
+$ cat D1
+FROM golang:alpine
+
+RUN mkdir /files
+COPY hw.go /files
+WORKDIR /files
+
+RUN go build -o /files/hw hw.go
+```
 
 The contents of the `D2` file are as follows:
 
-    $ cat D2
-    FROM golang:alpine
-    
-    RUN mkdir /files
-    COPY hw.go /files
-    WORKDIR /files
-    
-    RUN go build -o /files/hw hw.go
-    ENTRYPOINT ["/files/hw"]
+``` bash
+$ cat D2
+FROM golang:alpine
+
+RUN mkdir /files
+COPY hw.go /files
+WORKDIR /files
+
+RUN go build -o /files/hw hw.go
+ENTRYPOINT ["/files/hw"]
+```
 
 The `D2` file includes all the contents of the `D1` file and adds one more
 line at the end of it, which makes it a perfect candidate for using the
@@ -209,7 +222,7 @@ have its own cache and therefore you will avoid cache collision.
 
 ## See Also
 
-* [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-* [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-* [Toolbox Reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
-* [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Toolbox Reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)

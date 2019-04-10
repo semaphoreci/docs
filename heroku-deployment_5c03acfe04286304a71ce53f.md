@@ -14,7 +14,8 @@ You can use one of the documented [use cases][use-cases] or
 Start by defining a [promotion][promotions-intro] at the end of your
 `semaphore.yml` file:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 promotions:
   - name: Deploy to Heroku
     pipeline_file: heroku.yml
@@ -117,7 +118,8 @@ section of your Account Settings. For more information consult
 
 Finally let's define what happens in our `heroku.yml` pipeline:
 
-<pre><code class="language-yaml"># .semaphore/heroku.yml
+``` yaml
+# .semaphore/heroku.yml
 version: v1.0
 name: Heroku deployment
 agent:

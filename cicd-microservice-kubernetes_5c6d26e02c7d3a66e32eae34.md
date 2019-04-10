@@ -2,13 +2,13 @@ This guide shows you how to use Semaphore to set up a Continuous Integration
 (CI) and Continuous Delivery (CD) pipeline for a microservice packaged in a
 Docker container and deployed to Kubernetes.
 
-* [Demo project](#demo-project)
-* [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
-* [Sample configuration](#sample-configuration)
-  * [Continuous integration block](#continuous-integration-block)
-  * [Docker build block](#docker-build-block)
-  * [Deploy to Kubernetes block](#deploy-to-kubernetes-block)
-* [Run the demo project yourself](#run-the-demo-project-yourself)
+- [Demo project](#demo-project)
+- [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
+- [Sample configuration](#sample-configuration)
+  - [Continuous integration block](#continuous-integration-block)
+  - [Docker build block](#docker-build-block)
+  - [Deploy to Kubernetes block](#deploy-to-kubernetes-block)
+- [Run the demo project yourself](#run-the-demo-project-yourself)
 
 ## Demo project
 
@@ -47,7 +47,8 @@ Integration phase.
 
 ### Continuous integration block
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -121,7 +122,7 @@ promotions:
     pipeline_file: docker-build.yml
     auto_promote_on:
       - result: passed
-</code></pre>
+```
 
 ### Docker build block
 
@@ -130,7 +131,8 @@ It relies on existence of [a secret][secrets-guide].
 You can find an example of how to create such a secret in [_Publishing Docker
 images on Docker Hub_][docker-hub-guide].
 
-<pre><code class="language-yaml"># .semaphore/docker-build.yml
+``` yaml
+# .semaphore/docker-build.yml
 version: v1.0
 name: Docker build
 agent:
@@ -183,7 +185,7 @@ blocks:
 promotions:
   - name: Deploy to Kubernetes
     pipeline_file: deploy-k8s.yml
-</code></pre>
+```
 
 ### Deploy to Kubernetes block
 
@@ -195,7 +197,8 @@ with a cluster, we place a cluster configuration file inside `~/.kube`
 directory. Ask your system administrator to provide you with such a file for
 your cluster.
 
-<pre><code class="language-yaml"># .semaphore/deploy-k8s.yml
+``` yaml
+# .semaphore/deploy-k8s.yml
 version: v1.0
 name: Deploy to Kubernetes
 agent:
@@ -247,7 +250,7 @@ blocks:
           - docker pull semaphoredemos/semaphore-demo-ruby-kubernetes:$SEMAPHORE_WORKFLOW_ID
           - docker tag semaphoredemos/semaphore-demo-ruby-kubernetes:$SEMAPHORE_WORKFLOW_ID semaphoredemos/semaphore-demo-ruby-kubernetes:latest
           - docker push semaphoredemos/semaphore-demo-ruby-kubernetes:latest
-</code></pre>
+```
 
 ## Run the demo project yourself
 

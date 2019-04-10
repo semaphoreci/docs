@@ -2,10 +2,10 @@ This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Node.js app. The guide applies to both TypeScript and
 JavaScript.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [Sample configuration](#sample-configuration)
-* [Run the demo project yourself](#run-the-demo-project-yourself)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [Sample configuration](#sample-configuration)
+- [Run the demo project yourself](#run-the-demo-project-yourself)
 
 ## Demo project
 
@@ -26,20 +26,22 @@ The example pipeline contains 4 blocks. Blocks run parallel jobs for server and
 client code:
 
 - Install dependencies
-	- Installs and caches all NPM dependencies
+  - Installs and caches all NPM dependencies
 - Code linting
-	- Runs tslint to check code style in project files
+  - Runs tslint to check code style in project files
 - Run unit tests
-	- Runs unit tests, written with Jest framework
+  - Runs unit tests, written with Jest framework
 - Run end-to-end (E2E) tests
-	- On server, E2E tests run through Jest.
-	- On client, E2E tests run through Cypress.
+  - On server, E2E tests run through Jest.
+  - On client, E2E tests run through Cypress.
 
 ![Node.js CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-javascript/raw/master/images/ci-pipeline.png)
 
 ## Sample configuration
 
-<pre><code class="language-yaml"> # .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
+
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -199,7 +201,7 @@ blocks:
             - cp ormconfig.ci.json ormconfig.json
             - npm run migrate:up
             - npm run test:e2e
-</code></pre>
+```
 
 ## Run the demo project yourself
 

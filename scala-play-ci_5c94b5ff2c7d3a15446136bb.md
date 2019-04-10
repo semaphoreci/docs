@@ -1,11 +1,11 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for Scala Play web application.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [Sample configuration](#sample-configuration)
-* [Run the demo Play project yourself](#run-the-demo-elixir-project-yourself)
-* [Next steps](#next-steps)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [Sample configuration](#sample-configuration)
+- [Run the demo Play project yourself](#run-the-demo-elixir-project-yourself)
+- [Next steps](#next-steps)
 
 ## Demo project
 
@@ -30,7 +30,8 @@ Project is using the following configuration. If you're new to Semaphore, we
 recommend going through the [guided tour][guided-tour] and linked documentation
 pages for more information
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -97,7 +98,7 @@ blocks:
         - cache store sbt-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .sbt
         - cache store ivy2-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .ivy2/cache
         - cache store gradle-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt) .gradle/caches
-</code></pre>
+```
 
 ## Run the demo Play project yourself
 

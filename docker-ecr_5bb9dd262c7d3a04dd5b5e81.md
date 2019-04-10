@@ -7,7 +7,7 @@ secret to configure AWS access key environment variables.
 
 Open a new `secret.yml` file:
 
-```yml
+``` yaml
 # secret.yml
 apiVersion: v1alpha
 kind: Secret
@@ -23,7 +23,7 @@ data:
 
 Then create it:
 
-```
+``` bash
 sem create -f secret.yml
 ```
 
@@ -31,13 +31,13 @@ Now add the secret to your pipeline and authenticate
 
 ## Configuring the Pipeline
 
-
 This example authenticates in the `prologue`. This is not
 strictly required, it's just an example of covering all jobs in
 authentication.
 
-```yml
+``` yaml
 # .semaphore/pipeline.yml
+
 version: "v1.0"
 name: First pipeline example
 agent:

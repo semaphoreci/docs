@@ -2,7 +2,8 @@ If you've used Semaphore prior to version to 2.0, this guide will outline the
 key differences and provide you with a direction to migrate to the new product.
 
 Even if you're a pro Semaphore user, we recommend that you read through the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) for hands-on examples.
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) for
+hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
 
@@ -55,8 +56,8 @@ one-off jobs and attaching to live-running jobs is one command away.
 
 In Semaphore Classic, your CI/CD capacity was fixed to a certain number of
 boxes. Semaphore 2.0 adopts the ["pay only what you use"](https://semaphoreci.com/pricing)
-cloud model, in which CI/CD resources scale automatically to support your team’s
-actual needs.
+cloud model, in which CI/CD resources scale automatically to support your
+team’s actual needs.
 
 S2 also introduces several machine types with different CPU/memory capacity
 which you use in your pipelines.
@@ -68,14 +69,19 @@ doesn't make assumptions about what you might want to do in each stage of your
 pipelines. Specifically this does not happen automatically:
 
 - S2 doesn't check out code: use [`checkout` command](https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout);
-- Databases and other services are stopped by default:
-    use [`sem-service` tool](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service) to start them;
-- Dependencies are not cached by default: see [caching guide](https://docs.semaphoreci.com/article/68-caching-dependencies)
-    and examples for your [programming language](https://docs.semaphoreci.com/category/58-programming-languages)
 
-S2 job logs provide much more information about your CI/CD environment in an easy to
-use full-page format. For example, you will see exactly how long it takes
-Semaphore to start your job and all the details of environment preparation.
+- Databases and other services are stopped by default: use [`sem-service` tool](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service)
+  to start them;
+
+- Dependencies are not cached by default: see
+  [caching guide](https://docs.semaphoreci.com/article/68-caching-dependencies)
+  and examples for your
+  [programming language](https://docs.semaphoreci.com/category/58-programming-languages)
+
+S2 job logs provide much more information about your CI/CD environment in an
+easy to use full-page format. For example, you will see exactly how long it
+takes Semaphore to start your job and all the details of environment
+preparation.
 
 For a full introduction to Semaphore 2.0, we recommend that you read through the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started).
