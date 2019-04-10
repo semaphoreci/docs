@@ -24,7 +24,7 @@ You can find information about them in the
 Python 2.7 is the default version. This can be switched to 3.7 with
 `sem-version`. Here's an example:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:
@@ -45,7 +45,7 @@ download cache directory. This does not cache the installations, just
 the downloads but it will speed up builds significantly. Here's an
 example:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:
@@ -72,7 +72,7 @@ environment variable.
 In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">version: v1.0
+``` yamlversion: v1.0
  name: Python Example
  agent:
    machine:
@@ -122,7 +122,7 @@ and execute `cache clear` or `cache delete <key>`.
 Semaphore doesn't set project specific environment variables like
 `TESTING` used in Flask. You can set these at the task level.
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       env_vars:
@@ -140,7 +140,7 @@ Projects may need system packages in order to install pips like `postgres`.
 Semaphore provides full `sudo` access so you may install all required packages.
 Here's an example of installing the `postgres` pip:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:

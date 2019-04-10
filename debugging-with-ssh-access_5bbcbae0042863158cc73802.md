@@ -6,13 +6,13 @@ explore the build environment.
 
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].
 
-* [Setting Up Your SSH Key](#setting-up-your-ssh-key)
-* [Exploring the build environment](#exploring-the-build-environment)
-* [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
-* [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
-* [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
-* [Stopping a debug session](#stopping-a-debug-session)
-* [See also](#see-also)
+- [Setting Up Your SSH Key](#setting-up-your-ssh-key)
+- [Exploring the build environment](#exploring-the-build-environment)
+- [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
+- [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
+- [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
+- [Stopping a debug session](#stopping-a-debug-session)
+- [See also](#see-also)
 
 ## Setting Up Your SSH Key
 

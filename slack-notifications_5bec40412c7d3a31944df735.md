@@ -124,7 +124,7 @@ Available values for the results filter are:
 
 Example YAML configuration:
 
-<pre><code class="language-yaml"> # notify-on-fail.yml
+``` yaml # notify-on-fail.yml
 apiVersion: v1alpha
 kind: Notification
 metadata:
@@ -159,7 +159,7 @@ In this example example we would like to do the following:
 
 First specify the notification in a YAML file:
 
-<pre><code class="language-yaml"> # release-cycle-notifications.yml
+``` yaml # release-cycle-notifications.yml
 apiVersion: v1alpha
 kind: Notification
 metadata:

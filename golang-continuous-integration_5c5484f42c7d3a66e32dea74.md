@@ -48,7 +48,7 @@ The application uses:
 
 The contents of the `.semaphore/semaphore.yml` file are as follows:
 
-<pre><code class="language-yaml">
+``` yaml
 version: v1.0
 name: Go project example
 agent:
@@ -107,7 +107,7 @@ Each `.semaphore/semaphore.yml` file begins with a preamble that defines the
 environment you are going to work with. In this case the preamble is as
 follows:
 
-<pre><code class="language-yaml">
+``` yaml
 version: v1.0
 name: Go project example
 agent:
@@ -128,7 +128,7 @@ execute.
 
 The first `block` is defined as follows:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Build project
     task:
@@ -156,7 +156,7 @@ upcoming blocks.
 
 The second block is defined as follows:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   # ...
   - name: Check code style
@@ -176,7 +176,7 @@ for its installation.
 
 The last block that runs two parallel jobs is defined with the following commands:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   # ...
   - name: Smoke tests

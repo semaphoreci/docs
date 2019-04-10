@@ -21,7 +21,8 @@ Consider a sample Django `blog` project with two applications: `posts`
 and `comments`. For these reasons our pipeline is composed of three
 blocks, one for setup and two for tests:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Example Django Application
 agent:
@@ -79,14 +80,15 @@ blocks:
           commands:
             - coverage run manage.py test comments
             - coverage report
-</code></pre>
+```
 
 This example assumes a separate settings module to configure the
 database. The settings are applied by setting the
 `DJANGO_SETTINGS_MODULE` environemnt variable. Here's an example for
 configuring PostreSQL:
 
-<pre><code class="language-yaml"># blog/ci.py
+``` yaml
+# blog/ci.py
 from .settings import *
 
 DATABASES['default'] = {

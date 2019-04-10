@@ -6,7 +6,7 @@ permissions based on their role.
 The creator of organization is its owner. There cannot be multiple owners, but
 it is possible to [transfer the ownership](https://docs.semaphoreci.com/article/106-user-management-and-permissions#transferring-ownership-of-an-organization).
 
-### Project permissions
+### Owner project permissions
 
 Owner can:
 
@@ -48,7 +48,7 @@ the ID and unique URL of the organization.
 
 Members can't access the Owner’s area.
 
-### Project permissions
+### Member project permissions
 
 Members can:
 

@@ -21,7 +21,7 @@ Go 1.10 is the default version in the [Ubuntu1804 VM image][ubuntu1804].  Go
 1.11 and Go 1.12 are supported as well. You can change versions with
 `sem-version`. Here is an example of how you can select and use Go 1.11:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:
@@ -40,7 +40,8 @@ structure Go tooling expects. This requires creating `$GOPATH/src` and
 cloning your code into the correct directory. This is possible by changing some
 environment variables and using the existing Semaphore 2.0 toolbox.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Go Example
 agent:
@@ -79,7 +80,7 @@ You can download and install `dep` as follows:
 
 You can initialize the cache as follows:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Warm cache
     task:
       prologue:
@@ -101,7 +102,7 @@ You can initialize the cache as follows:
 
 After that you can reuse that cache as follows:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
       prologue:
         commands:

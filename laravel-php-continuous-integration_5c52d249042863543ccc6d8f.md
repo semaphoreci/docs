@@ -40,7 +40,8 @@ of tests:
 
 ## Sample configuration
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 

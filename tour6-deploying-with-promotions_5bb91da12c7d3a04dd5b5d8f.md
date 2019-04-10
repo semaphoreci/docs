@@ -11,7 +11,8 @@ user-defined conditions.
 
 Let's start by adding a manual confirmation to promote to production.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Promotions and Auto-promotions
 agent:
@@ -29,11 +30,12 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
-</code></pre>
+```
 
 Now create a new pipeline file in `.semaphore/production-deploy.yml`:
 
-<pre><code class="language-yaml"># .semaphore/production-deploy.yml
+``` yaml
+# .semaphore/production-deploy.yml
 version: v1.0
 name: Deploy to production
 agent:
@@ -47,7 +49,7 @@ blocks:
         - name: 'Everything'
           commands:
             - echo 'Deploying to production!'
-</code></pre>
+```
 
 In the Semaphore 2.0 web interface, you will see a Production Deploy button.
 You can promote the Production Deploy target from the UI at any point, even
@@ -66,7 +68,8 @@ pipelines together and automate complex workflows.
 Promotions can also be [triggered automatically][auto-promotions].
 Let's create another that automatically promotes builds to staging.
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Promotions and Auto-promotions
 agent:
@@ -92,7 +95,8 @@ promotions:
 
 Next, create the required `staging-deploy.yml` file:
 
-<pre><code class="language-yaml"># .semaphore/staging-deploy.yml
+``` yaml
+# .semaphore/staging-deploy.yml
 version: v1.0
 name: Promotions and Auto-promotions
 agent:
@@ -106,14 +110,14 @@ blocks:
         - name: Staging
           commands:
             - echo 'Deploying to staging!'
-</code></pre>
 
 ### Continuous deployment on specific branch
 
 Auto-promotions can also be associated to specific branches. Here's how to
 automatically promote passed builds on the `master` branch:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Promotions and Auto-promotions
 agent:
@@ -140,7 +144,7 @@ promotions:
     pipeline_file: staging-deploy.yml
     auto_promote_on:
       - result: passed
-</code></pre>
+```
 
 Promotions are powerful tools to build up complex multi-pipeline
 workflows. Refer to the [promotions reference][reference] for complete

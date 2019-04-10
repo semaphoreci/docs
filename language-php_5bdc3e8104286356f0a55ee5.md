@@ -27,7 +27,7 @@ PHP versions. Any version installable with `phpbrew` is supported on
 Semaphore. Version 7.1 is pre-installed. You can install and switch
 versions using `phpbrew` and `sem-version`.  Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:
@@ -48,7 +48,7 @@ restore the `vendor` directory. In the following configuration example, we
 install dependencies and warm the cache in the first block, then use the cache
 in subsequent blocks.
 
-<pre><code class="language-yaml">
+``` yaml
 version: "v1.0"
 name: PHP Example
 agent:
@@ -86,7 +86,7 @@ blocks:
 Semaphore does not set specific environment variables like `APP_ENV`. You can
 set these at the task level.
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       env_vars:
@@ -104,7 +104,7 @@ Projects may need system packages to install libraries for things like
 database drivers. Semaphore provides full `sudo` access so you can install
 all required packages. Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:

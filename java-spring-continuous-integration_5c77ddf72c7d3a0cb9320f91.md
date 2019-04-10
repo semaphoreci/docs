@@ -37,7 +37,8 @@ pipeline](https://github.com/semaphoreci-demos/semaphore-demo-java-spring/raw/ma
 
 The entry pipeline performs build and test steps:
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
+# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -172,7 +173,8 @@ sem create -f docker-hub-secret.yml
 
 ### The Docker build pipeline
 
-<pre><code class="language-yaml"># .semaphore/docker-build.yml
+``` yaml
+# .semaphore/docker-build.yml
 version: v1.0
 name: Docker build
 agent:

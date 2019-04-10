@@ -12,7 +12,10 @@
   "no-inline-html": {
     "allowed_elements": [
       "a",
-      "table"
+      "table",
+      "td",
+      "tr",
+      "th"
     ]
   }
 }

@@ -23,7 +23,7 @@ You can find information about them in the
 Java 8 and 10 are supported. Java 8 is the default. You can switch to
 Java 10 with `sem-version`. Here's an example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: Tests
     task:
@@ -45,7 +45,7 @@ In the following configuration example, we download dependencies, compile
 code and warm the cache in the first block, then use the cache in
 subsequent blocks.
 
-<pre><code class="language-yaml">version: v1.0
+``` yamlversion: v1.0
 name: Java & Maven Example
 agent:
   machine:

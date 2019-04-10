@@ -14,16 +14,19 @@ and help you create the required YAML configuration file. So, imagine
 that no YAML file for `sem` exists and that you try to issue
 a `sem` command. The `sem` command will produce the following output:
 
-    $ ls -l ~/.sem.* 
-    ls: /Users/mtsouk/.sem.*: No such file or directory
-    $ sem get projects
-    Connection to Semaphore is not established.
-    Run the following command to connect to Semaphore:
-    
-      sem connect [HOST] [TOKEN]
-    
-    $ ls -l ~/.sem.* 
-    -rw-r--r--  1 mtsouk  staff  0 Jul  2 15:25 /Users/mtsouk/.sem.yaml
+``` bash
+$ ls -l ~/.sem.*
+ls: /Users/mtsouk/.sem.*: No such file or directory
+
+$ sem get projects
+Connection to Semaphore is not established.
+Run the following command to connect to Semaphore:
+
+sem connect [HOST] [TOKEN]
+
+$ ls -l ~/.sem.*
+-rw-r--r--  1 mtsouk  staff  0 Jul  2 15:25 /Users/mtsouk/.sem.yaml
+```
 
 So, you need to know your host and also get your authentication token
 and put it in the YAML file for  `sem` to work. Please notice that the
@@ -34,18 +37,23 @@ current Semaphore 2.0 user is `DArXY1y3yar5jazmxE8U`. Additionally,
 assume that your host is called `tsoukalos.semaphoreci.com`. After that,
 you should execute the following command:
 
-    $ sem connect tsoukalos.semaphoreci.com DAryy1y3yar5jazmxE8U
-    connected to tsoukalos.semaphoreci.com
-    $ ls -l ~/.sem.* 
-    -rw-r--r--  1 mtsouk  staff  161 Jul  5 10:21 /Users/mtsouk/.sem.yaml
+``` bash
+$ sem connect tsoukalos.semaphoreci.com DAryy1y3yar5jazmxE8U
+connected to tsoukalos.semaphoreci.com
+
+$ ls -l ~/.sem.*
+-rw-r--r--  1 mtsouk  staff  161 Jul  5 10:21 /Users/mtsouk/.sem.yaml
+```
 
 The  `sem get projects` command will now get executed without any
 problems:
 
-    $ sem get projects
-    NAME
-    S2
-    S1
+``` bash
+$ sem get projects
+NAME
+S2
+S1
+```
 
 You can get the authentication token as well as your host from the web
 page of your organization, which is this case it will be 
@@ -72,19 +80,24 @@ command for switching between existing organizations. Executing `sem
 context` without any other parameter will show you the organizations you
 are a member of:
 
-    $ sem context
-    * semaphore_semaphoreci_com
-      tsoukalos_semaphoreci_com
+``` bash
+$ sem context
+* semaphore_semaphoreci_com
+  tsoukalos_semaphoreci_com
+```
 
 The line with the `*` character shows the active Semaphore 2.0
 organization. After that you can change to another organization as
 follows:
 
-    $ sem context tsoukalos_semaphoreci_com
-    switched to context "tsoukalos_semaphoreci_com"
-    $ sem context
-      semaphore_semaphoreci_com
-    * tsoukalos_semaphoreci_com
+``` bash
+$ sem context tsoukalos_semaphoreci_com
+switched to context "tsoukalos_semaphoreci_com"
+
+$ sem context
+  semaphore_semaphoreci_com
+* tsoukalos_semaphoreci_com
+```
 
 ## See also
 

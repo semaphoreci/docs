@@ -5,19 +5,22 @@ along with one or more [delivery pipelines][promotions-guide].
 
 Start by creating a blank dashboard using the [sem CLI][sem-ref]:
 
-<pre><code class="language-console">$ sem create dashboard demo-deployment
+``` bash
+$ sem create dashboard demo-deployment
 Dashboard 'demo-deployment' created.
-</code></pre>
+```
 
 Open the dashboard configuration:
 
-<pre><code class="language-console">$ sem edit dashboard demo-deployment
-</code></pre>
+``` bash
+$ sem edit dashboard demo-deployment
+```
 
 At this point you have the dashboard definition open in your default editor.
 It looks something like this:
 
- <pre><code class="language-yaml">apiVersion: v1alpha
+```yaml
+apiVersion: v1alpha
 kind: Dashboard
 metadata:
   name: demo-deployment
@@ -27,7 +30,7 @@ metadata:
   update_time: "1543855839"
 spec:
   widgets: []
-</code></pre>
+```
 
 Recall that deployment is typically a separate pipeline which gets triggered
 by a promotion. Because of that, to make the dashboard display deployment
@@ -36,14 +39,15 @@ activities, we need to use the
 
 The minimal configuration would be as follows:
 
-<pre><code class="language-yaml">spec:
+```
+spec:
   widgets:
   - name: Deploys to production
     type: list_pipelines
     filters:
       pipeline_file: .semaphore/production-deployment.yml
       project_id: 5e99069f-0be6-4b60-85a1-4cbcfc5f339a
-</code></pre>
+```
 
 With the configuration above, dashboard will display all activities in the
 `.semaphore/production-deployment.yml` pipeline on any branch.

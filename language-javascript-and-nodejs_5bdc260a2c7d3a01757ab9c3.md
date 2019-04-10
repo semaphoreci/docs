@@ -26,7 +26,7 @@ node version specified within the `.nvmrc` file.
 Alternatively, you can change the Node.js version by calling `sem-version node`.
 Here's an example:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:
@@ -41,7 +41,7 @@ Here's an example:
 If you need a version other than the preinstalled versions, then you
 can install it with `nvm`. Here's an example:
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       prologue:
@@ -60,7 +60,7 @@ You can use Semaphores `cache` command to store and load
 `node_modules`. In the following configuration example, we install dependencies
 and warm the cache in the first block, then use the cache in subsequent blocks.
 
-<pre><code class="language-yaml">version: v1.0
+``` yamlversion: v1.0
 name: First pipeline example
 agent:
   machine:
@@ -106,7 +106,7 @@ To get started, use the configuration example above and replace
 Semaphore doesn't set language specific environment variables like
 `NODE_ENV` You should set these at the task level.
 
-<pre><code class="language-yaml">blocks:
+``` yamlblocks:
   - name: Tests
     task:
       env_vars:
