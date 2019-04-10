@@ -1,19 +1,19 @@
 - [Overview](#overview)
 - [Quick start](#quick-start)
 - [How to use sem](#how-to-use-sem)
-   - [A Quick example](#a-quick-example)
-   - [A secrets example that uses files](#a-secrets-example-that-uses-files)
+  - [A Quick example](#a-quick-example)
+  - [A secrets example that uses files](#a-secrets-example-that-uses-files)
 - [The process in more detail](#the-process-in-more-detail)
-   - [A YAML file for creating secrets](#a-yaml-file-for-creating-secrets)
-   - [How to tie an existing secret into a pipeline quickly](#how-to-tie-an-existing-secret-into-a-pipeline-quickly)
-   - [Showing existing secrets](#showing-existing-secrets)
-   - [Showing the contents of an existing secret](#showing-the-contents-of-an-existing-secret)
-   - [Updating existing secrets](#updating-existing-secrets)
-   - [Deleting a secret](#deleting-a-secret)
-   - [What if you try to use a secret that does not exist](#what-if-you-try-to-use-a-secret-that-does-not-exist)
+  - [A YAML file for creating secrets](#a-yaml-file-for-creating-secrets)
+  - [How to tie an existing secret into a pipeline quickly](#how-to-tie-an-existing-secret-into-a-pipeline-quickly)
+  - [Showing existing secrets](#showing-existing-secrets)
+  - [Showing the contents of an existing secret](#showing-the-contents-of-an-existing-secret)
+  - [Updating existing secrets](#updating-existing-secrets)
+  - [Deleting a secret](#deleting-a-secret)
+  - [What if you try to use a secret that does not exist](#what-if-you-try-to-use-a-secret-that-does-not-exist)
 - [An example](#an-example)
 - [Use cases](#use-cases)
-  - [How to handle a SSH key file](#)
+  - [How to handle an SSH key file](#how-to-handle-an-ssh-key-file)
 - [See also](#see-also)
 
 ## Overview
@@ -46,8 +46,8 @@ The `sem` utility related commands for working with secrets are the following:
 - `sem create -f aFile.yml`: for creating a new secret based on an existing
     `secrets` YAML file
 - `sem edit secrets <secret_name>`: for editing an existing secret
-- `sem get secrets`: for listing existing secrets and for listing the contents of an
-    existing secret
+- `sem get secrets`: for listing existing secrets and for listing the contents
+  of an existing secret
 - `sem apply -f secret_file`: for updating an existing secret using a `secret`
     YAML file.
 - `sem delete secrets <secret_name>`: for deleting an existing secret
@@ -502,7 +502,7 @@ data:
 This section will present a real world scenario that uses Semaphore 2.0 and
 utilize secrets to connect to a server machine using SSH.
 
-### How to handle a ssh key file
+### How to handle an SSH key file
 
 In this section you will learn how to store and retrieve ssh keys as files in
 `secrets` in order to connect to a remote SSH server without needing a password.

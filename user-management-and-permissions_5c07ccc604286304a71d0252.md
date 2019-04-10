@@ -1,4 +1,5 @@
-Semaphore organizations can have unlimited members. Members have different permissions based on their role.
+Semaphore organizations can have unlimited members. Members have different
+permissions based on their role.
 
 ## Owner
 
@@ -58,7 +59,8 @@ Members can:
 
 ## Transferring ownership of an organization
 
-In order to transfer the ownership to a new user, the following conditions need to be met:
+In order to transfer the ownership to a new user, the following conditions need
+to be met:
 
 - New owner needs to be a member of the organization;
 - New owner needs to log in to Semaphore 2.0 at least once;

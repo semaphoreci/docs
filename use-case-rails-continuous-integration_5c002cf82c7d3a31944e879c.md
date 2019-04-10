@@ -1,12 +1,12 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Ruby on Rails web application.
 
-* [Demo project](#demo-project)
-* [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-* [Sample configuration](#sample-configuration)
-* [Run the demo Ruby on Rails project yourself](#run-the-demo-ruby-on-rails-project-yourself)
-* [Next steps](#next-steps)
-* [See also](#see-also)
+- [Demo project](#demo-project)
+- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
+- [Sample configuration](#sample-configuration)
+- [Run the demo Ruby on Rails project yourself](#run-the-demo-ruby-on-rails-project-yourself)
+- [Next steps](#next-steps)
+- [See also](#see-also)
 
 ## Demo project
 
@@ -44,7 +44,7 @@ For these reasons our pipeline is composed of three blocks of tests:
 
 ## Sample configuration
 
-<pre><code class="language-yaml"># .semaphore/semaphore.yml
+``` yaml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -149,11 +149,11 @@ blocks:
       - name: RSpec - feature specs
         commands:
           - bundle exec rspec spec/features
-</code></pre>
+```
 
 The project is using the following database configuration:
 
-<pre><code class="language-yaml"># config/database.yml
+``` yaml
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -168,7 +168,7 @@ development:
 test:
   <<: *default
   database: demo-rails5_test
-</code></pre>
+```
 
 PostgreSQL and MySQL instances run inside each job and can be accessed with
 a blank password. For more information on configuring database access,

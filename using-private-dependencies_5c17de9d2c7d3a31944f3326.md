@@ -1,7 +1,7 @@
-* [Create the SSH key](#create-the-ssh-key)
-* [Add the SSH key](#add-the-ssh-key)
-* [Create a secret](#create-a-secret)
-* [Use the secret in your pipeline](#use-the-secret-in-your-pipeline)
+- [Create the SSH key](#create-the-ssh-key)
+- [Add the SSH key](#add-the-ssh-key)
+- [Create a secret](#create-a-secret)
+- [Use the secret in your pipeline](#use-the-secret-in-your-pipeline)
 
 Dependency mangagers like Bundler, Yarn, and Go's module system allow
 specifying dependencies from private Git repositories. This makes it
@@ -16,14 +16,16 @@ You'll need to generate an SSH key and associate it directly with
 the project or a user who has access to that project. First, generate
 a new public/private key pair on your local machine:
 
-    $ ssh-keygen -t rsa -f id_rsa_semaphoreci
+``` bash
+ssh-keygen -t rsa -f id_rsa_semaphoreci
+```
 
 ### Add the SSH key
 
-Next, connect the SSH key to the project or user. Github [Deploy
-Keys][] are the easiest way to grant access to a single project. The
-trade-off is that you'll need to add a deploy key for all private
-projects. However you may re-use same key.
+Next, connect the SSH key to the project or user. Github [Deploy Keys][]
+are the easiest way to grant access to a single project. The trade-off is that
+you'll need to add a deploy key for all private projects. However you may
+re-use same key.
 
 Another solution is to
 create a dedicated "ci" user, grant the "ci" user access to the
@@ -39,7 +41,9 @@ configure your Semaphore pipeline to use the private key. We'll use
 secret from the existing private key in `id_rsa_semaphoreci` on your
 local machine:
 
-    $ sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
+``` bash
+sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
+```
 
 This will create the file `~/.keys/private-repo` in your Semaphore jobs.
 
@@ -49,7 +53,7 @@ The last step is to add the `private-repo` secret to your Semaphore pipeline.
 This will make the private key file available for use with `ssh-add`.  Here's an
 example:
 
-<pre><code class="language-yaml">
+``` yaml
 blocks:
   - name: "Test"
     task:
@@ -69,7 +73,7 @@ blocks:
         - name: Test
           commands:
             - rake test
-</code></pre>
+```
 
 That's all there is to it. You can use the approach to add more deploy
 keys to the `private-repo` secret to cover more projects and reuse the

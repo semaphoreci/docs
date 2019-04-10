@@ -5,6 +5,10 @@
     "style": "dash"
   },
 
+  "line_length": {
+    "code_blocks": false
+  },
+
   "no-inline-html": {
     "allowed_elements": [
       "a",
