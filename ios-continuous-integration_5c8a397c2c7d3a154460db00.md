@@ -253,7 +253,7 @@ yourself. Here’s how to build the demo project with your own account:
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
 4. Create your secret as per instructions above.
-4. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
 [macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
