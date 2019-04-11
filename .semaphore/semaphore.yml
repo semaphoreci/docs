@@ -1,12 +1,12 @@
 version: v1.0
-name: Semaphore 2.0 documentation Project
+name: Semaphore 2.0 Docs
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 
 blocks:
-  - name: "Markdown Lint"
+  - name: "Tests"
     task:
       jobs:
         - name: "Markdown Link"
@@ -15,23 +15,15 @@ blocks:
             - checkout
             - markdownlint *.md
 
-  - name: "Check Changes"
-    task:
-      jobs:
-        - name: List of changes
+        - name: List of changes for manual inspection
           commands:
             - checkout
             - git diff-tree --no-commit-id --name-only $SEMAPHORE_GIT_SHA
 
-  - name: "Execute on master"
-    task:
-      jobs:
-        - name: Deploy
-          commands:
-            - checkout
-            - gem install redcarpet
-            - if [ $SEMAPHORE_GIT_BRANCH == "master" ]; then ./deploy_docs.rb; fi
-
-      secrets:
-        - name: helpscout-docs
-
+promotions:
+  - name: prod
+    pipeline_file: prod.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - "master"
