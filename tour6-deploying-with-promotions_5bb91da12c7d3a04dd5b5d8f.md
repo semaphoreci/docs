@@ -110,6 +110,7 @@ blocks:
         - name: Staging
           commands:
             - echo 'Deploying to staging!'
+```
 
 ### Continuous deployment on specific branch
 
