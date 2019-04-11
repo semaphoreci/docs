@@ -42,8 +42,8 @@ blocks:
           - ruby --version
 ```
 
-**Note: The example image `semaphoreci/ruby.2.6.1` is part of the pre-built
-Docker images optimized for Semaphore CI/CD jobs.**
+Note: *The example image `semaphoreci/ruby.2.6.1` is part of the pre-built
+Docker images optimized for Semaphore CI/CD jobs.*
 
 ## Using multiple Docker images
 
