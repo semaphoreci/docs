@@ -17,7 +17,7 @@ your agent specification.
 For example, in the following pipeline we will use the `semaphoreci/ruby-2.6.1`
 image for our tests.
 
-```yaml
+``` yaml
 # .semaphore/semaphore.yml
 
 version: v1.0
