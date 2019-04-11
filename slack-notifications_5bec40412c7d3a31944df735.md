@@ -83,21 +83,21 @@ every branch that matches `hotfix/-`, use the following:
 
 ``` bash
 $ sem create notifications example \
-    --branches "master,/hotfix\/.-/" \
+    --branches "master,/hotfix\/.*/" \
     --slack-endpoint [slack-webhook-endpoint] \
 ```
 
-Regex matches must be wrapped in forward slashes (example: `/.-/`). Specifying a
-branch name without slashes (example: `.-`) would execute a direct equality
+Regex matches must be wrapped in forward slashes (example: `/.*/`). Specifying a
+branch name without slashes (example: `.*`) would execute a direct equality
 match.
 
 Matching can be specified for project and pipeline names as well. For example,
 if you want to get notified about every notification on a project that matches
-`/.--api$/`, on the master branch, when the `prod.yml` pipeline is executed, use:
+`/.*-api$/`, on the master branch, when the `prod.yml` pipeline is executed, use:
 
 ``` bash
 $ sem create notifications example \
-    --projects "/.--api$/" \
+    --projects "/.*api$/" \
     --branches "master" \
     --pipelines "prod.yml" \
     --slack-endpoint [slack-webhook-endpoint] \

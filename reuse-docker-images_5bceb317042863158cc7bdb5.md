@@ -99,9 +99,9 @@ rules that govern them and their values.
   `SEMAPHORE_PIPELINE_ARTEFACT_ID` are the same, then you are not on a
   rebuild.
 
-- Promotions work --linearly--. Therefore pipelines can use the Artefact IDs of
+- Promotions work **linearly**. Therefore pipelines can use the Artefact IDs of
   all previously defined pipelines as long as there is a shared path among
-  them. Put simply, there must be a --direct--, linear connection between the
+  them. Put simply, there must be a **direct**, linear connection between the
   pipelines you want to connect using Artefact IDs.
 
 - This means that if there is a split somewhere, only the Artefact IDs of the
@@ -333,7 +333,7 @@ blocks:
 
 In this pipeline, the values of `SEMAPHORE_PIPELINE_ARTEFACT_ID` and
 `SEMAPHORE_PIPELINE_0_ARTEFACT_ID` are the same as this is the initial
-pipeline. If this is the --initial build-- of this pipeline, then
+pipeline. If this is the **initial build** of this pipeline, then
 `SEMAPHORE_PIPELINE_ID` will also have the same value as the values of both
 `SEMAPHORE_PIPELINE_ARTEFACT_ID` and `SEMAPHORE_PIPELINE_0_ARTEFACT_ID`.
 

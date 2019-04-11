@@ -178,7 +178,7 @@ use the same project name more than once under the same organization.
 
 #### Pipelines
 
-The smallest unit of scheduling and execution in Semaphore 2.0 is the --Job--.
+The smallest unit of scheduling and execution in Semaphore 2.0 is the **Job**.
 A `pipeline` is the Semaphore 2.0 entity where jobs are defined in order to get
 executed in a Virtual Machine.
 
@@ -660,7 +660,7 @@ job is running because you can see what is happening in real time.
 
 #### sem attach example
 
-The `sem attach` command requires the -Job ID- of a --running-- job as its single
+The `sem attach` command requires the -Job ID- of a **running** job as its single
 parameter. So, the following command will connect to the VM of the job with Job
 ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
@@ -777,12 +777,12 @@ before using `sem debug job` for the first time – you can choose any one of
 the three proposed ways.
 
 You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
---manually terminate-- the VM. Otherwise, you can wait for the timeout period
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
 to pass.
 
 #### The --duration flag
 
-By default the SSH session of a `sem debug` command is limited to --one hour--.
+By default the SSH session of a `sem debug` command is limited to **one hour**.
 In order to change that, you can pass the `--duration` flag to the `sem debug`
 command.
 
@@ -904,10 +904,10 @@ sem debug project docker-push
 ```
 
 You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
---manually terminate-- the VM. Otherwise, you can wait for the timeout period
+**manually terminate** the VM. Otherwise, you can wait for the timeout period
 to pass.
 
-By default the SSH session of a `sem debug` command is limited to --one hour--.
+By default the SSH session of a `sem debug` command is limited to **one hour**.
 In order to change that, you can pass the `--duration` flag to the `sem debug`
 command.
 
@@ -1047,7 +1047,7 @@ You can create a new notification named `documents` as follows:
 
 ``` bash
 sem create notifications documents \
-  --projects "/.--api$/" \
+  --projects "/.*-api$/" \
   --branches "master" \
   --pipelines "semaphore.yml" \
   --slack-endpoint https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD \
@@ -1163,7 +1163,7 @@ sem rebuild pipeline [Pipeline ID]
 ```
 
 Note that `sem rebuild pipeline` will perform a partial rebuild of the pipeline
-as --only the blocks that failed-- will be rerun.
+as **only the blocks that failed** will be rerun.
 
 #### Rebuilding a pipeline example
 

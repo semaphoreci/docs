@@ -204,8 +204,8 @@ This notification has two rules, one named `Send notifications for docs project`
 and another named `On finished pipelines for S1, docs, or --api projects`.
 
 The first rule of the notification specifies a single project name that is
-called `API-docs`. All notifications will go to the `#devops` --channel-- and
-to the `mtsoukalos` --user-- using the specified Incoming WebHook of Slack. In
+called `API-docs`. All notifications will go to the `#devops` **channel** and
+to the `mtsoukalos` **user** using the specified Incoming WebHook of Slack. In
 this case the Slack channel associated with the specified Incoming WebHook will
 be ignored.
 

@@ -42,11 +42,11 @@ files into a Docker image. The `COPY` commands always get executed in order to
 have the latest version of the external file.
 
 If the contents of all external files on the first `COPY` command are the
-same, the layer cache will be used and --all subsequent-- commands until the
+same, the layer cache will be used and **all subsequent** commands until the
 next `ADD` or `COPY` command will use the layer cache.
 
 However, if the contents of one or more external files are different, then
---all subsequent-- commands will be executed without using the layer cache.
+**all subsequent** commands will be executed without using the layer cache.
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `COPY` to be
@@ -59,11 +59,11 @@ The `ADD` command in a `Dockerfile` allows you to import external files into
 a Docker image.
 
 If the contents of all external files on the first `ADD` command are the
-same, the layer cache will be used and --all subsequent-- commands until the
+same, the layer cache will be used and **all subsequent** commands until the
 next `ADD` or `COPY` command will use the layer cache.
 
 However, if the contents of one or more external files are different, then
---all subsequent-- commands will be executed without using the layer cache.
+**all subsequent** commands will be executed without using the layer cache.
 
 In order to take advantage of Layer Caching in Docker you should structure your
 `Dockerfile` in a way that frequently changing steps such as `ADD` to be
