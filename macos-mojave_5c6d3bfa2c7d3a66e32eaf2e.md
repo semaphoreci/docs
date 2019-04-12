@@ -7,7 +7,7 @@ of your pipeline or block.
 The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
-[[_TOC_]]
+[TOC]
 
 Note: MacOS support on Semaphore is currently in beta.
 
