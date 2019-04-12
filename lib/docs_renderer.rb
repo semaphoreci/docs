@@ -16,7 +16,7 @@ class DocsRenderer < Redcarpet::Render::HTML
 
       parser.render(@document)
     else
-      content
+      super(content)
     end
   end
 
