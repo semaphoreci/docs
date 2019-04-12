@@ -5,6 +5,18 @@ class DocsRenderer < Redcarpet::Render::HTML
     }.merge(extensions))
   end
 
+  def preprocess(document)
+    # replace [[__TOC__]] with table of content
+
+    toc_render = Redcarpet::Render::HTML_TOC.new(nesting_level: 3)
+    parser     = Redcarpet::Markdown.new(toc_render)
+    toc        = parser.render(document)
+
+    document.sub!("[[__TOC__]]", toc)
+
+    document
+  end
+
   def block_code(code, language)
     %(<pre><code class="language-#{language}">#{code}</code></pre>)
   end
