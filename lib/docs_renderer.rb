@@ -14,7 +14,9 @@ class DocsRenderer < Redcarpet::Render::HTML
       toc_render = Redcarpet::Render::HTML_TOC.new(nesting_level: 3)
       parser     = Redcarpet::Markdown.new(toc_render)
 
-      return parser.render(@document)
+      parser.render(@document)
+    else
+      content
     end
   end
 
