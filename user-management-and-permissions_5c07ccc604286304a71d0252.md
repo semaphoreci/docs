@@ -16,7 +16,7 @@ Owner can:
 - Manage people;
 - Manage billing;
 
-### Owner Owner's area access
+### Owner's area access
 
 Owner also has access to the Owner's area, which includes:
 
