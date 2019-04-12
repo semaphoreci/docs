@@ -1,7 +1,61 @@
-Semaphore runs each job in a clean and isolated environment.
-The default [Ubuntu environment][ubuntu] includes common tools needed by most
-projects. With unrestricted `sudo` access and fast network, you can
-install additional software and customize the environment however you need.
+Semaphore runs each job in a clean and isolated environment. Three types of
+build environments are available:
+
+- The [Linux Ubuntu environment][ubuntu] that includes common tools needed by
+  projects. It offers full `sudo` access to the virtual machine.
+
+- The [MacOS environment][macos] that includes common tools needed for iOS
+  development. It offers full `sudo` access to the virtual machine.
+
+- The [Docker environment][docker] that allows you to run your jobs in a custom
+  Docker images.
+
+All environments come with a fast network so you can install any additional
+software and customize the environment however you need.
+
+## Choosing the Machine Type and OS Image
+
+To use the Linux Ubuntu build environment, define the agent's machine type and
+OS image in your pipeline YAML file:
+
+``` yaml
+# .semaphore/semaphore.yml
+
+agent:
+  machine:
+    type: e1-standard-2    # Linux machine type with 2 vCPUs, 4 GB of RAM
+    os_image: ubuntu1804   # The Ubuntu 18.04 OS image.
+```
+
+Alternatively, if you want to run a MacOS based pipeline, configure it with:
+
+``` yaml
+# .semaphore/semaphore.yml
+
+agent:
+  machine:
+    type: a1-standard-2    # Apple machine type with 2 vCPUs, 4 GB of RAM
+    os_image: macos-mojave # MacOS Mojave os image
+```
+
+If you prefer to have a fully custom, containerized environment, define one or
+more Docker images in your pipeline file:
+
+``` yaml
+# .semaphore/semaphore.yml
+
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+  containers:
+    - name: main             # The first container will be used to run your jobs
+      image: bitnami/rails   # use any Docker image
+
+    - name: db               # Additional containers can be started
+      image: postgres:9.6    # and will be available in the first image
+```
 
 ## Installing additional dependencies
 
@@ -26,52 +80,15 @@ blocks:
             - bats addition.bats
 ```
 
-## Using databases and other services
-
-Let's say that your CI build needs Redis and PostgreSQL:
-
-``` yaml
-# .semaphore/semaphore.yml
-
-blocks:
-  - name: "Test"
-    task:
-      prologue:
-        commands:
-          - sem-service start redis
-          - sem-service start postgres
-      jobs:
-        - name: Tests
-          commands:
-            - createdb -U postgres -h 0.0.0.0 myapp_database
-            - echo 'running tests'
-```
-
-To manage database engines and other services on Semaphore,
-use the [sem-service utility][sem-service].
-
-Since you have unrestricted access to the job's environment, other options for
-running services include installing native packages with `sudo` and using
-Docker Compose.
-
-### Using services and test data across blocks
-
-Note that, since all jobs run in isolated environments, the services that you
-start in one block are not automatically available in other blocks.
-Likewise, starting a service in one job, doesn't automatically make it
-available in other jobs of the same block.
-
-To use a service or populate test data in all parallel jobs within a block,
-specify that in the task [prologue][prologue]. Repeat the same steps in the
-definition of each block as needed.
-
 ## Next steps
 
-Almost every project has dependencies, and we can save a lot of time by
-installing them once and reusing them from a cache. Let's learn how to do that
-in [the next section][next].
+Running a CI build in practice usually requires one or more running Databases,
+Cache servers, or other background services like RabbitMQ or Kafka.
+
+Let's learn how to do that in [the next section][next].
 
 [ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+[macos]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[docker]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
-[prologue]: https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
-[next]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[next]: https://docs.semaphoreci.com/article/???
