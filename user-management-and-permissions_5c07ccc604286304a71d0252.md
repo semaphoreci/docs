@@ -12,13 +12,15 @@ Owner can:
 
 - See all projects;
 - Add projects, if they have admin access to the repository on GitHub;
-- Delete projects.
+- Delete projects if they have admin access to the repository on Github;
+- Manage people;
+- Manage billing;
 
-### Owner's area
+### Owner's area access
 
 Owner also has access to the Owner's area, which includes:
 
-#### People management
+#### Owner people management permissions
 
 Owners can:
 
@@ -33,13 +35,59 @@ Owners can:
   projects in the organization will be revoked. Please note that this won't
   change their permissions on GitHub.
 
-#### Billing management
+- **Promote members to admins**.
+
+#### Owner billing management permissions
 
 Owner can see the billing section and perform changes, such as enter credit
-card information, see the current spending, and edit invoice related
-information.
+card information, and see the current spending.
 
-#### Organization settings
+#### Owner organization settings permissions
+
+Owner can change the name of the organization. Note that this will not change
+the ID and unique URL of the organization.
+
+## Admin
+
+Admins have the same rights as the owner, and there can be multiple admins.
+
+### Admin project permissions
+
+Admin can:
+
+- See all projects;
+- Add projects, if they have admin access to the repository on GitHub;
+- Delete projects if they have admin access to the repository on Github;
+- Manage people;
+- Manage billing;
+
+### Admin Owner's area access
+
+Admin also has access to the Owner's area, which includes:
+
+#### Admin people management permissions
+
+Admin can:
+
+- **Add new members to organization**. Members can be invited by their GitHub
+  username. New members will be able to enter the organization the first time
+  they sign in with their GitHub accounts. _Note_: If you want someone to have
+  access to a project on Semaphore, you first need to give this person access
+  to the repository on GitHub, and then add them as a member to Semaphore on
+  `ORG.semaphoreci.com/people` page.
+
+- **Remove members from organization**. Upon removal, their access to all
+  projects in the organization will be revoked. Please note that this won't
+  change their permissions on GitHub.
+
+- **Promote members to admins**.
+
+#### Admin billing management permissions
+
+Admin can see the billing section and perform changes, such as enter credit
+card information, and see the current spending.
+
+#### Admin organization settings permissions
 
 Owner can change the name of the organization. Note that this will not change
 the ID and unique URL of the organization.
