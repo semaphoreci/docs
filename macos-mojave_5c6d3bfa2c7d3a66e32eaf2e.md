@@ -7,16 +7,7 @@ of your pipeline or block.
 The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
-- [Using the macos-mojave OS image in your agent configuration](#using-the-macos-mojave-OS-image-in-your-agent-configuration)
-- [Version control](#version-control)
-- [Utilities](#utilities)
-- [Gems](#gems)
-- [Java](#java)
-- [JavaScript via Node.js](#javascript-via-node-js)
-- [Python](#python)
-- [Ruby](#ruby)
-- [Xcode](#xcode)
-- [See also](#see-also)
+[[_TOC_]]
 
 Note: MacOS support on Semaphore is currently in beta.
 
