@@ -18,11 +18,10 @@ For this guide you will need:
 - [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
 - [Sample configuration](#sample-configuration)
 - [Configuration walkthrough](#configuration-walkthrough)
-  - [Running tests](#continuous-integration)
+  - [Running tests](#running-tests)
   - [Docker build](#docker-build)
-  - [Deploy to staging](#deploy-to-staging)
-  - [Deploy to production](#deploy-to-production)
-- [Run the demo Cloud Run project yourself](#run-the-demo-cloud-run-project-yourself)
+  - [Deployment](#deployment)
+- [Run the demo Google Cloud Run project yourself](#run-the-demo-google-cloud-run-project-yourself)
 
 ## Demo project
 
