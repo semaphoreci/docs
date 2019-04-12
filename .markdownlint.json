@@ -9,6 +9,8 @@
     "code_blocks": false
   },
 
+  "commands-show-output": false,
+
   "no-inline-html": {
     "allowed_elements": [
       "a",
