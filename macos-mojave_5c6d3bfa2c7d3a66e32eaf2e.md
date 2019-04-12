@@ -4,7 +4,7 @@ and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
-The `macos-mojave` is a virtual machine image. The user in the environment,
+The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
 - [Version control](#version-control)
@@ -17,8 +17,7 @@ named `semaphore`, has full `sudo` access.
 - [Xcode](#xcode)
 - [See also](#see-also)
 
-Note: MacOS support on Semaphore is currently in private beta. To get access,
-[please apply][beta-form].
+Note: MacOS support on Semaphore is currently in beta.
 
 ## Using the macos-mojave OS image in your agent configuration
 
