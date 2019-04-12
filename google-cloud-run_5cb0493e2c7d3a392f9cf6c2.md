@@ -279,7 +279,7 @@ prompt:
 
 After we check out our code, we can proceed to build and tag a Docker image.
 The tagging pattern that we follow is
-`gcr.io/GOOGLE_CLOUDPROJECT_NAME/SERVICE_NAME`. We use the
+`gcr.io/GOOGLE_CLOUD_PROJECT_NAME/SERVICE_NAME`. We use the
 `$SEMAPHORE_GIT_SHA` [environment variable][env-vars] to produce a unique
 artifact name.
 
