@@ -1,4 +1,13 @@
-- [Overview](#overview)
+The `macos-mojave` is a customized image based on [MacOS 10.14][mojave-release-notes]
+optimized for CI/CD. It comes with a set of preinstalled languages, databases,
+and utility tools commonly used for CI/CD workflows. The image can be paired
+with any [Apple machine type][machine-types] when defining the [agent][agent]
+of your pipeline or block.
+
+The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
+named `semaphore`, has full `sudo` access.
+
+- [Using the macos-mojave OS image in your agent configuration](#using-the-macos-mojave-OS-image-in-your-agent-configuration)
 - [Version control](#version-control)
 - [Utilities](#utilities)
 - [Gems](#gems)
@@ -9,21 +18,33 @@
 - [Xcode](#xcode)
 - [See also](#see-also)
 
-## Overview
+Note: MacOS support on Semaphore is currently in beta.
 
-The `macos-mojave` image is based on [MacOS 10.14][mojave-release-notes].
-You can use it to build, test and deliver iOS and MacOS projects.
-The user in the environment is named `semaphore`, and has full `sudo` access.
+## Using the macos-mojave OS image in your agent configuration
 
-Image name: `macos-mojave`
+To use the `macos-mojave` OS image, define it as the `os_image` of your agent's
+machine.
 
-OS: `Darwin Kernel Version 18.2.0`
+``` yaml
+version: 1.0
+name: Apple/Mojave Based Pipeline
 
-This image can be paired with [Apple machine types][machine-types] when defining
-the [agent][agent] of your pipeline or block.
+agent:
+  machine:
+    type: a1-standard-4
+    os_image: macos-mojave
 
-Note: MacOS support on Semaphore is currently in private beta. To get access,
-[please apply][beta-form].
+blocks:
+  - name: "Unit tests"
+    task:
+      jobs:
+        - name: Tests
+          commands:
+            - make test
+```
+
+The `macos-mojave` OS image can only be used in combination with an Apple
+machine type `a1-standard-4`.
 
 ## Version control
 
