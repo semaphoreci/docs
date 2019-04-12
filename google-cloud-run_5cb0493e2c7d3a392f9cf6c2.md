@@ -213,8 +213,8 @@ When dealing with project dependencies, we can speed up the CI/CD process by
 Semaphore is to:
 
 - Run `cache restore` to try to restore a recent version from cache. Semaphore
-	performs partial key matching and you can use multiple cache keys which as
-	fallback. This command will never fail.
+  performs partial key matching and you can use multiple cache keys which as
+  fallback. This command will never fail.
 - Run dependency installation command of your package manager. If `cache
   restore` succeeded in the previous step, this command will execute very
   quickly.
@@ -251,7 +251,7 @@ secret using the [Semaphore CLI][sem-cli] or in the web UI. The secret should
 define a file, let’s call it `.secrets.gcp.json`:
 
 ```bash
-$ sem create secret google-cloud-stg --file ~/Downloads/account-name-27f3a5bcea2d.json:.secrets.gcp.json
+sem create secret google-cloud-stg --file ~/Downloads/account-name-27f3a5bcea2d.json:.secrets.gcp.json
 ```
 
 We can now mount the secret in our Docker build pipeline, which will make the
