@@ -16,11 +16,11 @@ Owner can:
 - Manage people;
 - Manage billing;
 
-### Owner - Owner's area
+### Owner Owner's area access
 
 Owner also has access to the Owner's area, which includes:
 
-#### Owner - People management
+#### Owner people management permissions
 
 Owners can:
 
@@ -37,12 +37,12 @@ Owners can:
 
 - **Promote members to admins**.
 
-#### Owner - Billing management
+#### Owner billing management permissions
 
 Owner can see the billing section and perform changes, such as enter credit
 card information, and see the current spending.
 
-#### Owner - Organization settings
+#### Owner organization settings permissions
 
 Owner can change the name of the organization. Note that this will not change
 the ID and unique URL of the organization.
@@ -61,11 +61,11 @@ Admin can:
 - Manage people;
 - Manage billing;
 
-### Admin - Owner's area
+### Admin Owner's area access
 
 Admin also has access to the Owner's area, which includes:
 
-#### Admin - People management
+#### Admin people management permissions
 
 Admin can:
 
@@ -82,12 +82,12 @@ Admin can:
 
 - **Promote members to admins**.
 
-#### Admin - Billing management
+#### Admin billing management permissions
 
 Admin can see the billing section and perform changes, such as enter credit
 card information, and see the current spending.
 
-#### Admin - Organization settings
+#### Admin organization settings permissions
 
 Owner can change the name of the organization. Note that this will not change
 the ID and unique URL of the organization.
