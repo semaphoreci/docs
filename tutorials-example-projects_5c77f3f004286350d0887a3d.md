@@ -97,11 +97,15 @@ possible and jump-start your own projects.
     </tr>
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/72-google-container-registry-gcr">Docker registry: Google Container Registry</a></td>
-      <td>coming soon</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-cloud-run">semaphore-demo-cloud-run</a></td>
     </tr>
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/100-heroku-deployment">Heroku</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails">semaphore-demo-ruby-rails</a></td>
+    </tr>
+    <tr>
+      <td><a href="https://docs.semaphoreci.com/article/128-google-cloud-run-cicd">Google Cloud Run</a></td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-cloud-run">semaphore-demo-cloud-run</a></td>
     </tr>
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/119-ci-cd-for-microservices-on-kubernetes">Kubernetes</a></td>
