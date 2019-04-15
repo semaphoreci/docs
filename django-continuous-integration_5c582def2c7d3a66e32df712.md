@@ -41,7 +41,7 @@ Our Django CI pipeline contains the following tasks:
 
 The example pipeline is comprised of 5 blocks:
 
-![Project pipeline](./public/semaphore-demo-python-django-pipeline.png "Project pipeline")
+![Project pipeline](https://github.com/semaphoreci-demos/semaphore-demo-python-django/blob/master/pydjango_ci_integration/pipepline.png "Project pipeline")
 
 We want fast feedback through the test pipeline, so we'll fail fast if the linting fails. This prevents running time consuming tests for semantically incorrect code.
 
