@@ -16,6 +16,11 @@ Table of contents
 - [Installing a newer Docker version](#installing-a-newer-docker-version)
 - [See also](#see-also)
 
+Note: *This article describes the building, publishing and testing process of
+Docker containers on Semaphore. If you want to run jobs inside of Docker image,
+refer to the [Custom CI/CD environment with Docker](docker-environment)
+documentation.*
+
 ## Hello world
 
 ``` yaml
@@ -349,3 +354,4 @@ blocks:
 [sem-reference]: https://docs.semaphoreci.com/article/53-sem-reference
 [using-promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[docker-environment]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
