@@ -48,7 +48,7 @@ We want fast feedback through the test pipeline, so we'll fail fast if the linti
 Sample configuration
 --------------------
 
-<pre><code class="language-yaml">
+``` yaml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -197,7 +197,7 @@ blocks:
            - pip install -r requirements.txt --cache-dir .pip_cache
            # Test if project can be deployed securely.
            - python manage.py check --deploy --fail-level ERROR
-</code></pre>
+```
 
 ### Python
 
