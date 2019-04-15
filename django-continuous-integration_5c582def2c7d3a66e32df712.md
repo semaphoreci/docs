@@ -3,6 +3,8 @@ integration (CI) pipeline for a Python Django web application. First,
 create a new [Semaphore
 project](https://docs.semaphoreci.com/article/63-your-first-project).
 
+[[__TOC__]]
+
 Demo project
 ------------
 
@@ -20,8 +22,8 @@ permissions. The project uses the Django framework, unittest and nose
 for unit testing, pylint for code analysis, selenium for browser tests
 and MySQL as a database.
 
-Overview the CI pipeline
-------------------------
+Overview of the CI pipeline
+---------------------------
 
 Our Django CI pipeline contains the following tasks:
 
