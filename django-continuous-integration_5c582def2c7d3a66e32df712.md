@@ -12,7 +12,7 @@ Demo project
 Semaphore maintains an example Django project:
 
 -   [Demo Python
-    Django](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
+    Django project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
 
 The Semaphore annotated configuration file can be found in the
 repository file `.semaphore/semaphore.yml`.
@@ -41,7 +41,7 @@ Our Django CI pipeline contains the following tasks:
 
 The example pipeline is comprised of 5 blocks:
 
-![Project pipeline](https://github.com/semaphoreci-demos/semaphore-demo-python-django/blob/master/pydjango_ci_integration/pipepline.png "Project pipeline")
+![Project pipeline](https://github.com/semaphoreci-demos/semaphore-demo-python-django/raw/master/pydjango_ci_integration/pipepline.png "Django CI pipeline")
 
 We want fast feedback through the test pipeline, so we'll fail fast if the linting fails. This prevents running time consuming tests for semantically incorrect code.
 
