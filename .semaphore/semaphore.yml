@@ -9,11 +9,11 @@ blocks:
   - name: "Tests"
     task:
       jobs:
-        - name: "Markdown Link"
-          commands:
-            - npm install -g markdownlint-cli
-            - checkout
-            - markdownlint *.md
+        #- name: "Markdown Lint"
+        #  commands:
+        #    - npm install -g markdownlint-cli
+        #    - checkout
+        #    - markdownlint *.md
 
         - name: List of changes for manual inspection
           commands:
