@@ -10,8 +10,7 @@ Demo project
 
 Semaphore maintains an example Django project:
 
--   [Demo Python
-    Django project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
+-   [Demo Python Django project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
 
 The Semaphore annotated configuration file can be found in the
 repository file `.semaphore/semaphore.yml`.
