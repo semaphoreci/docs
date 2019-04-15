@@ -58,7 +58,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane 2.220
+- fastlane 2.120
 - xcode-install 2.5.0
 - cocoapods 1.5.3
 - xcpretty 0.3.0
