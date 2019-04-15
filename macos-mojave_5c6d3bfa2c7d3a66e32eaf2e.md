@@ -58,7 +58,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane 2.115.0 2.116.0
+- fastlane 2.220
 - xcode-install 2.5.0
 - cocoapods 1.5.3
 - xcpretty 0.3.0
@@ -96,6 +96,10 @@ Installed versions:
 
 - 2.3.7 (system)
 - 2.5.1
+
+## Flutter
+
+- v1.2.1-stable (macOS)
 
 ## Xcode
 
