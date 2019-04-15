@@ -3,8 +3,6 @@ integration (CI) pipeline for a Python Django web application. First,
 create a new [Semaphore
 project](https://docs.semaphoreci.com/article/63-your-first-project).
 
-[[__TOC__]]
-
 Demo project
 ------------
 
