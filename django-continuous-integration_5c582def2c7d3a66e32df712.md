@@ -1,6 +1,3 @@
-Django Continuous Integration
-=============================
-
 This guide shows you how to use Semaphore to set up a continuous
 integration (CI) pipeline for a Python Django web application. First,
 create a new [Semaphore
