@@ -99,7 +99,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.2.1-stable (macOS)
+- v1.2.1-stable
 
 ## Xcode
 
