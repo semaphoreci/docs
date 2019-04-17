@@ -29,31 +29,13 @@ control. On Semaphore you define these values as _secrets_ using the `sem` tool.
 Secrets are shared by all projects in the organization.
 
 Let's configure a secret for the `AWS_ACCESS_KEY_ID` and
-`AWS_SECRET_ACCESS_KEY` environment variables. Start by creating a new
-file called `aws-secret.yml`:
-
-``` yaml
-# aws-secret.yml
-apiVersion: v1beta
-kind: Secret
-metadata:
-  name: myapp-aws
-data:
-  env_vars:
-    - name: AWS_ACCESS_KEY_ID
-      value: "123"
-    - name: AWS_SECRET_ACCESS_KEY
-      value: "456"
-```
-
-Now create a secret resource with `sem`:
+`AWS_SECRET_ACCESS_KEY` environment variables.
 
 ``` bash
-sem create -f aws-secret.yml
+sem create secret aws-secrets \
+  -e AWS_ACCESS_KEY_ID=123 \
+  -e AWS_SECRET_ACCESS_KEY=456
 ```
-
-We recommend that after this step you either remove the secret definition file,
-or add it to your `.gitignore` list.
 
 Now we can use the environment variables defined in our secret by referencing
 the secret's `name` in the pipeline definition file. Just like regular
@@ -65,7 +47,7 @@ blocks:
   - name: "Deploy"
     task:
       secrets:
-        - name: myapp-aws
+        - name: aws-secrets
       jobs:
         - name: Push to S3
           commands:
@@ -79,14 +61,37 @@ Let's say that we've changed our mind and instead of environment variables,
 we'd actually like to use configuration files, such as `.aws/config` and
 `.aws/credentials`. We can store files in a secret too.
 
-Using `sem`, we can edit any secret definition file. The following command will
-fetch a secret and open its' current definition in your default editor:
+In the following example, we source our local configuration files and tell
+Semaphore to mount them in the job environment's home folder:
 
 ``` bash
-sem edit secret myapp-aws
+sem create secret aws-secrets-with-files \
+  -f ~/.aws/config:/home/semaphore/.aws/config \
+  -f ~/.aws/credentials:/home/semaphore/.aws/credentials
 ```
 
-Change the `data` section to define files:
+If you specify a relative path, the file will be mounted on a path
+relative to `/home/semaphore/`.
+
+### Editing files and environment variables in a secret
+
+Using `sem`, we can edit any secret on Semaphore. For example let's say that we
+want to edit the following secret:
+
+``` bash
+sem create secret example-secret \
+  -e FOO=BAR \
+  -f ~/hello.txt:/home/semaphore/hello.txt
+```
+
+To edit the secret use the following command that will fetch a secret and
+open its' current definition in your default editor:
+
+``` bash
+sem edit secret aws-secrets
+```
+
+Change the `env_vars` and `files` in the bellow definition:
 
 ``` yaml
 # aws-secret.yml
@@ -95,32 +100,20 @@ kind: Secret
 metadata:
   name: myapp-aws
 data:
-  env_vars: []
+  env_vars:
+  - name: FOO
+    value: BAR
   files:
-  - path: /home/semaphore/.aws/config
+  - path: /home/semaphore/hello.txt
     content: ICBzc2gtZHNzIEFBQUFCM...
-  - path: /home/semaphore/.aws/credentials
-    content: RudFlSSjh3cDNEWDdo...
 ```
 
-In `content` you should paste the output of `base64 your-file`.
-If you specify a relative path, the file will be mounted on a path
-relative to `/home/semaphore/`.
+Keep in mind that files are stored as Base64 encoded string. To update the
+content, use `base64 <your-file>` to get its Base64 encoded version before
+updating the definition file.
 
-Once you save and exit your editor, `sem` will automatically update
-the secret on Semaphore.
-
-### A shortcut for creating file-based secrets
-
-There's also a quicker way of creating a new secret from local files.
-In the following example, we source our local configuration files and tell
-Semaphore to mount them in the job environment's home folder:
-
-``` bash
-sem create secret aws-secrets \
-  --file ~/.aws/config:/home/semaphore/.aws/config \
-  --file ~/.aws/credentials:/home/semaphore/.aws/credentials
-```
+Once you save and exit your editor, `sem` will automatically update the secret
+on Semaphore.
 
 You can inspect a secret's definition using:
 
