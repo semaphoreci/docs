@@ -57,6 +57,10 @@ agent:
       image: postgres:9.6    # and will be available in the first image
 ```
 
+If your custom Docker images are privately hosted, follow the [private Docker
+images section in the Custom CI/CD environment][private-images] to set up your
+access credentials on Semaphore.
+
 ## Installing additional dependencies
 
 Let's say that your project uses Bats, which is hosted on GitHub, to test
@@ -91,4 +95,5 @@ Let's learn how to do that in [the next section][next].
 [macos]: https://docs.semaphoreci.com/article/120-macos-mojave-image
 [docker]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[private-images]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker#pulling-private-docker-images-from-dockerhub
 [next]: https://docs.semaphoreci.com/article/129-using-databases-and-services
