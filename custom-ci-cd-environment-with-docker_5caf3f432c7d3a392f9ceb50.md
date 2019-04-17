@@ -7,6 +7,7 @@ your project.
 - [Defining Docker images for your pipeline](#defining-docker-images-for-your-pipeline)
 - [Using multiple Docker images](#using-multiple-docker-images)
 - [Using custom Docker images](#using-custom-docker-images)
+- [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
 - [Pre-built convenience Docker images for Semaphore CI/CD jobs](#pre-built-convenience-docker-images-for-Semaphore-ci-cd-jobs)
 
 ## Defining Docker images for your pipeline
@@ -118,6 +119,35 @@ An example `Dockerfile` that meets the above criteria would be:
 FROM ubuntu:18.04
 
 RUN apt-get -y update && apt-get install -y git lftp docker
+```
+
+## Pulling private Docker images from DockerHub
+
+Semaphore allows you to use private Docker image hosted on DockerHub to run
+your CI/CD pipelines.
+
+First, set up a secret to store your DockerHub credentials:
+
+``` yaml
+sem create secret dockerhub-pull-secrets \
+  -e DOCKER_CREDENTIAL_TYPE=DockerHub \
+  -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
+  -e DOCKERHU_PASSWORD=<your-dockerhub-password> \
+```
+
+Attach the created secret to your agent's to pull private images:
+
+``` yaml
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <your-private-repository>/<image>
+
+  image_pull_secrets:
+    - name: dockerhub-pull-secrets
 ```
 
 ## Pre-built convenience Docker images for Semaphore CI/CD jobs
