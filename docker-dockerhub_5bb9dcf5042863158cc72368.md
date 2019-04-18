@@ -35,7 +35,7 @@ blocks:
     task:
       # Pull in environment variables from the "docker" secret
       secrets:
-        - name: docker
+        - name: dockerhub-secrets
       prologue:
         commands:
           # Authenticate to the registry for all jobs in the block

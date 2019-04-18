@@ -5,26 +5,10 @@ secret to configure AWS access key environment variables.
 
 ## Creating the Secret
 
-Open a new `secret.yml` file:
-
-``` yaml
-# secret.yml
-apiVersion: v1alpha
-kind: Secret
-metadata:
-  name: AWS
-data:
-  env_vars:
-    - name: AWS_ACCESS_KEY_ID
-      value: "YOUR_ACCESS_KEY"
-    - name: AWS_SECRET_ACCESS_KEY
-      value: "YOUR_SECRET_ACCESS_KEY"
-```
-
-Then create it:
-
 ``` bash
-sem create -f secret.yml
+sem create secret AWS \
+  -e AWS_ACCESS_KEY_ID=<your-aws-key-id> \
+  -e AWS_SECRET_ACCESS_KEY=<your-aws-access-key>
 ```
 
 Now add the secret to your pipeline and authenticate
