@@ -6,26 +6,10 @@ first step is create a secret for `DOCKER_USERNAME` and
 
 ## Creating The Secret
 
-Open a new `secret.yml` file:
-
-``` yaml
-# secret.yml
-apiVersion: v1alpha
-kind: Secret
-metadata:
-  name: docker
-data:
-  env_vars:
-    - name: DOCKER_USERNAME
-      value: "REPLACE WITH YOUR USERNAME"
-    - name: DOCKER_PASSWORD
-      value: "REPLACE WITH YOUR PASSWORD"
-```
-
-Then create it:
-
 ``` bash
-sem create -f secret.yml
+sem create secret dockerhub-secrets \
+  -e DOCKER_USERNAME=<your-dockerhub-username> \
+  -e DOCKER_PASSWORD=<your-dockerhub-password>
 ```
 
 Now add the secret to your pipeline and authenticate.
