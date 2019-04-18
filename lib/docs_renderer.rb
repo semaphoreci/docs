@@ -18,6 +18,12 @@ class DocsRenderer < Redcarpet::Render::HTML
   end
 
   def block_code(code, language)
-    %(<pre><code class="language-#{language}">#{code}</code></pre>)
+    %(<pre><code class="language-#{language}">#{escape_html(code)}</code></pre>)
+  end
+
+  private
+
+  def escape_html(string)
+    CGI.escapeHTML(string)
   end
 end
