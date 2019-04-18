@@ -8,22 +8,16 @@ the registries.
 
 ## Create the Secret
 
-1. Base64 encode the `key.json` and save the output: `base64 key.json`
-1. Create a new file `secret.yml` and paste in the content:
+Assuming that your Google Cloud credentials are stored on your computer in
+`/home/<username>/.secrets/gcp.json` use the following command to create a
+secret on Semaphore:
 
-```yml
-# secret.yml
-apiVersion: v1alpha
-kind: Secret
-metadata:
-  name: GCP
-data:
-  files:
-    - path: .secrets.gcp.json
-      content: PASTE_BASE64_ENCODED_CONTENT_HERE
+``` bash
+sem create secret GCP \
+  -f /home/<username>/.secrets/gcp.json:.secrets/gcp.json
 ```
 
-1. Create the `GCP` secret with `sem`: `sem create -f secret.yml`
+Now add the secret to your pipeline and authenticate.
 
 ## Configure the Pipeline
 
