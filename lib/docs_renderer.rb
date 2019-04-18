@@ -1,3 +1,5 @@
+require "cgi"
+
 class DocsRenderer < Redcarpet::Render::HTML
   def initialize(extensions = {})
     super({
