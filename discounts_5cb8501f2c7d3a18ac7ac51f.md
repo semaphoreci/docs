@@ -6,7 +6,7 @@ For non-profit organizations, we offer a 25% discount. This means that at the en
 
 If you are eligible for the discount, all you need to do is email us at [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com) with a proof of your organization's status, such as the IRS determination letter for US based companies, or its equivalent for other countries.
 
-## Student accounts
+## Free student accounts
 
 Every student currently enrolled at an accredited high school, college, or university, as well as any learn-to-code program or bootcamp, is eligible for a student account.
 
@@ -16,12 +16,20 @@ In order to request a student account, please send us an email to [customersucce
 
 We will evaluate your request, and get back to you with an answer as soon as possible.
 
-## Educator accounts
+## Free educator accounts
 
-Individual educators currently teaching programming at accredited high schools, colleges, or universities — as well as any learn-to-code programs or bootcamps — are eligible for an educator account.
+Individual educators currently teaching programming at accredited high schools, colleges, or universities — as well as any learn-to-code programs or bootcamps — are eligible for a free account.
 
 Aside from regular $20 free credits per month, educators will get a certain amount of credits a year, depending on their status.
 
 In order to request educator account, please send us an email to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)  from your .edu email address and/or a document that verifies your status of an educator.
+
+We will evaluate your request, and get back to you with an answer as soon as possible.
+
+## Research discounts
+
+Researchers or collaborators working on a project within an accredited institution whose purpose is related to learning, teaching, and/or training, although may not directly be involved in the teaching process, are eligible for a discount.
+
+To request research discount, please send us an email to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com) from your .edu email address and/or a document that verifies your status.
 
 We will evaluate your request, and get back to you with an answer as soon as possible.
