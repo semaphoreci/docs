@@ -113,7 +113,7 @@ possible and jump-start your own projects.
     </tr>
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/97-continuous-deployment-static-website">S3, static website</a></td>
-      <td>coming soon</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-static-website">semaphore-demo-static-website</a></td>
     </tr>
   </tbody>
 </table>
