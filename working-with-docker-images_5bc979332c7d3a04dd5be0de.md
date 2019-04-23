@@ -1,7 +1,7 @@
 Semaphore CI/CD jobs can run and build Docker images, and can also push images
 to Docker repositories or other remote storage.
 
-Docker CLI is [preinstalled](ubuntu-vm) on Semaphore VMs, so you can use Docker
+Docker CLI is [preinstalled][ubuntu-vm] on Semaphore VMs, so you can use Docker
 right away.
 
 Table of contents
@@ -18,7 +18,7 @@ Table of contents
 
 Note: *This article describes the building, publishing and testing process of
 Docker containers on Semaphore. If you want to run jobs inside of Docker image,
-refer to the [Custom CI/CD environment with Docker](docker-environment)
+refer to the [Custom CI/CD environment with Docker][docker-environment]
 documentation.*
 
 ## Hello world
@@ -106,7 +106,7 @@ docker pull registry-owner/image-name
 
 We also need a secure way to store and use account credentials, without storing
 them in version control. A way to do that on Semaphore is by
-[using secrets](using-secrets).
+[using secrets][using-secrets].
 
 The Semaphore configuration file in this case would look as follows:
 
@@ -135,7 +135,7 @@ blocks:
 ```
 
 Define the `docker-hub` secret referenced in the example using the
-[sem CLI](sem-reference):
+[sem CLI][sem-reference]:
 
 ``` yaml
 $ sem get secrets docker-hub
@@ -159,7 +159,7 @@ Note that the names of the two environment variables used can be anything
 you want. We recommend always using descriptive names.
 
 You can learn more about working with secrets in Semaphore 2.0 in the
-[guided tour](using-secrets).
+[guided tour][using-secrets].
 
 ## Building a Docker image from a Dockerfile
 
@@ -261,8 +261,8 @@ In the example we are using the `docker-hub` secret as defined in a
 from a private registry.
 
 Note that you can use promotions to build images only on certain branches,
-for example. Refer to the [guided tour](using-promotions) and the
-[pipeline reference](pipeline-reference) for more information on orchestrating
+for example. Refer to the [guided tour][using-promotions] and the
+[pipeline reference][pipeline-reference] for more information on orchestrating
 workflows.
 
 ### More examples of pushing to Docker registries
@@ -273,7 +273,7 @@ workflows.
 
 ## Using a specific version of docker-compose
 
-A recent version of Docker Compose is [preinstalled by default](ubuntu-vm).
+A recent version of Docker Compose is [preinstalled by default][ubuntu-vm].
 If you'd like to use another version, the first thing that you'll need
 to do is to delete the existing version.
 
@@ -311,7 +311,7 @@ The only thing that you should take care of is using a valid value for the
 
 ## Installing a newer Docker version
 
-A recent version of Docker toolchain is [preinstalled by default](ubuntu-vm).
+A recent version of Docker toolchain is [preinstalled by default][ubuntu-vm].
 In case there's a newer version which hasn't yet been added to Semaphore,
 this is an example that you can use to set it up:
 
@@ -339,9 +339,9 @@ blocks:
 
 ## See also
 
-- [sem command line tool Reference](sem-reference)
-- [Pipeline YAML Reference](pipeline-reference)
-- [Using secrets to manage sensitive data](using-secrets)
+- [sem command line tool Reference][sem-reference]
+- [Pipeline YAML Reference][pipeline-reference]
+- [Using secrets to manage sensitive data][using-secrets]
 
 [microservices-k8s-tutorial]: https://docs.semaphoreci.com/article/119-ci-cd-for-microservices-on-kubernetes
 [semaphore-demo-ruby-kubernetes]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
