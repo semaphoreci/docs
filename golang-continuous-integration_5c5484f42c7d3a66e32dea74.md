@@ -235,7 +235,7 @@ yourself. Here’s how to build the demo project with your own account:
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[sem-version]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version
+[sem-version]: SEM_SERVICE_LINK_PLACEHOLDER
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
 [cache]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[sem-service]: SEM_SERVICE_LINK_PLACEHOLDER

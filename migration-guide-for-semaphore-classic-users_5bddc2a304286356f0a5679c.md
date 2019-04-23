@@ -70,7 +70,8 @@ pipelines. Specifically this does not happen automatically:
 
 - S2 doesn't check out code: use [`checkout` command](https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout);
 
-- Databases and other services are stopped by default: use [`sem-service` tool](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service)
+- Databases and other services are stopped by default: use [`sem-service`
+  tool][sem-service]
   to start them;
 
 - Dependencies are not cached by default: see
@@ -85,3 +86,5 @@ preparation.
 
 For a full introduction to Semaphore 2.0, we recommend that you read through the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started).
+
+[sem-service]: SEM_SERVICE_LINK_PLACEHOLDER

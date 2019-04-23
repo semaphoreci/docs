@@ -28,7 +28,7 @@ blocks:
           - java -version
 ```
 
-[`sem-version`](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version)
+[`sem-version`][sem-version]
 switches the active Java version. `$JAVA_VERSION` takes the values 8 and 11:
 
 ``` bash
@@ -72,3 +72,5 @@ parallel jobs are executed:
 - `FOO=C BAR=1`
 - `FOO=C BAR=2`
 - `FOO=C BAR=3`
+
+[sem-version]: SEM_VERSION_LINK_PLACEHOLDER
