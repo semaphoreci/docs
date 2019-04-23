@@ -14,8 +14,22 @@ where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`,
 `php`, `ruby`, `python`, `scala` and `node`. The value of the `[VERSION]`
 parameter depends on the programming language used.
 
-For example, to change Go version to 1.9, use:
+Example of `sem-version` in your pipeline:
 
-``` bash
-sem-version go 1.9
+``` yaml
+version: v1.0
+name: Testing sem-version
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: sem-version
+    task:
+      jobs:
+      - name: Using sem-version
+        commands:
+          - sem-version go 1.9
+          - go version
 ```
