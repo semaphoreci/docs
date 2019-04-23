@@ -94,6 +94,5 @@ Let's learn how to do that in [the next section][next].
 [ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [macos]: https://docs.semaphoreci.com/article/120-macos-mojave-image
 [docker]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
 [private-images]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker#pulling-private-docker-images-from-dockerhub
 [next]: https://docs.semaphoreci.com/article/129-using-databases-and-services

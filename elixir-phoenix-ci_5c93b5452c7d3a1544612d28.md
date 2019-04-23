@@ -138,7 +138,7 @@ blocks:
           value: "ecto://postgres:@0.0.0.0:5432/sema_test"
         commands:
         # Start Postgres database service
-        # https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+        # See https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
         - sem-service start postgres
         - mix test
 ```
@@ -186,6 +186,6 @@ deployment. For more information and practical examples, see:
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
 [promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [deployment-tutorials]: https://docs.semaphoreci.com/article/123-tutorials-and-example-projects#deployment

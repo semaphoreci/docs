@@ -199,5 +199,5 @@ deployment to Heroku.
 [guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[sem-service]: https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
 [heroku-guide]: https://docs.semaphoreci.com/article/100-heroku-deployment

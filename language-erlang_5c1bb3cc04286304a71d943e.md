@@ -14,7 +14,7 @@ The list of supported Erlang versions is the following:
 
 ## Changing Erlang version
 
-The [`sem-version` utility](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-version)
+The [`sem-version` utility][sem-version]
 can help you change between the available Erlang versions.
 
 By default Semaphore Virtual Machine uses Erlang version 21.0. You can change
@@ -106,3 +106,5 @@ helloWorld() -> io:fwrite("hello, world\n").
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
