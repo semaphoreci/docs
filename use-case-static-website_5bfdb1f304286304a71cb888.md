@@ -104,7 +104,7 @@ blocks:
           commands:
             - checkout
             - cache restore website-build
-            - ./scripts/deploy
+            - aws s3 sync "public" "s3://bucket-name" --acl "public-read" 
 ```
 
 That’s it. Your website will now be continuously deployed every time there is
