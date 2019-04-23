@@ -87,4 +87,4 @@ preparation.
 For a full introduction to Semaphore 2.0, we recommend that you read through the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started).
 
-[sem-service]: SEM_SERVICE_LINK_PLACEHOLDER
+[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux

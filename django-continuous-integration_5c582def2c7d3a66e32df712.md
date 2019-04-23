@@ -78,7 +78,7 @@ blocks:
       prologue:
         commands:
           # Set the python version.
-          # See SEM_SERVICE_LINK_PLACEHOLDER
+          # See https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
           - sem-version python 3.7
           # Install Linux dependencies.
           - sudo apt-get update && sudo apt-get install -y python3-dev && sudo apt-get install default-libmysqlclient-dev

@@ -107,4 +107,4 @@ helloWorld() -> io:fwrite("hello, world\n").
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
-[sem-version]: SEM_VERSION_LINK_PLACEHOLDER
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux

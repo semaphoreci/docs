@@ -73,4 +73,4 @@ parallel jobs are executed:
 - `FOO=C BAR=2`
 - `FOO=C BAR=3`
 
-[sem-version]: SEM_VERSION_LINK_PLACEHOLDER
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
