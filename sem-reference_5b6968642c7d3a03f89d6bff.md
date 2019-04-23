@@ -332,7 +332,7 @@ sem create dashboard my-dashboard
 You cannot execute `sem create project [name]` in order to create an empty
 Semaphore 2.0 project.
 
-##### sem create secret with environment variables and files
+#### sem create secret with environment variables and files
 
 To create a secret with a list of environment variables and files, you can pass
 them during creation.
