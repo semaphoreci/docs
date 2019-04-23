@@ -8,9 +8,9 @@ to Help Scout:
 
 ## Creating new file
 
-- create a file in HelpScout docs
-  - HelpScout will assign a URL to it which we'll use for next step (`https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`)
-- create file in repository `just-example_5b4699632c7d3a099f2e742a.md`
+- Create a file in HelpScout docs
+  - HelpScout will assign a new URL for the page which we'll use for next step, for example `https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`. You can use that URL, sans the `?preview=...` part, to create links to the new page.
+- Create file in repository `just-example_5b4699632c7d3a099f2e742a.md`
   - `5b4699632c7d3a099f2e742a` is `id` of specific article
   - `just-example` is article's `slug`
 
