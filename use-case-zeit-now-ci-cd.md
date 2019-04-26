@@ -29,6 +29,8 @@ Continuous integration pipeline
 -------------------------------
 
 ``` yaml
+# .semaphore/semaphore.yml
+
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -123,6 +125,8 @@ Continuous deployment pipeline
 ------------------------------
 
 ``` yaml
+# .semaphore/deploy-production.yml
+
 version: v1.0
 name: Deploy to production
 agent:
