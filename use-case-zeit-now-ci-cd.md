@@ -18,11 +18,11 @@ Overview of the pipelines
 
 The demo has 3 annotated pipelines:
 
--   `semaphore.yml`: continuous integration.
+-   `semaphore.yml`:
     -   Builds and tests the application.
--   `deploy-production.yml`: production deployment.
+-   `deploy-production.yml`:
     -   Deploys to Zeit Now production site.
--   `deploy-staging.yml`: staging deployment.
+-   `deploy-staging.yml`:
     -   Deploys to the Zeit Now staging site.
 
 Continuous integration pipeline
@@ -223,7 +223,7 @@ To run the project on Semaphore:
 ![CI+CD
 Pipelines](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-zeit-now-ci-cd.png)
 
-Once deployment is completed, check out the new API service:
+Once deployment is completed, your new API service should be online:
 
 ![API
 Service](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-demo-zeit-now-json.png)
