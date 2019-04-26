@@ -1,6 +1,8 @@
 Zeit Now Continuous Deployment
 ==============================
 
+This guide shows you how to use Semaphore to set up continuous integration and deployment to Zeit Now.
+
 Demo project
 ------------
 
@@ -23,7 +25,7 @@ The demo has 3 annotated pipelines:
 -   `deploy-production.yml`:
     -   Deploys to Zeit Now production site.
 -   `deploy-staging.yml`:
-    -   Deploys to the Zeit Now staging site.
+    -   Deploys to Zeit Now staging site.
 
 Continuous integration pipeline
 -------------------------------
@@ -194,9 +196,8 @@ demo by yourself takes only a few minutes:
 2.  Open your account **Settings**
 3.  Go to the **Tokens** tab.
 4.  Click on the **Create** button.
-5.  Enter a name for the token, something descriptive like:
-    semaphore-zeit-now
-
+5.  Enter a name for the token:
+    
 ![Create Token](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/zeit-create-token.png)
 
 6. Copy the generated token and keep it safe.
