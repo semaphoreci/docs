@@ -181,14 +181,14 @@ spec:
         channels:
         - '#devops'
         - '@mtsoukalos'
-  - name: On finished pipelines for S1, docs, or --api projects
+  - name: On finished pipelines for S1, docs, or .*-api projects
     filter:
       projects:
       - website
-      - /.--api$/
+      - /.*-api$/
       - docs
       branches:
-      - /^feature-.-/
+      - /^feature-.*/
       - master
       pipelines:
       - semaphore.yml
@@ -201,7 +201,7 @@ status: {}
 ```
 
 This notification has two rules, one named `Send notifications for docs project`
-and another named `On finished pipelines for S1, docs, or --api projects`.
+and another named `On finished pipelines for S1, docs, or .*-api projects`.
 
 The first rule of the notification specifies a single project name that is
 called `API-docs`. All notifications will go to the `#devops` **channel** and
@@ -211,7 +211,7 @@ be ignored.
 
 The second rule is more complex than the first one. The values of the `projects`
 property specify two exact project names named `website` and `docs` as well as
-a regular expression (`/.--api$/`) that will be evaluated against all the
+a regular expression (`/.*-api$/`) that will be evaluated against all the
 project names of the current organization. For this filter to be `true`, at
 least one of the matches must be `true`.
 

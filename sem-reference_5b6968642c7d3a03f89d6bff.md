@@ -94,33 +94,33 @@ with the `-f` flag, which requires a valid path to a local file.
 
 The following list briefly describes all `sem` operations:
 
-- -connect-: The `connect` command is used for connecting to an organization
+- *connect*: The `connect` command is used for connecting to an organization
     for the first time.
-- -context-: The `context` command is used for switching organizations.
-- -create-: The `create` command is used for creating new resources.
-- -delete-: The `delete` command is used for deleting existing resources.
-- -get-: The `get` command is used for getting a list of items for an existing
+- *context*: The `context` command is used for switching organizations.
+- *create*: The `create` command is used for creating new resources.
+- *delete*: The `delete` command is used for deleting existing resources.
+- *get*: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-- -edit-: The `edit` command is used for editing existing `secrets`,
+- *edit*: The `edit` command is used for editing existing `secrets`,
     `notifications` and `dashboards` using your favorite text editor.
-- -apply-: The `apply` command is used for updating existing `secrets` and
+- *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
-- -attach-: The `attach` command is used for attaching to a running `job`.
-- -debug-: the `debug` command is used for debugging `jobs` and `projects`.
-- -logs-: The `logs` command is used for getting the logs of a `job`.
-- -stop-: The -stop- command is used for stopping `pipelines`, `workflows` and
+- *attach*: The `attach` command is used for attaching to a running `job`.
+- *debug*: the `debug` command is used for debugging `jobs` and `projects`.
+- *logs*: The `logs` command is used for getting the logs of a `job`.
+- *stop*: The *stop* command is used for stopping `pipelines`, `workflows` and
     `jobs` from running.
-- -rebuild-: The -rebuild- command is used for rebuilding `workflows` and
+- *rebuild*: The *rebuild* command is used for rebuilding `workflows` and
     `pipelines`
-- -port-forward-: The `port-forward` command is used for redirecting the
+- *port-forward*: The `port-forward` command is used for redirecting the
     network traffic from a job that is running in the VM to your local machine.
-- -help-: The `help` command is used for getting help about `sem` or an
+- *help*: The `help` command is used for getting help about `sem` or an
     existing `sem` command.
-- -init-: The `init` command is used for adding an existing GitHub repository
+- *init*: The `init` command is used for adding an existing GitHub repository
     to Semaphore 2.0 for the first time and creating a new project.
-- -version-: The `version` command is used for getting the version of the `sem`
+- *version*: The `version` command is used for getting the version of the `sem`
     utility.
 
 ### Resource types
@@ -193,7 +193,7 @@ execution from the other workflow executions.
 
 A `workflow` is composed of one or more `pipelines` depending on whether there
 exist promotions or auto promotions in the `workflow`. Therefore, a workflow
-should be viewed of as -a group of pipelines- or, if you like strict
+should be viewed of as *a group of pipelines* or, if you like strict
 definitions, as a dynamically configurable, n-ary tree of pipelines.
 
 #### Secrets
@@ -290,7 +290,7 @@ file. Currently there exist four types of YAML resource files that can be
 handled by `sem create`: secrets, dashboards, jobs and projects resource files.
 
 However, for `secrets` and `dashboards` only, you can use `sem create` to
-create an -empty- `secret` or `dashbord` without the need for a YAML file as
+create an *empty* `secret` or `dashbord` without the need for a YAML file as
 follows:
 
 ``` bash
@@ -613,7 +613,7 @@ Pipeline YAML file:
 - curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
 ```
 
-Replace `mactsouk` with the GitHub username that -you- are using.
+Replace `mactsouk` with the GitHub username that *you* are using.
 
 If you need to include the `curl` command on every `job`, you can include it in
 the `prologue` block of the `task`. An alternative way is to create a `secret`
@@ -625,7 +625,7 @@ job is running because you can see what is happening in real time.
 
 #### sem attach example
 
-The `sem attach` command requires the -Job ID- of a **running** job as its single
+The `sem attach` command requires the *Job ID* of a **running** job as its single
 parameter. So, the following command will connect to the VM of the job with Job
 ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
@@ -645,7 +645,7 @@ The `sem logs` command works with both finished and running jobs.
 
 #### sem logs example
 
-The `sem logs` command requires the -Job ID- of a job as its parameter:
+The `sem logs` command requires the *Job ID* of a job as its parameter:
 
 ``` bash
 sem logs 6ed18e81-0541-4873-93e3-61025af0363b
@@ -690,8 +690,8 @@ All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
 
 ### sem debug for jobs
 
-The `sem debug` command can help you troubleshoot all types of jobs (-running-,
--stopped- and -finished-) that are not working as you might have expected.
+The `sem debug` command can help you troubleshoot all types of jobs (*running*,
+*stopped* and *finished*) that are not working as you might have expected.
 
 The general form of the `sem debug` command for jobs is the following:
 
@@ -706,7 +706,7 @@ Additionally, there is a file in the home directory named `commands.sh` that
 contains all the commands of that job, including the commands in `prologue` and
 `epilogue` blocks.
 
-The VM that is used with `sem debug job` is on the -task level-, which means
+The VM that is used with `sem debug job` is on the *task level*, which means
 that it will be the real VM with the real environment that is used for the job
 when that job is executed in a pipeline – this includes all `secrets` and
 environment variables. This also means that you will be working on the actual
