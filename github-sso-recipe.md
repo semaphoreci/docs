@@ -11,5 +11,6 @@ Below you'll find detailed steps on how to accomplish this.
 2. From the left side menu click "Applications".
 3. Click [Authorized OAuth Apps](https://github.com/settings/applications).
 4. From the applications list, click on "Semaphore 2.0".
-5. Under "Organization access" choose your private organization and click "Grant".
-6. Once access is granted, you should be able to see your repo and add it: https://{YOUR_ORGNAME}.semaphoreci.com/new_project.
+5. Under "Organization access" choose your private organization click either "Grant" or "Request Access".
+6. *optional* If you've clicked "Request Access" in step #5, the admin of the orgnization will recieve an email of your request.
+7. Once access is granted, you should be able to see your repo and add it: https://{YOUR_ORGNAME}.semaphoreci.com/new_project.
