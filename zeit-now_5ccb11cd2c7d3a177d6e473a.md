@@ -1,5 +1,8 @@
 # Zeit Now Continuous Deployment
 
+This guide shows you how to use Semaphore to set up continuous integration and
+deployment to [Zeit Now](https://zeit.co).
+
 ## Demo project
 
 Semaphore provides a demo project:
@@ -26,12 +29,12 @@ On manual approval:
 The `.semaphore` directory in the repository contains annotated pipeline configuration files.
 
 ![CI+CD
-Pipelines](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-zeit-now-ci-cd.png)
+Pipelines for Zeit Now](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-zeit-now-ci-cd.png)
 
 
 ## Continuous integration pipeline
 
-``` yaml
+```yaml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -159,7 +162,7 @@ packages.
 
 ### Deployment
 
-[Zeit Now](https://zeit.co/) is a cloud service for serverless websites
+Zeit Now is a cloud service for serverless websites
 and web applications. Deployment is performed with the
 [Now CLI](https://zeit.co/docs/v2/getting-started/installation/#now-cli)
 and a config file:
