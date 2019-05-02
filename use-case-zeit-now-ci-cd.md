@@ -1,38 +1,37 @@
-Zeit Now Continuous Deployment
-==============================
+# Zeit Now Continuous Deployment
 
-This guide shows you how to use Semaphore to set up continuous integration and deployment to Zeit Now.
-
-Demo project
-------------
+## Demo project
 
 Semaphore provides a demo project:
 
--   <https://github.com/semaphoreci-demos/semaphore-demo-zeit-now>
+- [Demo Zeit Now project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now)
 
 The demo consists of an API server that replies with a simple JSON
 payload. The project runs on [Node.js](https://nodejs.org). It uses
 [Express](http://expressjs.com/) for the web framework and
 [Jest](https://jestjs.io/) for testing.
 
-Overview of the pipelines
--------------------------
+## Overview of the pipelines
 
-The demo has 3 annotated pipelines:
+The pipeline performs the following tasks:
 
--   `semaphore.yml`:
-    -   Builds and tests the application.
--   `deploy-production.yml`:
-    -   Deploys to Zeit Now production site.
--   `deploy-staging.yml`:
-    -   Deploys to Zeit Now staging site.
+- Install dependencies.
+- Run unit tests.
+- Continuously deploy master branch to production site.
 
-Continuous integration pipeline
--------------------------------
+On manual approval:
+
+- Deploy to staging site.
+
+The `.semaphore` directory in the repository contains annotated pipeline configuration files.
+
+![CI+CD
+Pipelines](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-zeit-now-ci-cd.png)
+
+
+## Continuous integration pipeline
 
 ``` yaml
-# .semaphore/semaphore.yml
-
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -121,14 +120,11 @@ branch out of the CI pipeline:
 
 -   Deploy to production: automatically started once all tests are green
     for the master branch.
--   Deploy to staging: manually started from Semaphore's dashboard.
+-   Deploy to staging: can be manually initiated from a Semaphore workflow on any branch.
 
-Continuous deployment pipeline
-------------------------------
+## Continuous deployment pipeline
 
 ``` yaml
-# .semaphore/deploy-production.yml
-
 version: v1.0
 name: Deploy to production
 agent:
@@ -164,8 +160,8 @@ packages.
 ### Deployment
 
 [Zeit Now](https://zeit.co/) is a cloud service for serverless websites
-and web applications. Deployment is done with their [command
-interface](https://zeit.co/docs/v2/getting-started/installation/#now-cli)
+and web applications. Deployment is performed with the
+[Now CLI](https://zeit.co/docs/v2/getting-started/installation/#now-cli)
 and a config file:
 
 ``` javascript
@@ -184,8 +180,7 @@ only differ on the app `name`, which maps to the final URL:
 -   Production: `semaphore-demo.USERNAME.now.sh`
 -   Staging: `semaphore-demo-staging.USERNAME.now.sh`
 
-Run the demo yourself
----------------------
+## Run the demo yourself
 
 You can get started right away with Semaphore. Running and deploying the
 demo by yourself takes only a few minutes:
@@ -196,8 +191,9 @@ demo by yourself takes only a few minutes:
 2.  Open your account **Settings**
 3.  Go to the **Tokens** tab.
 4.  Click on the **Create** button.
-5.  Enter a name for the token:
-    
+5.  Enter a name for the token, something descriptive like:
+    semaphore-zeit-now
+
 ![Create Token](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/zeit-create-token.png)
 
 6. Copy the generated token and keep it safe.
@@ -225,16 +221,13 @@ To run the project on Semaphore:
 4.  Edit any file and do a push to GitHub, Semaphore starts
     automatically.
 
-![CI+CD
-Pipelines](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-zeit-now-ci-cd.png)
 
-Once deployment is completed, your new API service should be online:
+Once deployment is completed, the API service should be online. Browse the production URL:
 
 ![API
 Service](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-demo-zeit-now-json.png)
 
-See also
---------
+## See also
 
 -   [Semaphore guided
     tour](https://docs.semaphoreci.com/category/56-guided-tour)
