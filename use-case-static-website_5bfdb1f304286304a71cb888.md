@@ -64,10 +64,14 @@ promotions:
           - master
 ```
 
-## Configure deployment credentials
+## Deployment to AWS S3
 
-In this example, we'll deploy our static website to AWS S3. To do that, we need
-to use valid AWS credentials. A secure way to pass our credentials to Semaphore
+In this example, we'll deploy our static website to AWS S3.
+
+### Configure deployment credentials
+
+To perform deployment in a CI/CD job, we need to use valid AWS credentials.
+A secure way to pass our credentials to Semaphore
 is by defining a [secret][secrets-guide].
 
 Create a new secret based on local `~/.aws` configuration files:
@@ -81,7 +85,7 @@ sem create secret aws-website \
 The above ensures that the files sourced from our local machine will be placed
 in the home directory of the user which executes our code on Semaphore.
 
-## Deploy website
+### Deploy website by uploading files to S3
 
 Finally, create a file `.semaphore/production-deploy.yml` to execute
 deployment, and import the secret for authentication to work:
