@@ -115,6 +115,10 @@ possible and jump-start your own projects.
       <td><a href="https://docs.semaphoreci.com/article/97-continuous-deployment-static-website">S3, static website</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-static-website">semaphore-demo-static-website</a></td>
     </tr>
+    <tr>
+      <td><a href="https://docs.semaphoreci.com/article/135-zeit-now-continuous-deployment">Zeit Now</a></td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-zeit-now">semaphore-demo-zeit-now</a></td>
+    </tr>
   </tbody>
 </table>
 <!-- markdownlint-disable -->
