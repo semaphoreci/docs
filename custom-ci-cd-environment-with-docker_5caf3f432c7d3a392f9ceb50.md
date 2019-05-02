@@ -31,7 +31,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby-2.6.1
+      image: semaphoreci/ruby:2.6.1
 
 blocks:
   - name: "Hello"
@@ -67,7 +67,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby-2.6.1
+      image: semaphoreci/ruby:2.6.1
 
     - name: db
       image: postgres:9.6
