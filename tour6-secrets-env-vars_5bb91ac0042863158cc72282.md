@@ -66,12 +66,12 @@ Semaphore to mount them in the job environment's home folder:
 
 ``` bash
 sem create secret aws-secrets-with-files \
-  -f ~/.aws/config:/home/semaphore/.aws/config \
-  -f ~/.aws/credentials:/home/semaphore/.aws/credentials
+  -f ~/.aws/config:~/.aws/config \
+  -f ~/.aws/credentials:~/.aws/credentials
 ```
 
 If you specify a relative path, the file will be mounted on a path
-relative to `/home/semaphore/`.
+relative to `/home/semaphore/` on Linux and `/Users/semaphore` on macOS.
 
 ### Editing files and environment variables in a secret
 
@@ -81,7 +81,7 @@ want to edit the following secret:
 ``` bash
 sem create secret example-secret \
   -e FOO=BAR \
-  -f ~/hello.txt:/home/semaphore/hello.txt
+  -f ~/hello.txt:~/hello.txt
 ```
 
 To edit the secret use the following command that will fetch a secret and
@@ -104,7 +104,7 @@ data:
   - name: FOO
     value: BAR
   files:
-  - path: /home/semaphore/hello.txt
+  - path: ~/hello.txt
     content: ICBzc2gtZHNzIEFBQUFCM...
 ```
 
