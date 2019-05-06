@@ -1,8 +1,34 @@
+This guide will help you get started with a JavaScript project on Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+Table of contents:
+
+- [Hello world](#hello-world)
 - [Example project](#example-project-with-node-js-typescript-and-react)
 - [Supported Node.js versions](#supported-node-js-versions)
 - [Dependency caching](#dependency-caching)
 - [Environment variables](#environment-variables)
 - [Browser testing](#browser-testing)
+
+## Hello world
+
+```yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: JavaScript example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Hello world
+    task:
+      jobs:
+        - name: Run some code
+          commands:
+            - node -p '"evol".split("").reverse().join("")'
+```
 
 ## Example project with Node.js, TypeScript and React
 
@@ -14,7 +40,14 @@ CI pipeline that you can use to get started quickly:
 
 ## Supported Node.js versions
 
-Semaphore uses [nvm](https://github.com/creationix/nvm) to manage Node.js
+Node.js is available out-of-the-box on Semaphore via [Linux][ubuntu-javascript]
+and [macOS][macos-javascript] operating system images. See these pages for
+details on currently available versions and additional tools that are available.
+
+You can also run JavaScript projects by defining a [Docker-based Semaphore
+agent][docker-env].
+
+On Linux, Semaphore uses [nvm](https://github.com/creationix/nvm) to manage Node.js
 versions. Any version installable with `nvm` is supported by Semaphore. By
 default, version 8.11 of Node.js is pre-installed on the Semaphore VM.
 
@@ -136,3 +169,6 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
 [tutorial]: https://docs.semaphoreci.com/article/121-nodejs-typescript-continuous-integration
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
+[ubuntu-javascript]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#javascript-via-node-js
+[macos-javascript]: https://docs.semaphoreci.com/article/120-macos-mojave-image#javascript-via-node-js
+[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker

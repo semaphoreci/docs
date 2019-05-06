@@ -1,40 +1,56 @@
+This guide will help you get started with a Python project on Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+Table of contents:
+
+- [Hello world](#hello-world)
 - [Django example](#django-example)
 - [Supported Python versions](#supported-python-versions)
 - [Dependency caching](#dependency-caching)
 - [Environment variables](#environment-variables)
 - [C-Extensions & system dependencies](#c-extensions-system-dependendices)
 
-This guide covers configuring Python projects on Semaphore.
-If you’re new to Semaphore we recommend reading the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+## Hello world
+
+```yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Python example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Hello world
+    task:
+      jobs:
+        - name: Run some code
+          commands:
+            - python -c 'print("evol"[::-1])'
+```
 
 ## Django example
 
 Semaphore provides a tutorial with a working
-CI pipeline that you can use to get started quickly:
+CI/CD pipeline that you can use to get started quickly:
 
 - [Django Continuous Integration tutorial][django-tutorial]
 
 ## Supported Python versions
 
-Semaphore provides major Python versions and tools preinstalled.
-You can find information about them in the
-[Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python).
+Python is available out-of-the-box on Semaphore via [Linux][ubuntu-python]
+and [macOS][macos-python] operating system images. See these pages for
+details on currently available versions and additional tools that are available.
 
-Python 2.7 is the default version. This can be switched to 3.7 with
-`sem-version`. Here's an example:
+You can also run Python projects by defining a [Docker-based Semaphore
+agent][docker-env].
 
-``` yaml
-blocks:
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - sem-version python 3.7
-      jobs:
-        - name: Tests
-          commands:
-            - python --version
+On Linux, you can use the [`sem-version` tool][sem-version] to switch between
+versions. For example:
+
+```
+sem-version python 3.7
 ```
 
 ## Dependency caching
@@ -159,3 +175,6 @@ blocks:
 ```
 
 [django-tutorial]: https://docs.semaphoreci.com/article/116-django-continuous-integration
+[ubuntu-python]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python
+[macos-python]: https://docs.semaphoreci.com/article/120-macos-mojave-image#python
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux

@@ -1,10 +1,32 @@
-- [Example project](#example-project-with-spring-boot-and-docker)
-- [Supported Java versions](#supported-java-versions)
-- [Dependency Caching](#dependency-caching)
-
-This guide covers configuring Java projects on Semaphore.
+This guide will help you get started with a Java project on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+Table of contents:
+
+- [Hello world](#hello-world)
+- [Example project](#example-project-with-spring-boot-and-docker)
+- [Supported Java versions](#supported-java-versions)
+- [Dependency caching](#dependency-caching)
+
+## Hello world
+
+``` yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Java example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Hello world
+    task:
+      jobs:
+        - name: Run java
+          commands:
+            - java --version
+```
 
 ## Example project with Spring Boot and Docker
 
@@ -16,36 +38,30 @@ CI/CD pipeline that you can use to get started quickly:
 
 ## Supported Java versions
 
-Semaphore provides major Java versions and tools preinstalled.
-You can find information about them in the
-[Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages).
+Java is available out-of-the-box on Semaphore via [Linux][ubuntu-java] and
+[macOS][macos-java] operating system images. See these pages for details on
+currently available versions and additional tools that are available.
 
-Java 8 and 10 are supported. Java 8 is the default. You can switch to
-Java 10 with `sem-version`. Here's an example:
+You can also run Java projects by defining a [Docker-based Semaphore
+agent][docker-env].
 
-``` yaml
-blocks:
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - sem-version java 10
-      jobs:
-        - name: Tests
-          commands:
-            - java --version
+The Linux VM provides multiple versions of Java. You can switch between them
+using the [`sem-version` tool][sem-version]. For example, in your `semaphore.yml`:
+
+```
+sem-version java 11
 ```
 
 ## Dependency caching
 
-Assuming you're using Maven, it's possible to cache dependencies.
+Here's an example of [caching dependencies][caching] using Maven.
 You may also cache compiled code and tests as well. The exact
 implementation varies depending on your tools.
 In the following configuration example, we download dependencies, compile
 code and warm the cache in the first block, then use the cache in
 subsequent blocks.
 
-``` yaml
+```yaml
 version: v1.0
 name: Java & Maven Example
 agent:
@@ -91,3 +107,8 @@ blocks:
 
 [tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
+[ubuntu-java]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages
+[macos-java]: https://docs.semaphoreci.com/article/120-macos-mojave-image#java
+[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[caching]: https://docs.semaphoreci.com/article/68-caching-dependencies
