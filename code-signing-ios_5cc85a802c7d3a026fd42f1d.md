@@ -1,52 +1,72 @@
-This document describes how to set up code signing in your iOS project on Semaphore CI using `fastlane match` tool.
+This guide describes how to set up code signing in CI/CD for your iOS project on Semaphore using Fastlane Match.
 
-- [Basic configuration of iOS Projects](#basic-configuration-of-ios-projects)
+- [Basic configuration of iOS projects](#basic-configuration-of-ios-projects)
 - [Setting up Fastlane Match](#setting-up-fastlane-match)
 - [Sample configuration files](#sample-configuration-files)
 - [Example application on GitHub](#example-application-on-github)
 
-If you'd like the Semaphore CI to push new builds for distribution to Hockey App, Fabric Beta, or TestFlight, then the CI must have access to the code signing certificate and provisioning profiles that are required to build the app for such distribution.
+If you'd like Semaphore to push new builds for distribution to HockeyApp, Fabric Beta or TestFlight, then CI must have access to the code signing certificate and provisioning profiles that are required to build the app for such distribution.
 
-In this guide we show you how to do that.
+Below we show you how to do that.
 
-## Basic configuration of iOS Projects
-We assume you have a working iOS project configured to run on Semaphore CI (see [Demo project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode)). In addition, we assume the `fastlane` tool is installed and configured. Please visit [Fastlane Setup](https://docs.fastlane.tools/getting-started/ios/setup/) to learn how to configure fastlane for your project.
+## Basic configuration of iOS projects
 
-If you are new to code signing, we recommend you to visit the [Code Signing Guide](https://codesigning.guide) and read it. 
+We assume you have a working iOS project configured to run on Semaphore.
+If you're new to Semaphore or not sure how to configure your iOS project, see
+the open source [demo project][demo-project] and [associated
+tutorial][ios-tutorial] for an example.
 
-The `match` tool has an extensive documentation on how to configure and use it, which you can find at [Fastlane Docs](https://docs.fastlane.tools/actions/match/).
+In addition, we assume that you installed and configured [Fastlane][fastlane].
+If not, please visit the [Fastlane setup guide][fastlane-setup-guide] to learn
+how to configure Fastlane for your project.
+
+If you are new to code signing, we recommend you to visit the [Code Signing
+Guide](code-signing) and read it. 
+
+The Match tool has extensive documentation on how to configure and use it, which you can find at [Fastlane Docs][fastlane-match].
 
 In a nutshell, what we are aiming at is:
 
-- Your iOS project configured with `fastlane` and `match`
-- You have a separate private git repository that stores code signing certificates and provisioning profiles (we use `GitHub` repository in this example).
-- You configure the 2 repositories above to be accessible from Semaphore CI.
+- Your iOS project configured with Fastlane and Match.
+- You have a separate private Git repository that stores code signing certificates and provisioning profiles.
+- Your CI/CD project on Semaphore works with these two repositories.
 
 ## Setting up Fastlane Match
 
-Before setting up provisioning profiles and distributing builds, you need an App ID for your app and App Store Connect application. If you don't have them yet, you can either create them manually in the Apple developer account and App Store Connect website, or you can use Fastlane's [`produce` action](https://docs.fastlane.tools/actions/produce/) to create both from command line.
+Before setting up provisioning profiles and distributing builds, you need an App ID for your app and App Store Connect application. If you don't have them yet, you can either create them manually in the Apple developer account and App Store Connect website, or you can use Fastlane's [`produce` action][fastlane-produce] to create both from command line.
 
-When you have your App ID and App Store Connect Application created, you can proceed to configuring code signing for your project.
+Once you have your App ID and App Store Connect Application, you can proceed to configuring code signing for your project.
 
-To set up the `match`, you'll need a private git repository. Follow the [documentation](https://docs.fastlane.tools/actions/match/) and command line prompts from the `init` command:
+To set up the `match`, you'll need a private Git repository.
+Follow the [documentation][fastlane-match]: run the `init` command from the root
+directory of your iOS project and follow the prompts:
 
-    # from the root directory of your iOS project
-    $> bundle exec fastlane match init
+```bash
+$ bundle exec fastlane match init
+```
 
-This will configure `match` with your private git URL and password locally on your computer. With this, you are now ready to create provisioning profiles for your app:
+This will configure `match` with your private Git URL and password locally on your computer. With this, you are now ready to create provisioning profiles for your app.
 
-    # this will generate 'development' provisioning profile so that you can run 
-    # your app on the device connected to Xcode
-    $> bundle exec fastlane match development
+The following will generate a 'development' provisioning profile so that you can run your app on the device connected to Xcode:
 
-    # this wil generate 'adhoc' provisioning profile so that other people
-    # can run your app on their devices through non-App Store distribution
-    # like HockeyApp or Fabric Beta
-    $> bundle exec fastlane match adhoc
+```bash
+$ bundle exec fastlane match development
+```
 
-    # this will generate 'appstore' provisioning profile so that 
-    # your app can be distributed through TestFlight and App Store
-    $> bundle exec fastlane match appstore
+This will generate an 'adhoc' provisioning profile so that other people
+can run your app on their devices through non-App Store distribution
+like HockeyApp or Fabric Beta:
+
+```bash
+$ bundle exec fastlane match adhoc
+```
+
+This will generate an 'appstore' provisioning profile so that
+your app can be distributed through TestFlight and App Store:
+
+```bash
+$ bundle exec fastlane match appstore
+```
 
 ### Preparing your Xcode project for use with Fastlane Match
 
@@ -56,153 +76,181 @@ To do this, in the "General" tab of your app target in Xcode, uncheck the "Autom
 
 ### Adding Semaphore Plugin to Fastlane
 
-In order to configure the fastlane for the CI environment, please use the Semaphore plugin. 
+In order to configure Fastlane for the CI/CD environment, please install the Semaphore plugin:
 
-    # Install the plugin
-    $> bundle exec fastlane add_plugin semaphore
+```bash
+$ bundle exec fastlane add_plugin semaphore
+```
 
-This plugin provides `setup_semaphore` action that configures temporary Keychain and switches `match` to 'readonly' mode.
+The plugin provides `setup_semaphore` action that configures temporary Keychain and switches `match` to 'readonly' mode.
 
 ### Adding Match to the Fastlane Lane
 
-As mentioned earlier, the CI does not have access to your developer account unless you provide the credentials in the configuration for the `match`. To make this work, we need to add a `match` action to the lanes that will publish your app for distribution.
+As mentioned earlier, CI doesn't have access to your developer account unless you provide the credentials in the configuration for the `match`. To make this work, we need to add a `match` action to the lanes that will publish your app for distribution.
 
-    # fastlane/Fastfile 
-    default_platform(:ios)
+```ruby
+# fastlane/Fastfile 
+default_platform(:ios)
 
-    platform :ios do
-    before_all do
-        setup_semaphore
-    end
+platform :ios do
+  before_all do
+    setup_semaphore
+  end
 
-    desc "Build and run tests"
-    lane :test do
-        scan
-    end
+  desc "Build and run tests"
+  lane :test do
+    scan
+  end
 
-    desc "Ad-hoc build"
-    lane :adhoc do
-        match(type: "adhoc")
-        gym(export_method: "ad-hoc")
-    end
+  desc "Ad-hoc build"
+  lane :adhoc do
+    match(type: "adhoc")
+    gym(export_method: "ad-hoc")
+  end
 
-    desc "TestFlight build"
-    lane :build do
-        match(type: "appstore")
-        gym(export_method: "app-store")
-    end
-    ...
-    end
+  desc "TestFlight build"
+  lane :build do
+    match(type: "appstore")
+    gym(export_method: "app-store")
+  end
+end
+```
 
-### Adding a Deploy key to the Semaphore project
+### Adding a deploy key to the Semaphore project
 
-Now that we have configured our tools to use appropriate configuration, we must also provide a way for the Semaphore CI to access the Git certificates repo, and the Apple Developer portal.
+Now that we have configured our tools to use appropriate configuration, we must also provide a way for Semaphore to access the Git certificates repo, and the Apple Developer portal.
 
-To allow Semaphore CI download certificates from your private certificates repository, you need to create a deploy key and add the key to the Semaphore secrets. Adding a deploy key is described in the [Semaphore Documentation](https://docs.semaphoreci.com/article/109-using-private-dependencies). 
+To allow Semaphore to download certificates from your private certificates repository, you need to create a deploy key and add it to Semaphore secrets. Adding a deploy key is described in _[Using private dependencies][using-private-deps]_. 
 
-If you have not installed the `sem` command line tool, it is a good time to install it - see the [documentation](https://docs.semaphoreci.com/article/53-sem-reference).
+If you have not installed the `sem` command line tool, this is a good time to install it - see the _[sem reference][sem]_.
 
 To store the deploy key as a secret file in the Semaphore environment:
 
-    $> sem create secret ios-cert-repo -f id_rsa_semaphore:/Users/semaphore/.keys/ios-cert-repo
+```bash
+$ sem create secret ios-cert-repo -f id_rsa_semaphore:/Users/semaphore/.keys/ios-cert-repo
+```
 
-This will create the deploy key file under the `.keys` directory when your build will run on the CI.
+Mounting the `ios-cert-repo` secret in your pipeline configuration will create the deploy key file in the `~/.keys` directory when your CI/CD jobs run on Semaphore.
+
+For an introduction to secrets on Semaphore, see the [guided
+tour on secrets][secrets-intro].
 
 ### Adding the Match passphrase to a secret
 
-Next, add the URL for the certificates reposiotry and the encryption password as environment variables that will be accessible in the CI (see the [Environment Variables and Secrets guide](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)). Also, add the App Store developer account's credentials here. :
+Next, add the URL for the certificates repository and the encryption password as environment variables that will be accessible in CI. We recommend also adding the App Store developer account's credentials to the same secret:
 
-    $> sem create secret fastlane-env \
-        -e MATCH_GIT_URL="<your ssh git url>" \
-        -e MATCH_PASSWORD="<password for decryption>" \
-        -e FASTLANE_USER="<app store developer's Apple ID>" \
-        -e FASTLANE_PASSWORD="<app store developer's password>"
+```bash
+$ sem create secret fastlane-env \
+  -e MATCH_GIT_URL="<your ssh git url>" \
+  -e MATCH_PASSWORD="<password for decryption>" \
+  -e FASTLANE_USER="<App Store developer's Apple ID>" \
+  -e FASTLANE_PASSWORD="<App Store developer's password>"
+```
 
-As a security note, it is highly advisable to create a separate app store "developer" account just for use in the CI environment. The same approach is advisable for accessing the private git certificates repository. 
+⚠️ As a security note, it is highly advisable to create a separate App Store "developer" account that will be used only in the CI/CD environment. The same approach is advisable for accessing the private Git certificates repository. 
 
-In a similar fashion, you can also add API keys for the distribution platform you use, in case you are using non-TestFlight (like HockeyApp or Fabric Beta). Consult with the respective platform's documentation to see which environment variables or secrets you need to include.
+In a similar fashion, you can also add API keys for another distribution platform that you use, such as HockeyApp or Fabric Beta. Consult with the respective platform's documentation to see which environment variables and secrets you need to include.
 
-With these secrets and configuration, now the Semaphore CI will be able to access the code signing certificates and provisioning profiles in order to build and distribute your app.
+With these secrets and configuration in place, Semaphore will be able to access the code signing certificates and provisioning profiles in order to build and distribute your app in your CI/CD workflow.
 
 ## Sample configuration files
 
-After you have configured `match`, `fastlane`, and environment variables, you can run the build on Semaphore CI. The following are the examples of 'Fastfile' and `semaphore.yml` configuration file that will run test and build on every push to the default branch. 
+After you have configured Match, Fastlane and environment variables, you are ready to build your app on Semaphore. The following are the examples of 'Fastfile' and `semaphore.yml` configuration files that will run test and build on every code push.
 
-    # fastlane/Fastfile
-    default_platform(:ios)
+For Fastlane:
 
-    platform :ios do
+```ruby
+# fastlane/Fastfile
+default_platform(:ios)
 
-        before_all do
-            # install the semaphore plugin with `fastlane add_plugin semaphore`
-            setup_semaphore
-        end
+platform :ios do
 
-        desc "Run Tests"
-        lane :test do  
-            scan
-        end
+  before_all do
+    # install the semaphore plugin with `fastlane add_plugin semaphore`
+    setup_semaphore
+  end
 
-        desc "Build"
-        lane :build do
-            match(type: "appstore")
-            gym(export_method: "app-store")
-        end
+  desc "Run Tests"
+  lane :test do  
+    scan
+  end
 
-        desc "Ad-hoc build"
-        lane :adhoc do
-            match(type: "adhoc")
-            gym(export_method: "ad-hoc")
-        end
+  desc "Build"
+  lane :build do
+    match(type: "appstore")
+    gym(export_method: "app-store")
+  end
 
-    end
+  desc "Ad-hoc build"
+  lane :adhoc do
+    match(type: "adhoc")
+    gym(export_method: "ad-hoc")
+  end
 
-    # .semaphore/semaphore.yml
-    version: v1.0
-    name: Semaphore iOS example
-    agent:
-    machine:
-        type: a1-standard-4
-        os_image: macos-mojave
-    blocks:
-    - name: Run tests
-        task:
-        env_vars:
-            - name: LANG
-            value: en_US.UTF-8
-        prologue:
-            commands:
-            - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-            - bundle install --path vendor/bundle
-            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
-        jobs:
-            - name: Fastlane test
-            commands:
-                - bundle exec fastlane ios test
-        secrets:
-            - name: fastlane-env
+end
+```
 
-    - name: Build app
-        task:
-        env_vars:
-            - name: LANG
-            value: en_US.UTF-8
-        prologue:
-            commands:
-            - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-            - bundle install --path vendor/bundle
-        jobs:
-            - name: Fastlane build
-            commands:
-                - chmod 0600 ~/.keys/*
-                - ssh-add ~/.keys/*
-                - bundle exec fastlane build
-        secrets:
-            - name: fastlane-env
-            - name: ios-cert-repo
+For Semaphore:
+
+```yaml
+ # .semaphore/semaphore.yml
+version: v1.0
+name: Semaphore iOS example
+agent:
+machine:
+    type: a1-standard-4
+    os_image: macos-mojave
+blocks:
+- name: Run tests
+    task:
+    env_vars:
+        - name: LANG
+        value: en_US.UTF-8
+    prologue:
+        commands:
+        - checkout
+        - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+        - bundle install --path vendor/bundle
+        - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+    jobs:
+        - name: Fastlane test
+        commands:
+            - bundle exec fastlane ios test
+    secrets:
+        - name: fastlane-env
+
+- name: Build app
+    task:
+    env_vars:
+        - name: LANG
+        value: en_US.UTF-8
+    prologue:
+        commands:
+        - checkout
+        - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+        - bundle install --path vendor/bundle
+    jobs:
+        - name: Fastlane build
+        commands:
+            - chmod 0600 ~/.keys/*
+            - ssh-add ~/.keys/*
+            - bundle exec fastlane build
+    secrets:
+        - name: fastlane-env
+        - name: ios-cert-repo
+```
 
 ## Example application on GitHub
 
-To see an example project of how to configure iOS project for Semaphore CI, visit the [`semaphore-demo-ios-swift-xcode` GitHub repository](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode).
+To see how an iOS project can be configured on Semaphore, see the [`semaphore-demo-ios-swift-xcode` GitHub repository][demo-project].
+
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
+[ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
+[fastlane]: https://fastlane.tools
+[fastlane-setup-guide]: https://docs.fastlane.tools/getting-started/ios/setup/
+[code-signing]: https://codesigning.guide
+[fastlane-match]: https://docs.fastlane.tools/actions/match/
+[fastlane-produce]: https://docs.fastlane.tools/actions/produce/
+[using-private-deps]: https://docs.semaphoreci.com/article/109-using-private-dependencies
+[sem]: https://docs.semaphoreci.com/article/53-sem-reference
+[secrets-intro]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
