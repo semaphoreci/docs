@@ -7,6 +7,7 @@ image reference][macos-mojave].
 Minimal Swift project configuration example:
 
 ```yaml
+# .semaphore/semaphore.yml
 version: v1.0
 name: Semaphore iOS Swift example
 agent:
