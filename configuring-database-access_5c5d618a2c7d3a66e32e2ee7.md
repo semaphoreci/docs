@@ -43,13 +43,7 @@ In order to create a new user in MySQL you will need to execute the
 following command:
 
 ``` bash
-mysql -h 127.0.0.1 -P 3306 -u root < rMySQL.sql
-```
-
-The contents of `rMySQL.sql` are as follows:
-
-``` sql
-CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';"
 ```
 
 ### Create a new MySQL user with administrative privileges
@@ -58,14 +52,7 @@ In order to create a new user with administrative privileges in MySQL you will
 need to execute the following command:
 
 ``` bash
-mysql -h 127.0.0.1 -P 3306 -u root < adminMySQL.sql
-```
-
-The contents of `adminMySQL.sql` are as follows:
-
-``` sql
-CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';"
 ```
 
 ## Redis
