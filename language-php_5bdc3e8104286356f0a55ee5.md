@@ -65,7 +65,7 @@ blocks:
             - checkout
             - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
             - composer install
-            - cache store composer-$(checksum composer.lock) vendor
+            - cache store composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock) vendor
 
   - name: Tests
     task:
