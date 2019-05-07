@@ -1,8 +1,8 @@
 Semaphore supports repositories hosted on GitHub with SAML single sign-on (SSO).
 This GitHub feature is available in the GitHub Enterprise Cloud offering.
 
-To authorize Semaphore to use GitHub for an organization with SSO enabled,
-you only need to grant orgnization access to Semaphore 2.0 app on GitHub.
+To authorize Semaphore to access repositories hosted on GitHub SSO,
+you need to grant Semaphore 2.0 access to your organization on GitHub.
 
 These are the steps to accomplish this:
 
