@@ -35,7 +35,7 @@ Default quotas per machine type for a newly created organization:
 </tr>
 <tr>
   <td>a1-standard-4</td>
-  <td>4</td>
+  <td>2</td>
 </tr>
 </tbody>
 </table>
