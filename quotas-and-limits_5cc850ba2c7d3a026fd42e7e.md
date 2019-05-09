@@ -4,7 +4,7 @@ time, your quotas may increase accordingly.
 
 - [Quotas for Maximum Parallel Running Jobs in an Organization](#quotas-for-maximum-parallel-running-jobs-in-an-organization)
 - [Pipeline and Block Execution Time Limit](#pipeline-execution-time-limit)
-- [Job Log Output Size Limit](#job-log-output-size-limit)
+- [Job Log Size Limit](#job-log-size-limit)
 
 ## Quotas for Maximum Parallel Running Jobs in an Organization
 
@@ -80,7 +80,7 @@ blocks:
 For detailed explanation, see the [execution time limit section in the
 Pipeline YAML reference][execution-time-limit-reference].
 
-## Job Log Output Size Limit
+## Job Log Size Limit
 
 Semaphore collects up to 16 megabytes of raw log data from every job in a
 pipeline, which in practice roughly equals 100,000 lines of output.
