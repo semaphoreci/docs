@@ -13,12 +13,32 @@ parallel running jobs.
 
 Default quotas per machine type for a newly created organization:
 
-| Machine Type  | Default Quota |
-| ------------- | ------------- |
-| e1-standard-2 | 8             |
-| e1-standard-4 | 8             |
-| e1-standard-8 | 8             |
-| a1-standard-4 | 2             |
+<table style="background-color: rgb(255, 255, 255);">
+<thead>
+<tr>
+  <td>Machine Type</td>
+  <td>Default Quota</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>e1-standard-2</td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>e1-standard-4</td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>e1-standard-8</td>
+  <td>8</td>
+</tr>
+<tr>
+  <td>a1-standard-4</td>
+  <td>4</td>
+</tr>
+</tbody>
+</table>
 
 If your organization needs are bigger than what is provided with the default
 machine quotas, you can request an increase by sending a request to
