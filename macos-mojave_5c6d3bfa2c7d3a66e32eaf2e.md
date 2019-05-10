@@ -1,4 +1,4 @@
-The `macos-mojave` is a customized image based on [MacOS 10.14][mojave-release-notes]
+The `macos-mojave` is a customized image based on [MacOS 10.14.4][mojave-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -105,9 +105,9 @@ Installed versions:
 
 Installed versions:
 
-- 10.2
+- 10.2.1
 
-Xcode 10.2 images have the following SDKs preinstalled:
+Xcode 10.2.1 images have the following SDKs preinstalled:
 
 - macosx10.14
 - iphoneos12.2
@@ -131,7 +131,7 @@ The Xcode 10.2 image comes with the following simulators:
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
-[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_release_notes
+[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_4_release_notes
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
