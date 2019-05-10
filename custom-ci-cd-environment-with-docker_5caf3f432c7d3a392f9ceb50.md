@@ -132,7 +132,7 @@ First, set up a secret to store your DockerHub credentials:
 sem create secret dockerhub-pull-secrets \
   -e DOCKER_CREDENTIAL_TYPE=DockerHub \
   -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
-  -e DOCKERHU_PASSWORD=<your-dockerhub-password> \
+  -e DOCKERHUB_PASSWORD=<your-dockerhub-password> \
 ```
 
 Attach the created secret to your agent's to pull private images:
