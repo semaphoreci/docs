@@ -156,3 +156,4 @@ prevent any build errors from reaching your site.
     reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
   - [Toolbox
     reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
+  - [Continuous deployment for a static website](https://docs.semaphoreci.com/article/97-continuous-deployment-static-website)
