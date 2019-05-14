@@ -10,6 +10,10 @@ your project.
 - [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
 - [Pre-built convenience Docker images for Semaphore CI/CD jobs](#pre-built-convenience-docker-images-for-Semaphore-ci-cd-jobs)
 
+Note: This document explains how to define a Docker based build environment and
+how run jobs inside of Docker containers. For building and running Docker
+images, refer to the [Working with Docker Images][working-with-docker].
+
 ## Defining Docker images for your pipeline
 
 To run your commands inside of Docker image, define the `containers` section in
@@ -158,3 +162,5 @@ Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/doc
 
 - [Android](https://hub.docker.com/r/semaphoreci/android/tags)
 - [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
+
+[working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
