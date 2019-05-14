@@ -20,6 +20,11 @@ possible and jump-start your own projects.
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix">semaphore-demo-elixir-phoenix</a></td>
     </tr>
     <tr>
+      <td>Clojure</td>
+      <td>Luminus</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-clojure-luminus">semaphore-demo-clojure-luminus</a></td>
+    </tr>
+    <tr>
       <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
       <td><a href="https://docs.semaphoreci.com/article/115-golang-continuous-integration">Go</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-go">semaphore-demo-go</a></td>
