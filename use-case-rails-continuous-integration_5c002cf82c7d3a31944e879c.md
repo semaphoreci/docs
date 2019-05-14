@@ -53,15 +53,43 @@ version: v1.0
 # and delivery phases.
 name: Demo Rails 5 app
 
-# An agent defines the environment in which your code runs.
-# It is a combination of one of available machine types and operating
-# system images.
+# An agent defines the environment in which your code runs. The agent's
+# environment can be either a Virtual Machine, or a collection of containers.
+#
+# In this example we will use a Ruby container with a Postgres 10 sidecar
+# container to run the jobs. The containers will run on a
+# e1-standard-2 (2 CPU, 4 GB memory) machines type.
+#
 # See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# and https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker.
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+
+  containers:
+    # The first container in the list, usually called main, executes the commands.
+    - name: main
+      image: semaphoreci/ruby:2.6.1-node
+      env_vars:
+        # We construct a Rails friendly DATABASE_URL environment variable based
+        # on the definition of the 'db' container bellow.
+        #
+        # The format that we follow is postgres://<username>:<password>@<hostname>
+        - name: DATABASE_URL
+          value: "postgres://postgres:keyboard-cat@db"
+        - name: RAILS_ENV
+          value: test
+
+    # The rest of the containers in the list are sidecar containers that offer
+    # additional services to the main container. They are connected to the first
+    # container via DNS, in this case the hostname `db` will point to this
+    # container.
+    - name: db
+      image: postgres:10
+      env_vars:
+        - name: POSTGRES_PASSWORD
+          value: keyboard-cat
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -82,8 +110,6 @@ blocks:
           # Restore dependencies from cache.
           # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-          # Set Ruby version:
-          - sem-version ruby 2.6.0
           - bundle install --deployment -j 4 --path vendor/bundle
           # Store the latest version of dependencies in cache,
           # to be used in next blocks and future workflows:
@@ -100,7 +126,6 @@ blocks:
             # restored, but generally this is not the case with other package
             # managers. Installation will not actually run and command will
             # finish quickly:
-            - sem-version ruby 2.6.0
             - bundle install --deployment --path vendor/bundle
             - bundle exec rubocop
             - bundle exec brakeman
@@ -114,12 +139,8 @@ blocks:
         commands:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-          # Start Postgres database service.
-          # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
-          - sem-service start postgres
-          - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
-          - bundle exec rake db:setup
+          - bundle exec rake db:migrate db:setup
 
       jobs:
       - name: RSpec - model tests
@@ -140,15 +161,14 @@ blocks:
         commands:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
-          - sem-service start postgres
-          - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
-          - bundle exec rake db:setup
+          - bundle exec rake db:migrate db:setup
 
       jobs:
       - name: RSpec - feature specs
         commands:
           - bundle exec rspec spec/features
+
 ```
 
 The project is using the following database configuration:
@@ -166,21 +186,19 @@ development:
   database: demo-rails5_development
 
 test:
-  <<: *default
-  database: demo-rails5_test
+  url: <%= ENV['DATABASE_URL'] %>
 ```
 
-PostgreSQL and MySQL instances run inside each job and can be accessed with
-a blank password. For more information on configuring database access,
-including tips for older versions of Rails, see the
-[Ruby language guide][ruby-guide].
+A PostgreSQL container is attached to the environment as the database layer for
+our test suite. MySQL, SQLite, and any other databases can be configured to run
+with Semaphore. Refer to [our guide for custom CI/CD environments with
+Docker][custom-ci-cd] for further information.
 
 Firefox, Chrome, and Chrome Headless drivers for Capybara work out of the box,
 so you will not need to make any adjustment for browser tests to work on
 Semaphore.
 
 ## Run the demo Ruby on Rails project yourself
-
 A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
@@ -215,3 +233,4 @@ deployment to Heroku.
 [cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
 [sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
 [heroku-guide]: https://docs.semaphoreci.com/article/100-heroku-deployment
+[custom-ci-cd]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
