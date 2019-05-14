@@ -57,7 +57,7 @@ possible and jump-start your own projects.
     <tr>
       <td>Python</td>
       <td>Flask</td>
-      <td>coming soon</td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-python-flask">semaphore-demo-python-flask</a></td>
     </tr>
     <tr>
       <td><a href="https://docs.semaphoreci.com/article/99-rails-continuous-integration">Ruby</a></td>
