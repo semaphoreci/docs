@@ -1,6 +1,6 @@
 ## Checking the connection between GitHub and Semaphore 2.0
 
-If for some reason GitHub looses access to Semaphore 2.0 then you might see
+If for some reason GitHub loses access to Semaphore 2.0 then you might see
 the following error message when trying to execute a Semaphore 2.0 project:
 
 ``` yaml
