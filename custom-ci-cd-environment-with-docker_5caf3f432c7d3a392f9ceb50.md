@@ -4,19 +4,22 @@ Semaphore CI/CD jobs can be run inside Docker images. This allows you to define
 a custom build environment with pre-installed tools and dependencies needed for
 your project.
 
-- [Defining Docker images for your pipeline](#defining-docker-images-for-your-pipeline)
-- [Using multiple Docker images](#using-multiple-docker-images)
-- [Using custom Docker images](#using-custom-docker-images)
-- [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
+- [Using a Docker container as your pipelines' CI/CD environment](#using-a-docker-container-as-your-pipelines-ci-cd-environment]
+- [Using multiple Docker containers](#using-multiple-docker-images)
 - [Pre-built convenience Docker images for Semaphore CI/CD jobs](#pre-built-convenience-docker-images-for-Semaphore-ci-cd-jobs)
+- [Building custom Docker images](#building-custom-docker-images)
+  - [Building a minimal Docker image for Semaphore](#building-a-minimal-docker-image-for-semaphore)
+  - [Extending Semaphore's pre-build convenience Docker images](#extending-semaphores-pre-built-convenience-docker-images)
+  - [Optimizing Docker images for fast CI/CD](#optimizing-docker-images-for-fast-ci-cd)
+- [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
 images, refer to the [Working with Docker Images][working-with-docker].
 
-## Defining Docker images for your pipeline
+## Using a Docker container as your pipelines' CI/CD environment
 
-To run your commands inside of Docker image, define the `containers` section in
+To run your commands inside of Docker container, define the `containers` section in
 your agent specification.
 
 For example, in the following pipeline we will use the `semaphoreci/ruby-2.6.1`
@@ -50,13 +53,13 @@ blocks:
 Note: *The example image `semaphoreci/ruby.2.6.1` is part of the pre-built
 Docker images optimized for Semaphore CI/CD jobs.*
 
-## Using multiple Docker images
+## Using multiple Docker containers
 
-An Agent can use multiple Docker images to run your jobs. In this scenario, the
-job's commands are run in the first Docker image, while the rest of the Docker
-images are linked and available to that first image.
+An Agent can use multiple Docker containers to set up an environment for your
+jobs. In this scenario, the job's commands are run in the first container,
+while the rest of the containers are linked via DNS to the first container.
 
-For example, if your tests depend on a running Postgres database and a Redis
+For example, if your tests need a running Postgres database and a Redis
 key-value store you can define them in the containers section.
 
 ``` yaml
@@ -102,7 +105,16 @@ The `hostname` of linked containers is set based on the name of container. In
 the previous example our Postgres database is named `db` and it is available
 on the `db` hostname in the first container.
 
-## Using custom Docker images
+## Pre-built convenience Docker images for Semaphore CI/CD jobs
+
+For convenience, Semaphore comes with a [repository of pre-built images hosted
+on Dockerhub][dockerhub-semaphore]. The source code of the Semaphore Docker
+images is [hosted on Github][docker-images-repo].
+
+- [Android](https://hub.docker.com/r/semaphoreci/android/tags)
+- [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
+
+## Building custom Docker images
 
 Semaphore Agents can use any public Docker image to run your jobs, if the
 following requirements are met:
@@ -117,13 +129,46 @@ To enable caching support, the following requirements need to be met:
 
 To enable running Docker-in-Docker the `docker` executable needs to be installed.
 
-An example `Dockerfile` that meets the above criteria would be:
+### Building a minimal Docker image for Semaphore
+
+An example `Dockerfile` that meets the minimal requirements can be constructed
+with the following Dockerfile:
 
 ``` Dockerfile
 FROM ubuntu:18.04
 
 RUN apt-get -y update && apt-get install -y git lftp docker
 ```
+
+### Extending Semaphore's pre-build convenience Docker images
+
+An alternative to building a fully custom Docker image from scratch is to extend
+one of the pre-built images from [Semaphore's DockerHub repository][dockerhub-semaphore].
+
+For example, to extend one of Semaphore's Ruby based images and install MySQL
+libraries use the following Dockerfile:
+
+``` Dockerfile
+FROM semaphoreci/ruby:2.6.2
+
+RUN apt-get -y install -y mysql-client libmysqlclient-dev
+```
+
+### Optimizing Docker images for fast CI/CD
+
+To achieve the best CI/CD experience and fastest results make sure to follow
+these guidelines:
+
+- Pre-install all the tools and languages in your Docker image. Avoid
+  downloading and installing tools every time you run a job as it increases
+  build time.
+
+- Keep the size of the Docker images small to avoid unnecessary boot time of
+  your environment. Install only the tools you need.
+
+Semaphore's pre-built images are created for a wide range of customers and
+include tools that you might not use in your test suite. For best results
+create a tailor made Docker image for your test suite and CI/CD needs.
 
 ## Pulling private Docker images from DockerHub
 
@@ -154,13 +199,6 @@ agent:
     - name: dockerhub-pull-secrets
 ```
 
-## Pre-built convenience Docker images for Semaphore CI/CD jobs
-
-For convenience, Semaphore comes with a [repository of pre-built images hosted
-on Dockerhub](https://hub.docker.com/u/semaphoreci). The source code of the
-Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/docker-images).
-
-- [Android](https://hub.docker.com/r/semaphoreci/android/tags)
-- [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
-
 [working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
+[dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
+[docker-images-repo]: https://github.com/semaphoreci/docker-images
