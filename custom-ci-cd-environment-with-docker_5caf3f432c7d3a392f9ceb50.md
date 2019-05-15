@@ -108,8 +108,8 @@ on the `db` hostname in the first container.
 ## Pre-built convenience Docker images for Semaphore CI/CD jobs
 
 For convenience, Semaphore comes with a [repository of pre-built images hosted
-on Dockerhub](https://hub.docker.com/u/semaphoreci). The source code of the Semaphore Docker
-images is [hosted on Github](https://github.com/semaphoreci/docker-images).
+on Dockerhub][dockerhub-semaphore]. The source code of the Semaphore Docker
+images is [hosted on Github][docker-images-repo].
 
 - [Android](https://hub.docker.com/r/semaphoreci/android/tags)
 - [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
