@@ -164,7 +164,9 @@ these guidelines:
   build time.
 
 - Keep the size of the Docker images small to avoid unnecessary boot time of
-  your environment. Install only the tools you need.
+  your environment. Install only the tools you need. A handful of tips for
+  building small Docker images can be found in the [Lightweight Docker Images
+  in 5 Steps][lightweight-docker-images] article.
 
 Semaphore's pre-built images are created for a wide range of customers and
 include tools that you might not use in your test suite. For best results
@@ -202,3 +204,4 @@ agent:
 [working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
 [dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
 [docker-images-repo]: https://github.com/semaphoreci/docker-images
+[lightweight-docker-images]: https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html
