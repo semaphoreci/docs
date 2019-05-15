@@ -4,8 +4,8 @@ Semaphore CI/CD jobs can be run inside Docker images. This allows you to define
 a custom build environment with pre-installed tools and dependencies needed for
 your project.
 
-- [Using a Docker container as your pipelines' CI/CD environment](#using-a-docker-container-as-your-pipelines-ci-cd-environment]
-- [Using multiple Docker containers](#using-multiple-docker-images)
+- [Using a Docker container as your pipelines' CI/CD environment](#using-a-docker-container-as-your-pipelines-ci-cd-environment)
+- [Using multiple Docker containers](#using-multiple-docker-containers)
 - [Pre-built convenience Docker images for Semaphore CI/CD jobs](#pre-built-convenience-docker-images-for-Semaphore-ci-cd-jobs)
 - [Building custom Docker images](#building-custom-docker-images)
   - [Building a minimal Docker image for Semaphore](#building-a-minimal-docker-image-for-semaphore)
