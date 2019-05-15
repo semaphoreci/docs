@@ -124,12 +124,15 @@ A scheduler has a few properties: `name`, `branch`, `at` and
 
 ##### name
 
-The `name` property uniquely identifies the scheduler for a project.
+The `name` property uniquely identifies the scheduler inside an organization.
 
 ##### branch
 
 The `branch` property specifies which currently existing branch will be used in
 running the pipeline.
+
+The chosen branch must have at least one workflow initiated by a push in order
+for the scheduler to be valid.
 
 ##### at
 
