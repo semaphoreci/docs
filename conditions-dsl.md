@@ -1,23 +1,21 @@
-- [Introduction](#introduction)
+The Conditions DSL is a new, universal way of specifying conditional execution
+of CI/CD commands in Semaphore.
+
+Using Conditions you can perform a full or regular expression matches and
+combine them with boolean operations. For example:
+```
+branch == 'master' OR tag =~ '^v1\.'
+```
+
+Currently you can use Conditions to specify when a block should and should not
+run, with more applications coming soon.
+
 - [Formal language definition](#Formal-language-definition)
 - [Usage examples](#usage-examples)
 
-## Introduction
-
-Sometimes there is a need to configure some behavior to only happen under specific conditions, like skipping execution of block A when push is from branch which is not master or does not have 'include-A' in name or it is a tag with '1.x' in name or ...
-
-Since this conditions can be really complex and hard to express in yaml syntax, we decided to introduced Domain Specific Language(DSL), called Conditions DSL, to streamline the way those conditions are expressed.
-
-With Conditions DSL you can perform direct or regex match on values of different attributes and use boolean operations to group those matches.  
-
-To illustrate how this works here is an example condition from above written in Conditions DSL:
-```
-branch != 'master' OR branch !~ 'include-A' OR tag =~ '1\.'
-```
-
 ## Formal language definition
 
-Formal language definition in [extended Backus-Naur Form (EBNF)](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) notation:
+Formal language definition in [extended Backus-Naur Form (EBNF)][ebnf] notation:
 
 ```
 expression = expression bool_operator term
@@ -41,12 +39,14 @@ boolean = "true" | "TRUE" | "false" | "FALSE"
 string = ? all characters between two single quotes, e.g. 'master' ?
 ```           
 
-Each `keyword` in passed expression is replaced with actual value of that attribute for current pipeline when expression is evaluated, and then operations identified with one of the `operators` from above are executed with those values.
+Each `keyword` in passed expression is replaced with actual value of that
+attribute for current pipeline when expression is evaluated, and then operations
+identified with one of the `operators` from above are executed with those values.
 
 |    KEYWORD     |             ATTRIBUTE IT REPRESENTS              |
 | :------------- | :----------------------------------------------- |
-| branch         | Name of the GitHub branch from which originated the pipeline that is being executed. |
-| tag            | Name of the GitHub tag from which originated the pipeline that is being executed. |
+| branch         | Name of the Git branch from which originated the pipeline that is being executed. |
+| tag            | Name of the Git tag from which originated the pipeline that is being executed. |
 | result         | Execution result of pipeline, block, or job. Possible values are: passed, stopped, canceled and failed. |
 | result_reason  | The reason for given result of execution. Possible values are: test, malformed, stuck, deleted, internal and user. |
 
@@ -145,3 +145,6 @@ blocks:
     skip:
       when: "branch !~ '^dev\/'"
 ```
+
+
+[ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
