@@ -113,6 +113,11 @@ images is [hosted on Github][docker-images-repo].
 
 - [Android](https://hub.docker.com/r/semaphoreci/android/tags)
 - [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
+- [Python](https://hub.docker.com/r/semaphoreci/python/tags)
+- [Haskell](https://hub.docker.com/r/semaphoreci/haskell/tags)
+- [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu/tags)
+- [Rust](https://hub.docker.com/r/semaphoreci/rust/tags)
+- [Golang](https://hub.docker.com/r/semaphoreci/golang/tags)
 
 ## Building custom Docker images
 
