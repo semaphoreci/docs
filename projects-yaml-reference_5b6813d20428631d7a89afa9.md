@@ -7,22 +7,23 @@
 - [spec](#spec)
   - [repository](#repository)
     - [url](#url)
-- [Example](#example)
+  - [schedulers](#schedulers)
+- [Examples](#examples)
 - [See also](#see-also)
 
 ## Overview
 
-This document is the reference for the YAML grammar used for adding Semaphore
-2.0 projects to the active Semaphore 2.0 organization using the `create`
-command of the `sem` command line utility.
+This document is the YAML grammar reference used for adding and editing
+Semaphore 2.0 projects using the `sem` command line utility.
 
 Projects can also be added to Semaphore 2.0 with the `sem init` command. In
 that case, you will not need to create a YAML file on your own. However,
 `sem init` requires a local copy of the GitHub repository, even if that
 repository is not up to date, that does not contain a
 `.semaphore/semaphore.yml` file. Put simply, `sem init` is simpler but less
-flexible than the `sem create` command. To learn more about the `sem init`
-command you can visit the
+flexible than the `sem create` command.
+
+To learn more about the `sem` commands for project manipulation, you can visit the
 [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference).
 
 ## Properties
@@ -63,7 +64,8 @@ multiple Semaphore 2.0 projects connected to the same GitHub repository.
 
 ### spec
 
-The `spec` property is currently used for holding the `repository` property.
+The `spec` property is currently used for holding the required `repository` and
+optional `schedulers` properties.
 
 #### repository
 
@@ -109,7 +111,47 @@ $ sem create -f goDemo.yaml
 error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
 ```
 
-## Example
+#### schedulers
+
+The schedulers property can contain a list of schedulers defined on the
+project.
+
+A scheduler in Semaphore 2.0 is a way to run a pre-defined pipeline on a project
+at the pre-defined time.
+
+A scheduler has a few properties: `name`, `branch`, `at` and
+`pipeline_file`.
+
+##### name
+
+The `name` property uniquely identifies the scheduler inside an organization.
+
+##### branch
+
+The `branch` property specifies which currently existing branch will be used in
+running the pipeline.
+
+The chosen branch must have at least one workflow initiated by a push in order
+for the scheduler to be valid.
+
+##### at
+
+The `at` property defines the schedule at which the pipeline will be ran.
+
+Semaphore expects this property to be the [standard cron syntax](https://en.wikipedia.org/wiki/Cron).
+For a simple way to define your cron syntax, visit [crontab.guru](https://crontab.guru/).
+
+##### pipeline_file
+
+The `pipeline_file` property contains the relative path to the pipeline
+definition file from the root of the project.
+
+For more information on defining a valid pipeline file, visit the
+[Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml).
+
+## Examples
+
+A simple project:
 
 ``` yaml
 apiVersion: v1alpha
@@ -119,6 +161,27 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
+```
+
+A project with schedulers:
+
+``` yaml
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: goDemo
+spec:
+  repository:
+    url: "git@github.com:renderedtext/goDemo.git"
+  schedulers:
+    - name: first-scheduler
+      branch: master
+      at: "5 4 * * *"
+      pipeline_file: ".semaphore/cron.yml"
+    - name: second-scheduler
+      branch: master
+      at: "5 3 * * *"
+      pipeline_file: ".semaphore/semaphore.yml"
 ```
 
 ## See Also

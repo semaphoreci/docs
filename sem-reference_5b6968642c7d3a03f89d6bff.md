@@ -102,8 +102,8 @@ The following list briefly describes all `sem` operations:
 - *get*: The `get` command is used for getting a list of items for an existing
     type of resource as well as getting analytic information about specific
     resources.
-- *edit*: The `edit` command is used for editing existing `secrets`,
-    `notifications` and `dashboards` using your favorite text editor.
+- *edit*: The `edit` command is used for editing existing `projects`, `secrets`,
+    `notifications` and `dashboards` using your configured text editor.
 - *apply*: The `apply` command is used for updating existing `secrets` and
     `dashborads` using a `secret` or a `dashaboard` YAML file and requires
     the use of the `-f` flag.
@@ -359,16 +359,16 @@ format of the parameter is `<NAME>=<VALUE>`.
 
 ### sem edit
 
-The `sem edit` command works for `secrets` and `dashboards` only and allows
-you to edit the YAML representation of a `secret` or a `dashboard` using your
-favorite text editor.
+The `sem edit` command works for `projects`, `secrets`, `notifications` and
+`dashboards` and allows you to edit the YAML representation of these resources
+using your configured text editor.
 
-The `sem edit` command does not support the `job` and `project` resource types.
+The `sem edit` command does not support the `job` resource type.
 
 #### sem edit examples
 
 The following command will edit an existing `secret` that is named `my-secret`
-and will automatically run your favorite text editor:
+and will automatically run your configured text editor:
 
 ``` bash
 sem edit secret my-secret
@@ -381,6 +381,12 @@ Similarly, the next command will edit a `dashboard` named `my-activity`:
 
 ``` bash
 sem edit dashboard my-activity
+```
+
+To edit a `project` with the name `my-project`, use the following command:
+
+``` bash
+sem edit project my-project
 ```
 
 ### sem get
@@ -785,7 +791,7 @@ sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
 
 ## Working with projects
 
-This group only includes the `sem init` and `sem debug` commands.
+This group includes the `sem init`, `sem edit` and `sem debug` commands.
 
 ### sem init
 
@@ -834,6 +840,22 @@ The previous command creates a new Semaphore 2.0 project that will be called
 
 Using `--repo-url` with `sem init` is much trickier because you should know
 what you are doing.
+
+### sem edit
+
+You can edit a project by using the `sem edit project` command, followed by the
+`name` of an existing project.
+
+``` bash
+sem edit project [name]
+```
+
+The `sem edit project` command will start your configured text editor. In order
+for the changes to take effect, you will have to save the changes and exit your
+text editor.
+
+To learn more about the configuration options for projects, visit the
+[Projects YAML Reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference).
 
 ### sem debug for projects
 
@@ -991,7 +1013,7 @@ by the `name` of the existing notification.
 sem edit notification [name]
 ```
 
-The `sem edit notification` command will start your favorite text editor.
+The `sem edit notification` command will start your configured text editor.
 In order for the changes to take effect, you will have to save the changes and
 exit your text editor.
 
@@ -1051,7 +1073,7 @@ You can edit that notification as follows:
 sem edit notifications documents
 ```
 
-The aforementioned command will take you to your favorite text editor. If your
+The aforementioned command will take you to your configured text editor. If your
 changes are syntactically correct, you will get an output similar to the next:
 
 ``` bash
