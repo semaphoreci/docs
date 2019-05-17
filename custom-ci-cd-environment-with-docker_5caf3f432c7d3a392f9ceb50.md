@@ -34,7 +34,6 @@ name: Hello Docker
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
 
   containers:
     - name: main
@@ -70,7 +69,6 @@ name: Hello Docker
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
 
   containers:
     - name: main
