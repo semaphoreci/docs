@@ -29,8 +29,7 @@ term = "(" expression ")"
 
 bool_operator = "and" | "AND" | "or" | "OR"
 
-keyword = "branch" | "BRANCH" | "tag" | "TAG" | "result" | "RESULT" |
-          "result_reason" | "RESULT_REASON"
+keyword = "branch" | "BRANCH" | "tag" | "TAG"
 
 operator = "=" | "!=" | "=~" | "!~"
 
@@ -47,8 +46,6 @@ identified with one of the `operators` from above are executed with those values
 | :------------- | :----------------------------------------------- |
 | branch         | Name of the Git branch from which originated the pipeline that is being executed. |
 | tag            | Name of the Git tag from which originated the pipeline that is being executed. |
-| result         | Execution result of pipeline, block, or job. Possible values are: passed, stopped, canceled and failed. |
-| result_reason  | The reason for given result of execution. Possible values are: test, malformed, stuck, deleted, internal and user. |
 
 
 |  OPERATOR |                 OPERATION RESULT                          |
