@@ -65,7 +65,7 @@ identified with one of the `operators` from above are executed with those values
 
 ## Usage examples
 
-### Skip block execution always
+### Condition is met always
 
 ```yaml
 blocks:
@@ -74,7 +74,7 @@ blocks:
       when: "true"
 ```
 
-### Skip block execution on any branch
+### Condition is met for any branch
 
 ```yaml
 blocks:
@@ -83,7 +83,7 @@ blocks:
       when: "branch =~ '.*'"
 ```
 
-### Skip block execution when branch is master
+### Condition is met when branch is master
 
 ```yaml
 blocks:
@@ -92,7 +92,7 @@ blocks:
       when: "branch = 'master'"
 ```
 
-### Skip block execution when branch starts with “df/”
+### Condition is met when branch starts with “df/”
 
 ```yaml
 blocks:
@@ -101,7 +101,7 @@ blocks:
       when: "branch =~ '^df\/'"
 ```
 
-### Skip block execution when branch is staging or master
+### Condition is met when branch is staging or master
 
 ```yaml
 blocks:
@@ -110,7 +110,7 @@ blocks:
       when: "branch = 'staging' OR branch = 'master'"
 ```
 
-### Skip block execution on any tag
+### Condition is met for any tag
 
 ```yaml
 blocks:
@@ -119,7 +119,7 @@ blocks:
       when: "tag =~ '.*'"
 ```
 
-### Skip block execution when tag start with “v1.”
+### Condition is met when tag start with “v1.”
 
 ```yaml
 blocks:
@@ -128,7 +128,7 @@ blocks:
       when: "tag =~ '^v1\.'"
 ```
 
-### Skip block execution on master branch and any tags
+### Condition is met when branch is master or if it is a tag
 
 ```yaml
 blocks:
@@ -137,7 +137,7 @@ blocks:
       when: "branch = 'master' OR tag =~ '.*'"
 ```
 
-### Execute block when branch starts with “dev/” == Skip block execution when branch doesn’t start with dev/
+### Condition is met when branch does not start with "dev/"
 
 ```yaml
 blocks:
