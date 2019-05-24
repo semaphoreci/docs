@@ -62,7 +62,7 @@ identified with one of the `operators` from above are executed with those values
 
 ## Usage examples
 
-### Condition is met always
+### Always true
 
 ```yaml
 blocks:
@@ -71,7 +71,7 @@ blocks:
       when: "true"
 ```
 
-### Condition is met for any branch
+### On any branch
 
 ```yaml
 blocks:
@@ -80,7 +80,7 @@ blocks:
       when: "branch =~ '.*'"
 ```
 
-### Condition is met when branch is master
+### When branch is master
 
 ```yaml
 blocks:
@@ -89,7 +89,7 @@ blocks:
       when: "branch = 'master'"
 ```
 
-### Condition is met when branch starts with “df/”
+### When branch starts with “df/”
 
 ```yaml
 blocks:
@@ -98,7 +98,7 @@ blocks:
       when: "branch =~ '^df\/'"
 ```
 
-### Condition is met when branch is staging or master
+### When branch is staging or master
 
 ```yaml
 blocks:
@@ -107,7 +107,7 @@ blocks:
       when: "branch = 'staging' OR branch = 'master'"
 ```
 
-### Condition is met for any tag
+### On any tag
 
 ```yaml
 blocks:
@@ -116,7 +116,7 @@ blocks:
       when: "tag =~ '.*'"
 ```
 
-### Condition is met when tag start with “v1.”
+### When tag start with “v1.”
 
 ```yaml
 blocks:
@@ -125,7 +125,7 @@ blocks:
       when: "tag =~ '^v1\.'"
 ```
 
-### Condition is met when branch is master or if it is a tag
+### When branch is master or if it is a tag
 
 ```yaml
 blocks:
@@ -134,7 +134,7 @@ blocks:
       when: "branch = 'master' OR tag =~ '.*'"
 ```
 
-### Condition is met when branch does not start with "dev/"
+### When branch does not start with "dev/"
 
 ```yaml
 blocks:
