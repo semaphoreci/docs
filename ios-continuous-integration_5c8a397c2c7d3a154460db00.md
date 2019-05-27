@@ -3,10 +3,7 @@ Semaphore supports building, testing and deploying Swift, Objective-C and React 
 projects via [macOS Mojave VM image][macos-mojave] and [a1-standard machine
 types][machine-types].
 
-iOS support is currently in beta, during which time the service is free to
-use. [You can apply for access here][beta-apply].
-
-Table of contents:
+**Table of contents**
 
 - [Demo project](#demo-project)
 - [Overview of the CI pipeline](#overview-of-the-ci-pipeline)

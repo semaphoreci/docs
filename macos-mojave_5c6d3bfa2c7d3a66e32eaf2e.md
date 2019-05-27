@@ -9,8 +9,6 @@ named `semaphore`, has full `sudo` access.
 
 [[__TOC__]]
 
-Note: MacOS support on Semaphore is currently in beta.
-
 ## Using the macos-mojave OS image in your agent configuration
 
 To use the `macos-mojave` OS image, define it as the `os_image` of your agent's
