@@ -1,5 +1,7 @@
 This guide shows you how to configure Semaphore to continuously deploy a
-static website to Netlify. Before getting started, you'll need:
+static website to Netlify.
+
+Before getting started, you'll need:
 
   - A [Netlify](https://netlify.com) account.
   - A working
@@ -7,8 +9,8 @@ static website to Netlify. Before getting started, you'll need:
     with a CI pipeline that builds the website.
 
 For the initial CI pipeline, you may refer to Semaphore's [open source demo
-static website project][demo-project], which uses a Node.js framework to
-generate site pages.
+static website project][demo-project], which uses a Node.js framework to generate site
+pages, and the [companion guide][static-website-guide].
 
 **Table of contents**
 
@@ -153,3 +155,4 @@ successful update of the master branch. With a setup such as this, you can
 ship updates quickly while preventing any errors from reaching your site.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-static-website
+[static-website-guide]: https://docs.semaphoreci.com/article/97-continuous-deployment-static-website

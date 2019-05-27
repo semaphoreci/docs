@@ -1,7 +1,19 @@
 This guide shows you how to use Semaphore to set up continuous deployment for
-a static website. Before starting, [create a new Semaphore project][create-project].
+a static website.
 
-## Define the pipeline
+## Example project
+
+Semaphore provides an example open source project based on Gatsby.js which you
+can use as an example for building a CI/CD pipeline for a static website:
+
+- [Demo static website project on GitHub][demo-project]
+
+The project includes a build pipeline and two deployment pipelines, for AWS S3
+and Netlify:
+
+![static website ci/cd pipeline](https://github.com/semaphoreci-demos/semaphore-demo-static-website/raw/master/images/ci-pipeline-gatsby.png)
+
+## Define the build pipeline
 
 There are many static site generators, but the essential deployment steps are
 the same for all:
@@ -117,13 +129,17 @@ pull requests. However, Semaphore will report a build failure in case there's
 an error which prevents the website to be generated, so that you can fix it
 before merging to master.
 
+## Deploy to Netlify
+
+See _[Netlify Continuous Deployment][netlify-guide]_ guide.
+
 ## See also
 
 - [Semaphore guided tour][guided-tour]
 - [Pipelines reference][pipelines-ref]
 - [Cache reference][cache-ref]
 
-[create-project]: https://docs.semaphoreci.com/article/63-your-first-project
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-static-website
 [promotions-guide]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [caching-guide]: https://docs.semaphoreci.com/article/68-caching-dependencies
 [nodejs]: https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs
@@ -131,3 +147,4 @@ before merging to master.
 [guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
 [pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+[netlify-guide]: https://docs.semaphoreci.com/article/141-netlify-continuous-deployment
