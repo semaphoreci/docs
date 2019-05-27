@@ -1,22 +1,26 @@
-# Continuous deployment to Netlify
-
-This guide shows you how to setup Semaphore to continuously deploy a
-static website to Netlify. Before getting started, you will need:
+This guide shows you how to configure Semaphore to continuously deploy a
+static website to Netlify. Before getting started, you'll need:
 
   - A [Netlify](https://netlify.com) account.
   - A working
-    [project](https://docs.semaphoreci.com/article/63-your-first-project)
+    [Semaphore project](https://docs.semaphoreci.com/article/63-your-first-project)
     with a CI pipeline that builds the website.
 
-For the initial pipeline, you may refer to the [continous deployment of a
-static
-website](https://docs.semaphoreci.com/article/97-continuous-deployment-static-website#define-the-pipeline)
-case, which uses Node.js to generate a website.
+For the initial CI pipeline, you may refer to Semaphore's [open source demo
+static website project][demo-project], which uses a Node.js framework to
+generate site pages.
 
-## Overview of the pipeline
+**Table of contents**
 
-Create a deployment pipeline as
-`.semaphore/production-deploy-netlify.yml`:
+- [Write a deployment pipeline](#write-a-deployment-pipeline)
+- [Add a promotion to deployment](#add-a-promotion-to-deployment)
+- [Manage Netlify credentials](#manage-netlify-credentials)
+  - [Store credentials on Semaphore](#store-credentials-on-semaphore)
+- [Launch your first deployment](#launch-your-first-deployment)
+
+## Write a deployment pipeline
+
+Create a deployment pipeline as a new file in your `.semaphore` directory:
 
 ``` yaml
 # .semaphore/production-deploy-netlify.yml
@@ -52,7 +56,7 @@ the `public` directory and
 with the key: `website-build`. You may need to adjust the last two
 commands of the job to suit your needs.
 
-### Add a promotion to deployment
+## Add a promotion to deployment
 
 Add a
 [promotion](https://docs.semaphoreci.com/article/67-deploying-with-promotions)
@@ -72,7 +76,7 @@ master branch. For more details regarding promotions, consult the
 [reference
 documentation](https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions).
 
-### Netlify credentials
+## Manage Netlify credentials
 
 To obtain your Netlify credentials:
 
@@ -83,7 +87,7 @@ To obtain your Netlify credentials:
     $ npm install netlify-cli -g
     ```
 
-2.  Login to your Netlify account:
+2.  Log in to your Netlify account:
     
     ``` bash
     $ netlify login
@@ -117,7 +121,7 @@ your Netlify account and site.
 [Secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
 are the best way to store private data such as authentication tokens and
 passwords. You can securely send the files to Semaphore using [sem
-cli](https://docs.semaphoreci.com/article/53-sem-reference):
+CLI](https://docs.semaphoreci.com/article/53-sem-reference):
 
 ``` bash
 $ cd /your/project/path
@@ -132,7 +136,7 @@ To see the secrets stored on Semaphore:
 $ sem get secrets
 ```
 
-### Start deployment
+## Launch your first deployment
 
 The workflow will start as soon as the changes are pushed to your
 repository:
@@ -144,16 +148,8 @@ $ git commit -m "add deployment"
 $ git push
 ```
 
-That’s all. Your website will be automatically deployed for every
-successful update on the master branch. With a setup such as this, you can
-prevent any build errors from reaching your site.
+That’s all. Your website will be automatically deployed on every
+successful update of the master branch. With a setup such as this, you can
+ship updates quickly while preventing any errors from reaching your site.
 
-## See also
-
-  - [Semaphore guided
-    tour](https://docs.semaphoreci.com/category/56-guided-tour)
-  - [Pipelines
-    reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-  - [Toolbox
-    reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
-  - [Continuous deployment for a static website](https://docs.semaphoreci.com/article/97-continuous-deployment-static-website)
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-static-website
