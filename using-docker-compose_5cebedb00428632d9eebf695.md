@@ -1,21 +1,44 @@
-# Docker Compose in CI
+Semaphore lets you easily run Docker Compose to build and test multi-container
+applications.
 
-This guide shows you how to use Docker Compose to build and test
-multi-container applications in Semaphore.
+
+ℹ️  *Semaphore also has a feature which lets you [run CI/CD jobs in any Docker
+images of your choice][docker-agents].  This guide is for cases when you prefer
+to invoke Docker Compose and Docker CLI.*
+
+Semaphore supports Docker and Docker Compose out of the box, no
+additional configuration required. The
+[Ubuntu 18.04][ubuntu-vm] image includes everything you need to get started
+right away.
+
+It's useful to keep in mind that:
+
+  - Each job runs in a fully isolated environment. This means that
+    Docker images are not shared among jobs, not even on the same block.
+    You should use a registry to pass images between jobs.
+  - `$SEMAPHORE_WORKFLOW_ID` is a unique value that is shared among all
+    pipelines in a workflow. This makes it a great candidate for tagging
+    images.
+  - Don't forget to
+    [checkout](https://docs.semaphoreci.com/article/54-toolbox-reference#checkout)
+    your code if you have any `Dockerfile` or `docker-compose.yml` in your
+    project.
+
+## Example Docker Compose project
 
 Semaphore provides a demo project that takes advantage of Docker
 Compose:
 
-  - [semaphore-demo-python-flask](https://github.com/semaphoreci-demos/semaphore-demo-python-flask)
+  - [Demo Docker Compose-based project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-flask)
 
 The demo consists of a simple task manager composed of two containers:
-the web application and a mongodb database.
+the web application built with Python Flask and a MongoDB database.
 
-# Overview of the pipeline
+### Overview of the pipeline
 
 The pipeline performs the following tasks:
 
-- Build a docker image with the app and dependencies.
+- Build a Docker image with the app and dependencies.
 - Tag the image and push it to Docker Hub.
 - Start the app and database containers.
 - Run tests on the live app.
@@ -78,7 +101,7 @@ blocks:
           - docker exec -it semaphore-pyflask-docker_flasksemaphore_1 python -m unittest
 ```
 
-The pipeline consists of two blocks:
+The CI pipeline consists of two blocks:
 
 ![CI pipeline](https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-python-flask/master/.semaphore/pipeline.png)
 
@@ -90,34 +113,13 @@ type](https://docs.semaphoreci.com/article/20-machine-types) for the
 pipelines that create images. The `e1-standard-4` machine is a good,
 cost-effective option.
 
-### Docker
-
-Semaphore supports Docker and Docker Compose out of the box, no
-additional components required. The
-[Ubuntu 18.04](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#docker)
-image includes everything you need to get started right away.
-
-On Semaphore, Docker works just like in any other machine. Just keep in
-mind that:
-
-  - Each job runs in a fully isolated environment. This means that
-    Docker images are not shared among jobs, not even on the same block.
-    You should use a registry to pass images between jobs.
-  - `$SEMAPHORE_WORKFLOW_ID` is a unique id that is shared among all
-    pipelines in a workflow. This makes it a great candidate for tagging
-    images.
-  - Don't forget to
-    [checkout](https://docs.semaphoreci.com/article/54-toolbox-reference#checkout)
-    if you have any `Dockerfiles` or `docker-compose.yml` in your
-    project.
-
 ### Docker build
 
 This block is in charge of building and pushing the app image to Docker
 Hub:
 
 1.  `checkout` the code.
-2.  [Login](https://docs.docker.com/engine/reference/commandline/login/)
+2.  [Log in](https://docs.docker.com/engine/reference/commandline/login/)
     to Docker Hub.
 3.  Build the app image with [docker-compose
     build](https://docs.docker.com/compose/reference/build/).
@@ -133,7 +135,7 @@ A
 is executed before every job in the block:
 
 1.  Checkout to get `docker-compose.yml`.
-2.  Login to Docker Hub.
+2.  Log in to Docker Hub.
 3.  [Pull](https://docs.docker.com/engine/reference/commandline/pull/)
     the app image from the registry.
 4.  Start the application in background: 
@@ -141,12 +143,12 @@ is executed before every job in the block:
     
 Docker Compose takes care of dependencies, environment and networking.
 
-Tests are split in two concurrent jobs:
+Tests are split in two parallel jobs:
 
   - Run unit test: start the test script inside the container.
   - Check running images: shows docker containers running.
 
-# Run the demo yourself
+### Run the demo yourself
 
 The best way to get familiarized with Semaphore is to run the project
 yourself:
@@ -166,7 +168,45 @@ yourself:
 That's it. From now on, every change commited will trigger automatic
 docker builds and tests.
 
-# See also
+## Using a specific version of docker-compose
+
+A recent version of Docker Compose is [preinstalled by default][ubuntu-vm].
+If you'd like to use another version, the first thing that you'll need
+to do is to delete the existing version.
+
+The contents of the Semaphore 2.0 pipeline file will be as follows:
+
+``` yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Install docker-compose
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Install desired version of docker-compose
+    task:
+      env_vars:
+      - name: DOCKER_COMPOSE_VERSION
+        value: 1.4.2
+      jobs:
+      - name: Get docker-compose
+        commands:
+          - checkout
+          - docker-compose -v
+          - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+          - chmod +x docker-compose
+          - ./docker-compose -v
+          - sudo mv docker-compose /usr/bin
+          - docker-compose -v
+```
+
+The only thing that you should take care of is using a valid value for the
+`DOCKER_COMPOSE_VERSION` environment variable.
+
+## See also
 
   - [Semaphore guided
     tour](https://docs.semaphoreci.com/category/56-guided-tour)
@@ -176,5 +216,6 @@ docker builds and tests.
     data](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
   - [Working with docker
     images](https://docs.semaphoreci.com/article/78-working-with-docker-images)
-  - [Custom CI/CD environment with
-    Docker](https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker)
+
+[docker-agents]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image

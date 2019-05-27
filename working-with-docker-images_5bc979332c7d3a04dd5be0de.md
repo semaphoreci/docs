@@ -12,12 +12,12 @@ Table of contents
 - [Using a Docker image from a private registry](#using-a-docker-image-from-a-private-registry)
 - [Building a Docker image from a Dockerfile](#building-a-docker-image-from-a-dockerfile)
 - [Pushing a Docker image to a registry](#pushing-a-docker-image-to-a-registry)
-- [Using a specific version of docker-compose](#using-a-specific-version-of-docker-compose)
+- [Using Docker Compose](#using-docker-compose)
 - [Installing a newer Docker version](#installing-a-newer-docker-version)
 - [See also](#see-also)
 
-Note: *This article describes the building, publishing and testing process of
-Docker containers on Semaphore. If you want to run jobs inside of Docker image,
+ℹ️  *This article describes the process of building, publishing and testing 
+Docker containers on Semaphore. If you want to run jobs inside of a Docker image,
 refer to the [Custom CI/CD environment with Docker][docker-environment]
 documentation.*
 
@@ -271,43 +271,10 @@ workflows.
   (ECR)][ecr-tutorial]
 - [Pushing Docker images to Google Container Registry (GCR)][gcr-tutorial]
 
-## Using a specific version of docker-compose
+## Using Docker Compose
 
-A recent version of Docker Compose is [preinstalled by default][ubuntu-vm].
-If you'd like to use another version, the first thing that you'll need
-to do is to delete the existing version.
-
-The contents of the Semaphore 2.0 pipeline file will be as follows:
-
-``` yaml
-# .semaphore/semaphore.yml
-version: v1.0
-name: Install docker-compose
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
-blocks:
-  - name: Install desired version of docker-compose
-    task:
-      env_vars:
-      - name: DOCKER_COMPOSE_VERSION
-        value: 1.4.2
-      jobs:
-      - name: Get docker-compose
-        commands:
-          - checkout
-          - docker-compose -v
-          - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-          - chmod +x docker-compose
-          - ./docker-compose -v
-          - sudo mv docker-compose /usr/bin
-          - docker-compose -v
-```
-
-The only thing that you should take care of is using a valid value for the
-`DOCKER_COMPOSE_VERSION` environment variable.
+You can use Docker Compose in your Semaphore jobs as you would on any Linux machine.
+For a detailed example, see _[Using Docker Compose in CI][using-docker-compose]_.
 
 ## Installing a newer Docker version
 
@@ -355,3 +322,4 @@ blocks:
 [using-promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [docker-environment]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[using-docker-compose]: https://docs.semaphoreci.com/article/140-using-docker-compose-in-ci
