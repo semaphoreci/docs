@@ -17,7 +17,7 @@ run, with more applications coming soon.
 
 Formal language definition in [extended Backus-Naur Form (EBNF)][ebnf] notation:
 
-```
+``` txt
 expression = expression bool_operator term
            | term
 
@@ -105,7 +105,7 @@ identified with one of the `operators` from above are executed with those values
 
 ### Always true
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -114,7 +114,7 @@ blocks:
 
 ### On any branch
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -123,7 +123,7 @@ blocks:
 
 ### When branch is master
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -132,7 +132,7 @@ blocks:
 
 ### When branch starts with “df/”
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -141,7 +141,7 @@ blocks:
 
 ### When branch is staging or master
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -150,7 +150,7 @@ blocks:
 
 ### On any tag
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -159,7 +159,7 @@ blocks:
 
 ### When tag start with “v1.”
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -168,7 +168,7 @@ blocks:
 
 ### When branch is master or if it is a tag
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
@@ -177,7 +177,7 @@ blocks:
 
 ### When branch does not start with "dev/"
 
-```yaml
+``` yaml
 blocks:
   - name: Unit tests
     skip:
