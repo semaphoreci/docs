@@ -42,20 +42,61 @@ Each `keyword` in passed expression is replaced with actual value of that
 attribute for current pipeline when expression is evaluated, and then operations
 identified with one of the `operators` from above are executed with those values.
 
-|    KEYWORD     |             ATTRIBUTE IT REPRESENTS              |
-| :------------- | :----------------------------------------------- |
-| branch         | Name of the Git branch from which originated the pipeline that is being executed. |
-| tag            | Name of the Git tag from which originated the pipeline that is being executed. |
+<table style="background-color: rgb(255, 255, 255);">
+  <thead>
+    <tr>
+      <td>KEYWORD</td>
+      <td>ATTRIBUTE IT REPRESENTS</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>branch</td>
+      <td>Name of the Git branch from which originated the pipeline that is
+      being executed.</td>
+    </tr>
+    <tr>
+      <td>tag</td>
+      <td>Name of the Git tag from which originated the pipeline that is being
+      executed.</td>
+    </tr>
+  </tbody>
+</table>
 
-
-|  OPERATOR |                 OPERATION RESULT                          |
-| :-------: | :-------------------------------------------------------- |
-|   =       | True if keyword value and given string are equal          |
-|   !=      | True if keyword value and given string are not equal      |
-|   =~      | True if keyword value and given PCRE* string match        |
-|   !~      | True if keyword value and given PCRE* string do not match |
-|   and     | True if expressions on both sides are true                |
-|   or      | True if at least one of two expressions is true           |
+<table style="background-color: rgb(255, 255, 255);">
+  <thead>
+    <tr>
+      <td>OPERATOR</td>
+      <td>OPERATION RESULT</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>=</td>
+      <td>True if keyword value and given string are equal</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>True if keyword value and given string are not equal</td>
+    </tr>
+    <tr>
+      <td>=~</td>
+      <td>True if keyword value and given PCRE* string match</td>
+    </tr>
+    <tr>
+      <td>!~</td>
+      <td>True if keyword value and given PCRE* string do not match</td>
+    </tr>
+    <tr>
+      <td>and</td>
+      <td>True if expressions on both sides are true</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>True if at least one of two expressions is true</td>
+    </tr>
+  </tbody>
+</table>
 
 \* PCRE = Perl Compatible Regular Expression
 
