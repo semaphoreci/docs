@@ -26,7 +26,7 @@ the `.semaphore` directory:
   - Continuous Deployment
       - Prepare files for deployment.
 
-![CI+CD](https://raw.githubusercontent.com/TomFern/semaphore-demo-clojure-luminus/master/.semaphore/semaphore-demo-clojure-luminus-cicd.png)
+![CI+CD](https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-clojure-luminus/master/.semaphore/semaphore-demo-clojure-luminus-cicd.png)
 
 
 ### Continuous Integration Pipeline
