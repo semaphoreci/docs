@@ -1,6 +1,4 @@
-# Modeling Your CI/CD via Next-Gen Semaphore Pipelines
-
-## Introduction (What this is about?)
+# Modeling Your CI/CD via Dependencies
 
 With Semaphore 2.0 there are two approaches in terms of how you can model your CI/CD
 process.
@@ -12,8 +10,8 @@ inside each of those blocks, one can split the work across arbitrary number of j
 and run things in parallel.
 
 This guide is intended for teams which need to model CI/CD processes with much higher
-complexity. Semaphore 2.0 allows you to do so by (providing you with ability |
-giving you a freedom) to specify dependencies for each block within a pipeline.
+complexity. Semaphore 2.0 allows you to do so by providing you with ability 
+to specify dependencies for each block within a pipeline.
 
 If blocks put to run in a sequence, don't meet your team needs, then this guide is just for
 you.
@@ -124,8 +122,8 @@ blocks:
 ```
 
 You can notice the whole trick is in `dependencies` property specified on each block.
-However, in the following guide you will get a glimpse why this way of
-modeling CI/CD pipelines is powerful.
+However, in the following guide you will get an idea why this way of
+modeling CI/CD pipelines is so powerful.
 
 In our example Pipeline we have the structure of following blocks:
 
@@ -139,9 +137,9 @@ In our example Pipeline we have the structure of following blocks:
 - Release candidate
 
 Each of these blocks are parts of the pipeline which need to be run before
-deployment to any environment.
+we run deployment to any of ours environment.
 
-Now, lets take a look at how these blocks are put in order using [`dependencies`](link-to-deps-field-reference) property.
+Lets have a look at how these blocks are put in order by using [`dependencies`](link-to-deps-field-reference) property.
 
 We specify that we want to run checks against our source code to verify that the
 revision we are running pipeline against, is conforming to the
@@ -157,7 +155,7 @@ depend on.
 
 *Note*: In case any of your blocks can start immediately without depending on any other
 block, you still have to specify `dependencies` property and put an empty array
-there.
+there. Otherwise you will get an error saying that your YAML isn't valid.
 
 After running the style checks against our code we want to pack it up inside Docker
 image. So we specified that Dockerize block depends on Code quality check block.
@@ -173,12 +171,13 @@ tests, Unit tests, Integration tests and E2E tests in sequential order. That
 leaves Performance tests to run in parallel since they consume much more time
 than any other testing block.
 
-Smoke tests are run as first to avoid uneccessary extra cost in case our basic
-functionality doesn't work. In case they pass our pipeline with progress by
-running other types of tests.
+Smoke tests are run as first to avoid running further blocks in case our basic
+functionality doesn't work. With this order of exection, you avoid extra cost 
+for your organization. Once Smoke tests pass our pipeline progresses by running 
+other types of tests.
 
-The following snippets show definition of `dependencies` property for each of
-our block for testing:
+The following snippets focus on definitions of `dependencies` property for each of
+our blocks for testing:
 
 ```
   - name: "Long perf tests"
@@ -205,7 +204,7 @@ our block for testing:
     dependencies: ["Integration tests"]
 ```
 
-In the end of our pipeline when all of our tests are run, we tag this version as
+In the end of our pipeline after all sorts of tests are run, we tag docker image used as
 release candidate.
 
 ```
@@ -215,9 +214,9 @@ release candidate.
 
 ## Next step
 
-In this guide you learned how you can model complex CI/CD process by defining
+In this guide you learned how to model complex CI/CD process by defining
 dependencies between blocks. We suggest you to have a look how you can take your CI/CD
-to the next level and promote either manually or automatically to the next phase.
+to the next level and promote your pipeline either manually or automatically to the next phase.
 
 
 Cheers/Happy building/Have fun
