@@ -81,7 +81,7 @@ cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 ```
 
 Checks if an archive with provided key exists in cache.
-Command passes if key is found in the cache, otherwise is fails.
+Command passes if key is found in the cache, otherwise it fails.
 
 ### cache list
 
