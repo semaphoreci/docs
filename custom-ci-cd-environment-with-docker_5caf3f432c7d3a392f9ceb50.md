@@ -1,5 +1,3 @@
-Note: *This is a beta feature. Updates might not be backward compatible.*
-
 Semaphore CI/CD jobs can be run inside Docker images. This allows you to define
 a custom build environment with pre-installed tools and dependencies needed for
 your project.
