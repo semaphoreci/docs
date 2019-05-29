@@ -116,6 +116,11 @@ images is [hosted on Github][docker-images-repo].
 - [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu/tags)
 - [Rust](https://hub.docker.com/r/semaphoreci/rust/tags)
 - [Golang](https://hub.docker.com/r/semaphoreci/golang/tags)
+- [Clojure](https://hub.docker.com/r/semaphoreci/clojure)
+- [Elixir](https://hub.docker.com/r/semaphoreci/elixir)
+- [Node](https://hub.docker.com/r/semaphoreci/node)
+- [Openjdk](https://hub.docker.com/r/semaphoreci/openjdk)
+- [Php](https://hub.docker.com/r/semaphoreci/php)
 
 ## Building custom Docker images
 
