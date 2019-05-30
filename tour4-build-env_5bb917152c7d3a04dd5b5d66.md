@@ -47,7 +47,6 @@ more Docker images in your pipeline file:
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
 
   containers:
     - name: main             # The first container will be used to run your jobs
