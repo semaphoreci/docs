@@ -5,12 +5,12 @@ process.
 
 You can model your CI/CD with unlimited number of blocks put in a
 sequence. These blocks are run one after another in the same order as they were
-defined in the (Pipeline YAML file)[link to pipeline reference]. At the same time,
-inside each of those blocks, one can split the work across arbitrary number of jobs
+defined in the (Pipeline YAML file)[https://docs.semaphoreci.com/article/50-pipeline-yaml].
+At the same time, inside each of those blocks, one can split the work across arbitrary number of jobs
 and run things in parallel.
 
 This guide is intended for teams which need to model CI/CD processes with much higher
-complexity. Semaphore 2.0 allows you to do so by providing you with ability 
+complexity. Semaphore 2.0 allows you to do so by providing you with ability
 to specify dependencies for each block within a pipeline.
 
 If blocks put to run in a sequence, don't meet your team needs, then this guide is just for
@@ -21,118 +21,49 @@ you.
 We will start with an example and show you how you can model the flow in your
 pipeline by specifying dependencies for each block.
 
-Let's have a look at the following `semaphore.yml` file:
+Let's have a look at the following
+[`semaphore.yml`](https://github.com/semaphoreci-demos/semaphore-demo-workflows/blob/dependencies-intro/.semaphore/semaphore.yml) file:
 
 ``` yaml
-version: "v1.0"
-name: Mega pipeline
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
 blocks:
   - name: "Code quality checks"
     dependencies: []
-    task:
-      jobs:
-      - name: "Lint"
-        commands:
-          - sleep 10
-          - echo "Lint completed"
+    ...
+
+  - name: "Security checks"
+    dependencies: []
+    ...
 
   - name: "Dockerize"
     dependencies: ["Code quality checks"]
-    task:
-      jobs:
-      - name: "Build"
-        commands:
-          - sleep 10
-          - echo "Build completed"
-
-  - name: "Smoke tests"
-    dependencies: ["Dockerize"]
-    task:
-      jobs:
-        - name: "Smoke tests"
-          commands:
-            - sleep 1
-            - echo "Smoke tests completed"
+    ...
 
   - name: "Unit tests"
-    dependencies: ["Smoke tests"]
-    task:
-      jobs:
-      - name: "Unit tests 1/3"
-        commands:
-          - sleep 10
-          - echo "Unit tests 1/3 completed"
-      - name: "Unit tests 2/3"
-        commands:
-          - sleep 10
-          - echo "Unit tests 2/3 completed"
-      - name: "Unit tests 3/3"
-        commands:
-          - sleep 10
-          - echo "Unit tests 3/3 completed"
+    dependencies: ["Dockerize"]
+    ...
 
   - name: "Integration tests"
     dependencies: ["Unit tests"]
-    task:
-      jobs:
-      - name: "Integration tests 1/3"
-        commands:
-          - sleep 10
-          - echo "Integration tests 1/3 completed"
-      - name: "Integration tests 2/3"
-        commands:
-          - sleep 10
-          - echo "Integration tests 2/3 completed"
-
-  - name: "E2E tests"
-    dependencies: ["Integration tests"]
-    task:
-      jobs:
-      - name: "E2E tests 1/2"
-        commands:
-          - sleep 10
-          - echo "E2E tests 1/2 completed"
-      - name: "E2E tests 2/2"
-        commands:
-          - sleep 10
-          - echo "E2E tests 2/2 completed"
+    ...
 
   - name: "Long perf tests"
     dependencies: ["Dockerize"]
-    task:
-      jobs:
-      - name: "Perf"
-        commands:
-          - sleep 60
-          - echo "Perf completed"
+    ...
 
   - name: "Release candidate"
-    dependencies: ["E2E tests", "Long perf tests"]
-    task:
-      jobs:
-      - name: "Release"
-        commands:
-          - sleep 10
-          - echo "Release completed"
+    dependencies: ["E2E tests", "Long perf tests", "Security checks"]
+    ...
 ```
 
 You can notice the whole trick is in `dependencies` property specified on each block.
-However, in the following guide you will get an idea why this way of
-modeling CI/CD pipelines is so powerful.
 
 In our example Pipeline we have the structure of following blocks:
 
-- Code quality check
+- Code quality checks
+- Security checks
 - Dockerize
-- Smoke tests
 - Unit tests
 - Integration tests
-- E2E tests
 - Performance tests
 - Release candidate
 
@@ -141,9 +72,9 @@ we run deployment to any of ours environment.
 
 Lets have a look at how these blocks are put in order by using [`dependencies`](link-to-deps-field-reference) property.
 
-We specify that we want to run checks against our source code to verify that the
-revision we are running pipeline against, is conforming to the
-rules within our organization. We want to run this first. Therefore, we specify an empty array for
+We specify that we want to run checks to verify that the
+revision of code we are running pipeline against, is conforming to the
+rules. We want to run this first. Therefore, we specify an empty array for
 `dependencies` property since there isn't any block which code checks should
 depend on.
 
@@ -153,7 +84,7 @@ depend on.
 
 ```
 
-*Note*: In case any of your blocks can start immediately without depending on any other
+In case any of your blocks can start immediately without depending on any other
 block, you still have to specify `dependencies` property and put an empty array
 there. Otherwise you will get an error saying that your YAML isn't valid.
 
@@ -165,44 +96,11 @@ image. So we specified that Dockerize block depends on Code quality check block.
     dependencies: ["Code quality checks"]
 ```
 
-Once we have our Docker image built and our code within, we want to perform all
-kind of tests against this particular version of our software. So we run Smoke
-tests, Unit tests, Integration tests and E2E tests in sequential order. That
+Once we have our Docker image built and our code within, we want to perform
+different kind of tests against this particular version of our software. So we run
+Unit tests and Integration tests tests in sequential order. That
 leaves Performance tests to run in parallel since they consume much more time
-than any other testing block.
-
-Smoke tests are run as first to avoid running further blocks in case our basic
-functionality doesn't work. With this order of exection, you avoid extra cost 
-for your organization. Once Smoke tests pass our pipeline progresses by running 
-other types of tests.
-
-The following snippets focus on definitions of `dependencies` property for each of
-our blocks for testing:
-
-```
-  - name: "Long perf tests"
-    dependencies: ["Dockerize"]
-```
-
-```
-  - name: "Smoke tests"
-    dependencies: ["Dockerize"]
-```
-
-```
-  - name: "Unit tests"
-    dependencies: ["Smoke tests"]
-```
-
-```
-  - name: "Integration tests"
-    dependencies: ["Unit tests"]
-```
-
-```
-  - name: "E2E tests"
-    dependencies: ["Integration tests"]
-```
+than any other kind of tests.
 
 In the end of our pipeline after all sorts of tests are run, we tag docker image used as
 release candidate.
@@ -219,4 +117,4 @@ dependencies between blocks. We suggest you to have a look how you can take your
 to the next level and promote your pipeline either manually or automatically to the next phase.
 
 
-Cheers/Happy building/Have fun
+Happy building!
