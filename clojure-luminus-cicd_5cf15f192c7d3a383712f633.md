@@ -1,8 +1,5 @@
-# Clojure Luminus Continuous Integration and Deployment
-
 In this guide, we will show you how to use Semaphore to implement
-continuous integration and deployment for a
-[Clojure](https://clojure.org/) application.
+continuous integration and deployment for a Clojure Luminus web application.
 
 ## Demo Project
 
