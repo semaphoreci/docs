@@ -603,37 +603,19 @@ Job '686b3ed4-be56-4e95-beee-b3bbcc3981b3' created.
 
 ### sem attach
 
-The `sem attach` command works with running jobs only and is helpful for
-debugging the operations of a `job`.
+The `sem attach` allows you to connect to running jobs with an interactive SSH
+session. This allows you to explore and inspect the state of jobs.
 
-The `sem attach` command allows you to connect to the Virtual Machine (VM) of a
-running job using SSH and execute any commands you want. However, as soon as
-the job ends, the SSH session will automatically end and the SSH connection
-will be closed.
+When the job ends, the SSH session will automatically end and the SSH
+connection will be closed.
 
-In order to be able to connect to the VM of the `job` that interests you, you
-will need to include the following command in the relevant `job` block of the
-Pipeline YAML file:
-
-``` yaml
-- curl https://github.com/mactsouk.keys >> ~/.ssh/authorized_keys
-```
-
-Replace `mactsouk` with the GitHub username that *you* are using.
-
-If you need to include the `curl` command on every `job`, you can include it in
-the `prologue` block of the `task`. An alternative way is to create a `secret`
-and put you public SSH keys there.
-
-The `sem attach` command might be a better choice than `sem debug job` while a
-job is running because you can see what is happening in real time.
-`sem debug job` is better when a job has finished.
+If you want to debug finished jobs, use `sem debug jobs [job-id]` instead.
 
 #### sem attach example
 
 The `sem attach` command requires the *Job ID* of a **running** job as its single
-parameter. So, the following command will connect to the VM of the job with Job
-ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
+parameter. So, the following command will connect to the environment of the
+job with Job ID `6ed18e81-0541-4873-93e3-61025af0363b` using SSH:
 
 ``` bash
 sem attach 6ed18e81-0541-4873-93e3-61025af0363b
@@ -694,10 +676,9 @@ running in a VM to TCP port 8080 of your local machine.
 
 All traffic of `sem port-forward` is transferred over an encrypted SSH channel.
 
-### sem debug for jobs
+Note: Port-Forwarding works only for Virtual Machine based CI/CD environments.
 
-The `sem debug` command can help you troubleshoot all types of jobs (*running*,
-*stopped* and *finished*) that are not working as you might have expected.
+### sem debug for jobs
 
 The general form of the `sem debug` command for jobs is the following:
 
@@ -705,51 +686,24 @@ The general form of the `sem debug` command for jobs is the following:
 sem debug job [Job ID]
 ```
 
-What the command does is reading the specification of a job, using that
-specification to build a Virtual Machine (VM) and connecting you to that VM
-using SSH in order to be able to execute all the commands manually.
-Additionally, there is a file in the home directory named `commands.sh` that
-contains all the commands of that job, including the commands in `prologue` and
-`epilogue` blocks.
+This will start a new interactive job based on the specification of the old one,
+export the same environment variables, inject the same secrets, and connect to
+the same git commit.
 
-The VM that is used with `sem debug job` is on the *task level*, which means
-that it will be the real VM with the real environment that is used for the job
-when that job is executed in a pipeline – this includes all `secrets` and
-environment variables. This also means that you will be working on the actual
-GitHub repository with the actual branch.
+Commands in the debug mode are not executed automatically, instead they are
+stored in `~/commands.sh`. This allows you to execute them step-by-step, and
+inspect the changes in the environment.
 
-The `sem debug job` command is ideal for debugging jobs that are finished.
-
-#### sem debug job example
-
-The first time you execute `sem debug job`, you are going to get an output
-similar to the following:
+By default, the duration of the SSH session is limited to one hour. To run
+longer debug sessions, pass the `duration` flag to the above command:
 
 ``` bash
-$ sem debug job 415b252c-b2b2-4ced-96ea-f8268d365d96
-error: Public SSH key for debugging is not configured.
-
-Before creating a debug session job, configure the debug.PublicSshKey value.
-
-Examples:
-
-  # Configuring public ssh key with a literal
-  sem config set debug.PublicSshKey "ssh-rsa AX3....DD"
-
-  # Configuring public ssh key with a file
-  sem config set debug.PublicSshKey "$(cat ~/.ssh/id_rsa.pub)"
-
-  # Configuring public ssh key with your GitHub keys
-  sem config set debug.PublicSshKey "$(curl -s https://github.com/<username>.keys)"
+sem debug job [job-id] --duration 3h
 ```
 
-What this output tells us is that we need to configure our Public SSH key
-before using `sem debug job` for the first time – you can choose any one of
-the three proposed ways.
-
-You will need to execute either `sudo poweroff` or `sudo shutdown -r now` to
-**manually terminate** the VM. Otherwise, you can wait for the timeout period
-to pass.
+A debug session does not include the contents of the GitHub repository related
+to your Semaphore 2.0 project. Run `checkout` in the debug session to clone
+your repository.
 
 #### The --duration flag
 
