@@ -1,6 +1,6 @@
 Often the best way to troubleshoot failures and bugs in your pipelines is to
 SSH into a job and inspect log files, running processes, and directory paths.
-Semaphore 2.0 gives you the option to access all running jobs via SSH, to
+Semaphore gives you the option to access all running jobs via SSH, to
 restart your jobs in debug mode, or to start on-demand virtual machines to
 explore the CI/CD environment.
 
@@ -15,7 +15,7 @@ Before you begin, you'll need to [install the Semaphore CLI][install-cli].
 ## Restarting a job in debug mode
 
 Setting up a pipeline can be challenging if you are not familiar with the
-software stack installed in Semaphore 2.0 virtual machines. Starting a debug
+software stack installed in Semaphore virtual machines. Starting a debug
 session for your job is a great place to start exploring.
 
 To start a debug session for your job, run:
@@ -40,7 +40,7 @@ sem debug job [job-id] --duration 3h
 ```
 
 By default, a debug session does not include the contents of the GitHub
-repository related to your Semaphore 2.0 project. Run `checkout` in the debug
+repository related to your Semaphore project. Run `checkout` in the debug
 session to clone your repository.
 
 ### Error: project or job not found
