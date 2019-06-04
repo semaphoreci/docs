@@ -1,4 +1,4 @@
-# Modeling Your CI/CD via Dependencies
+# Modeling complex workflows
 
 ![complex pipeline](https://raw.githubusercontent.com/semaphoreci/docs/next-gen-pipeline-guide/public/complex-pipeline.png)
 
