@@ -138,32 +138,35 @@ Additionally, `cache` uses `tar` to archive the specified directory or file.
 
 ## checkout
 
-The GitHub repository used in a Semaphore 2.0 project is not automatically
+The GitHub repository used in a Semaphore project is not automatically
 cloned for reasons of efficiency.
 
 The `libcheckout` script includes the implementation of a single function
 named `checkout()` that is used for making available the entire GitHub
-repository of the running Semaphore 2.0 project to the VM used for executing a
+repository of the running Semaphore project to the VM used for executing a
 job of the pipeline. The `checkout()` function is called as `checkout` from the
 command line.
 
 ### Shallow clone
 
 By default, the implementation of the `checkout` command uses *shallow clone*
-during the clone operation. Without shallow clone, every clone gets not only
-the files found on a repository but every revision of every file ever
-committed, which can be a slow process. So using shallow clone makes the
-process faster. However, some services do not work will with shallow clone.
-Heroku is such as example.
+during the clone operation.
 
-Should you wish not to use shallow clone, you should execute `checkout` with
-the `--use-cache` flag.
+With shallow clone, you get all the files in your repository and a small number
+of recent revisions. This makes the checkout process faster comparing to
+downloading the entire history of the repository.
+
+Note that some deployment scenarios, like Heroku, require presence of the full
+Git history.
+
+If you'd like to do a full clone, execute `checkout` with the `--use-cache`
+flag.
 
 The `checkout()` function of the `libcheckout` script depends on the following
 three Semaphore environment variables:
 
 - `SEMAPHORE_GIT_URL`: This environment variable holds the URL of the GitHub
- repository that is used in the Semaphore 2.0 project
+ repository that is used in the Semaphore project
  (`git@github.com:mactsouk/S1.git`).
 
 - `SEMAPHORE_GIT_DIR`: This environment variable holds the UNIX path where the
@@ -172,7 +175,7 @@ three Semaphore environment variables:
 - `SEMAPHORE_GIT_SHA`: This environment variable holds the SHA key for the HEAD
   reference that is used when executing `git reset -q --hard`.
 
-All these environment variables are automatically defined by Semaphore 2.0.
+All these environment variables are automatically defined by Semaphore.
 
 ### The `--use-cache` flag
 
