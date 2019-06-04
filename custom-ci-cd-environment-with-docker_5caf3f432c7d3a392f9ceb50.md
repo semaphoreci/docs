@@ -128,10 +128,12 @@ following requirements are met:
 - The container is Linux based
 - `bash >= 3.0` is installed in the image
 - `git >= 2.0` is installed in the image
+- `openssh-client` is installed in the image
 
 To enable caching support, the following requirements need to be met:
 
 - `lftp` is installed in the main image
+- `coreutils` is installed in the main image
 
 To enable running Docker-in-Docker the `docker` executable needs to be installed.
 
@@ -143,7 +145,7 @@ with the following Dockerfile:
 ``` Dockerfile
 FROM ubuntu:18.04
 
-RUN apt-get -y update && apt-get install -y git lftp docker
+RUN apt-get -y update && apt-get install -y git lftp docker openssh-client coreutils
 ```
 
 ### Extending Semaphore's pre-build convenience Docker images
