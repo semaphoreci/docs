@@ -18,7 +18,7 @@ to specify dependencies for each block within a pipeline.
 If sequential pipeline doesn't meet your team needs, then this guide is just for
 you.
 
-## Define Semaphore pipeline via dependencies between blocks
+## Define pipeline via dependencies between blocks
 
 
 
