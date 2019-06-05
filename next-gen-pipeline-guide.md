@@ -80,6 +80,8 @@ blocks:
 
 ### Monorepos
 
+<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/monorepo.png"></img>
+
 ## Next step
 
 In general, dependencies provides you with flexibility to define pipelines in a form
