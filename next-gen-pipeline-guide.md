@@ -76,7 +76,9 @@ blocks:
     ...
 ```
 
-### Parallel lanes
+### Multiple platforms
+
+### Monorepos
 
 ## Next step
 
