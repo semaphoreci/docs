@@ -47,8 +47,34 @@ With this simple mechanism, you can model all CI/CD patterns one can think off.
 
 ### Fan-in/Fan-out
 
+Run tests in parallel in a Docker container and then release the new version of your code.
+
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/fan-in-fan-out.png" width="600"></img>
 
+Specify your testing blocks to depend on the block where Docker image is built. The release block depends on all kind of tests. The following snippet represents part of the semaphore.yml relevant to set up Fan-in/Fan-out pipeline.
+
+``` yaml
+blocks:
+  - name: "Build"
+    dependencies: []
+    ...
+
+  - name: "Unit tests"
+    dependencies: ["Build"]
+    ...
+
+  - name: "Integration tests"
+    dependencies: ["Build"]
+    ...
+
+  - name: "E2E tests"
+    dependencies: ["Build"]
+    ...
+
+  - name: "Release candidate"
+    dependencies: ["Integration tests", "Unit tests", "E2E tests"]
+    ...
+```
 
 ### Parallel lanes
 
