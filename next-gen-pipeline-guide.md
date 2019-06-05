@@ -43,9 +43,9 @@ blocks:
     dependencies: ["A", "B"]
 ```
 
-With this simple mechanism, you can model all CI/CD patterns one can think off.
+With dependencies, you can model any sort of complex workflow.
 
-### Fan-in/Fan-out
+## Fan-in/Fan-out
 
 Run tests in parallel in a Docker container and then release the new version of your code.
 
@@ -76,7 +76,7 @@ blocks:
     ...
 ```
 
-### Monorepos
+## Monorepos
 
 You can run separate pipelines against multiple projects inside single repository. For instance, you can run pipelines for both Backend and Frontend in parallel.
 
@@ -119,7 +119,7 @@ blocks:
     ...
 ```
 
-### Multiple platforms
+## Multiple platforms
 
 
 ## Next step
