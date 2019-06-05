@@ -123,7 +123,7 @@ blocks:
 
 You can build and test your project against multiple platforms independently.
 
-<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/cross-platform.png"></img>
+<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/cross-platform.png" width="600"></img>
 
 In this example we decided to release new version across all platforms at once. The following snippet describes the diagram above.
 
