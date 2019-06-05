@@ -76,11 +76,51 @@ blocks:
     ...
 ```
 
-### Multiple platforms
-
 ### Monorepos
 
+You can run separate pipelines against multiple projects inside single repository. For instance, you can run pipelines for both Backend and Frontend in parallel.
+
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/monorepo.png"></img>
+
+This pipeline has dependencies defined in the following way:
+
+``` yaml
+blocks:
+  - name: "Backend Lint"
+    dependencies: []
+    ...
+    
+  - name: "Backend Build"
+    dependencies: ["Backend Lint"]
+    ...
+    
+  - name: "Backend Unit tests"
+    dependencies: ["Backend Build"]
+    ...
+    
+  - name: "Frontend Lint"
+    dependencies: []
+    ...
+
+  - name: "Frontend Build"
+    dependencies: ["Frontend Lint"]
+    ...
+
+  - name: "Frontend Unit tests"
+    dependencies: ["Frontend Build"]
+    ...
+
+  - name: "E2E tests"
+    dependencies: ["Backend Unit tests", "Frontend Unit tests"]
+    ...
+
+  - name: "Release candidate"
+    dependencies: ["E2E tests"]
+    ...
+```
+
+### Multiple platforms
+
 
 ## Next step
 
