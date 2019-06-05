@@ -78,7 +78,7 @@ blocks:
 
 ## Monorepos
 
-You can run separate pipelines against multiple projects inside single repository. For instance, you can run pipelines for both Backend and Frontend in parallel.
+You can run separate pipelines against multiple projects within single repository. For instance, you can run pipelines for both Backend and Frontend in parallel.
 
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/monorepo.png"></img>
 
@@ -121,6 +121,42 @@ blocks:
 
 ## Multiple platforms
 
+You can build and test your project against multiple platforms independently.
+
+<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/cross-platform.png"></img>
+
+In this example we decided to release new version across all platforms at once. The following snippet describes the diagram above.
+
+``` yaml
+blocks:
+  - name: "Build for Android"
+    dependencies: []
+    ...
+
+  - name: "Build for iOS"
+    dependencies: []
+    ...
+
+  - name: "Build for Web"
+    dependencies: []
+    ...
+
+  - name: "Test on Android"
+    dependencies: ["Build for Android"]
+    ...
+
+  - name: "Test on iOS"
+    dependencies: ["Build for iOS"]
+    ...
+
+  - name: "Test on Web"
+    dependencies: ["Build for Web"]
+    ...
+
+  - name: "Release"
+    dependencies: ["Test on Android", "Test on iOS", "Test on Web"]
+    ...
+```
 
 ## Next step
 
