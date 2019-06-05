@@ -47,7 +47,7 @@ With this simple mechanism, you can model all CI/CD patterns one can think off.
 
 ### Fan-in/Fan-out
 
-![Fan-in/Fan-out diagram](https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/fan-in-fan-out.png)
+<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/fan-in-fan-out.png" width="600"></img>
 
 
 ### Parallel lanes
