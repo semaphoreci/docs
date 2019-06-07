@@ -5,29 +5,30 @@
 With Semaphore 2.0 there are two approaches in terms of how you can model your CI/CD
 process.
 
-You can model your CI/CD with unlimited number of blocks put in a
-sequence. These blocks are run one after another in the same order as they were
-defined in the [Pipeline YAML file](https://docs.semaphoreci.com/article/50-pipeline-yaml).
-At the same time, inside each of those blocks, one can split the work across arbitrary number of jobs
-and run things in parallel.
+You can model your CI/CD with an unlimited number of blocks put in a
+sequence. These blocks run sequentially in the same order as you define them
+in the [Pipeline YAML file](https://docs.semaphoreci.com/article/50-pipeline-yaml).
+In each of those blocks, you can split the work across arbitrary number of
+parallel jobs.
 
-This guide is intended for teams which need to model CI/CD processes with much higher
-complexity. Semaphore 2.0 allows you to do so by providing you with ability
-to define your pipeline as dependency graph.
+This guide is for teams which need to model CI/CD processes with much higher
+complexity. Semaphore lets you do that by defining your pipeline as a dependency
+graph.
 
-If sequential pipeline doesn't meet your team needs, then this guide is just for
-you.
+If a sequential pipeline doesn't meet your team's needs, then this guide is just
+for you.
 
-## Define block dependencies
+## Defining block dependencies
 
-To define your pipeline as dependency graph, you need to specify set of
-dependencies for each block.
+To define your pipeline as a dependency graph, specify a set of dependencies for
+each block.
 
-Let's start simple with the following pipeline.
+Let's start simple:
 
 ![simple](https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/simple.png)
 
-To make block C start once blocks A and B finish define the blocks the following way:
+To make block C start once blocks A and B finish, define the blocks in the
+following way:
 
 ``` yaml
 blocks:
@@ -43,15 +44,19 @@ blocks:
     dependencies: ["A", "B"]
 ```
 
-With dependencies, you can model any sort of complex workflow.
+Using block dependencies, you can model any kind of complex workflow.
 
-## Fan-in/Fan-out
+## Fan-in and Fan-out
 
-Run tests in parallel in a Docker container and then release the new version of your code.
+In this example we build a Docker container once, run tests in parallel in the
+container and then release a new version of an app.
 
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/fan-in-fan-out.png" width="600"></img>
 
-Specify your testing blocks to depend on the block where Docker image is built. The release block depends on all kind of tests. The following snippet represents part of the semaphore.yml relevant to set up Fan-in/Fan-out pipeline.
+First, specify your testing blocks to depend on the block which builds the
+Docker image. The release block can run if all tests have passed. The following
+snippet represents a part of the `semaphore.yml` relevant to setting up a fan-in
+/ fan-out pipeline.
 
 ``` yaml
 blocks:
@@ -76,9 +81,11 @@ blocks:
     ...
 ```
 
-## Monorepos
+## Monorepo
 
-You can run separate pipelines against multiple projects within single repository. For instance, you can run pipelines for both Backend and Frontend in parallel.
+In a monorepo workflow, you need to run multiple pipelines against multiple
+projects within a single repository. For instance, you can run pipelines for
+both Backend and Frontend in parallel.
 
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/monorepo.png"></img>
 
@@ -119,13 +126,14 @@ blocks:
     ...
 ```
 
-## Multiple platforms
+## Multi-platform builds
 
 You can build and test your project against multiple platforms independently.
 
 <img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/cross-platform.png" width="600"></img>
 
-In this example we decided to release new version across all platforms at once. The following snippet describes the diagram above.
+In this example we decided to release new version across all platforms at once.
+The following snippet describes the diagram above.
 
 ``` yaml
 blocks:
@@ -158,14 +166,17 @@ blocks:
     ...
 ```
 
-## Next step
+## Next steps
 
-In general, dependencies provides you with flexibility to define pipelines in a form
-of Directed Acyclic Graph - where blocks are the graph nodes.
+Block dependencies provide you with flexibility to define pipelines in a form
+of Directed Acyclic Graph, where blocks are the graph nodes.
 
 In this guide you learned how to model complex CI/CD process by defining
 dependencies between blocks. We suggest you to have a look how you can take your CI/CD
-to the next level and promote your pipeline either manually or automatically to the next phase.
+to the next level and [promote your pipelines][promotions] either manually or
+automatically to delivery phases.
 
 
 Happy building!
+
+[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
