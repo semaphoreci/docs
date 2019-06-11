@@ -102,19 +102,19 @@ To obtain your Netlify credentials:
     command depends on whether you are updating an existing site or
     creating a new one. If you are:
     
-      - Creating a new site:
-        
-        ``` bash
-        $ cd /your/project/path
-        $ netlify init
-        ```
+- Creating a new site:
     
-      - Updating a previously existing site:
-        
-        ``` bash
-        $ cd /your/project/path
-        $ netlify link
-        ```
+    ``` bash
+    $ cd /your/project/path
+    $ netlify init
+    ```
+
+- Updating a previously existing site:
+    
+    ``` bash
+    $ cd /your/project/path
+    $ netlify link
+    ```
 
 ### Store credentials on Semaphore
 
