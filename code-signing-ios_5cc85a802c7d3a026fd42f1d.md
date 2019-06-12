@@ -21,7 +21,7 @@ If not, please visit the [Fastlane setup guide][fastlane-setup-guide] to learn
 how to configure Fastlane for your project.
 
 If you are new to code signing, we recommend you to visit the [Code Signing
-Guide](code-signing) and read it. 
+Guide][code-signing] and read it. 
 
 The Match tool has extensive documentation on how to configure and use it, which you can find at [Fastlane Docs][fastlane-match].
 

@@ -61,6 +61,6 @@ that are available in all blocks of a pipeline.
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Environment variables](env-vars)
+- [Environment variables][env-vars]
 
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables

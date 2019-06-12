@@ -226,5 +226,4 @@ spec:
 
 ## See also
 
-- [Installing sem utility](https://docs.semaphoreci.com/article/26-installing-cli)
-- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [sem CLI installation and reference](https://docs.semaphoreci.com/article/53-sem-reference)
