@@ -23,8 +23,6 @@ for you.
 To define your pipeline as a dependency graph, specify a set of dependencies for
 each block.
 
-Let's start simple:
-
 ![simple](https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/simple.png)
 
 To make block C start once blocks A and B finish, define the blocks in the
@@ -81,6 +79,8 @@ blocks:
     ...
 ```
 
+To checkout the full specification of the Fan-in/Fan-out pipeline, use this [link](https://github.com/semaphoreci-demos/semaphore-demo-workflows/blob/fan-in-fan-out/.semaphore/semaphore.yml).
+
 ## Monorepo
 
 In a monorepo workflow, you need to run multiple pipelines against multiple
@@ -96,15 +96,15 @@ blocks:
   - name: "Backend Lint"
     dependencies: []
     ...
-    
+
   - name: "Backend Build"
     dependencies: ["Backend Lint"]
     ...
-    
+
   - name: "Backend Unit tests"
     dependencies: ["Backend Build"]
     ...
-    
+
   - name: "Frontend Lint"
     dependencies: []
     ...
@@ -125,6 +125,8 @@ blocks:
     dependencies: ["E2E tests"]
     ...
 ```
+
+To checkout the full specification of the Monorepo pipeline, use this [link](https://github.com/semaphoreci-demos/semaphore-demo-workflows/blob/monorepo/.semaphore/semaphore.yml).
 
 ## Multi-platform builds
 
@@ -165,6 +167,8 @@ blocks:
     dependencies: ["Test on Android", "Test on iOS", "Test on Web"]
     ...
 ```
+
+To checkout the full specification of the pipeline used in this example, use this [link](https://github.com/semaphoreci-demos/semaphore-demo-workflows/blob/multi-platform/.semaphore/semaphore.yml).
 
 ## Next steps
 
