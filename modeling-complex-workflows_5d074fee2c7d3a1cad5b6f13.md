@@ -1,6 +1,5 @@
-# Modeling complex workflows
 
-![complex pipeline](https://raw.githubusercontent.com/semaphoreci/docs/next-gen-pipeline-guide/public/complex-pipeline.png)
+![complex pipeline](https://raw.githubusercontent.com/semaphoreci/docs/master/public/complex-pipeline.png)
 
 With Semaphore 2.0 there are two approaches in terms of how you can model your CI/CD
 process.
@@ -23,7 +22,7 @@ for you.
 To define your pipeline as a dependency graph, specify a set of dependencies for
 each block.
 
-![simple](https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/simple.png)
+![simple](https://github.com/semaphoreci/docs/raw/master/public/simple.png)
 
 To make block C start once blocks A and B finish, define the blocks in the
 following way:
@@ -49,7 +48,7 @@ Using block dependencies, you can model any kind of complex workflow.
 In this example we build a Docker container once, run tests in parallel in the
 container and then release a new version of an app.
 
-<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/fan-in-fan-out.png" width="600"></img>
+<img src="https://github.com/semaphoreci/docs/raw/master/public/fan-in-fan-out.png" width="600"></img>
 
 First, specify your testing blocks to depend on the block which builds the
 Docker image. The release block can run if all tests have passed. The following
@@ -87,7 +86,7 @@ In a monorepo workflow, you need to run multiple pipelines against multiple
 projects within a single repository. For instance, you can run pipelines for
 both Backend and Frontend in parallel.
 
-<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/monorepo.png"></img>
+<img src="https://github.com/semaphoreci/docs/raw/master/public/monorepo.png"></img>
 
 This pipeline has dependencies defined in the following way:
 
@@ -132,7 +131,7 @@ To checkout the full specification of the Monorepo pipeline, use this [link](htt
 
 You can build and test your project against multiple platforms independently.
 
-<img src="https://github.com/semaphoreci/docs/raw/next-gen-pipeline-guide/public/cross-platform.png" width="600"></img>
+<img src="https://github.com/semaphoreci/docs/raw/master/public/cross-platform.png" width="600"></img>
 
 In this example we decided to release new version across all platforms at once.
 The following snippet describes the diagram above.
