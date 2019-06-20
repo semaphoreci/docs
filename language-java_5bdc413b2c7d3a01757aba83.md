@@ -122,4 +122,4 @@ blocks:
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
 [caching]: https://docs.semaphoreci.com/article/68-caching-dependencies
-[java-docker-image]: https://hub.docker.com/r/semaphoreci/java
+[java-docker-image]: https://hub.docker.com/r/semaphoreci/openjdk
