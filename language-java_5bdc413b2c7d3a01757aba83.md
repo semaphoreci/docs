@@ -26,6 +26,7 @@ blocks:
         - name: Run java
           commands:
             - java --version
+            - mvn -v
 ```
 
 ## Example project with Spring Boot and Docker
@@ -38,15 +39,23 @@ CI/CD pipeline that you can use to get started quickly:
 
 ## Supported Java versions
 
-Java is available out-of-the-box on Semaphore via [Linux][ubuntu-java] and
-[macOS][macos-java] operating system images. See these pages for details on
-currently available versions and additional tools that are available.
+Semaphore supports all versions of Java. You have the following options:
 
-You can also run Java projects by defining a [Docker-based Semaphore
-agent][docker-env].
+- Linux: Java and related tools are available out-of-the-box in the
+  [Ubuntu1804 VM image][ubuntu-java].
+- Docker: use [semaphoreci/java][java-docker-image] or
+  [your own Docker image][docker-env] with the version of Java and other
+  packages that you need.
 
-The Linux VM provides multiple versions of Java. You can switch between them
-using the [`sem-version` tool][sem-version]. For example, in your `semaphore.yml`:
+Follow the links above for details on currently available language versions and
+additional tools.
+
+#### Selecting a Java version on Linux
+
+The [Linux VM][ubuntu1804] provides multiple versions of Java.
+You can switch between them using the [`sem-version` tool][sem-version].
+
+For example, in your `semaphore.yml`:
 
 ```
 sem-version java 11
@@ -108,7 +117,9 @@ blocks:
 [tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [ubuntu-java]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages
+[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [macos-java]: https://docs.semaphoreci.com/article/120-macos-mojave-image#java
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
 [caching]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[java-docker-image]: https://hub.docker.com/r/semaphoreci/java
