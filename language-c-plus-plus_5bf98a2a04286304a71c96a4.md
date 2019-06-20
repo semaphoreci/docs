@@ -1,9 +1,37 @@
+This guide covers configuring C++ projects on Semaphore.
+If you’re new to Semaphore we recommend reading the
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+Table of contents:
+
+- [Hello world](#hello-world)
 - [Supported C++ versions](#supported-compiler-versions)
 - [Changing compiler version](#changing-compiler-version)
 - [Dependency management](#dependency-management)
 - [System dependencies](#system-dependencies)
 - [A sample C++ project](#a-sample-project)
 - [See also](#see-also)
+
+## Hello world
+
+```yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Hello Semaphore
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: C++ example
+    task:
+      jobs:
+      - name: Compile and run C++ code
+        commands:
+          - printf "#include <iostream>\n int main() { std::cout << \"Hello world\"; return 0; }" > hello.cc
+          - g++ hello.cc -o hello
+          - ./hello
+```
 
 ## Supported compiler versions
 
@@ -17,7 +45,7 @@ Semaphore VM is 64-bit and provides the following versions of the g++ compiler:
 
 The default version of the g++ compiler can be found as follows:
 
-``` yaml
+```
 $ g++ --version
 g++ (Ubuntu 4.8.5-4ubuntu8) 4.8.5
 Copyright (C) 2015 Free Software Foundation, Inc.
@@ -29,7 +57,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 The following Semaphore 2.0 project selects two different versions of g++:
 
-``` yaml
+```yaml
 version: v1.0
 name: Using C++ in Semaphore 2.0
 agent:
@@ -67,9 +95,9 @@ access on each Semaphore 2.0 VM, you are free to install all required packages.
 ## A sample project
 
 The following `.semaphore/semaphore.yml` file compiles and executes a C++ source
-file using two different versions of the g++ C++ compiler:
+file using two different versions of the g++ compiler, in parallel:
 
-``` yaml
+```yaml
 version: v1.0
 name: Using C++ in Semaphore 2.0
 agent:
@@ -82,25 +110,24 @@ blocks:
     task:
       jobs:
       - name: Hello World!
+        matrix:
+          - env_var: GPP_VERSION
+            values: [ "7", "8" ]
         commands:
           - checkout
-          - g++ hw.cpp -o hw_4
-          - ./hw_4
-          - sem-version cpp 8
-          - g++ hw.cpp -o hw_8
-          - ./hw_8
-          - ls -l hw_4 hw_8
+          - sem-version cpp $GPP_VERSION
+          - g++ hw.cpp -o hw
+          - ./hw
 ```
 
 The contents of the `hw.cpp` file are as follows:
 
-``` c++
-#include < iostream >
-using namespace std;
+```cpp
+#include <iostream>
 
 int main()
 {
-    cout << "Hello, World!\n";
+    std::cout << "Hello, World!\n";
     return 0;
 }
 ```
