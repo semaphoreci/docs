@@ -1,6 +1,6 @@
 This guide will help you get started with a Rust project on Semaphore.
-If you’re new to Semaphore we recommend reading our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+If you’re new to Semaphore, we recommend reading our
+_[Guided tour](https://docs.semaphoreci.com/article/77-getting-started)_ first.
 
 Table of contents:
 
