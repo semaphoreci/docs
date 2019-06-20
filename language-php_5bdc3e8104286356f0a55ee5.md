@@ -1,12 +1,34 @@
+This guide covers configuring PHP projects on Semaphore. If you are new to
+Semaphore we recommend reading our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+
+Table of contents:
+
+- [Hello world](#hello-world)
 - [Laravel example](#laravel-example)
 - [Supported PHP versions](#supported-php-versions)
 - [Dependency caching](#dependency-caching)
 - [Environment variables](#environment-variables)
 - [System dependencies](#system-dependencies)
 
-This guide covers configuring PHP projects on Semaphore. If you are new to
-Semaphore we recommend reading our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+## Hello world
+
+```yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: PHP example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Hello world
+    task:
+      jobs:
+        - name: Run some code
+          commands:
+            - echo '<?php print "Hello World!\n"; ?>' > hello.php && php hello.php
+```
 
 ## Laravel example
 
