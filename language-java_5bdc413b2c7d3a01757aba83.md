@@ -43,7 +43,7 @@ Semaphore supports all versions of Java. You have the following options:
 
 - Linux: Java and related tools are available out-of-the-box in the
   [Ubuntu1804 VM image][ubuntu-java].
-- Docker: use [semaphoreci/java][java-docker-image] or
+- Docker: use [semaphoreci/openjdk][java-docker-image] or
   [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
 
