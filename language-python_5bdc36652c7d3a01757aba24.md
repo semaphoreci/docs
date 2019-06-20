@@ -39,15 +39,21 @@ CI/CD pipeline that you can use to get started quickly:
 
 ## Supported Python versions
 
-Python is available out-of-the-box on Semaphore via [Linux][ubuntu-python]
-and [macOS][macos-python] operating system images. See these pages for
-details on currently available versions and additional tools that are available.
+Semaphore supports all versions of Python. You have the following options:
 
-You can also run Python projects by defining a [Docker-based Semaphore
-agent][docker-env].
+- Linux: Python is available out-of-the-box in the [Ubuntu1804 VM image][ubuntu-python].
+- macOS: Python is available out-of-the-box in the [macOS VM image][macos-python].
+- Docker: use [semaphoreci/python][python-docker-image] or
+  [your own Docker image][docker-env] with the version of Python and other
+  packages that you need.
+
+Follow the links above for details on currently available language versions and
+additional tools.
+
+#### Selecting a Python version on Linux
 
 On Linux, you can use the [`sem-version` tool][sem-version] to switch between
-versions. For example:
+Python versions. For example:
 
 ```
 sem-version python 3.7
@@ -178,3 +184,4 @@ blocks:
 [ubuntu-python]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python
 [macos-python]: https://docs.semaphoreci.com/article/120-macos-mojave-image#python
 [sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[python-docker-image]: https://hub.docker.com/r/semaphoreci/python
