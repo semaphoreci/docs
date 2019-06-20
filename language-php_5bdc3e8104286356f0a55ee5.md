@@ -18,9 +18,18 @@ CI pipeline that you can use to get started quickly:
 
 ## Supported PHP versions
 
-Semaphore provides major PHP versions and tools preinstalled. You can find
-information about them in the
-[Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#php).
+Semaphore supports all versions of PHP. You have the following options:
+
+- Linux: PHP and related tools are available out-of-the-box in the
+  [Ubuntu1804 VM image][ubuntu-php].
+- Docker: use [semaphoreci/php][php-docker-image] or
+  [your own Docker image][docker-env] with the version of Python and other
+  packages that you need.
+
+Follow the links above for details on currently available language versions and
+additional tools.
+
+#### Selecting a PHP version on Linux
 
 Semaphore uses [phpbrew](https://github.com/phpbrew/phpbrew) to manage
 PHP versions. Any version installable with `phpbrew` is supported on
@@ -121,3 +130,6 @@ blocks:
 
 [laravel-tutorial]: https://docs.semaphoreci.com/article/114-laravel-php-continuous-integration
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel
+[ubuntu-php]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#php
+[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[php-docker-image]: https://hub.docker.com/r/semaphoreci/php
