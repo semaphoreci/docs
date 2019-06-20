@@ -40,16 +40,7 @@ CI pipeline that you can use to get started quickly:
 
 ## Supported Node.js versions
 
-Semaphore supports all versions of Node.js.
-
-Node.js is available out-of-the-box on Semaphore via [Linux][ubuntu-javascript]
-and [macOS][macos-javascript] operating system images. See these pages for
-details on currently available versions and additional tools that are available.
-
-You can also run JavaScript projects by defining a [Docker-based Semaphore
-agent][docker-env].
-
-Semaphore supports all versions of Ruby. You have the following options:
+Semaphore supports all versions of Node.js. You have the following options:
 
 - Linux: Node.js is available out-of-the-box in the [Ubuntu1804 VM image][ubuntu-javascript].
 - macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
