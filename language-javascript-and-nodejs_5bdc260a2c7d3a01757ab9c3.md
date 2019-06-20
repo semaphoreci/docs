@@ -40,6 +40,8 @@ CI pipeline that you can use to get started quickly:
 
 ## Supported Node.js versions
 
+Semaphore supports all versions of Node.js.
+
 Node.js is available out-of-the-box on Semaphore via [Linux][ubuntu-javascript]
 and [macOS][macos-javascript] operating system images. See these pages for
 details on currently available versions and additional tools that are available.
@@ -47,9 +49,21 @@ details on currently available versions and additional tools that are available.
 You can also run JavaScript projects by defining a [Docker-based Semaphore
 agent][docker-env].
 
+Semaphore supports all versions of Ruby. You have the following options:
+
+- Linux: Node.js is available out-of-the-box in the [Ubuntu1804 VM image][ubuntu-javascript].
+- macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
+- Docker: use [semaphoreci/node][node-docker-image] or
+  [your own Docker image][docker-env] with the version of Node.js and other
+  packages that you need.
+
+Follow the links above for details on currently available language versions and
+additional tools.
+
+#### Selecting a Node.js version on Linux
+
 On Linux, Semaphore uses [nvm](https://github.com/creationix/nvm) to manage Node.js
-versions. Any version installable with `nvm` is supported by Semaphore. By
-default, version 8.11 of Node.js is pre-installed on the Semaphore VM.
+versions. Any version installable with `nvm` is supported by Semaphore.
 
 The version of Node.js that will be used can be set from a `.nvmrc` file if
 such a file exists in your repository. If you want to make use of the `.nvmrc`
@@ -172,3 +186,4 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [ubuntu-javascript]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#javascript-via-node-js
 [macos-javascript]: https://docs.semaphoreci.com/article/120-macos-mojave-image#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[node-docker-image]: https://hub.docker.com/r/semaphoreci/node
