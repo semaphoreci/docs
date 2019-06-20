@@ -43,7 +43,7 @@ CI pipeline that you can use to get started quickly:
 Semaphore supports all versions of PHP. You have the following options:
 
 - Linux: PHP and related tools are available out-of-the-box in the
-  [Ubuntu1804 VM image][ubuntu-php].
+  [Ubuntu 18.04 VM image][ubuntu-php].
 - Docker: use [semaphoreci/php][php-docker-image] or
   [your own Docker image][docker-env] with the version of Python and other
   packages that you need.
@@ -71,6 +71,9 @@ blocks:
           commands:
             - php --version
 ```
+
+If the version of PHP that you need is not currently available in the Linux VM,
+we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Dependency caching
 

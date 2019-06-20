@@ -2,10 +2,32 @@ This guide covers configuring Golang projects on Semaphore.
 If you’re new to Semaphore we recommend reading the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
+Table of contents:
+
+- [Hello world](#hello-world)
 - [Example project](#example-project)
 - [Supported Go Versions](#supported-go-versions)
 - [Using GOPATH](#using-gopath)
 - [Dependency Caching](#dependency-caching)
+
+## Hello world
+
+```yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Go example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Hello world
+    task:
+      jobs:
+        - name: Run Go
+          commands:
+            - go version
+```
 
 ## Example project
 
@@ -15,11 +37,24 @@ CI pipeline that you can use to get started quickly:
 - [Golang Continuous Integration tutorial][go-tutorial]
 - [Demo project on GitHub][go-demo-project]
 
-## Supported Go Versions
+## Supported Go versions
 
-Go 1.10 is the default version in the [Ubuntu1804 VM image][ubuntu1804].  Go
-1.11 and Go 1.12 are supported as well. You can change versions with
-`sem-version`. Here is an example of how you can select and use Go 1.11:
+Semaphore supports all versions of Go. You have the following options:
+
+- Linux: Go is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-go].
+- Docker: use [semaphoreci/golang][go-docker-image] or
+  [your own Docker image][docker-env] with the version of Go and other
+  packages that you need.
+
+Follow the links above for details on currently available language versions and
+additional tools.
+
+#### Selecting a Go version on Linux
+
+The [Linux VM][ubuntu1804] provides multiple versions of Go.
+You can switch between them using the [`sem-version` tool][sem-version].
+
+For example, in your `semaphore.yml`:
 
 ``` yaml
 blocks:
@@ -27,12 +62,15 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version go 1.11
+          - sem-version go 1.12
       jobs:
         - name: Tests
           commands:
             - go version
 ```
+
+If the version of Go that you need is not currently available in the Linux VM,
+we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Using GOPATH
 
@@ -51,7 +89,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: "Test"
+  - name: Test
     task:
       prologue:
         commands:
@@ -125,6 +163,10 @@ blocks:
             - make test
 ```
 
+[ubuntu-go]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#go
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [go-tutorial]: https://docs.semaphoreci.com/article/115-golang-continuous-integration
 [go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
+[go-docker-image]: https://hub.docker.com/r/semaphoreci/golang
+[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux

@@ -42,7 +42,7 @@ CI/CD pipeline that you can use to get started quickly:
 Semaphore supports all versions of Java. You have the following options:
 
 - Linux: Java and related tools are available out-of-the-box in the
-  [Ubuntu1804 VM image][ubuntu-java].
+  [Ubuntu 18.04 VM image][ubuntu-java].
 - Docker: use [semaphoreci/openjdk][java-docker-image] or
   [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
@@ -60,6 +60,9 @@ For example, in your `semaphore.yml`:
 ```
 sem-version java 11
 ```
+
+If the version of Java that you need is not currently available in the Linux VM,
+we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Dependency caching
 

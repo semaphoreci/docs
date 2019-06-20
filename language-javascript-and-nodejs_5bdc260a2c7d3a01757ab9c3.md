@@ -42,7 +42,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Node.js. You have the following options:
 
-- Linux: Node.js is available out-of-the-box in the [Ubuntu1804 VM image][ubuntu-javascript].
+- Linux: Node.js is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-javascript].
 - macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
 - Docker: use [semaphoreci/node][node-docker-image] or
   [your own Docker image][docker-env] with the version of Node.js and other
@@ -93,6 +93,9 @@ blocks:
           commands:
             - node --version
 ```
+
+If the version of Node.js that you need is not currently available in the Linux VM,
+we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Dependency caching
 
