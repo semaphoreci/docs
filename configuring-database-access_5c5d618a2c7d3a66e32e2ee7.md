@@ -35,6 +35,15 @@ psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer
 psql -U postgres -h localhost -c "ALTER USER developer WITH SUPERUSER;"
 ```
 
+### Create Postgres extensions
+
+You can extend the capabilities of the default Postgres database by
+creating extensions. For example:
+
+```bash
+psql -U postgres -h localhost -c "CREATE EXTENSION \"uuid-ossp\""
+```
+
 ## MySQL
 
 ### Create a new MySQL user
