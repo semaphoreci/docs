@@ -1,4 +1,4 @@
-The `macos-mojave` is a customized image based on [MacOS 10.14.4][mojave-release-notes]
+The `macos-mojave` is a customized image based on [MacOS 10.14.5][mojave-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -104,6 +104,7 @@ Installed versions:
 Installed versions:
 
 - 10.2.1
+- 11.0
 
 Xcode 10.2.1 images have the following SDKs preinstalled:
 
@@ -115,12 +116,20 @@ Xcode 10.2.1 images have the following SDKs preinstalled:
 - watchos5.2
 - watchsimulator5.2
 
-The Xcode 10.2 image comes with the following simulators:
+Xcode 11.0 images have the following SDKs preinstalled:
+
+- macosx10.15
+- iphoneos13
+- iphonesimulator13
+- appletvos13
+- appletvsimulator13
+- watchos6
+- watchsimulator6
+
+Additional preinstalled simulators:
 
 - iOS 11.4
-- iOS 12.2
-- tvOS 12.2
-- watchOS 5.2
+- iOS 12.1
 
 ## See Also
 
@@ -129,7 +138,7 @@ The Xcode 10.2 image comes with the following simulators:
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
-[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_4_release_notes
+[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_5_release_notes
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
