@@ -53,8 +53,20 @@ only once, and reused from cache in all subsequent workflows.
 You can extend the example to download any additional files and store them all
 together in the `packages` directory.
 
-Note: `SEMAPHORE_PROJECT_NAME` is one of the [environment variables][env-vars]
+#### Notes
+
+- `SEMAPHORE_PROJECT_NAME` is one of the [environment variables][env-vars]
 that are available in all blocks of a pipeline.
+
+- Semaphore cache is built on the idea of speed over high-availability.
+Data availability is not 100% guaranteed and Semaphore isn't responsible
+for data loss stored in the cache.
+For this reason, cached files may not always be available in your jobs.
+
+- `cache` utility returns exit code 0 in cases of unsuccessful writes and
+reads from the cache store. If the cache is not available, your pipeline
+should be able to recover — the same way caching works in a web application,
+for example.
 
 ## See also
 
