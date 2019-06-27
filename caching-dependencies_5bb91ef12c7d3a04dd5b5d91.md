@@ -51,6 +51,14 @@ cache created by the master branch.
 This strategy ensures best cache hit rate through the lifetime of your project.
 You can apply the same approach to other languages and uses cases as well.
 
+Semaphore cache is built on the idea of speed over high-availability. Data 
+availability is not 100% guaranteed and Semaphore isn't responsible for data loss 
+stored in the cache. For this reason, the cache content may not always be 
+available in the job. Also, cache utility returns exit code `0` in cases of 
+unsuccessful writes and reads from the cache store. If the cache is not available,
+pipeline created by the user should be able to recover, the same way caching works
+in a web application for example.
+
 ## Next steps
 
 Production CI/CD often requires use of environment variables and private API
