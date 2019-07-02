@@ -35,7 +35,7 @@ client code:
   - On server, E2E tests run through Jest.
   - On client, E2E tests run through Cypress.
 
-![Node.js CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-javascript/raw/master/images/ci-pipeline.png)
+![Node.js CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-javascript/raw/master/images/ci-pipeline-client.png)
 
 ## Sample configuration
 
