@@ -10,7 +10,7 @@ your project.
   - [Extending Semaphore's pre-build convenience Docker images](#extending-semaphores-pre-built-convenience-docker-images)
   - [Optimizing Docker images for fast CI/CD](#optimizing-docker-images-for-fast-ci-cd)
 - [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
-- [Pulling private Docker images from AWS ECR](#pulling-private-docker-images-from-awsecr)
+- [Pulling private Docker images from AWS ECR](#pulling-private-docker-images-from-aws-ecr)
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
