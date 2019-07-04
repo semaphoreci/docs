@@ -10,6 +10,7 @@ your project.
   - [Extending Semaphore's pre-build convenience Docker images](#extending-semaphores-pre-built-convenience-docker-images)
   - [Optimizing Docker images for fast CI/CD](#optimizing-docker-images-for-fast-ci-cd)
 - [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
+- [Pulling private Docker images from AWS ECR](#pulling-private-docker-images-from-awsecr)
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
@@ -107,13 +108,13 @@ For convenience, Semaphore comes with a [repository of pre-built images hosted
 on Dockerhub][dockerhub-semaphore]. The source code of the Semaphore Docker
 images is [hosted on Github][docker-images-repo].
 
-- [Android](https://hub.docker.com/r/semaphoreci/android/tags)
-- [Ruby](https://hub.docker.com/r/semaphoreci/ruby/tags)
-- [Python](https://hub.docker.com/r/semaphoreci/python/tags)
-- [Haskell](https://hub.docker.com/r/semaphoreci/haskell/tags)
-- [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu/tags)
-- [Rust](https://hub.docker.com/r/semaphoreci/rust/tags)
-- [Golang](https://hub.docker.com/r/semaphoreci/golang/tags)
+- [Android](https://hub.docker.com/r/semaphoreci/android)
+- [Ruby](https://hub.docker.com/r/semaphoreci/ruby)
+- [Python](https://hub.docker.com/r/semaphoreci/python)
+- [Haskell](https://hub.docker.com/r/semaphoreci/haskell)
+- [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu)
+- [Rust](https://hub.docker.com/r/semaphoreci/rust)
+- [Golang](https://hub.docker.com/r/semaphoreci/golang)
 - [Clojure](https://hub.docker.com/r/semaphoreci/clojure)
 - [Elixir](https://hub.docker.com/r/semaphoreci/elixir)
 - [Node](https://hub.docker.com/r/semaphoreci/node)
@@ -207,6 +208,35 @@ agent:
 
   image_pull_secrets:
     - name: dockerhub-pull-secrets
+```
+
+## Pulling private Docker images from AWS ECR
+
+Private Docker Images stored in AWS ECR can be used in your CI/CD pipelines.
+
+First, set up secret to store your AWS credentials and region in which ECR is provisioned:
+
+``` yaml
+sem create secret aws-ecr-pull-secrets \
+  -e DOCKER_CREDENTIAL_TYPE=AWS_ECR \
+  -e AWS_REGION=<aws-ecr-region>
+  -e AWS_ACCESS_KEY_ID=<your-aws-access-key> \
+  -e AWS_SECRET_ACCESS_KEY=<your-aws-secret-key> \
+```
+
+Attach the created secret to your agent's to pull private images:
+
+``` yaml
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <your-private-repository>/<image>
+
+  image_pull_secrets:
+    - name: aws-ecr-pull-secrets
 ```
 
 [working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
