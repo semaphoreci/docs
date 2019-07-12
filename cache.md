@@ -1,0 +1,217 @@
+## cache
+
+- [Overview](#overview)
+- [Basic Usage](#basic-usage)
+- [Advanced Usage](#advanced-usage)
+- [Cache Dependencies](#cache-dependencies)
+
+### Overview
+
+Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
+project depends on but are not part of version control. You should typically
+use caching to:
+
+- Reuse your project's dependencies, so that Semaphore fetches and installs
+them only when the dependency list changes.
+- Propagate a file from one block to the next.
+
+Cache is created on a per project basis and available in every pipeline job.
+All cache keys are scoped per project. Total cache size is 9.6GB.
+
+The `cache` tool uses key-path pairs for managing cached archives. An archive
+can be a single file or a directory.
+
+`cache` supports the following options:
+
+
+### Basic usage
+
+### cache store
+
+The `cache store` command that has zero arguments will lookup default paths used to store dependencies and cache them.
+
+Example YAML:
+```
+blocks:
+  prologue:
+    commands:
+      - cache restore
+
+  epilogue:
+    commands:
+      - cache store
+
+  jobs:
+    - name: Bundle Install
+       commands:
+         - bundle install --path vendor/bundle
+```
+
+The output of cache store in project that has a Gemfile.lock and packages-lock.json will look like this:
+
+```
+$ cache store
+==> Detecting project structure and storing into cache.
+* Detected Gemfile.lock.
+* Using default cache path 'vendor/bundle'.
+Uploading 'vendor/bundle' with cache key 'gems-your-branch-33a6002a37f59b6f1841636085a22fbc'...
+Upload complete.
+* Detected package-lock.json.
+* Using default cache path 'node_modules'.
+Uploading 'node_modules' with cache key 'node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a'...
+Upload complete.
+
+```
+
+### cache restore
+
+The `cache restore` command that has zero arguments would lookup cachable elements and try to fetch them from the repository.
+
+Example output:
+```
+$ cache restore
+==> Detecting project structure and storing into cache.
+* Detected Gemfile.lock.
+* Fetching 'vendor/bundle' directory with cache keys 'gems-your-branch-33a6002a37f59b6f1841636085a22fbc,gems-master-,gems-your-branch-'.
+HIT: gems-your-branch-d17b3d82f1356d0c91469804e2fc320a, using key gems-your-branch-33a6002a37f59b6f1841636085a22fbc
+Restored: vendor/bundle
+* Detected package-lock.json.
+* Fetching 'node_modules' directory with cache keys 'node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a,node-mdoules-master-,node-mdoules-your-branch-'.
+HIT: node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a, using key node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a
+Restored: node_modules/
+```
+
+### Supported languages
+Semaphore cache recognise the following languages:
+
+* ruby (bundler) - default cache path: `vendor/bundle`, requires `Gemfile.lock` to be present in the repository.
+* nodejs (npm or yarn) - default cache path: `node_modules` if `package-lock.json` is present or `node_modules` and `/$HOME/.cache/yarn` if `yarn.lock` exists in the repository.
+* python (pip) - default cache path: `.pip_cache` if `requirements.txt` is present.
+* php (composer) - default cache path: `vendor`, requires `composer.lock` to be present in the repository.
+* elixir (mix) - default cache path: `deps` and `_build` if `mix.lock` is present.
+* java (maven) - default cache path: `.m2` if pom.xml is present.
+
+## Advance usage
+
+If a third party project, such as Bundler, changes the location where they store dependencies or your project the dependence location is different the default specified in [Supported languages](#suppoeted-languages), you might need to specify the keys path manually instead of using caching shortcut.
+
+### cache store key path
+
+Examples:
+
+``` bash
+cache store our-gems vendor/bundle
+cache store gems-$SEMAPHORE_GIT_BRANCH vendor/bundle
+cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/bundle
+```
+
+The `cache store` command archives a file or directory specified by `path` and
+associates it with a given `key`.
+
+As `cache store` uses `tar`, it automatically removes any leading `/` from the
+given `path` value.
+Any further changes of `path` after the store command completes will not
+be automatically propagated to cache. The command always passes, i.e. exits
+with return code 0.
+
+In case of insufficient disk space, `cache store` frees disk space by deleting
+the oldest keys.
+
+### cache restore key[,second-key,...]
+
+Examples:
+
+``` bash
+cache restore our-gems
+cache restore gems-$SEMAPHORE_GIT_BRANCH
+cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
+```
+
+Restores an archive which *partially matches* any given `key`.
+In case of a cache hit, archive is retrieved and available at its original
+path in the job environment.
+Each archive is restored in the current path from where the function is called.
+
+In case of cache miss, the comma-separated fallback takes over and command
+looks up the next key.
+If no archives are restored command exits with 0.
+
+### cache has_key key
+
+Example:
+
+``` bash
+cache has_key our-gems
+cache has_key gems-$SEMAPHORE_GIT_BRANCH
+cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+```
+
+Checks if an archive with provided key exists in cache.
+Command passes if key is found in the cache, otherwise it fails.
+
+### cache list
+
+Example:
+
+``` bash
+cache list
+```
+
+Lists all cache archives for the project.
+
+### cache delete key
+
+Example:
+
+``` bash
+cache delete our-gems
+cache delete gems-$SEMAPHORE_GIT_BRANCH
+cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
+```
+
+Removes an archive with given key if it is found in cache.
+The command always passes.
+
+### cache clear
+
+Example:
+
+``` bash
+cache clear
+```
+
+Removes all cached archives for the project.
+The command always passes.
+
+Note that in all commands of `cache`, only `cache has_key` command can fail
+(exit with non-zero status).
+
+### checksum
+
+The `libchecksum` scripts provides the `checksum` command. `checksum` is
+useful for tagging artifacts or generating cache keys. It takes a
+single argument, a file path, and outputs an `md5` hash value.
+
+Examples:
+
+``` bash
+$ checksum package.json
+3dc6f33834092c93d26b71f9a35e4bb3
+```
+
+
+### Cache Dependencies
+
+The `cache` tool depends on the following environment variables
+which are automatically set in every job environment:
+
+- `SEMAPHORE_CACHE_URL`: stores the IP address and
+    the port number of the cache server (`x.y.z.w:29920`).
+- `SEMAPHORE_CACHE_USERNAME`: stores the username
+    that will be used for connecting to the cache server
+  (`5b956eef90cb4c91ab14bd2726bf261b`).
+- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: stores the path to the
+    SSH key that will be used for connecting to the cache server
+  (`/home/semaphore/.ssh/semaphore_cache_key`).
+
+Additionally, `cache` uses `tar` to archive the specified directory or file.
