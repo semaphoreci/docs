@@ -45,7 +45,7 @@ Semaphore supports all versions of PHP. You have the following options:
 - Linux: PHP and related tools are available out-of-the-box in the
   [Ubuntu 18.04 VM image][ubuntu-php].
 - Docker: use [semaphoreci/php][php-docker-image] or
-  [your own Docker image][docker-env] with the version of Python and other
+  [your own Docker image][docker-env] with the version of PHP and other
   packages that you need.
 
 Follow the links above for details on currently available language versions and
