@@ -55,7 +55,7 @@ additional tools.
 
 Semaphore uses [phpbrew](https://github.com/phpbrew/phpbrew) to manage
 PHP versions. Any version installable with `phpbrew` is supported on
-Semaphore. Version 7.1 is pre-installed. You can install and switch
+Semaphore. Version 7.2 is pre-installed. You can install and switch
 versions using `phpbrew` and `sem-version`.  Here's an example:
 
 ``` yaml
