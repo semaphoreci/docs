@@ -1,12 +1,5 @@
 ## cache
 
-- [Overview](#overview)
-- [Basic Usage](#basic-usage)
-- [Advanced Usage](#advanced-usage)
-- [Cache Dependencies](#cache-dependencies)
-
-### Overview
-
 Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
 project depends on but are not part of version control. You should typically
 use caching to:
@@ -21,14 +14,16 @@ All cache keys are scoped per project. Total cache size is 9.6GB.
 The `cache` tool uses key-path pairs for managing cached archives. An archive
 can be a single file or a directory.
 
-`cache` supports the following options:
-
+- [Basic Usage](#basic-usage)
+- [Advanced Usage](#advanced-usage)
+- [Cache Dependencies](#cache-dependencies)
 
 ### Basic usage
 
 ### cache store
 
-The `cache store` command that has zero arguments will lookup default paths used to store dependencies and cache them.
+The `cache store` command that has zero arguments will lookup default paths
+used to store dependencies and cache them.
 
 Example YAML:
 ```
@@ -47,15 +42,18 @@ blocks:
          - bundle install --path vendor/bundle
 ```
 
-The output of cache store in project that has a Gemfile.lock and packages-lock.json will look like this:
+The output of cache store in project that has a Gemfile.lock and packages-lock.json
+will look like this:
 
 ```
 $ cache store
 ==> Detecting project structure and storing into cache.
+
 * Detected Gemfile.lock.
 * Using default cache path 'vendor/bundle'.
 Uploading 'vendor/bundle' with cache key 'gems-your-branch-33a6002a37f59b6f1841636085a22fbc'...
 Upload complete.
+
 * Detected package-lock.json.
 * Using default cache path 'node_modules'.
 Uploading 'node_modules' with cache key 'node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a'...
@@ -65,16 +63,19 @@ Upload complete.
 
 ### cache restore
 
-The `cache restore` command that has zero arguments would lookup cachable elements and try to fetch them from the repository.
+The `cache restore` command that has zero arguments would lookup cachable elements
+and try to fetch them from the repository.
 
 Example output:
 ```
 $ cache restore
 ==> Detecting project structure and storing into cache.
+
 * Detected Gemfile.lock.
 * Fetching 'vendor/bundle' directory with cache keys 'gems-your-branch-33a6002a37f59b6f1841636085a22fbc,gems-master-,gems-your-branch-'.
 HIT: gems-your-branch-d17b3d82f1356d0c91469804e2fc320a, using key gems-your-branch-33a6002a37f59b6f1841636085a22fbc
 Restored: vendor/bundle
+
 * Detected package-lock.json.
 * Fetching 'node_modules' directory with cache keys 'node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a,node-mdoules-master-,node-mdoules-your-branch-'.
 HIT: node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a, using key node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a
@@ -91,7 +92,7 @@ Semaphore cache recognise the following languages:
 * elixir (mix) - default cache path: `deps` and `_build` if `mix.lock` is present.
 * java (maven) - default cache path: `.m2` if pom.xml is present.
 
-## Advance usage
+## Advanced Usage
 
 If a third party project, such as Bundler, changes the location where they store dependencies or your project the dependence location is different the default specified in [Supported languages](#suppoeted-languages), you might need to specify the keys path manually instead of using caching shortcut.
 
