@@ -42,7 +42,9 @@ Default quotas per machine type for a newly created organization:
 
 If your organization needs are bigger than what is provided with the default
 machine quotas, you can request an increase by sending a request to
-<support@semaphoreci.com>.
+<customersuccess@semaphoreci.com> (please include which type of machine you 
+prefer) or through the UI (Billing > See detailed insights… > Quota > Request 
+upgrade…).
 
 ## Pipeline and Block Execution Time Limit
 
