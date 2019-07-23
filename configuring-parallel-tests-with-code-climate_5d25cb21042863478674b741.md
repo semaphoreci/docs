@@ -1,4 +1,24 @@
-Following instructions to set up CC on Parallel Tests given on Code Climate website ( https://docs.codeclimate.com/docs/configuring-test-coverage#section-parallel-tests), you can add another block after running test jobs, fetch there reports from S3 and run format-coverage, sum-coverage and upload-coverage to send reports to CC.
+The Code Climate test reporter can join parallelized test reports, combining them into one individual test report that can be submitted to Code Climate.
+
+Configure your CI to store partial results from each parallel run. We recommend syncing and fetching files from S3 as one approach. Alternately, you can use a temporary folder in your CI build. Then, use the test reporter's `format-coverage`, `sum-coverage`, and `upload-coverage` commands to combine the results and upload them as one complete test report.
+
+Set your repo's test reporter ID as an environment variable to identify your repo. This can be found on your Repo Settings in Code Climate. More information here: https://docs.codeclimate.com/docs/configuring-test-coverage#section-parallel-tests
+
+1. Fetch the test reporter pre-built binary.
+
+2. Run `before-build` before running your test suite to notify of a pending report.
+
+3. Execute your test suite.
+
+4. Run `format-coverage` on the reports from each parallelized instance.
+
+5. Run `sum-coverage` to combine the parallelized test reports into one unified report.
+
+6. Run `upload-coverage` to upload the combined test report to Code Climate.
+
+
+Here is a configuration example:
+
 
 ```yaml
 blocks:
