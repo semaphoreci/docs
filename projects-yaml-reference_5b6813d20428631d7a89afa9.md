@@ -7,6 +7,8 @@
 - [spec](#spec)
   - [repository](#repository)
     - [url](#url)
+    - [run_on](#run_on)
+    - [forked_pull_requests](#forked_pull_requests)
   - [schedulers](#schedulers)
 - [Examples](#examples)
 - [See also](#see-also)
@@ -69,7 +71,7 @@ optional `schedulers` properties.
 
 #### repository
 
-The `repository` property is used for holding the `url` property.
+The `repository` property is used for holding the `url`, `run_on`, and `forked_pull_requests` properties.
 
 ##### url
 
@@ -110,6 +112,26 @@ $ sem create -f goDemo.yaml
 
 error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
 ```
+##### run_on
+
+The `run_on` property specifies array of GitHub events which should trigger the building process.
+
+The Property accepts the following values:
+
+* `branches`
+* `tags`
+* `pull-requests`
+* `forked-pull-requests`
+
+The array can't be empty, and Semaphore 2.0 will always build the default branch, even if `branches` are not selected.
+
+##### forked_pull_requests
+
+The `forked_pull_requests` property is used for holding the `allowed_secrets` property.
+
+###### allowed_secrets
+
+The `allowed_secrets` property specifies array of secrets names that are allowed to be exported into jobs triggered by `forked-pull-requests`. If the array is empty, no secret will be exported.
 
 #### schedulers
 
@@ -161,6 +183,9 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
+    run_on:
+      - branches
+      - tags
 ```
 
 A project with schedulers:
@@ -173,6 +198,9 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
+    run_on:
+      - branches
+      - tags
   schedulers:
     - name: first-scheduler
       branch: master
