@@ -1,0 +1,152 @@
+There are two strategies for running CI tests. A developer either wants to get
+a comprehensive report on all failures in a test suite or to get a fast
+feedback from the system and fail everything as soon as one of the jobs fails.
+
+Semaphore runs all the jobs and prepares a comprehensive report for
+your pipeline by default. By setting a Fail-Fast strategy in your pipelines
+you can control this policy and get a fast response for your pipelines.
+
+One out of two Fail-Fast strategies can be used:
+
+- A 'stop' strategy that stops everything in your pipeline as soon as a failure
+  is detected.
+
+- A 'cancel' strategy that stops only the jobs and blocks in your pipeline that
+  haven't yet started. This option is ideal if you don't want to stop an already
+  started test execution.
+
+[Stopping all jobs in a pipeline on the first failure](#stopping-all-jobs-in-a-pipeline-on-first-failure)
+[Stopping all jobs in a pipeline on the first failure on non-master branches](stopping-all-jobs-in-a-pipeline-on-the-first-failure-on-non-master-branches)
+[The difference between Stop and Cancel Fail-Fast strategies](#the-difference-between-stop-and-cancel-fail-fast-strategies)
+[See also](#see-also)
+
+## Stopping all jobs in a pipeline on first failure
+
+To stop all the jobs in a pipeline on the first failure, set a fail-fast stop
+policy in your pipeline YAML files.
+
+``` yaml
+version: v1.0
+name: Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+fail_fast:
+  stop:
+    when: "true"  # enable strategy for branches, tags, and pull-requests
+
+blocks:
+  - name: Unit Tests
+    task:
+      jobs:
+      - name: "Unit Tests 1/2"
+        commands:
+          - make test PARTITION=1
+
+      - name: "Unit Tests 2/2"
+        commands:
+          - make test PARTITION=2
+```
+
+If 'Unit Test 1/2' fails in the above pipeline, the 'Unit Test 2/2' will be
+stopped.
+
+## Stopping all jobs in a pipeline on the first failure on non-master branches
+
+Often the fail-fast behavior is ideal for feature branches during development,
+but it is not ideal for the master branch of your project where a comprehensive
+report is better suited.
+
+By changing the `when` condition to `branch != 'master'`, we can set a policy
+that activates fail-fast only for non-master branches.
+
+``` yaml
+version: v1.0
+name: Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+fail_fast:
+  stop:
+    when: "branch != 'master'"
+
+blocks:
+  - name: Unit Tests
+    task:
+      jobs:
+      - name: "Unit Tests 1/2"
+        commands:
+          - make test PARTITION=1
+
+      - name: "Unit Tests 2/2"
+        commands:
+          - make test PARTITION=2
+```
+
+## The difference between Stop and Cancel Fail-Fast strategies
+
+Sometimes it is not desirable to stop everything in a pipeline. Instead, we
+would like to allow already running jobs and blocks to finish, but prevent new
+ones from starting.
+
+For these scenarios, the 'cancel' strategy can be configured for your pipelines.
+
+``` yaml
+version: v1.0
+name: Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+fail_fast:
+  cancel:
+    when: "branch != 'master'"
+
+blocks:
+  - name: Linter
+    dependencies: []
+    task:
+      jobs:
+      - name: "Linter"
+        commands:
+          - make lint
+
+  - name: Security Scan
+    dependencies: ["Linter"]
+    task:
+      jobs:
+      - name: "Security"
+        commands:
+          - make scan-for-vulnerabilities
+
+  - name: Unit Tests
+    dependencies: []
+    task:
+      jobs:
+      - name: "Unit Tests 1"
+        commands:
+          - make test
+
+  - name: Integration Tests
+    dependencies: ["Unit Tests"]
+    task:
+      jobs:
+      - name: "Unit Tests 1"
+        commands:
+          - make test
+```
+
+In the above scenario, if linting fails, but the unit tests have already started,
+we will not break them in the middle of the execution.
+
+The Security Scan and Integration Tests will be canceled.
+
+# See also
+
+- [Fail-Fast pipeline YAML property](https://docs.semaphoreci.com/article/50-pipeline-yaml#fail\_fast)
+- [Defining 'when' conditions](https://docs.semaphoreci.com/article/142-conditions-reference)
