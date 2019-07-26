@@ -97,16 +97,16 @@ blocks:
         - name: Composer install
           commands:
             - checkout
-            - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
+            - cache restore
             - composer install
-            - cache store composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock) vendor
+            - cache store
 
   - name: Tests
     task:
       prologue:
         commands:
           - checkout
-          - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
+          - cache restore
           # Prepend vendor/bin to the path so you can use dependency executables
           - export "PATH=./vendor/bin:${PATH}"
       jobs:
