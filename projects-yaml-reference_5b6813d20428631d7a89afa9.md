@@ -7,6 +7,7 @@
 - [spec](#spec)
   - [repository](#repository)
     - [url](#url)
+    - [run](#run)
     - [run_on](#run_on)
     - [forked_pull_requests](#forked_pull_requests)
   - [schedulers](#schedulers)
@@ -71,7 +72,8 @@ optional `schedulers` properties.
 
 #### repository
 
-The `repository` property is used for holding the `url`, `run_on`, and `forked_pull_requests` properties.
+The `repository` property is used for holding the `url`, `run_on`, and
+`forked_pull_requests` properties.
 
 ##### url
 
@@ -112,18 +114,23 @@ $ sem create -f goDemo.yaml
 
 error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
 ```
+
+##### run
+
+The `run` property enables you to define if `workflows` should be triggered for this project.
+
+List of values for `run`: `true`, `false`
+
 ##### run_on
 
-The `run_on` property specifies array of GitHub events which should trigger the building process.
+The value of the `run_on` property is an array of GitHub events which should trigger 
+the building process. When `run` is set to `true` this property is required, and 
+can't be empty.
 
-The Property accepts the following values:
+Remember that push to a default branch, will trigger a `workflow` even if `branches` 
+is not selected here.
 
-* `branches`
-* `tags`
-* `pull-requests`
-* `forked-pull-requests`
-
-The array can't be empty, and Semaphore 2.0 will always build the default branch, even if `branches` are not selected.
+List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-requests`
 
 ##### forked_pull_requests
 
@@ -183,6 +190,7 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
+    run: true
     run_on:
       - branches
       - tags
@@ -198,6 +206,7 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
+    run: true
     run_on:
       - branches
       - tags
