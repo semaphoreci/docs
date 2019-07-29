@@ -70,3 +70,26 @@ You can do the following:
 [next]: https://docs.semaphoreci.com/article/62-concepts
 [install-cli]: https://docs.semaphoreci.com/article/53-sem-reference
 [github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
+
+### Renaming a project
+
+If you want to rename your project, you can:
+
+1. Choose the project whose name you want to change,
+2. Go to **Settings**,
+3. Change the name in the **Name of the Project** field and
+4. Click on **Save Changes**.
+
+This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/article/53-sem-reference#sem-edit-examples).
+
+### Deleting a project
+
+In order to delete a project, you can:
+
+1. Choose the project you want to delete,
+2. Go to **Settings**,
+3. At the bottom of the page, click on **Delete project…**,
+4. Re-enter the name of the project and
+5. Click on **Delete project** button.
+
+If you prefer using CLI, you can delete a project by using [`sem delete` command](https://docs.semaphoreci.com/article/53-sem-reference#sem-delete-example).
