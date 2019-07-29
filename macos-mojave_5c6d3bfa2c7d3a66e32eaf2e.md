@@ -56,9 +56,9 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane 2.120
-- xcode-install 2.5.0
-- cocoapods 1.5.3
+- fastlane 2.128.1
+- xcode-install 2.6.0
+- cocoapods 1.7.5
 - xcpretty 0.3.0
 
 ## Languages
@@ -97,13 +97,14 @@ Installed versions:
 
 ## Flutter
 
-- v1.2.1-stable
+- v1.7.8+hotfix.4
 
 ## Xcode
 
 Installed versions:
 
 - 10.2.1
+- 10.3
 - 11.0
 
 Xcode 10.2.1 images have the following SDKs preinstalled:
@@ -115,6 +116,16 @@ Xcode 10.2.1 images have the following SDKs preinstalled:
 - appletvsimulator12.2
 - watchos5.2
 - watchsimulator5.2
+
+Xcode 10.3 images have the following SDKs preinstalled:
+
+- macosx10.14
+- iphoneos12.4
+- iphonesimulator12.4
+- appletvos12.4
+- appletvsimulator12.4
+- watchos5.3
+- watchsimulator5.3
 
 Xcode 11.0 images have the following SDKs preinstalled:
 
