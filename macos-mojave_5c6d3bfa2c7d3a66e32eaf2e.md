@@ -120,12 +120,12 @@ Xcode 10.2.1 images have the following SDKs preinstalled:
 Xcode 10.3 images have the following SDKs preinstalled:
 
 - macosx10.14
-- iphoneos12.2
-- iphonesimulator12.2
-- appletvos12.2
-- appletvsimulator12.2
-- watchos5.2
-- watchsimulator5.2
+- iphoneos12.4
+- iphonesimulator12.4
+- appletvos12.4
+- appletvsimulator12.4
+- watchos5.3
+- watchsimulator5.3
 
 Xcode 11.0 images have the following SDKs preinstalled:
 
