@@ -119,6 +119,14 @@ to be met:
 
 After that, we’ll change the ownership on your behalf.
 
+## Removing a user who has created projects in your organization
+
+If you need to remove a user who has added projects to your organization, please 
+reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com) and we will transfer the ownership 
+of those projects to another member of the organization. Please include GitHub 
+username of the user you'd like to remove and GitHub username of the new project 
+owner in the email.
+
 ## Deleting organization and account
 
 In order to delete your account and/or organization, please send an email to
