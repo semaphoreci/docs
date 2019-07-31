@@ -77,7 +77,7 @@ blocks:
           # job is to work with your code.
           # Optionally you may use --use-cache flag to avoid roundtrip to
           # remote repository.
-          # See https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
+          # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
           - checkout
           # Restore dependencies from cache.
           # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
