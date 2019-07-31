@@ -23,9 +23,7 @@ ssh-keygen -t rsa -f id_rsa_semaphoreci
 ### Add the SSH key
 
 Next, connect the SSH key to the project or user. Github [Deploy Keys][]
-are the easiest way to grant access to a single project. The trade-off is that
-you'll need to add a deploy key for all private projects. However you may
-re-use same key.
+are the easiest way to grant access to a single project.
 
 Another solution is to
 create a dedicated "ci" user, grant the "ci" user access to the
