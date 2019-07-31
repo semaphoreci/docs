@@ -59,6 +59,13 @@ or
 "{"message":"admin permisssions are required on the repository in order to add the project to Semaphore"}"
 ```
 
+or
+
+``` txt
+error: http status 422 with message "{"message":"Repository 'orgname/projectname' not found"}" 
+received from upstream
+```
+
 You can do the following:
 
 - Check if the user who wants to add a project to Semaphore is a member of the
@@ -66,6 +73,7 @@ You can do the following:
   repository on GitHub.
 - Check if the access for Semaphore 2.0 was granted within your GitHub
   organization. You can do that [here][github-connection].
+- Request the GitHub organization owner to give access to Semaphore. [Here](https://help.github.com/en/articles/requesting-organization-approval-for-oauth-apps) you can find how.
 
 [next]: https://docs.semaphoreci.com/article/62-concepts
 [install-cli]: https://docs.semaphoreci.com/article/53-sem-reference
