@@ -116,8 +116,8 @@ error: http status 422 with message "{"message":"repository url must be an SSH u
 The schedulers property can contain a list of schedulers defined on the
 project.
 
-A scheduler in Semaphore 2.0 is a way to run a pre-defined pipeline on a project
-at the pre-defined time.
+A scheduler is a way to run a pre-defined pipeline on a project
+at the pre-defined time. All times are interpreted as UTC.
 
 A scheduler has a few properties: `name`, `branch`, `at` and
 `pipeline_file`.
