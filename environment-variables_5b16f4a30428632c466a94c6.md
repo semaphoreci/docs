@@ -133,6 +133,73 @@ Semaphore 2.0 project.
 
 Example value: `foo`
 
+#### SEMAPHORE\_GIT\_REPO\_SLUG
+
+The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the 
+name (in form: owner_name/repo_name) of the GitHub repository of the current 
+Semaphore 2.0 project.
+
+Example value: `semaphoreci/docs`
+
+#### SEMAPHORE\_GIT\_REF\_TYPE
+
+The value of the `SEMAPHORE_GIT_REF_TYPE` environment variable indicates 
+the git reference type.
+
+Example value: `branch`, `tag`, `pull-request`
+
+#### SEMAPHORE\_GIT\_REF
+
+The value of the `SEMAPHORE_GIT_REF` environment variable holds the name of
+git reference to commit that the pipeline is using.
+
+Example value: `refs/heads/master`
+
+#### SEMAPHORE\_GIT\_COMMIT\_RANGE
+
+The value of the `SEMAPHORE_GIT_COMMIT_RANGE` environment variable holds 
+the range of commits that were included in the push or pull request.
+
+This is empty for builds triggered by the initial commit of a new branch or tag.
+
+Example value: `5c84719708b9b649b9ef3b56af214f38cee6acde...92d87d5c0dd2dbb7a68ecb27df43d1b164fd3e30`
+
+#### SEMAPHORE\_GIT\_TAG\_NAME
+
+The value of the `SEMAPHORE_GIT_TAG_NAME` environment variable is the name of
+the GitHub tag that is used in the current job.
+
+Example value: `v1.0.0`
+
+#### SEMAPHORE\_GIT\_PR\_SLUG
+
+The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the 
+name (in form: owner_name/repo_name) of the GitHub repository from which 
+the PR originated.
+
+Example value: `renderedtext/docs`
+
+#### SEMAPHORE\_GIT\_PR\_SHA
+
+The value of the `SEMAPHORE_GIT_PR_SHA` environment variable holds the 
+commit SHA of the HEAD commit of the Pull Request.
+
+Example values: `5c84719708b9b649b9ef3b56af214f38cee6acd3`
+
+#### SEMAPHORE\_GIT\_PR\_NUMBER
+
+The value of the `SEMAPHORE_GIT_PR_NUMBER` environment variable holds the 
+number of the Pull Request.
+
+Example values: `1`
+
+#### SEMAPHORE\_GIT\_PR\_NAME
+
+The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the 
+name of the Pull Request.
+
+Example values: `Update Readme.md`
+
 ### Cache related
 
 The following environment variables are related to the `cache` utility. You can
