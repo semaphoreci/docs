@@ -1,4 +1,5 @@
-On Semaphore, you can choose which GitHub events should trigger the workflow. In project settings, you can choose one or more triggers.
+On Semaphore, you can choose which GitHub events should trigger new workflows.
+In project settings, you can choose one or more triggers.
 
 There are four triggers to choose between: *branches*, *tags*, *pull requests*, and *forked pull requests*.
 
@@ -15,45 +16,53 @@ There is also an option to pause a project.
 
 ## Pause project
 
-Semaphore will create a workflow after any trigger from GitHub. You can still restart a Workflow, run a Debug Session and use Scheduler.
+Semaphore will not create new workflows on any trigger from GitHub.
+You can still restart a past workflow, run a debug session and configure a scheduler.
 
 ## Build branches
 
-When you choose this option Semaphore will create a workflow for every push to the repo.
+Semaphore will create a workflow for every push to your repository.
 
-In every job from this workflow, we are injecting `SEMAPHORE_GIT_REF_TYPE` with value `branch`.
+In every job from this workflow, Semaphore will export
+`SEMAPHORE_GIT_REF_TYPE` environment variable with value `branch`.
 
 ## Build tags
 
-When you choose this option Semaphore will create a workflow for every tag you create on the repository.
+Semaphore will create a workflow for every tag you create on the Git repository.
 
-In every job from this workflow, we are injecting `SEMAPHORE_GIT_REF_TYPE` with value `tag`.
+In every job from this workflow, Semaphore will export
+`SEMAPHORE_GIT_REF_TYPE` environment variable with value `tag`.
 
 ## Build pull requests
 
 When you choose this option Semaphore will create a workflow for every push to the pull request on a repo.
 
-In every job from this workflow, we are injecting `SEMAPHORE_GIT_REF_TYPE` with value `pull-request`.
+In every job from this workflow, Semaphore will export
+`SEMAPHORE_GIT_REF_TYPE` environment variable with value `pull-request`.
 
-## Build forked pull requests
+## Build pull requests from forks
 
-When you choose this option Semaphore will create a workflow for every push to the pull request that came from a forked repository.
+Semaphore will create a workflow for every push to a pull request
+originating from a forked repository.
 
-In every job from this workflow, we are injecting `SEMAPHORE_GIT_REF_TYPE` with value `pull-request`.
+In every job from this workflow, Semaphore will export
+`SEMAPHORE_GIT_REF_TYPE` environment variable with value `pull-request`.
 
-To distinguish workflows from the forked repository you need to compare `SEMAPHORE_GIT_PR_SLUG` and `SEMAPHORE_GIT_REPO_SLUG`.
+To distinguish workflows from main and forked repositories, you can compare
+`SEMAPHORE_GIT_PR_SLUG` and `SEMAPHORE_GIT_REPO_SLUG` environment variables.
 
 ### Expose secrets in forked pull requests
 
-By default Semaphore want inject any secrets to jobs from the forked pull request. You can whitelist the secrets you want to expose specifying their names.
-
-There is no option to expose all the secrets.
+By default Semaphore will not inject any secrets into jobs for pull requests from forks.
+You can whitelist the secrets you want to expose specifying their names.
 
 ## Build default branch
 
-When the project is not on pause Semaphore will always create a workflow for pushes to master branch.
+When the project is not on pause, Semaphore will always create new workflows
+for pushes to master branch.
 
-In every job from this workflow, we are injecting `SEMAPHORE_GIT_REF_TYPE` with value `branch`.
+In every job from this workflow, Semaphore will export
+`SEMAPHORE_GIT_REF_TYPE` with value `branch`.
 
 # See also
 
