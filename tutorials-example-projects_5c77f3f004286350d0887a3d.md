@@ -93,6 +93,10 @@ possible and jump-start your own projects.
   </thead>
   <tbody>
     <tr>
+      <td><a href="https://docs.semaphoreci.com/article/150-deployment-to-aws-elasticbeanstalk">AWS Elastic Beanstalk</a></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="https://docs.semaphoreci.com/article/70-dockerhub">Docker registry: Docker Hub</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-java-spring">semaphore-demo-java-spring</a></td>
     </tr>
