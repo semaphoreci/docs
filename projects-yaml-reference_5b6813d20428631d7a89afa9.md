@@ -132,6 +132,9 @@ is not selected here.
 
 List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-requests`
 
+For more information about workflow triggers, visit the
+[Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options).
+
 ##### forked_pull_requests
 
 The `forked_pull_requests` property is used for holding the `allowed_secrets` property.
@@ -227,3 +230,4 @@ spec:
 - [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options)
