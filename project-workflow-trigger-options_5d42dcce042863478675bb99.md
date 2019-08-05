@@ -1,7 +1,11 @@
-On Semaphore, you can choose which GitHub events should trigger new workflows.
-In project settings, you can choose one or more triggers.
+You can choose which GitHub events should trigger new workflows for your Semaphore project.
 
-There are four triggers to choose between: *branches*, *tags*, *pull requests*, and *forked pull requests*.
+In project settings, you can select one of the following triggers:
+
+- Branches
+- Tags
+- Pull requests
+- Forked pull requests
 
 There is also an option to pause a project.
 
