@@ -97,7 +97,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.7.8+hotfix.4
+- v1.8.3
 
 ## Xcode
 
