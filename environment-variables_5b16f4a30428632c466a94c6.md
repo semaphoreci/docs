@@ -53,6 +53,13 @@ ID of the project that a job belongs to.
 
 Example value: `0dd982e8-32f5-4037-983e-4de01ac7fb1e`
 
+#### SEMAPHORE\_ORGANIZATION\_URL
+
+The value of the `SEMAPHORE_ORGANIZATION_URL` environment variable holds the url
+of organization that owns the project on Semaphore.
+
+Example value: `https://example.semaphoreci.com`
+
 #### SEMAPHORE\_JOB\_NAME
 
 The value of the `SEMAPHORE_JOB_NAME` environment variable is a string that
@@ -135,15 +142,15 @@ Example value: `foo`
 
 #### SEMAPHORE\_GIT\_REPO\_SLUG
 
-The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the 
-name (in form: owner_name/repo_name) of the GitHub repository of the current 
+The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the
+name (in form: owner_name/repo_name) of the GitHub repository of the current
 Semaphore 2.0 project.
 
 Example value: `semaphoreci/docs`
 
 #### SEMAPHORE\_GIT\_REF\_TYPE
 
-The value of the `SEMAPHORE_GIT_REF_TYPE` environment variable indicates 
+The value of the `SEMAPHORE_GIT_REF_TYPE` environment variable indicates
 the git reference type.
 
 Example value: `branch`, `tag`, `pull-request`
@@ -157,7 +164,7 @@ Example value: `refs/heads/master`
 
 #### SEMAPHORE\_GIT\_COMMIT\_RANGE
 
-The value of the `SEMAPHORE_GIT_COMMIT_RANGE` environment variable holds 
+The value of the `SEMAPHORE_GIT_COMMIT_RANGE` environment variable holds
 the range of commits that were included in the push or pull request.
 
 This is empty for builds triggered by the initial commit of a new branch or tag.
@@ -173,29 +180,29 @@ Example value: `v1.0.0`
 
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
-The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the 
-name (in form: owner_name/repo_name) of the GitHub repository from which 
+The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the
+name (in form: owner_name/repo_name) of the GitHub repository from which
 the PR originated.
 
 Example value: `renderedtext/docs`
 
 #### SEMAPHORE\_GIT\_PR\_SHA
 
-The value of the `SEMAPHORE_GIT_PR_SHA` environment variable holds the 
+The value of the `SEMAPHORE_GIT_PR_SHA` environment variable holds the
 commit SHA of the HEAD commit of the Pull Request.
 
 Example values: `5c84719708b9b649b9ef3b56af214f38cee6acd3`
 
 #### SEMAPHORE\_GIT\_PR\_NUMBER
 
-The value of the `SEMAPHORE_GIT_PR_NUMBER` environment variable holds the 
+The value of the `SEMAPHORE_GIT_PR_NUMBER` environment variable holds the
 number of the Pull Request.
 
 Example values: `1`
 
 #### SEMAPHORE\_GIT\_PR\_NAME
 
-The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the 
+The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the
 name of the Pull Request.
 
 Example values: `Update Readme.md`
