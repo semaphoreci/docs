@@ -11,6 +11,7 @@ your project.
   - [Optimizing Docker images for fast CI/CD](#optimizing-docker-images-for-fast-ci-cd)
 - [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
 - [Pulling private Docker images from AWS ECR](#pulling-private-docker-images-from-aws-ecr)
+- [Pulling private Docker images from Google GCR](#pulling-private-docker-images-from-google-gcr)
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
@@ -237,6 +238,33 @@ agent:
 
   image_pull_secrets:
     - name: aws-ecr-pull-secrets
+```
+
+## Pulling private Docker images from Google GCR
+
+Private Docker Images stored in Google container registry can be used in your CI/CD pipelines.
+
+First, set up the secret to store your GCE credential file and repository hostname.
+It's important to set the destination path for the file to `/tmp/gcr/keyfile.json`
+as this is the default path and filename that semaphore agent will lookup for GCR credentials.
+
+``` yaml
+sem create secret gcr-pull-secrets -e GCR_HOSTNAME=gcr.io -f ~/keyfile.json:/tmp/gcr/keyfile.json
+```
+
+Attach the created secret to your agent's to pull private images:
+
+``` yaml
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <your-private-repository>/<image>
+
+  image_pull_secrets:
+    - name: gcr-pull-secrets
 ```
 
 [working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
