@@ -1,19 +1,20 @@
 The *auto-cancel* strategy defines the behavior of pipelines when they enter the
 queue for execution.
 
-By default, all pipelines will be queued and executed on a first-come, first-served
-basis.
+By default, all pipelines will enter the First-In-First-Out (FIFO) queue and wait
+for their time for execution.
 
-Often this is not the optimal solution, especially during development.
+In some cases, this is not the optimal solution, especially if you consider the
+following scenario.
 
-We all head situations where you push some changes, only to realize that you have
+We all had situations where you push some changes, only to realize that you have
 missed something small, so you push a new revision immediately and then find out
 another mistake...
 
-Before *auto-cancel* strategies the only way to get immediate feedback on the
-latest revision was to manually stop all pipelines from obsolete commits.
+Without *auto-cancel* strategies the only way to get immediate feedback on the
+latest revision is to manually stop all pipelines from obsolete commits.
 
-Now if you set up an auto-cancel strategy this will be done automatically.
+If you set up an auto-cancel strategy this will be done automatically.
 That way you will get faster feedback on revisions that matter while skipping
 all the intermediate ones.
 
@@ -130,7 +131,7 @@ with feedback as soon as possible after a push.
 
 ## Auto-cancel all pipelines on a new push to a non-master branch
 
-Often the auto-cancel strategy is ideal for feature branches during development.
+The auto-cancel strategy is ideal for feature branches during development.
 However, it isn't suitable for the master branch of your project, where there are
 potentially further steps in a workflow that should not be missed for any commit.
 
