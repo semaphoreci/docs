@@ -196,7 +196,7 @@ sem create secret dockerhub-pull-secrets \
   -e DOCKERHUB_PASSWORD=<your-dockerhub-password> \
 ```
 
-Attach the created secret to your agent's to pull private images:
+Attach the created secret to your agent's properties to pull private images:
 
 ``` yaml
 agent:
@@ -225,7 +225,7 @@ sem create secret aws-ecr-pull-secrets \
   -e AWS_SECRET_ACCESS_KEY=<your-aws-secret-key> \
 ```
 
-Attach the created secret to your agent's to pull private images:
+Attach the created secret to your agent's properties to pull private images:
 
 ``` yaml
 agent:
@@ -246,13 +246,13 @@ Private Docker Images stored in Google container registry can be used in your CI
 
 First, set up the secret to store your GCE credential file and repository hostname.
 It's important to set the destination path for the file to `/tmp/gcr/keyfile.json`
-as this is the default path and filename that semaphore agent will lookup for GCR credentials.
+as this is the default path and filename that Semaphore agent will lookup for GCR credentials.
 
 ``` yaml
 sem create secret gcr-pull-secrets -e GCR_HOSTNAME=gcr.io -f ~/keyfile.json:/tmp/gcr/keyfile.json
 ```
 
-Attach the created secret to your agent's to pull private images:
+Attach the created secret to your agent's properties to pull private images:
 
 ``` yaml
 agent:
