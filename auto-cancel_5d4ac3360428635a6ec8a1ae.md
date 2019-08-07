@@ -1,5 +1,5 @@
-The *auto-cancel* strategy defines the behavior of pipelines when they enter the
-queue for execution.
+The *auto-cancel* strategy defines the behavior of pipelines when a queue for
+execution forms.
 
 By default, all pipelines will enter the First-In-First-Out (FIFO) queue and wait
 for their time for execution.
@@ -29,7 +29,7 @@ This option is ideal if you don't want to stop an already started test execution
 
 - [Auto-cancel queued pipelines on a new push](#auto-cancel-queued-pipelines-on-a-new-push)
 - [Auto-cancel both running and queued pipelines on a new push](#auto-cancel-both-running-and-queued-pipelines-on-a-new-push)
-- [Auto-cancel all pipelines on a new push to a non-master branch](#auto-cancel-all pipelines-on-a-new-push-to-a-non-master-branch)
+- [Auto-cancel all pipelines on a new push to a non-master branch](#auto-cancel-all-pipelines-on-a-new-push-to-a-non-master-branch)
 - [See aslo](#see-also)
 
 ## Auto-cancel queued pipelines on a new push
