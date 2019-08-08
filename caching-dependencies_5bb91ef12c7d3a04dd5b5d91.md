@@ -37,45 +37,9 @@ blocks:
             - npm test
 ```
 
-The example above uses a cache shortcut command - `cache store` and `cache restore`.
-This means that [caching](caching) script
-will try to recognize your project structure, lookup `lock files` and automatically
-store or restore dependencies in to or from default paths. The full cache command
-is shown in the example below:
-
-```yml
-# .semaphore/semaphore.yml
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-blocks:
-  - name: Install dependencies
-    task:
-      jobs:
-        - name: npm install and cache
-          commands:
-            - checkout
-            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
-            - npm install
-            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
-
-  - name: Tests
-    task:
-      prologue:
-        commands:
-          - checkout
-          - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
-      jobs:
-        - name: Everything
-          commands:
-            - npm test
-```
-
-In this example we dynamically generate a cache key based on the current
-Git branch, available via an [environment variable][env-vars] and content of
-`package-lock.json`. cache and checksum are part of the Semaphore
-[toolbox][toolbox].
+The example above uses a cache command - `cache store` and `cache restore`.
+The [cache][caching] command recognizes the project structure, lookup `lock files`
+and automatically store and restore dependencies.
 
 If we change any of our dependencies, the content of `package-lock.json` will
 change, and the cache would be invalidated. Since `cache restore` does partial
@@ -84,7 +48,6 @@ the current Git branch. If there is none, then it will reuse the last available
 cache created by the master branch.
 
 This strategy ensures best cache hit rate through the lifetime of your project.
-You can apply the same approach to other languages and uses cases as well.
 
 ## Next steps
 
