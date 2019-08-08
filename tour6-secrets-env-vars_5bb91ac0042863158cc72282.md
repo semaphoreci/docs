@@ -26,7 +26,8 @@ blocks:
 Private information like API keys or deploy credentials shouldn't be
 written in the pipeline definition file or elsewhere committed to source
 control. On Semaphore you define these values as _secrets_ using either
-the `sem` CLI or through the web interface.
+the `sem` CLI or through the web interface (Configuration part of the 
+sidebar -> Secrets).
 Secrets are shared by all projects in the organization.
 
 Let's configure a secret for the `AWS_ACCESS_KEY_ID` and
