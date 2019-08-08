@@ -38,7 +38,7 @@ blocks:
 ```
 
 The example above uses a cache command - `cache store` and `cache restore`.
-The [cache][caching] command recognizes the project structure, lookup `lock files`
+The [cache][caching] command recognizes the project structure
 and automatically store and restore dependencies.
 
 If we change any of our dependencies, the content of `package-lock.json` will
