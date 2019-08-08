@@ -81,10 +81,10 @@ blocks:
           - export PATH=$HOME/.local/bin:$PATH
           - checkout
           - mkdir .pip_cache
-          - cache restore pip-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt),pip-$SEMAPHORE_GIT_BRANCH,pip-master
+          - cache restore
           # Use --user to avoid permission conflicts
           - pip install --user --cache-dir .pip_cache -r requirements.txt
-          - cache store pip-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt) .pip_cache
+          - cache store
       jobs:
         - name: Everything
           commands:
