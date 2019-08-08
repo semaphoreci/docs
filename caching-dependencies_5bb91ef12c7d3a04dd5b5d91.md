@@ -21,6 +21,41 @@ blocks:
         - name: npm install and cache
           commands:
             - checkout
+            - cache restore
+            - npm install
+            - cache store
+
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: Everything
+          commands:
+            - npm test
+```
+
+The example above uses a cache shortcut command - `cache store` and `cache restore`.
+This means that [caching](caching) script
+will try to recognize your project structure, lookup `lock files` and automatically
+store or restore dependencies in to or from default paths. The full cache command
+is shown in the example below:
+
+```yml
+# .semaphore/semaphore.yml
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: npm install and cache
+          commands:
+            - checkout
             - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
             - npm install
             - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
@@ -57,6 +92,7 @@ Production CI/CD often requires use of environment variables and private API
 keys. Let's move on to learn how to
 [manage sensitive data and environment variables][next].
 
+[caching]: (https://docs.semaphoreci.com/article/149-caching)
 [toolbox]: https://docs.semaphoreci.com/article/54-toolbox-reference
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
 [next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
