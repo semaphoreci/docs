@@ -93,11 +93,11 @@ blocks:
         - name: Dependencies
           commands:
             - checkout
-            - cache restore maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),maven-$SEMAPHORE_GIT_BRANCH,maven-master
+            - cache restore
             # Download all JARs possible and compile as much as possible
             # Use -q to reduce output spam
             - mvn -q dependency:go-offline test-compile
-            - cache store maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml) .m2
+            - cache store
             - cache store build-$SEMAPHORE_GIT_SHA target
   - name: Tests
     task:
@@ -107,7 +107,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),maven-$SEMAPHORE_GIT_BRANCH,maven-master
+          - cache restore
           - cache restore build-$SEMAPHORE_GIT_SHA
       jobs:
         - name: Everything
