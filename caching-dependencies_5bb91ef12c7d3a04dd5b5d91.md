@@ -21,26 +21,25 @@ blocks:
         - name: npm install and cache
           commands:
             - checkout
-            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+            - cache restore
             - npm install
-            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
+            - cache store
 
   - name: Tests
     task:
       prologue:
         commands:
           - checkout
-          - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+          - cache restore
       jobs:
         - name: Everything
           commands:
             - npm test
 ```
 
-In this example we dynamically generate a cache key based on the current
-Git branch, available via an [environment variable][env-vars] and content of
-`package-lock.json`. cache and checksum are part of the Semaphore
-[toolbox][toolbox].
+The example above uses a cache command - `cache store` and `cache restore`.
+The [cache][caching] command recognizes the project structure, lookup `lock files`
+and automatically store and restore dependencies.
 
 If we change any of our dependencies, the content of `package-lock.json` will
 change, and the cache would be invalidated. Since `cache restore` does partial
@@ -49,7 +48,6 @@ the current Git branch. If there is none, then it will reuse the last available
 cache created by the master branch.
 
 This strategy ensures best cache hit rate through the lifetime of your project.
-You can apply the same approach to other languages and uses cases as well.
 
 ## Next steps
 
@@ -57,6 +55,7 @@ Production CI/CD often requires use of environment variables and private API
 keys. Let's move on to learn how to
 [manage sensitive data and environment variables][next].
 
+[caching]: (https://docs.semaphoreci.com/article/149-caching)
 [toolbox]: https://docs.semaphoreci.com/article/54-toolbox-reference
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
 [next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
