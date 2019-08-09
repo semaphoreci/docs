@@ -98,9 +98,9 @@ blocks:
           # case of a cache miss. In case of a cache hit, bundle  install will
           # complete in about a second.
           # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore
           - bundle install --path vendor/bundle
-          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+          - cache store
       jobs:
         - name: Fastlane test
           commands:
@@ -119,9 +119,9 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore
           - bundle install --path vendor/bundle
-          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+          - cache store
       jobs:
         - name: Fastlane build
           commands:
@@ -217,9 +217,9 @@ across blocks and workflows.
 
 ``` yaml
         commands:
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore
           - bundle install --path vendor/bundle
-          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+          - cache store
 ```
 
 In example configuration, the first command restores dependencies from cache
