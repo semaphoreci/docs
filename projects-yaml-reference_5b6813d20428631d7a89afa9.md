@@ -139,15 +139,20 @@ For more information about workflow triggers, visit the
 
 ##### forked\_pull\_requests
 
-The `forked_pull_requests` property is used for holding the `allowed_secrets`, and `allowed_contributors` properties.
+The `forked_pull_requests` property is used for holding the `allowed_secrets`,
+and `allowed_contributors` properties.
 
 ###### allowed_secrets
 
-The `allowed_secrets` property specifies array of secrets names that are allowed to be exported into jobs triggered by `forked-pull-requests`. If the array is empty, no secret will be exported.
+The `allowed_secrets` property specifies array of secrets names that are allowed
+to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
+no secret will be exported.
 
 ###### allowed_contributors
 
-The `allowed_contributors` property specifies array of contributors GitHub logins that are allowed to run workflows triggered by `forked-pull-requests`. If the array is empty, all contributors are allowed.
+The `allowed_secrets` property specifies an array of secrets names that are allowed
+to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
+no secret will be exported.
 
 #### schedulers
 
