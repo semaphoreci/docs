@@ -9,7 +9,9 @@
     - [url](#url)
     - [run](#run)
     - [run_on](#run_on)
-    - [forked_pull_requests](#forked_pull_requests)
+    - [forked\_pull\_requests](#forked_pull_requests)
+        - [allowed_secrets](#allowed_secrets)
+        - [allowed_contributors](#allowed_contributors)
   - [schedulers](#schedulers)
 - [Examples](#examples)
 - [See also](#see-also)
@@ -123,11 +125,11 @@ List of values for `run`: `true`, `false`
 
 ##### run_on
 
-The value of the `run_on` property is an array of GitHub events which should trigger 
-the building process. When `run` is set to `true` this property is required, and 
+The value of the `run_on` property is an array of GitHub events which should trigger
+the building process. When `run` is set to `true` this property is required, and
 can't be empty.
 
-Remember that push to a default branch, will trigger a `workflow` even if `branches` 
+Remember that push to a default branch, will trigger a `workflow` even if `branches`
 is not selected here.
 
 List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-requests`
@@ -135,13 +137,17 @@ List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-r
 For more information about workflow triggers, visit the
 [Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options).
 
-##### forked_pull_requests
+##### forked\_pull\_requests
 
-The `forked_pull_requests` property is used for holding the `allowed_secrets` property.
+The `forked_pull_requests` property is used for holding the `allowed_secrets`, and `allowed_contributors` properties.
 
 ###### allowed_secrets
 
 The `allowed_secrets` property specifies array of secrets names that are allowed to be exported into jobs triggered by `forked-pull-requests`. If the array is empty, no secret will be exported.
+
+###### allowed_contributors
+
+The `allowed_contributors` property specifies array of contributors GitHub logins that are allowed to run workflows triggered by `forked-pull-requests`. If the array is empty, all contributors are allowed.
 
 #### schedulers
 
