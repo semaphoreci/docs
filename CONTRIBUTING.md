@@ -34,8 +34,13 @@ If you're an external contributor, it's best to start from no.4.
 
 ## Writing
 
+- Before submitting a pull request, verify all non-code text with
+  [Grammarly](https://www.grammarly.com) (use a free account).
 - Prefer active over passive voice.
+- Always use present tense.
+  There are very few cases in technical writing when you need future or past tense.
 - Edit your first draft to say the same thing with less words.
+  Or in shorter sentences.
 - Verify any configuration or code that's part of your content in a working
   Semaphore project.
 
