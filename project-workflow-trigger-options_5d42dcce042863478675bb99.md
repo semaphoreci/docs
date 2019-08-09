@@ -15,6 +15,7 @@ There is also an option to pause a project.
 - [Build pull requests](#build-pull-requests)
 - [Build forked pull requests](#build-forked-pull-requests)
   - [Expose secrets in forked pull requests](#expose-secrets-in-forked-pull-requests)
+  - [Filter contributors in forked pull requests](#filter-contributors-in-forked-pull-requests)
 - [Build default branch](#build-default-branch)
 - [See also](#see-also)
 
@@ -59,6 +60,11 @@ To distinguish workflows from main and forked repositories, you can compare
 
 By default Semaphore will not inject any secrets into jobs for pull requests from forks.
 You can whitelist the secrets you want to expose specifying their names.
+
+### Filter contributors in forked pull requests
+
+By default Semaphore will allow all contributors to create workflows for pull requests from forks.
+You can filter the contributors you want to allow to do that specifying their github logins.
 
 ## Build default branch
 
