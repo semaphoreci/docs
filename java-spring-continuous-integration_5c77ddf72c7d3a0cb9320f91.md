@@ -79,14 +79,14 @@ blocks:
             # Restore dependencies from cache, command won't fail if it's
             # missing.
             # More on caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-          - cache restore spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH,spring-pipeline-maven
+          - cache restore
 
           - mvn -q package jmeter:configure -Dmaven.test.skip=true
 
             # Store the latest version of dependencies in cache,
             # to be used in next blocks and future workflows:
+          - cache store
           - cache store spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml) target
-          - cache store spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml) .m2
 
   - name: "Test"
     task:
@@ -100,8 +100,8 @@ blocks:
       prologue:
         commands:
           - checkout
+          - cache restore
           - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
-          - cache restore spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH,spring-pipeline-maven
           - mvn -q test-compile -Dmaven.test.skip=true
       jobs:
       - name: Unit tests
@@ -119,8 +119,8 @@ blocks:
       prologue:
         commands:
           - checkout
+          - cache restore
           - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
-          - cache restore spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH,spring-pipeline-maven
       jobs:
       - name: Benchmark
         commands:
@@ -202,8 +202,9 @@ blocks:
       prologue:
         commands:
           - checkout
+          - cache restore
           - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
-          - cache restore spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-maven-$SEMAPHORE_GIT_BRANCH,spring-pipeline-maven
+
       jobs:
       - name: Build and deploy docker container
         commands:

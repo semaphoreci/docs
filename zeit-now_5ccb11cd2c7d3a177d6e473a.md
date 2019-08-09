@@ -73,13 +73,13 @@ blocks:
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
-            # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            # For more info on caching, see https://docs.semaphoreci.com/article/149-caching
+            - cache restore
             - npm install
 
             # Store the latest version of node modules in cache to reuse in
             # further blocks:
-            - cache store client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
+            - cache store
 
   - name: Run tests
     task:
@@ -88,7 +88,7 @@ blocks:
           commands:
             - checkout
             - nvm use
-            - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
+            - cache restore
             - npm test
 
 promotions:

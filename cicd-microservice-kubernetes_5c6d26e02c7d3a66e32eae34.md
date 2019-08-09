@@ -80,17 +80,17 @@ blocks:
             # job is to work with your code.
             # Optionally you may use --use-cache flag to avoid roundtrip to
             # remote repository.
-            # See https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
+            # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
             - checkout
 
             # Restore dependencies from cache, command won't fail if it's
             # missing.
-            # More on caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
-            - bundle install --deployment --path .bundle
+            # More on caching: https://docs.semaphoreci.com/article/149-caching
+            - cache restore
+            - bundle install --deployment --path vendor/bundle
             # Store the latest version of dependencies in cache,
             # to be used in next blocks and future workflows:
-            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) .bundle
+            - cache store
 
   - name: Tests
     task:
@@ -98,12 +98,12 @@ blocks:
         - name: rspec
           commands:
             - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
+            - cache restore
             # Bundler requires `install` to run even though cache has been
             # restored, but generally this is not the case with other package
             # managers. Installation will not actually run and command will
             # finish quickly:
-            - bundle install --deployment --path .bundle
+            - bundle install --deployment --path vendor/bundle
             # Run unit tests:
             - bundle exec rspec
 

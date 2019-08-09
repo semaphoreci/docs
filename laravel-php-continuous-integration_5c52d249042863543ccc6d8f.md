@@ -77,35 +77,29 @@ blocks:
             # job is to work with your code.
             # Optionally you may use --use-cache flag to avoid roundtrip to
             # remote repository.
-            # See https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
+            # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
             - checkout
             # Try and find a cached version of our /vendor dependencies folder.
             # Semaphore tries to find a partial match.
-            # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-            - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
-            # Install our project composer dependencies
+            # Read about caching: https://docs.semaphoreci.com/article/149-caching
+            - cache restore
+            # Install our project composer
             - composer install
-            # Store the /vendor folder into cache for later use.
-            - cache store composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock) vendor
+            # Install node dependencies
+            - npm install
+            # Store the /vendor and node_modules folders into cache for later use.
+            - cache store
             # We are setting up the .env file from our example file which contains Semaphore DB data and proper app URL
             - cp .env.example .env
             # We need to generate an application key for Laravel to work.
             - php artisan key:generate
-        - name: npm
-          commands:
-            - checkout
-            # Try and find a cached version of our /node_modules dependencies folder.
-            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
-            - npm install
-            # Store the /node_modules folder into cache for later use.
-            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master node_modules
 
   - name: "Run Code Analysis"
     task:
       prologue:
         commands:
           - checkout
-          - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
+          - cache restore
       jobs:
         - name: phpmd
           commands:
@@ -127,7 +121,7 @@ blocks:
       - name: phpunit
         commands:
           - checkout
-          - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
+          - cache restore
           # Run the unit tests from the phpunit binary in vendor folder
           - ./vendor/bin/phpunit
 
@@ -140,12 +134,13 @@ blocks:
             - cp .env.example .env
             # Create an empty .sqlite DB
             - touch database/database.sqlite
-            - cache restore composer-$SEMAPHORE_GIT_BRANCH-$(checksum composer.lock),composer-$SEMAPHORE_GIT_BRANCH,composer-master
+            - cache restore
             # Create an application key again.
             - php artisan key:generate
+            - php artisan dusk:update --detect
             # Start Laravel's built-in web server so the web driver used by Dusk can connect.
             # We start the server using the .env.dusk.local environment file that uses SQLITE.
-            - php artisan serve --env=dusk.local &
+            - php artisan serve --env=dusk.local --port=8010 &
             # Run the tests
             - php artisan dusk
 
@@ -162,6 +157,7 @@ blocks:
             - composer install
             # Finally, run the check
             - php security-checker security:check ../composer.lock
+
 ```
 
 ## Run the demo Laravel project yourself

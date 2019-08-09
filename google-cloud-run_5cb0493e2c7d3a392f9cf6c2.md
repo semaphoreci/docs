@@ -68,9 +68,9 @@ blocks:
         - name: bundle install
           commands:
             - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
-            - bundle install --deployment --path .bundle
-            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) .bundle
+            - cache restore
+            - bundle install --deployment --path vendor/bundle
+            - cache store
 
   - name: Tests
     task:
@@ -78,8 +78,8 @@ blocks:
         - name: rspec
           commands:
             - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
-            - bundle install --deployment --path .bundle
+            - cache restore
+            - bundle install --deployment --path vendor/bundle
             # Run unit tests:
             - bundle exec rspec
 
@@ -223,9 +223,9 @@ Semaphore is to:
   revision of dependency definition file.
 
 ```yaml
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH,gems-master
+            - cache restore
             - bundle install --deployment --path .bundle
-            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) .bundle
+            - cache store
 ```
 
 If all tests pass, we move on to build a Docker image.
