@@ -50,9 +50,9 @@ blocks:
         commands:
           - checkout
           # Reuse dependencies from cache and avoid installing them from scratch:
-          - cache restore node-modules-$(checksum package-lock.json)
+          - cache restore
           - npm install
-          - cache store node-modules-$(checksum package-lock.json) node_modules
+          - cache store
 
   - name: "Build site"
     task:
@@ -60,7 +60,7 @@ blocks:
       - name: Build
         commands:
           - checkout
-          - cache restore node-modules-$(checksum package-lock.json)
+          - cache restore
           # Replace this with command(s) that build your website:
           - npm run build:all
           # The script puts website files in directory `public`,
@@ -120,7 +120,7 @@ blocks:
           commands:
             - checkout
             - cache restore website-build
-            - aws s3 sync "public" "s3://bucket-name" --acl "public-read" 
+            - aws s3 sync "public" "s3://bucket-name" --acl "public-read"
 ```
 
 That’s it. Your website will now be continuously deployed every time there is

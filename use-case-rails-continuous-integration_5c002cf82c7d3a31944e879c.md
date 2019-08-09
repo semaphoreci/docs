@@ -80,14 +80,14 @@ blocks:
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
           - checkout
           # Restore dependencies from cache.
-          # Read about caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          # Read about caching: https://docs.semaphoreci.com/article/149-caching
+          - cache restore
           # Set Ruby version:
           - sem-version ruby 2.6.0
           - bundle install --deployment -j 4 --path vendor/bundle
           # Store the latest version of dependencies in cache,
           # to be used in next blocks and future workflows:
-          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+          - cache store
 
   - name: Code scanning
     task:
@@ -95,7 +95,7 @@ blocks:
         - name: check style + security
           commands:
             - checkout
-            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+            - cache restore
             # Bundler requires `install` to run even though cache has been
             # restored, but generally this is not the case with other package
             # managers. Installation will not actually run and command will
@@ -113,7 +113,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore
           # Start Postgres database service.
           # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
           - sem-service start postgres
@@ -139,7 +139,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore
           - sem-service start postgres
           - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle

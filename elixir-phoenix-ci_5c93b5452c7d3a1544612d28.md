@@ -44,7 +44,6 @@ recommend going through the [guided tour][guided-tour] and linked documentation
 pages for more information
 
 ``` yaml
-# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
@@ -76,14 +75,18 @@ blocks:
           # job is to work with your code.
           - checkout
 
+          - bin/setup_ci_elixir
           - sem-version elixir 1.8.1
 
           # Restore dependencies from cache, command won't fail if it's
           # missing. More on caching:
-          # - https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+          # - https://docs.semaphoreci.com/article/149-caching
           # - https://docs.semaphoreci.com/article/87-language-elixir
-          - cache restore mix-deps-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock),mix-deps-$SEMAPHORE_GIT_BRANCH,mix-deps-master
-          - cache restore mix-build-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock),mix-build-$SEMAPHORE_GIT_BRANCH,mix-build-master
+          - cache restore
+          # Cache the PLT generated from the dialyzer to speed up pipeline process.
+          # As suggested here - https://github.com/jeremyjh/dialyxir#continuous-integration
+          # This will need to be rebuilt if elixir or erlang version changes.
+          - cache restore dialyzer-plt
 
           - mix deps.get
           - mix do compile, dialyzer --plt
@@ -91,8 +94,8 @@ blocks:
 
           # Store deps after compilation, otherwise rebar3 deps (that is, most
           # Erlang deps) won't be cached:
-          - cache store mix-deps-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock) deps
-          - cache store mix-build-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock) _build
+          - cache store
+          - cache store dialyzer-plt priv/plts/
 
   - name: Analyze code
     task:
@@ -103,8 +106,8 @@ blocks:
         - checkout
         - bin/setup_ci_elixir
         - sem-version elixir 1.8.1
-        - cache restore mix-deps-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock)
-        - cache restore mix-build-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock)
+        - cache restore
+        - cache restore dialyzer-plt
       # This block contains 3 parallel jobs:
       jobs:
       - name: credo
@@ -126,8 +129,7 @@ blocks:
         - checkout
         - bin/setup_ci_elixir
         - sem-version elixir 1.8.1
-        - cache restore mix-deps-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock)
-        - cache restore mix-build-$SEMAPHORE_GIT_BRANCH-$(checksum mix.lock)
+        - cache restore
 
       jobs:
       - name: ex_unit
@@ -138,9 +140,10 @@ blocks:
           value: "ecto://postgres:@0.0.0.0:5432/sema_test"
         commands:
         # Start Postgres database service
-        # See https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+        # https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
         - sem-service start postgres
         - mix test
+
 ```
 
 ### Database access

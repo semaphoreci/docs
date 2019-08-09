@@ -55,7 +55,7 @@ Production CI/CD often requires use of environment variables and private API
 keys. Let's move on to learn how to
 [manage sensitive data and environment variables][next].
 
-[caching]: (https://docs.semaphoreci.com/article/149-caching)
+[caching]: https://docs.semaphoreci.com/article/149-caching
 [toolbox]: https://docs.semaphoreci.com/article/54-toolbox-reference
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
 [next]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets

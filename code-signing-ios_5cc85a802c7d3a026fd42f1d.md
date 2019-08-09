@@ -21,7 +21,7 @@ If not, please visit the [Fastlane setup guide][fastlane-setup-guide] to learn
 how to configure Fastlane for your project.
 
 If you are new to code signing, we recommend you to visit the [Code Signing
-Guide][code-signing] and read it. 
+Guide][code-signing] and read it.
 
 The Match tool has extensive documentation on how to configure and use it, which you can find at [Fastlane Docs][fastlane-match].
 
@@ -89,7 +89,7 @@ The plugin provides `setup_semaphore` action that configures temporary Keychain 
 As mentioned earlier, CI doesn't have access to your developer account unless you provide the credentials in the configuration for the `match`. To make this work, we need to add a `match` action to the lanes that will publish your app for distribution.
 
 ```ruby
-# fastlane/Fastfile 
+# fastlane/Fastfile
 default_platform(:ios)
 
 platform :ios do
@@ -120,7 +120,7 @@ end
 
 Now that we have configured our tools to use appropriate configuration, we must also provide a way for Semaphore to access the Git certificates repo, and the Apple Developer portal.
 
-To allow Semaphore to download certificates from your private certificates repository, you need to create a deploy key and add it to Semaphore secrets. Adding a deploy key is described in _[Using private dependencies][using-private-deps]_. 
+To allow Semaphore to download certificates from your private certificates repository, you need to create a deploy key and add it to Semaphore secrets. Adding a deploy key is described in _[Using private dependencies][using-private-deps]_.
 
 If you have not installed the `sem` command line tool, this is a good time to install it - see the _[sem reference][sem]_.
 
@@ -147,7 +147,7 @@ $ sem create secret fastlane-env \
   -e FASTLANE_PASSWORD="<App Store developer's password>"
 ```
 
-⚠️ As a security note, it is highly advisable to create a separate App Store "developer" account that will be used only in the CI/CD environment. The same approach is advisable for accessing the private Git certificates repository. 
+⚠️ As a security note, it is highly advisable to create a separate App Store "developer" account that will be used only in the CI/CD environment. The same approach is advisable for accessing the private Git certificates repository.
 
 In a similar fashion, you can also add API keys for another distribution platform that you use, such as HockeyApp or Fabric Beta. Consult with the respective platform's documentation to see which environment variables and secrets you need to include.
 
@@ -209,9 +209,9 @@ blocks:
     prologue:
         commands:
         - checkout
-        - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+        - cache restore
         - bundle install --path vendor/bundle
-        - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+        - cache store
     jobs:
         - name: Fastlane test
         commands:
@@ -227,7 +227,7 @@ blocks:
     prologue:
         commands:
         - checkout
-        - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+        - cache restore
         - bundle install --path vendor/bundle
     jobs:
         - name: Fastlane build
