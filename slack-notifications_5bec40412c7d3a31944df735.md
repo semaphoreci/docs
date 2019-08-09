@@ -217,14 +217,14 @@ organization by using the [sem command line tool](https://docs.semaphoreci.com/a
 See the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference)
 for further details.
 
-## Setting up Slack notifications through the UI
+## Setting up, editing and deleting Slack notifications through the UI
 
 In the Configuration part of the sidebar, click on **Notifications** -> **Create New 
-Notification**. Add the  name of the notification and rules and click on the **Save 
+Notification**. Add the name of the notification and rules and click on the **Save 
 Changes** button.
 
-If you’d like to edit or delete an existing notification, click on the name of 
-the notification and at the top right corner, click on **Edit** or **Delete...** button 
+If you’d like to edit or delete an existing notification, click on the name of
+the notification and at the top right corner, click on **Edit** or **Delete...** button
 and follow the steps from there.
 
 ## See also
