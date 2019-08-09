@@ -8,6 +8,7 @@ the success or failure of a pipeline.
   - [Filtering by pipeline result](#filtering-by-pipeline-result)
   - [Example of notifying multiple teams](#example-of-notifying-multiple-teams)
 - [Modifying notification settings](#modifying-notification-settings)
+- [Setting up, editing and deleting Slack notifications through the UI](#setting-up-editing-and-deleting-slack-notifications-through-the-ui)
 - [See also](#see-also)
 
 ## Setting up Slack notifications for a project
