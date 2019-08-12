@@ -13,7 +13,7 @@ There is also an option to pause a project.
 - [Build branches](#build-branches)
 - [Build tags](#build-tags)
 - [Build pull requests](#build-pull-requests)
-- [Build forked pull requests](#build-forked-pull-requests)
+- [Build forked pull requests](#build-pull-requests-from-forks)
   - [Expose secrets in forked pull requests](#expose-secrets-in-forked-pull-requests)
   - [Filter contributors in forked pull requests](#filter-contributors-in-forked-pull-requests)
 - [Build default branch](#build-default-branch)
