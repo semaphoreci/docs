@@ -57,11 +57,11 @@ a [**paid plan**](https://docs.semaphoreci.com/article/104-billing#plans):
 </tr>
 <tr>
   <td>e1-standard-4</td>
-  <td>8</td>
+  <td>4</td>
 </tr>
 <tr>
   <td>e1-standard-8</td>
-  <td>8</td>
+  <td>1</td>
 </tr>
 <tr>
   <td>a1-standard-4</td>
