@@ -11,7 +11,37 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for a newly created organization:
+Default quotas per machine type for an organization on a [**free plan**](https://docs.semaphoreci.com/article/104-billing#plans):
+
+<table style="background-color: rgb(255, 255, 255);">
+<thead>
+<tr>
+  <td>Machine Type</td>
+  <td>Default Quota</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>e1-standard-2</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>e1-standard-4</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>e1-standard-8</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>a1-standard-4</td>
+  <td>0</td>
+</tr>
+</tbody>
+</table>
+
+Default quotas per machine type for an organization in a [**trial**](https://docs.semaphoreci.com/article/104-billing#trial-period) or on 
+a [**paid plan**](https://docs.semaphoreci.com/article/104-billing#plans):
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -27,11 +57,11 @@ Default quotas per machine type for a newly created organization:
 </tr>
 <tr>
   <td>e1-standard-4</td>
-  <td>8</td>
+  <td>4</td>
 </tr>
 <tr>
   <td>e1-standard-8</td>
-  <td>8</td>
+  <td>1</td>
 </tr>
 <tr>
   <td>a1-standard-4</td>
