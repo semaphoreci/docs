@@ -12,6 +12,8 @@ your project.
 - [Pulling private Docker images from DockerHub](#pulling-private-docker-images-from-dockerhub)
 - [Pulling private Docker images from AWS ECR](#pulling-private-docker-images-from-aws-ecr)
 - [Pulling private Docker images from Google GCR](#pulling-private-docker-images-from-google-gcr)
+- [Pulling private Docker images from Quay.io](#pulling-private-docker-images-from-quay.io)
+- [Pulling private Docker images from Generic Docker Registries](#pulling-private-docker-images-from-generic-docker-registries)
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
@@ -249,7 +251,10 @@ It's important to set the destination path for the file to `/tmp/gcr/keyfile.jso
 as this is the default path and filename that Semaphore agent will lookup for GCR credentials.
 
 ``` yaml
-sem create secret gcr-pull-secrets -e GCR_HOSTNAME=gcr.io -f ~/keyfile.json:/tmp/gcr/keyfile.json
+sem create secret gcr-pull-secrets \
+-e DOCKER_CREDENTIAL_TYPE=GCR \
+-e GCR_HOSTNAME=gcr.io \
+-f ~/keyfile.json:/tmp/gcr/keyfile.json \
 ```
 
 Attach the created secret to your agent's properties to pull private images:
@@ -267,7 +272,68 @@ agent:
     - name: gcr-pull-secrets
 ```
 
+## Pulling private Docker images from Quay.io
+
+Private Docker Images stored in [Quay.io](https://quay.io) can be used in your CI/CD pipelines.
+
+First, set up secret to store your Login credentials and Quay.io url:
+
+``` yaml
+sem create secret quay-pull-secrets \
+-e DOCKER_CREDENTIAL_TYPE=GenericDocker \
+-e DOCKER_URL=quay.io \
+-e DOCKER_USERNAME=<your-quay-username> \
+-e DOCKER_PASSWORD=<<your-quay-password> \
+```
+
+Attach the created secret to your agent's properties to pull private images:
+
+``` yaml
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <your-private-repository>/<image>
+
+  image_pull_secrets:
+    - name: quay-pull-secrets
+```
+
+## Pulling private Docker images from Generic Docker Registries
+
+Private Docker Images stored in [Docker Registry][docker-registry]
+can be used in your CI/CD pipelines.
+
+First, set up secret to store your Login credentials and repository url:
+
+``` yaml
+sem create secret registry-pull-secrets \
+-e DOCKER_CREDENTIAL_TYPE=GenericDocker \
+-e DOCKER_URL=<your-repository-url> \
+-e DOCKER_USERNAME=<your-registry-username> \
+-e DOCKER_PASSWORD=<your-registry-password> \
+```
+
+Attach the created secret to your agent's properties to pull private images:
+
+``` yaml
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <your-private-repository>/<image>
+
+  image_pull_secrets:
+    - name: registry-pull-secrets
+```
+
+
 [working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
 [dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
 [docker-images-repo]: https://github.com/semaphoreci/docker-images
 [lightweight-docker-images]: https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html
+[docker-registry]: https://docs.docker.com/registry/
