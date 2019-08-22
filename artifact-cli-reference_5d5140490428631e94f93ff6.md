@@ -1,25 +1,5 @@
 # Artifact CLI
 
-- [Overview](#overview)
-- [Artifacts Management](#artifacts-management)
-  - [Uploading artifact](#uploading-artifact)
-  - [Downloading artifact](#downloading-artifact)
-  - [Deleting artifact](#deleting-artifact)
-
-
-__Note__: Artifacts are a *beta feature* and Artifacts web interface is available on request.
-Using Artifacts during the beta period is free.
-Once the artifacts system is pushed to the general availability,
-addional charges will apply based on the usage.
-
-Although we make the best effort to maintain the uptime for the Artifacts system,
-we cannot guarantee the 100% uptime during the beta period.
-
-If you'd like to share a feedback or if you run into any challenges,
-please reach out to support@semaphoreci.com.
-
-## Overview
-
 Every project on Semaphore has access to three levels of the artifact store:
 **project**, **workflow** and **job**.
 Based on this level, specific artifact can be retreived in the job environment and
@@ -40,6 +20,22 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 - `[STORE LEVEL]` - level on which specific artifact is available within the artifact store (`project`, `workflow`, `job`)
 - `[PATH]` - points to the artifact (e.g. file or directory)
 - `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
+
+__Note__: Artifacts are a *beta feature* and Artifacts web interface is available on request.
+Using Artifacts during the beta period is free.
+Once the artifacts system is pushed to the general availability,
+addional charges will apply based on the usage.
+
+Although we make the best effort to maintain the uptime for the Artifacts system,
+we cannot guarantee the 100% uptime during the beta period.
+
+If you'd like to share a feedback or if you run into any challenges,
+please reach out to support@semaphoreci.com.
+
+- [Artifacts Management](#artifacts-management)
+  - [Uploading artifact](#uploading-artifact)
+  - [Downloading artifact](#downloading-artifact)
+  - [Deleting artifact](#deleting-artifact)
 
 ## Artifacts management
 
