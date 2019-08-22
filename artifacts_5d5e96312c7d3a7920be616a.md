@@ -56,7 +56,7 @@ you can set artifacts to expire with `--expire-in` flag.
 
 `artifact push job --expire-in 2w logs/test.log`
 
-For more details about uploading artifacts check artifact CLI reference.
+For more details about uploading artifacts check [artifact CLI reference](https://docs.semaphoreci.com/article/154-artifact-cli-reference).
 
 ## Workflow Artifacts
 
