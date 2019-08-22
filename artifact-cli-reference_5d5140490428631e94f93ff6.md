@@ -20,10 +20,11 @@ please reach out to support@semaphoreci.com.
 
 ## Overview
 
-Every project on Semaphore has access to three levels of artifact store:
+Every project on Semaphore has access to three levels of the artifact store:
 **project**, **workflow** and **job**.
 Based on this level, specific artifact can be retreived in the job environment and
-through the web interface.
+through the web interface. You can read more about suggested use cases
+[here][artifacts-use-cases].
 
 The `artifact` command line interface (CLI), is a tool that helps you manage
 deliverables created during the CI/CD process of your project on Semaphore.
@@ -88,3 +89,5 @@ the store level and point to a file or directory with the `artifact yank` comman
 ```sh
 artifact yank project my-artifact-v3.tar
 ```
+
+[artifacts-use-cases]: https://docs.semaphoreci.com/article/155-artifacts

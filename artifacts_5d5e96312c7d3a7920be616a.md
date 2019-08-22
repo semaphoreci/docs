@@ -56,7 +56,8 @@ you can set artifacts to expire with `--expire-in` flag.
 
 `artifact push job --expire-in 2w logs/test.log`
 
-For more details about uploading artifacts check artifact CLI reference.
+For more details about uploading artifacts check
+the [artifact CLI reference][artifact-cli-reference].
 
 ## Workflow Artifacts
 
@@ -107,3 +108,7 @@ To upload artifacts from any job of any workflow you need to use:
 In the same way if you want to download file from project level artifact store with the `pull` command.
 
 `artifact pull project myapp-v1.25.tar.gz`
+
+
+
+[artifact-cli-reference]: https://docs.semaphoreci.com/article/154-artifact-cli-reference
