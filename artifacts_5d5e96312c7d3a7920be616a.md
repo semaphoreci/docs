@@ -1,17 +1,5 @@
 # Artifacts
 
-- [Overview](#overview)
-- [Job Artifacts](#job-artifacts)
-- [Workflow Artifacts](#workflow-artifacts)
-- [Project Artifacts](#project-artifacts)
-
-
-__Note__: Artifacts are beta feature and are available on request.
-Using artifacts while in beta is free. Once in production,
-addional changes will apply based on the artifacts usage.
-
-## Overview
-
 Artifacts are used to persist files that are either final deliverables or
 intermediary/debugging files.
 Semaphore has three level of artifact stores: job, workflow and project.
@@ -21,6 +9,15 @@ which is handy for storing debugging data or build artifacts that need to be pro
 
 On the project level there is a single artifact store
 that usually stores final deliverables of CI/CD pipelines.
+
+__Note__: Artifacts are beta feature and are available on request.
+Using artifacts while in beta is free. Once in production,
+addional changes will apply based on the artifacts usage.
+
+- [Job Artifacts](#job-artifacts)
+- [Workflow Artifacts](#workflow-artifacts)
+- [Project Artifacts](#project-artifacts)
+
 
 ## Job Artifacts
 
