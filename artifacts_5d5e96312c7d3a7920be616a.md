@@ -2,10 +2,10 @@
 
 Artifacts are used to persist files that are either final deliverables or
 intermediary/debugging files.
-Semaphore has three level of artifact stores: job, workflow and project.
+Semaphore has three levels of artifact store: job, workflow and project.
 
 Each job and workflow gets its own namespaced artifact store,
-which is handy for storing debugging data or build artifacts that need to be promoted thorugh the pipeline.
+which is handy for storing debugging data or build artifacts that need to be promoted through the pipeline.
 
 On the project level there is a single artifact store
 that usually stores final deliverables of CI/CD pipelines.
