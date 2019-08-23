@@ -1,18 +1,28 @@
 # Artifacts
 
-Artifacts are used to persist files that are either final deliverables or
-intermediary/debugging files.
-Semaphore has three level of artifact stores: job, workflow and project.
+Artifacts are used to persist and share files accross workflows for a project.
+They are typically the result of a CI/CD process such as final deliverables
+or inermediary/debugging files (e.g. log error files, screenshots, code coverage results...).
+
+Semaphore has three levels of artifact store: job, workflow and project.
 
 Each job and workflow gets its own namespaced artifact store,
-which is handy for storing debugging data or build artifacts that need to be promoted thorugh the pipeline.
+which is handy for storing debugging data or
+build artifacts that need to be promoted through the pipeline.
 
 On the project level there is a single artifact store
 that usually stores final deliverables of CI/CD pipelines.
 
-__Note__: Artifacts are beta feature and are available on request.
-Using artifacts while in beta is free. Once in production,
-addional changes will apply based on the artifacts usage.
+__Note__: Artifacts are a *beta feature* and Artifacts web interface is available on request.
+Using Artifacts during the beta period is free.
+Once the artifacts system is in the general availability,
+additional charges will apply based on the usage.
+
+Although we make the best effort to maintain the uptime for the Artifacts system,
+we cannot guarantee the 100% uptime during the beta period.
+
+If you'd like to share a feedback or if you run into any challenges,
+please reach out to support@semaphoreci.com.
 
 - [Job Artifacts](#job-artifacts)
 - [Workflow Artifacts](#workflow-artifacts)
@@ -21,7 +31,7 @@ addional changes will apply based on the artifacts usage.
 
 ## Job Artifacts
 
-Each job has an artifact store that you can access on the job page.
+Each job has an artifact store that you can access from the job page by clicking
 Look for “Job Artifacts” button.
 The main use-case for job level artifacts is storing of logs,
 screenshots and other types of files that make debugging easier.
