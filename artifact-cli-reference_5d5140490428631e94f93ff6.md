@@ -74,7 +74,9 @@ artifact pull project my-artifact-v3.tar
 
 Available flags:
 
-- `--destination`(`-d`) - This flag can be used to adjust artifact path in the Semaphore job environment.
+The directory to which artifacts are downloaded during deployment of a release.
+- `--destination`(`-d`) - This flag can be used to specify a path to which
+artifact is downloaded path the Semaphore job environment.
 Example: `artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar`
 - `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment
 in case it was occupied before the command execution.
