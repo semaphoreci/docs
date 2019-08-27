@@ -35,7 +35,8 @@ The complete CI/CD workflow looks like this:
 
 ### Continuous Integration Pipeline (CI)
 
-In the repository, the `.semaphore` directory contains the annotated pipeline configuration files.
+In the repository, the `.semaphore` directory contains the annotated pipeline 
+configuration files.
 
 The CI pipeline takes place in 2 blocks:
 
@@ -102,13 +103,13 @@ promotions:
 ```
 
 
-Two
-[promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions)
+Two [promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions)
 branch out of the CI pipeline:
 
 -   Deploy to production: automatically started once all tests are green
     for the master branch.
--   Deploy to staging: can be manually initiated from a Semaphore workflow on any branch.
+-   Deploy to staging: can be manually initiated from a Semaphore workflow 
+    on any branch.
 
 ### Continuous Deployment Pipeline (CD)
 
@@ -145,7 +146,8 @@ these special directories:
 - `public` for static files.
 - `api` or `pages/api` for serverless functions.
 
-In addition, ZEIT Now can automatically build many [popular frameworks](https://zeit.co/docs/v2/build-step/#optimized-frameworks).
+In addition, ZEIT Now can automatically build many 
+[popular frameworks](https://zeit.co/docs/v2/build-step/#optimized-frameworks).
 
 Both staging and production pipelines are almost identical. They
 only differ on the app name, which maps to the final deployment URL like this:
@@ -193,7 +195,8 @@ To run the project on Semaphore:
 4.  Edit any file and do a push to GitHub, Semaphore starts
     automatically.
 
-Once the deployment is complete, the API service should be online. Browse the production URL:
+Once the deployment is complete, the API service should be online. 
+Browse the production URL:
 
 ```bash
 $ curl -w "\n" https://semaphore-demo-zeit-now.YOUR_USERNAME.now.sh/api/hello
