@@ -131,6 +131,7 @@ owner in the email.
 ## Changing the name and the URL of an organization
 
 If you'd like to change the name of your organization:
+
 1. Go to **General Settings** in **Owner's area**,
 2. Enter the new name in the **Name of the Organization** section and
 3. Click on **Save Changes** button.
@@ -139,6 +140,7 @@ Please note that changing the name doesn't change the organization URL. That has
 to be done separately.
 
 In order to change the URL of your organization:
+
 1. Go to **General Settings** in **Owner's area**,
 2. At the bottom of the page click on **Change URL...**
 3. Enter the new URL and
