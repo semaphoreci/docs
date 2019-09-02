@@ -44,8 +44,9 @@ card information, and see the current spending.
 
 #### Owner organization settings permissions
 
-Owner can change the name of the organization. Note that this will not change
-the ID and unique URL of the organization.
+Owner can [change the name of the organization and its URL](https://docs.semaphoreci.com/article/106-user-management-and-permissions#changing-the-name-and-the-url-of-an-organization). Note that changing
+the name doesn't change the URL so these two actions have to be performed 
+separately.
 
 ## Admin
 
@@ -126,6 +127,24 @@ reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com) and we wi
 of those projects to another member of the organization. Please include GitHub 
 username of the user you'd like to remove and GitHub username of the new project 
 owner in the email.
+
+## Changing the name and the URL of an organization
+
+If you'd like to change the name of your organization:
+1. Go to **General Settings** in **Owner's area**,
+2. Enter the new name in the **Name of the Organization** section and
+3. Click on **Save Changes** button.
+
+Please note that changing the name doesn't change the organization URL. That has 
+to be done separately.
+
+In order to change the URL of your organization:
+1. Go to **General Settings** in **Owner's area**,
+2. At the bottom of the page click on **Change URL...**
+3. Enter the new URL and
+4. Click on **Change URL** button.
+
+**Note:** Only an Admin or an Owner of the organization can perform these actions.
 
 ## Deleting organization and account
 
