@@ -78,7 +78,7 @@ blocks:
 
             # Restore dependencies from cache, command won't fail if it's
             # missing.
-            # More on caching: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+            # More on caching: https://docs.semaphoreci.com/article/149-caching
           - cache restore
 
           - mvn -q package jmeter:configure -Dmaven.test.skip=true
@@ -86,7 +86,6 @@ blocks:
             # Store the latest version of dependencies in cache,
             # to be used in next blocks and future workflows:
           - cache store
-          - cache store spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml) target
 
   - name: "Test"
     task:
@@ -101,7 +100,6 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
           - mvn -q test-compile -Dmaven.test.skip=true
       jobs:
       - name: Unit tests
@@ -120,7 +118,6 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
       jobs:
       - name: Benchmark
         commands:
@@ -203,7 +200,6 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - cache restore spring-pipeline-build-$SEMAPHORE_GIT_BRANCH-$(checksum pom.xml),spring-pipeline-build-$SEMAPHORE_GIT_BRANCH,spring-pipeline-build
 
       jobs:
       - name: Build and deploy docker container
