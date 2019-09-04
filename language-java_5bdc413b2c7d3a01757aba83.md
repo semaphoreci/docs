@@ -98,7 +98,6 @@ blocks:
             # Use -q to reduce output spam
             - mvn -q dependency:go-offline test-compile
             - cache store
-            - cache store build-$SEMAPHORE_GIT_SHA target
   - name: Tests
     task:
       env_vars:
@@ -108,7 +107,6 @@ blocks:
         commands:
           - checkout
           - cache restore
-          - cache restore build-$SEMAPHORE_GIT_SHA
       jobs:
         - name: Everything
           commands:
