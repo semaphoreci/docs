@@ -8,7 +8,7 @@ through the web interface. You can read more about suggested use cases
 
 The `artifact` command line interface (CLI), is a tool that helps you manage
 deliverables created during the CI/CD process of your project on Semaphore.
-It is available in every job environment on Semaphore.
+Currently it is available in Linux and Docker environments on Semaphore.
 
 The general interface of the `artifact` utility is:
 
@@ -20,14 +20,6 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 - `[STORE LEVEL]` - level on which specific artifact is available within the artifact store (`project`, `workflow`, `job`)
 - `[PATH]` - points to the artifact (e.g. file or directory)
 - `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
-
-__Note__: Artifacts are a *beta feature* and Artifacts web interface is available on request.
-Using Artifacts during the beta period is free.
-Once the artifacts system is in the general availability,
-additional charges will apply based on the usage.
-
-If you'd like to share a feedback or if you run into any challenges,
-please reach out to support@semaphoreci.com.
 
 - [Artifacts Management](#artifacts-management)
   - [Uploading Artifact](#uploading-artifact)
@@ -56,8 +48,8 @@ Example: `artifact push project my-artifact.tar --destination releases/my-artifa
 For example, you'd probably want to delete uploaded debugging log in a week or so
 (`artifact push job debugging.log --expire-in 1w`).
 - `--force`(`-f`) - By default, every `artifact push` command doesn't upload an artifact
-if it is already available in the store. You can use this option in order to
-make sure that the most recent version of an artifact is always present within the artifact store.
+if it is already available in the store. You can use this option to overwrite
+existing file.
 
 ### Downloading Artifact
 
@@ -75,8 +67,7 @@ The directory to which artifacts are downloaded during deployment of a release.
 - `--destination`(`-d`) - This flag can be used to specify a path to which
 artifact is downloaded path the Semaphore job environment.
 Example: `artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar`
-- `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment
-in case it was occupied before the command execution.
+- `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment.
 
 ### Deleting Artifact
 
