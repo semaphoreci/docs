@@ -26,9 +26,6 @@ Using Artifacts during the beta period is free.
 Once the artifacts system is in the general availability,
 additional charges will apply based on the usage.
 
-Although we make the best effort to maintain the uptime for the Artifacts system,
-we cannot guarantee the 100% uptime during the beta period.
-
 If you'd like to share a feedback or if you run into any challenges,
 please reach out to support@semaphoreci.com.
 
