@@ -1,5 +1,3 @@
-# Artifacts
-
 __Note__: Artifacts are a *beta feature* and are available on request.
 Using Artifacts during the beta period is free. Once the artifacts system is
 in the general availability, additional charges will apply based on the usage.

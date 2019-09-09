@@ -1,5 +1,3 @@
-# Artifact CLI
-
 Every project on Semaphore has access to three levels of the artifact store:
 **project**, **workflow** and **job**.
 Based on this level, you can retrieve a specific artifact in the job environment and
