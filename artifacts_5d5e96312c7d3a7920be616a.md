@@ -1,6 +1,7 @@
-__Note__: Artifacts are a *beta feature* and are available on request.
+__Note__: *Artifacts are a beta feature and are available [on
+request](mailto:support@semaphoreci.com).
 Using Artifacts during the beta period is free. Once the artifacts system is
-in the general availability, additional charges will apply based on the usage.
+in the general availability, additional charges will apply based on the usage.*
 
 Artifacts are used to persist files that are either final deliverables or
 intermediary/debugging files.
@@ -30,7 +31,8 @@ To upload files to job level artifacts store use built-in artifact CLI.
 `artifact push job <my_file_or_dir>`
 
 If you want to upload artifacts only in the case of failed job
-using epilogue in combination with `on_fail` condition is a usual pattern.
+using
+[epilogue](https://docs.semaphoreci.com/article/50-pipeline-yaml#the-epilogue-property) in combination with `on_fail` condition is a usual pattern.
 
 ```yml
 blocks:
