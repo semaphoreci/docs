@@ -24,12 +24,11 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 - `[PATH]` - points to the artifact (e.g. file or directory)
 - `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
 
-- [Artifacts Management](#artifacts-management)
-  - [Uploading Artifact](#uploading-artifact)
-  - [Downloading Artifact](#downloading-artifact)
-  - [Deleting Artifact](#deleting-artifact)
+## [Artifacts Management](#artifacts-management)
 
-## Artifacts management
+- [Uploading Artifact](#uploading-artifact)
+- [Downloading Artifact](#downloading-artifact)
+- [Deleting Artifact](#deleting-artifact)
 
 ### Uploading Artifact
 
