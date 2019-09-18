@@ -1,0 +1,27 @@
+site_name: Semaphore CI Docs
+theme:
+  name: 'material'
+  logo: 'images/logo.png'
+  favicon: 'images/favicon.ico'
+  feature:
+    tabs: false
+  palette:
+    primary: 'green'
+    accent: 'green'
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/semaphoreci'
+    - type: 'twitter'
+      link: 'https://twitter.com/semaphoreci'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/rendered-text'
+nav:
+  - Welcome: index.md
+  - Guided Tour:
+    - Getting Started: guided-tour/getting-started.md
+    - Creating your first project: guided-tour/creating-first-project.md
+    - Concepts: guided-tour/concepts.md
+  - Use Cases:
+    - Tutorials and Example Projects: use-cases/tutorials-and-examples.md
+    - Debugging with SSH Access: use-cases/debugging-with-ssh.md 
