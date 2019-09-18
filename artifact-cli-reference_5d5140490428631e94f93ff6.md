@@ -1,7 +1,6 @@
-__Note__: *Artifacts are a beta feature and are available [on
-request](mailto:support@semaphoreci.com?subject=Beta Request: Artifacts).
-Using Artifacts during the beta period is free. Once the artifacts system is
-in the general availability, additional charges will apply based on the usage.*
+__Note__: *Using Artifacts during the beta period is free. Once the artifacts 
+system is in the general availability, additional charges will apply based on 
+the usage.*
 
 Every project on Semaphore has access to three levels of the artifact store:
 **project**, **workflow** and **job**.
