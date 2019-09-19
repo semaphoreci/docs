@@ -32,6 +32,10 @@ Commands in the debug mode are not executed automatically, instead they are
 stored in `~/commands.sh`. This allows you to execute them step-by-step, and
 inspect the changes in the environment.
 
+```bash
+source ~/commands.sh
+```
+
 By default, the duration of the SSH session is limited to one hour. To run
 longer debug sessions, pass the `duration` flag to the above command:
 
