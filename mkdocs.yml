@@ -13,7 +13,7 @@ copyright: '&copy; 2009-2019 Rendered Text'
 
 theme:
   name: 'material'
-  logo: 'images/logo.png'
+  logo: 'images/logo-white.png'
   favicon: 'images/favicon.ico'
   feature:
     tabs: false
@@ -33,7 +33,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
-      permalink: "#"
+      permalink: '&#128279;'
 nav:
   - Welcome: index.md
   - Guided Tour:
