@@ -14,10 +14,6 @@ build artifacts that need to be promoted through the pipeline.
 On the project level there is a single artifact store
 that usually stores final deliverables of CI/CD pipelines.
 
-- [Job Artifacts](#job-artifacts)
-- [Workflow Artifacts](#workflow-artifacts)
-- [Project Artifacts](#project-artifacts)
-
 ## Job Artifacts
 
 Each job has an artifact store. You can view stored files from job page.
