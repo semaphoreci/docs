@@ -6,12 +6,6 @@ explore the CI/CD environment.
 
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].
 
-- [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
-- [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
-- [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
-- [Stopping a debug session](#stopping-a-debug-session)
-- [See also](#see-also)
-
 ## Restarting a job in debug mode
 
 Setting up a pipeline can be challenging if you are not familiar with the
