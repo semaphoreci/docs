@@ -80,7 +80,7 @@ for pushes to master branch.
 In every job from this workflow, Semaphore will export
 `SEMAPHORE_GIT_REF_TYPE` with value `branch`.
 
-# See also
+## See also
 
 - [Environment Variables](https://docs.semaphoreci.com/article/12-environment-variables)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
