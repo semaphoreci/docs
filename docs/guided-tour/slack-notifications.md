@@ -1,16 +1,6 @@
 Semaphore has integrated Slack based chat notifications that are delivered on
 the success or failure of a pipeline.
 
-- [Setting up Slack notification for a project](#setting-up-slack-notifications-for-a-project)
-- [Setting up Slack notification for multiple projects and channels](#setting-up-slack-notifications-for-multiple-projects-and-channels)
-- [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
-- [Advanced notification setup](#advanced-notification-setup)
-  - [Filtering by pipeline result](#filtering-by-pipeline-result)
-  - [Example of notifying multiple teams](#example-of-notifying-multiple-teams)
-- [Modifying notification settings](#modifying-notification-settings)
-- [Setting up, editing and deleting Slack notifications through the UI](#setting-up-editing-and-deleting-slack-notifications-through-the-ui)
-- [See also](#see-also)
-
 ## Setting up Slack notifications for a project
 
 To set up a Slack notification, first you need to configure an [incoming
