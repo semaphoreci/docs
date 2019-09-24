@@ -1,12 +1,6 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for an Elixir Phoenix web application.
 
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Run the demo Elixir project yourself](#run-the-demo-elixir-project-yourself)
-- [Next steps](#next-steps)
-
 ## Demo project
 
 Semaphore maintains an example Elixir Phoenix project:
