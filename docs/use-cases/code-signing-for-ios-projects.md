@@ -1,10 +1,5 @@
 This guide describes how to set up code signing in CI/CD for your iOS project on Semaphore using Fastlane Match.
 
-- [Basic configuration of iOS projects](#basic-configuration-of-ios-projects)
-- [Setting up Fastlane Match](#setting-up-fastlane-match)
-- [Sample configuration files](#sample-configuration-files)
-- [Example application on GitHub](#example-application-on-github)
-
 If you'd like Semaphore to push new builds for distribution to HockeyApp, Fabric Beta or TestFlight, then CI must have access to the code signing certificate and provisioning profiles that are required to build the app for such distribution.
 
 Below we show you how to do that.
