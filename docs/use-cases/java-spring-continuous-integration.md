@@ -1,13 +1,6 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Java Spring application.
 
-- [Demo project](#demo-project)
-- [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
-- [Sample configuration](#sample-configuration)
-  - [Authenticate with a Docker registry](#authenticate-with-a-docker-registry)
-  - [The Docker build pipeline](#the-docker-build-pipeline)
-- [Run the demo project yourself](#run-the-demo-project-yourself)
-
 ## Demo project
 
 Semaphore maintains an example Java Spring project:
