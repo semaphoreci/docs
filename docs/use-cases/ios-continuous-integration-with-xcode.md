@@ -3,24 +3,6 @@ Semaphore supports building, testing and deploying Swift, Objective-C and React 
 projects via [macOS Mojave VM image][macos-mojave] and [a1-standard machine
 types][machine-types].
 
-**Table of contents**
-
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Configuration walkthrough](#configuration-walkthrough)
-  - [Naming your pipeline](#naming-your-pipeline)
-  - [Defining the agent](#defining-the-agent)
-  - [Defining blocks](#defining-blocks)
-  - [Downloading code](#downloading-code)
-  - [Installing dependencies](#installing-dependencies)
-  - [Selecting Xcode version](#selecting-xcode-version)
-  - [Running tests](#running-tests)
-  - [Fastfile](#fastfile)
-  - [Building your app](#building-your-app)
-  - [Releasing your app](#releasing-your-app)
-- [Run the demo project yourself](#run-the-demo-project-yourself)
-
 ## Demo project
 
 Semaphore maintains an example iOS Swift project:
