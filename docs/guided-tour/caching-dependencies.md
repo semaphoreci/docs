@@ -8,7 +8,7 @@ fast network, so even gigabytes may be cached with ease.
 Here's an example of installing and caching `npm` dependencies in one block,
 then reusing them in subsequent blocks:
 
-```yml
+``` yaml
 # .semaphore/semaphore.yml
 agent:
   machine:

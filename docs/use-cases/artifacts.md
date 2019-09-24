@@ -29,7 +29,7 @@ If you want to upload artifacts only in the case of failed job
 using
 [epilogue](https://docs.semaphoreci.com/article/50-pipeline-yaml#the-epilogue-property) in combination with `on_fail` condition is a usual pattern.
 
-```yml
+``` yaml
 blocks:
  - name: Build app
    task:
@@ -66,7 +66,7 @@ workflow level artifact store, can be downloaded in the downstream blocks of
 the pipeline.  In the same way artifacts can be downloaded from any other
 pipeline of the same workflow.
 
-```yml
+``` yaml
 blocks:
  - name: Build app
    task:

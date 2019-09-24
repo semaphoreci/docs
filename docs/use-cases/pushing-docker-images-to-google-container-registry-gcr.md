@@ -21,7 +21,7 @@ Now add the secret to your pipeline and authenticate.
 
 ## Configure the Pipeline
 
-```yml
+``` yaml
 .semaphore/semaphore.yml
 version: "v1.0"
 name: First pipeline example
