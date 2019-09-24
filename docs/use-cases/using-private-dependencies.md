@@ -1,8 +1,3 @@
-- [Create the SSH key](#create-the-ssh-key)
-- [Add the SSH key](#add-the-ssh-key)
-- [Create a secret](#create-a-secret)
-- [Use the secret in your pipeline](#use-the-secret-in-your-pipeline)
-
 Dependency mangagers like Bundler, Yarn, and Go's module system allow
 specifying dependencies from private Git repositories. This makes it
 easier for teams to share code without requiring separate package
