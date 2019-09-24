@@ -7,8 +7,6 @@ of your pipeline or block.
 The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
-[[__TOC__]]
-
 ## Using the macos-mojave OS image in your agent configuration
 
 To use the `macos-mojave` OS image, define it as the `os_image` of your agent's
