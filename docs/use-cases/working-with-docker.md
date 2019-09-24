@@ -4,18 +4,6 @@ to Docker repositories or other remote storage.
 Docker CLI is [preinstalled][ubuntu-vm] on Semaphore VMs, so you can use Docker
 right away.
 
-Table of contents
-
-- [Hello world](#hello-world)
-- [Example projects](#example-projects)
-- [Using a public Docker image in CI/CD jobs](#using-a-public-docker-image-in-cicd-jobs)
-- [Using a Docker image from a private registry](#using-a-docker-image-from-a-private-registry)
-- [Building a Docker image from a Dockerfile](#building-a-docker-image-from-a-dockerfile)
-- [Pushing a Docker image to a registry](#pushing-a-docker-image-to-a-registry)
-- [Using Docker Compose](#using-docker-compose)
-- [Installing a newer Docker version](#installing-a-newer-docker-version)
-- [See also](#see-also)
-
 ℹ️  *This article describes the process of building, publishing and testing 
 Docker containers on Semaphore. If you want to run jobs inside of a Docker image,
 refer to the [Custom CI/CD environment with Docker][docker-environment]
