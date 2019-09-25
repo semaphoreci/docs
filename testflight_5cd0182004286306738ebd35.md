@@ -38,7 +38,7 @@ name: Semaphore iOS example
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 blocks:
   - name: Submit to TestFlight
     task:
