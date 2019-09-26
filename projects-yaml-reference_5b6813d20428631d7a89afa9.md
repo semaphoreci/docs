@@ -143,13 +143,6 @@ For more information about workflow triggers, visit the
 The `forked_pull_requests` property is used for holding the `allowed_secrets`,
 and `allowed_contributors` properties.
 
-##### pipeline\_file
-
-The `pipeline\_file` property is used for setting the initial pipeline file
-that is executed when a post-commit hook is received by Semaphore.
-
-The default value is `.semaphore/semaphore.yml`.
-
 ###### allowed\_secrets
 
 The `allowed_secrets` property specifies array of secrets names that are allowed
@@ -161,6 +154,13 @@ no secret will be exported.
 The `allowed_secrets` property specifies an array of secrets names that are allowed
 to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
 no secret will be exported.
+
+##### pipeline\_file
+
+The `pipeline\_file` property is used for setting the initial pipeline file
+that is executed when a post-commit hook is received by Semaphore.
+
+The default value is `.semaphore/semaphore.yml`.
 
 #### schedulers
 
