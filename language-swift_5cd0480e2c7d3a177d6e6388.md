@@ -37,6 +37,6 @@ how to set up CI with Fastlane:
   recommended read if you're setting up an iOS project on Semaphore for the
   first time.
 
-[macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
