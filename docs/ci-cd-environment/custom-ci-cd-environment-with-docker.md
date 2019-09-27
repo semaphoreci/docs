@@ -206,7 +206,7 @@ Private Docker Images stored in AWS ECR can be used in your CI/CD pipelines.
 
 First, set up secret to store your AWS credentials and region in which ECR is provisioned:
 
-``` yaml
+``` bash
 sem create secret aws-ecr-pull-secrets \
   -e DOCKER_CREDENTIAL_TYPE=AWS_ECR \
   -e AWS_REGION=<aws-ecr-region>
