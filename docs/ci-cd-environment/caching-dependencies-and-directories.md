@@ -1,3 +1,5 @@
+# Caching Dependencies and Directories
+
 Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
 project depends on but are not part of version control. You should typically
 use caching to:

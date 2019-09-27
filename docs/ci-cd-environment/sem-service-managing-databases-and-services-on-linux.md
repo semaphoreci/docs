@@ -1,3 +1,5 @@
+# sem-service: Managing databases and services on Linux
+
 The `sem-service` is a utility on Linux based virtual machines for starting,
 stopping and getting the status of background services. Started services will
 listen on 0.0.0.0 and their default port. The 0.0.0.0 IP address includes all

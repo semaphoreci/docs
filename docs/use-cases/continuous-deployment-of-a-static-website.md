@@ -1,3 +1,5 @@
+# Continuous Deployment of a Static Website
+
 This guide shows you how to use Semaphore to set up continuous deployment for
 a static website.
 

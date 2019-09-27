@@ -1,3 +1,5 @@
+# Google Cloud Run Continuous Deployment
+
 This guide shows you how to use Semaphore to set up continuous integration and
 deployment (CI/CD) to Google Cloud Run for web applications written in any
 language.
@@ -11,17 +13,6 @@ For this guide you will need:
 - [A Semaphore account][semaphore-account] which you can create for free.
 - [A Google Cloud account][google-cloud-account] with a project and billing enabled.
 - Basic familiarity with Docker.
-
-#### Table of contents
-
-- [Demo project](#demo-project)
-- [Overview of the CI/CD pipeline](#overview-of-the-ci-cd-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Configuration walkthrough](#configuration-walkthrough)
-  - [Running tests](#running-tests)
-  - [Docker build](#docker-build)
-  - [Deployment](#deployment)
-- [Run the demo Google Cloud Run project yourself](#run-the-demo-google-cloud-run-project-yourself)
 
 ## Demo project
 

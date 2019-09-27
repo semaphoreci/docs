@@ -1,3 +1,5 @@
+# Swift
+
 Semaphore supports building, testing and releasing Swift applications in fully
 customizable, autoscaling CI/CD workflows.
 

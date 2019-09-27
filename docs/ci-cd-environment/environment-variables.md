@@ -1,11 +1,4 @@
-- [Overview](#overview)
-- [Predefined environment variables](#predefined-environment-variables)
-  - [Semaphore related](#semaphore-related)
-  - [Git repository related](#git-repository-related)
-  - [Cache related](#cache-related)
-- [See also](#see-also)
-
-## Overview
+# Environment Variables
 
 This document describes the environment variables used in Semaphore 2.0
 projects.

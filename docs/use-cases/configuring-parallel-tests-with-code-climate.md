@@ -1,3 +1,5 @@
+# Configuring parallel tests with Code Climate
+
 The Code Climate test reporter can join parallelized test reports, combining them into one individual test report that can be submitted to Code Climate.
 
 Configure your CI to store partial results from each parallel run. We recommend syncing and fetching files from S3. Then, use the test reporter's `format-coverage`, `sum-coverage`, and `upload-coverage` commands to combine the results and upload them as one complete test report.

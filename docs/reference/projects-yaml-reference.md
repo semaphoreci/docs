@@ -1,22 +1,4 @@
-- [Overview](#overview)
-- [Properties](#properties)
-- [apiVersion](#apiversion)
-- [kind](#kind)
-- [metadata](#metadata)
-  - [name](#name)
-- [spec](#spec)
-  - [repository](#repository)
-    - [url](#url)
-    - [run](#run)
-    - [run_on](#run_on)
-    - [forked\_pull\_requests](#forked_pull_requests)
-        - [allowed_secrets](#allowed_secrets)
-        - [allowed_contributors](#allowed_contributors)
-  - [schedulers](#schedulers)
-- [Examples](#examples)
-- [See also](#see-also)
-
-## Overview
+# Projects YAML reference
 
 This document is the YAML grammar reference used for adding and editing
 Semaphore 2.0 projects using the `sem` command line utility.

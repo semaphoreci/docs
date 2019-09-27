@@ -1,3 +1,5 @@
+# Quotas and Limits
+
 Semaphore 2.0 enforces usage quotas and limits to protect customers and the
 platform from unforeseen spikes in usage. As your use of Semaphore expands over
 time, your quotas may increase accordingly.

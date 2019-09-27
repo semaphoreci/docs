@@ -1,14 +1,4 @@
-- [Overview](#overview)
-- [An example](#an-example)
-- [Properties](#properties)
-  - [apiVersion](#apiversion)
-  - [kind](#kind)
-  - [metadata](#metadata)
-  - [spec](#spec)
-  - [status](#status)
-- [See also](#see-also)
-
-## Overview
+# Jobs YAML Reference
 
 This document is the reference to the YAML grammar used for managing jobs.
 

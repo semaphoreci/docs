@@ -1,3 +1,5 @@
+# Fail-Fast: Stop running tests on the first failure
+
 On Semaphore, a fail-fast strategy means that you get instant feedback when a
 job fails. All the running jobs of a pipeline are stopped as soon as one of
 the jobs fails. You don't need to wait for all the other jobs to get feedback.
@@ -10,11 +12,6 @@ is detected.
 The *cancel* strategy stops only the jobs and blocks in your pipeline that
 haven't yet started. This option is ideal if you don't want to stop an already
 started test execution.
-
-- [Stopping all jobs on the first failure](#stopping-all-jobs-on-the-first-failure)
-- [Stopping all jobs on the first failure on non-master branches](#stopping-all-jobs-on-the-first-failure-on-non-master-branches)
-- [Canceling all jobs on the first failure](#canceling-all-jobs-on-the-first-failure)
-- [See also](#see-also)
 
 ## Stopping all jobs on the first failure
 

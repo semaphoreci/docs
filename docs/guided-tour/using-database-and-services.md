@@ -1,3 +1,5 @@
+# Using Databases and Services
+
 Semaphore offers a virtual machine (VM) based environment, and a containerized
 Docker environment for running your CI/CD pipelines.
 

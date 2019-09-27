@@ -1,3 +1,5 @@
+# Customizing the Build Environment
+
 Semaphore runs each job in a clean and isolated environment. Three types of
 build environments are available:
 

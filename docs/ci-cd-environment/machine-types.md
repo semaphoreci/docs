@@ -1,3 +1,5 @@
+# Machine Types
+
 A **machine type** specifies a particular collection of virtualized
 hardware resources available to a virtual machine (VM) instance,
 including the memory size, virtual CPU count, and disk.
@@ -5,9 +7,6 @@ including the memory size, virtual CPU count, and disk.
 This guide describes the available machine types. For instructions about using
 the supported machine types in pipelines see pipeline
 [agent documentation][agent].
-
-- [Linux machine types](#linux-machine-types)
-- [Apple machine type](#apple-machine-type)
 
 ## Linux machine types
 

@@ -1,17 +1,8 @@
+# Ruby
+
 This guide will help you get started with a Ruby project on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-Table of contents:
-
-- [Hello world](#hello-world)
-- [Ruby on Rails example](#ruby-on-rails-example-project)
-- [Supported versions](#supported-ruby-versions)
-- [Dependency caching](#dependency-caching)
-- [Environment variables](#environment-variables)
-- [Database configuration](#database-configuration)
-- [C-Extensions & system dependencies](#c-extensions-system-dependencies)
-- [Browser testing](#browser-testing)
 
 ## Hello world
 

@@ -1,3 +1,5 @@
+# Deployment Dashboards
+
 This guide shows you how to set up a dashboard showing deployment activity
 across selected projects.
 Before starting, [create a new Semaphore project][create-project]

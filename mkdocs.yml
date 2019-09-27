@@ -17,7 +17,7 @@ theme:
   logo: 'images/logo-white.png'
   favicon: 'images/favicon.ico'
   feature:
-    tabs: false
+    tabs: true
   palette:
     primary: 'green'
     accent: 'green'

@@ -1,3 +1,5 @@
+# Debugging with SSH Access
+
 Often the best way to troubleshoot failures and bugs in your pipelines is to
 SSH into a job and inspect log files, running processes, and directory paths.
 Semaphore gives you the option to access all running jobs via SSH, to

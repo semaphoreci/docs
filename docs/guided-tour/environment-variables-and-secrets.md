@@ -1,3 +1,5 @@
+# Environment Variables and Secrets
+
 Semaphore supports setting environment variables on a
 [per-block][envvars-perblock] and [per-job level][envvars-perjob].
 Here's an example which applies one to all jobs in the block:

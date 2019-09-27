@@ -1,3 +1,5 @@
+# Conditions Reference
+
 The Conditions DSL is a new, universal way of specifying conditional execution
 of CI/CD commands in Semaphore.
 
@@ -9,9 +11,6 @@ branch == 'master' OR tag =~ '^v1\.'
 
 Currently you can use Conditions to specify when a block should and should not
 run, with more applications coming soon.
-
-- [Formal language definition](#Formal-language-definition)
-- [Usage examples](#usage-examples)
 
 ## Formal language definition
 

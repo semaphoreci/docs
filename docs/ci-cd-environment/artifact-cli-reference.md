@@ -1,3 +1,5 @@
+# Artifact CLI reference
+
 __Note__: *Using Artifacts during the beta period is free. Once the artifacts 
 system is in the general availability, additional charges will apply based on 
 the usage.*

@@ -1,3 +1,5 @@
+# Auto-cancel previous pipelines on a new push
+
 The *auto-cancel* strategy defines the behavior of pipelines when a queue for
 execution forms.
 

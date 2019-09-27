@@ -1,3 +1,5 @@
+# Slack Notifications
+
 Semaphore has integrated Slack based chat notifications that are delivered on
 the success or failure of a pipeline.
 

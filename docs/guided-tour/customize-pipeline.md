@@ -1,3 +1,5 @@
+# Customizing Your Pipeline
+
 After [creating your first project][first-project], you've initialized
 it with a working demo pipeline. Now we'll see how we can define our own
 pipelines on Semaphore.

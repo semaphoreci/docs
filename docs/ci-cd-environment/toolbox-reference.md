@@ -1,11 +1,4 @@
-- [Overview](#overview)
-- [cache](#cache)
-- [checkout](#checkout)
-- [checksum](#checksum)
-- [retry](#retry)
-- [See also](#see-also)
-
-## Overview
+# Toolbox Reference
 
 This document describes additional
 [open source command line tools](https://github.com/semaphoreci/toolbox) that

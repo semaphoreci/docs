@@ -1,3 +1,5 @@
+# macOS Mojave Image
+
 The `macos-mojave` is a customized image based on [MacOS 10.14.5][mojave-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired

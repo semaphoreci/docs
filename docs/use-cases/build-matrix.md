@@ -1,3 +1,5 @@
+# Build matrix
+
 This guide shows how to set up a
 [build matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix):
 dynamically created parallel jobs with different environment variables.
