@@ -130,6 +130,9 @@ Example value: `http://git@github.com:semaphoreci/toolbox.git`
 The value of the `SEMAPHORE_GIT_BRANCH` environment variable is the name of
 the GitHub branch that is used in the current job.
 
+In builds triggered by a Pull Request the value of the `SEMAPHORE_GIT_BRANCH`
+is the name of the GitHub branch targeted by the Pull Request.
+
 Example value: `development`
 
 #### SEMAPHORE\_GIT\_DIR
@@ -178,11 +181,16 @@ the GitHub tag that is used in the current job.
 
 Example value: `v1.0.0`
 
+#### SEMAPHORE\_GIT\_PR\_BRANCH
+
+The value of the `SEMAPHORE_GIT_PR_BRANCH` environment variable is the name of
+the GitHub branch from which the Pull Request originated.
+
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
 The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the
 name (in form: owner_name/repo_name) of the GitHub repository from which
-the PR originated.
+the Pull Request originated.
 
 Example value: `renderedtext/docs`
 
