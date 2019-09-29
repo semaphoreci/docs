@@ -12,6 +12,9 @@ repo_url: https://github.com/semaphoreci/docs
 copyright: '&copy; 2009-2019 Rendered Text'
 
 theme:
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
   name: 'material'
   custom_dir: template
   logo: 'images/logo-white.png'
