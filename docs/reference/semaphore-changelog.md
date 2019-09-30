@@ -15,6 +15,9 @@ This page is updated on a weekly basis.
   checks if Bash is available before starting jobs in a custom Docker container. Previously,
   without this check, the first step in a job that exports environment variables would fail
   without a real indication of the root problem.
+- From now on, outdated version of the CLI are rejected from accessing your organization.
+  Compatibility of the CLI will be uphold at least up to the last 3 minor releases. Only in 
+  case of security issues will this compatibility policy be broken.   
 
 ### Week of September 23, 2019
 
