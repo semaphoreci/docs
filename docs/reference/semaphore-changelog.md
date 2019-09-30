@@ -9,6 +9,13 @@ This page is updated on a weekly basis.
 - Updates to the macOS image:
   - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
 
+### Week of September 30, 2019
+
+- [The latest release of the Semaphore Agent](https://github.com/semaphoreci/agent/pull/72)
+  checks if Bash is available before starting jobs in a custom Docker container. Previously,
+  without this check, the first step in a job that exports environment variables would fail
+  without a real indication of the root problem.
+
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
