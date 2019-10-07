@@ -7,7 +7,9 @@ This page is updated on a weekly basis.
 ### Week of October 7, 2019
 
 - Updates to the macOS image:
-  - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
+  - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
+    `xcversion select 11.1`, image spec
+    [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
 
 ### Week of September 30, 2019
 
@@ -20,6 +22,10 @@ This page is updated on a weekly basis.
   case of security issues will this compatibility policy be broken.
 - Jobs generated with [parallelism](https://docs.semaphoreci.com/article/50-pipeline-yaml#parallelism)
   are using a new naming scheme `<job-name> - <index>/<job-count>`. Example: `RSpec - 1/4`.
+- We introduced a new syntax for configuring [auto-promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote)
+  which leverages our [Conditions DSL](https://docs.semaphoreci.com/article/142-conditions-reference)
+  to allow you to express conditions for pipeline auto-promotion in a lot less
+  complicated way than before.
 
 ### Week of September 23, 2019
 
