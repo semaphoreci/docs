@@ -3,19 +3,19 @@ Using the Docker Registry during the beta period is free.
 Once the feature is in the general additional charges will apply based on
 the usage. *
 
-Semaphore provides private Docker Registry for a project
+Semaphore provides private a Docker Registry for a project
 to help you speed up its workflows and reduce costs.
 You should typically use it to cache Docker images.
 
-Registry size is fixed to 15GB.
+The registry size is fixed to 15GB.
 
 ### Usage
 
 The following environment variables are available in each job environment:
 
-- `SEMAPHORE\_REGISTRY\_USERNAME` - Semaphore private Docker Registry username
-- `SEMAPHORE\_REGISTRY\_PASSWORD` - Semaphore private Docker Registry password
-- `SEMAPHORE\_REGISTRY\_URL` - Semaphore private Docker Registry url
+- `SEMAPHORE_REGISTRY_USERNAME` - Semaphore private Docker Registry username
+- `SEMAPHORE_REGISTRY_PASSWORD` - Semaphore private Docker Registry password
+- `SEMAPHORE_REGISTRY_URL` - Semaphore private Docker Registry url
 
 To log in to private Docker Registry add the following command to the job
 

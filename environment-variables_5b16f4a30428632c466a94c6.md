@@ -249,9 +249,9 @@ You can find more information on [Private Docker Registry] page.
 
 This feature adds the following environment variables to every job for a given project:
 
-- `SEMAPHORE\_REGISTRY\_USERNAME` - Semaphore private Docker Registry username
-- `SEMAPHORE\_REGISTRY\_PASSWORD` - Semaphore private Docker Registry password
-- `SEMAPHORE\_REGISTRY\_URL` - Semaphore private Docker Registry url
+- `SEMAPHORE_REGISTRY_USERNAME` - Semaphore private Docker Registry username
+- `SEMAPHORE_REGISTRY_PASSWORD` - Semaphore private Docker Registry password
+- `SEMAPHORE_REGISTRY_URL` - Semaphore private Docker Registry url
 
 ## See Also
 
