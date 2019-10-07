@@ -257,3 +257,5 @@ This feature adds the following environment variables to every job for a given p
 
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+
+[Private Docker Registry]: https://docs.semaphoreci.com/article/163-private-docker-registry
