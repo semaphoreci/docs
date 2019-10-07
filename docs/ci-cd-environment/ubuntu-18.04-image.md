@@ -16,7 +16,7 @@ named `semaphore`, has full `sudo` access.
 - [Docker](#docker)
 - [Cloud CLIs](#cloud-clis)
 - [Network utilities](#network-utilities)
-- [Languages](#langauges)
+- [Languages](#languages)
   - [Erlang and Elixir](#erlang-and-elixir)
   - [Go](#go)
   - [Java and JVM languages](#java-and-jvm-languages)
