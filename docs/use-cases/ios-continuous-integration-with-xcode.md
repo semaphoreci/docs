@@ -53,11 +53,11 @@ name: Semaphore iOS Swift example with Fastlane
 # It is a combination of one of available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/120-macos-mojave-image
+# and https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -139,7 +139,7 @@ coupled with the [macOS Mojave OS image][macos-mojave].
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 ```
 
 ### Defining blocks
@@ -312,7 +312,7 @@ yourself. Here’s how to build the demo project with your own account:
 4. Create your secret as per instructions above.
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
-[macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [beta-apply]: https://semaphoreci.com/product/ios
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode

@@ -77,9 +77,10 @@ Following version control tools are pre-installed:
 
 - Firefox 60.1
 - geckodriver 0.21.0
-- Google Chrome 76
-- chrome_driver 76
+- Google Chrome 77
+- chrome_driver 77
 - xvfb (X Virtual Framebuffer)
+- phantomjs 2.1.1
 
 Chrome and Firefox both support headless mode. You shouldn't need to do more
 than install and use the relevant Selenium library for your language.
@@ -128,7 +129,8 @@ Versions:
 
 - 1.10.8
 - 1.11.13
-- 1.12.9
+- 1.12.10
+- 1.13.1
 
 ### Java and JVM languages
 
@@ -152,7 +154,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.17
+- Yarn: 1.17.3
 - Bower: 1.8.8
 
 ### PHP
@@ -170,7 +172,7 @@ The default installed PHP version is `7.2.10`.
 
 #### Additional libraries
 
-phpunit: 7.5.15
+phpunit: 7.5.16
 
 ### Python
 

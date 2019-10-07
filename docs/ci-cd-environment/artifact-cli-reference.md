@@ -1,7 +1,7 @@
 # Artifact CLI reference
 
-__Note__: *Using Artifacts during the beta period is free. Once the artifacts 
-system is in the general availability, additional charges will apply based on 
+__Note__: *Using Artifacts during the beta period is free. Once the artifacts
+system is in the general availability, additional charges will apply based on
 the usage.*
 
 Every project on Semaphore has access to three levels of the artifact store:
@@ -66,9 +66,8 @@ artifact pull project my-artifact-v3.tar
 
 Available flags:
 
-The directory to which artifacts are downloaded during deployment of a release.
 - `--destination`(`-d`) - This flag can be used to specify a path to which
-artifact is downloaded path the Semaphore job environment.
+artifact is downloaded in the Semaphore job environment.
 Example: `artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar`
 - `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment.
 

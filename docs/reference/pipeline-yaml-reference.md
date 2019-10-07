@@ -1,5 +1,64 @@
 # Pipeline YAML Reference
 
+- [Overview](#overview)
+- [Properties](#properties)
+- [version](#version)
+- [name](#name-in-preface)
+- [agent](#agent)
+  - [A Preface example](#a-preface-example)
+- [execution\_time\_limit](#execution_time_limit)
+- [fail\_fast](#fail_fast)
+- [auto\_cancel](#auto_cancel)
+- [global\_job\_config](#global_job_config)
+- [Blocks](#blocks)
+  - [name](#name-in-blocks)
+  - [dependencies](#dependencies-in-blocks)
+  - [task](#task-in-blocks)
+  - [skip](#skip-in-blocks)
+- [Task](#task)
+  - [jobs](#jobs)
+  - [agent in task](#agent-in-task)
+  - [secrets](#secrets)
+  - [prologue](#prologue)
+  - [epilogue](#epilogue)
+  - [env_vars](#env_vars)
+    - [Example of a task block](#example-of-task)
+    - [Example of a task block with agent](#example-of-a-task-block-with-agent)
+- [Jobs](#jobs)
+  - [name](#name-in-jobs)
+  - [commands](#commands)
+    - [Example of commands](#example-of-commands)
+  - [commands_file](#commands_file)
+    - [Example of commands_file](#example-of-commands_file)
+  - [env_vars in jobs](#env_vars-in-jobs)
+    - [Example of env_vars in jobs](#example-of-env_vars-in-jobs)
+  - [matrix](#matrix)
+  - [parallelism](#parallelism)
+- [Prologue and Epilogue](#prologue-and-epilogue)
+  - [The prologue property](#the-prologue-property)
+  - [Example of prologue use](#example-of-prologue)
+  - [The epilogue property](#the-epilogue-property)
+  - [Example of epilogue use](#example-of-epilogue)
+- [The secrets property](#the-secrets-property)
+  - [name](#name-in-secrets)
+  - [files in secrets](#files-in-secrets)
+  - [Example of secrets use](#example-of-secrets-with-environment-variables)
+  - [Example of secrets with files](#example-of-secrets-with-files)
+- [promotions](#promotions)
+  - [name](#name-in-promotions)
+  - [pipeline_file](#pipeline_file)
+  - [Example of promotions use](#example-of-promotions)
+  - [auto_promote](#auto_promote)
+  - [Example of auto\_promote](#example-of-auto_promote)
+  - [auto\_promote\_on - DEPRECATED](#auto_promote_on_-_deprecated)
+  - [Example of auto\_promote\_on - DEPRECATED](#example-of-auto_promote_on_-_deprecated)
+- [Complete examples](#complete-configuration-examples)
+- [The order of execution](#the-order-of-execution)
+- [Comments](#comments)
+- [See also](#see-also)
+
+## Overview
+
 This document is the reference of the YAML grammar used for describing the
 pipelines of Semaphore 2.0 projects.
 
@@ -94,12 +153,13 @@ the machine type is used.
 These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
-- `macos-mojave` ([reference][macos-mojave])
+- `macos-mojave-xcode10` ([reference][macos-mojave-xcode10])
+- `macos-mojave-xcode11` ([reference][macos-mojave-xcode11])
 
 The default operating system depends on the type of the machine:
 
 - For the `e1-standard-*` machine types the default image is `ubuntu1804`
-- For the `a1-standard-*` machine types the default image is `macos-mojave`
+- For the `a1-standard-*` machine types the default image is `macos-mojave-xcode11`
 
 Example of `os_image` usage:
 
@@ -1092,10 +1152,10 @@ blocks:
 ```
 It will automatically create 4 jobs with the following names:
 
-- `Parallel job - SEMAPHORE_JOB_INDEX=1`
-- `Parallel job - SEMAPHORE_JOB_INDEX=2`
-- `Parallel job - SEMAPHORE_JOB_INDEX=3`
-- `Parallel job - SEMAPHORE_JOB_INDEX=4`
+- `Parallel job - 1/4`
+- `Parallel job - 2/4`
+- `Parallel job - 3/4`
+- `Parallel job - 4/4`
 
 ## Prologue and Epilogue
 
@@ -1424,7 +1484,156 @@ blocks:
           - uname -a
 ```
 
-### auto\_promote\_on
+### auto\_promote
+
+The `auto_promote` property is optional and it allows you to specify a set of
+conditions under which the pipeline will be promoted automatically.
+
+It requires conditions to be defined in a `when` sub-property, following the
+[Conditions DSL][conditions-reference].
+
+If these conditions are fulfilled for a given pipeline execution, the appropriate
+promotion will be triggered automatically.
+
+You can define conditions based on values for the following properties of original
+pipeline:
+
+- `branch` - the name of the branch for which pipeline is initiated (empty if it is a tag or pull request)
+- `tag` - the name of the tag for which pipeline is initiated (empty if it is a branch or pull-requests)
+- `pull request` - the number of pull request for which pipeline is initiated (empty if it is a branch or tag)
+- `result` - the result of pipeline's execution, see possible values bellow
+- `result_reason` - the reason for specific pipeline execution result, see possible values for each result type bellow
+
+The valid values for `result` are:
+
+- `passed`: all the blocks in the pipeline ended successfully
+- `stopped`: the pipeline was stopped either by the user or by the system
+- `canceled`: the pipeline was canceled either by the user or by the system.
+    The difference between `canceled` and `stopped` is that if the result is
+    `canceled` it means that pipeline was terminated before any block or job
+    has started to execute.
+- `failed`: the pipeline failed either due to a pipeline YAML syntax error or
+    because at least one of the blocks of the pipeline failed due to a command
+    not being successfully executed.
+
+The valid values for `result_reason` are:
+
+- `test`: one or more of user tests failed
+- `malformed`: the pipeline YAML file is not correct
+- `stuck`: the pipeline was stuck for some internal reason and then aborted
+- `internal`: the pipeline was terminated for internal reasons
+- `user`: the pipeline was stopped on user request
+- `strategy`: the pipeline was terminated due to auto-cancel strategy
+- `timeout`: the pipeline exceeded the execution time limit
+
+Not all `result` and `result_reason` combinations make sense. For example, you
+cannot have `passed` as the value of `result` and `malformed` as the value of
+`result_reason`. On the other hand, you can have `failed` as the value of
+`result` and `malformed` as the value of `result_reason`.
+
+For a `result` value of `failed`, the valid values of `result_reason` are
+`test`, `malformed` and `stuck`. When the `result` value is `stopped` or
+`canceled`, the list of valid values for `result_reason` are `internal`,
+`user`, `strategy` and `timeout`.
+
+### Example of auto\_promote
+
+The following pipeline YAML file presents an example use of `auto_promote` and
+depends on two other pipeline YAML files named `p1.yml` and `p2.yml`:
+
+``` yaml
+version: v1.0
+name: Testing Auto Promoting
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+promotions:
+- name: Staging
+  pipeline_file: p1.yml
+  auto_promote:
+    when: "result = 'passed' and (branch = 'master' or tag =~ '^v1\.')"
+- name: Production
+  pipeline_file: p2.yml
+
+blocks:
+  - name: Block 1
+    task:
+      jobs:
+        - name: Job 1 - Block 1
+          commands:
+            - echo $SEMAPHORE_GIT_BRANCH
+
+  - name: Block 2
+    task:
+      jobs:
+        - name: Job 1 - Block 2
+          commands:
+            - echo Job 1 - Block 2
+            - echo $SEMAPHORE_GIT_BRANCH
+        - name: Job 2 - Block 2
+          commands:
+            - echo Job 2 - Block 2
+```
+
+According to the specified rules, only the `Staging` promotion of the `promotions`
+list can be auto promoted – in case condition specified in `when` sub-property of
+`auto_promote` property is fulfilled. However, the `Production` promotion of the
+`promotions` list has no `auto_promote` property so there is no way it can be auto
+promoted.
+
+So, if the pipeline finishes with result `passed` and it was initiated from the
+`master` branch then the `p1.yml` pipeline file will be auto-promoted.
+The same will happen if the pipeline was initiated from the tag that has a name
+which matches the expression given in PCRE (*Perl Compatible Regular Expression*)
+syntax, which is, in this case, any string that starts with `v1.`.
+
+The content of `p1.yml` is as follows:
+
+``` yaml
+version: v1.0
+name: Pipeline 1
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Environment variable
+    task:
+      jobs:
+      - name: SEMAPHORE_PIPELINE_ID
+        commands:
+          - echo $SEMAPHORE_PIPELINE_ID
+```
+
+The content of `p2.yml` is the following:
+
+``` yaml
+version: v1.0
+name: This is Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: List VM Linux version
+    task:
+      jobs:
+      - name: uname
+        commands:
+          - echo $SEMAPHORE_PIPELINE_ID
+          - uname -a
+```
+
+Both `p1.yml` and `p2.yml` are perfectly correct pipeline YAML files that could
+have been used as `semaphore.yml` files.
+
+### auto\_promote\_on - DEPRECATED
+
+*Note*: The `auto_promote_on` property is deprecated in favor of [auto_promote](#auto_promote) property
 
 The `auto_promote_on` property is used for automatically promoting one or more
 branches of `promotions` blocks according to user specified rules.
@@ -1496,7 +1705,9 @@ For a `result` value of `failed`, the valid values of `result_reason` are
 `canceled`, the list of valid values for `result_reason` are `deleted`,
 `internal` and `user`.
 
-### Example of auto\_promote\_on
+### Example of auto\_promote\_on - DEPRECATED
+
+*Note*: The `auto_promote_on` property is deprecated in favor of [auto_promote](#auto_promote) property
 
 The following pipeline YAML file presents an example use of `auto_promote_on`
 and depends on two other pipeline YAML files named `p1.yml` and `p2.yml`:
@@ -1742,6 +1953,7 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 - [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
 
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/120-macos-mojave-xcode-10-image
 [conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
