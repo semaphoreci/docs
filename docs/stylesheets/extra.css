@@ -61,12 +61,12 @@ header {
     }
 
     .md-sidebar--secondary {
-        margin-left: 68rem !important;
+        margin-left: 64rem !important;
     }
 }
 
 .md-grid {
-    max-width: 68rem !important;
+    max-width: 64rem !important;
 }
 
 .md-search__input {
