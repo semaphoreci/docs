@@ -110,13 +110,16 @@ Installed versions:
 Installed versions:
 
 - 11.0
+- 11.1
 
 Xcode 11 has the following SDKs preinstalled:
 
 - macosx10.15
 - driverkit.macosx19.0
 - iphoneos13.0
+- iphoneos13.1
 - iphonesimulator13.0
+- iphonesimulator13.1
 - appletvos13.0
 - appletvsimulator13.0
 - watchos6.0
