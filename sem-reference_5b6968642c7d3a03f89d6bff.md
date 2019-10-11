@@ -932,16 +932,12 @@ By default, Semaphore will create status checks only for initial pipeline.
 To modify this, edit the status property in repository section in the project
 YAML.
 
-For example, to modify the granularity of statuses from pipeline to block level
-edit your project with the following command:
+#### Add status notifications from promoted pipelines
 
-``` bash
-sem edit project example-project-1
-```
+To add statuses from promoted pipelines modify the `pipeline_files` entry and
+add another pipeline file:
 
-In the editor, modify the `status/pipeline_files` entry:
-
-``` yaml
+```yaml
 # Editing Projects/example-project-1.
 
 apiVersion: v1alpha
@@ -960,25 +956,23 @@ spec:
     status:
       pipeline_files:
       - path: ".semaphore/semaphore.yml"
+        level: "pipeline"
         #
-        # Edit this line to set a new level of granularity
+        # Add this line to send status also after promotion
         #
-        level: "block"
+      - path: ".semaphore/production.yml"
+        level: "pipeline"
 ```
 
-When you save the changes and leave the editor, your changes will be applied to
-the project.
+#### Pipeline or Block level statuses
 
-To add statuses from promoted pipelines modify the `pipeline_files` entry and
-add another pipeline file:
+Status notifications can be set on two levels `pipeline` or `block`.
 
-```yaml
-pipeline_files:
-- path: ".semaphore/semaphore.yml"
-  level: "pipeline"
-- path: ".semaphore/production.yml"
-  level: "pipeline"
-```
+`pipeline` level means that only one Github status will be created on a commit.
+Name of the status is based on Pipeline name.
+
+`block` level means that Semaphore will create status for each block in
+pipeline. Name of the each status is based on corresponding Block name.
 
 ## Working with notifications
 
