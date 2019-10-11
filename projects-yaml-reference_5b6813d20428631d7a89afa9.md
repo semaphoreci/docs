@@ -166,19 +166,21 @@ The default value is `.semaphore/semaphore.yml`.
 
 ##### status
 
-The `status` property is used to setting for witch pipeline Semaphore will
-set a status check on Github. Statuses can be created for each block in
-pipeline, or one per pipeline.
+The `status` property is used to specify which Semaphore pipeline(s) will
+submit a status check on GitHub pull requests.
+
+A pipeline can create one status check as a result of the whole pipeline.
+Or each block in a pipeline can create its own status check.
 
 ##### pipeline\_files
 
-The `pipeline\_files` property is a list of pipeline files for witch Semaphore
-will set a status.
+The `pipeline\_files` property is a list of pipeline files for which Semaphore
+will submit a status check.
 
-A pipeline\_file has two properties: `path`, and `level`.
+Each value has two properties: `path` and `level`.
 
-When creating a project the default value is
-`path: .semaphore/semaphore.yml, level: pipeline`
+When you create a project, the default value is
+`path: .semaphore/semaphore.yml, level: pipeline`.
 
 ##### path
 
