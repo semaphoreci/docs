@@ -925,17 +925,21 @@ spec:
 When you save the changes and leave the editor, your changes will be applied to
 the project.
 
-### Changing GitHub status notifications
+### Changing GitHub status check notifications
 
-By default, Semaphore will create status checks only for initial pipeline.
+By default, Semaphore will submit pull request status checks for
+the initial pipeline.
 
-To modify this, edit the status property in repository section in the project
+To change this, edit the status property in the repository section of project
 YAML.
 
 #### Add status notifications from promoted pipelines
 
-To add statuses from promoted pipelines modify the `pipeline_files` entry and
-add another pipeline file:
+Let's say that your Semaphore workflow is composed of two pipelines:
+a promotion connects `semaphore.yml` to `production.yml`.
+
+To submit status checks from the pipeline defined in `production.yml`,
+modify the `pipeline_files` entry and add an additional pipeline file:
 
 ```yaml
 # Editing Projects/example-project-1.
@@ -964,15 +968,15 @@ spec:
         level: "pipeline"
 ```
 
-#### Pipeline or Block level statuses
+#### Pipeline or block level statuses
 
-Status notifications can be set on two levels `pipeline` or `block`.
+Status notifications can be set on two levels: `pipeline` or `block`.
 
-`pipeline` level means that only one GitHub status will be created on a commit.
-The name of the status is based on Pipeline's name.
+`pipeline` level means that only one GitHub status will be created per commit.
+The name of the status is based on name of the pipeline.
 
 `block` level means that Semaphore will create a status for each block in
-pipeline. The name of each status is based on the corresponding Block name.
+the pipeline. The name of each status is based on the corresponding block name.
 
 ## Working with notifications
 
