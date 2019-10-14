@@ -4,6 +4,54 @@ sem, the Semaphore Command Line Interface (CLI), makes it easy to create and
 manage your Semaphore projects and resources directly from the terminal. It’s an
 essential part of using Semaphore.
 
+#### Table of contents
+
+- [Download and install](#download-and-install)
+- [Overview](#overview)
+  - [Syntax](#syntax)
+  - [Operations](#operations)
+  - [Resource types](#resource-types)
+    - [Dashboards](#dashboards)
+    - [Jobs](#jobs)
+    - [Notifications](#notifications)
+    - [Projects](#projects)
+    - [Pipelines](#pipelines)
+    - [Secrets](#secrets)
+    - [Workflows](#workflows)
+- [Working with organizations](#working-with-organizations)
+  - [sem connect](#sem-connect)
+  - [sem context](#sem-context)
+- [Working with resources](#working-with-resources)
+  - [sem create](#sem-create)
+  - [sem edit](#sem-edit)
+  - [sem get](#sem-get)
+  - [sem apply](#sem-apply)
+  - [sem delete](#sem-delete)
+- [Working with jobs](#working-with-jobs)
+  - [Creating one-off jobs](#creating-one-off-jobs)
+  - [sem attach](#sem-attach)
+  - [sem logs](#sem-logs)
+  - [sem port-forward](#sem-port-forward)
+  - [sem debug for jobs](#sem-debug-for-jobs)
+  - [sem stop](#sem-stop)
+- [Working with projects](#working-with-projects)
+  - [sem init](#sem-init)
+  - [sem debug for projects](#sem-debug-for-projects)
+  - [Changing the initial pipeline file](#changing-the-initial-pipeline-file)
+- [Working with notifications](#working-with-notifications)
+  - [Create a notification](#creating-a-notification)
+  - [List notifications](#list-notifications)
+  - [Describe a notification](#describe-a-notification)
+  - [Edit a notification](#edit-a-notification)
+  - [Delete a notification](#delete-a-notification)
+- [Working with pipelines](#working-with-pipelines)
+- [Working with workflows](#working-with-workflows)
+- [Help commands](#help-commands)
+- [Flags](#flags)
+- [Defining an editor](#defining-an-editor)
+- [Command aliases](#command-aliases)
+- [See also](#see-also)
+
 ## Download and install
 
 To download and install sem, copy and paste the installation command:
@@ -140,7 +188,8 @@ A `pipeline` is the Semaphore 2.0 entity where jobs are defined in order to get
 executed in a Virtual Machine.
 
 Each `pipeline` is defined using a YAML file. The YAML file of the initial
-pipeline is always `.semaphore/semaphore.yml`.
+pipeline is `.semaphore/semaphore.yml`. This value can be adjusted by [editing
+the project configuration](#changing-the-initial-pipeline-file).
 
 #### Workflows
 
@@ -833,6 +882,49 @@ project will time out in 20 minutes and 10 seconds:
 ``` bash
 sem debug project deployment --duration 20m10s
 ```
+
+### Changing the initial pipeline file
+
+By default, `.semaphore/semaphore.yml` is the initial pipeline file that is
+triggered when a git hook is received on Semaphore.
+
+To modify the initial pipeline file, edit the repository section in the project
+YAML.
+
+For example, to modify the initial pipeline file from `.semaphore/semaphore.yml`
+to `.semaphore/alternative-tests.yml` edit your project with the following
+command:
+
+``` bash
+sem edit project example-project-1
+```
+
+In the editor, modify the `pipeline_file` entry:
+
+``` yaml
+# Editing Projects/example-project-1.
+
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: example-project-1
+  id: 37db0a22-592c-45e2-bdeb-799ba977502c
+  description: "Example project"
+spec:
+  repository:
+    url: git@github.com:example/project-1.git
+    run_on:
+      - tags
+      - branches
+
+    #
+    # Edit this line to set a new entry-point YAML file for the project.
+    #
+    pipeline_file: ".semaphore/alternative-tests.yml"
+```
+
+When you save the changes and leave the editor, your changes will be applied to
+the project.
 
 ## Working with notifications
 

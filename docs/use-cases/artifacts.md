@@ -1,7 +1,7 @@
 # Artifacts
 
-__Note__: *Using Artifacts during the beta period is free. Once the artifacts 
-system is in the general availability, additional charges will apply based on 
+__Note__: *Using Artifacts during the beta period is free. Once the artifacts
+system is in the general availability, additional charges will apply based on
 the usage.*
 
 Artifacts are used to persist files that are either final deliverables or

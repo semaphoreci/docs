@@ -39,7 +39,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
-      permalink: '&#128279;'
+      permalink: '&#35;'
 nav:
   - Welcome: index.md
   - Guided Tour:

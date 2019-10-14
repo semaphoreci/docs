@@ -91,8 +91,8 @@ promotions:
     pipeline_file: production-deploy.yml
   - name: Staging deploy
     pipeline_file: staging-deploy.yml
-    auto_promote_on:
-      - result: passed
+    auto_promote:
+      when: "result = 'passed'"
 ```
 
 Next, create the required `staging-deploy.yml` file:
@@ -139,14 +139,12 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
   - name: Staging deploy
     pipeline_file: staging-deploy.yml
-    auto_promote_on:
-      - result: passed
+    auto_promote:
+      when: "result = 'passed'"
 ```
 
 Promotions are powerful tools to build up complex multi-pipeline
@@ -166,7 +164,7 @@ have along the way.
 
 Happy building!
 
-[auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote_on
+[auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
 [pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
 [reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
 [next]: https://docs.semaphoreci.com/article/68-caching-dependencies
