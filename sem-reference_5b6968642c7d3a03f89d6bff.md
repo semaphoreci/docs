@@ -36,7 +36,7 @@ essential part of using Semaphore.
   - [sem init](#sem-init)
   - [sem debug for projects](#sem-debug-for-projects)
   - [Changing the initial pipeline file](#changing-the-initial-pipeline-file)
-  - [Changing GitHub status notifications](#changing-github-status-notifications)
+  - [Changing GitHub status check notifications](#changing-github-status-check-notifications)
 - [Working with notifications](#working-with-notifications)
   - [Create a notification](#creating-a-notification)
   - [List notifications](#list-notifications)
