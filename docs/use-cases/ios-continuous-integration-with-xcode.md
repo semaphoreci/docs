@@ -1,3 +1,5 @@
+# iOS Continuous Integration with Xcode
+
 This is a guide to continuous integration for iOS applications created with Xcode.
 Semaphore supports building, testing and deploying Swift, Objective-C and React Native
 projects via [macOS Mojave VM image][macos-mojave] and [a1-standard machine

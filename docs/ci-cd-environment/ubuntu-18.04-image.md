@@ -9,23 +9,6 @@ of your pipeline or block.
 The `ubuntu1804` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
-- [Using the ubuntu1804 OS image in your agent configuration](#using-the-ubuntu1804-os-image-in-your-agent-configuration)
-- [Toolbox](#toolbox)
-- [Version control](#version-control)
-- [Browsers and Headless Browser Testing](#browsers-and-headless-browser-testing)
-- [Docker](#docker)
-- [Cloud CLIs](#cloud-clis)
-- [Network utilities](#network-utilities)
-- [Languages](#languages)
-  - [Erlang and Elixir](#erlang-and-elixir)
-  - [Go](#go)
-  - [Java and JVM languages](#java-and-jvm-languages)
-  - [JavaScript via Node.js](#javascript-via-node-js)
-  - [PHP](#php)
-  - [Python](#python)
-  - [Ruby](#ruby)
-- [See also](#see-also)
-
 The `ubuntu1804` VM uses an *APT mirror* that is in the same data center as
 Semaphore's build cluster, which means that caching packages will have little
 effect.

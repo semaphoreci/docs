@@ -113,6 +113,8 @@ nav:
     - Machine Types: ci-cd-environment/machine-types.md
     - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
     - macOS Mojave Image: ci-cd-environment/macos-mojave-image.md
+    - macOS Mojave Xcode 10 Image: ci-cd-environment/macos-mojave-xcode-10-image.md
+    - macOS Mojave Xcode 11 Image: ci-cd-environment/macos-mojave-xcode-11-image.md
     - Custom CI/CD environment with Docker: ci-cd-environment/custom-ci-cd-environment-with-docker.md
     - Toolbox Reference: ci-cd-environment/toolbox-reference.md
     - Environment Variables: ci-cd-environment/environment-variables.md

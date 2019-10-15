@@ -1,3 +1,5 @@
+# Node.js and TypeScript Continuous Integration
+
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Node.js app. The guide applies to both TypeScript and
 JavaScript.

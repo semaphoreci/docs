@@ -14,11 +14,6 @@ All cache keys are scoped per-project. The total cache size is 9.6GB.
 The `cache` tool uses key-path pairs for managing cached archives. An archive
 can be a single file or a directory. Each archive automatically expires in 30 days.
 
-- [Basic Usage](#basic-usage)
-- [Advanced Usage](#advanced-usage)
-- [Requirements](#requirements)
-- [Troubleshooting](#troubleshooting)
-
 ## Basic usage
 
 Semaphore caching script will try to recognize your project structure and automatically store or restore dependencies in to or from default paths.

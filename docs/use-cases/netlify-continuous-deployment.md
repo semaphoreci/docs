@@ -1,3 +1,5 @@
+# Netlify Continuous Deployment
+
 This guide shows you how to configure Semaphore to continuously deploy a
 static website to Netlify.
 

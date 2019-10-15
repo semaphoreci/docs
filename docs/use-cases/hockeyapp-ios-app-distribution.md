@@ -1,3 +1,5 @@
+# HockeyApp iOS app distribution
+
 This guide shows how to configure iOS app distribution from
 [Semaphore][semaphore] to [HockeyApp][hockeyapp] using
 [Fastlane][fastlane].

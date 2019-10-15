@@ -1,3 +1,5 @@
+# Tutorials and Example Projects
+
 Semaphore provides tutorials and open source repositories that show you
 practical examples of CI/CD pipelines. You can read and use them to learn what's
 possible and jump-start your own projects.

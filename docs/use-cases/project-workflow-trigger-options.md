@@ -1,3 +1,5 @@
+# Project workflow trigger options
+
 You can choose which GitHub events should trigger new workflows for your Semaphore project.
 
 In project settings, you can select one of the following triggers:
@@ -8,16 +10,6 @@ In project settings, you can select one of the following triggers:
 - Forked pull requests
 
 There is also an option to pause a project.
-
-- [Pause project](#pause-project)
-- [Build branches](#build-branches)
-- [Build tags](#build-tags)
-- [Build pull requests](#build-pull-requests)
-- [Build forked pull requests](#build-pull-requests-from-forks)
-  - [Expose secrets in forked pull requests](#expose-secrets-in-forked-pull-requests)
-  - [Filter contributors in forked pull requests](#filter-contributors-in-forked-pull-requests)
-- [Build default branch](#build-default-branch)
-- [See also](#see-also)
 
 ## Pause project
 

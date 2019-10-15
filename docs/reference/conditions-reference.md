@@ -1,9 +1,5 @@
 # Conditions Reference
 
-- [Overview](#overview)
-- [Formal language definition](#formal-language-definition)
-- [Usage examples](#usage-examples)
-
 ## Overview
 
 The Conditions DSL is a universal way of specifying conditional execution of

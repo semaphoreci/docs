@@ -1,3 +1,5 @@
+# macOS Mojave Xcode 10 Image
+
 The `macos-mojave-xcode10` is a customized image based on [MacOS 10.14.6][mojave-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
@@ -6,8 +8,6 @@ of your pipeline or block.
 
 The `macos-mojave-xcode10` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
-
-[[__TOC__]]
 
 ## Using the macos-mojave OS image in your agent configuration
 
