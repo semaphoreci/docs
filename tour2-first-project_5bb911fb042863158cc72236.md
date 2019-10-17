@@ -12,6 +12,8 @@ You'll go through a simple two-step process:
 1. Find the wanted repository and click on `Add Repository`;
 2. In the Workflow Builder, edit your Semaphore pipeline and commit it to start your first workflow.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5u3NDj0xBm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Alternative: creating a project from command line
 
 You can also create and manage projects using the Semaphore Command Line
