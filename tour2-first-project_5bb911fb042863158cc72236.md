@@ -6,13 +6,11 @@ create a project for it to live in.
 Once you're inside an organization that you've created or were invited to,
 you're ready to create a CI/CD project.
 
-Follow the `Projects > New` link in the sidebar of Semaphore web interface.
+Follow the `Projects > Create new project (+ sign)` link in the sidebar of Semaphore web interface.
 You'll go through a simple two-step process:
 
-1. Select a Git repository;
-2. Commit a configuration file and start your first workflow. You will be able
-   able to edit the provided example configuration file before creating a
-   commit.
+1. Find the wanted repository and click on `Add Repository`;
+2. In the Workflow Builder, edit your Semaphore pipeline and commit it to start your first workflow.
 
 ## Alternative: creating a project from command line
 
