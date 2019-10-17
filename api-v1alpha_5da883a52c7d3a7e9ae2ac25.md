@@ -87,11 +87,9 @@ link: <http://{org_name}.semaphoreci.com/api/v1alpha/?PAGE_PARAMS>; rel="first",
 
 The possible `rel` values are:
 
-| Name  |               Description               |
-|-------|-----------------------------------------|
-| next  | The link for the next page of results   |
-| prev  | The link previous page of results.      |
-| first | The link for the first page of results. |
+- **next** - The link for the next page of results.
+- **prev** - The link previous page of results.
+- **first** -  The link for the first page of results.
 
 ### Stability
 
