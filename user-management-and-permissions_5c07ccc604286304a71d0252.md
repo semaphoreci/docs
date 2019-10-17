@@ -155,3 +155,5 @@ In order to delete your account and/or organization, please send an email to
 address connected to the GitHub account you use to log in to Semaphore 2.0.
 In this email, include your GitHub username and the name of the organization
 you’d like to delete.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5u3NDj0xBm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
