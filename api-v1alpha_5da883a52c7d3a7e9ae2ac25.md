@@ -292,138 +292,130 @@ HTTP status: 200
   "pipeline": {
     "yaml_file_name": "semaphore.yml",
     "working_directory": ".semaphore",
-    "wf_id": "80b8bae6-bc1d-44bc-a233-2bf9ba78ae5c",
+    "wf_id": "965d3c3d-bbe6-4ff7-b62a-1ff51a92bdc0",
     "terminated_by": "",
     "terminate_request": "",
-    "switch_id": "bf2652a4-56c6-4b4c-92ff-b2c623ae90b7",
+    "switch_id": "",
     "stopping_at": "1970-01-01 00:00:00.000000Z",
     "state": "done",
     "snapshot_id": "",
-    "running_at": "2019-10-14 12:11:47.824128Z",
+    "running_at": "2019-10-14 18:31:20.232006Z",
     "result_reason": "test",
-    "result": "failed",
-    "queuing_at": "2019-10-14 12:10:43.783017Z",
-    "project_id": "c394d20b-b3c6-4c90-b743-a9a65fa95a78",
-    "ppl_id": "de4e1476-11ad-481c-afe1 -620bb263887d",
-    "pending_at": "2019-10-14 12:10:43.769695Z",
-    "name": "Pipeline",
-    "hook_id": "dcdf2aad-9221-4987-ae7e-50c978675935",
+    "result": "passed",
+    "queuing_at": "2019-10-14 18:31:18.553131Z",
+    "project_id": "162987ba-bda7-4e54-9c45-977a8cc6087d",
+    "ppl_id": "6cf4569c-f76c-4dea-b293-3e4282ba1153",
+    "pending_at": "2019-10-14 18:31:18.527207Z",
+    "name": "First pipeline example",
+    "hook_id": "788fd118-fb8f-45f9-9c18-07163721640b",
     "error_description": "",
-    "done_at": "2019-10-14  12:15:31.090206Z",
-    "created_at": "2019-10-14 12:10:43.460665Z",
-    "commit_sha": "b602f0594c8d8ad50ec8e848eb6ea0399692117c",
-    "branch_name": "mixpanel-plug",
-    "branch_id": "591b2951 -5c30-4955-ba05-9426a04d5c4d"
+    "done_at": "2019-10-14 18:31:32.507034Z",
+    "created_at": "2019-10-14 18:31:17.293456Z",
+    "commit_sha": "a38c3e1506d12fb1510e4b1bca2682abd9681984",
+    "branch_name": "master",
+    "branch_id": "b032fd6b-8d2d-4ac7-83b4-0a8bc1db192b"
   },
-  "blocks": []
+  "blocks": [
+  ]
 }
 ```
 
 Response with `datailed` param set to `true`:
 
 ```json
+HTTP status: 200
+
 {
   "pipeline": {
     "yaml_file_name": "semaphore.yml",
     "working_directory": ".semaphore",
-    "wf_id": "80b8bae6-bc1d-44bc-a233-2bf9ba78ae5c",
+    "wf_id": "965d3c3d-bbe6-4ff7-b62a-1ff51a92bdc0",
     "terminated_by": "",
     "terminate_request": "",
-    " switch_id": "bf2652a4-56c6-4b4c-92ff-b2c623ae90b7",
+    "switch_id": "",
     "stopping_at": "1970-01-01 00:00:00.000000Z",
     "state": "done",
     "snapshot_id": "",
-    "running_at": "2019-10-14 12:11:47.824128Z",
+    "running_at": "2019-10-14 18:31:20.232006Z",
     "result_reason": "test",
-    "result": "failed",
-    "queuing_at": "2019-10-14 12:10:43.783017Z",
-    "project_id": "c394d20b-b3c6-4c90-b743-a9a65fa95a78",
-    "ppl_id": "de4e1476-11ad-481c-afe1 -620bb263887d",
-    "pending_at": "2019-10-14 12:10:43.769695Z",
-    "name": "Pipeline",
-    "hook_id": "dcdf2aad-9221-4987-ae7e-50c978675935",
+    "result": "passed",
+    "queuing_at": "2019-10-14 18:31:18.553131Z",
+    "project_id": "162987ba-bda7-4e54-9c45-977a8cc6087d",
+    "ppl_id": "6cf4569c-f76c-4dea-b293-3e4282ba1153",
+    "pending_at": "2019-10-14 18:31:18.527207Z",
+    "name": "First pipeline example",
+    "hook_id": "788fd118-fb8f-45f9-9c18-07163721640b",
     "error_description": "",
-    "done_at": "2019-10-14  12:15:31.090206Z",
-    "created_at": "2019-10-14 12:10:43.460665Z",
-    "commit_sha": "b602f0594c8d8ad50ec8e848eb6ea0399692117c",
-    "branch_name": "mixpanel-plug",
-    "branch_id": "591b2951 -5c30-4955-ba05-9426a04d5c4d"
+    "done_at": "2019-10-14 18:31:32.507034Z",
+    "created_at": "2019-10-14 18:31:17.293456Z",
+    "commit_sha": "a38c3e1506d12fb1510e4b1bca2682abd9681984",
+    "branch_name": "master",
+    "branch_id": "b032fd6b-8d2d-4ac7-83b4-0a8bc1db192b"
   },
   "blocks": [
     {
       "state": "done",
       "result_reason": "test",
       "result": "passed",
-      "name": "Lint",
+      "name": "RSpec",
       "jobs": [
         {
-          "status": "",
-          "result": "",
-          "name": "",
-          "job_id": "",
-          "i ndex": 0
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "Push results - 2/11",
+          "job_id": "31094182-03bf-4e39-acfe-ed1058d7eb6c",
+          "index": 1
         },
         {
-          "status": "",
-          "result": "",
-          "name": "",
-          "job_id": "",
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "Push results - 4/11",
+          "job_id": "97bfb7ad-0b31-4a74-877a-b4ef1f357c5f",
+          "index": 3
+        },
+        {
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "Push results - 3/11",
+          "job_id": "a7e072d0-7996-4aee-b719-72c95e53a3b2",
+          "index": 2
+        },
+        {
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "Push results - 1/11",
+          "job_id": "4629b620-f7b0-44e7-b3fb-c2802899b1ea",
           "index": 0
-        }
+        },
       ],
       "error_description": "",
-      "build_req_id": "3ebcf42b-798e-472c-8683-a9bfde2ed069",
-      "block_id": "188e843e-820 3-4b6f-89e6-53e9d36879b2"
-    },
-    {
-      "state": "done",
-      "result_reason": "test",
-      "result": "failed",
-      "name": "Test",
-      "jobs": [
-        {
-          "status": "",
-          "result": "",
-          "name": "",
-          "job_id": "",
-          "index": 0
-        },
-        {
-          "sta tus": "",
-          "result": "",
-          "name": "",
-          "job_id": "",
-          "index": 0
-        },
-        {
-          "status": "",
-          "result": "",
-          "name": "",
-          "job_id": "",
-          "index": 0
-        }
-      ],
-      "error_description": "",
-      "build_req_id": "91fedd38-82ba-41c2 -bc8b-a2ec6911e8aa",
-      "block_id": "44153495-4502-406f-8cab-b920879f7f84"
+      "build_req_id": "4a45fe07-6dd0-49b9-88a4-1cf49746b642",
+      "block_id": "83b79652-bdfa-439c-a210-a3f0d07bbca6"
     },
     {
       "state": "done",
       "result_reason": "test",
       "result": "passed",
-      "name": "Build",
+      "name": "ExUnit",
       "jobs": [
         {
-          "status": "",
-          "resu lt": "",
-          "name": "",
-          "job_id": "",
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "All passed",
+          "job_id": "6f90f363-dd85-408b-a656-e37244daf8c7",
           "index": 0
+        },
+        {
+          "status": "FINISHED",
+          "result": "PASSED",
+          "name": "Failures",
+          "job_id": "54976a64-867f-4d02-997f-fc6a31a5dfe0",
+          "index": 1
         }
       ],
       "error_description": "",
-      "build_req_id": "823ab9ae-9f30-41a7-8537-9ef53ca88f6f",
-      "block_id": "34b27e46-28a0-4fdc-a8e3-242c02228b9a"
+      "build_req_id": "5e563b94-b133-48c5-ac9d-d3a04650f457",
+      "block_id": "58911c16-04f1-4084-9a01-d3948df1bd49"
     }
   ]
 }
