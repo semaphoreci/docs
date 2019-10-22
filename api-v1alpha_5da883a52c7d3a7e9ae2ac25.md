@@ -82,7 +82,7 @@ The `link` header includes information about pagination:
 
 ```
 link: <http://{org_name}.semaphoreci.com/api/v1alpha/?PAGE_PARAMS>; rel="first",
-      <http://{org_name}.semaphoreci.com/api/orgs?PAGE_PARAMS>; rel="nest"
+      <http://{org_name}.semaphoreci.com/api/orgs?PAGE_PARAMS>; rel="next"
 ```
 
 The possible `rel` values are:
@@ -466,6 +466,8 @@ HTTP status: 200
       "seconds": 1571076845,
       "nanos": 810862000
     },
+    "result": "FAILED",
+    "result_reason":"TEST",
     "queuing_at": {
       "seconds": 1571076843,
       "nanos": 878741000
@@ -719,6 +721,3 @@ BranchPage.Models.BranchTest
 curl -i -H "Authorization: Token {api_token}" \
      https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json
 ```
-
-
-
