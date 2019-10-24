@@ -115,13 +115,13 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.0, 22
-- Elixir: 1.7.3, 1.8.1, 1.9.0
+- Erlang: 20.3, 21.3, 22.1
+- Elixir: 1.7.3, 1.8.1, 1.9.1
 
 Additional libraries:
 
 - rebar: 2.6.4
-- rebar3: 3.6.1
+- rebar3: 3.12.1
 
 ### Go
 
@@ -154,7 +154,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.17.3
+- Yarn: 1.19.1
 - Bower: 1.8.8
 
 ### PHP
@@ -208,6 +208,7 @@ Available versions:
 - 2.6.2
 - 2.6.3
 - 2.6.4
+- 2.6.5
 - jruby-9.1.17.0
 
 ## See Also

@@ -4,6 +4,44 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of october 14,2019
+
+- Updates to ubuntu1804 image
+  - Heroku 7.30.0 -> 7.33.3
+  - Elixir 1.8.1  -> 1.8.2
+  - Elixir 1.9.0  -> 1.9.1
+  - Erlang 22.0   -> 22.1
+  - Yarn   1.17.3 -> 1.19.1
+  - Kerl   1.3.4  -> 1.8.4
+  - Rebar3 3.6.1  -> 3.12.0
+  
+### Week of October 7, 2019
+
+- Updates to the macOS image:
+  - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
+    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
+- You can change which blocks and pipelines send status checks to pull requests
+  on GitHub. [See how](https://docs.semaphoreci.com/article/53-sem-reference#changing-github-status-check-notifications).
+
+### Week of September 30, 2019
+
+- [The latest release of the Semaphore Agent](https://github.com/semaphoreci/agent/pull/72),
+  v0.10.1, checks if Bash is available before starting jobs in a custom
+  Docker container. Previously, without this check, the first step in a job
+  that exports environment variables would fail without a real indication of
+  the root problem.
+- From now on, outdated version of the CLI will be rejected from accessing
+  your organization. Compatibility of the CLI will be uphold at least up to the
+  last 3 minor releases. Only in case of security issues will this
+  compatibility policy be broken.
+- Jobs generated with [parallelism](https://docs.semaphoreci.com/article/50-pipeline-yaml#parallelism)
+  are using a new naming scheme `<job-name> - <index>/<job-count>`.
+  Example: `RSpec - 1/4`.
+- We introduced a new syntax for configuring [auto-promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote)
+  which leverages our [Conditions DSL](https://docs.semaphoreci.com/article/142-conditions-reference)
+  to allow you to express conditions for pipeline auto-promotion in a lot less
+  complicated way than before.
+
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:

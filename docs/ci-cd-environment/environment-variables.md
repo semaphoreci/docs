@@ -85,7 +85,19 @@ The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
 all promoted and auto promoted pipelines.
 
-Example value: `65c9bb1c-aeb6-41f0-b8d9-6fa177241cdf`
+#### SEMAPHORE\_WORKFLOW\_NUMBER
+
+The value of the `SEMAPHORE_WORKFLOW_NUMBER` environment variable represents the
+current count of workflows on each distinct branch, tag or pull request.
+The first workflow in each of those gets the `1` for the value of
+`SEMAPHORE_WORKFLOW_NUMBER` and on each subsequent push or workflow rerun this
+value is increased by one.
+
+The `SEMAPHORE_WORKFLOW__NUMBER` environment variable remains the same during
+a pipeline run and is available in all the blocks of a pipeline as well as in
+all promoted and auto promoted pipelines of the same workflow.
+
+Example value: `42`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
