@@ -61,12 +61,12 @@ header {
     }
 
     .md-sidebar--secondary {
-        margin-left: 68rem !important;
+        margin-left: 64rem !important;
     }
 }
 
 .md-grid {
-    max-width: 68rem !important;
+    max-width: 64rem !important;
 }
 
 .md-search__input {
@@ -194,4 +194,60 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 .md-main__inner {
     padding-top: 0 !important;
+}
+
+/* Welcome page */
+
+.welcome-page {
+    position: relative;
+}
+
+.welcome-page h2 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.welcome-blocks-wrapper {
+    margin: 0 -24px;
+}
+
+.welcome-block {
+    width: 100%;
+    padding: 12px 24px;
+}
+
+@media screen and (min-width: 640px) {
+    .welcome-blocks-wrapper {
+        display: flex;
+        padding-top: 8px;
+        border-top: 1px solid #ddd;
+    }
+
+    .welcome-block {
+        width: 50%;
+        padding: 24px;
+    }
+}
+
+.welcome-page .welcome-block-description {
+    margin: 0 0 1em 0;
+}
+
+.welcome-page .welcome-intro {
+    display: none;
+}
+
+@media screen and (min-width: 960px) {
+    .welcome-page .welcome-intro {
+        display: block;
+        position: absolute;
+        top: -78px;
+        left: -250px;
+        width: 200px;
+        height: 100%;
+        background-color: #fff;
+        font-size: 14px;
+
+    }
 }
