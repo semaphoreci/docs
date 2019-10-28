@@ -19,9 +19,11 @@ You'll go through a simple two-step process:
 You can also create and manage projects using the Semaphore Command Line
 Interface (CLI):
 
-1. [Install sem CLI][install-cli];
-2. Run `sem init` in the root of your repository;
-3. `git push` a new commit to run your first workflow.
+1. Visit `https://your-organization.semaphoreci.com/projects/scopes/github` and
+authorize Semaphore to access your public and/or private GitHub repositories.
+2. [Install sem CLI][install-cli] and connect it to your organization.
+3. Run `sem init` in the root of your repository.
+4. `git push` a new commit to run your first workflow.
 
 `sem init` creates a deploy key and webhook on GitHub, so
 that Semaphore can access your code as it changes. It also creates a pipeline
@@ -62,7 +64,7 @@ or
 or
 
 ``` txt
-error: http status 422 with message "{"message":"Repository 'orgname/projectname' not found"}" 
+error: http status 422 with message "{"message":"Repository 'orgname/projectname' not found"}"
 received from upstream
 ```
 
