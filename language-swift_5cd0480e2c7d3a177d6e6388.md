@@ -15,7 +15,7 @@ and all other tools are below:
 # Configuring Continuous Integration
 
 Below is a minimal `semaphore.yml` which starts an
-[Xcode 11 image](macos-xcode-11) runs `xcodebuild`:
+[Xcode 11 image](macos-xcode-11) and runs `xcodebuild`:
 
 ```yaml
 version: v1.0
