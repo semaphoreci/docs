@@ -1,5 +1,5 @@
 This guide shows you how to use Semaphore to set up automatic deployment for
-each new tagged commit in you repository.
+each new tagged commit in your repository.
 
 For this guide you will need:
 
@@ -44,11 +44,11 @@ promotions:
       when: "result = 'passed' and tag =~ '.*'"
 ```
 
-Here we defined condition in `when` sub-field of `auto_promote` field and if it
-is fulfilled the deployment pipeline will be automatically triggered.
+Here we defined the condition in `when` sub-field of `auto_promote` field and if
+it is fulfilled the deployment pipeline will be automatically triggered.
 
-The condition in the example above will be fulfilled when tests in main CI pipeline
-pass and if the whole workflow was triggered for a tag.
+The condition in the example above will be fulfilled when tests in the main CI
+pipeline pass and if the whole workflow was triggered for a tag.
 
 You can find out more about ways to express conditions [here][conditions].
 
