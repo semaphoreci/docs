@@ -12,7 +12,7 @@ documentation.
 
 ## Set up automatic deployment on a new tag
 
-Let say that you CI pipeline looks something like this:
+Let say that your CI pipeline looks something like this:
 
 ```yaml
 version: v1.0
@@ -26,15 +26,14 @@ blocks:
   - name: "Run tests"
     task:
       jobs:
-        - name: "Test 1"
+        - name: "Tests"
           commands:
             - checkout
-            - echo "Your commands go here"
+            - make test
 ```
 
 In order to automatically promote this pipeline to deployment phase defined in
-your deployment pipeline you need to expand it with [promotions][promotions] block
-that looks like this:
+your deployment pipeline you need to expand it with [promotions][promotions]:
 
 ```yaml
 promotions:
@@ -68,10 +67,10 @@ blocks:
   - name: "Run tests"
     task:
       jobs:
-        - name: "Test 1"
+        - name: "Tests"
           commands:
             - checkout
-            - echo "Your commands go here"
+            - make test
 promotions:
   - name: Deployment to production
     pipeline_file: deployment.yml
@@ -96,7 +95,7 @@ blocks:
         - name: "Build and deploy"
           commands:
             - checkout
-            - echo "Your commands go here"
+            - make deploy
 ```
 
 ## See also
