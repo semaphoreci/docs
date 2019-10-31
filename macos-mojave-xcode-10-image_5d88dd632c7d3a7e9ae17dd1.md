@@ -9,7 +9,7 @@ named `semaphore`, has full `sudo` access.
 
 [[__TOC__]]
 
-## Using the macos-mojave OS image in your agent configuration
+## Using the macos-mojave-xcode10 OS image in your agent configuration
 
 To use the `macos-mojave-xcode10` OS image, define it as the `os_image` of your agent's
 machine.

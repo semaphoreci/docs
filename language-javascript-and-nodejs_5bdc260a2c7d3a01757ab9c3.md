@@ -178,6 +178,6 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [tutorial]: https://docs.semaphoreci.com/article/121-nodejs-typescript-continuous-integration
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
 [ubuntu-javascript]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#javascript-via-node-js
-[macos-javascript]: https://docs.semaphoreci.com/article/120-macos-mojave-image#javascript-via-node-js
+[macos-javascript]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [node-docker-image]: https://hub.docker.com/r/semaphoreci/node
