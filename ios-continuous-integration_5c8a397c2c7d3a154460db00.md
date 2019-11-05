@@ -1,11 +1,14 @@
-This is a guide to continuous integration for iOS applications created with Xcode.
-Semaphore supports building, testing and deploying Swift, Objective-C and React Native
-projects via [macOS Mojave VM image][macos-mojave] and [a1-standard machine
-types][machine-types].
+This guide gives an overview of CI/CD with Semaphore for apps created with
+Xcode that run on iOS, macOS, watchOS, or tvOS.
+
+Semaphore supports building, testing, and deploying Swift, Objective-C and
+React Native projects. Projects can be built with
+[Xcode 10](macos-mojave-xcode10) or [Xcode 11](macos-mojave-xcode10) running on
+macOS Mojave on an `a1-standard-4` or higher [machine type][machine-types].
 
 **Table of contents**
 
-- [Demo project](#demo-project)
+- [Example project](#example-project)
 - [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
 - [Sample configuration](#sample-configuration)
 - [Configuration walkthrough](#configuration-walkthrough)
@@ -19,67 +22,66 @@ types][machine-types].
   - [Fastfile](#fastfile)
   - [Building your app](#building-your-app)
   - [Releasing your app](#releasing-your-app)
-- [Run the demo project yourself](#run-the-demo-project-yourself)
+- [Run the example project yourself](#run-the-example-project-yourself)
 
-## Demo project
+## Example project
 
-Semaphore maintains an example iOS Swift project:
+Semaphore maintains an example iOS app written in Swift 5.1 and SwiftUI to
+demonstrate how to get an Xcode CI/CD environment up and running:
 
-- [Demo Swift Xcode project on GitHub][demo-project]
+- [TallestTowers example project on GitHub][example-project]
 
-In the repository you will find an annotated Semaphore configuration file
-`.semaphore/semaphore.yml`.
-
-The application uses Swift, Xcode and Fastlane with the [Semaphore
-plugin][fastlane-plugin].
+This example project includes an annotated Semaphore configuration file,
+[`.semaphore/semaphore.yml`](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/.semaphore/semaphore.yml) and uses [fastlane](fastlane) for its CI pipeline with the
+[Semaphore fastlane plugin][fastlane-plugin].
 
 ## Overview of the CI pipeline
 
 The Semaphore pipeline is configured to:
 
-- Run application tests;
-- Build the app using [gym][gym], which would generate an `ipa` file signed by
-  your developer certificate.
+- Run all unit and UI tests.
+- Build the app and generate an `ipa` archive.
 
-![iOS Xcode CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/raw/master/public/ci-pipeline.png)
+Taking the the `.semaphore/semaphore.yml` from this example project can be a
+good way to get *your* app up and running on with Semaphore.
 
-You can extend the example pipeline to run additional tasks and configuring
-beta and release deployment.
-
-Related guides:
+### Related guides:
 
 - [Code signing for iOS projects][code-signing]
 - [TestFlight integration][testflight]
 - [HockeyApp integration][hockeyapp]
 
-## Sample configuration
+## Sample pipeline configuration
 
-The following configuration is used in the provided [demo
-project][demo-project]:
+The following `.semaphore/semaphore.yml` configuration is used in the
+[example project][example-project]:
 
 ``` yaml
-# .semaphore/semaphore.yml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
-# Name your pipeline. In case you connect multiple pipelines with promotions,
-# the name will help you differentiate between, for example, a CI build phase
-# and delivery phases.
-name: Semaphore iOS Swift example with Fastlane
+# Name your pipeline. If you choose to connect multiple pipelines with
+# promotions, the pipeline name will help you differentiate between
+# them. For example, you might have a build phase and a delivery phase.
+# For more information on promotions, see:
+# https://docs.semaphoreci.com/article/67-deploying-with-promotions
+name: Tallest Towers
 
-# An agent defines the environment in which your code runs.
-# It is a combination of one of available machine types and operating
-# system images.
+# The agent defines the environment in which your CI runs. It is a combination of
+# a machine type and an operating system image. For a project built with Xcode you
+# must use one of the Apple machine types, coupled with a macOS image running either
+# Xcode 10 or Xcode 11.
 # See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
+# https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
+# https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode10
+    os_image: macos-mojave-xcode11
 
 # Blocks are the heart of a pipeline and are executed sequentially.
-# Each block has a task that defines one or more jobs. Jobs define the
-# commands to execute.
+# Each block has a task that defines one or more parallel jobs. Jobs define
+# commands that should be executed by the pipeline.
 # See https://docs.semaphoreci.com/article/62-concepts
 blocks:
   - name: Run tests
@@ -102,11 +104,13 @@ blocks:
           - bundle install --path vendor/bundle
           - cache store
       jobs:
-        - name: Fastlane test
+        - name: Test
           commands:
             # Select an Xcode version, for available versions
-            # See https://docs.semaphoreci.com/article/120-macos-mojave-image
-            - bundle exec xcversion select 10.2
+            # See https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
+            # https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+            - bundle exec xcversion select 11.1
+
             # Run tests of iOS and Mac app on a simulator or connected device
             # See https://docs.fastlane.tools/actions/scan/
             - bundle exec fastlane test
@@ -123,11 +127,9 @@ blocks:
           - bundle install --path vendor/bundle
           - cache store
       jobs:
-        - name: Fastlane build
+        - name: Build
           commands:
-            - bundle exec xcversion select 10.2
-            # Gym builds and packages iOS apps.
-            # See https://docs.fastlane.tools/actions/build_app/
+            - bundle exec xcversion select 11.1
             - bundle exec fastlane build
 ```
 
@@ -135,74 +137,71 @@ blocks:
 
 ### Naming your pipeline
 
-In case you connect multiple pipelines with promotions,
-the name will help you differentiate between, for example, a CI build phase
-and delivery phases.
-
 ``` yaml
 version: v1.0
-name: Semaphore iOS example
+name: Tallest Towers
 ```
+
+**Note:** If you choose to connect multiple pipelines with
+[promotions](promotions), the pipeline name will help you differentiate between
+them. For example, you might have a build phase and a delivery phase.
 
 ### Defining the agent
 
-An agent defines the environment in which your code runs. It is a combination
-of one of available machine types and operating system images.
-
-In case of iOS or macOS builds, we want to use one of the Apple [machine
-types][machine-types],
-coupled with the [macOS Mojave OS image][macos-mojave].
+The agent defines the environment in which your CI runs. It is a combination of
+a machine type and an operating system image. For a project built with Xcode you
+must use one of the Apple [machine types][machine-types], coupled with a macOS
+image running either [Xcode 10](macos-mojave-xcode10) or
+[Xcode 11](macos-mojave-xcode11).
 
 ``` yaml
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode10
+    os_image: macos-mojave-xcode11
 ```
 
 ### Defining blocks
 
 Blocks are the heart of a pipeline and are executed sequentially.
-Each block has a task that defines one or many parallel jobs. Jobs define the
-commands to execute. Blocks, tasks and jobs are Semaphore's [core
-concepts][concepts].
+Each block has a task that defines one or more parallel jobs. Jobs define
+commands that should be executed by the pipeline.
+
+Blocks, tasks and jobs are Semaphore's [core concepts][concepts].
 
 ``` yaml
 blocks:
   - name: Run tests
     task:
+      # This environment variable is exported in every job within this block:
       env_vars:
-        # This environment variable is exported in every job within this block:
         - name: LANG
           value: en_US.UTF-8
       prologue:
         commands:
-          - # this runs before every parallel job
+          - # Commands to run before *every* parallel job
       jobs:
-        - name: Fastlane test
-        commands:
-          - # ...
-        - name: 2nd parallel job
-        commands:
-          - # ...
-        - name: 3rd parallel job
-        commands:
-          - # ...
-  - name: Build app
-    task:
-      jobs:
-        - name: Fastlane app
-        commands:
-          - # ...
+        - name: Run tests
+          commands:
+            - bundle exec xcversion select 11.1
+            - bundle exec fastlane test
+        - name: Second parallel job
+          commands:
+            - # Commands for the second parallel job
+            - # ...
+        - name: Third parallel job
+          commands:
+            - # Commands for the third parallel job
+            - # ...
 ```
 
 ### Downloading code
 
-To download your code in a job, use the [`checkout` command][checkout], an [open
-source script][checkout-source] provided by Semaphore.
+To download your code in a job, use [`checkout`][checkout], an
+[open source script][checkout-source] provided by Semaphore.
 
-By default this performs a shallow git clone from remote origin. If you want a
-full clone which will be cached by Semaphore, use `checkout --use-cache`.
+By default `checkout` performs a shallow git clone from a remote origin. If you
+need a full clone that will be cached by Semaphore, use `checkout --use-cache`.
 
 ``` yaml
         commands:
@@ -211,9 +210,13 @@ full clone which will be cached by Semaphore, use `checkout --use-cache`.
 
 ### Installing dependencies
 
-Semaphore can install dependencies from any supported language.
-Using the versatile [cache tool][cache], you can save time by reusing them
-across blocks and workflows.
+Your project dependencies can be cached by Semaphore to improve performance when
+running your CI/CD workflows.
+
+The `cache restore` command will not fail if there is a cache miss, and
+`bundle install` will complete in about a second when the cache hits. More
+information on the exact functionality of `cache` can be found in
+[the Toolbox Reference](cache-command).
 
 ``` yaml
         commands:
@@ -222,39 +225,23 @@ across blocks and workflows.
           - cache store
 ```
 
-In example configuration, the first command restores dependencies from cache
-using partial cache key matching:
+### Selecting an Xcode version
 
-1. Ideal scenario is to match `gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock)`.
-   This means that we've found dependencies from the current Git branch, and
-   current content of dependencies' lock file. `$SEMAPHORE_GIT_BRANCH` is one of
-   the [environment variables][env-vars] provided by Semaphore in every job.
-   [`checksum`][checksum] is a script that returns MD5 sum of provided file.
-2. The second best option is to find any previous version of dependencies for
-   the current Git branch, using `gems-$SEMAPHORE_GIT_BRANCH-` as key.
-3. Last option is to reuse the last available cache from the master branch.
-
-The `cache restore` command will not fail in case of a cache miss. In case of a
-cache hit, `bundle install` will complete in about a second.
-
-After installing the dependencies, we store them in cache for reuse in upcoming
-blocks and future workflows.
-
-### Selecting Xcode version
-
-You can find the list of currently available versions of Xcode in the [macOS
-Mojave image reference][macos-mojave].
+You can find the list of available versions of Xcode on the
+[Xcode 10](macos-mojave-xcode10) or [Xcode 11](macos-mojave-xcode10) image
+references. Select the desired version for your project with `xcversion`.
 
 ``` yaml
         commands:
-          - bundle exec xcversion select 10.2
+          - bundle exec xcversion select 11.1
 ```
 
 ### Running tests
 
-Semaphore can run tests of iOS and Mac apps on a simulator or connected device.
-If you're using Fastlane, see documentation regarding [fastlane
-scan][fastlane-scan].
+Semaphore can run both unit and UI tests using any of the iOS simulators that
+are installed with Xcode. If you're using fastlane, see the
+[fastlane scan][fastlane-scan] documentation.
+.
 
 ``` yaml
         commands:
@@ -263,9 +250,9 @@ scan][fastlane-scan].
 
 ### Building your app
 
-We build our app by running `fastlane build`. [The Semaphore Fastlane
-plugin][fastlane-plugin] ensures that by default the process runs smoothly with
-a temporary keychain.
+The example project is set to build the app with `fastlane build`.
+By default, the [Semaphore fastlane plugin][fastlane-plugin] creates a fresh,
+temporary keychain.
 
 ``` yaml
         commands:
@@ -274,77 +261,70 @@ a temporary keychain.
 
 ### Fastfile
 
-The example is using the Semaphore Fastlane plugin:
+The example project uses the [Semaphore fastlane plugin](fastlane-plugin):
 
-```ruby
-# fastlane/Fastfile
+``` ruby
 default_platform(:ios)
 
+before_all do
+  # Install with `fastlane add_plugin semaphore`
+  setup_semaphore
+end
+
 platform :ios do
-
-  before_all do
-    # installed via the semaphore plugin with `fastlane add_plugin semaphore`
-    setup_semaphore
+  lane :build do
+    gym(scheme: 'TallestTowers',
+        skip_package_ipa: true,
+        skip_archive: true,
+        clean: true)
   end
 
-  desc "Run Tests"
   lane :test do
-    scan
-  end
-
-  desc "Build"
-  desc "Build without code sign. Just to see if the build is working"
-  lane :build do |options|
-    gym(
-      scheme: "HelloWorld",
-      skip_package_ipa: true,
-      skip_archive: true,
-      silent: true,
-      clean: true
-    )
+    run_tests(scheme: 'TallestTowers',
+              devices: ['iPhone 8', 'iPhone 11 Pro'])
   end
 end
 ```
 
 ### Releasing your app
 
-To manage your developer credentials on Semaphore, use [encrypted
-secrets][secrets].
+To manage your developer credentials on Semaphore, use
+[encrypted secrets][encrypted-secrets]. To manage releases,
+[set up promotions][promotions] to trigger additional pipelines.
 
-To manage releases, [set up promotions][promotions] to trigger additional pipelines.
-
-Related guides:
-
-- [Code signing for iOS projects][code-signing]
-- [TestFlight integration][testflight]
-- [HockeyApp integration][hockeyapp]
-
-## Run the demo project yourself
+## Run the example project yourself
 
 A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
-1. [Fork the project on GitHub][demo-project] to your own account.
+1. [Fork the project on GitHub][example-project] to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
 4. Create your secret as per instructions above.
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
-[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
+### Related guides:
+
+- [Code signing for iOS projects][code-signing]
+- [TestFlight integration][testflight]
+- [HockeyApp integration][hockeyapp]
+
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[beta-apply]: https://semaphoreci.com/product/ios
-[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
+[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [gym]: https://docs.fastlane.tools/actions/build_app/
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
 [checkout-source]: https://github.com/semaphoreci/toolbox/blob/master/libcheckout
-[cache]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+[cache-command]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
 [env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
 [checksum]: https://docs.semaphoreci.com/article/54-toolbox-reference#checksum
+[fastlane]: https://fastlane.tools/
 [fastlane-scan]: https://docs.fastlane.tools/actions/scan/
-[secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [fastlane-plugin]: https://github.com/semaphoreci/fastlane-plugin-semaphore
+[encrypted-secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [code-signing]: https://docs.semaphoreci.com/article/134-code-signing-for-ios-projects
 [testflight]: https://docs.semaphoreci.com/article/137-testflight-ios-app-distribution
 [hockeyapp]: https://docs.semaphoreci.com/article/138-hockeyapp-ios-app-distribution
