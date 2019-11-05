@@ -316,13 +316,9 @@ yourself. Here’s how to build the demo project with your own account:
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2
 [example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2/blob/master/.semaphore/semaphore.yml
-[gym]: https://docs.fastlane.tools/actions/build_app/
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
-[checkout-source]: https://github.com/semaphoreci/toolbox/blob/master/libcheckout
 [cache-command]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
-[checksum]: https://docs.semaphoreci.com/article/54-toolbox-reference#checksum
 [fastlane]: https://fastlane.tools/
 [fastlane-scan]: https://docs.fastlane.tools/actions/scan/
 [fastlane-plugin]: https://github.com/semaphoreci/fastlane-plugin-semaphore
