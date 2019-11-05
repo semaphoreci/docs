@@ -1,5 +1,5 @@
-Semaphore allows building, testing and releasing iOS applications with
-customizable CI/CD workflows.
+Semaphore allows building, testing and releasing Swift, Objective-C and
+React Native applications with customizable CI/CD workflows.
 
 If you’re new to Semaphore, we recommend reading our
 [guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
