@@ -3,7 +3,7 @@ Xcode that run on iOS, macOS, watchOS, or tvOS.
 
 Semaphore supports building, testing, and deploying Swift, Objective-C and
 React Native projects. Projects can be built with
-[Xcode 10](macos-mojave-xcode10) or [Xcode 11](macos-mojave-xcode10) running on
+[Xcode 10][macos-mojave-xcode10] or [Xcode 11][macos-mojave-xcode11] running on
 macOS Mojave on an `a1-standard-4` or higher [machine type][machine-types].
 
 **Table of contents**
@@ -33,8 +33,8 @@ demonstrate how to get an Xcode CI/CD environment up and running:
 - [TallestTowers example project on GitHub][example-project]
 
 This example project includes an annotated Semaphore configuration file,
-[`.semaphore/semaphore.yml`](example-semaphore-yml) and uses
-[fastlane](fastlane) for its CI pipeline with the
+[`.semaphore/semaphore.yml`][example-semaphore-yml] and uses
+[fastlane][fastlane] for its CI pipeline with the
 [Semaphore fastlane plugin][fastlane-plugin].
 
 ## Overview of the CI pipeline
@@ -145,7 +145,7 @@ name: Tallest Towers
 ```
 
 **Note:** If you choose to connect multiple pipelines with
-[promotions](promotions), the pipeline name will help you differentiate between
+[promotions][promotions], the pipeline name will help you differentiate between
 them. For example, you might have a build phase and a delivery phase.
 
 ### Defining the agent
@@ -153,8 +153,8 @@ them. For example, you might have a build phase and a delivery phase.
 The agent defines the environment in which your CI runs. It is a combination of
 a machine type and an operating system image. For a project built with Xcode you
 must use one of the Apple [machine types][machine-types], coupled with a macOS
-image running either [Xcode 10](macos-mojave-xcode10) or
-[Xcode 11](macos-mojave-xcode11).
+image running either [Xcode 10][macos-mojave-xcode10] or
+[Xcode 11][macos-mojave-xcode11].
 
 ``` yaml
 agent:
@@ -200,7 +200,7 @@ blocks:
 ### Downloading code
 
 To download your code in a job, use [`checkout`][checkout], an
-[open source script][checkout-source] provided by Semaphore.
+[open source script][checkout-source provided by Semaphore.
 
 By default `checkout` performs a shallow git clone from a remote origin. If you
 need a full clone that will be cached by Semaphore, use `checkout --use-cache`.
@@ -218,7 +218,7 @@ running your CI/CD workflows.
 The `cache restore` command will not fail if there is a cache miss, and
 `bundle install` will complete in about a second when the cache hits. More
 information on the exact functionality of `cache` can be found in
-[the Toolbox Reference](cache-command).
+[the Toolbox Reference][cache-command].
 
 ``` yaml
         commands:
@@ -230,7 +230,7 @@ information on the exact functionality of `cache` can be found in
 ### Selecting an Xcode version
 
 You can find the list of available versions of Xcode on the
-[Xcode 10](macos-mojave-xcode10) or [Xcode 11](macos-mojave-xcode10) image
+[Xcode 10][macos-mojave-xcode10] or [Xcode 11][macos-mojave-xcode11] image
 references. Select the desired version for your project with `xcversion`.
 
 ``` yaml
@@ -263,7 +263,7 @@ temporary keychain.
 
 ### Fastfile
 
-The example project uses the [Semaphore fastlane plugin](fastlane-plugin):
+The example project uses the [Semaphore fastlane plugin][fastlane-plugin]:
 
 ``` ruby
 default_platform(:ios)
