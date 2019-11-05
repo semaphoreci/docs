@@ -67,10 +67,10 @@ version: v1.0
 # https://docs.semaphoreci.com/article/67-deploying-with-promotions
 name: Tallest Towers
 
-# The agent defines the environment in which your CI runs. It is a combination of
-# a machine type and an operating system image. For a project built with Xcode you
-# must use one of the Apple machine types, coupled with a macOS image running either
-# Xcode 10 or Xcode 11.
+# The agent defines the environment in which your CI runs. It is a combination
+# of a machine type and an operating system image. For a project built with
+# Xcode you must use one of the Apple machine types, coupled with a macOS image
+# running either Xcode 10 or Xcode 11.
 # See https://docs.semaphoreci.com/article/20-machine-types
 # https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
 # https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
@@ -79,9 +79,9 @@ agent:
     type: a1-standard-4
     os_image: macos-mojave-xcode11
 
-# Blocks are the heart of a pipeline and are executed sequentially.
-# Each block has a task that defines one or more parallel jobs. Jobs define
-# commands that should be executed by the pipeline.
+# Blocks are the heart of a pipeline and are executed sequentially. Each block
+# has a task that defines one or more parallel jobs. Jobs define commands that
+# should be executed by the pipeline.
 # See https://docs.semaphoreci.com/article/62-concepts
 blocks:
   - name: Run tests
@@ -93,25 +93,25 @@ blocks:
           value: en_US.UTF-8
       prologue:
         commands:
-          # Download source code from GitHub:
+          # Download source code from GitHub.
           - checkout
 
           # Restore dependencies from cache. This command will not fail in
           # case of a cache miss. In case of a cache hit, bundle  install will
           # complete in about a second.
-          # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
+          # See https://docs.semaphoreci.com/article/68-caching-dependencies
           - cache restore
           - bundle install --path vendor/bundle
           - cache store
       jobs:
         - name: Test
           commands:
-            # Select an Xcode version, for available versions
+            # Select an Xcode version.
             # See https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
             # https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
             - bundle exec xcversion select 11.1
 
-            # Run tests of iOS and Mac app on a simulator or connected device
+            # Run tests of iOS and Mac app on a simulator or connected device.
             # See https://docs.fastlane.tools/actions/scan/
             - bundle exec fastlane test
 
