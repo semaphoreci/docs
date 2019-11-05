@@ -32,7 +32,8 @@ demonstrate how to get an Xcode CI/CD environment up and running:
 - [TallestTowers example project on GitHub][example-project]
 
 This example project includes an annotated Semaphore configuration file,
-[`.semaphore/semaphore.yml`](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/.semaphore/semaphore.yml) and uses [fastlane](fastlane) for its CI pipeline with the
+[`.semaphore/semaphore.yml`](example-semaphore-yml) and uses
+[fastlane](fastlane) for its CI pipeline with the
 [Semaphore fastlane plugin][fastlane-plugin].
 
 ## Overview of the CI pipeline
@@ -312,7 +313,8 @@ yourself. Here’s how to build the demo project with your own account:
 [macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
+[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2
+[example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2/blob/master/.semaphore/semaphore.yml
 [gym]: https://docs.fastlane.tools/actions/build_app/
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
