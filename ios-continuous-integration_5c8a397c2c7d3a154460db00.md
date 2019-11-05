@@ -10,23 +10,24 @@ macOS Mojave on an `a1-standard-4` or higher [machine type][machine-types].
 
 - [Example project](#example-project)
 - [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
+- [Sample pipeline configuration](#sample-pipeline-configuration)
 - [Configuration walkthrough](#configuration-walkthrough)
   - [Naming your pipeline](#naming-your-pipeline)
   - [Defining the agent](#defining-the-agent)
   - [Defining blocks](#defining-blocks)
   - [Downloading code](#downloading-code)
   - [Installing dependencies](#installing-dependencies)
-  - [Selecting Xcode version](#selecting-xcode-version)
+  - [Selecting an Xcode version](#selecting-an-xcode-version)
   - [Running tests](#running-tests)
-  - [Fastfile](#fastfile)
   - [Building your app](#building-your-app)
+  - [Fastfile](#fastfile)
   - [Releasing your app](#releasing-your-app)
 - [Run the example project yourself](#run-the-example-project-yourself)
+- [Related guides](#related-guides)
 
 ## Example project
 
-Semaphore maintains an example iOS app written in Swift 5.1 and SwiftUI to
+Semaphore maintains an example iOS app written in Swift 5.1 with SwiftUI to
 demonstrate how to get an Xcode CI/CD environment up and running:
 
 - [TallestTowers example project on GitHub][example-project]
@@ -304,7 +305,7 @@ yourself. Here’s how to build the demo project with your own account:
 4. Create your secret as per instructions above.
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
-### Related guides:
+## Related guides:
 
 - [Code signing for iOS projects][code-signing]
 - [TestFlight integration][testflight]
