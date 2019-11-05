@@ -117,6 +117,28 @@ data inside the same pipeline.
 
 Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
 
+#### SEMAPHORE\_AGENT\_MACHINE\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_TYPE` environment variable specifies
+the type of agent used in the job that is being executed.
+
+Example value: `e1-standard-4`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_OS\_IMAGE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_OS_IMAGE` environment variable represents
+the operating system image that is being used.
+
+Example value: `ubuntu1804`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_ENVIRONMENT\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE` environment variable
+specifies the type of environment in which the job is being executed,
+inside the `container` or inside the `VM`.
+
+Example value: `container`
+
 ### Git repository related
 
 This group of environment variables includes environment variables that are
