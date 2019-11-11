@@ -314,8 +314,8 @@ yourself. Here’s how to build the demo project with your own account:
 [macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2
-[example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode-v2/blob/master/.semaphore/semaphore.yml
+[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
+[example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/.semaphore/semaphore.yml
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
 [cache-command]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
