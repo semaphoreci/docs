@@ -1,27 +1,34 @@
-Semaphore supports building, testing and releasing Swift applications in fully
-customizable, autoscaling CI/CD workflows.
+Semaphore allows building, testing and releasing Swift, Objective-C and
+React Native applications with customizable CI/CD workflows.
 
 If you’re new to Semaphore, we recommend reading our
-_[Guided tour](https://docs.semaphoreci.com/article/77-getting-started)_ first.
+[guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
-Details on available language and Xcode versions are provided in the [macOS
-image reference][macos-mojave].
+macOS Mojave images running *either* Xcode 10, *or* Xcode 11 are available. Each
+image also has a full complement of useful tools and utilities pre-installed.
+Information on the exact version numbers of macOS, Xcode, fastlane, CocoaPods,
+and all other tools are below:
 
-Minimal Swift project configuration example:
+* [macOS Mojave Xcode 10 Image](macos-xcode-10)
+* [macOS Mojave Xcode 11 Image](macos-xcode-11)
+
+# Configuring Continuous Integration
+
+Below is a minimal `semaphore.yml` which starts an
+[Xcode 11 image](macos-xcode-11) and runs `xcodebuild`:
 
 ```yaml
-# .semaphore/semaphore.yml
 version: v1.0
 name: Semaphore iOS Swift example
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode10
+    os_image: macos-mojave-xcode11
 blocks:
   - name: Build
     task:
       jobs:
-        - name: checkout code + build the project
+        - name: Checkout and build
           commands:
             - checkout
             - xcodebuild
@@ -29,14 +36,12 @@ blocks:
 
 ## Example project
 
-Semaphore maintains a fully-featured example Swift project demonstrating
-how to set up CI with Fastlane:
+Semaphore maintains an [example project](example-project) built with Swift and
+SwiftUI demonstrating how to set build an app and run tests. A
+[full tutorial showing how to configure an iOS project for CI with Semaphore](example-project)
+is also available.
 
-- [Example project on GitHub][demo-project]
-- [iOS continuous integration with Semaphore tutorial][ios-tutorial] —
-  recommended read if you're setting up an iOS project on Semaphore for the
-  first time.
-
-[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
+[macos-xcode-10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
+[macos-xcode-11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+[example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
