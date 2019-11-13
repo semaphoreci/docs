@@ -54,6 +54,7 @@ Following version control tools are pre-installed:
 - homebrew
 - bundler
 - rbenv
+- nvm
 - curl
 - wget
 - jq
@@ -62,9 +63,9 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane 2.131.0
-- xcode-install 2.6.1
-- cocoapods 1.7.5
+- fastlane 2.135.2
+- xcode-install 2.6.2
+- cocoapods 1.8.4
 - xcpretty 0.3.0
 
 ## Languages
