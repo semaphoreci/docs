@@ -36,10 +36,11 @@ In every job from this workflow, Semaphore will export
 ## Whitelist branches
 
 By default, Semaphore will create a workflow for every branch. You can whitelist
-the branches you want to run, specifying their names, regular expressions
-enclosed with '/' are also allowed.
+the branches that you want to run by specifying their names separated by commas.
+Regular expressions enclosed with `/` are also allowed,
+for example: `/feature-.*/`.
 
-Whitelist works only for newly created branches, Semaphore will always create
+Whitelisting works only for newly created branches, Semaphore will always create
 workflows for existing branches.
 
 ## Build tags
@@ -52,8 +53,9 @@ In every job from this workflow, Semaphore will export
 ## Whitelist tags
 
 By default, Semaphore will create a workflow for every tag. You can whitelist
-the tags you want to run, specifying their names, regular expressions enclosed
-with '/' are also allowed.
+the tags that you want to run by specifying their names separated by commas.
+Regular expressions enclosed with `/` are also allowed,
+for example: `/^v\d+\.\d+\.\d+$/`.
 
 ## Build pull requests
 
