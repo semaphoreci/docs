@@ -11,37 +11,8 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for an organization on a [**free plan**](https://docs.semaphoreci.com/article/104-billing#plans):
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>Machine Type</td>
-  <td>Default Quota</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>e1-standard-2</td>
-  <td>1</td>
-</tr>
-<tr>
-  <td>e1-standard-4</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>e1-standard-8</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>a1-standard-4</td>
-  <td>0</td>
-</tr>
-</tbody>
-</table>
-
-Default quotas per machine type for an organization in a [**trial**](https://docs.semaphoreci.com/article/104-billing#trial-period) or on 
-a [**paid plan**](https://docs.semaphoreci.com/article/104-billing#plans):
+Default quotas per machine type for an organization in a **trial** or on 
+a **paid plan**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -75,6 +46,64 @@ machine quotas, you can request an increase by sending a request to
 <customersuccess@semaphoreci.com> (please include which type of machine you 
 prefer) or through the UI (Billing > See detailed insights… > Quota > Request 
 upgrade…).
+
+Default quotas per machine type for an organization on an **Open Source plan**:
+
+<table style="background-color: rgb(255, 255, 255);">
+<thead>
+<tr>
+  <td>Machine Type</td>
+  <td>Default Quota</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>e1-standard-2</td>
+  <td>4</td>
+</tr>
+<tr>
+  <td>e1-standard-4</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>e1-standard-8</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>a1-standard-4</td>
+  <td>1</td>
+</tr>
+</tbody>
+</table>
+
+Default quotas per machine type for an organization on a **free plan**:
+
+<table style="background-color: rgb(255, 255, 255);">
+<thead>
+<tr>
+  <td>Machine Type</td>
+  <td>Default Quota</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>e1-standard-2</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>e1-standard-4</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>e1-standard-8</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>a1-standard-4</td>
+  <td>0</td>
+</tr>
+</tbody>
+</table>
 
 ## Pipeline and Block Execution Time Limit
 
