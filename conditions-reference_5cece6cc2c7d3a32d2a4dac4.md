@@ -1,5 +1,6 @@
 - [Overview](#overview)
 - [Formal language definition](#formal-language-definition)
+- [Functions](#functions)
 - [Usage examples](#usage-examples)
 
 ## Overview
@@ -19,6 +20,7 @@ Currently you can use Conditions DSL to configure following features:
 - [Auto-promote next pipeline in the workflow][auto_promote]
 - [Fail-fast - Stop everything as soon as a failure is detected][fail_fast]
 - [Skip block execution][skip]
+- [Conditionally run block][run]
 
 ## Formal language definition
 
@@ -31,8 +33,33 @@ expression = expression bool_operator term
 term = "(" expression ")"      
      | keyword operator string
      | string operator keyword
-     | string                  
-     | boolean
+     | basic_val                  
+     | fun
+     | fun operator term
+
+basic_val = string
+          | boolean
+          | integer
+          | float
+          | list
+          | map
+
+list = "[" "]"
+     | "[" params "]"
+
+params = basic_val
+       | basic_val "," params
+
+map = "{" "}"
+    | "{" map_vals "}"
+
+map_vals = key_val
+         | key_val "," map_vals
+
+key_val = map_key basic_val
+
+fun = identifier "(" ")"
+    | identifier "(" params ")"
 
 bool_operator = "and" | "AND" | "or" | "OR"
 
@@ -44,6 +71,14 @@ operator = "=" | "!=" | "=~" | "!~"
 boolean = "true" | "TRUE" | "false" | "FALSE"
 
 string = ? all characters between two single quotes, e.g. 'master' ?
+
+integer = ? any integer value, e. g. 123, -789, 42 etc. ?
+
+float = ? any float value, e.g. 0.123, -78.9012, 42.0 etc. ?
+
+map_key = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]*: regex, e.g. first-name_1: ?
+
+identifier = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]* regex, e.g. foo-bar_1 ?
 ```           
 
 Each `keyword` in passed expression is replaced with actual value of that
@@ -120,6 +155,130 @@ identified with one of the `operators` from above are executed with those values
 </table>
 
 \* PCRE = Perl Compatible Regular Expression
+
+## Functions
+
+The functions allow you to perform certain more complex checks that are not just
+direct boolean or regex matches.
+Next is the list of currently supported functions.
+
+### change_in
+
+*Note*: This feature is currently in `beta` stage of development.
+
+The `change_in` function accepts one path or list of paths within the repository
+as a first parameter and for a particular range of commits it evaluates as true
+if any of the files that were changed matches one of the given paths.
+
+``` txt
+change_in(<path>, [configuration])
+or
+change_in(<paths>, [configuration])
+
+<path>  - Required, string with the absolute or relative path within the repository.
+          Relative paths are relative to the location of the yml file.
+          e.g. 'svcA/lib' or '/doc'
+
+<paths> - Required, list of strings with absolute or relative paths within the
+          repository. Relative paths are relative to the location of yml file.
+          e.g. ['svcA/lib', '/doc', '../README.md']
+
+[configuration] - Optional, map containing the values for configurable parameters.
+                  All parameters and their default values are stated bellow.
+                  e.g. {on_tags: false, default_branch: 'master-new'}
+```
+
+The `change_in` function calculates the commit range that should be examined in
+different ways depending on whether the workflow was initiated from the master
+branch or some other branch, or if it is a tag or a pull request.
+
+The default behavior is the following:
+
+- On `master` branch the examined commit range is all the commits within the push
+that initiated the workflow.
+The same range is available in a job environment as an environment variable called
+`SEMAPHORE_GIT_COMMIT_RANGE`.
+The changes that are compared to the paths given as parameters in this case are
+equivalent to the result of `git diff <sha 1>^ <sha N>` command where `sha 1` is
+the first commit of the push and the `sha N` is the last.
+
+- On `other branches` the examined commit range is wider and all the commits
+between the head of the current branch and the common ancestor for that branch
+and the master branch are taken into account.
+The changes collected from this range are equivalent to the result of `git diff
+master...<current branch>` command and are later compared to the paths passed as
+parameters.
+
+- For `pull requests` the commit range of interest is from the head of the
+current branch until the commit that is the common ancestor for it and the branch
+that is the target of the pull request.
+The changes gathered in this way are equivalent to the result of  `git diff
+<pull request target branch>...<current branch>` command and are later compared
+with given paths.
+
+- For `tags` the change_in always returns true if not configured otherwise.
+
+The behavior of change_in is configurable via a map of parameters that can be
+given as a second parameter, as was stated above.
+
+The supported map parameters are:
+
+<table style="background-color: rgb(255, 255, 255);">
+  <thead>
+    <tr>
+      <td> PARAMETER </td>
+      <td> DESCRIPTION AND VALUES </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> on_tags </td>
+      <td>  
+        The value of change_in function in workflows initiated by tags.
+        Default value is `true`.
+      </td>
+    </tr>
+    <tr>
+      <td> default_branch </td>
+      <td>  
+        The default value is `master`. If changed to another branch, change_in
+        will behave on that branch as it behaves by default on the master, and
+        all other branches will be compared to it instead of to master.
+      </td>
+    </tr>
+    <tr>
+      <td> pipeline_file </td>
+      <td>  
+        Possible values are `track` and `ignore`, default is `track`. Only if
+        track is chosen, the path to the give pipeline file will be automatically
+        added to the paths that are given as a parameters of the change_in function.
+      </td>
+    </tr>
+    <tr>
+      <td> branch_range </td>
+      <td>  
+        Configures the commit range that is examined on all branches except the
+        default one. The default value is `$SEAMPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA`,
+        where `$SEAMPHORE_MERGE_BASE` is default branch in workflows initiated
+        from branches or targeted branch in workflows initiated from a pull
+        request, and the `$SEMAPHORE_GIT_SHA` is the sha of the commit for which
+        the workflow was initiated. You can use here this predefined values or
+        any literal values to create ranges in double dots or triple dots
+        notation as described [here][cm-range-git] in `Commit ranges` section.
+      </td>
+    </tr>
+    <tr>
+      <td> default_range </td>
+      <td>  
+        Configures the commit range that is examined on the default branch. The
+        default value is `$SEMAPHORE_GIT_COMMIT_RANGE` which behavior is described
+        above. It accepts any commit range specified in double dot or triple dot
+        notation and same predefined values are available as stated above in the
+        description of `branch_range` property.  
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Usage examples
@@ -208,6 +367,8 @@ blocks:
 
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 [skip]: https://docs.semaphoreci.com/article/50-pipeline-yaml#skip-in-blocks
+[run]: https://docs.semaphoreci.com/article/50-pipeline-yaml#run-in-blocks
 [fail_fast]: https://docs.semaphoreci.com/article/50-pipeline-yaml#fail_fast
 [auto_cancel]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_cancel
 [auto_promote]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
+[cm-range-git]: https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
