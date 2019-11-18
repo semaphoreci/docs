@@ -11,8 +11,8 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for an organization in a **trial** or on 
-a **paid plan**:
+Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/article/104-billing#trial-period)** or on 
+a **[paid plan](https://docs.semaphoreci.com/article/104-billing#paid-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -47,7 +47,7 @@ machine quotas, you can request an increase by sending a request to
 prefer) or through the UI (Billing > See detailed insights… > Quota > Request 
 upgrade…).
 
-Default quotas per machine type for an organization on an **Open Source plan**:
+Default quotas per machine type for an organization on an **[open source plan](https://docs.semaphoreci.com/article/104-billing#open-source-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -76,7 +76,7 @@ Default quotas per machine type for an organization on an **Open Source plan**:
 </tbody>
 </table>
 
-Default quotas per machine type for an organization on a **free plan**:
+Default quotas per machine type for an organization on a **[free plan](https://docs.semaphoreci.com/article/104-billing#free-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
