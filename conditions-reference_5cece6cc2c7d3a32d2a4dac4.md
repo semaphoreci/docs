@@ -158,17 +158,17 @@ identified with one of the `operators` from above are executed with those values
 
 ## Functions
 
-The functions allow you to perform certain more complex checks that are not just
-direct boolean or regex matches.
-Next is the list of currently supported functions.
+The functions allow you to perform more complex checks that are not just direct
+boolean or regex matches.
 
 ### change_in
 
 *Note*: This feature is currently in `beta` stage of development.
 
 The `change_in` function accepts one path or list of paths within the repository
-as a first parameter and for a particular range of commits it evaluates as true
-if any of the files that were changed matches one of the given paths.
+as a first parameter.
+It checks if any of those paths matches or contains one of the files that were
+changed in a particular range of commits.
 
 ``` txt
 change_in(<path>, [configuration])
@@ -202,9 +202,9 @@ The changes that are compared to the paths given as parameters in this case are
 equivalent to the result of `git diff <sha 1>^ <sha N>` command where `sha 1` is
 the first commit of the push and the `sha N` is the last.
 
-- On `other branches` the examined commit range is wider and all the commits
-between the head of the current branch and the common ancestor for that branch
-and the master branch are taken into account.
+- On `other (non-master)` branches the examined commit range is wider and all
+the commits between the head of the current branch and the common ancestor for
+that branch and the master branch are taken into account.
 The changes collected from this range are equivalent to the result of `git diff
 master...<current branch>` command and are later compared to the paths passed as
 parameters.
