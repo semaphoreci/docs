@@ -1,7 +1,19 @@
 This guide shows you how to optimize your Semaphore workflow for monorepo
 projects.
 
-## A basic monorepo project setup
+A monorepo (short for monolithic repository) is a software development strategy
+where code for many applications that may or may not be mutually dependent is
+stored in the same version-controlled repository.
+
+Some advantages of a monorepo approach are:
+
+- Ease of code reuse - it is easy to abstract shared behavior into shared libraries
+- Simplified dependency management - third-party dependencies can also be shared
+- Atomic commits across multiple applications
+
+Semaphore comes with out-of-box support for monorepos.
+
+## An example monorepo project setup
 
 Let's say you have a fairly simple monorepo project that consists of:
 
@@ -9,8 +21,7 @@ Let's say you have a fairly simple monorepo project that consists of:
 - An iOS client application located inside `/ios/` directory
 - A separate docs web page located inside `/docs/` directory
 
-A Semaphore pipeline that is *not* optimized for a monorepo project, in this
-case, looks like this:
+A Semaphore pipeline for this monorepo project is the following:
 
 ```yml
 version: "v1.0"
@@ -19,66 +30,7 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-blocks:
-  - name: Test WEB server
-    dependencies: []
-    task:
-      jobs:
-        - commands:
-            - checkout
-            - cd web-app
-            - make test
-  - name: Test iOS client
-    dependencies: []
-    agent:
-      machine:
-        type: a1-standard-4
-        os_image: macos-mojave-xcode10
-    task:
-      jobs:
-        - commands:
-            - checkout
-            - cd ios
-            - make test
-  - name: Test docs page
-    dependencies: []
-    task:
-      jobs:
-        - commands:
-            - checkout
-            - cd docs
-            - make test
-  - name: Integration tests
-    dependencies: ["Test WEB server", "Test iOS client"]
-    task:
-      jobs:
-        - commands:
-            - checkout
-            - make integration-tests
-```
 
-With this setup, we run separate tests for each part of the system and
-integration tests once both WEB server and iOS client tests pass.
-
-While this is a correct setup, the problem is that on each push everything is
-tested.  
-
-Because each part of the system is usually developed separately, testing
-the whole system all the time is a waste of both time and money.
-
-Next, we will see how this can be optimized.
-
-## An optimized monorepo project example
-
-Here is the same example that is optimized for monorepo use case:
-
-```yml
-version: "v1.0"
-name: Monorepo project
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
 blocks:
   - name: Test WEB server
     dependencies: []
@@ -90,6 +42,7 @@ blocks:
             - checkout
             - cd web-app
             - make test
+
   - name: Test iOS client
     dependencies: []
     run:
@@ -104,6 +57,7 @@ blocks:
             - checkout
             - cd ios
             - make test
+
   - name: Test docs page
     dependencies: []
     run:
@@ -114,6 +68,7 @@ blocks:
             - checkout
             - cd docs
             - make test
+
   - name: Integration tests
     dependencies: ["Test WEB server", "Test iOS client"]
     run:
@@ -125,7 +80,10 @@ blocks:
             - make integration-tests
 ```
 
-Here we use [run][run-ref] field to conditionally run blocks only if the
+With this setup, we run separate tests for each part of the system and
+integration tests once both WEB server and iOS client tests pass.
+
+The [run][run-ref] field is used to conditionally run blocks only if the
 condition in its when sub-field is satisfied.
 
 This, in combination with `change_in` function which checks whether there were
