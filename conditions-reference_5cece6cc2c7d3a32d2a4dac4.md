@@ -266,8 +266,9 @@ The supported map parameters are:
         request, and the <b>$SEMAPHORE_GIT_SHA</b> is the sha of the commit
         for which the workflow was initiated. You can use here this predefined
         values or any literal values to create ranges in double-dot or
-        triple-dot syntax as described [here][cm-range-git] in
-        <b>Commit ranges</b> section.
+        triple-dot syntax as described
+        <a href="https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection">
+        here </a> in <b>Commit ranges</b> section.
       </td>
     </tr>
     <tr>
@@ -374,4 +375,3 @@ blocks:
 [fail_fast]: https://docs.semaphoreci.com/article/50-pipeline-yaml#fail_fast
 [auto_cancel]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_cancel
 [auto_promote]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
-[cm-range-git]: https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
