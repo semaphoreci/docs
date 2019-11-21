@@ -25,7 +25,7 @@ Let's say you have a fairly simple monorepo project that consists of:
 
 A Semaphore pipeline for this monorepo project is the following:
 
-```yml
+```yaml
 version: "v1.0"
 name: Monorepo project
 agent:
@@ -117,7 +117,7 @@ workflow.
 To achieve this we need to introduce the following [promotions][promotions-ref]
 block to our configuration from above.
 
-```yml
+```yaml
 promotions:
   - name: Deploy Web Server
     pipeline_file: web-prod.yml
@@ -142,7 +142,7 @@ changes in the location(s) given to the `change_in` function.
 Here is the complete example for `.semaphore/semaphore.yml` file with the
 promotions block from above included:
 
-```yml
+```yaml
 version: "v1.0"
 name: Monorepo project
 agent:
