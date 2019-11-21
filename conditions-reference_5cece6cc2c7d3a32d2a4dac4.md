@@ -235,46 +235,49 @@ The supported map parameters are:
       <td> on_tags </td>
       <td>  
         The value of change_in function in workflows initiated by tags.
-        Default value is `true`.
+        Default value is <b>true</b>.
       </td>
     </tr>
     <tr>
       <td> default_branch </td>
       <td>  
-        The default value is `master`. If changed to another branch, change_in
-        will behave on that branch as it behaves by default on the master, and
-        all other branches will be compared to it instead of to master.
+        The default value is <b>master</b>. If changed to another branch,
+        change_in will behave on that branch as it behaves by default on the
+        master, and all other branches will be compared to it instead of to master.
       </td>
     </tr>
     <tr>
       <td> pipeline_file </td>
       <td>  
-        Possible values are `track` and `ignore`, default is `track`. Only if
-        track is chosen, the path to the give pipeline file will be automatically
-        added to the paths that are given as a parameters of the change_in function.
+        Possible values are <b>track</b> and <b>ignore</b>, default is
+        <b>track</b>. Only if track is chosen, the path to the give pipeline file
+        will be automatically added to the paths that are given as a parameters
+        of the change_in function.
       </td>
     </tr>
     <tr>
       <td> branch_range </td>
       <td>  
         Configures the commit range that is examined on all branches except the
-        default one. The default value is `$SEAMPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA`,
-        where `$SEAMPHORE_MERGE_BASE` is default branch in workflows initiated
+        default one. The default value is
+        <b>$SEAMPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
+        <b>$SEAMPHORE_MERGE_BASE</b> is default branch in workflows initiated
         from branches or targeted branch in workflows initiated from a pull
-        request, and the `$SEMAPHORE_GIT_SHA` is the sha of the commit for which
-        the workflow was initiated. You can use here this predefined values or
-        any literal values to create ranges in double dots or triple dots
-        notation as described [here][cm-range-git] in `Commit ranges` section.
+        request, and the <b>$SEMAPHORE_GIT_SHA</b> is the sha of the commit
+        for which the workflow was initiated. You can use here this predefined
+        values or any literal values to create ranges in double-dot or
+        triple-dot syntax as described [here][cm-range-git] in
+        <b>Commit ranges</b> section.
       </td>
     </tr>
     <tr>
       <td> default_range </td>
       <td>  
         Configures the commit range that is examined on the default branch. The
-        default value is `$SEMAPHORE_GIT_COMMIT_RANGE` which behavior is described
-        above. It accepts any commit range specified in double dot or triple dot
-        notation and same predefined values are available as stated above in the
-        description of `branch_range` property.  
+        default value is <b>$SEMAPHORE_GIT_COMMIT_RANGE</b> which behavior is
+        described above. It accepts any commit range specified in double-dot or
+        triple-dot syntax and same predefined values are available as stated
+        above in the description of <b>branch_range</b> property.  
       </td>
     </tr>
   </tbody>
