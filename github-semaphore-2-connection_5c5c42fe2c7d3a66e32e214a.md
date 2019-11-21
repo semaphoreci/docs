@@ -38,3 +38,9 @@ project:
 semaphore.yml ERROR:
 Error: {"File '.semaphore/semaphore.yml' is not available", "Not Found"}
 ```
+
+This means that Semaphore can't fetch `.semaphore/semaphore.yml` file from the
+repository. To do that Semaphore is using credentials from the person who added
+the project to Semaphore. If this person no longer has access to the repository
+on GitHub, please contact Semaphore support, with information who should be the
+owner of the project now.
