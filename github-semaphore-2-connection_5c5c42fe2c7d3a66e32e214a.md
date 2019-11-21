@@ -26,7 +26,7 @@ https://{ORGANIZATION_NAME}.semaphoreci.com/projects/scopes/github
 ## Grant access to organization repositories
 
 On the Semaphore 2.0 application page you can also request from a GitHub organization admin
-to grant Semaphore 2.0 to its repositories. If you are an admin, then you can do
+to grant Semaphore 2.0 access to its repositories. If you are an admin, then you can do
 that yourself.
 
 ## Knows issues after a connection between GitHub and Semaphore 2.0 is lost
