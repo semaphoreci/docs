@@ -1,18 +1,23 @@
-To check the status of a connection between Semaphore 2.0 and GitHub please visit
-[this](https://github.com/settings/connections/applications/328c742132e5407abd7d) web page.
+To check the status of the connection between Semaphore 2.0 and GitHub, please visit
+the [Semaphore 2.0 application page on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d).
 
-**If the page is not showing Semaphore 2.0 application on GitHub, and you previously
-login to Semaphore 2.0 with this GitHub account, please contact our support.**
+This web page shows you:
 
-This web page shows permissions you have granted to Semaphore 2.0, as well as the
-organizations you are a member of and the access level that Semaphore 2.0 has
-to these organizations.
+- Account permissions you have granted to Semaphore 2.0
+- Organizations that you are a member of, and the level of access that Semaphore
+  2.0 has to these organizations.
+
+**If the page is not showing Semaphore 2.0 application on GitHub, and you
+previously logged in to Semaphore 2.0 with the GitHub account that you are
+currently using, then please contact Semaphore support.**
+
 
 ## Grant additional permissions
 
-During the registration, we are asking only for your email. If you want to grant
-additional permissions for Semaphore 2.0 to access public and/or private
-repositories that you have access to, please visit:
+When you sign up with your GitHub account, Semaphore is asking only for your
+email. If you want to grant additional permissions, that is to let Semaphore
+2.0 access public and/or private repositories that you have access to, please
+visit:
 
 ```
 https://{ORGANIZATION_NAME}.semaphoreci.com/projects/scopes/github
@@ -20,8 +25,9 @@ https://{ORGANIZATION_NAME}.semaphoreci.com/projects/scopes/github
 
 ## Grant access to organization repositories
 
-On application page you can also request an organization admin on GitHub to grant
-access for Semaphore 2.0 for repositories from his organization.
+On the Semaphore 2.0 application page you can also request from a GitHub organization admin
+to grant Semaphore 2.0 to its repositories. If you are an admin, then you can do
+that yourself.
 
 ## Knows issues after a connection between GitHub and Semaphore 2.0 is lost
 
