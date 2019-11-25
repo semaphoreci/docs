@@ -7,14 +7,14 @@ Semaphore supports two types of environments for running jobs. A Virtual Machine
 Both environment types have advantages and disadvantages compared to each other.
 Use the following guides to choose the best environment type for your project.
 
-- [When should you use Virtual Machines for your projects?](#when-should-you-use-virtual-macines-for-your-project)
+- [When should you use Virtual Machines for your projects?](#when-should-you-use-virtual-machines-for-your-projects)
 - [When should you use Docker-based environments?](#when-should-you-use-docker-based-environments)
 
 Sometimes the choice between Virtual Machines and Docker containers is not clear.
 Commonly asked questions include:
 
 - [Can I use Docker images in Virtual Machines?](#can-i-use-docker-images-in-virtual-machines)
-- [Can I build Docker-in-Docker?](#can-i-build-docker-in-docker?)
+- [Can I build Docker-in-Docker?](#can-i-build-docker-in-docker)
 
 ## Virtual Machine based environments
 
