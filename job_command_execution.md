@@ -1,6 +1,6 @@
 ## Overview
 In Semaphore every job executes commands in a new interactive shell
-which means that all exported variable is available during the build:
+which means that all exported variables are available during the build:
 
 ```
 blocks:
