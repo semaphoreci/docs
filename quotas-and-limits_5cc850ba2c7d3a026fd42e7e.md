@@ -11,7 +11,7 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/article/104-billing#trial-period)** or on 
+Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/article/104-billing#trial-period)** or on
 a **[paid plan](https://docs.semaphoreci.com/article/104-billing#paid-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
@@ -43,8 +43,8 @@ a **[paid plan](https://docs.semaphoreci.com/article/104-billing#paid-plan)**:
 
 If your organization needs are bigger than what is provided with the default
 machine quotas, you can request an increase by sending a request to
-<customersuccess@semaphoreci.com> (please include which type of machine you 
-prefer) or through the UI (Billing > See detailed insights… > Quota > Request 
+<customersuccess@semaphoreci.com> (please include which type of machine you
+prefer) or through the UI (Billing > See detailed insights… > Quota > Request
 upgrade…).
 
 Default quotas per machine type for an organization on an **[open source plan](https://docs.semaphoreci.com/article/104-billing#open-source-plan)**:
@@ -140,6 +140,8 @@ blocks:
 
 For detailed explanation, see the [execution time limit section in the
 Pipeline YAML reference][execution-time-limit-reference].
+
+The maximum value of the `execution_time_limit` is 24 hours.
 
 ## Job Log Size Limit
 
