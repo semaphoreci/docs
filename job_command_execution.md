@@ -67,7 +67,7 @@ want it to exit with the error condition e.g `exit 1`.
 
 Using `exit` inside semaphore's command section will cause an immediate job failure (even with `exit 0`).
 Epilog commands will never execute unless this is intended. If you want to fail
-your job a different command can be used e.g `false`.
+your job, a different command can be used e.g `false`.
 
 ```
 blocks:
@@ -80,11 +80,14 @@ blocks:
             - ./build.sh || false
 ```
 
-## What happens if you set `set -e`
+## What happens if you use `set`
 `set -e` stops the execution of a script if any command exits with a non-zero status,
 which is the opposite of the default shell behavior to ignore errors in scripts.
 
-Semaphore checks exit value of each executed command so there is no need to include this
+`set -o pipefail` This particular option sets the exit code of a pipeline to that.
+of the rightmost command to exit with a non-zero status, or zero if all commands of the pipeline exit.
+
+Semaphore checks exit value of each executed command so there is no need to include such
 options in the command sections.
 
 ## The difference between sourcing and running a bash script
