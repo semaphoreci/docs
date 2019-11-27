@@ -1,29 +1,25 @@
 version: v1.0
-name: Semaphore 2.0 Docs
+name: First pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
-
 blocks:
-  - name: "Tests"
+  - name: Make & push
     task:
+      prologue:
+        commands:
+          - checkout
       jobs:
-        #- name: "Markdown Lint"
-        #  commands:
-        #    - npm install -g markdownlint-cli
-        #    - checkout
-        #    - markdownlint *.md
-
-        - name: List of changes for manual inspection
+        - name: Mkdocs
           commands:
-            - checkout
-            - git diff-tree --no-commit-id --name-only $SEMAPHORE_GIT_SHA
-
-promotions:
-  - name: prod
-    pipeline_file: prod.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - "master"
+            - make configure.gcloud
+            - make mkdocs.build
+            - make mkdocs.push
+        - name: Nginx
+          commands:
+            - make configure.gcloud
+            - make nginx.build
+            - make nginx.push
+      secrets:
+        - name: s2prod-gce
