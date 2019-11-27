@@ -1,3 +1,5 @@
+# Billing
+
 With Semaphore 2.0 you will only pay for what you used and you can customize
 your usage according to your team's needs.
 

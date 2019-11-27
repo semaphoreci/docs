@@ -2,7 +2,7 @@
 site_name: Semaphore 2.0 documentation
 site_description: Semaphore 2.0 documentation
 site_author: Rendered Text
-site_url: https://docs.semaphoreci.com
+site_url: 'https://semaphoreci.com'
 
 # Repository
 repo_name: semaphoreci/docs
@@ -12,14 +12,20 @@ repo_url: https://github.com/semaphoreci/docs
 copyright: '&copy; 2009-2019 Rendered Text'
 
 theme:
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
   name: 'material'
+  custom_dir: template
   logo: 'images/logo-white.png'
   favicon: 'images/favicon.ico'
   feature:
-    tabs: false
+    tabs: true
   palette:
     primary: 'green'
     accent: 'green'
+extra_css:
+  - 'stylesheets/extra.css'
 extra:
   social:
     - type: 'github'
@@ -33,7 +39,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
-      permalink: '&#128279;'
+      permalink: '&#35;'
 nav:
   - Welcome: index.md
   - Guided Tour:
@@ -51,6 +57,9 @@ nav:
   - Use Cases:
     - Tutorials and Example Projects: use-cases/tutorials-and-examples.md
     - Debugging with SSH Access: use-cases/debugging-with-ssh.md
+    - Artifacts: use-cases/artifacts.md
+    - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
+    - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
     - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
     - Build matrix: use-cases/build-matrix.md
     - Modeling complex workflows: use-cases/modeling-complex-workflows.md
@@ -84,10 +93,7 @@ nav:
     - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
     - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
     - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
-    - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
     - Project workflow trigger options: use-cases/project-workflow-trigger-options.md
-    - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Artifacts: use-cases/artifacts.md
   - Programming Languages:
     - C: programming-languages/c.md
     - C++: programming-languages/cpp.md

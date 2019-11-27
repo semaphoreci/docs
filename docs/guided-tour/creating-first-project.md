@@ -1,3 +1,5 @@
+# Creating Your First Project
+
 To build, test and deploy your code on Semaphore, you'll need to
 create a project for it to live in.
 

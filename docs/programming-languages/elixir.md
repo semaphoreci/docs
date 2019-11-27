@@ -1,13 +1,9 @@
+# Elixir
+
 This guide covers configuring Elixir projects on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
-- [Hello world](#hello-world)
-- [Phoenix example project](#phoenix-example-project)
-- [Supported Elixir versions](#supported-elixir-versions)
-- [Dependency caching](#dependency-caching)
-- [Environment variables](#environment-variables)
-- [System dependencies](#system-dependendices)
 
 ## Hello World
 

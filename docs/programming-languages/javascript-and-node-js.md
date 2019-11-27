@@ -1,15 +1,8 @@
+# JavaScript and Node.js
+
 This guide will help you get started with a JavaScript project on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-Table of contents:
-
-- [Hello world](#hello-world)
-- [Example project](#example-project-with-node-js-typescript-and-react)
-- [Supported Node.js versions](#supported-node-js-versions)
-- [Dependency caching](#dependency-caching)
-- [Environment variables](#environment-variables)
-- [Browser testing](#browser-testing)
 
 ## Hello world
 

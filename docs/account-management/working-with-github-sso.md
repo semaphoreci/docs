@@ -1,3 +1,5 @@
+# Working with GitHub SSO
+
 Semaphore supports repositories hosted on GitHub with SAML single sign-on (SSO).
 This GitHub feature is available in the GitHub Enterprise Cloud offering.
 

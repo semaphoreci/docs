@@ -1,6 +1,47 @@
+# Semaphore Changelog
+
 Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
+
+### Week of September 23, 2019
+
+- New macOS `os_image` types:
+  - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image) image spec.
+  - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image) image spec.
+  - `macos-mojave` no longer available.
+- Mojave system update:
+  - ProductVersion: 10.14.6
+  - BuildVersion: 18G95
+  - Kernel Version: Darwin 18.7.0
+- You can now change the initial pipeline file of your project,
+  from `.semaphore/semaphore.yml` to a custom path. This allows
+  you to create multiple Semaphore projects based on the same GitHub
+  repository. The new option is available on the project settings
+  page, or [by editing pipeline_file property of a project](https://docs.semaphoreci.com/article/53-sem-reference#changing-the-initial-pipeline-file)
+  via the release v0.15.0 of the CLI.
+- Workflow Builder now supports setting [job parallelism](https://docs.semaphoreci.com/article/50-pipeline-yaml#parallelism).
+  The new option is available by clicking on a block and expanding the advanced
+  configuration section for the job you want to replicate with the parallelism
+  feature.
+- New version of CLI v0.16.0 has beed released.
+   - You can change the initial pipeline file of your project.
+   - Fix for debug jobs from Pull Request/Tags has been released. This bug
+     caused differences in Environments Variable between job and debug session.
+- Visual Workflow Builder is now part of the project setup.
+
+### Week of September 16, 2019
+
+- New feature: Artifacts. Persistent storage of final CI/CD deliverables,
+  intermediary assets and files for debugging. Now in public beta.
+  - [Learn more about use cases](https://docs.semaphoreci.com/article/155-artifacts) and
+  [how to use the artifacts CLI](https://docs.semaphoreci.com/article/154-artifact-cli-reference).
+
+### Week of September 9, 2019
+
+- Semaphore remembers the URL you wanted to go to after logging in.
+- Fixed various small bugs in the Workflow Builder.
+- Fixed a bug where some free organizations could be blocked after switching from free trial.
 
 ### Week of September 2, 2019
 
@@ -21,7 +62,7 @@ This page is updated on a weekly basis.
 ### Week of August 12, 2019
 
 - Updates to the [Ubuntu 18.04 VM
-  image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image): 
+  image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image):
   - Chrome and ChromeDriver updated to version 76
   - docker-ce updated to 19.03.1
   - git-lfs updated to 2.8.0
@@ -99,6 +140,12 @@ This page is updated on a weekly basis.
 - A new global sidebar. It uses less screen real estate and you can star
   projects and dashboards to appear on top of the list. Also, it loads really
   fast.
+- New version of CLI v0.14.1 has beed released.
+   - You can now configure pull-request related setting by editing the project
+   - A fix for the race condition between toolbox installation and debug session
+     initialization has been released. This bug manifested as
+     "unknown command checkout" if the debug session entry happened before the
+     toolbox installation finished in the machine.
 
 ### Week of July 15, 2019
 

@@ -1,3 +1,5 @@
+# Configuring parallel tests with Code Climate
+
 The Code Climate test reporter can join parallelized test reports, combining them into one individual test report that can be submitted to Code Climate.
 
 Configure your CI to store partial results from each parallel run. We recommend syncing and fetching files from S3. Then, use the test reporter's `format-coverage`, `sum-coverage`, and `upload-coverage` commands to combine the results and upload them as one complete test report.
@@ -30,9 +32,9 @@ blocks:
             - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
-            - ./cc-test-reporter format-coverage --output "coverage/codeclimate.$N.json"
+            - ./cc-test-reporter format-coverage --output "coverage/codeclimate.$SEMAPHORE_JOB_ID.json"
             # uploading partial test Coverage to S3
-            - aws s3 cp "coverage/codeclimate.$N.json" "${S3_FOLDER}"
+            - aws s3 cp "coverage/codeclimate.$SEMAPHORE_JOB_ID.json" "s3://my_coverage_bucket/$SEMAPHORE_PROJECT_NAME/$SEMAPHORE_GIT_BRANCH/coverage/$SEMAPHORE_WORKFLOW_ID/"
       
 - name: Fetching and merging partial tests
    task:
@@ -41,8 +43,8 @@ blocks:
           commands:
             - checkout
             # fetching partial tests from S3
-            - aws s3 sync coverage/ "s3://my-bucket/coverage/$CI_BUILD_NUMBER"
+            - aws s3 sync coverage/ "s3://my_coverage_bucket/$SEMAPHORE_PROJECT_NAME/$SEMAPHORE_GIT_BRANCH/coverage/$SEMAPHORE_WORKFLOW_ID/"
             # merging tests
-            - ./cc-test-reporter sum-coverage --output - --parts $PARTS coverage/codeclimate.*.json 
+            - ./cc-test-reporter sum-coverage --output - --parts $(ls -1 coverage/ | wc -l) coverage/codeclimate.*.json 
             - ./cc-test-reporter upload-coverage
 ```

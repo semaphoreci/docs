@@ -1,13 +1,8 @@
+# Java
+
 This guide will help you get started with a Java project on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-Table of contents:
-
-- [Hello world](#hello-world)
-- [Example project](#example-project-with-spring-boot-and-docker)
-- [Supported Java versions](#supported-java-versions)
-- [Dependency caching](#dependency-caching)
 
 ## Hello world
 

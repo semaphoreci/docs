@@ -1,3 +1,5 @@
+# Clojure Luminus CI/CD
+
 In this guide, we will show you how to use Semaphore to implement
 continuous integration and deployment for a Clojure Luminus web application.
 

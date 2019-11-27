@@ -1,18 +1,17 @@
-# macOS Mojave Image
-
-The `macos-mojave` is a customized image based on [MacOS 10.14.6][mojave-release-notes]
-master:macos-mojave_5c6d3bfa2c7d3a66e32eaf2e.md
+The `macos-mojave-xcode11` is a customized image based on [MacOS 10.14.6][mojave-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
-The `macos-mojave` is a virtual machine (VM) image. The user in the environment,
+The `macos-mojave-xcode11` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
+
+[[__TOC__]]
 
 ## Using the macos-mojave OS image in your agent configuration
 
-To use the `macos-mojave` OS image, define it as the `os_image` of your agent's
+To use the `macos-mojave-xcode11` OS image, define it as the `os_image` of your agent's
 machine.
 
 ``` yaml
@@ -22,7 +21,7 @@ name: Apple/Mojave Based Pipeline
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode11
 
 blocks:
   - name: "Unit tests"
@@ -33,13 +32,13 @@ blocks:
             - make test
 ```
 
-The `macos-mojave` OS image can only be used in combination with an Apple
+The `macos-mojave-xcode11` OS image can only be used in combination with an Apple
 machine type `a1-standard-4`.
 
 ## System
 
-- ProductVersion:	10.14.6
-- BuildVersion:	18G95
+- ProductVersion: 10.14.6
+- BuildVersion: 18G95
 - Kernel Version: Darwin 18.7.0
 
 ## Version control
@@ -110,33 +109,19 @@ Installed versions:
 
 Installed versions:
 
-- 10.2.1
-- 10.3
+- 11.0
 
-Xcode 10.2.1 images have the following SDKs preinstalled:
+Xcode 11 has the following SDKs preinstalled:
 
-- macosx10.14
-- iphoneos12.2
-- iphonesimulator12.2
-- appletvos12.2
-- appletvsimulator12.2
-- watchos5.2
-- watchsimulator5.2
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.0
+- iphonesimulator13.0
+- appletvos13.0
+- appletvsimulator13.0
+- watchos6.0
+- watchsimulator6.0
 
-Xcode 10.3 images have the following SDKs preinstalled:
-
-- macosx10.14
-- iphoneos12.4
-- iphonesimulator12.4
-- appletvos12.4
-- appletvsimulator12.4
-- watchos5.3
-- watchsimulator5.3
-
-Additional preinstalled simulators:
-
-- iOS 11.4
-- iOS 12.1
 
 ## See Also
 

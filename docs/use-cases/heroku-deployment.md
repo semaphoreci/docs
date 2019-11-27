@@ -1,3 +1,5 @@
+# Heroku Deployment
+
 This guide shows you how to use Semaphore to set up deployment to Heroku
 for an application or microservice written in any language.
 

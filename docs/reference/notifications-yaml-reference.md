@@ -1,9 +1,4 @@
-- [Overview](#overview)
-- [Properties](#properties)
-- [The rules property in more detail](#the-rules-property-in-more-detail)
-- [See Also](#see-also)
-
-## Overview
+# Notifications YAML Reference
 
 This document is the reference to the YAML grammar used for describing
 notifications and specifying notification rules.

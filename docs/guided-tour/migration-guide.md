@@ -1,3 +1,5 @@
+# Migration guide for Semaphore Classic users
+
 If you've used Semaphore prior to version to 2.0, this guide will outline the
 key differences and provide you with a direction to migrate to the new product.
 

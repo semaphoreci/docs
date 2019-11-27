@@ -1,14 +1,4 @@
-- [Overview](#overview)
-- [Postgres](#postgres)
-- [MySQL](#mysql)
-- [Redis](#redis)
-- [MongoDB](#mongodb)
-- [Memcached](#memcached)
-- [Elasticsearch](#elasticsearch)
-- [A simple project](#a-simple-project)
-- [See also](#see-also)
-
-## Overview
+# Configuring Database Access
 
 This document describes how you can create a new regular user as well as a user
 with administrative privileges on the databases that are supported by Semaphore

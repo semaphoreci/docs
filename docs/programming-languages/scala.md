@@ -1,14 +1,8 @@
-This guide covers configuring ruby projects on semaphore.
+# Scala
+
+This guide covers configuring Scala projects on semaphore.
 If you’re new to semaphore we recommend reading the
 [guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-- [Hello world](#hello-world)
-- [Scala Play Example Project](#scala-play-example-project)
-- [Supported Scala versions](#supported-scala-versions)
-- [Changing Scala version](#changing-scala-version)
-- [Dependency management](#dependency-management)
-- [System dependencies](#system-dependencies)
-- [See also](#see-also)
 
 ## Hello world
 

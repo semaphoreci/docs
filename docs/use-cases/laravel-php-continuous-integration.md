@@ -1,13 +1,6 @@
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Laravel PHP web application.
 
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Run the demo Laravel project yourself](#run-the-demo-laravel-project-yourself)
-- [Next steps](#next-steps)
-- [See also](#see-also)
-
 ## Demo project
 
 Semaphore maintains an example Laravel project:

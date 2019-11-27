@@ -1,25 +1,4 @@
-- [Overview](#overview)
-- [Properties](#properties)
-  - [apiVersion](#apiversion)
-  - [kind](#kind)
-  - [metadata](#metadata)
-    - [name](#name-in-metadata)
-    - [title](#title-in-metadata)
-    - [id](#id)
-    - [create_time](#create_time)
-    - [update_time](#update_time)
-  - [spec](#spec)
-  - [widgets](#widgets)
-  - [The filters property](#the-filters-property)
-  - [name](#name-in-widgets)
-  - [type](#type)
-  - [Workflows list](#workflows-list)
-    - [Workflows example](#workflows-example)
-  - [Pipelines list](#pipelines-list)
-    - [Pipelines example](#pipelines-example)
-- [See also](#see-also)
-
-## Overview
+# Dashboards YAML reference
 
 This document is the reference of the Dashboard YAML grammar used for
 defining `dashboards` in Semaphore 2.0.

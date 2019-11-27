@@ -1,3 +1,5 @@
+# Getting Started
+
 Welcome to the guided tour of Semaphore! In this guide we help you get up and
 running with Semaphore and introduce you to its key features. If you're new
 to Semaphore or have limited Semaphore experience, then this is the best place

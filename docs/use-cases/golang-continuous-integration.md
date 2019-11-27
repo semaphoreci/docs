@@ -1,12 +1,7 @@
+# Golang Continuous Integration
+
 This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for Go (Golang) projects.
-
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [What the application uses](#what-the-application-uses)
-- [Explaining the sample project](#explaining-the-sample-project)
-- [Run the demo Go project yourself](#run-the-go-demo-project-yourself)
-- [See also](#see-also)
 
 ## Demo project
 

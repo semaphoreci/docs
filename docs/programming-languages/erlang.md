@@ -1,9 +1,8 @@
-- [Supported Erlang versions](#supported-erlang-versions)
-- [Changing Erlang version](#changing-erlang-version)
-- [Dependency management](#dependency-management)
-- [System dependencies](#system-dependencies)
-- [A sample Erlang project](#a-sample-erlang-project)
-- [See also](#see-also)
+# Erlang
+
+This guide covers configuring Erlang projects on Semaphore.
+If you’re new to Semaphore please read our
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
 ## Supported Erlang versions
 

@@ -1,3 +1,5 @@
+# Discounts
+
 At Semaphore, we offer discounts for non-profit, student and educational organizations.
 
 ## Non-profit discounts

@@ -3,24 +3,6 @@ Semaphore supports building, testing and deploying Swift, Objective-C and React 
 projects via [macOS Mojave VM image][macos-mojave] and [a1-standard machine
 types][machine-types].
 
-**Table of contents**
-
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Configuration walkthrough](#configuration-walkthrough)
-  - [Naming your pipeline](#naming-your-pipeline)
-  - [Defining the agent](#defining-the-agent)
-  - [Defining blocks](#defining-blocks)
-  - [Downloading code](#downloading-code)
-  - [Installing dependencies](#installing-dependencies)
-  - [Selecting Xcode version](#selecting-xcode-version)
-  - [Running tests](#running-tests)
-  - [Fastfile](#fastfile)
-  - [Building your app](#building-your-app)
-  - [Releasing your app](#releasing-your-app)
-- [Run the demo project yourself](#run-the-demo-project-yourself)
-
 ## Demo project
 
 Semaphore maintains an example iOS Swift project:
@@ -71,11 +53,11 @@ name: Semaphore iOS Swift example with Fastlane
 # It is a combination of one of available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/120-macos-mojave-image
+# and https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -157,7 +139,7 @@ coupled with the [macOS Mojave OS image][macos-mojave].
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 ```
 
 ### Defining blocks
@@ -330,7 +312,7 @@ yourself. Here’s how to build the demo project with your own account:
 4. Create your secret as per instructions above.
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
-[macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [machine-types]: https://docs.semaphoreci.com/article/20-machine-types
 [beta-apply]: https://semaphoreci.com/product/ios
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode

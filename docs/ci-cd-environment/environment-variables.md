@@ -1,11 +1,4 @@
-- [Overview](#overview)
-- [Predefined environment variables](#predefined-environment-variables)
-  - [Semaphore related](#semaphore-related)
-  - [Git repository related](#git-repository-related)
-  - [Cache related](#cache-related)
-- [See also](#see-also)
-
-## Overview
+# Environment Variables
 
 This document describes the environment variables used in Semaphore 2.0
 projects.
@@ -130,6 +123,9 @@ Example value: `http://git@github.com:semaphoreci/toolbox.git`
 The value of the `SEMAPHORE_GIT_BRANCH` environment variable is the name of
 the GitHub branch that is used in the current job.
 
+In builds triggered by a Pull Request the value of the `SEMAPHORE_GIT_BRANCH`
+is the name of the GitHub branch targeted by the Pull Request.
+
 Example value: `development`
 
 #### SEMAPHORE\_GIT\_DIR
@@ -178,11 +174,16 @@ the GitHub tag that is used in the current job.
 
 Example value: `v1.0.0`
 
+#### SEMAPHORE\_GIT\_PR\_BRANCH
+
+The value of the `SEMAPHORE_GIT_PR_BRANCH` environment variable is the name of
+the GitHub branch from which the Pull Request originated.
+
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
 The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the
 name (in form: owner_name/repo_name) of the GitHub repository from which
-the PR originated.
+the Pull Request originated.
 
 Example value: `renderedtext/docs`
 
@@ -234,7 +235,20 @@ path to the file that contains the SSH key to the cache server.
 
 Example value: `/home/semaphore/.ssh/semaphore_cache_key`
 
+### Private Docker Registry related variables
+
+Private Docker registry is a beta feature that is available on a request.
+You can find more information on [Private Docker Registry] page.
+
+This feature adds the following environment variables to every job for a given project:
+
+- `SEMAPHORE_REGISTRY_USERNAME` - Semaphore private Docker Registry username
+- `SEMAPHORE_REGISTRY_PASSWORD` - Semaphore private Docker Registry password
+- `SEMAPHORE_REGISTRY_URL` - Semaphore private Docker Registry url
+
 ## See Also
 
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+
+[Private Docker Registry]: https://docs.semaphoreci.com/article/163-private-docker-registry

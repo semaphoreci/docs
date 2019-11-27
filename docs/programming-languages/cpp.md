@@ -1,16 +1,8 @@
+# C++
+
 This guide covers configuring C++ projects on Semaphore.
 If you’re new to Semaphore we recommend reading the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-Table of contents:
-
-- [Hello world](#hello-world)
-- [Supported C++ versions](#supported-compiler-versions)
-- [Changing compiler version](#changing-compiler-version)
-- [Dependency management](#dependency-management)
-- [System dependencies](#system-dependencies)
-- [A sample C++ project](#a-sample-project)
-- [See also](#see-also)
 
 ## Hello world
 

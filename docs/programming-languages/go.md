@@ -1,14 +1,8 @@
+# Golang
+
 This guide covers configuring Golang projects on Semaphore.
 If you’re new to Semaphore we recommend reading the
 [Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
-Table of contents:
-
-- [Hello world](#hello-world)
-- [Example project](#example-project)
-- [Supported Go Versions](#supported-go-versions)
-- [Using GOPATH](#using-gopath)
-- [Dependency Caching](#dependency-caching)
 
 ## Hello world
 

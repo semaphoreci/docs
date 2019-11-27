@@ -2,11 +2,6 @@ This guide shows you how to use Semaphore to set up a continuous integration
 (CI) pipeline for a Node.js app. The guide applies to both TypeScript and
 JavaScript.
 
-- [Demo project](#demo-project)
-- [Overview of the CI pipeline](#overview-of-the-ci-pipeline)
-- [Sample configuration](#sample-configuration)
-- [Run the demo project yourself](#run-the-demo-project-yourself)
-
 ## Demo project
 
 Semaphore maintains an example JavaScript project with a CI pipeline for both

@@ -1,3 +1,5 @@
+# Deployment to AWS Elastic Beanstalk
+
 This guide shows you how to use Semaphore to set up deployment to Elastic Beanstalk.
 
 For this guide you will need:

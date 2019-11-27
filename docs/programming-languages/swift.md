@@ -1,3 +1,5 @@
+# Swift
+
 Semaphore supports building, testing and releasing Swift applications in fully
 customizable, autoscaling CI/CD workflows.
 
@@ -16,7 +18,7 @@ name: Semaphore iOS Swift example
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave
+    os_image: macos-mojave-xcode10
 blocks:
   - name: Build
     task:
@@ -37,6 +39,6 @@ how to set up CI with Fastlane:
   recommended read if you're setting up an iOS project on Semaphore for the
   first time.
 
-[macos-mojave]: https://docs.semaphoreci.com/article/120-macos-mojave-image
+[macos-mojave]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode

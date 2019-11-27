@@ -1,9 +1,8 @@
-- [Supported Clojure versions](#supported-clojure-versions)
-- [Changing Clojure version](#changing-clojure-version)
-- [Dependency management](#dependency-management)
-- [System dependencies](#system-dependencies)
-- [A sample Clojure project](#a-sample-clojure-project)
-- [See also](#see-also)
+# Clojure
+
+This guide covers configuring Clojure projects on Semaphore.
+If you’re new to Semaphore we recommend reading the
+[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
 
 ## Supported Clojure versions
 

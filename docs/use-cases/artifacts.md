@@ -1,5 +1,7 @@
-__Note__: *Using Artifacts during the beta period is free. Once the artifacts 
-system is in the general availability, additional charges will apply based on 
+# Artifacts
+
+__Note__: *Using Artifacts during the beta period is free. Once the artifacts
+system is in the general availability, additional charges will apply based on
 the usage.*
 
 Artifacts are used to persist files that are either final deliverables or
@@ -13,10 +15,6 @@ build artifacts that need to be promoted through the pipeline.
 
 On the project level there is a single artifact store
 that usually stores final deliverables of CI/CD pipelines.
-
-- [Job Artifacts](#job-artifacts)
-- [Workflow Artifacts](#workflow-artifacts)
-- [Project Artifacts](#project-artifacts)
 
 ## Job Artifacts
 
@@ -33,7 +31,7 @@ If you want to upload artifacts only in the case of failed job
 using
 [epilogue](https://docs.semaphoreci.com/article/50-pipeline-yaml#the-epilogue-property) in combination with `on_fail` condition is a usual pattern.
 
-```yml
+``` yaml
 blocks:
  - name: Build app
    task:
@@ -70,7 +68,7 @@ workflow level artifact store, can be downloaded in the downstream blocks of
 the pipeline.  In the same way artifacts can be downloaded from any other
 pipeline of the same workflow.
 
-```yml
+``` yaml
 blocks:
  - name: Build app
    task:
