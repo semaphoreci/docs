@@ -136,9 +136,7 @@ visiting [Incoming WebHooks](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks)
 Please note that if a notification does not work as expected, you might want to
 begin the debugging process by verifying the Slack WebHook used.
 
-Tip: you can use just a single Incoming WebHook from Slack for all your
-notifications as this Incoming WebHook has access to all the channels of a
-Slack Workspace.
+Tip: It is not possible to override and add more Slack channels in the payload. It is necessary to configure one WebHook per channel.
 
 The `endpoint` property is mandatory.
 
