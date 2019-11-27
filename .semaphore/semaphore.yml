@@ -1,0 +1,25 @@
+version: v1.0
+name: First pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Make & push
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: Mkdocs
+          commands:
+            - make configure.gcloud
+            - make mkdocs.build
+            - make mkdocs.push
+        - name: Nginx
+          commands:
+            - make configure.gcloud
+            - make nginx.build
+            - make nginx.push
+      secrets:
+        - name: s2prod-gce
