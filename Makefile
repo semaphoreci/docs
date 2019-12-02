@@ -10,7 +10,7 @@ IMAGE_TAG_REDIRECT="start-$(BRANCH)-$(SEMAPHORE_WORKFLOW_ID)-sha-$(SEMAPHORE_GIT
 
 nginx.build:
 	-docker pull $(IMAGE_REDIRECT):latest
-	docker build --cache-from $(IMAGE_REDIRECT):latest -t $(IMAGE_REDIRECT) . -f Dockerfile
+	docker build --cache-from $(IMAGE_REDIRECT):latest -t $(IMAGE_REDIRECT) . -f Dockerfile.nginx
 
 nginx.push:
 	docker tag $(IMAGE_REDIRECT):latest $(IMAGE_REDIRECT):$(IMAGE_TAG_REDIRECT)
