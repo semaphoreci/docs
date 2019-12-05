@@ -1,3 +1,8 @@
+- [Overview](#overview)
+- [What happens if you execute `exit`?](#what-happens-if-you-execute-`exit`)
+- [What happens if you use `set`?](#what-happens-if-you-use-`set`)
+- [The difference between sourcing and running a bash script](#the-difference-between-sourcing-and-running-a-bash-script)
+
 ## Overview
 In Semaphore every job executes commands in a new interactive shell:
 
@@ -60,7 +65,7 @@ vi             	off
 xtrace         	off
 ```
 
-## What happens if you execute `exit`?
+## What happens if you execute `exit`
 `exit` implies an exit value of your script. Your script may exit successfully
 although it tests for an erroneous condition. In this case, you specifically
 want it to exit with the error condition e.g `exit 1`.
