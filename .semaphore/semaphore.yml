@@ -16,10 +16,11 @@ blocks:
             - make configure.gcloud
             - make mkdocs.build
             - make mkdocs.push
-        - name: Nginx
-          commands:
-            - make configure.gcloud
             - make nginx.build
             - make nginx.push
       secrets:
         - name: s2prod-gce
+
+promotions:
+  - name: stg
+    pipeline_file: stg.yml
