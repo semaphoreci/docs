@@ -10,16 +10,14 @@ blocks:
       secrets:
         - name: github-keypair
         - name: public-keys
+        - name: STG
       jobs:
       - name: Deploy
         commands:
           - checkout
           - git log -1 --pretty=%B | sed '/Merge pull/d' | sed '/^\s*$/d' | tr '\n' ' ' > /tmp/commit_message
-          - git config --global user.email "robot@semaphore.com"
-          - git config --global user.name "semaphore-robot"
           - echo -n $PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
           - chmod 400 ~/.ssh/id_rsa
-          - git clone git@github.com:renderedtext/sandbox /tmp/sandbox
-          - cd /tmp/sandbox/sxeris
-          - ./scripts/replace_image.sh $(echo -n $SEMAPHORE_GIT_BRANCH | sed s/[^a-z]//g)-$SEMAPHORE_WORKFLOW_ID-sha-$SEMAPHORE_GIT_SHA docs
-          - 'git add . && git commit -m "Docs: $(cat /tmp/commit_message)" && git push origin master'
+          - git clone $STG_REPO /tmp/stg
+          - cd /tmp/stg
+          - make docs.deploy
