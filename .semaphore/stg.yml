@@ -23,7 +23,3 @@ blocks:
           - cd /tmp/sandbox/sxeris
           - ./scripts/replace_image.sh $(echo -n $SEMAPHORE_GIT_BRANCH | sed s/[^a-z]//g)-$SEMAPHORE_WORKFLOW_ID-sha-$SEMAPHORE_GIT_SHA docs
           - 'git add . && git commit -m "Docs: $(cat /tmp/commit_message)" && git push origin master'
-
-promotions:
-  - name: stg
-    pipeline_file: stg.yml

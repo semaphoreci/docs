@@ -23,3 +23,7 @@ blocks:
             - make nginx.push
       secrets:
         - name: s2prod-gce
+
+promotions:
+  - name: stg
+    pipeline_file: stg.yml
