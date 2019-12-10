@@ -12,7 +12,7 @@ blocks:
         - name: public-keys
         - name: STG
       jobs:
-      - name: Deploy
+      - name: Deploy Docs
         commands:
           - checkout
           - git log -1 --pretty=%B | sed '/Merge pull/d' | sed '/^\s*$/d' | tr '\n' ' ' > /tmp/commit_message
