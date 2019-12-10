@@ -1,32 +1,27 @@
-Semaphore has integrated Slack based chat notifications that are delivered on
+Semaphore has integrated Webhook based notifications that are delivered on
 the success or failure of a pipeline.
 
-- [Setting up Slack notification for a project](#setting-up-slack-notifications-for-a-project)
-- [Setting up Slack notification for multiple projects and channels](#setting-up-slack-notifications-for-multiple-projects-and-channels)
+- [Setting up Webhook notification for a project](#setting-up-webhook-notifications-for-a-project)
+- [Setting up Webhook notification for multiple projects and channels](#setting-up-webhook-notifications-for-multiple-projects-and-channels)
 - [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
 - [Advanced notification setup](#advanced-notification-setup)
   - [Filtering by pipeline result](#filtering-by-pipeline-result)
-  - [Example of notifying multiple teams](#example-of-notifying-multiple-teams)
 - [Modifying notification settings](#modifying-notification-settings)
-- [Setting up, editing and deleting Slack notifications through the UI](#setting-up-editing-and-deleting-slack-notifications-through-the-ui)
+- [Setting up, editing and deleting Webhook notifications through the UI](#setting-up-editing-and-deleting-webhook-notifications-through-the-ui)
 - [See also](#see-also)
 
-## Setting up Slack notifications for a project
+## Setting up Webhook notifications for a project
 
-To set up a Slack notification, first you need to configure an [incoming
-webhook](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks) in your Slack
-workspace.
-
-Use the generated Endpoint URL to set up a notification on Semaphore,
+Use your Endpoint URL to set up a notification on Semaphore,
 with the following command:
 
 ``` bash
 $ sem create notification [name] \
     --projects [project_name] \
-    --slack-endpoint [slack-webhook-endpoint]
+    --webhook-endpoint [webhook-webhook-endpoint]
 ```
 
-For example, if you have a project called `web` and you want to get a Slack
+For example, if you have a project called `web` and you want to get a Webhook
 notification on every finished pipeline on the `master` branch, use the
 following command:
 
@@ -34,13 +29,13 @@ following command:
 $ sem create notification master-pipelines \
     --projects web \
     --branches master \
-    --slack-endpoint [slack-webhook-endpoint]
+    --webhook-endpoint [webhook-webhook-endpoint]
 ```
 
-## Setting up Slack notifications for multiple projects and channels
+## Setting up Webhook notifications for multiple projects and channels
 
-When creating the notification, you can specify multiple projects as source, and
-multiple slack channels as the target of your notifications.
+When creating the notification, you can specify multiple projects as source,
+of your notifications.
 
 For example, if your team manages three projects named `web`, `cli` and `api`
 and you want to get notified for every finished pipeline on the master branch,
@@ -50,18 +45,7 @@ use the following command:
 $ sem create notifications teamA-notifications \
     --projects "web,cli,api" \
     --branches "master" \
-    --slack-endpoint [slack-webhook-endpoint]
-```
-
-If you also want to send these notifications to multiple slack channels, for
-example `#dev-team` and `#qa-team`, use the following command:
-
-``` bash
-$ sem create notifications new-releases \
-    --projects "web,cli,api" \
-    --branches "master" \
-    --slack-endpoint [slack-webhook-endpoint] \
-    --slack-channels "#dev-team,#qa-team"
+    --webhook-endpoint [webhook-webhook-endpoint]
 ```
 
 ## Filtering by project, branch and pipeline names
@@ -75,7 +59,7 @@ the following:
 ``` bash
 $ sem create notifications example \
     --branches "master,staging" \
-    --slack-endpoint [slack-webhook-endpoint] \
+    --webhook-endpoint [webhook-webhook-endpoint] \
 ```
 
 The branch filter can be a direct match like in the previous example, or a
@@ -85,7 +69,7 @@ every branch that matches `hotfix/-`, use the following:
 ``` bash
 $ sem create notifications example \
     --branches "master,/hotfix\/.*/" \
-    --slack-endpoint [slack-webhook-endpoint] \
+    --webhook-endpoint [webhook-webhook-endpoint] \
 ```
 
 Regex matches must be wrapped in forward slashes (example: `/.*/`). Specifying a
@@ -101,7 +85,7 @@ $ sem create notifications example \
     --projects "/.*api$/" \
     --branches "master" \
     --pipelines "prod.yml" \
-    --slack-endpoint [slack-webhook-endpoint] \
+    --webhook-endpoint [webhook-webhook-endpoint] \
 ```
 
 ## Advanced notification setup
@@ -141,8 +125,8 @@ spec:
         results:
           - failed
       notify:
-        slack:
-          endpoint: https://hooks.slack.com/services/xxx/yyy/zzz
+        webhook:
+          endpoint: https://example.org/postreceiver
 ```
 
 Note that you can list more than value under `results`.
@@ -151,58 +135,6 @@ You can create a notification using the file above with:
 
 ``` bash
 sem create -f notify-on-fail.yml
-```
-
-### Example of notifying multiple teams
-
-In this example example we would like to do the following:
-
-- On every passed pipeline on the staging branch, notify the QA team
-- On every pipeline on the master branch, notify the DevOps and Security teams
-
-First specify the notification in a YAML file:
-
-``` yaml
-# release-cycle-notifications.yml
-
-apiVersion: v1alpha
-kind: Notification
-metadata:
-  name: release-cycle-notifications
-spec:
-  rules:
-    - name: "On staging branches"
-      filter:
-        projects:
-          - /.*/
-        branches:
-          - staging
-        results:
-          - passed
-      notify:
-        slack:
-          endpoint: https://hooks.slack.com/XXXXXXXXXXX/YYYYYYYYYYYY/ZZZZZZZZZZ
-          channels:
-            - "#qa-team"
-
-    - name: "On master branches"
-      filter:
-        projects:
-          - /.*/
-        branches:
-          - master
-      notify:
-        slack:
-          endpoint: https://hooks.slack.com/XXXXXXXXXXX/YYYYYYYYYYYY/ZZZZZZZZZZ
-          channels:
-            - "#devops-team"
-            - "#secops-team"
-```
-
-Then, apply the resource to your organization:
-
-``` bash
-sem create -f release-cycle-notifications.yml
 ```
 
 ## Modifying notification settings
@@ -218,7 +150,7 @@ organization by using the [sem command line tool](https://docs.semaphoreci.com/a
 See the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference)
 for further details.
 
-## Setting up, editing and deleting Slack notifications through the UI
+## Setting up, editing and deleting Webhook notifications through the UI
 
 In the Configuration part of the sidebar, click on **Notifications** -> **Create New
 Notification**. Add the name of the notification and rules and click on the **Save
@@ -231,4 +163,4 @@ and follow the steps from there.
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
+- [Webhook Notification](https://docs.semaphoreci.com/article/170-webhook-notifications)
