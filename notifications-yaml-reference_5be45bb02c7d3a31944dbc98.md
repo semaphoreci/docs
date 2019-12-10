@@ -118,7 +118,7 @@ The `pipelines` property is optional.
 
 ### notify
 
-The `notify` property holds the `slack` property.
+The `notify` property holds the `slack` and `webhook` property.
 
 #### slack
 
@@ -154,6 +154,32 @@ users.
 The `channels` property is optional. When the `channels` property is not
 defined, all notifications go to the default channel associated with the
 Incoming WebHook used.
+
+#### webhook
+
+The `webhook` property holds the `endpoint`, `action`, and `timeout` properties.
+
+##### endpoint
+
+The `endpoint` property holds the URL to which Semaphore will send notification.
+
+You can learn more about payload of a notification visiting
+[Webhook Notification](https://docs.semaphoreci.com/article/170-webhook-notifications).
+
+The `endpoint` property is mandatory.
+
+##### action
+
+The `action` property holds the HTTP method used to send notification.
+
+The `action` property is optional, and default value is `POST`.
+
+##### timeout
+
+The `timeout` property holds the delivery timeout in ms. Must be in range
+(1..1000)ms.
+
+The `timeout` property is optional, and default value is `500`.
 
 ## An example
 
@@ -193,10 +219,8 @@ spec:
       pipelines:
       - semaphore.yml
     notify:
-      slack:
-        endpoint: https://hooks.slack.com/services/XXTXXSSA/ABCDDAS/XZYZWAFDFD
-        channels:
-        - '#engineering'
+      webhook:
+        endpoint: https://example.org/postreceiver
 status: {}
 ```
 
@@ -223,13 +247,13 @@ After that, you specify in the `pipelines` filter that you are only interested
 in the main pipeline that always begins with the `semaphore.yml` file.
 
 Once these three filters are evaluated to `true`, the rule will send a
-notification to the `#engineering` channel. Once again, the Slack channel
-associated with the specified Incoming WebHook will be ignored.
+notification to the `https://example.org/postreceiver` URL.
 
 Please note that the `status` property at the end is not currently being used.
 
 You can find out how to create new notifications by visiting the
 [Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
+[Webhook Notification](https://docs.semaphoreci.com/article/170-webhook-notifications)
 and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 pages of the Semaphore 2.0 documentation.
 
@@ -237,3 +261,4 @@ pages of the Semaphore 2.0 documentation.
 
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
+- [Webhook Notifications](https://docs.semaphoreci.com/article/170-webhook-notifications)
