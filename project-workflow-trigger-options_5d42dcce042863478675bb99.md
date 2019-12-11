@@ -11,7 +11,9 @@ There is also an option to pause a project.
 
 - [Pause project](#pause-project)
 - [Build branches](#build-branches)
+    - [Whitelist branches](#whitelist-branches)
 - [Build tags](#build-tags)
+    - [Whitelist tags](#whitelist-tags)
 - [Build pull requests](#build-pull-requests)
 - [Build forked pull requests](#build-pull-requests-from-forks)
   - [Expose secrets in forked pull requests](#expose-secrets-in-forked-pull-requests)
@@ -31,12 +33,29 @@ Semaphore will create a workflow for every push to your repository.
 In every job from this workflow, Semaphore will export
 `SEMAPHORE_GIT_REF_TYPE` environment variable with value `branch`.
 
+## Whitelist branches
+
+By default, Semaphore will create a workflow for every branch. You can whitelist
+the branches that you want to run by specifying their names separated by commas.
+Regular expressions enclosed with `/` are also allowed,
+for example: `/feature-.*/`.
+
+Whitelisting works only for newly created branches, Semaphore will always create
+workflows for existing branches.
+
 ## Build tags
 
 Semaphore will create a workflow for every tag you create on the Git repository.
 
 In every job from this workflow, Semaphore will export
 `SEMAPHORE_GIT_REF_TYPE` environment variable with value `tag`.
+
+## Whitelist tags
+
+By default, Semaphore will create a workflow for every tag. You can whitelist
+the tags that you want to run by specifying their names separated by commas.
+Regular expressions enclosed with `/` are also allowed,
+for example: `/^v\d+\.\d+\.\d+$/`.
 
 ## Build pull requests
 
