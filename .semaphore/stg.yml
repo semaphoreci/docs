@@ -10,7 +10,7 @@ blocks:
       secrets:
         - name: github-keypair
         - name: public-keys
-        - name: PROD
+        - name: STG
       jobs:
       - name: Deploy Docs
         commands:
@@ -23,7 +23,5 @@ blocks:
           - make docs.deploy
 
 promotions:
-  - name: Staging
+  - name: Production
     pipeline_file: prod.yml
-    auto_promote:
-      when: "result = 'passed'"
