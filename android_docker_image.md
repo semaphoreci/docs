@@ -139,41 +139,41 @@ blocks:
 - platforms;android-29
 
 ### Installed software
-- git
-- mercurial
-- xvfb
-- vim
+
+- ARM simmulator (libqt5widgets5)
+- Google Cloud SDK
 - apt
-- locales
-- sudo
 - apt-transport-https
-- ca-certificates
-- openssh-client
-- software-properties-common
 - build-essential
-- tar
-- lsb-release
-- gzip
-- parallel
-- net-tools
-- netcat
-- unzip
-- zip
 - bzip2
-- lftp
-- gnupg
+- ca-certificates
 - curl
-- wget
-- jq
-- tree
 - docker
 - docker-compose
-- maven
+- git
+- gnupg
 - gradle
+- gzip
+- jq
+- lftp
+- locales
+- lsb-release
+- maven
+- mercurial
+- net-tools
+- netcat
+- openssh-client
+- parallel
 - ruby 2.6.1
-- Google Cloud SDK
-- ARM simmulator (libqt5widgets5)
-
+- software-properties-common
+- sudo
+- tar
+- tree
+- unzip
+- vim
+- wget
+- xvfb
+- zip
 
 ## See Also
 
