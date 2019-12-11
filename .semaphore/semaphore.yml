@@ -22,5 +22,7 @@ blocks:
         - name: s2prod-gce
 
 promotions:
-  - name: stg
+  - name: Staging
     pipeline_file: stg.yml
+    auto_promote:
+      when: "result = 'passed'"

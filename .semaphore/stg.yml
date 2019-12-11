@@ -10,7 +10,7 @@ blocks:
       secrets:
         - name: github-keypair
         - name: public-keys
-        - name: STG
+        - name: PROD
       jobs:
       - name: Deploy Docs
         commands:
@@ -18,6 +18,12 @@ blocks:
           - git log -1 --pretty=%B | sed '/Merge pull/d' | sed '/^\s*$/d' | tr '\n' ' ' > /tmp/commit_message
           - echo -n $PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
           - chmod 400 ~/.ssh/id_rsa
-          - git clone $STG_REPO /tmp/stg
+          - git clone $PROD_REPO /tmp/stg
           - cd /tmp/stg
           - make docs.deploy
+
+promotions:
+  - name: Staging
+    pipeline_file: prod.yml
+    auto_promote:
+      when: "result = 'passed'"
