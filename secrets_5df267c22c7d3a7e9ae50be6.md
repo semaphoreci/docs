@@ -74,7 +74,7 @@ For more information about managing secrets check [sem CLI Reference](https://do
 
 ### YAML
 
-To connect secret to a particular block add secrets property like in example:
+To connect secret to a particular block add [secrets property](https://docs.semaphoreci.com/article/50-pipeline-yaml#secrets) like in example:
 
 ```yaml
 version: v1.0
@@ -98,7 +98,8 @@ blocks:
           - make test
 ```
 
-To connect secret to all jobs in the pipeline use `global_job_config` like in
+To connect secret to all jobs in the pipeline use
+[global_job_config](https://docs.semaphoreci.com/article/50-pipeline-yaml#global_job_config) like in
 the example:
 
 ```yaml
@@ -119,3 +120,7 @@ blocks:
 ```
 
 ## See also
+
+- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Secrets YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
