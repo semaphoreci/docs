@@ -14,17 +14,17 @@ blocks or pipelines to which secret has be connected.
 
 1. Open dashboard of your organization.
 
-2. Click *Secrets* in the sidebar. Find it in the *Configuration* section.
+2. Click **Secrets** in the sidebar. Find it in the **Configuration** section.
 
-3. Click *Create New Secret* button.
+3. Click **Create New Secret** button.
 
 4. Enter your secret information:
 
-   * Specify *Name*
+   * Specify **Name**
    * Enter environment variable name and value
    * Enter destination file path and upload file
 
-5. Click *Save Changes*
+5. Click **Save Changes**
 
 ### CLI
 
@@ -60,7 +60,62 @@ For more information about managing secrets check [sem CLI Reference](https://do
 
 ### Web UI
 
-### CLI
+1. Open project page.
 
+2. Click **Edit Workflow** button.
+
+3. Select block to which you want to connect secret.
+
+4. Find **Secrets** section in the right sidebar.
+
+5. Check secret that needs to be connected.
+
+6. Click **Run the workflow** button and then **Start**.
+
+### YAML
+
+To connect secret to a particular block add secrets property like in example:
+
+```yaml
+version: v1.0
+name: My blue project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Test
+    task:
+      # Connect secret to all jobs in the block
+      secrets:
+        - name: blue-secret
+
+      jobs:
+      - name: Run tests
+        commands:
+          - checkout
+          - make test
+```
+
+To connect secret to all jobs in the pipeline use `global_job_config` like in
+the example:
+
+```yaml
+version: v1.0
+name: My blue project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+global_job_config:
+  # Connect secret to all jobs in the pipeline
+  secrets:
+    - name: blue-secret
+
+blocks:
+  ...
+```
 
 ## See also
