@@ -12,6 +12,9 @@ nginx.build:
 	-docker pull $(IMAGE_REDIRECT):latest
 	docker build --cache-from $(IMAGE_REDIRECT):latest -t $(IMAGE_REDIRECT) . -f Dockerfile.nginx
 
+nginx.test:
+	docker run --rm -t -a stdout $(IMAGE_REDIRECT) nginx -c /etc/nginx/nginx.conf -t
+
 nginx.push:
 	docker tag $(IMAGE_REDIRECT):latest $(IMAGE_REDIRECT):$(IMAGE_TAG_REDIRECT)
 	docker push $(IMAGE_REDIRECT):$(IMAGE_TAG_REDIRECT)
@@ -29,4 +32,3 @@ mkdocs.push:
 configure.gcloud:
 	gcloud auth activate-service-account deploy-from-semaphore@semaphore2-prod.iam.gserviceaccount.com --key-file ~/gce-creds.json
 	gcloud --quiet auth configure-docker
-
