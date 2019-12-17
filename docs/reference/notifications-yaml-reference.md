@@ -113,7 +113,7 @@ The `pipelines` property is optional.
 
 ### notify
 
-The `notify` property holds the `slack` and `webhook` property.
+The `notify` property holds the `slack` and `webhook` properties.
 
 #### slack
 

@@ -137,7 +137,7 @@ spec:
           endpoint: https://hooks.slack.com/services/xxx/yyy/zzz
 ```
 
-Note that you can list more than value under `results`.
+Note that you can list more than one value under `results`.
 
 You can create a notification using the file above with:
 
