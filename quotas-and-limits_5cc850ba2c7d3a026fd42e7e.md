@@ -100,7 +100,7 @@ Default quotas per machine type for an organization on a **[free plan](https://d
 </tr>
 <tr>
   <td>a1-standard-4</td>
-  <td>0</td>
+  <td>1</td>
 </tr>
 </tbody>
 </table>
