@@ -1,17 +1,20 @@
-Semaphore has integrated Webhook based notifications that are delivered on
-the success or failure of a pipeline.
+Semaphore has webhook based notifications that are delivered on the success or
+failure of a pipeline. When criteria for notification are met, Semaphore will
+send a HTTP POST payload to the webhook's configured URL. You can use them,
+for example, to implement alerts through [Hubot](https://github.com/hubotio/hubot),
+or keep track of your projects on a company dashboard.
 
-- [Setting up Webhook notification for a project](#setting-up-webhook-notifications-for-a-project)
-- [Setting up Webhook notification for multiple projects](#setting-up-webhook-notifications-for-multiple-projects)
+- [Setting up webhook notification for a project](#setting-up-webhook-notifications-for-a-project)
+- [Setting up webhook notification for multiple projects](#setting-up-webhook-notifications-for-multiple-projects)
 - [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
 - [Advanced notification setup](#advanced-notification-setup)
   - [Filtering by pipeline result](#filtering-by-pipeline-result)
 - [Modifying notification settings](#modifying-notification-settings)
-- [Setting up, editing and deleting Webhook notifications through the UI](#setting-up-editing-and-deleting-webhook-notifications-through-the-ui)
+- [Setting up, editing and deleting webhook notifications through the UI](#setting-up-editing-and-deleting-webhook-notifications-through-the-ui)
 - [Notification payload](#notification-payload)
 - [See also](#see-also)
 
-## Setting up Webhook notifications for a project
+## Setting up webhook notifications for a project
 
 Use your Endpoint URL to set up a notification on Semaphore,
 with the following command:
@@ -22,7 +25,7 @@ $ sem create notification [name] \
     --webhook-endpoint [webhook-endpoint]
 ```
 
-For example, if you have a project called `web` and you want to get a Webhook
+For example, if you have a project called `web` and you want to get a webhook
 notification on every finished pipeline on the `master` branch, use the
 following command:
 
@@ -33,9 +36,9 @@ $ sem create notification master-pipelines \
     --webhook-endpoint [webhook-endpoint]
 ```
 
-## Setting up Webhook notifications for multiple projects
+## Setting up webhook notifications for multiple projects
 
-When creating the notification, you can specify multiple projects as source,
+When creating a notification, you can specify multiple projects as source,
 of your notifications.
 
 For example, if your team manages three projects named `web`, `cli` and `api`
@@ -51,7 +54,7 @@ $ sem create notifications teamA-notifications \
 
 ## Filtering by project, branch and pipeline names
 
-When creating the notification, you can specify a filter for project, branch and
+When creating a notification, you can specify a filter for project, branch and
 pipeline names.
 
 For example to send notifications for the `master` and `staging` branches use
@@ -63,19 +66,15 @@ $ sem create notifications example \
     --webhook-endpoint [webhook-endpoint] \
 ```
 
-The branch filter can be a direct match like in the previous example, or a
-regular expression match. For example, to get notified about for `master` and
-every branch that matches `hotfix/-`, use the following:
+A filter can either be a regex match or a direct match. Specifying a filter with
+forward slashes (e.g. /hotfix-.*/) defines a regex match, while a filter without
+forward slashes (e.g. master) defines a direct match.
 
 ``` bash
 $ sem create notifications example \
     --branches "master,/hotfix\/.*/" \
     --webhook-endpoint [webhook-endpoint] \
 ```
-
-Regex matches must be wrapped in forward slashes (example: `/.*/`). Specifying a
-branch name without slashes (example: `.*`) would execute a direct equality
-match.
 
 Matching can be specified for project and pipeline names as well. For example,
 if you want to get notified about every notification on a project that matches
@@ -130,7 +129,7 @@ spec:
           endpoint: https://example.org/postreceiver
 ```
 
-Note that you can list more than value under `results`.
+Note that you can list more than one value under `results`.
 
 You can create a notification using the file above with:
 
@@ -151,7 +150,7 @@ organization by using the [sem command line tool](https://docs.semaphoreci.com/a
 See the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference)
 for further details.
 
-## Setting up, editing and deleting Webhook notifications through the UI
+## Setting up, editing and deleting webhook notifications through the UI
 
 In the Configuration part of the sidebar, click on **Notifications** -> **Create New
 Notification**. Add the name of the notification and rules and click on the **Save
@@ -163,7 +162,7 @@ and follow the steps from there.
 
 ## Notification payload
 
-Payload contains all the information related to a pipeline.
+The payload contains all the information related to a pipeline.
 
 ```json
 {
@@ -253,8 +252,8 @@ Payload contains all the information related to a pipeline.
 ```
 
 In this example `revision.pull_request` and `revision.tag` are null because
-payload is related to pipeline from branch build. Information about build type
-is kept in `revision.reference_type`.
+payload is related to pipeline run started from a push to the branch. Information
+about this is kept in `revision.reference_type`.
 
 Sample `pull_request` object:
 
