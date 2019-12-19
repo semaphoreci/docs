@@ -1,4 +1,4 @@
-# Golang
+# Go
 
 This guide covers configuring Golang projects on Semaphore.
 If you’re new to Semaphore we recommend reading the

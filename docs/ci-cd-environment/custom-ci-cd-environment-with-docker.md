@@ -1,6 +1,8 @@
-# Custom CI/CD environment with Docker
+# Custom CI/CD Environment with Docker
 
-Semaphore CI/CD jobs can be run inside Docker images. This allows you to define a custom build environment with pre-installed tools and dependencies needed for your project.
+Semaphore CI/CD jobs can be run inside Docker images. This allows you to define
+a custom build environment with pre-installed tools and dependencies needed for
+your project.
 
 Note: This document explains how to define a Docker based build environment and
 how run jobs inside of Docker containers. For building and running Docker
@@ -178,7 +180,7 @@ your CI/CD pipelines.
 
 First, set up a secret to store your DockerHub credentials:
 
-``` yaml
+``` bash
 sem create secret dockerhub-pull-secrets \
   -e DOCKER_CREDENTIAL_TYPE=DockerHub \
   -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
@@ -237,7 +239,7 @@ First, set up the secret to store your GCE credential file and repository hostna
 It's important to set the destination path for the file to `/tmp/gcr/keyfile.json`
 as this is the default path and filename that Semaphore agent will lookup for GCR credentials.
 
-``` yaml
+``` bash
 sem create secret gcr-pull-secrets \
 -e DOCKER_CREDENTIAL_TYPE=GCR \
 -e GCR_HOSTNAME=gcr.io \
@@ -265,7 +267,7 @@ Private Docker Images stored in [Quay.io](https://quay.io) can be used in your C
 
 First, set up secret to store your Login credentials and Quay.io url:
 
-``` yaml
+``` bash
 sem create secret quay-pull-secrets \
 -e DOCKER_CREDENTIAL_TYPE=GenericDocker \
 -e DOCKER_URL=quay.io \
@@ -295,7 +297,7 @@ can be used in your CI/CD pipelines.
 
 First, set up secret to store your Login credentials and repository url:
 
-``` yaml
+``` bash
 sem create secret registry-pull-secrets \
 -e DOCKER_CREDENTIAL_TYPE=GenericDocker \
 -e DOCKER_URL=<your-repository-url> \

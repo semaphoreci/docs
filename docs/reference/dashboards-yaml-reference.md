@@ -1,4 +1,4 @@
-# Dashboards YAML reference
+# Dashboards YAML Reference
 
 This document is the reference of the Dashboard YAML grammar used for
 defining `dashboards` in Semaphore 2.0.
