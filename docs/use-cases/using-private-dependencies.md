@@ -1,3 +1,5 @@
+# Using Private Dependencies
+
 Dependency mangagers like Bundler, Yarn, and Go's module system allow
 specifying dependencies from private Git repositories. This makes it
 easier for teams to share code without requiring separate package
