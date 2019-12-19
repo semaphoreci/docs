@@ -1,4 +1,4 @@
-# Ubuntu 18.04 image
+# Ubuntu 18.04 Image
 
 The `ubuntu1804` is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes)
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,

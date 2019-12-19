@@ -1,12 +1,5 @@
 # Conditions Reference
 
-- [Overview](#overview)
-- [Formal language definition](#formal-language-definition)
-- [Functions](#functions)
-- [Usage examples](#usage-examples)
-
-## Overview
-
 The Conditions DSL is a universal way of specifying conditional execution of
 CI/CD commands in Semaphore.
 

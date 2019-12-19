@@ -1,3 +1,5 @@
+# TestFlight iOS App Distribution
+
 This guide shows how to configure iOS app distribution from
 [Semaphore][semaphore] to [Apple TestFlight][testflight] using
 [Fastlane][fastlane].

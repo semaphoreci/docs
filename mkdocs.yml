@@ -95,9 +95,9 @@ nav:
     - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
     - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
     - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
-    - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
+    - Tag-triggered Deployment: use-cases/tag-triggered-deployment.md
     - Configuring GitHub Status Checks: use-cases/configuring-github-status-checks.md
-    - Building Monorepo projects: use-cases/building-monorepo-projects.md
+    - Building Monorepo Projects: use-cases/building-monorepo-projects.md
     - Using Secrets: use-cases/using-secrets.md
   - Programming Languages:
     - Android: programming-languages/android.md

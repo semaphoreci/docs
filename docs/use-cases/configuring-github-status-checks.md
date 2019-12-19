@@ -1,3 +1,5 @@
+# Configuring GitHub Status Checks
+
 GitHub status checks are an excellent way to track and control the CI/CD status
 of your projects.
 
@@ -7,10 +9,6 @@ checks for multiple pipelines, or even blocks.
 
 The name of the GitHub status is derived from the name of your pipeline or
 block.
-
-- [Configuring pipeline level status checks](#configuring-pipeline-level-status-checks)
-- [Configuring pipeline level status checks for multiple pipelines](#configuring-pipeline-level-status-checks-for-multiple-pipelines)
-- [Configuring block level status checks](#configuring-block-level-status-checks)
 
 ## Configuring pipeline level status checks
 

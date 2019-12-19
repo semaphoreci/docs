@@ -1,7 +1,5 @@
 # Pipeline YAML Reference
 
-## Overview
-
 This document is the reference of the YAML grammar used for describing the
 pipelines of Semaphore 2.0 projects.
 

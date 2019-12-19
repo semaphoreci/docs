@@ -4,30 +4,6 @@ This document describes all the resources that make up the Semaphore 2.0 API ver
 
 The root of the API is `https://{org_name}.semaphoreci.com/api/v1alpha`.
 
-- [Overview](#overview)
-  - [Constraints](#constraints)
-  - [Authentication](#authentication)
-  - [Errors](#errors)
-  - [Pagination](#pagination)
-  - [Stability](#stability)
-  - [Changelog](#changelog)
-- [Workflows](#workflows)
-  - [Describe Workflow](#describe-workflow)
-  - [List Workflows](#list-workflows)
-  - [Rerun Workflow](#rerun-workflow)
-  - [Stop Workflow](#stop-workflow)
-- [Promotions](#promotions)
-  - [List Promotions](#list-promotions)
-  - [Trigger Promotion](#trigger-promotion)
-- [Pipelines](#pipelines)
-  - [Describe Pipeline](#describe-pipeline)
-  - [List Pipelines](#list-pipelines)
-  - [Stop Pipeline](#stop-pipeline)
-- [Jobs](#jobs)
-  - [Describe Job](#describe-job)
-  - [Stop Job](#stop-job)
-  - [Get Log](#get-log)
-
 ## Overview
 
 ### Constraints

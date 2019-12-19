@@ -1,3 +1,5 @@
+# Android
+
 This guide will help you get started with an Android project on Semaphore.
 If you’re new to Semaphore please read our
 [guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.

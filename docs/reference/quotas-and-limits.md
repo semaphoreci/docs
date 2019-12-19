@@ -4,10 +4,6 @@ Semaphore 2.0 enforces usage quotas and limits to protect customers and the
 platform from unforeseen spikes in usage. As your use of Semaphore expands over
 time, your quotas may increase accordingly.
 
-- [Quotas for Maximum Parallel Running Jobs in an Organization](#quotas-for-maximum-parallel-running-jobs-in-an-organization)
-- [Pipeline and Block Execution Time Limit](#pipeline-execution-time-limit)
-- [Job Log Size Limit](#job-log-size-limit)
-
 ## Quotas for Maximum Parallel Running Jobs in an Organization
 
 Every organization has a set of quotas that define the maximum number of

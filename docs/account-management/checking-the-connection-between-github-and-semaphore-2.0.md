@@ -1,4 +1,4 @@
-# Checking the connection between GitHub and Semaphore 2.0
+# Checking the Connection Between GitHub and Semaphore 2.0
 
 To check the status of the connection between Semaphore 2.0 and GitHub, please visit
 the [Semaphore 2.0 application page on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d).

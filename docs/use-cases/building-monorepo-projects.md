@@ -1,3 +1,5 @@
+# Building Monorepo Projects
+
 *Note*: The monorepo support is currently in `beta` stage of development.
 
 This guide shows you how to optimize your Semaphore workflow for monorepo

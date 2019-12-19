@@ -1,3 +1,5 @@
+# Zeit Now Continuous Deployment
+
 This guide shows you how to use Semaphore to set up continuous integration and
 deployment to [ZEIT Now](https://zeit.co).
 
