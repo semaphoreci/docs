@@ -68,7 +68,7 @@ In the following configuration example, we download dependencies, compile
 code and warm the cache in the first block, then use the cache in
 subsequent blocks.
 
-```yaml
+``` yaml
 version: v1.0
 name: Java & Maven Example
 agent:
@@ -114,7 +114,7 @@ blocks:
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [ubuntu-java]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos-java]: https://docs.semaphoreci.com/article/120-macos-mojave-image#java
+[macos-java]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#java
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
 [caching]: https://docs.semaphoreci.com/article/68-caching-dependencies

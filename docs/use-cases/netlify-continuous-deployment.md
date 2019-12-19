@@ -1,3 +1,5 @@
+# Netlify Continuous Deployment
+
 This guide shows you how to configure Semaphore to continuously deploy a
 static website to Netlify.
 
@@ -11,14 +13,6 @@ Before getting started, you'll need:
 For the initial CI pipeline, you may refer to Semaphore's [open source demo
 static website project][demo-project], which uses a Node.js framework to generate site
 pages, and the [companion guide][static-website-guide].
-
-**Table of contents**
-
-- [Write a deployment pipeline](#write-a-deployment-pipeline)
-- [Add a promotion to deployment](#add-a-promotion-to-deployment)
-- [Manage Netlify credentials](#manage-netlify-credentials)
-  - [Store credentials on Semaphore](#store-credentials-on-semaphore)
-- [Launch your first deployment](#launch-your-first-deployment)
 
 ## Write a deployment pipeline
 

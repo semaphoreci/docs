@@ -85,7 +85,19 @@ The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
 all promoted and auto promoted pipelines.
 
-Example value: `65c9bb1c-aeb6-41f0-b8d9-6fa177241cdf`
+#### SEMAPHORE\_WORKFLOW\_NUMBER
+
+The value of the `SEMAPHORE_WORKFLOW_NUMBER` environment variable represents the
+current count of workflows on each distinct branch, tag or pull request.
+The first workflow in each of those gets the `1` for the value of
+`SEMAPHORE_WORKFLOW_NUMBER` and on each subsequent push or workflow rerun this
+value is increased by one.
+
+The `SEMAPHORE_WORKFLOW__NUMBER` environment variable remains the same during
+a pipeline run and is available in all the blocks of a pipeline as well as in
+all promoted and auto promoted pipelines of the same workflow.
+
+Example value: `42`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
@@ -97,6 +109,28 @@ all the blocks of a pipeline, which makes it the perfect candidate for sharing
 data inside the same pipeline.
 
 Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_TYPE` environment variable specifies
+the type of agent used in the job that is being executed.
+
+Example value: `e1-standard-4`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_OS\_IMAGE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_OS_IMAGE` environment variable represents
+the operating system image that is being used.
+
+Example value: `ubuntu1804`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_ENVIRONMENT\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE` environment variable
+specifies the type of environment in which the job is being executed,
+inside the `container` or inside the `VM`.
+
+Example value: `container`
 
 ### Git repository related
 

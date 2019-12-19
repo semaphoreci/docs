@@ -28,7 +28,7 @@ blocks:
 Private information like API keys or deploy credentials shouldn't be
 written in the pipeline definition file or elsewhere committed to source
 control. On Semaphore you define these values as _secrets_ using either
-the `sem` CLI or through the web interface (Configuration part of the 
+the `sem` CLI or through the web interface (Configuration part of the
 sidebar -> Secrets).
 Secrets are shared by all projects in the organization.
 
@@ -63,10 +63,14 @@ blocks:
 
 Let's say that we've changed our mind and instead of environment variables,
 we'd actually like to use configuration files, such as `.aws/config` and
-`.aws/credentials`. We can store files in a secret too.
+`.aws/credentials`. We can store files in a secret too by passing a `-f` or
+`--file` to `sem create`.
 
-In the following example, we source our local configuration files and tell
-Semaphore to mount them in the job environment's home folder:
+
+Provide the path to the local file and location where the remote file should
+be mounted, separated by a colon. In the following example, we source our local
+configuration files and tell Semaphore to mount them in the job environment's
+home folder:
 
 ``` bash
 sem create secret aws-secrets-with-files \
