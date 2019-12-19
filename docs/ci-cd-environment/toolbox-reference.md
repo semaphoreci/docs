@@ -153,7 +153,14 @@ Note that some deployment scenarios, like Heroku, require presence of the full
 Git history.
 
 If you'd like to do a full clone, execute `checkout` with the `--use-cache`
-flag.
+flag, or use the following code snippet:
+
+```
+checkout
+git fetch --unshallow
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+git fetch --all
+```
 
 The `checkout()` function of the `libcheckout` script depends on the following
 three Semaphore environment variables:

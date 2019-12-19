@@ -1,4 +1,4 @@
-# Auto-cancel previous pipelines on a new push
+# Auto-cancel Previous Pipelines on a New Push
 
 The *auto-cancel* strategy defines the behavior of pipelines when a queue for
 execution forms.
@@ -28,11 +28,6 @@ The *queued* strategy will only cancel pipelines that are waiting in the queue
 and have not yet started to run.
 This option is ideal if you don't want to stop an already started test execution.
 
-
-- [Auto-cancel queued pipelines on a new push](#auto-cancel-queued-pipelines-on-a-new-push)
-- [Auto-cancel both running and queued pipelines on a new push](#auto-cancel-both-running-and-queued-pipelines-on-a-new-push)
-- [Auto-cancel all pipelines on a new push to a non-master branch](#auto-cancel-all-pipelines-on-a-new-push-to-a-non-master-branch)
-- [See aslo](#see-also)
 
 ## Auto-cancel queued pipelines on a new push
 

@@ -1,9 +1,5 @@
 # Clojure
 
-This guide covers configuring Clojure projects on Semaphore.
-If you’re new to Semaphore we recommend reading the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
-
 ## Supported Clojure versions
 
 Semaphore 2.0 Virtual Machine comes with the Leiningen tool preinstalled. The

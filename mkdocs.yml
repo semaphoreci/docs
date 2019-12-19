@@ -1,5 +1,5 @@
 # Project information
-site_name: Semaphore 2.0 documentation
+site_name: Semaphore 2.0 Documentation
 site_description: Semaphore 2.0 documentation
 site_author: Rendered Text
 site_url: 'https://semaphoreci.com'
@@ -43,58 +43,64 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Guided Tour:
-    - Getting Started: guided-tour/getting-started.md
-    - Creating your first project: guided-tour/creating-first-project.md
+    - Getting started: guided-tour/getting-started.md
+    - Creating your first project: guided-tour/creating-your-first-project.md
     - Concepts: guided-tour/concepts.md
-    - Customizing Your Pipeline: guided-tour/customize-pipeline.md
-    - Customizing the Build Environment: guided-tour/customize-build-env.md
-    - Using Databases and Services: guided-tour/using-database-and-services.md
-    - Caching Dependencies: guided-tour/caching-dependencies.md
-    - Environment Variables and Secrets: guided-tour/environment-variables-and-secrets.md
-    - Deploying With Promotions: guided-tour/deploying-with-promotions.md
-    - Migration guide for Semaphore Classic users: guided-tour/migration-guide.md
-    - Slack Notifications: guided-tour/slack-notifications.md
+    - Customizing your pipeline: guided-tour/customizing-your-pipeline.md
+    - Customizing the build environment: guided-tour/customizing-the-build-environment.md
+    - Using databases and services: guided-tour/using-databases-and-services.md
+    - Caching dependencies: guided-tour/caching-dependencies.md
+    - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
+    - Deploying with promotions: guided-tour/deploying-with-promotions.md
+    - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
+    - Slack notifications: guided-tour/slack-notifications.md
   - Use Cases:
-    - Tutorials and Example Projects: use-cases/tutorials-and-examples.md
-    - Debugging with SSH Access: use-cases/debugging-with-ssh.md
-    - Artifacts: use-cases/artifacts.md
-    - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
-    - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
-    - Build matrix: use-cases/build-matrix.md
-    - Modeling complex workflows: use-cases/modeling-complex-workflows.md
-    - Working with Docker: use-cases/working-with-docker.md
-    - Publishing Docker images on DockerHub: use-cases/publishing-docker-images-on-dockerhub.md
-    - Pushing Docker images to AWS Elastic Container Registry (ECR): use-cases/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
-    - Pushing Docker images to Google Container Registry (GCR): use-cases/pushing-docker-images-to-google-container-registry-gcr.md
     - Docker layer caching: use-cases/docker-layer-caching.md
+    - Tutorials and example projects: use-cases/tutorials-and-example-projects.md
+    - Working with Docker: use-cases/working-with-docker.md
+    - iOS continuous integration with Xcode: use-cases/ios-continuous-integration-with-xcode.md
+    - Debugging with SSH access: use-cases/debugging-with-ssh-access.md
+    - Rails continuous integration: use-cases/rails-continuous-integration.md
+    - CI/CD for microservices on Kubernetes: use-cases/ci-cd-for-microservices-on-kubernetes.md
+    - Node.js and TypeScript continuous integration: use-cases/node-js-and-typescript-continuous-integration.md
+    - Pushing Docker images to Google Container Registry (GCR): use-cases/pushing-docker-images-to-google-container-registry-gcr.md
+    - Continuous deployment of a static website: use-cases/continuous-deployment-of-a-static-website.md
     - Using Docker Compose in CI: use-cases/using-docker-compose-in-ci.md
-    - CI/CD for Microservices on Kubernetes: use-cases/ci-cd-for-microservices-on-kubernetes.md
-    - Code Signing for iOS projects: use-cases/code-signing-for-ios-projects.md
-    - Django Continuous Integration: use-cases/django-continuous-integration.md
-    - Elixir Phoenix Continuous Integration: use-cases/elixir-phoenix-continuous-integration.md
-    - Golang Continuous Integration: use-cases/golang-continuous-integration.md
-    - iOS Continuous Integration with Xcode: use-cases/ios-continuous-integration-with-xcode.md
-    - Java Spring Continuous Integration: use-cases/java-spring-continuous-integration.md
-    - Node.js and TypeScript Continuous Integration: use-cases/node-js-and-typescript-continuous-integration.md
-    - Laravel PHP Continuous Integration: use-cases/laravel-php-continuous-integration.md
-    - Rails Continuous Integration: use-cases/rails-continuous-integration.md
-    - Scala Play Continuous Integration: use-cases/scala-play-continuous-integration.md
-    - Continuous Deployment of a Static Website: use-cases/continuous-deployment-of-a-static-website.md
-    - Google Cloud Run Continuous Deployment: use-cases/google-cloud-run-continuous-deployment.md
-    - Netlify Continuous Deployment: use-cases/netlify-continuous-deployment.md
-    - Heroku Deployment: use-cases/heroku-deployment.md
-    - Zeit Now Continuous Deployment: use-cases/zeit-now-continuous-deployment.md
-    - Deployment Dashboards: use-cases/deployment-dashboards.md
-    - Using Private Dependencies: use-cases/using-private-dependencies.md
-    - TestFlight iOS app distribution: use-cases/testflight-ios-app-distribution.md
-    - HockeyApp iOS app distribution: use-cases/hockeyapp-ios-app-distribution.md
-    - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
-    - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
-    - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
-    - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
+    - Heroku deployment: use-cases/heroku-deployment.md
+    - Laravel PHP continuous integration: use-cases/laravel-php-continuous-integration.md
+    - Deployment dashboards: use-cases/deployment-dashboards.md
+    - Django continuous integration: use-cases/django-continuous-integration.md
+    - Java Spring continuous integration: use-cases/java-spring-continuous-integration.md
+    - Using private dependencies: use-cases/using-private-dependencies.md
+    - Pushing Docker images to AWS Elastic Container Registry (ECR): use-cases/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
+    - Modeling complex workflows: use-cases/modeling-complex-workflows.md
+    - Publishing Docker images on DockerHub: use-cases/publishing-docker-images-on-dockerhub.md
+    - Zeit Now continuous deployment: use-cases/zeit-now-continuous-deployment.md
+    - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
+    - Code signing for iOS projects: use-cases/code-signing-for-ios-projects.md
+    - Build matrix: use-cases/build-matrix.md
+    - Golang continuous integration: use-cases/golang-continuous-integration.md
+    - Artifacts: use-cases/artifacts.md
+    - Elixir Phoenix continuous integration: use-cases/elixir-phoenix-continuous-integration.md
+    - Google Cloud run continuous deployment: use-cases/google-cloud-run-continuous-deployment.md
     - Project workflow trigger options: use-cases/project-workflow-trigger-options.md
+    - Netlify continuous deployment: use-cases/netlify-continuous-deployment.md
+    - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
+    - Scala Play continuous integration: use-cases/scala-play-continuous-integration.md
+    - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
+    - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
+    - Status Badges: use-cases/status-badges.md
+    - HockeyApp iOS app distribution: use-cases/hockeyapp-ios-app-distribution.md
+    - TestFlight iOS app distribution: use-cases/testflight-ios-app-distribution.md
+    - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
+    - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
+    - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
+    - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
+    - Configuring GitHub status checks: use-cases/configuring-github-status-checks.md
+    - Building Monorepo projects: use-cases/building-monorepo-projects.md
+    - Using Secrets: use-cases/using-secrets.md
   - Programming Languages:
+    - Android: programming-languages/android.md
     - C: programming-languages/c.md
     - C++: programming-languages/cpp.md
     - Clojure: programming-languages/clojure.md
@@ -110,32 +116,36 @@ nav:
     - Scala: programming-languages/scala.md
     - Swift: programming-languages/swift.md
   - CI/CD Environment:
-    - Machine Types: ci-cd-environment/machine-types.md
+    - Machine types: ci-cd-environment/machine-types.md
     - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
-    - macOS Mojave Image: ci-cd-environment/macos-mojave-image.md
+    - macOS Mojave Xcode 11 image: ci-cd-environment/macos-mojave-xcode-11-image.md
+    - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
     - Custom CI/CD environment with Docker: ci-cd-environment/custom-ci-cd-environment-with-docker.md
-    - Toolbox Reference: ci-cd-environment/toolbox-reference.md
-    - Environment Variables: ci-cd-environment/environment-variables.md
+    - Toolbox reference: ci-cd-environment/toolbox-reference.md
+    - Environment variables: ci-cd-environment/environment-variables.md
     - "sem-version: Managing language versions on Linux": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
     - "sem-service: Managing databases and services on Linux": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
-    - Configuring Database Access: ci-cd-environment/configuring-database-access.md
-    - Caching Dependencies and Directories: ci-cd-environment/caching-dependencies-and-directories.md
+    - Configuring database access: ci-cd-environment/configuring-database-access.md
+    - Caching dependencies and directories: ci-cd-environment/caching-dependencies-and-directories.md
     - Artifact CLI reference: ci-cd-environment/artifact-cli-reference.md
+    - Choosing between a VM and Docker-based environment: ci-cd-environment/choosing-between-a-vm-and-docker-based-environment.md
   - Reference:
     - sem command line tool: reference/sem-command-line-tool.md
-    - Pipeline YAML Reference: reference/pipeline-yaml-reference.md
+    - Pipeline YAML reference: reference/pipeline-yaml-reference.md
     - Secrets YAML reference: reference/secrets-yaml-reference.md
     - Projects YAML reference: reference/projects-yaml-reference.md
     - Dashboards YAML reference: reference/dashboards-yaml-reference.md
-    - Jobs YAML Reference: reference/jobs-yaml-reference.md
-    - Notifications YAML Reference: reference/notifications-yaml-reference.md
-    - Slack Notifications: reference/slack-notifications.md
+    - Jobs YAML reference: reference/jobs-yaml-reference.md
+    - Notifications YAML reference: reference/notifications-yaml-reference.md
+    - Slack notifications: reference/slack-notifications.md
     - Semaphore Changelog: reference/semaphore-changelog.md
-    - Quotas and Limits: reference/quotas-and-limits.md
-    - Conditions Reference: reference/conditions-reference.md
+    - Quotas and limits: reference/quotas-and-limits.md
+    - Conditions reference: reference/conditions-reference.md
+    - API - v1alpha: reference/api-v1alpha.md
+    - Artifact CLI reference: reference/artifact-cli-reference.md
   - Account Management:
     - Billing: account-management/billing.md
-    - User Management and Permissions: account-management/user-management-and-permissions.md
+    - User management and permissions: account-management/user-management-and-permissions.md
     - Checking the connection between GitHub and Semaphore 2.0: account-management/checking-the-connection-between-github-and-semaphore-2.0.md
     - Discounts: account-management/discounts.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md

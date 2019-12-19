@@ -6,7 +6,7 @@ If you’re new to Semaphore please read our
 
 ## Hello world
 
-```yaml
+``` yaml
 # .semaphore/semaphore.yml
 version: v1.0
 name: Python example
@@ -178,7 +178,7 @@ blocks:
 
 [django-tutorial]: https://docs.semaphoreci.com/article/116-django-continuous-integration
 [ubuntu-python]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python
-[macos-python]: https://docs.semaphoreci.com/article/120-macos-mojave-image#python
+[macos-python]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#python
 [sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
 [python-docker-image]: https://hub.docker.com/r/semaphoreci/python
 [docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker

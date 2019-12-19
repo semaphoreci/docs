@@ -1,4 +1,4 @@
-# Download and cache a custom file
+# Download and Cache a Custom File
 
 This guide shows you how to download one or more files and store them in
 Semaphore cache indefinitely.

@@ -4,6 +4,109 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 16, 2019
+- Updates to ubuntu1804 image
+  - Git-lfs  2.9.1  -> 2.9.2
+  - Yarn     1.19.2 -> 1.21.1
+  - Chrome       78 -> 79
+  - Chromedriver 78 -> 79
+  - PhpUnit  7.5.17 -> 7.5.18
+  - Phpbrew  1.23.1 -> 1.24.1
+  - APT: removed ppa jonathonf/python-2.7
+  
+### Week of December 2, 2019
+- Updates to ubuntu1804 image
+  - Git-lfs 2.9.0  -> 2.9.1
+  - Yarn    1.19.1 -> 1.19.2
+- Additions to ubuntu1804 image
+  - Elixir versions 1.9.2, 1.9.3, 1.9.4
+
+### Week of November 18, 2019
+- Updates to ubuntu1804 image
+  - Git      2.23   -> 2.24
+  - Heroku   7.33   -> 7.35
+- Additions to ubuntu1804 image
+  - ImageMagick 8:6.9.7.4
+
+### Week of November 11, 2019
+- macOS image updates:
+  - `macos-mojave-xcode11` Xcode 11.2.1 installed, to switch version use
+    `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
+  - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image)
+  - packages:
+      - fastlane 2.135.2
+      - cocoapods 1.8.4
+
+### Week of November 4, 2019
+
+ - [Status badges](https://docs.semaphoreci.com/article/166-status-badges) are available.
+ - Semaphore toolbox:
+   - Fix issue with cache corruption during parallel uploads.
+ - New [environment variables available in Semaphore
+   jobs](https://docs.semaphoreci.com/article/12-environment-variables):
+   - `SEMAPHORE_AGENT_MACHINE_TYPE`
+   - `SEMAPHORE_AGENT_MACHINE_OS_IMAGE`
+   - `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE`
+ - When creating a project, you can select from a collection of ready-made
+   configuration recipes.
+
+### Week of October 21, 2019
+
+- Updates to ubuntu1804 image
+  - Pip      19.2   -> 19.3.1
+  - Nvm      8.11.3 -> 8.16.2
+  - Npm       5.6.0 -> 6.4.1
+  - Chrome       77 -> 78
+  - Chromedriver 77 -> 78
+  - Git-lfs   2.8.0 -> 2.9.0
+  - Phpunit  7.15.6 -> 7.15.7
+  - Firefox-esr 60  -> 68
+  - Ruby      2.3.7 -> 2.3.8
+  - Ruby      2.4.4 -> 2.4.9
+  - Ruby      2.5.1 -> 2.5.7
+  - Ruby      2.6.4 -> 2.6.5
+- Additions
+  - Nvm 10.17
+  - Nvm 12.3
+
+### Week of October 14, 2019
+
+- Updates to ubuntu1804 image
+  - Heroku 7.30.0 -> 7.33.3
+  - Elixir 1.8.1  -> 1.8.2
+  - Elixir 1.9.0  -> 1.9.1
+  - Erlang 22.0   -> 22.1
+  - Yarn   1.17.3 -> 1.19.1
+  - Kerl   1.3.4  -> 1.8.4
+  - Rebar3 3.6.1  -> 3.12.0
+
+### Week of October 7, 2019
+
+- Updates to the macOS image:
+  - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
+    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
+- You can change which blocks and pipelines send status checks to pull requests
+  on GitHub. [See how](https://docs.semaphoreci.com/article/53-sem-reference#changing-github-status-check-notifications).
+
+### Week of September 30, 2019
+
+- [The latest release of the Semaphore Agent](https://github.com/semaphoreci/agent/pull/72),
+  v0.10.1, checks if Bash is available before starting jobs in a custom
+  Docker container. Previously, without this check, the first step in a job
+  that exports environment variables would fail without a real indication of
+  the root problem.
+- From now on, outdated version of the CLI will be rejected from accessing
+  your organization. Compatibility of the CLI will be uphold at least up to the
+  last 3 minor releases. Only in case of security issues will this
+  compatibility policy be broken.
+- Jobs generated with [parallelism](https://docs.semaphoreci.com/article/50-pipeline-yaml#parallelism)
+  are using a new naming scheme `<job-name> - <index>/<job-count>`.
+  Example: `RSpec - 1/4`.
+- We introduced a new syntax for configuring [auto-promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote)
+  which leverages our [Conditions DSL](https://docs.semaphoreci.com/article/142-conditions-reference)
+  to allow you to express conditions for pipeline auto-promotion in a lot less
+  complicated way than before.
+
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
