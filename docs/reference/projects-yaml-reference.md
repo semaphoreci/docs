@@ -15,6 +15,8 @@
         - [allowed_secrets](#allowed_secrets)
         - [allowed_contributors](#allowed_contributors)
     - [pipeline\_file](#pipeline_file)
+    - [status](#status)
+        - [pipeline\_files](#pipeline_files)
   - [schedulers](#schedulers)
 - [Examples](#examples)
 - [See also](#see-also)
@@ -164,6 +166,34 @@ that is executed when a post-commit hook is received by Semaphore.
 
 The default value is `.semaphore/semaphore.yml`.
 
+##### status
+
+The `status` property is used to specify which Semaphore pipeline(s) will
+submit a status check on GitHub pull requests.
+
+A pipeline can create one status check as a result of the whole pipeline.
+Or each block in a pipeline can create its own status check.
+
+##### pipeline\_files
+
+The `pipeline\_files` property is a list of pipeline files for which Semaphore
+will submit a status check.
+
+Each value has two properties: `path` and `level`.
+
+When you create a project, the default value is
+`path: .semaphore/semaphore.yml, level: pipeline`.
+
+##### path
+
+The `path` property specifies a pipeline.
+
+##### level
+
+The `level` property specifies the granularity of status checks.
+
+List of values for `level`: `block`, `pipeline`
+
 #### schedulers
 
 The schedulers property can contain a list of schedulers defined on the
@@ -218,6 +248,11 @@ spec:
     run_on:
       - branches
       - tags
+    pipeline_file: ".semaphore/semaphore.yml"
+    status:
+      pipeline_files:
+        - path: ".semaphore/semaphore.yml"
+          level: "pipeline"
 ```
 
 A project with schedulers:
@@ -234,6 +269,11 @@ spec:
     run_on:
       - branches
       - tags
+    pipeline_file: ".semaphore/semaphore.yml"
+    status:
+      pipeline_files:
+        - path: ".semaphore/semaphore.yml"
+          level: "pipeline"
   schedulers:
     - name: first-scheduler
       branch: master

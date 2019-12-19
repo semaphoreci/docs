@@ -6,7 +6,7 @@ _[Guided tour](https://docs.semaphoreci.com/article/77-getting-started)_ first.
 
 ## Hello World
 
-```yaml
+``` yaml
 # .semaphore/semaphore.yml
 version: v1.0
 name: Rust example
