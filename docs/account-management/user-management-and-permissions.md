@@ -150,10 +150,22 @@ In order to change the URL of your organization:
 
 **Note:** Only an Admin or an Owner of the organization can perform these actions.
 
-## Deleting organization and account
+## Deleting an organization 
 
-In order to delete your account and/or organization, please send an email to
+Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/article/63-your-first-project#deleting-a-project) in it. 
+Note that once you delete an organization, its content cannot be restored. 
+Only the onwer of the organization can delete the organization.
+
+In order to delete the organization, you should:
+
+1. Go to **General Settings** at the bottom of the sidebar,
+2. Click on **Delete organization-name** at the bottom of the page,
+3. Type in the organization name to confirm and
+4. Click on **Delete organization-name organization** button.
+
+## Deleting an account
+
+In order to delete your account, please send an email to
 [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email
 address connected to the GitHub account you use to log in to Semaphore 2.0.
-In this email, include your GitHub username and the name of the organization
-you’d like to delete.
+In this email, please include your GitHub username.

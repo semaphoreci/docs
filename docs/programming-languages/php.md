@@ -6,7 +6,7 @@ Semaphore we recommend reading our
 
 ## Hello world
 
-```yaml
+``` yaml
 # .semaphore/semaphore.yml
 version: v1.0
 name: PHP example

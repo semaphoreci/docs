@@ -15,6 +15,7 @@
   - [dependencies](#dependencies-in-blocks)
   - [task](#task-in-blocks)
   - [skip](#skip-in-blocks)
+  - [run](#run-in-blocks)
 - [Task](#task)
   - [jobs](#jobs)
   - [agent in task](#agent-in-task)
@@ -91,9 +92,8 @@ The `name` property is a Unicode string that assigns a name to a Semaphore
 pipeline and is optional. However, you should always give descriptive names
 to your Semaphore pipelines.
 
-*Note*: The `name` property can be found in other sections for defining the
-name of a job inside a `jobs` block or the name of a `task` section defined
-within `task`.
+*Note*: The `name` property can be found in other sections such as defining the
+name of a job inside a `jobs` block.
 
 Example of `name` usage:
 
@@ -753,9 +753,11 @@ Its result_reason will be set to `skipped` and other blocks which depend on it
 passing will be started and executed as if this block executed regularly and all
 of its jobs passed.
 
-Examples for frequent use cases can be found [here][when-repo-skip-exemples].
+*Note*: It is not possible to have both `skip` and [run](#run-in-blocks)
+properties defined for the same block since both of them configure the same
+behavior, but in opposite ways.
 
-### Example of Blocks
+Example of a block that is skipped on all branches except on master:
 
 ``` yaml
 version: v1.0
@@ -768,6 +770,43 @@ blocks:
  - name: Inspect Linux environment
    skip:
      when: "branch != 'master'"
+   task:
+      jobs:
+        - name: Print Environment variables
+          commands:
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo $HOME
+```
+
+### run in blocks
+
+The `run` property is optional and it allows you to define a condition, written
+in [Conditions DSL][conditions-reference], that is based on properties of the push
+which initiated the whole pipeline.
+
+Only if the condition defined in this way is evaluated to be true, the block and
+all of its jobs will be run, otherwise, block will be skipped.
+
+When a block is skipped, it means that it will immediately finish with the result
+`passed` and the result_reason `skipped` without actually running any of its jobs.
+
+*Note*: It is not possible to have both `run` and [skip](#skip-in-blocks)
+properties defined for the same block since both of them configure the same
+behavior, but in opposite ways.
+
+Example of a block that is run only on the master branch:
+
+``` yaml
+version: v1.0
+name: The name of the Semaphore 2.0 project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+ - name: Inspect Linux environment
+   run:
+     when: "branch = 'master'"
    task:
       jobs:
         - name: Print Environment variables
@@ -894,19 +933,19 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
- - name: Inspect Linux environment
+ - name: Run in Linux environment
    task:
       jobs:
         - name: Learn about SEMAPHORE_GIT_DIR
           commands:
             - echo $SEMAPHORE_GIT_DIR
 
- - name: Agent in task
+ - name: Run in macOS environment
    task:
       agent:
           machine:
-            type: e1-standard-2
-            os_image: ubuntu1804
+            type: a1-standard-4
+            os_image: macos-mojave-xcode11
       jobs:
         - name: Using agent job
           commands:
@@ -1036,7 +1075,7 @@ blocks:
           - name: VAR_2
             value: This is VAR_2 from First Job
 
-  - name: Both local end global env_vars
+  - name: Both local and global env_vars
     task:
       env_vars:
         - name: APP_ENV
@@ -1954,6 +1993,6 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/120-macos-mojave-xcode-10-image
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection

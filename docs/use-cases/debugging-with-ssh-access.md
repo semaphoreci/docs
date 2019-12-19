@@ -1,5 +1,3 @@
-# Debugging with SSH Access
-
 Often the best way to troubleshoot failures and bugs in your pipelines is to
 SSH into a job and inspect log files, running processes, and directory paths.
 Semaphore gives you the option to access all running jobs via SSH, to
@@ -7,6 +5,12 @@ restart your jobs in debug mode, or to start on-demand virtual machines to
 explore the CI/CD environment.
 
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].
+
+- [Restarting a job in debug mode](#restarting-a-job-in-debug-mode)
+- [Inspecting the state of a running job](#inspecting-the-state-of-a-running-job)
+- [Port forwarding your web server and debug UI issues](#port-forwarding-your-web-server-and-debug-ui-issues)
+- [Stopping a debug session](#stopping-a-debug-session)
+- [See also](#see-also)
 
 ## Restarting a job in debug mode
 
