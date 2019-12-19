@@ -1,4 +1,4 @@
-# Ubuntu 18.04 image
+# Ubuntu 18.04 Image
 
 The `ubuntu1804` is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes)
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
@@ -7,24 +7,8 @@ with any [Linux machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
 The `ubuntu1804` is a virtual machine (VM) image. The user in the environment,
-named `semaphore`, has full `sudo` access.
-
-- [Using the ubuntu1804 OS image in your agent configuration](#using-the-ubuntu1804-os-image-in-your-agent-configuration)
-- [Toolbox](#toolbox)
-- [Version control](#version-control)
-- [Browsers and Headless Browser Testing](#browsers-and-headless-browser-testing)
-- [Docker](#docker)
-- [Cloud CLIs](#cloud-clis)
-- [Network utilities](#network-utilities)
-- [Languages](#languages)
-  - [Erlang and Elixir](#erlang-and-elixir)
-  - [Go](#go)
-  - [Java and JVM languages](#java-and-jvm-languages)
-  - [JavaScript via Node.js](#javascript-via-node-js)
-  - [PHP](#php)
-  - [Python](#python)
-  - [Ruby](#ruby)
-- [See also](#see-also)
+named `semaphore`, has full `sudo` access. The image will be updated bi-weekly, on first and third Monday of every month.
+Updates can be followed on [Semaphore Changelog](https://docs.semaphoreci.com/article/113-changelog).
 
 The `ubuntu1804` VM uses an *APT mirror* that is in the same data center as
 Semaphore's build cluster, which means that caching packages will have little
@@ -75,10 +59,10 @@ Following version control tools are pre-installed:
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 60.1
+- Firefox 68.2
 - geckodriver 0.21.0
-- Google Chrome 77
-- chrome_driver 77
+- Google Chrome 79
+- chrome_driver 79
 - xvfb (X Virtual Framebuffer)
 - phantomjs 2.1.1
 
@@ -115,13 +99,13 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.0, 22
-- Elixir: 1.7.3, 1.8.1, 1.9.0
+- Erlang: 20.3, 21.3, 22.1
+- Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4
 
 Additional libraries:
 
 - rebar: 2.6.4
-- rebar3: 3.6.1
+- rebar3: 3.12.1
 
 ### Go
 
@@ -150,11 +134,13 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v8.11.3 (set as default, with alias 8.11)
+- v8.16.2 (set as default, with alias 8.16)
+- v10.17.0
+- v12.3.0
 
 #### Additional tools
 
-- Yarn: 1.17.3
+- Yarn: 1.21.1
 - Bower: 1.8.8
 
 ### PHP
@@ -172,7 +158,7 @@ The default installed PHP version is `7.2.10`.
 
 #### Additional libraries
 
-phpunit: 7.5.16
+phpunit: 7.5.18
 
 ### Python
 
@@ -186,7 +172,7 @@ Supporting libraries:
 
 - pypy: 5.8.0
 - pypy3: 5.8.0
-- pip: 19.2
+- pip: 19.3
 - pip3: 19
 - venv: 16.0.0
 
@@ -201,13 +187,9 @@ Available versions:
 - 2.1.0 to 2.1.10
 - 2.2.0 to 2.2.10
 - 2.3.0 to 2.3.8
-- 2.4.0 to 2.4.6
-- 2.5.0 to 2.5.5
-- 2.6.0
-- 2.6.1
-- 2.6.2
-- 2.6.3
-- 2.6.4
+- 2.4.0 to 2.4.9
+- 2.5.0 to 2.5.7
+- 2.6.0 to 2.6.5
 - jruby-9.1.17.0
 
 ## See Also

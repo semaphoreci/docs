@@ -1,3 +1,5 @@
+# Using Docker Compose in CI
+
 Semaphore lets you easily run Docker Compose to build and test multi-container
 applications.
 

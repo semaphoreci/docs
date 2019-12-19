@@ -1,4 +1,4 @@
-# Fail-Fast: Stop running tests on the first failure
+# Fail-Fast: Stop Running Tests on the First Failure
 
 On Semaphore, a fail-fast strategy means that you get instant feedback when a
 job fails. All the running jobs of a pipeline are stopped as soon as one of
