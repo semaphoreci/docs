@@ -251,3 +251,18 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .welcome-page .welcome-intro {
+        top: -82px;
+        left: -275px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .welcome-page .welcome-intro {
+        top: -92px;
+        left: -300px;
+        width: 250px;
+    }
+}
