@@ -45,6 +45,8 @@
                 <li><a href="use-cases/artifacts">Artifacts</a></li>
                 <li><a href="use-cases/auto-cancel-previous-pipelines-on-a-new-push">Auto-cancel previous pipelines on a new push</a></li>
                 <li><a href="use-cases/fail-fast-stop-running-tests-on-the-first-failure">Fail-Fast: Stop running tests on the first failure</a></li>
+                <li><a href="use-cases/building-monorepo-projects">Building Monorepo Projects</a></li>
+                <li><a href="use-cases/status-badges">Status Badges</a></li>
             </ul>
         </div>
 
