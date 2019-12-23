@@ -2,7 +2,7 @@
 site_name: Semaphore 2.0 Documentation
 site_description: Semaphore 2.0 documentation
 site_author: Rendered Text
-site_url: 'https://semaphoreci.com'
+site_url: 'https://docs.semaphoreci.com'
 
 # Repository
 repo_name: semaphoreci/docs

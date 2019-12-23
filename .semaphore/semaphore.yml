@@ -15,7 +15,6 @@ blocks:
           commands:
             - make configure.gcloud
             - make mkdocs.build
-            - make mkdocs.push
             - make nginx.build
             - make nginx.test
             - make nginx.push
