@@ -21,9 +21,8 @@ blocks:
             - make nginx.push
       secrets:
         - name: s2prod-gce
-
 promotions:
   - name: Staging
     pipeline_file: stg.yml
     auto_promote:
-      when: "result = 'passed'"
+      when: result = 'passed'
