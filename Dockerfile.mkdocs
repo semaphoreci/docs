@@ -1,3 +1,5 @@
 FROM squidfunk/mkdocs-material
 
 ADD . /docs
+
+CMD ["serve"]
