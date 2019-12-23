@@ -26,4 +26,4 @@ promotions:
   - name: Production
     pipeline_file: prod.yml
     auto_promote:
-      when: "result = 'passed' and branch = 'docs-v2'"
+      when: "result = 'passed' and branch = 'master'"
