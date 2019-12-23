@@ -14,9 +14,9 @@
             <p class="welcome-block-description">Learn the basic concepts</p>
 
             <ul>
-                <li><a href="guided-tour/creating-first-project">Creating your first project</a></li>
+                <li><a href="guided-tour/creating-your-first-project/">Creating your first project</a></li>
                 <li><a href="guided-tour/getting-started">Getting Started</a></li>
-                <li><a href="use-cases/tutorials-and-examples">Tutorials and Example Projects</a></li>
+                <li><a href="use-cases/tutorials-and-example-projects/">Tutorials and Example Projects</a></li>
                 <li><a href="reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
                 <li><a href="reference/sem-command-line-tool">sem command line tool</a></li>
             </ul>
