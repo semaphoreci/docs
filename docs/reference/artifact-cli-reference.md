@@ -27,10 +27,6 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 
 ## [Artifacts Management](#artifacts-management)
 
-- [Uploading Artifact](#uploading-artifact)
-- [Downloading Artifact](#downloading-artifact)
-- [Deleting Artifact](#deleting-artifact)
-
 ### Uploading Artifact
 
 To upload an artifact from Semaphore job it is necessary to specify
