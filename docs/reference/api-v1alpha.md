@@ -298,7 +298,7 @@ HTTP status: 200
 }
 ```
 
-Response with `datailed` param set to `true`:
+Response with `detailed` param set to `true`:
 
 ```json
 HTTP status: 200
