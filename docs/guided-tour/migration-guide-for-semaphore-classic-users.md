@@ -78,8 +78,7 @@ pipelines. Specifically this does not happen automatically:
 
 - Dependencies are not cached by default: see
   [caching guide](https://docs.semaphoreci.com/article/68-caching-dependencies)
-  and examples for your
-  [programming language](https://docs.semaphoreci.com/category/58-programming-languages)
+  and examples in the Programming Languages category.
 
 S2 job logs provide much more information about your CI/CD environment in an
 easy to use full-page format. For example, you will see exactly how long it
