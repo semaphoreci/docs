@@ -3,7 +3,7 @@
 <div class="welcome-page">
 
     <div class="welcome-intro">
-        Welcome to <a href="https://semaphoreci.com">Semaphore 2.0</a> Documentation. All pages are open source. If you feel something could be improved, you can [propose changes](https://github.com/semaphoreci/docs/blob/master/CONTRIBUTING.md).
+        Welcome to <a href="https://semaphoreci.com">Semaphore 2.0</a> Documentation. All pages are open source. If you feel something could be improved, you can <a href="https://github.com/semaphoreci/docs/blob/master/CONTRIBUTING.md">propose changes</a>.
     </div>
 
     <img src="images/ill-docs-welcome.svg">
