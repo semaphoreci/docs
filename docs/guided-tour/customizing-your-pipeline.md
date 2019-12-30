@@ -105,4 +105,4 @@ which make this very easy. Let's move on to
 [concepts]: https://docs.semaphoreci.com/article/62-concepts
 [checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
 [pipeline]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[next]: https://docs.semaphoreci.com/article/65-customizing-build-environment
+[next]: https://docs.semaphoreci.com/guided-tour/customizing-the-build-environment/
