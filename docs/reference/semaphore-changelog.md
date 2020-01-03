@@ -4,6 +4,10 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 30, 2019
+- Additions to ubuntu1804 image
+  - Ruby 2.7.0
+
 ### Week of December 16, 2019
 - Updates to ubuntu1804 image
   - Git-lfs  2.9.1  -> 2.9.2
