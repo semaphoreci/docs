@@ -32,15 +32,17 @@ SSH key configuration on GitHub.
 
 Now GitHub is configured with the public key. The next step is
 configure your Semaphore pipeline to use the private key. We'll use
-[secret files][secrets] for this. Use the `sem` CLI to create a new
-secret from the existing private key in `id_rsa_semaphoreci` on your
-local machine:
+[secret files][secrets] for this.
+
+Use the sidebar in the web UI or `sem` CLI to create a new secret
+from the existing private key in `id_rsa_semaphoreci` on your local
+machine:
 
 ``` bash
-sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.keys/private-repo
+sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.ssh/private-repo
 ```
 
-This will create the file `~/.keys/private-repo` in your Semaphore jobs.
+This will create the file `~/.ssh/private-repo` in your Semaphore jobs.
 
 ### Use the secret in your pipeline
 
@@ -58,9 +60,9 @@ blocks:
       prologue:
         commands:
           # Correct premissions since they are too open by default:
-          - chmod 0600 ~/.keys/*
+          - chmod 0600 ~/.ssh/*
           # Add the key to the ssh agent:
-          - ssh-add ~/.keys/*
+          - ssh-add ~/.ssh/*
           - checkout
           # Now bundler/yarn/etc are able to pull private dependencies:
           - bundle install
