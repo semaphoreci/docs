@@ -44,6 +44,8 @@ sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.ssh/pr
 
 This will create the file `~/.ssh/private-repo` in your Semaphore jobs.
 
+Note: on macOS the home directory is `/Users/semaphore`.
+
 ### Use the secret in your pipeline
 
 The last step is to add the `private-repo` secret to your Semaphore pipeline.
