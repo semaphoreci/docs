@@ -138,7 +138,8 @@ with the following Dockerfile:
 ``` Dockerfile
 FROM ubuntu:18.04
 
-RUN apt-get -y update && apt-get install -y git lftp docker openssh-client coreutils
+RUN apt-get -y update && apt-get install -y git lftp openssh-client coreutils
+RUN curl -sSL https://get.docker.com/ | sh
 ```
 
 ### Extending Semaphore's pre-build convenience Docker images
