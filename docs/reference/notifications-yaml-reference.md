@@ -157,7 +157,7 @@ The `webhook` property holds the `endpoint`, `action`, and `timeout` properties.
 The `endpoint` property holds the URL to which Semaphore will send notification.
 
 You can learn more about payload of a notification visiting
-[Webhook Notification](https://docs.semaphoreci.com/article/170-webhook-notifications).
+[Webhook Notification](https://docs.semaphoreci.com/guided-tour/webhook-notifications).
 
 The `endpoint` property is mandatory.
 
@@ -246,7 +246,7 @@ Please note that the `status` property at the end is not currently being used.
 
 You can find out how to create new notifications by visiting the
 [Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
-[Webhook Notification](https://docs.semaphoreci.com/article/170-webhook-notifications)
+[Webhook Notification](https://docs.semaphoreci.com/guided-tour/webhook-notifications)
 and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 pages of the Semaphore 2.0 documentation.
 
@@ -254,4 +254,4 @@ pages of the Semaphore 2.0 documentation.
 
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
-- [Webhook Notifications](https://docs.semaphoreci.com/article/170-webhook-notifications)
+- [Webhook Notifications](https://docs.semaphoreci.com/guided-tour/webhook-notifications)

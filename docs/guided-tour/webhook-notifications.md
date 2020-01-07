@@ -1,18 +1,10 @@
+# Webhook Notifications
+
 Semaphore has webhook based notifications that are delivered on the success or
 failure of a pipeline. When criteria for notification are met, Semaphore will
 send a HTTP POST payload to the webhook's configured URL. You can use them,
 for example, to implement alerts through [Hubot](https://github.com/hubotio/hubot),
 or keep track of your projects on a company dashboard.
-
-- [Setting up webhook notification for a project](#setting-up-webhook-notifications-for-a-project)
-- [Setting up webhook notification for multiple projects](#setting-up-webhook-notifications-for-multiple-projects)
-- [Filtering by project, branch and pipeline names](#filtering-by-project-branch-and-pipeline-names)
-- [Advanced notification setup](#advanced-notification-setup)
-  - [Filtering by pipeline result](#filtering-by-pipeline-result)
-- [Modifying notification settings](#modifying-notification-settings)
-- [Setting up, editing and deleting webhook notifications through the UI](#setting-up-editing-and-deleting-webhook-notifications-through-the-ui)
-- [Notification payload](#notification-payload)
-- [See also](#see-also)
 
 ## Setting up webhook notifications for a project
 
