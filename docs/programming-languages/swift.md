@@ -43,7 +43,7 @@ SwiftUI demonstrating how to set build an app and run tests. A
 [full tutorial showing how to configure an iOS project for CI with Semaphore](http://docs.semaphoreci.com/use-cases/ios-continuous-integration-with-xcode)
 is also available.
 
-[macos-xcode-10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[macos-xcode-11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+[macos-xcode-10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image
+[macos-xcode-11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
-[ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
+[ios-tutorial]: http://docs.semaphoreci.com/use-cases/ios-continuous-integration-with-xcode
