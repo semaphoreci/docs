@@ -54,6 +54,7 @@ nav:
     - Deploying with promotions: guided-tour/deploying-with-promotions.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
     - Slack notifications: guided-tour/slack-notifications.md
+    - Webhook notifications: guided-tour/webhook-notifications.md
   - Use Cases:
     - Tutorials and example projects: use-cases/tutorials-and-example-projects.md
     - Artifacts: use-cases/artifacts.md
@@ -138,6 +139,7 @@ nav:
     - Jobs YAML reference: reference/jobs-yaml-reference.md
     - Notifications YAML reference: reference/notifications-yaml-reference.md
     - Slack notifications: reference/slack-notifications.md
+    - Webhook notifications: reference/webhook-notifications.md
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Quotas and limits: reference/quotas-and-limits.md
     - Conditions reference: reference/conditions-reference.md
