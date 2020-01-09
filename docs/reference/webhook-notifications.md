@@ -1,7 +1,7 @@
 # Webhook Notifications
 
 Semaphore has webhook based notifications that are delivered on the success or
-failure of a pipeline. When criteria for notification are met, Semaphore will
+failure of a pipeline. When criteria for notifications are met, Semaphore will
 send a HTTP POST payload to the webhook's configured URL. You can use them,
 for example, to implement alerts through [Hubot](https://github.com/hubotio/hubot),
 or keep track of your projects on a company dashboard.
@@ -30,11 +30,11 @@ $ sem create notification master-pipelines \
 
 ## Setting up webhook notifications for multiple projects
 
-When creating a notification, you can specify multiple projects as source,
+When creating a notification, you can specify multiple projects as a source,
 of your notifications.
 
 For example, if your team manages three projects named `web`, `cli` and `api`
-and you want to get notified for every finished pipeline on the master branch,
+and you want to get notified of every finished pipeline on the master branch,
 use the following command:
 
 ``` bash
@@ -49,7 +49,7 @@ $ sem create notifications teamA-notifications \
 When creating a notification, you can specify a filter for project, branch and
 pipeline names.
 
-For example to send notifications for the `master` and `staging` branches use
+For example, to send notifications for the `master` and `staging` branches, use
 the following:
 
 ``` bash
@@ -68,8 +68,8 @@ $ sem create notifications example \
     --webhook-endpoint [webhook-endpoint] \
 ```
 
-Matching can be specified for project and pipeline names as well. For example,
-if you want to get notified about every notification on a project that matches
+Matching can be specified for project and pipeline files as well. For example,
+if you want to get notified after every pipeline on a project that matches
 `/.*-api$/`, on the master branch, when the `prod.yml` pipeline is executed, use:
 
 ``` bash
@@ -244,8 +244,8 @@ The payload contains all the information related to a pipeline.
 ```
 
 In this example `revision.pull_request` and `revision.tag` are null because
-payload is related to pipeline run started from a push to the branch. Information
-about this is kept in `revision.reference_type`.
+payload is related to the pipeline run started from a push to the branch.
+Information about this is kept in `revision.reference_type`.
 
 Sample `pull_request` object:
 
