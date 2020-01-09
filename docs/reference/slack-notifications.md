@@ -137,7 +137,7 @@ spec:
           endpoint: https://hooks.slack.com/services/xxx/yyy/zzz
 ```
 
-Note that you can list more than value under `results`.
+Note that you can list more than one value under `results`.
 
 You can create a notification using the file above with:
 
@@ -212,8 +212,8 @@ for further details.
 
 ## Setting up, editing and deleting Slack notifications through the UI
 
-In the Configuration part of the sidebar, click on **Notifications** -> **Create New 
-Notification**. Add the name of the notification and rules and click on the **Save 
+In the Configuration part of the sidebar, click on **Notifications** -> **Create New
+Notification**. Add the name of the notification and rules, then click on the **Save
 Changes** button.
 
 If you’d like to edit or delete an existing notification, click on the name of
@@ -223,3 +223,4 @@ and follow the steps from there.
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)

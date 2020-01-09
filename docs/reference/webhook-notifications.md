@@ -30,7 +30,7 @@ $ sem create notification master-pipelines \
 
 ## Setting up webhook notifications for multiple projects
 
-When creating a notification, you can specify multiple projects as a source,
+When creating a notification, you can specify multiple projects as a source
 of your notifications.
 
 For example, if your team manages three projects named `web`, `cli` and `api`
