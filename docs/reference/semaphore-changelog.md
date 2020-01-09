@@ -6,40 +6,40 @@ This page is updated on a weekly basis.
 
 ### Week of December 30, 2019
 - Additions to ubuntu1804 image
-  - Ruby 2.7.0
+    - Ruby 2.7.0
 
 ### Week of December 16, 2019
 - Updates to ubuntu1804 image
-  - Git-lfs  2.9.1  -> 2.9.2
-  - Yarn     1.19.2 -> 1.21.1
-  - Chrome       78 -> 79
-  - Chromedriver 78 -> 79
-  - PhpUnit  7.5.17 -> 7.5.18
-  - Phpbrew  1.23.1 -> 1.24.1
-  - APT: removed ppa jonathonf/python-2.7
+    - Git-lfs  2.9.1  -> 2.9.2
+    - Yarn     1.19.2 -> 1.21.1
+    - Chrome       78 -> 79
+    - Chromedriver 78 -> 79
+    - PhpUnit  7.5.17 -> 7.5.18
+    - Phpbrew  1.23.1 -> 1.24.1
+    - APT: removed ppa jonathonf/python-2.7
   
 ### Week of December 2, 2019
 - Updates to ubuntu1804 image
-  - Git-lfs 2.9.0  -> 2.9.1
-  - Yarn    1.19.1 -> 1.19.2
+    - Git-lfs 2.9.0  -> 2.9.1
+    - Yarn    1.19.1 -> 1.19.2
 - Additions to ubuntu1804 image
-  - Elixir versions 1.9.2, 1.9.3, 1.9.4
+    - Elixir versions 1.9.2, 1.9.3, 1.9.4
 
 ### Week of November 18, 2019
 - Updates to ubuntu1804 image
-  - Git      2.23   -> 2.24
-  - Heroku   7.33   -> 7.35
+    - Git      2.23   -> 2.24
+    - Heroku   7.33   -> 7.35
 - Additions to ubuntu1804 image
-  - ImageMagick 8:6.9.7.4
+    - ImageMagick 8:6.9.7.4
 
 ### Week of November 11, 2019
 - macOS image updates:
-  - `macos-mojave-xcode11` Xcode 11.2.1 installed, to switch version use
+    - `macos-mojave-xcode11` Xcode 11.2.1 installed, to switch version use
     `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
-  - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image)
-  - packages:
-      - fastlane 2.135.2
-      - cocoapods 1.8.4
+    - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image)
+    - packages:
+          - fastlane 2.135.2
+          - cocoapods 1.8.4
 
 ### Week of November 4, 2019
 
@@ -57,37 +57,37 @@ This page is updated on a weekly basis.
 ### Week of October 21, 2019
 
 - Updates to ubuntu1804 image
-  - Pip      19.2   -> 19.3.1
-  - Nvm      8.11.3 -> 8.16.2
-  - Npm       5.6.0 -> 6.4.1
-  - Chrome       77 -> 78
-  - Chromedriver 77 -> 78
-  - Git-lfs   2.8.0 -> 2.9.0
-  - Phpunit  7.15.6 -> 7.15.7
-  - Firefox-esr 60  -> 68
-  - Ruby      2.3.7 -> 2.3.8
-  - Ruby      2.4.4 -> 2.4.9
-  - Ruby      2.5.1 -> 2.5.7
-  - Ruby      2.6.4 -> 2.6.5
+    - Pip      19.2   -> 19.3.1
+    - Nvm      8.11.3 -> 8.16.2
+    - Npm       5.6.0 -> 6.4.1
+    - Chrome       77 -> 78
+    - Chromedriver 77 -> 78
+    - Git-lfs   2.8.0 -> 2.9.0
+    - Phpunit  7.15.6 -> 7.15.7
+    - Firefox-esr 60  -> 68
+    - Ruby      2.3.7 -> 2.3.8
+    - Ruby      2.4.4 -> 2.4.9
+    - Ruby      2.5.1 -> 2.5.7
+    - Ruby      2.6.4 -> 2.6.5
 - Additions
-  - Nvm 10.17
-  - Nvm 12.3
+    - Nvm 10.17
+    - Nvm 12.3
 
 ### Week of October 14, 2019
 
 - Updates to ubuntu1804 image
-  - Heroku 7.30.0 -> 7.33.3
-  - Elixir 1.8.1  -> 1.8.2
-  - Elixir 1.9.0  -> 1.9.1
-  - Erlang 22.0   -> 22.1
-  - Yarn   1.17.3 -> 1.19.1
-  - Kerl   1.3.4  -> 1.8.4
-  - Rebar3 3.6.1  -> 3.12.0
+    - Heroku 7.30.0 -> 7.33.3
+    - Elixir 1.8.1  -> 1.8.2
+    - Elixir 1.9.0  -> 1.9.1
+    - Erlang 22.0   -> 22.1
+    - Yarn   1.17.3 -> 1.19.1
+    - Kerl   1.3.4  -> 1.8.4
+    - Rebar3 3.6.1  -> 3.12.0
 
 ### Week of October 7, 2019
 
 - Updates to the macOS image:
-  - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
+    - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
     `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
 - You can change which blocks and pipelines send status checks to pull requests
   on GitHub. [See how](https://docs.semaphoreci.com/article/53-sem-reference#changing-github-status-check-notifications).
@@ -114,13 +114,13 @@ This page is updated on a weekly basis.
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
-  - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image) image spec.
-  - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image) image spec.
-  - `macos-mojave` no longer available.
+    - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image) image spec.
+    - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image) image spec.
+    - `macos-mojave` no longer available.
 - Mojave system update:
-  - ProductVersion: 10.14.6
-  - BuildVersion: 18G95
-  - Kernel Version: Darwin 18.7.0
+    - ProductVersion: 10.14.6
+    - BuildVersion: 18G95
+    - Kernel Version: Darwin 18.7.0
 - You can now change the initial pipeline file of your project,
   from `.semaphore/semaphore.yml` to a custom path. This allows
   you to create multiple Semaphore projects based on the same GitHub
@@ -141,7 +141,7 @@ This page is updated on a weekly basis.
 
 - New feature: Artifacts. Persistent storage of final CI/CD deliverables,
   intermediary assets and files for debugging. Now in public beta.
-  - [Learn more about use cases](https://docs.semaphoreci.com/article/155-artifacts) and
+    - [Learn more about use cases](https://docs.semaphoreci.com/article/155-artifacts) and
   [how to use the artifacts CLI](https://docs.semaphoreci.com/article/154-artifact-cli-reference).
 
 ### Week of September 9, 2019
@@ -170,15 +170,15 @@ This page is updated on a weekly basis.
 
 - Updates to the [Ubuntu 18.04 VM
   image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image):
-  - Chrome and ChromeDriver updated to version 76
-  - docker-ce updated to 19.03.1
-  - git-lfs updated to 2.8.0
-  - heroku updated to 7.27.1
-  - java 8 updated to u222
-  - java 11 updated to 11.0.4
-  - phpunit updated to 7.5.14
-  - pip updated to 19.2.1
-  - yarn updated to 1.17.3
+    - Chrome and ChromeDriver updated to version 76
+    - docker-ce updated to 19.03.1
+    - git-lfs updated to 2.8.0
+    - heroku updated to 7.27.1
+    - java 8 updated to u222
+    - java 11 updated to 11.0.4
+    - phpunit updated to 7.5.14
+    - pip updated to 19.2.1
+    - yarn updated to 1.17.3
 
 ### Week of August 5, 2019
 
@@ -196,8 +196,8 @@ This page is updated on a weekly basis.
   much simpler. Just write `cache restore` and `cache store` and Semaphore will
   do the right thing for common language dependencies.
 - macOS platform:
-  - Flutter version update to v1.8.3
-  - New image spec - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image)
+    - Flutter version update to v1.8.3
+    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image)
 
 ### Week of July 29, 2019
 
@@ -216,24 +216,24 @@ This page is updated on a weekly basis.
   property](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_cancel)
   in your pipeline configuration.
 - macOS platform:
-  - Xcode 11 Beta version update 5 (11M382q).
-  - Xcode 10.3 with default simulators preinstalled on Mojave image.
-  - Flutter version update to v1.7.8+hotfix.4.
-  - Fastlane version update to 2.128.1.
-  - Cocoapods version update to 1.7.5.
-  - New image spec - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image)
+    - Xcode 11 Beta version update 5 (11M382q).
+    - Xcode 10.3 with default simulators preinstalled on Mojave image.
+    - Flutter version update to v1.7.8+hotfix.4.
+    - Fastlane version update to 2.128.1.
+    - Cocoapods version update to 1.7.5.
+    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image)
 - New [environment variables available in Semaphore
   jobs](https://docs.semaphoreci.com/article/12-environment-variables):
-  - `SEMAPHORE_GIT_REPO_SLUG`
-  - `SEMAPHORE_GIT_REF_TYPE`
-  - `SEMAPHORE_GIT_REF`
-  - `SEMAPHORE_GIT_COMMIT_RANGE`
-  - `SEMAPHORE_GIT_TAG_NAME`
-  - `SEMAPHORE_GIT_PR_SLUG`
-  - `SEMAPHORE_GIT_PR_SHA`
-  - `SEMAPHORE_GIT_PR_NUMBER`
-  - `SEMAPHORE_GIT_PR_NAME`
-  - `SEMAPHORE_ORGANIZATION_URL`
+    - `SEMAPHORE_GIT_REPO_SLUG`
+    - `SEMAPHORE_GIT_REF_TYPE`
+    - `SEMAPHORE_GIT_REF`
+    - `SEMAPHORE_GIT_COMMIT_RANGE`
+    - `SEMAPHORE_GIT_TAG_NAME`
+    - `SEMAPHORE_GIT_PR_SLUG`
+    - `SEMAPHORE_GIT_PR_SHA`
+    - `SEMAPHORE_GIT_PR_NUMBER`
+    - `SEMAPHORE_GIT_PR_NAME`
+    - `SEMAPHORE_ORGANIZATION_URL`
 
 ### Week of July 22, 2019
 
@@ -275,9 +275,9 @@ This page is updated on a weekly basis.
 - Context of a [Github Status checks](https://developer.github.com/v3/repos/statuses/)
   has been changed to include information about a build source, which
   can be one of the following:
-  - `ci/semaphoreci/push`
-  - `ci/semaphoreci/pr`
-  - `ci/semaphoreci/tag`
+    - `ci/semaphoreci/push`
+    - `ci/semaphoreci/pr`
+    - `ci/semaphoreci/tag`
 
 [Please update your settings on GitHub](https://help.github.com/en/articles/enabling-required-status-checks)
 if you are using protected branches with required status checks.
@@ -285,8 +285,8 @@ if you are using protected branches with required status checks.
 ### Week of June 24, 2019
 
 - macOS platform:
-  - Xcode 11 Beta with default simulators preinstalled on Mojave image.
-  - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image) updated to 10.14.5.
+    - Xcode 11 Beta with default simulators preinstalled on Mojave image.
+    - [macOS Mojave](https://docs.semaphoreci.com/article/120-macos-mojave-image) updated to 10.14.5.
 
 ### Week of June 10, 2019
 
@@ -310,27 +310,27 @@ if you are using protected branches with required status checks.
 - Owners and admins can now set [Budget Alerts](https://docs.semaphoreci.com/article/104-billing#budget-alert).
 
 - New Semaphore approved convenience Docker images released:
-  - [Alpine](https://hub.docker.com/r/semaphoreci/alpine)
-  - [Android](https://hub.docker.com/r/semaphoreci/android)
-  - [Clojure](https://hub.docker.com/r/semaphoreci/clojure)
-  - [Elixir](https://hub.docker.com/r/semaphoreci/elixir)
-  - [Golang](https://hub.docker.com/r/semaphoreci/golang)
-  - [Haskell](https://hub.docker.com/r/semaphoreci/haskell)
-  - [Node](https://hub.docker.com/r/semaphoreci/node)
-  - [Openjdk](https://hub.docker.com/r/semaphoreci/openjdk)
-  - [Php](https://hub.docker.com/r/semaphoreci/php)
-  - [Python](https://hub.docker.com/r/semaphoreci/python)
-  - [Ruby](https://hub.docker.com/r/semaphoreci/ruby)
-  - [Rust](https://hub.docker.com/r/semaphoreci/rust)
-  - [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu)
+    - [Alpine](https://hub.docker.com/r/semaphoreci/alpine)
+    - [Android](https://hub.docker.com/r/semaphoreci/android)
+    - [Clojure](https://hub.docker.com/r/semaphoreci/clojure)
+    - [Elixir](https://hub.docker.com/r/semaphoreci/elixir)
+    - [Golang](https://hub.docker.com/r/semaphoreci/golang)
+    - [Haskell](https://hub.docker.com/r/semaphoreci/haskell)
+    - [Node](https://hub.docker.com/r/semaphoreci/node)
+    - [Openjdk](https://hub.docker.com/r/semaphoreci/openjdk)
+    - [Php](https://hub.docker.com/r/semaphoreci/php)
+    - [Python](https://hub.docker.com/r/semaphoreci/python)
+    - [Ruby](https://hub.docker.com/r/semaphoreci/ruby)
+    - [Rust](https://hub.docker.com/r/semaphoreci/rust)
+    - [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu)
 
 - Version `v0.13.0` of the Semaphore CLI has been released.
-  - `sem debug job` works without configuring the CLI with an SSH key.
+    - `sem debug job` works without configuring the CLI with an SSH key.
     Keys are now generated server side.
-  - `sem attach` can attach to any running job without the need to inject
+    - `sem attach` can attach to any running job without the need to inject
     public SSH keys as part of your Pipeline configuration.
-  - Debugging and attaching to jobs works for Docker based CI/CD environments
-  - Read the updated documentation about [Debugging with SSH Access](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access).
+    - Debugging and attaching to jobs works for Docker based CI/CD environments
+    - Read the updated documentation about [Debugging with SSH Access](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access).
 
 Upgrade to the latest CLI version:
 
@@ -346,7 +346,7 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   Get started with [Xcode tutorial](https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode)
   and [example Swift project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode).
 - macOS platform:
-  - Xcode upgraded to 10.2.1
+    - Xcode upgraded to 10.2.1
 - New feature: [schedule CI/CD workflows](https://docs.semaphoreci.com/article/52-projects-yaml-reference#schedulers)
   using standard Cron syntax.
 
@@ -355,12 +355,12 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 - [Fastlane plugin](https://github.com/semaphoreci/fastlane-plugin-semaphore) is
   now available.
 - Platform updates:
-  - Chrome 74, ChromeDriver 74
-  - Heroku 7.24.1
-  - Git-lfs 2.7.2
-  - Pip 19.1
-  - Phpunit 7.5.9
-  - Removed Oracle Java 7,9,10; Java 8 and 11 are now based on OpenJDK.
+    - Chrome 74, ChromeDriver 74
+    - Heroku 7.24.1
+    - Git-lfs 2.7.2
+    - Pip 19.1
+    - Phpunit 7.5.9
+    - Removed Oracle Java 7,9,10; Java 8 and 11 are now based on OpenJDK.
 
 ### Week of Apr 15, 2019
 
@@ -391,11 +391,11 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ### Week of Mar 25, 2019
 
 - Platform updates:
-  - Chrome 73
-  - Elixir 1.8.1
-  - Go 1.12.1
-  - Ruby versions >=2.6.0 have bundler 2.0.1 and rubygems>3 preinstalled
-  - Scala 2.12.7
+    - Chrome 73
+    - Elixir 1.8.1
+    - Go 1.12.1
+    - Ruby versions >=2.6.0 have bundler 2.0.1 and rubygems>3 preinstalled
+    - Scala 2.12.7
 
 ### Week of Mar 18, 2019
 
@@ -405,8 +405,8 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ### Week of Mar 12, 2019
 
 - Platform updates:
-  - Heroku 7.22.4
-  - Libvirt, qemu, virsh are now part of the Ubuntu VM image with virtual network `192.168.123.0/24`
+    - Heroku 7.22.4
+    - Libvirt, qemu, virsh are now part of the Ubuntu VM image with virtual network `192.168.123.0/24`
 
 ### Week of Feb 25, 2019
 
@@ -418,14 +418,14 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   a red box.
 - Fixed an issue with sliders on Linux/Chrome.
 - Platform additions:
-  - Go 1.12
-  - libvirt-bin, qemu-kvm and virtinst
+    - Go 1.12
+    - libvirt-bin, qemu-kvm and virtinst
 - Platform updates:
-  - git 2.21
-  - git-lfs 2.7.1
-  - gradle 5.2
-  - heroku to 7.22.2
-  - sbt 0.13.17
+    - git 2.21
+    - git-lfs 2.7.1
+    - gradle 5.2
+    - heroku to 7.22.2
+    - sbt 0.13.17
 - Introduced [Tutorials and example projects](https://docs.semaphoreci.com/article/123-tutorials-and-example-projects),
   a handy portal to practical examples of CI/CD pipelines, with links to open
   source repositories that you can copy.
@@ -447,22 +447,22 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   is now available in Semaphore 2.0 as well. Using the command-line interface
   remains an option, of course.
 - Platform:
-  - Added new APT mirrors for faster apt-get installations in Ubuntu1804 image.
-  - Chrome updated to 72.
-  - Heroku CLI updated to 7.21.
+    - Added new APT mirrors for faster apt-get installations in Ubuntu1804 image.
+    - Chrome updated to 72.
+    - Heroku CLI updated to 7.21.
 
 ### Week of Feb 4, 2019
 
 - Platform:
-  - ChromeDriver updated to 2.46.
-  - Added Ruby 2.6.0, 2.6.1.
-  - If repository contains `.ruby-version` file, Semaphore automatically fetches
+    - ChromeDriver updated to 2.46.
+    - Added Ruby 2.6.0, 2.6.1.
+    - If repository contains `.ruby-version` file, Semaphore automatically fetches
     a pre-built version of the specified Ruby.
 
 ### Week of Jan 28, 2019
 
 - Platform:
-  - Added Java 11.
+    - Added Java 11.
 
 ### Week of Jan 7, 2019
 
