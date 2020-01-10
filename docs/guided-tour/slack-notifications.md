@@ -213,7 +213,7 @@ for further details.
 ## Setting up, editing and deleting Slack notifications through the UI
 
 In the Configuration part of the sidebar, click on **Notifications** -> **Create New
-Notification**. Add the name of the notification and rules and click on the **Save
+Notification**. Add the name of the notification and rules, then click on the **Save
 Changes** button.
 
 If you’d like to edit or delete an existing notification, click on the name of
