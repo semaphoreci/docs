@@ -223,4 +223,4 @@ and follow the steps from there.
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
+- [Notifications YAML Reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference)
