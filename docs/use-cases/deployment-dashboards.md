@@ -71,4 +71,4 @@ source. For more information, consult the
 [promotions-guide]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
 [sem-ref]: https://docs.semaphoreci.com/article/53-sem-reference
 [pipelines-dashboard]: https://docs.semaphoreci.com/article/60-dashboards-yaml-reference#pipelines-list
-[dashboard-ref]: https://docs.semaphoreci.com/article/60-dashboards-yaml-referencet
+[dashboard-ref]: https://docs.semaphoreci.com/article/60-dashboards-yaml-reference
