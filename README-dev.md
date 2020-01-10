@@ -1,29 +1,18 @@
 # Managing pages
 
-Docs are hosted on Help Scout. Changes are continuously deployed via
-Semaphore to the live website.
-
-The following instructions apply for Semaphore team members with access
-to Help Scout:
+Docs are self hosted. The following instructions apply for Semaphore team members:
 
 ## Creating new file
 
-- Create a file in HelpScout docs
-  - HelpScout will assign a new URL for the page which we'll use for next step, for example `https://docs.semaphoreci.com/article/33-example?preview=5b4699632c7d3a099f2e742a`. You can use that URL, sans the `?preview=...` part, to create links to the new page.
-- Create file in repository `just-example_5b4699632c7d3a099f2e742a.md`
-  - `5b4699632c7d3a099f2e742a` is `id` of specific article
-  - `just-example` is article's `slug`
+- Create file in repository `article-name`, example: `getting-started.md` 
+- In [mkdocs.yml](https://github.com/semaphoreci/docs/blob/master/mkdocs.yml), add the new article to the right category, e.g: `Getting started: guided-tour/getting-started.md`
+- Every docs article must have an H1 which should correspond to its name in the mkdocs.yml file.
+  
 
 ## Updating existing files
 
-When [HelpScout Docs token] is in place, executing `deploy_docs.rb` script will
-[update] every article which meets the following:
+Updating existing files is done by entering a given file and modifying it.
 
-- It is in the project root directory
-- It is a markdown file associated with an article in HelpScout Docs
-- It is named in the following form `article-name_21323321.md`.
-  - `21323321` in this example represents `id` of article in HelpScout Docs
-  - `id` is included in the article's URL (`https://secure.helpscout.net/docs/xxxxxxx/article/21323321/`)
 
 ## Development
 
