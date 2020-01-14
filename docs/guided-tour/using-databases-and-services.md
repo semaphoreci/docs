@@ -23,13 +23,11 @@ agent:
 blocks:
   - name: "Test"
     task:
-      prologue:
-        commands:
-          - sem-service start redis
-          - sem-service start postgres
       jobs:
         - name: Tests
           commands:
+            - sem-service start redis
+            - sem-service start postgres
             - createdb -U postgres -h 0.0.0.0 myapp_database
             - echo 'running tests'
 ```
@@ -108,3 +106,4 @@ in [the next section][next].
 [postgres-docker]: https://hub.docker.com/_/postgres
 [redis-docker]: https://hub.docker.com/_/redis
 [next]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
