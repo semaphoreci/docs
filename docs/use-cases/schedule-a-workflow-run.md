@@ -1,8 +1,5 @@
 # Schedule a workflow run
 
-This guide shows you how to use Semaphore to set up the scheduled workflow runs
-in your project.
-
 Scheduling workflow runs daily, hourly or even every other minute can be useful
 in many use cases, such as:
 
@@ -39,11 +36,10 @@ This can be done through both Web UI and CLI.
 
 5. Fill out the form with necessary data:
 
-   - Enter a descriptive **name** for the schedule, e.g. `nightly-deploys`
-   - Enter the **branch name**, e.g. `master`
-   - Enter a path to **pipeline file**, e.g. `.semaphore/nightly-deploys.yml`
-   - Enter a **Crontab expression** defining the times for workflow runs, e.g.
-   `15 12 * * *` - every day at 12:15 UTC
+    - Enter a descriptive **name** for the schedule, e.g. `nightly-deploys`
+    - Enter the **branch name**, e.g. `master`
+    - Enter a path to **pipeline file**, e.g. `.semaphore/nightly-deploys.yml`
+    - Enter a **Crontab expression** defining the times for workflow runs, e.g. `15 12 * * *` - every day at 12:15 UTC
 
 6. Click **Create** button.
 
@@ -104,11 +100,11 @@ webhook received from GitHub for the given branch to determine the exact commit
 for which the workflow should be run.  
 This can be problematic in two cases:
 
-  1. When the project is new and there were no pushes to the given branch since
-  project creation - in this case, the creation of schedule described above will
-  fail
-  2. In rare cases when there is an issue with GitHub webhook delivery, you can
-  either redeliver them from GitHub or contact us at support@semaphoreci.com.
+    1. When the project is new and there were no pushes to the given branch since
+    project creation - in this case, the creation of schedule described above will
+    fail
+    2. In rare cases when there is an issue with GitHub webhook delivery, you can
+    either redeliver them from GitHub or contact us at support@semaphoreci.com.
 
 - The scheduled workflow runs will not be started in the first 60 seconds (this
 can span across two differently numbered minutes) after the schedule is created,
