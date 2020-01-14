@@ -190,6 +190,7 @@ Available versions:
 - 2.4.0 to 2.4.9
 - 2.5.0 to 2.5.7
 - 2.6.0 to 2.6.5
+- 2.7.0
 - jruby-9.1.17.0
 
 ## See Also
