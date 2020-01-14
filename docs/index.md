@@ -14,11 +14,11 @@
             <p class="welcome-block-description">Learn the basic concepts</p>
 
             <ul>
-                <li><a href="guided-tour/creating-your-first-project/">Creating your first project</a></li>
-                <li><a href="guided-tour/getting-started">Getting Started</a></li>
-                <li><a href="use-cases/tutorials-and-example-projects/">Tutorials and Example Projects</a></li>
-                <li><a href="reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
-                <li><a href="reference/sem-command-line-tool">sem command line tool</a></li>
+                <li><a href="/guided-tour/creating-your-first-project/">Creating your first project</a></li>
+                <li><a href="/guided-tour/concepts/">Concept</a></li>
+                <li><a href="/use-cases/modeling-complex-workflows/">Modeling Complex Workflows</a></li>
+                <li><a href="/use-cases/debugging-with-ssh-access/">Debugging with SSH</a></li>
+                <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing Between a VM and Docker-based Environment</a></li>
             </ul>
         </div>
 
@@ -27,11 +27,11 @@
             <p class="welcome-block-description">What others are searching</p>
 
             <ul>
-                <li><a href="use-cases/docker-layer-caching">Docker layer caching</a></li>
-                <li><a href="reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
-                <li><a href="ci-cd-environment/macos-mojave-xcode-10-image">macOS Mojave Xcode 10 Image</a></li>
-                <li><a href="ci-cd-environment/macos-mojave-xcode-11-image">macOS Mojave Xcode 11 Image</a></li>
-                <li><a href="reference/semaphore-changelog">Semaphore Changelog</a></li>
+                <li><a href="/guided-tour/using-databases-and-services/">Using Databases and Services</a></li>
+                <li><a href="/ci-cd-environment/caching-dependencies-and-directories/">Caching Dependencies and Directories</a></li>
+                <li><a href="/use-cases/artifacts/">Artifacts</a></li>
+                <li><a href="/reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
+                <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
             </ul>
         </div>
     </div>
