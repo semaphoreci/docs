@@ -100,6 +100,7 @@ nav:
     - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
     - Configuring GitHub status checks: use-cases/configuring-github-status-checks.md
     - Building Monorepo projects: use-cases/building-monorepo-projects.md
+    - Schedule a workflow run: use-cases/schedule-a-workflow-run.md
   - Programming Languages:
     - Android: programming-languages/android.md
     - C: programming-languages/c.md
