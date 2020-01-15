@@ -118,7 +118,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u201, 11.0.2
+- Java: 8u232, 11.0.5
 - Scala: 2.11.11, 2.12.7
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -158,7 +158,7 @@ The default installed PHP version is `7.2.10`.
 
 #### Additional libraries
 
-phpunit: 7.5.18
+phpunit: 7.5.20
 
 ### Python
 
