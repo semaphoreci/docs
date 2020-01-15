@@ -14,7 +14,7 @@ This page is updated on a weekly basis.
       - fastlane (2.140.0)
       - cocoapods (1.8.4)
 - New convenience docker images available in Semaphore's DockerHub Account.
-Detailed list can be fund in the following repository: https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L528 
+Detailed list can be fund in [docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L528).
 
 ### Week of December 30, 2019
 - Additions to ubuntu1804 image
