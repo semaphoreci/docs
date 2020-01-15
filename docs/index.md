@@ -15,10 +15,10 @@
 
             <ul>
                 <li><a href="/guided-tour/creating-your-first-project/">Creating your first project</a></li>
-                <li><a href="/guided-tour/concepts/">Concept</a></li>
-                <li><a href="/use-cases/modeling-complex-workflows/">Modeling Complex Workflows</a></li>
+                <li><a href="/guided-tour/concepts/">Semaphore concepts</a></li>
+                <li><a href="/use-cases/modeling-complex-workflows/">Modeling complex workflows</a></li>
                 <li><a href="/use-cases/debugging-with-ssh-access/">Debugging with SSH</a></li>
-                <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing Between a VM and Docker-based Environment</a></li>
+                <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing between a VM and Docker-based environment</a></li>
             </ul>
         </div>
 
