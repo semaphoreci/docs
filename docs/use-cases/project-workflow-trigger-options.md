@@ -1,4 +1,4 @@
-# Project Workflow Trigger Options
+# Workflow Trigger Options
 
 You can choose which GitHub events should trigger new workflows for your Semaphore project.
 

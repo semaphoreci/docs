@@ -54,25 +54,25 @@ nav:
     - Deploying with promotions: guided-tour/deploying-with-promotions.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
-    - Debugging with SSH: use-cases/debugging-with-ssh-access.md
-    - Modeling complex workflows: use-cases/modeling-complex-workflows.md
+    - Workflows and Pipelines: use-cases/modeling-complex-workflows.md
+    - Workflow trigger options: use-cases/project-workflow-trigger-options.md
+    - Schedule a workflow run: use-cases/schedule-a-workflow-run.md
     - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
     - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Artifacts: use-cases/artifacts.md
-    - Schedule a workflow run: use-cases/schedule-a-workflow-run.md
+    - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
+    - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
+    - Build matrix: use-cases/build-matrix.md
+    - Debugging with SSH: use-cases/debugging-with-ssh-access.md
     - Caching dependencies and directories: ci-cd-environment/caching-dependencies-and-directories.md
+    - Artifacts: use-cases/artifacts.md
     - Using Secrets: use-cases/using-secrets.md
     - Slack notifications: guided-tour/slack-notifications.md
     - Webhook notifications: guided-tour/webhook-notifications.md
-    - Status Badges: use-cases/status-badges.md
-    - Using private dependencies: use-cases/using-private-dependencies.md
-    - Build matrix: use-cases/build-matrix.md
-    - Project workflow trigger options: use-cases/project-workflow-trigger-options.md
-    - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
     - Configuring GitHub status checks: use-cases/configuring-github-status-checks.md
+    - Status Badges: use-cases/status-badges.md
     - Building Monorepo projects: use-cases/building-monorepo-projects.md
+    - Using private dependencies: use-cases/using-private-dependencies.md
     - Deployment dashboards: use-cases/deployment-dashboards.md
-    - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
   - Programming Languages:
     - Android: programming-languages/android.md
     - C: programming-languages/c.md
