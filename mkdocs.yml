@@ -26,6 +26,8 @@ theme:
     accent: 'green'
 extra_css:
   - 'stylesheets/extra.css'
+extra_javascript:
+  - 'javascript/extra.js'
 extra:
   social:
     - type: 'github'
@@ -107,32 +109,34 @@ nav:
       - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
   - Examples:
     - Tutorials and example projects: use-cases/tutorials-and-example-projects.md
-    - Rails continuous integration: use-cases/rails-continuous-integration.md
-    - Node.js and TypeScript continuous integration: use-cases/node-js-and-typescript-continuous-integration.md
-    - iOS continuous integration with Xcode: use-cases/ios-continuous-integration-with-xcode.md
-    - CI/CD for microservices on Kubernetes: use-cases/ci-cd-for-microservices-on-kubernetes.md
-    - Pushing Docker images to Google Container Registry (GCR): use-cases/pushing-docker-images-to-google-container-registry-gcr.md
-    - Continuous deployment of a static website: use-cases/continuous-deployment-of-a-static-website.md
-    - Using Docker Compose in CI: use-cases/using-docker-compose-in-ci.md
-    - Heroku deployment: use-cases/heroku-deployment.md
-    - Laravel PHP continuous integration: use-cases/laravel-php-continuous-integration.md
-    - Django continuous integration: use-cases/django-continuous-integration.md
-    - Java Spring continuous integration: use-cases/java-spring-continuous-integration.md
-    - Pushing Docker images to AWS Elastic Container Registry (ECR): use-cases/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
-    - Publishing Docker images on DockerHub: use-cases/publishing-docker-images-on-dockerhub.md
-    - Zeit Now continuous deployment: use-cases/zeit-now-continuous-deployment.md
-    - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
-    - Code signing for iOS projects: use-cases/code-signing-for-ios-projects.md
-    - Golang continuous integration: use-cases/golang-continuous-integration.md
-    - Elixir Phoenix continuous integration: use-cases/elixir-phoenix-continuous-integration.md
-    - Google Cloud run continuous deployment: use-cases/google-cloud-run-continuous-deployment.md
-    - Netlify continuous deployment: use-cases/netlify-continuous-deployment.md
-    - Scala Play continuous integration: use-cases/scala-play-continuous-integration.md
-    - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
-    - HockeyApp iOS app distribution: use-cases/hockeyapp-ios-app-distribution.md
-    - TestFlight iOS app distribution: use-cases/testflight-ios-app-distribution.md
-    - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
-    - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
+    - Continuous Integration:
+      - Rails continuous integration: use-cases/rails-continuous-integration.md
+      - Node.js and TypeScript continuous integration: use-cases/node-js-and-typescript-continuous-integration.md
+      - iOS continuous integration with Xcode: use-cases/ios-continuous-integration-with-xcode.md
+      - CI/CD for microservices on Kubernetes: use-cases/ci-cd-for-microservices-on-kubernetes.md
+      - Using Docker Compose in CI: use-cases/using-docker-compose-in-ci.md
+      - Laravel PHP continuous integration: use-cases/laravel-php-continuous-integration.md
+      - Django continuous integration: use-cases/django-continuous-integration.md
+      - Java Spring continuous integration: use-cases/java-spring-continuous-integration.md
+      - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
+      - Code signing for iOS projects: use-cases/code-signing-for-ios-projects.md
+      - Golang continuous integration: use-cases/golang-continuous-integration.md
+      - Elixir Phoenix continuous integration: use-cases/elixir-phoenix-continuous-integration.md
+      - Scala Play continuous integration: use-cases/scala-play-continuous-integration.md
+      - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
+      - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
+    - Deployment:
+      - Zeit Now continuous deployment: use-cases/zeit-now-continuous-deployment.md
+      - Publishing Docker images on DockerHub: use-cases/publishing-docker-images-on-dockerhub.md
+      - Pushing Docker images to AWS Elastic Container Registry (ECR): use-cases/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
+      - Heroku deployment: use-cases/heroku-deployment.md
+      - Continuous deployment of a static website: use-cases/continuous-deployment-of-a-static-website.md
+      - Pushing Docker images to Google Container Registry (GCR): use-cases/pushing-docker-images-to-google-container-registry-gcr.md
+      - Google Cloud run continuous deployment: use-cases/google-cloud-run-continuous-deployment.md
+      - Netlify continuous deployment: use-cases/netlify-continuous-deployment.md
+      - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
+      - HockeyApp iOS app distribution: use-cases/hockeyapp-ios-app-distribution.md
+      - TestFlight iOS app distribution: use-cases/testflight-ios-app-distribution.md
   - Reference:
     - Pipeline YAML: reference/pipeline-yaml-reference.md
     - Conditions YAML: reference/conditions-reference.md
