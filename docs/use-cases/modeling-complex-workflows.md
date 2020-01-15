@@ -1,4 +1,4 @@
-# Modeling Complex Workflows
+# Workflows and Pipelines
 
 ![complex pipeline](https://raw.githubusercontent.com/semaphoreci/docs/master/public/complex-pipeline.png)
 
