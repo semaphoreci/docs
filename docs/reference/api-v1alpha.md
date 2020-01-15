@@ -1,4 +1,4 @@
-# API - v1alpha
+# API
 
 This document describes all the resources that make up the Semaphore 2.0 API version `v1alpha` . If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).
 
