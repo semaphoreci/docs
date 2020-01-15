@@ -7,7 +7,7 @@ This page is updated on a weekly basis.
 ### Week of January 13, 2020
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed, to switch version use
-    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image)
+    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
     - installed packages:
       - carthage
     - updated gems:
