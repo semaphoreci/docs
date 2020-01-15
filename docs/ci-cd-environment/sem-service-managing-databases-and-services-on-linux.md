@@ -9,7 +9,7 @@ they were natively installed in the Operating System.
 The general form of a `sem-service` command is as follows:
 
 ``` bash
-sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearch] [version]
+sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearch | rabbitmq] [version]
 ```
 
 Therefore, each `sem-service` command requires at least two parameters: the
@@ -24,6 +24,7 @@ is given, a default value will be used according to the following list:
 - memcached: The default value is `1.5`
 - mongodb: The default value is `4.1`
 - elasticsearch: The default value is `6.5.1`
+- rabbitmq: The default is `3.8.2`
 
 `sem-service` pulls images from Docker Hub and supports all versions that are
 available in Docker Hub. You can find the list of available versions at the
@@ -35,6 +36,7 @@ following URLs:
 - Redis: <https://hub.docker.com/_/redis/>
 - MongoDB: <https://hub.docker.com/_/mongo/>
 - Memcached: <https://hub.docker.com/_/memcached/>
+- RabbitMQ: <https://hub.docker.com/_/rabbitmq/>
 
 The following are valid uses of `sem-service`:
 
@@ -50,6 +52,8 @@ sem-service start elasticsearch
 sem-service start elasticsearch 6.5.2
 sem-service start mongodb
 sem-service start mongodb 3.2
+sem-service start rabbitmq
+sem-service start rabbitmq 3.7
 ```
 
 Credentials:
