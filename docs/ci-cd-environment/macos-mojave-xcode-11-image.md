@@ -58,15 +58,16 @@ Following version control tools are pre-installed:
 - curl
 - wget
 - jq
+- carthage
 
 ### Gems
 
 Following gems are pre-installed:
 
-- fastlane 2.135.2
-- xcode-install 2.6.2
-- cocoapods 1.8.4
-- xcpretty 0.3.0
+- fastlane
+- xcode-install
+- cocoapods
+- xcpretty
 
 ## Languages
 
@@ -141,6 +142,17 @@ Xcode 11.2.1 has the following SDKs preinstalled:
 - macosx10.15
 - driverkit.macosx19.0
 - iphoneos13.1
+- iphonesimulator13.2
+- appletvos13.2
+- appletvsimulator13.2
+- watchos6.1
+- watchsimulator6.1
+
+Xcode 11.3.1 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.2
 - iphonesimulator13.2
 - appletvos13.2
 - appletvsimulator13.2
