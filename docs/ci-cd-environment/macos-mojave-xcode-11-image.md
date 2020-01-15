@@ -64,10 +64,10 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane
-- xcode-install
-- cocoapods
-- xcpretty
+- fastlane (2.140.0)
+- xcode-install (2.6.3)
+- cocoapods (1.8.4)
+- xcpretty (0.3.0)
 
 ## Languages
 
@@ -163,12 +163,12 @@ Xcode 11.3.1 has the following SDKs preinstalled:
 ## See Also
 
 - [iOS Continuous Integration guide][ios-guide]
-- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/ci-cd-environment/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_6_release_notes
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
-[agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
-[ios-guide]: https://docs.semaphoreci.com/article/124-ios-continuous-integration
+[agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
+[ios-guide]: https://docs.semaphoreci.com/use-cases/ios-continuous-integration-with-xcode/
