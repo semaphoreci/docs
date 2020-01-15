@@ -54,18 +54,17 @@ nav:
     - Deploying with promotions: guided-tour/deploying-with-promotions.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
-    - Debugging with SSH access: use-cases/debugging-with-ssh-access.md
+    - Debugging with SSH: use-cases/debugging-with-ssh-access.md
     - Modeling complex workflows: use-cases/modeling-complex-workflows.md
     - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
     - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
     - Artifacts: use-cases/artifacts.md
     - Schedule a workflow run: use-cases/schedule-a-workflow-run.md
+    - Caching dependencies and directories: ci-cd-environment/caching-dependencies-and-directories.md
     - Using Secrets: use-cases/using-secrets.md
     - Slack notifications: guided-tour/slack-notifications.md
     - Webhook notifications: guided-tour/webhook-notifications.md
     - Status Badges: use-cases/status-badges.md
-    - Docker layer caching: use-cases/docker-layer-caching.md
-    - Working with Docker: use-cases/working-with-docker.md
     - Using private dependencies: use-cases/using-private-dependencies.md
     - Build matrix: use-cases/build-matrix.md
     - Project workflow trigger options: use-cases/project-workflow-trigger-options.md
@@ -91,19 +90,21 @@ nav:
     - Scala: programming-languages/scala.md
     - Swift: programming-languages/swift.md
   - CI/CD Environment:
-    - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
     - Machine types: ci-cd-environment/machine-types.md
-    - macOS Mojave Xcode 11 image: ci-cd-environment/macos-mojave-xcode-11-image.md
-    - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
-    - Custom CI/CD environment with Docker: ci-cd-environment/custom-ci-cd-environment-with-docker.md
-    - Toolbox reference: ci-cd-environment/toolbox-reference.md
-    - Environment variables: ci-cd-environment/environment-variables.md
-    - "sem-version: Managing language versions on Linux": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
-    - "sem-service: Managing databases and services on Linux": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
-    - Configuring database access: ci-cd-environment/configuring-database-access.md
-    - Caching dependencies and directories: ci-cd-environment/caching-dependencies-and-directories.md
-    - Artifact CLI reference: ci-cd-environment/artifact-cli-reference.md
     - Choosing between a VM and Docker-based environment: ci-cd-environment/choosing-between-a-vm-and-docker-based-environment.md
+    - Environment variables: ci-cd-environment/environment-variables.md
+    - Linux VM:
+      - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
+      - "Selecting language versions": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
+      - "Starting databases": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
+      - Configuring database access: ci-cd-environment/configuring-database-access.md
+    - Docker:
+      - Docker-based CI/CD environment: ci-cd-environment/custom-ci-cd-environment-with-docker.md
+      - Docker layer caching: use-cases/docker-layer-caching.md
+      - Working with Docker: use-cases/working-with-docker.md
+    - "iOS/macOS":
+      - macOS Mojave Xcode 11 image: ci-cd-environment/macos-mojave-xcode-11-image.md
+      - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
   - Examples:
     - Tutorials and example projects: use-cases/tutorials-and-example-projects.md
     - Rails continuous integration: use-cases/rails-continuous-integration.md
@@ -133,20 +134,19 @@ nav:
     - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
     - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
   - Reference:
-    - sem command line tool: reference/sem-command-line-tool.md
-    - Pipeline YAML reference: reference/pipeline-yaml-reference.md
-    - Secrets YAML reference: reference/secrets-yaml-reference.md
-    - Projects YAML reference: reference/projects-yaml-reference.md
-    - Dashboards YAML reference: reference/dashboards-yaml-reference.md
-    - Jobs YAML reference: reference/jobs-yaml-reference.md
-    - Notifications YAML reference: reference/notifications-yaml-reference.md
-    - Slack notifications: reference/slack-notifications.md
-    - Webhook notifications: reference/webhook-notifications.md
-    - Semaphore Changelog: reference/semaphore-changelog.md
+    - Pipeline YAML: reference/pipeline-yaml-reference.md
+    - Conditions YAML: reference/conditions-reference.md
+    - Secrets YAML: reference/secrets-yaml-reference.md
+    - Projects YAML: reference/projects-yaml-reference.md
+    - Dashboards YAML: reference/dashboards-yaml-reference.md
+    - Jobs YAML: reference/jobs-yaml-reference.md
+    - Notifications YAML: reference/notifications-yaml-reference.md
+    - sem CLI: reference/sem-command-line-tool.md
+    - artifact CLI: reference/artifact-cli-reference.md
+    - API: reference/api-v1alpha.md
+    - Toolbox: ci-cd-environment/toolbox-reference.md
     - Quotas and limits: reference/quotas-and-limits.md
-    - Conditions reference: reference/conditions-reference.md
-    - API - v1alpha: reference/api-v1alpha.md
-    - Artifact CLI reference: reference/artifact-cli-reference.md
+    - Semaphore Changelog: reference/semaphore-changelog.md
   - Account Management:
     - Billing: account-management/billing.md
     - User management and permissions: account-management/user-management-and-permissions.md
