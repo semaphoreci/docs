@@ -5,10 +5,11 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of January 13, 2020
+
 - Additions to ubuntu1804 image:
     - Python 3.8
     - Snapd
-- Updates to ubuntu 18.04 image :
+- Updates to ubuntu1804 image :
     - Awc-cli       1.16 -> 1.17.1
     - Firefox esr 68.2.0 -> 68.4.1
     - Geckodriver 0.21.0 -> 0.26.0
@@ -27,14 +28,35 @@ This page is updated on a weekly basis.
     - updated gems:
       - fastlane (2.140.0)
       - cocoapods (1.8.4)
-- New convenience docker images available in Semaphore's DockerHub Account.
-Detailed list can be fund in [docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L528).
+- New convenience Docker images available in Semaphore's DockerHub Account.
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L528).
+- Retroactively updated the changelog to mention new features and improvements
+  (scroll down a few weeks).
+
+### Week of January 6, 2020
+
+- New: Workflow Builder can model deployment. You can now configure promotions
+  and multiple pipelines in a point-and-click interface, without writing YAML.
+- New: When you go to create a new project, Semaphore now begins by analyzing your
+  code repository. It then suggest a YML configuration that you can use as a
+  starting point. There's also a gallery of starter workflows that you can
+  choose from.
 
 ### Week of December 30, 2019
+
+- Log page improvements: continuously live stream logs on a per-character basis,
+  not just on every new line. Plus a few bugs fixed like when dealing with very
+  large lines and low baud rate.
 - Additions to ubuntu1804 image
     - Ruby 2.7.0
 
 ### Week of December 16, 2019
+
+- Android: [documentation](https://docs.semaphoreci.com/article/172-android) for
+  getting started is available.
+- [A React Native example
+  project](https://github.com/semaphoreci-demos/semaphore-demo-react-native) is
+  available.
 - Updates to ubuntu1804 image
     - Git-lfs  2.9.1  -> 2.9.2
     - Yarn     1.19.2 -> 1.21.1
@@ -43,8 +65,20 @@ Detailed list can be fund in [docker images changelog](https://github.com/semaph
     - PhpUnit  7.5.17 -> 7.5.18
     - Phpbrew  1.23.1 -> 1.24.1
     - APT: removed ppa jonathonf/python-2.7
-  
+
+### Week of December 9, 2019
+
+- New:
+  [Webhooks](https://docs.semaphoreci.com/guided-tour/webhook-notifications/) on
+  success or failure of a pipeline.
+
 ### Week of December 2, 2019
+
+- New: [Open source organizations are
+  available](https://semaphoreci.com/blog/free-open-source-cicd).
+  Each open source organization receives unlimited CI/CD minutes for building
+  public repositories, including Linux, Docker and macOS-based environments.
+- New: [Status badges](https://docs.semaphoreci.com/use-cases/status-badges/).
 - Updates to ubuntu1804 image
     - Git-lfs 2.9.0  -> 2.9.1
     - Yarn    1.19.1 -> 1.19.2
@@ -52,6 +86,8 @@ Detailed list can be fund in [docker images changelog](https://github.com/semaph
     - Elixir versions 1.9.2, 1.9.3, 1.9.4
 
 ### Week of November 18, 2019
+
+- New: [Monorepo support](https://docs.semaphoreci.com/use-cases/building-monorepo-projects/).
 - Updates to ubuntu1804 image
     - Git      2.23   -> 2.24
     - Heroku   7.33   -> 7.35
