@@ -1,4 +1,4 @@
-# Configuring GitHub Status Checks
+# GitHub Status Checks
 
 GitHub status checks are an excellent way to track and control the CI/CD status
 of your projects.

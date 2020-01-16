@@ -1,4 +1,4 @@
-# Building Monorepo Projects
+# Monorepo Workflows
 
 *Note*: The monorepo support is currently in `beta` stage of development.
 
@@ -108,7 +108,7 @@ slightly different way for the `master` and the other branches or pull requests.
 For more details and ways in which this can be modified please check the
 [reference][change-in-ref].
 
-## Set up the automatic deployments for a monorepo project  
+## Set up the automatic deployments for a monorepo project
 
 Here we will assume that you already have a `web-prod.yml`, `ios-prod.yml` and
 `docs-prod.yml` deployments defined in your `.semaphore/` directory (you can find

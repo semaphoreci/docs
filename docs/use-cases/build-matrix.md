@@ -1,19 +1,19 @@
-# Build Matrix
+# Job Matrix
 
 This guide shows how to set up a
-[build matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix):
+[job matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix):
 dynamically created parallel jobs with different environment variables.
 
-To configure a build matrix, you need to set the `matrix` property on
+To configure a job matrix, you need to set the `matrix` property on
 a job definition. `matrix` takes a list of `env_var` and its possible
 `values`.
 
-The build matrix will expand all the possible combinations of variables
+The job matrix will expand all the possible combinations of variables
 and create a job for each one.
 
 ## Testing against multiple language versions
 
-In the following example, a build matrix is used to run different Java
+In the following example, a job matrix is used to run different Java
 versions:
 
 ``` yaml
@@ -45,11 +45,11 @@ java -version
 
 ## Multiple environment variables
 
-The following build matrix has 2 variables, each with 3 possible values:
+The following job matrix has 2 variables, each with 3 possible values:
 
 ``` yaml
 blocks:
-  - name: "Build matrix"
+  - name: "Job matrix"
     task:
       jobs:
       - name: Matrix
