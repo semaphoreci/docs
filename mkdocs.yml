@@ -57,23 +57,23 @@ nav:
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
     - Workflows and Pipelines: use-cases/modeling-complex-workflows.md
-    - Workflow trigger options: use-cases/project-workflow-trigger-options.md
-    - Schedule a workflow run: use-cases/schedule-a-workflow-run.md
-    - "Fail-Fast: Stop running tests on the first failure": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
-    - Auto-cancel previous pipelines on a new push: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Skip building some commits with [ci skip]: use-cases/skip-building-some-commits-with-ci-skip.md
+    - Workflow triggers: use-cases/project-workflow-trigger-options.md
+    - Workflow scheduler/cron: use-cases/schedule-a-workflow-run.md
+    - "Fail-fast": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
+    - Auto-cancel: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
+    - Skipping commits: use-cases/skip-building-some-commits-with-ci-skip.md
+    - Monorepo workflows: use-cases/building-monorepo-projects.md
     - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
-    - Build matrix: use-cases/build-matrix.md
+    - Job matrix: use-cases/build-matrix.md
     - Debugging with SSH: use-cases/debugging-with-ssh-access.md
-    - Caching dependencies and directories: ci-cd-environment/caching-dependencies-and-directories.md
+    - Caching: ci-cd-environment/caching-dependencies-and-directories.md
     - Artifacts: use-cases/artifacts.md
-    - Using Secrets: use-cases/using-secrets.md
+    - Secrets: use-cases/using-secrets.md
     - Slack notifications: guided-tour/slack-notifications.md
     - Webhook notifications: guided-tour/webhook-notifications.md
-    - Configuring GitHub status checks: use-cases/configuring-github-status-checks.md
+    - GitHub status checks: use-cases/configuring-github-status-checks.md
     - Status Badges: use-cases/status-badges.md
-    - Building Monorepo projects: use-cases/building-monorepo-projects.md
-    - Using private dependencies: use-cases/using-private-dependencies.md
+    - Private dependencies: use-cases/using-private-dependencies.md
     - Deployment dashboards: use-cases/deployment-dashboards.md
   - Programming Languages:
     - Android: programming-languages/android.md

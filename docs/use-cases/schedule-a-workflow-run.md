@@ -1,4 +1,4 @@
-# Schedule a workflow run
+# Workflow scheduler/cron
 
 Scheduling workflow runs daily, hourly or even every other minute can be useful
 in many use cases, such as:
@@ -93,11 +93,11 @@ Save the changes and close the editor and scheduled workflow runs will be set up
 
 - In order to disperse the load, the workflows will be run at the random second
 of the wanted minute. This means that even though some versions of Crontab
-format support seconds in expression, the Semaphore 2.0 will ignore them.  
+format support seconds in expression, the Semaphore 2.0 will ignore them.
 
 - When the scheduled workflow is triggered, the Semaphore 2.0 uses the latest
 webhook received from GitHub for the given branch to determine the exact commit
-for which the workflow should be run.  
+for which the workflow should be run.
 This can be problematic in two cases:
 
     1. When the project is new and there were no pushes to the given branch since
