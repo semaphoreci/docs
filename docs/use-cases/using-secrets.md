@@ -1,4 +1,4 @@
-# Using Secrets
+# Secrets
 
 This page shows how to store and access sensitive data such as API keys,
 passwords, certificates, SSH keys other sensitive data.
