@@ -59,8 +59,8 @@ Following version control tools are pre-installed:
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.2
-- geckodriver 0.21.0
+- Firefox 68.4.1
+- geckodriver 0.26.0
 - Google Chrome 79
 - chrome_driver 79
 - xvfb (X Virtual Framebuffer)
@@ -118,7 +118,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u201, 11.0.2
+- Java: 8u232, 11.0.5
 - Scala: 2.11.11, 2.12.7
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -158,7 +158,7 @@ The default installed PHP version is `7.2.10`.
 
 #### Additional libraries
 
-phpunit: 7.5.18
+phpunit: 7.5.20
 
 ### Python
 
@@ -167,6 +167,7 @@ Python versions are installed and managed by
 
 - 2.7
 - 3.7
+- 3.8
 
 Supporting libraries:
 
@@ -190,6 +191,7 @@ Available versions:
 - 2.4.0 to 2.4.9
 - 2.5.0 to 2.5.7
 - 2.6.0 to 2.6.5
+- 2.7.0
 - jruby-9.1.17.0
 
 ## See Also

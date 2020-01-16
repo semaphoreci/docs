@@ -5,6 +5,20 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of January 13, 2020
+- Additions to ubuntu1804 image:
+    - Python 3.8
+    - Snapd
+- Updates to ubuntu 18.04 image :
+    - Awc-cli       1.16 -> 1.17.1
+    - Firefox esr 68.2.0 -> 68.4.1
+    - Geckodriver 0.21.0 -> 0.26.0
+    - Java 8        u201 -> u232
+    - Java        11.0.2 -> 11.0.5
+    - Heroku      7.35.0 -> 7.35.1
+    - Git           2.24 -> 2.25
+    - Git-LFS      2.9.1 -> 2.9.2
+    - Phpunit     7.5.18 -> 7.5.20
+    
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed, to switch version use
     `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
