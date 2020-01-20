@@ -6,6 +6,8 @@ This page is updated on a weekly basis.
 
 ### Week of January 13, 2020
 
+- New: "Jump to a branch or pull request" quick search modal dialog,
+  available on the project page.
 - Additions to ubuntu1804 image:
     - Python 3.8
     - Snapd
