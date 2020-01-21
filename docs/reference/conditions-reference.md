@@ -255,8 +255,8 @@ The supported map parameters are:
       <td>  
         Configures the commit range that is examined on all branches except the
         default one. The default value is
-        <b>$SEAMPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
-        <b>$SEAMPHORE_MERGE_BASE</b> is default branch in workflows initiated
+        <b>$SEMAPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
+        <b>$SEMAPHORE_MERGE_BASE</b> is default branch in workflows initiated
         from branches or targeted branch in workflows initiated from a pull
         request, and the <b>$SEMAPHORE_GIT_SHA</b> is the sha of the commit
         for which the workflow was initiated. You can use here this predefined
