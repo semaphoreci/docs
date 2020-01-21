@@ -416,6 +416,90 @@ blocks:
           - sleep 60
 ```
 
+## queue
+
+The optional `queue` property enables you to assign the pipeline to the custom
+execution queue.
+
+It can have two sub-properties, `name` and `scope`.
+
+The `name` property is required and it should hold the string that uniquely
+identifies wanted queue within the configured scope.
+
+The `scope` property can have one of two values, **project** or **organization**.
+
+If `scope` property is omitted, its value will be automatically set to **project**.
+
+The pipelines within the project are, by default, assigned to queues based on the
+git branch/tag name or pull request number and the YAML configuration file name.
+
+This means that pipelines will only queue if they are initiated from the same
+branch/tag/pull request with the same configuration, e.g. multiple pushes or
+multiple promotions.
+
+If you assign a pipeline to a custom execution queue via the `queue` property, it
+will wait for all previously initiated pipelines that are assigned to same the
+queue.
+
+This will be true even if for the pipelines that have different YAML configuration
+files or are from different branches/tags, or even from different projects (for
+this last one `scope` has to be set to **organization**).
+
+This is especially useful when you need to forbid parallel access to some external
+resource, such as deployments to production servers or calling external APIs.
+
+### An example of setting a custom execution queue with project scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different git branches, tags or pull
+requests.
+
+``` yaml
+version: "v1.0"
+name: Project-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: production
+  scope: organization
+
+blocks:
+  - task:
+      jobs:
+        - name: Deploy to production
+          commands:
+            - echo "Deploying service to production server(s)"
+```
+
+### An example of setting a custom execution queue with organization scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different projects or git branches tags
+or pull requests.
+
+``` yaml
+version: "v1.0"
+name: Organization-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: external-api
+  scope: project
+
+blocks:
+  - task:
+      jobs:
+        - name: Tests
+          commands:
+            - echo "Tests that call the external API"
+```
+
 ## auto_cancel
 
 The `auto_cancel` property enables you to set a strategy for auto-canceling other
