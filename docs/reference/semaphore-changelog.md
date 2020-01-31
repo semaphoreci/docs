@@ -11,7 +11,8 @@ This page is updated on a weekly basis.
         - `libimobiledevice`
         - `ideviceinstaller`
         - `ios-deploy`
-- New convenience Docker image available in Semaphore's DockerHub Account - android with `flutter` preinstalled.
+- New convenience Docker image available in Semaphore's 
+DockerHub Account - android with `flutter` preinstalled.
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L792).
 
 ### Week of January 13, 2020
