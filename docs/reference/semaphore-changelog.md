@@ -4,6 +4,17 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of January 27, 2020
+- Updates to the macOS image:
+    - installed packages:
+        - `usbmuxd`
+        - `libimobiledevice`
+        - `ideviceinstaller`
+        - `ios-deploy`
+- New convenience Docker image available in Semaphore's 
+DockerHub Account - android with `flutter` preinstalled.
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L792).
+
 ### Week of January 13, 2020
 
 - New: "Jump to a branch or pull request" quick search modal dialog,
