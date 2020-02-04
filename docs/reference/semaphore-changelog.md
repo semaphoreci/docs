@@ -9,7 +9,7 @@ This page is updated on a weekly basis.
 - Additions to ubuntu1804 image:
     - libmaxminddb0
     - libmaxminddb-dev
-- ubuntu1804 kernel settings changes, introduced because of docker requirements:
+- ubuntu1804 kernel settings changes:
     - vm.max_map_count=262144
     - fs.inotify.max_user_instances=524288
     - fs.inotify.max_user_watches=524288
