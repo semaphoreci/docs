@@ -4,6 +4,23 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+
+### Week of February 03, 2020
+- Additions to ubuntu1804 image:
+    - libmaxminddb0
+    - libmaxminddb-dev
+- ubuntu1804 kernel settings changes, introduced because of docker requirements:
+    - vm.max_map_count=262144
+    - fs.inotify.max_user_instances=524288
+    - fs.inotify.max_user_watches=524288
+    - fs.inotify.max_queued_events=524288
+- Updates to ubuntu1804 image:
+    - Heroku  7.35.1 -> 7.37.0
+    - Java8     u232 -> u242
+    - Java11  11.0.5 -> 11.0.6
+    - Git-lfs  2.9.2 -> 2.10.0
+    - Aws-cli 1.17.2 -> 1.17.9
+    
 ### Week of January 27, 2020
 - Updates to the macOS image:
     - installed packages:
