@@ -4,8 +4,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of February 03, 2020
 
+### Week of February 03, 2020
 - Additions to ubuntu1804 image:
     - libmaxminddb0
     - libmaxminddb-dev
@@ -21,6 +21,16 @@ This page is updated on a weekly basis.
     - Git-lfs  2.9.2 -> 2.10.0
     - Aws-cli 1.17.2 -> 1.17.9
     
+### Week of January 27, 2020
+- Updates to the macOS image:
+    - installed packages:
+        - `usbmuxd`
+        - `libimobiledevice`
+        - `ideviceinstaller`
+        - `ios-deploy`
+- New convenience Docker image available in Semaphore's 
+DockerHub Account - android with `flutter` preinstalled.
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L792).
 
 ### Week of January 13, 2020
 
