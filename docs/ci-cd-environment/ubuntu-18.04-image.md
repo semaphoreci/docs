@@ -118,7 +118,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u232, 11.0.5
+- Java: 8u242, 11.0.6
 - Scala: 2.11.11, 2.12.7
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -148,13 +148,12 @@ Installed version:
 PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
 Installed versions:
 
-- 5.6.38
-- 7.0.32
-- 7.1.23
-- 7.2.10
-- 7.3
+- 7.0.33
+- 7.1.32
+- 7.2.27
+- 7.3.11
 
-The default installed PHP version is `7.2.10`.
+The default installed PHP version is `7.2.27`.
 
 #### Additional libraries
 
@@ -173,7 +172,7 @@ Supporting libraries:
 
 - pypy: 5.8.0
 - pypy3: 5.8.0
-- pip: 19.3
+- pip: 20.0.2
 - pip3: 19
 - venv: 16.0.0
 
