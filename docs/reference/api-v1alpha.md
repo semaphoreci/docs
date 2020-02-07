@@ -101,6 +101,38 @@ No changes.
 
 ## Workflows
 
+### Run Workflow
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
+```
+
+**Params**
+
+- `project_id` (**required**) - ID of a project
+- `reference` (**required**) - GitHub reference for the wanted branch e.g. *refs/heads/master*
+- `commit_sha` (*optional*) - Commit sha of the wanted commit
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "workflow_id": "32a689e0-9082-4c5b-a648-bb3dc645452d",
+  "pipeline_id": "2abeb1a9-eb4a-4834-84b8-cb7806aec063",
+  "hook_id": "ff7d57ef-92c5-4fcd-9c0c-6ae9e24bfcec"
+}
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     -d "project_id={project_id}&reference={reference}" \
+     -X POST  https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
+```
+
 ### Describe Workflow
 
 ```
