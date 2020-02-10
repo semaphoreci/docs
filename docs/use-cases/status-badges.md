@@ -19,8 +19,7 @@ https://semaphore.semaphoreci.com/badges/docs.svg
 
 ## Branch
 
-By default, badge will be created based on default branch. You can specify
-different branch by adding `/branches/{BRANCH_NAME}` to the URL.
+By default, the badge will be created based on the master branch. You can specify a different branch by adding `/branches/{BRANCH_NAME}` to the URL.
 
 ```
 https://{ORGANIZATION_NAME}.semaphoreci.com/badges/{PROJECT_NAME}/branches/{BRANCH_NAME}.svg
