@@ -1436,7 +1436,6 @@ sem get projects
 - [Installing sem](https://docs.semaphoreci.com/article/63-your-first-project)
 - [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-- [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 - [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)

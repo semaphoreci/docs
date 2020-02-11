@@ -2011,7 +2011,6 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 - [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
 

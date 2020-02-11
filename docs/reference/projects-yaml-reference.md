@@ -265,7 +265,6 @@ spec:
 ## See Also
 
 - [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options)
