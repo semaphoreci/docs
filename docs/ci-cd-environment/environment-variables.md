@@ -351,7 +351,6 @@ Example value: `/home/semaphore/.ssh/semaphore_cache_key`
 ### Private Docker Registry related variables
 
 Private Docker registry is a beta feature that is available on a request.
-You can find more information on [Private Docker Registry] page.
 
 This feature adds the following environment variables to every job for a given project:
 
@@ -363,8 +362,6 @@ This feature adds the following environment variables to every job for a given p
 
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-
-[Private Docker Registry]: https://docs.semaphoreci.com/article/163-private-docker-registry
 
 
 [scheduler]: https://docs.semaphoreci.com/use-cases/schedule-a-workflow-run/
