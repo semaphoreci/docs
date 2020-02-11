@@ -160,4 +160,3 @@ data:
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
