@@ -10,13 +10,21 @@ The general form of a `sem-service` command is as follows:
 
 ``` bash
 sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearch | rabbitmq] [version]
+[--username=username] [--password=password] [--db=databasename]
 ```
 
 Therefore, each `sem-service` command requires at least two parameters: the
 first one is the task you want to perform and the second parameter is the name
 of the service that will be used for the task. The third parameter is optional
-and is the version of the service that you want to start. If no `version` value
-is given, a default value will be used according to the following list:
+and is the version of the service that you want to start. For MySQL and PostgreSQL it 
+is possible to provide `username` via ```--username=username```, password for the new username 
+via ```--password=password``` and database name for which the user will be granted admin access
+via ```--db=dbname```. For mysql if `username` and `password` are provided and no `database`, 
+the database will default to `test`.
+- The default MySQL username is `root` and password is blank.
+- The default PostgreSQL username is `postgres` and password is blank.
+
+If no `version` value is given, a default value will be used according to the following list:
 
 - mysql: The default value is `5.6`
 - postgres: The default value is `10.6`
@@ -46,6 +54,8 @@ sem-service stop redis
 sem-service start redis 5
 sem-service status postgres
 sem-service start postgres 11
+sem-service start postgres 11 --username=some_user_name --password=some_password --db=some_db_name
+sem-service start mysql 8.0.19 --username=some_user_name --password=some_password --db=some_db_name
 sem-service status mysql
 sem-service start memcached
 sem-service start elasticsearch
@@ -55,11 +65,6 @@ sem-service start mongodb 3.2
 sem-service start rabbitmq
 sem-service start rabbitmq 3.7
 ```
-
-Credentials:
-
-- The default MySQL username is `root` and password is blank.
-- The default PostgreSQL username is `postgres` and password is blank.
 
 Services are not automatically shared across blocks. To do that, start services
 within the [prologue](https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue)

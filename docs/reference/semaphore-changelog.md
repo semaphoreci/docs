@@ -4,6 +4,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 10, 2020
+- sem-service can have [additional parameters](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/)
 
 ### Week of February 03, 2020
 - Additions to ubuntu1804 image:
