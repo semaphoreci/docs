@@ -4,6 +4,9 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 10, 2020
+- Additions to sem-service: 
+    - it is now possible to start postgres and mysql with custom user and password
 
 ### Week of February 03, 2020
 - Additions to ubuntu1804 image:
