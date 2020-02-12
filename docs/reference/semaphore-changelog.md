@@ -5,7 +5,11 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of February 10, 2020
-- [additional parameters](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for `sem-service`
+
+- New: [Alpha version of Semaphore 2.0 API](https://docs.semaphoreci.com/reference/api-v1alpha/)
+  is now available. Initial release focuses on ability to control workflows.
+- You can now specify MySQL and PostgreSQL username, password and database when using
+  [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/)
 
 ### Week of February 03, 2020
 - Additions to ubuntu1804 image:
