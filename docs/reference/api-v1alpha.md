@@ -110,7 +110,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
 **Params**
 
 - `project_id` (**required**) - ID of a project
-- `reference` (**required**) - GitHub reference for the wanted branch e.g. *refs/heads/master*
+- `reference` (**required**) - GitHub reference for the wanted branch, tag or pull request e.g. *refs/heads/master, refs/tags/v1.0 or refs/pull/123*
 - `commit_sha` (*optional*) - Commit sha of the wanted commit
 
 **Response**
