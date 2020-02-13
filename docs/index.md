@@ -32,6 +32,7 @@
                 <li><a href="/use-cases/artifacts/">Artifacts</a></li>
                 <li><a href="/reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
                 <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
+                <li><a href="/reference/semaphore-changelog/">Semaphore Changelog</a></li>
             </ul>
         </div>
     </div>
