@@ -1,4 +1,4 @@
-# sem-service: Managing Databases and Services on Linux
+# sem-service: Managing Databases and Services directly in Linux based virtual machine, ubuntu1804 image
 
 The `sem-service` is a utility on Linux based virtual machines for starting,
 stopping and getting the status of background services. Started services will
