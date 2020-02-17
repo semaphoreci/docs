@@ -1,3 +1,5 @@
+[![Build Status](https://semaphore.semaphoreci.com/badges/docs.svg)](https://semaphore.semaphoreci.com/projects/docs)
+
 # Semaphore 2.0 Documentation
 
 This is the source content of [Semaphore 2.0 documentation][docs-website], a
