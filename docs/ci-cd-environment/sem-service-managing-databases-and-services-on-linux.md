@@ -21,7 +21,7 @@ is possible to provide `username` via ```--username=username```, password for th
 via ```--password=password``` and database name for which the user will be granted admin access
 via ```--db=dbname```. 
 
-- The default MySQL username is `root`, password is blank and default database name is `test`
+- The default MySQL username is `root`, the password is blank and the default database name is `test`
 - The default PostgreSQL username is `postgres` and password is blank.
 
 If no `version` value is given, a default value will be used according to the following list:
