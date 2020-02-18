@@ -4,6 +4,18 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 17, 2020
+
+- Updates to ubuntu1804 image
+  - Aws-cli  1.17.9 -> 1.17.17
+  - Chrome       79 -> 80
+  - Chromedriver 79 -> 80
+  - Heroku   7.37.0 -> 7.38.1
+  - Nvm      8.16.2 -> 8.17.0
+  - Nvm     10.17.0 -> 10.19.0
+  - Nvm     12.13.0 -> 12.16.0
+  - Npm       6.4.1 -> 6.13.4
+
 ### Week of February 10, 2020
 
 - New: [Alpha version of Semaphore 2.0 API](https://docs.semaphoreci.com/reference/api-v1alpha/)
@@ -12,6 +24,7 @@ This page is updated on a weekly basis.
   [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/)
 
 ### Week of February 03, 2020
+
 - Additions to ubuntu1804 image:
     - libmaxminddb0
     - libmaxminddb-dev

@@ -16,12 +16,12 @@ sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearc
 Therefore, each `sem-service` command requires at least two parameters: the
 first one is the task you want to perform and the second parameter is the name
 of the service that will be used for the task. The third parameter is optional
-and is the version of the service that you want to start. For MySQL and PostgreSQL it 
+and is the version of the service that you want to start.<br/> For MySQL and PostgreSQL it 
 is possible to provide `username` via ```--username=username```, password for the new username 
 via ```--password=password``` and database name for which the user will be granted admin access
-via ```--db=dbname```. For mysql if `username` and `password` are provided and no `database`, 
-the database will default to `test`.
-- The default MySQL username is `root` and password is blank.
+via ```--db=dbname```. 
+
+- The default MySQL username is `root`, password is blank and default database name is `test`
 - The default PostgreSQL username is `postgres` and password is blank.
 
 If no `version` value is given, a default value will be used according to the following list:
