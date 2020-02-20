@@ -23,63 +23,50 @@
 {% import "partials/language.html" as lang with context %}
 
 <!-- Search interface -->
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-
+<div class="custom-search">
     <input type="search" id="searchBox">
-    <script>
-      /* Create a configuration object */
-      var ss360Config = {
-          siteId: 'id.semaphoreci.com',
-          searchBox: {
-            selector: '#searchBox', // the selector to the search box,
-            placeholder: 'Search',
-            autofocus: false, // if true, the search box will get focus after initialization
-            focusLayer: true // if true, a layer will be shown when the user focuses on the search input
-          },
-          suggestions: {
-            show: true,  // whether to show search suggestions
-            showImages: false, // show images in search suggestions
-            num: 6, // the maximum number of search suggestions to be shown
-            minChars: 3, // minimum number of characters before the suggestions shows, default: 3,
-            throttleTime: 50, // the number of milliseconds before the suggest is triggered after finished input, default: 300ms
-            maxWidth: 560, // the maximum width of the suggest box, default: as wide as the input box, at least 275px
-            equalSearch: true
-          },
-          style: {
-            themeColor: '#0aa75e', // the theme color affecting headlines, buttons, and links
-            animationSpeed: 250, // speed of the animations in milliseconds,
-            additionalCss: '.unibox-selectable { display: block!important; }' // additional CSS to add to the plugin's stylesheets: e.g. '#ss360-layer{background: red;}'
-          },
-          results: {
-            searchQueryParamName: 'q', // the name of the search query parameter
-            embedConfig: { // {'url':undefined,'contentBlock':'.page-content-body'}, // if url is given the page will change to that URL and look for the content block there to insert the results
-              contentBlock: '.md-content'
-            },
-          },
-          layout: {
-            desktop: {
-              showImages: false
-            },
-            mobile: {
-              showImages: false
-            }
-          }
-      };
-    </script>
-    <script type="module" src="https://cdn.sitesearch360.com/sitesearch360-v12.mjs"></script>
-    <script nomodule src="https://cdn.sitesearch360.com/sitesearch360-v12.min.js" async></script>
-
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            {{ lang.t("search.result.placeholder") }}
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+<!-- sitesearch360 config -->
+<script>
+    /* Create a configuration object */
+    var ss360Config = {
+        siteId: 'id.semaphoreci.com',
+        searchBox: {
+          selector: '#searchBox', // the selector to the search box,
+          placeholder: 'Search…',
+          autofocus: false, // if true, the search box will get focus after initialization
+          focusLayer: true // if true, a layer will be shown when the user focuses on the search input
+        },
+        suggestions: {
+          show: true,  // whether to show search suggestions
+          showImages: false, // show images in search suggestions
+          num: 5, // the maximum number of search suggestions to be shown
+          minChars: 2, // minimum number of characters before the suggestions shows, default: 3,
+          throttleTime: 50, // the number of milliseconds before the suggest is triggered after finished input, default: 300ms
+          maxWidth: 640, // the maximum width of the suggest box, default: as wide as the input box, at least 275px
+          equalSearch: true
+        },
+        style: {
+          themeColor: '#15913F', // the theme color affecting headlines, buttons, and links
+          animationSpeed: 250, // speed of the animations in milliseconds,
+          additionalCss: '.unibox-selectable { display: block!important; }' // additional CSS to add to the plugin's stylesheets: e.g. '#ss360-layer{background: red;}'
+        },
+        results: {
+          searchQueryParamName: 'q', // the name of the search query parameter
+          embedConfig: { // {'url':undefined,'contentBlock':'.page-content-body'}, // if url is given the page will change to that URL and look for the content block there to insert the results
+            contentBlock: '.md-content'
+          },
+        },
+        layout: {
+          desktop: {
+            showImages: false
+          },
+          mobile: {
+            showImages: false
+          }
+        }
+    };
+  </script>
+  <script type="module" src="https://cdn.sitesearch360.com/sitesearch360-v12.mjs"></script>
+  <script nomodule src="https://cdn.sitesearch360.com/sitesearch360-v12.min.js" async></script>
