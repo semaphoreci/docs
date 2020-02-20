@@ -23,14 +23,11 @@
 {% import "partials/language.html" as lang with context %}
 
 <!-- Search interface -->
-<div class="md-search">
-  <div class="md-search__inner">
+<div class="custom-search">
     <input type="search" id="searchBox">
-  </div>
 </div>
 
-<!-- sitesearch config -->
-
+<!-- sitesearch360 config -->
 <script>
     /* Create a configuration object */
     var ss360Config = {
@@ -47,7 +44,7 @@
           num: 5, // the maximum number of search suggestions to be shown
           minChars: 2, // minimum number of characters before the suggestions shows, default: 3,
           throttleTime: 50, // the number of milliseconds before the suggest is triggered after finished input, default: 300ms
-          maxWidth: 600, // the maximum width of the suggest box, default: as wide as the input box, at least 275px
+          maxWidth: 640, // the maximum width of the suggest box, default: as wide as the input box, at least 275px
           equalSearch: true
         },
         style: {
