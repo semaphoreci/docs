@@ -123,6 +123,7 @@ agent:
       image: semaphoreci/ruby:2.6.1
     - name: db
       image: postgres:9.6
+      user: postgres
       env_vars:
         - name: POSTGRES_PASSOWRD
           value: keyboard-cat
@@ -136,8 +137,18 @@ The first container runs the jobs' commands, while the rest of the containers
 are linked via DNS records. The container with name `db` is registered with a
 hostname `db` in the first container.
 
-Each container can optionally have a list of environment variables that are
-injected into the container.
+Other optional parameters of each container definition can be divided into two groups:
+
+1. Docker related parameters that are passed to docker run command that starts the container. More information about them can be found in [docker run][docker-run] docs.
+
+    - `user` - The user that will be used within the container
+    - `command` - The first command to execute within the container. It overrides the command defined in Dockerfile.
+    - `entrypoint` - This specifies what executable to run when the container starts
+
+2. The data that needs to be injected into containers that is either defined directly there in YAML file or is stored in Semaphore secrets
+
+    - `env_vars` - Environment variables that are injected into the the container. They are defined in the same way as in [task definition][env-var-in-task].
+    - `secrets` - Secrets which hold the data the should be injected into the container. They are defined in the same way as in [task definition][secrets-in-task]. *Note*: currently, only environment variables defined in a secret will be injected into container, the files within the secret will be ignored.
 
 ### A Preface example
 
@@ -2019,3 +2030,6 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
+[docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
+[env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
+[secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
