@@ -141,7 +141,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id
 
 **Params**
 
-- `workflow_id` - ID of a workflow
+- `workflow_id` (**required**) - ID of a workflow
 
 **Response**
 
@@ -236,8 +236,8 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/resch
 
 **Params**
 
-- `workflow_id` - ID of a workflow that you want to rerun
-- `request_token` - Idempotency token, can be any string
+- `workflow_id` (**required**) - ID of a workflow that you want to rerun
+- `request_token` (**required**) - Idempotency token, can be any string
 
 **Response**
 
@@ -265,7 +265,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/termi
 
 **Params**
 
-- `workflow_id` - ID of a workflow that you want to stop
+- `workflow_id` (**required**) - ID of a workflow that you want to stop
 
 **Response**
 
@@ -447,8 +447,8 @@ GET {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
 
 **Params**
 
-- `project_id` (**required**) - ID of a project
-- `wf_id` - (*optional*) - ID of a workflow
+- `project_id` (**required, optional if** `wf_id` **is present**) - ID of a project
+- `wf_id` (**required, optional if** `project_id` **is present**) - ID of a workflow
 - `branch_name` (*optional*) - name of a branch
 - `yml_file_path` (*optional*) - YML file that contains pipeline definition
 
@@ -521,8 +521,8 @@ POST {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
 
 **Params**
 
-- `pipeline_id` - ID of a pipeline
-- `terminate_request` - Must be set to `true`
+- `pipeline_id` (**required**) - ID of a pipeline
+- `terminate_request` (**required**) - Must be set to `true`
 
 **Response**
 
@@ -536,7 +536,7 @@ HTTP status: 200
 curl -i -X PATCH  -H "Authorization: Token {api_token}" \
      --header "Accept: application/json"  --header "Content-Type: application/json" \
      --data '{"terminate_request": true}' \
-     https://semaphore.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
+     https://{org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
 ```
 
 ## Promotions
@@ -549,7 +549,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/promotions?pipeline_id=:pipeline_id
 
 **Params**
 
-- `pipeline_id` - ID of a pipeline
+- `pipeline_id` (**required**) - ID of a pipeline
 
 **Response**
 
@@ -590,8 +590,9 @@ POST {org_name}.semaphoreci.com/api/v1alpha/promotions
 
 **Params**
 
-- `pipeline_id` - ID of a pipeline
-- `name` - Name of promotion
+- `pipeline_id` (**required**) - ID of a pipeline
+- `name` (**required**) - Name of promotion, e.g. `Production deployment`
+- `override` (*optional*) - Boolean safeguard flag that needs to be set to `true` if you want to trigger a promotion of a pipeline that has failed or is still running.
 
 **Response**
 
@@ -604,7 +605,7 @@ HTTP status: 200
 ```
 curl -H "Authorization: Token {api_token}"  \
      -d "name=:promotion_name&pipeline_id=:pipeline_id"  \
-     -X POST  https://semaphore.semaphoreci.com/api/v1alpha/promotions
+     -X POST  https://{org_name}.semaphoreci.com/api/v1alpha/promotions
 ```
 
 ## Jobs
