@@ -4,6 +4,24 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 02, 2020
+
+- Additions to ubuntu1804 image:
+    - Elixir 1.10.1
+    - Php    7.4.3
+- Updates to ubuntu1804 image: 
+    - Aws-cli 1.17.17 -> 1.18.7
+    - Erlang     22.1 -> 22.2
+    - Go      1.12.10 -> 1.12.17
+    - Go       1.13.1 -> 1.13.8
+    - Heroku   7.38.1 -> 7.38.2
+    - Maven     3.5.4 -> 3.6.3
+    - Php      7.1.32 -> 7.1.33
+    - Php      7.2.27 -> 7.2.28
+    - Php      7.3.11 -> 7.3.15
+    - Scala    2.12.7 -> 2.12.10
+    
+
 ### Week of February 17, 2020
 
 - Android Docker images load in 2 seconds or less.
