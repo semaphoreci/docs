@@ -99,8 +99,8 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.3, 22.1
-- Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4
+- Erlang: 20.3, 21.3, 22.2
+- Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1
 
 Additional libraries:
 
@@ -113,19 +113,19 @@ Versions:
 
 - 1.10.8
 - 1.11.13
-- 1.12.10
-- 1.13.1
+- 1.12.17
+- 1.13.8
 
 ### Java and JVM languages
 
 - Java: 8u242, 11.0.6
-- Scala: 2.11.11, 2.12.7
+- Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
 
 #### Additional build tools
 
-- Maven: 3.5.4
+- Maven: 3.6.3
 - Gradle: 5.2
 
 ### JavaScript via Node.js
@@ -149,11 +149,12 @@ PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
 Installed versions:
 
 - 7.0.33
-- 7.1.32
-- 7.2.27
-- 7.3.11
+- 7.1.33
+- 7.2.28
+- 7.3.15
+- 7.4.3
 
-The default installed PHP version is `7.2.27`.
+The default installed PHP version is `7.2.28`.
 
 #### Additional libraries
 
