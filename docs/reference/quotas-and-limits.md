@@ -141,6 +141,23 @@ Pipeline YAML reference][execution-time-limit-reference].
 
 The maximum value of the `execution_time_limit` is 24 hours.
 
+## Limit on the number of pipelines in the queue
+
+Each pipeline is assigned to execution queue before running any jobs to prevent
+parallel execution of consecutive pushes or deployment promotions.
+
+By default, separate queues are created for each branch, tag or pull request and
+YAML configuration file combination. You can also define your own queues via
+[queue property][yml-reference-queue] in pipeline's YAML configuration.
+
+Semaphore imposes a limit on queue size of **30 active pipelines** at any moment
+to prevent system abuse and performance degradation.
+
+This limit is not adjustable.
+
+If you have a use case where this limit is too constraining, please contact us
+on <support@semaphoreci.com> so we can work on the solution to that problem.
+
 ## Job Log Size Limit
 
 Semaphore collects up to 16 megabytes of raw log data from every job in a
@@ -159,3 +176,4 @@ For collecting longer textual files, or output from long and verbose process,
 we recommend using a blob store like AWS S3 or Google Cloud Storage.
 
 [execution-time-limit-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#execution_time_limit
+[yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
