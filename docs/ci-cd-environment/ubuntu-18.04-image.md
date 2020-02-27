@@ -154,7 +154,7 @@ Installed versions:
 - 7.3.15
 - 7.4.3
 
-The default installed PHP version is `7.2.27`.
+The default installed PHP version is `7.2.28`.
 
 #### Additional libraries
 
