@@ -62,9 +62,9 @@ blocks:
       prologue:
         commands:
           # Correct premissions since they are too open by default:
-          - chmod 0600 ~/.ssh/*
+          - chmod 0600 ~/.ssh/private-repo
           # Add the key to the ssh agent:
-          - ssh-add ~/.ssh/*
+          - ssh-add ~/.ssh/private-repo
           - checkout
           # Now bundler/yarn/etc are able to pull private dependencies:
           - bundle install
