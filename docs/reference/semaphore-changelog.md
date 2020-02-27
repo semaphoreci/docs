@@ -4,12 +4,30 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 02, 2020
+
+- Additions to the ubuntu1804 image:
+    - Elixir 1.10.1
+    - Php    7.4.3
+- Updates to the ubuntu1804 image: 
+    - Aws-cli 1.17.17 -> 1.18.7
+    - Erlang     22.1 -> 22.2
+    - Go      1.12.10 -> 1.12.17
+    - Go       1.13.1 -> 1.13.8
+    - Heroku   7.38.1 -> 7.38.2
+    - Maven     3.5.4 -> 3.6.3
+    - Php      7.1.32 -> 7.1.33
+    - Php      7.2.27 -> 7.2.28
+    - Php      7.3.11 -> 7.3.15
+    - Scala    2.12.7 -> 2.12.10
+    
+
 ### Week of February 17, 2020
 
 - Android Docker images load in 2 seconds or less.
 - Workflow page: Clicking on the list of pipeline runs will open and focus on
   that part of the workflow.
-- Updates to ubuntu1804 image:
+- Updates to the ubuntu1804 image:
     - Aws-cli  1.17.9 -> 1.17.17
     - Chrome       79 -> 80
     - Chromedriver 79 -> 80
@@ -31,7 +49,7 @@ This page is updated on a weekly basis.
 
 ### Week of February 3, 2020
 
-- Additions to ubuntu1804 image:
+- Additions to the ubuntu1804 image:
     - libmaxminddb0
     - libmaxminddb-dev
 - ubuntu1804 kernel settings changes:
@@ -39,7 +57,7 @@ This page is updated on a weekly basis.
     - fs.inotify.max_user_instances=524288
     - fs.inotify.max_user_watches=524288
     - fs.inotify.max_queued_events=524288
-- Updates to ubuntu1804 image:
+- Updates to the ubuntu1804 image:
     - Heroku  7.35.1 -> 7.37.0
     - Java8     u232 -> u242
     - Java11  11.0.5 -> 11.0.6
@@ -64,7 +82,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 - Additions to ubuntu1804 image:
     - Python 3.8
     - Snapd
-- Updates to ubuntu1804 image :
+- Updates to the ubuntu1804 image :
     - Awc-cli       1.16 -> 1.17.1
     - Firefox esr 68.2.0 -> 68.4.1
     - Geckodriver 0.21.0 -> 0.26.0
@@ -112,7 +130,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 - [A React Native example
   project](https://github.com/semaphoreci-demos/semaphore-demo-react-native) is
   available.
-- Updates to ubuntu1804 image
+- Updates to the ubuntu1804 image
     - Git-lfs  2.9.1  -> 2.9.2
     - Yarn     1.19.2 -> 1.21.1
     - Chrome       78 -> 79
@@ -143,10 +161,10 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 ### Week of November 18, 2019
 
 - New: [Monorepo support](https://docs.semaphoreci.com/use-cases/building-monorepo-projects/).
-- Updates to ubuntu1804 image
+- Updates to the ubuntu1804 image
     - Git      2.23   -> 2.24
     - Heroku   7.33   -> 7.35
-- Additions to ubuntu1804 image
+- Additions to the ubuntu1804 image
     - ImageMagick 8:6.9.7.4
 
 ### Week of November 11, 2019
@@ -173,7 +191,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 ### Week of October 21, 2019
 
-- Updates to ubuntu1804 image
+- Updates to the ubuntu1804 image
     - Pip      19.2   -> 19.3.1
     - Nvm      8.11.3 -> 8.16.2
     - Npm       5.6.0 -> 6.4.1
@@ -192,7 +210,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 ### Week of October 14, 2019
 
-- Updates to ubuntu1804 image
+- Updates to the ubuntu1804 image
     - Heroku 7.30.0 -> 7.33.3
     - Elixir 1.8.1  -> 1.8.2
     - Elixir 1.9.0  -> 1.9.1
