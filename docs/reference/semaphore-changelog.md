@@ -48,7 +48,17 @@ This page is updated on a weekly basis.
   variables](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/).
 - In monorepo scenario, when a block is skipped, Semaphore now shows a “skipped” badge.
 - You can now specify MySQL and PostgreSQL username, password and database when using
-  [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/)
+  [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/).
+- In monorepo scenario, when a block is skipped, Semaphore now shows a “skipped” badge.
+- Jobs export `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK`, `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE`, and 
+  `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` [environment variables](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/#semaphore_workflow_triggered_by_hook).
+- Environment setup commands in jobs now have descriptive names. The new command names are:
+    - `Exporting environment variables`
+    - `Injecting Files`
+    - `Setting up the Semaphore Toolbox`
+    - `Starting an ssh-agent`
+    - `Connecting to cache`
+ - You can now override the default Docker command and entrypoint in attached containers. 
 
 ### Week of February 3, 2020
 
