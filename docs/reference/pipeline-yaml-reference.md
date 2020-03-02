@@ -1174,7 +1174,7 @@ blocks:
 ```
 
 In this example, the job specification named `Elixir + Erlang matrix` expands
-to 6 parallel jobs as there are 2 - 3 = 6 combinations of the provided
+to 6 parallel jobs as there are 2 x 3 = 6 combinations of the provided
 environment variables:
 
 - `Elixir + Erlang matrix - ELIXIR=1.4, ERLANG=21`
