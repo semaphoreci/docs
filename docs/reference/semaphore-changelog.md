@@ -20,7 +20,10 @@ This page is updated on a weekly basis.
     - Php      7.2.27 -> 7.2.28
     - Php      7.3.11 -> 7.3.15
     - Scala    2.12.7 -> 2.12.10
-    
+ 
+### Week of February 24, 2020
+
+- The values of secrets are hidden in the UI.
 
 ### Week of February 17, 2020
 
