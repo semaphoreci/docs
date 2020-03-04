@@ -44,7 +44,7 @@ If you want to add a new user to your organization, you can:
 **Note:** If you don’t immediately see the new user on the People page, please 
 click on the **Refresh list** button at the bottom of the page.
 
-All invited users have the Member permission level by default. You can promote users to Admins 
+All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
 by clicking on the **Promote** button next to their username.
 
 ## Removing a user from an organization
@@ -83,7 +83,7 @@ In order to change the URL of your organization:
 3. Enter the new URL in the text box and
 4. Click on **Change URL** button.
 
-**Note:** Only an Admin or an Owner of the organization can perform these actions.
+**Note:** Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admin) or an [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
 
 ## Transferring ownership of an organization
 
