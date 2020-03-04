@@ -6,7 +6,7 @@ permissions based on their role.
 ## Owner
 
 The creator of organization is its owner. There cannot be multiple owners, but
-it is possible to [transfer the ownership](https://docs.semaphoreci.com/article/106-user-management-and-permissions#transferring-ownership-of-an-organization).
+it is possible to [transfer the ownership](https://docs.semaphoreci.com/account-management/organizations/#transferring-ownership-of-an-organization).
 
 ### Owner project permissions
 
@@ -46,7 +46,7 @@ card information, and see the current spending.
 
 #### Owner organization settings permissions
 
-Owner can [change the name of the organization and its URL](https://docs.semaphoreci.com/article/106-user-management-and-permissions#changing-the-name-and-the-url-of-an-organization). Note that changing
+Owner can [change the name of the organization and its URL](https://docs.semaphoreci.com/account-management/organizations/#changing-the-name-and-the-url-of-an-organization). Note that changing
 the name doesn't change the URL so these two actions have to be performed 
 separately.
 
@@ -110,8 +110,8 @@ Members can:
 
 ## Changing the permission level
 
-Every user in the organization can be promoted from the Member permission 
-level to the Admin permission level. This can be done by following these steps:
+Every user in the organization can be promoted from the [Member permission 
+level](https://docs.semaphoreci.com/account-management/permission-levels/#members) to the [Admin permission level](https://docs.semaphoreci.com/account-management/permission-levels/#admin). This can be done by following these steps:
 
 1. Go to the **People** page of your organization,
 2. Click on the **Promote** button next to the username of the user you’d like to promote.
@@ -121,4 +121,5 @@ Admin to Member. In that case, click on the **Demote** button next to the userna
 
 Only an Admin or an Owner of the organization can perform these steps.
 
-**Note:** There can only be one Owner of the organization.
+**Note:** There can only be one [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization. If you’d like to change the 
+ownership, please visit [this page](https://docs.semaphoreci.com/account-management/organizations/#transferring-ownership-of-an-organization).
