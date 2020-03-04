@@ -97,14 +97,25 @@ To upgrade to a paid plan, go to the Billing page and click on
 **Upgrade to remove the limit** button in the top right corner. After that,
 enter your credit card information and that’s it.
 
-## Invoices
+## Changing credit card information
 
-You will receive an invoice for your organization at the end of every billing
-period to the email address you entered while adding your credit card.
+In order to change credit card/PayPal information, you can follow these steps:
+
+1. Go to the **Billing** page of your organization,
+2. In the top right corner, click on **Credit Card and Billing Info…**,
+3. Open the **Subscriptions** tab,
+4. Click on **Manage button** > **Update payment method**.
+
+## Changing billing information
 
 If you want to change the recipient name, company name, address, phone number,
 billing email, VAT ID or country on the invoice, please contact us at
 [support@semaphoreci.com](mailto:support@semaphoreci.com).
+
+## Invoices
+
+You will receive an invoice for your organization at the end of every billing
+period to the email address you entered while adding your credit card.
 
 ## Refunds
 
