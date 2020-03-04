@@ -152,6 +152,7 @@ nav:
     - Quotas and limits: reference/quotas-and-limits.md
     - Semaphore Changelog: reference/semaphore-changelog.md
   - Account Management:
+    - Organizations: account-management/organizations.md
     - Billing: account-management/billing.md
     - User management and permissions: account-management/user-management-and-permissions.md
     - Checking the connection between GitHub and Semaphore 2.0: account-management/checking-the-connection-between-github-and-semaphore-2.0.md
