@@ -1,4 +1,4 @@
-# User Management and Permissions
+# Permission levels
 
 Semaphore organizations can have unlimited members. Members have different
 permissions based on their role.
