@@ -85,6 +85,20 @@ In order to change the URL of your organization:
 
 **Note:** Only an Admin or an Owner of the organization can perform these actions.
 
+## Transferring ownership of an organization
+
+In order to transfer the ownership to a new user, the following conditions need
+to be met:
+
+- New owner needs to be a member of the organization;
+- New owner needs to log in to Semaphore 2.0 at least once;
+- Current owner needs to send a confirmation to [support@semaphoreci.com](mailto:support@semaphoreci.com)
+  from a primary email address related to the GitHub account you use to log in
+  to Semaphore 2.0. In this email, please include name of the organization and
+  GitHub username of the new owner.
+
+After that, we’ll change the ownership on your behalf.
+
 ## Deleting an organization 
 
 Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/article/63-your-first-project#deleting-a-project) in it. 
