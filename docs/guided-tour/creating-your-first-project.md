@@ -94,6 +94,12 @@ If you want to rename your project, you can:
 
 This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/article/53-sem-reference#sem-edit-examples).
 
+### Transferring project ownership
+
+If you need to transfer ownership of any project in your organization,
+please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com). In this email please include 
+the name of the project and the GitHub username of the new owner.
+
 ### Deleting a project
 
 In order to delete a project, you can:
