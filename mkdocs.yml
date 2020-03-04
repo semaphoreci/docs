@@ -154,6 +154,7 @@ nav:
   - Account Management:
     - Organizations: account-management/organizations.md
     - Billing: account-management/billing.md
+    - Plans: account-management/plans.md
     - Permission levels: account-management/permission-levels.md
     - Checking the connection between GitHub and Semaphore 2.0: account-management/checking-the-connection-between-github-and-semaphore-2.0.md
     - Discounts: account-management/discounts.md
