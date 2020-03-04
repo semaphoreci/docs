@@ -108,6 +108,21 @@ Members can:
   repository on GitHub;
 - Delete the projects they created.
 
+## Changing the permission level
+
+Every user in the organization can be promoted from the Member permission 
+level to the Admin permission level. This can be done by following these steps:
+
+1. Go to the **People** page of your organization,
+2. Click on the **Promote** button next to the username of the user you’d like to promote.
+
+The same steps should be followed if you want to change the user's permission level from 
+Admin to Member. In that case, click on the **Demote** button next to the username.
+
+Only an Admin or an Owner of the organization can perform these steps.
+
+**Note:** There can only be one Owner of the organization.
+
 ## Transferring ownership of an organization
 
 In order to transfer the ownership to a new user, the following conditions need
