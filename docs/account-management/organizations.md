@@ -8,7 +8,7 @@ under a single account.
 
 There are two scenarios in which you can create an organization.
 
-### Creating your first organization after you sign up
+### Creating your first organization
 
 Once you sign up, you will be redirected to the **Create an organization** page. On this page:
 
