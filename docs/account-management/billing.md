@@ -29,12 +29,12 @@ time. This data is available for the current and previous months.
 ## Budget alert
 
 Organization owner and admins can set up budget alerts. An email notification
-will be sent, to the organization's owner email address, when you spend 50%, 90%
-and 100% of your budget within one month's spending. However, pipelines won't be
-disabled once you go past the budget.
+will be sent to the organization's owner email address when you spend 50%, 90%
+and 100% of your budget within one month's spending. However, please note that
+pipelines won't be disabled once you go past the budget.
 
-You can set a budget alert through the Semaphore 2.0 UI (Billing > Set budget…)
-when the organization is on a paid plan.
+You can set the budget alert through the Semaphore UI (Billing > Set budget…)
+if your organization is on a paid plan.
 
 ## Changing credit card information
 
@@ -55,6 +55,8 @@ billing email, VAT ID or country on the invoice, please contact us at
 
 You will receive an invoice for your organization at the end of every billing
 period to the email address you entered while adding your credit card.
+
+You can also find your invoices at the bottom of the Billing page.
 
 ## Refunds
 
