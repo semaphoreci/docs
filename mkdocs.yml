@@ -126,17 +126,17 @@ nav:
       - Configuring parallel tests with Code Climate: examples/configuring-parallel-tests-with-code-climate.md
       - Clojure Luminus CI/CD: examples/clojure-luminus-ci-cd.md
     - Deployment:
-      - Zeit Now continuous deployment: deployment/zeit-now-continuous-deployment.md
-      - Publishing Docker images on DockerHub: deployment/publishing-docker-images-on-dockerhub.md
-      - Pushing Docker images to AWS Elastic Container Registry (ECR): deployment/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
-      - Heroku deployment: deployment/heroku-deployment.md
-      - Continuous deployment of a static website: deployment/continuous-deployment-of-a-static-website.md
-      - Pushing Docker images to Google Container Registry (GCR): deployment/pushing-docker-images-to-google-container-registry-gcr.md
-      - Google Cloud run continuous deployment: deployment/google-cloud-run-continuous-deployment.md
-      - Netlify continuous deployment: deployment/netlify-continuous-deployment.md
-      - Deployment to AWS Elastic Beanstalk: deployment/deployment-to-aws-elastic-beanstalk.md
-      - HockeyApp iOS app distribution: deployment/hockeyapp-ios-app-distribution.md
-      - TestFlight iOS app distribution: deployment/testflight-ios-app-distribution.md
+      - Zeit Now continuous deployment: examples/zeit-now-continuous-deployment.md
+      - Publishing Docker images on DockerHub: examples/publishing-docker-images-on-dockerhub.md
+      - Pushing Docker images to AWS Elastic Container Registry (ECR): examples/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
+      - Heroku deployment: examples/heroku-deployment.md
+      - Continuous deployment of a static website: examples/continuous-deployment-of-a-static-website.md
+      - Pushing Docker images to Google Container Registry (GCR): examples/pushing-docker-images-to-google-container-registry-gcr.md
+      - Google Cloud run continuous deployment: examples/google-cloud-run-continuous-deployment.md
+      - Netlify continuous deployment: examples/netlify-continuous-deployment.md
+      - Deployment to AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
+      - HockeyApp iOS app distribution: examples/hockeyapp-ios-app-distribution.md
+      - TestFlight iOS app distribution: examples/testflight-ios-app-distribution.md
   - Reference:
     - Pipeline YAML: reference/pipeline-yaml-reference.md
     - Conditions YAML: reference/conditions-reference.md
