@@ -58,4 +58,14 @@ period to the email address you entered while adding your credit card.
 
 ## Refunds
 
-Unless in cases of extended downtime (multiple hours in a day, or multiple days in a month), we do not offer refunds. In extenuating circumstances, please email us at [billing@semaphoreci.com](mailto:billing@semaphoreci.com) and our team will make sure your request is handled. Please include the affected Workflow ID when contacting our Billing team regarding refunds.
+Unless in cases of extended downtime (multiple hours in a day, or multiple days 
+in a month), we do not offer refunds. In extenuating circumstances, please email 
+us at [billing@semaphoreci.com](mailto:billing@semaphoreci.com) and our team will make sure your request 
+is handled. Please include the affected Workflow ID when contacting our Billing 
+team regarding refunds.
+
+## See also
+
+- [Plans](https://docs.semaphoreci.com/account-management/plans/)
+- [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
+- [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)
