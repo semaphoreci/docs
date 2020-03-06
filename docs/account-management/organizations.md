@@ -125,3 +125,9 @@ In order to delete your account, please send an email to
 [support@semaphoreci.com](mailto:support@semaphoreci.com) from a primary email
 address connected to the GitHub account you use to log in to Semaphore 2.0.
 In this email, please include your GitHub username.
+
+## See also
+
+- [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)
+- [Billing](https://docs.semaphoreci.com/account-management/billing/)
+- [Plans](https://docs.semaphoreci.com/account-management/plans/)
