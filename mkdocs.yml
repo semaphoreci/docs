@@ -56,25 +56,25 @@ nav:
     - Deploying with promotions: guided-tour/deploying-with-promotions.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
-    - Workflows and Pipelines: use-cases/modeling-complex-workflows.md
-    - Workflow triggers: use-cases/project-workflow-trigger-options.md
-    - Workflow scheduler/cron: use-cases/schedule-a-workflow-run.md
-    - "Fail-fast": use-cases/fail-fast-stop-running-tests-on-the-first-failure.md
-    - Auto-cancel: use-cases/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Skipping commits: use-cases/skip-building-some-commits-with-ci-skip.md
-    - Monorepo workflows: use-cases/building-monorepo-projects.md
-    - Tag-triggered deployment: use-cases/tag-triggered-deployment.md
-    - Job matrix: use-cases/build-matrix.md
-    - Debugging with SSH: use-cases/debugging-with-ssh-access.md
-    - Caching: ci-cd-environment/caching-dependencies-and-directories.md
-    - Artifacts: use-cases/artifacts.md
-    - Secrets: use-cases/using-secrets.md
-    - Slack notifications: guided-tour/slack-notifications.md
-    - Webhook notifications: guided-tour/webhook-notifications.md
-    - GitHub status checks: use-cases/configuring-github-status-checks.md
-    - Status Badges: use-cases/status-badges.md
-    - Private dependencies: use-cases/using-private-dependencies.md
-    - Deployment dashboards: use-cases/deployment-dashboards.md
+    - Workflows and Pipelines: essentials/modeling-complex-workflows.md
+    - Workflow triggers: essentials/project-workflow-trigger-options.md
+    - Workflow scheduler/cron: essentials/schedule-a-workflow-run.md
+    - "Fail-fast": essentials/fail-fast-stop-running-tests-on-the-first-failure.md
+    - Auto-cancel: essentials/auto-cancel-previous-pipelines-on-a-new-push.md
+    - Skipping commits: essentials/skip-building-some-commits-with-ci-skip.md
+    - Monorepo workflows: essentials/building-monorepo-projects.md
+    - Tag-triggered deployment: essentials/tag-triggered-deployment.md
+    - Job matrix: essentials/build-matrix.md
+    - Debugging with SSH: essentials/debugging-with-ssh-access.md
+    - Caching: essentials/caching-dependencies-and-directories.md
+    - Artifacts: essentials/artifacts.md
+    - Secrets: essentials/using-secrets.md
+    - Slack notifications: essentials/slack-notifications.md
+    - Webhook notifications: essentials/webhook-notifications.md
+    - GitHub status checks: essentials/configuring-github-status-checks.md
+    - Status Badges: essentials/status-badges.md
+    - Private dependencies: essentials/using-private-dependencies.md
+    - Deployment dashboards: essentials/deployment-dashboards.md
   - Programming Languages:
     - Android: programming-languages/android.md
     - C: programming-languages/c.md
@@ -102,41 +102,41 @@ nav:
       - Configuring database access: ci-cd-environment/configuring-database-access.md
     - Docker:
       - Docker-based CI/CD environment: ci-cd-environment/custom-ci-cd-environment-with-docker.md
-      - Docker layer caching: use-cases/docker-layer-caching.md
-      - Working with Docker: use-cases/working-with-docker.md
+      - Docker layer caching: ci-cd-environment/docker-layer-caching.md
+      - Working with Docker: ci-cd-environment/working-with-docker.md
     - "iOS/macOS":
       - macOS Mojave Xcode 11 image: ci-cd-environment/macos-mojave-xcode-11-image.md
       - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
   - Examples:
-    - Tutorials and example projects: use-cases/tutorials-and-example-projects.md
+    - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
-      - Rails continuous integration: use-cases/rails-continuous-integration.md
-      - Node.js and TypeScript continuous integration: use-cases/node-js-and-typescript-continuous-integration.md
-      - iOS continuous integration with Xcode: use-cases/ios-continuous-integration-with-xcode.md
-      - CI/CD for microservices on Kubernetes: use-cases/ci-cd-for-microservices-on-kubernetes.md
-      - Using Docker Compose in CI: use-cases/using-docker-compose-in-ci.md
-      - Laravel PHP continuous integration: use-cases/laravel-php-continuous-integration.md
-      - Django continuous integration: use-cases/django-continuous-integration.md
-      - Java Spring continuous integration: use-cases/java-spring-continuous-integration.md
-      - Download and cache a custom file: use-cases/download-and-cache-a-custom-file.md
-      - Code signing for iOS projects: use-cases/code-signing-for-ios-projects.md
-      - Golang continuous integration: use-cases/golang-continuous-integration.md
-      - Elixir Phoenix continuous integration: use-cases/elixir-phoenix-continuous-integration.md
-      - Scala Play continuous integration: use-cases/scala-play-continuous-integration.md
-      - Configuring parallel tests with Code Climate: use-cases/configuring-parallel-tests-with-code-climate.md
-      - Clojure Luminus CI/CD: use-cases/clojure-luminus-ci-cd.md
+      - Rails continuous integration: examples/rails-continuous-integration.md
+      - Node.js and TypeScript continuous integration: examples/node-js-and-typescript-continuous-integration.md
+      - iOS continuous integration with Xcode: examples/ios-continuous-integration-with-xcode.md
+      - CI/CD for microservices on Kubernetes: examples/ci-cd-for-microservices-on-kubernetes.md
+      - Using Docker Compose in CI: examples/using-docker-compose-in-ci.md
+      - Laravel PHP continuous integration: examples/laravel-php-continuous-integration.md
+      - Django continuous integration: examples/django-continuous-integration.md
+      - Java Spring continuous integration: examples/java-spring-continuous-integration.md
+      - Download and cache a custom file: examples/download-and-cache-a-custom-file.md
+      - Code signing for iOS projects: examples/code-signing-for-ios-projects.md
+      - Golang continuous integration: examples/golang-continuous-integration.md
+      - Elixir Phoenix continuous integration: examples/elixir-phoenix-continuous-integration.md
+      - Scala Play continuous integration: examples/scala-play-continuous-integration.md
+      - Configuring parallel tests with Code Climate: examples/configuring-parallel-tests-with-code-climate.md
+      - Clojure Luminus CI/CD: examples/clojure-luminus-ci-cd.md
     - Deployment:
-      - Zeit Now continuous deployment: use-cases/zeit-now-continuous-deployment.md
-      - Publishing Docker images on DockerHub: use-cases/publishing-docker-images-on-dockerhub.md
-      - Pushing Docker images to AWS Elastic Container Registry (ECR): use-cases/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
-      - Heroku deployment: use-cases/heroku-deployment.md
-      - Continuous deployment of a static website: use-cases/continuous-deployment-of-a-static-website.md
-      - Pushing Docker images to Google Container Registry (GCR): use-cases/pushing-docker-images-to-google-container-registry-gcr.md
-      - Google Cloud run continuous deployment: use-cases/google-cloud-run-continuous-deployment.md
-      - Netlify continuous deployment: use-cases/netlify-continuous-deployment.md
-      - Deployment to AWS Elastic Beanstalk: use-cases/deployment-to-aws-elastic-beanstalk.md
-      - HockeyApp iOS app distribution: use-cases/hockeyapp-ios-app-distribution.md
-      - TestFlight iOS app distribution: use-cases/testflight-ios-app-distribution.md
+      - Zeit Now continuous deployment: examples/zeit-now-continuous-deployment.md
+      - Publishing Docker images on DockerHub: examples/publishing-docker-images-on-dockerhub.md
+      - Pushing Docker images to AWS Elastic Container Registry (ECR): examples/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
+      - Heroku deployment: examples/heroku-deployment.md
+      - Continuous deployment of a static website: examples/continuous-deployment-of-a-static-website.md
+      - Pushing Docker images to Google Container Registry (GCR): examples/pushing-docker-images-to-google-container-registry-gcr.md
+      - Google Cloud run continuous deployment: examples/google-cloud-run-continuous-deployment.md
+      - Netlify continuous deployment: examples/netlify-continuous-deployment.md
+      - Deployment to AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
+      - HockeyApp iOS app distribution: examples/hockeyapp-ios-app-distribution.md
+      - TestFlight iOS app distribution: examples/testflight-ios-app-distribution.md
   - Reference:
     - Pipeline YAML: reference/pipeline-yaml-reference.md
     - Conditions YAML: reference/conditions-reference.md
@@ -148,7 +148,7 @@ nav:
     - sem CLI: reference/sem-command-line-tool.md
     - artifact CLI: reference/artifact-cli-reference.md
     - API: reference/api-v1alpha.md
-    - Toolbox: ci-cd-environment/toolbox-reference.md
+    - Toolbox: reference/toolbox-reference.md
     - Quotas and limits: reference/quotas-and-limits.md
     - Semaphore Changelog: reference/semaphore-changelog.md
   - Account Management:
