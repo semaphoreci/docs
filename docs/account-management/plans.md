@@ -35,9 +35,9 @@ out to
 
 In Semaphore 2.0, all organizations are on monthly plans.
 
-**Note:** If you are building open source projects on a Paid plan, those builds 
-will be charged accourding to our [pricing](https://semaphoreci.com/pricing).
-Open source projects can be built free of charge only on an [Open Source
+**Note:** If you are building open source projects on a Paid plan, you will be 
+charged accourding to our [pricing page](https://semaphoreci.com/pricing) for those
+builds, too. Open source projects can be built free of charge only on an [Open Source
 plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
 
 ## Open Source plan
@@ -49,7 +49,8 @@ machine at your disposal.
 Only one of the organizations you own can be on an open source plan.
 
 **Note:** Open source projects can be built free of charge only on an Open Source
-plan. If you are building open source projects on a [Paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan), those builds will be charged accourding to our [pricing](https://semaphoreci.com/pricing).
+plan. If you are building open source projects on a [Paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan), you will be charged accoring to our [pricing page](https://semaphoreci.com/pricing)
+for those builds.
 
 ## Free plan
 
