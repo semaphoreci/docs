@@ -33,7 +33,12 @@ out to
 [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)
 (please include which type of machine you prefer).
 
-**Note:** In Semaphore 2.0, all organizations are on monthly plans.
+In Semaphore 2.0, all organizations are on monthly plans.
+
+**Note:** If you are building open source projects on a Paid plan, you will be 
+charged accourding to our [pricing page](https://semaphoreci.com/pricing) for those
+builds, too. Open source projects can be built free of charge only on an [Open Source
+plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
 
 ## Open Source plan
 
@@ -42,6 +47,10 @@ repositories. You also have four e1-standard-2 machines and one a1-standard-4
 machine at your disposal.
 
 Only one of the organizations you own can be on an open source plan.
+
+**Note:** Open source projects can be built free of charge only on an Open Source
+plan. If you are building open source projects on a [Paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan), you will be charged accoring to our [pricing page](https://semaphoreci.com/pricing)
+for those builds.
 
 ## Free plan
 
