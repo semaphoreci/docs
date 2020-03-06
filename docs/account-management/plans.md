@@ -58,3 +58,9 @@ organizations you own can be on a free plan.
 To upgrade to a paid plan, go to the Billing page and click on
 **Upgrade to remove the limit** button in the top right corner. After that,
 enter your credit card information and that’s it.
+
+## See also
+
+- [Billing](https://docs.semaphoreci.com/account-management/billing/)
+- [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
+- [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)
