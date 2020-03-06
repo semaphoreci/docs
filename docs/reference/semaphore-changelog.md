@@ -164,7 +164,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
   available](https://semaphoreci.com/blog/free-open-source-cicd).
   Each open source organization receives unlimited CI/CD minutes for building
   public repositories, including Linux, Docker and macOS-based environments.
-- New: [Status badges](https://docs.semaphoreci.com/use-cases/status-badges/).
+- New: [Status badges](https://docs.semaphoreci.com/essentials/status-badges/).
 - Updates to ubuntu1804 image
     - Git-lfs 2.9.0  -> 2.9.1
     - Yarn    1.19.1 -> 1.19.2
@@ -173,7 +173,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 ### Week of November 18, 2019
 
-- New: [Monorepo support](https://docs.semaphoreci.com/use-cases/building-monorepo-projects/).
+- New: [Monorepo support](https://docs.semaphoreci.com/essentials/building-monorepo-projects/).
 - Updates to the ubuntu1804 image
     - Git      2.23   -> 2.24
     - Heroku   7.33   -> 7.35

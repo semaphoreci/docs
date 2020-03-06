@@ -171,4 +171,4 @@ Xcode 11.3.1 has the following SDKs preinstalled:
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
-[ios-guide]: https://docs.semaphoreci.com/use-cases/ios-continuous-integration-with-xcode/
+[ios-guide]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/
