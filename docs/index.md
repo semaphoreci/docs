@@ -16,8 +16,8 @@
             <ul>
                 <li><a href="/guided-tour/creating-your-first-project/">Creating your first project</a></li>
                 <li><a href="/guided-tour/concepts/">Semaphore concepts</a></li>
-                <li><a href="/use-cases/modeling-complex-workflows/">Modeling complex workflows</a></li>
-                <li><a href="/use-cases/debugging-with-ssh-access/">Debugging with SSH</a></li>
+                <li><a href="/essentials/modeling-complex-workflows">Modeling complex workflows</a></li>
+                <li><a href="/essentials/debugging-with-ssh-access">Debugging with SSH</a></li>
                 <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing between a VM and Docker-based environment</a></li>
             </ul>
         </div>
@@ -28,8 +28,8 @@
 
             <ul>
                 <li><a href="/guided-tour/using-databases-and-services/">Using Databases and Services</a></li>
-                <li><a href="/ci-cd-environment/caching-dependencies-and-directories/">Caching Dependencies and Directories</a></li>
-                <li><a href="/use-cases/artifacts/">Artifacts</a></li>
+                <li><a href="/essentials/caching-dependencies-and-directories">Caching Dependencies and Directories</a></li>
+                <li><a href="/essentials/artifacts">Artifacts</a></li>
                 <li><a href="/reference/pipeline-yaml-reference">Pipeline YAML Reference</a></li>
                 <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
                 <li><a href="/reference/semaphore-changelog/">Semaphore Changelog</a></li>
@@ -43,11 +43,11 @@
             <p class="welcome-block-description">Latest in product</p>
 
             <ul>
-                <li><a href="use-cases/artifacts">Artifacts</a></li>
-                <li><a href="use-cases/auto-cancel-previous-pipelines-on-a-new-push">Auto-cancel previous pipelines on a new push</a></li>
-                <li><a href="use-cases/fail-fast-stop-running-tests-on-the-first-failure">Fail-Fast: Stop running tests on the first failure</a></li>
-                <li><a href="use-cases/building-monorepo-projects">Building Monorepo Projects</a></li>
-                <li><a href="use-cases/status-badges">Status Badges</a></li>
+                <li><a href="essentials/artifacts">Artifacts</a></li>
+                <li><a href="essentials/auto-cancel-previous-pipelines-on-a-new-push">Auto-cancel previous pipelines on a new push</a></li>
+                <li><a href="essentials/fail-fast-stop-running-tests-on-the-first-failure">Fail-Fast: Stop running tests on the first failure</a></li>
+                <li><a href="essentials/building-monorepo-projects">Building Monorepo Projects</a></li>
+                <li><a href="essentials/status-badges">Status Badges</a></li>
             </ul>
         </div>
 
