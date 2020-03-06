@@ -364,4 +364,4 @@ This feature adds the following environment variables to every job for a given p
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 
 
-[scheduler]: https://docs.semaphoreci.com/use-cases/schedule-a-workflow-run/
+[scheduler]: https://docs.semaphoreci.com/essentials/schedule-a-workflow-run/
