@@ -17,7 +17,7 @@ theme:
     code: 'Ubuntu Mono'
   name: 'material'
   custom_dir: template
-  logo: 'images/logo-white.png'
+  logo: 'images/logo-white.svg'
   favicon: 'images/favicon.ico'
   feature:
     tabs: true
