@@ -9,7 +9,7 @@ repo_name: semaphoreci/docs
 repo_url: https://github.com/semaphoreci/docs
 
 # Copyright
-copyright: '&copy; 2009-2019 Rendered Text'
+copyright: '&copy; 2009-2020 Rendered Text'
 
 theme:
   font:
