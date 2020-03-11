@@ -100,6 +100,9 @@ If you need to transfer ownership of any project in your organization,
 please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com). In this email please include 
 the name of the project and the GitHub username of the new owner.
 
+**Note:** After the project ownership transfer, you need to push a new commit. 
+Rerunning old builds will no longer work if the ownership of a project is changed.
+
 ### Deleting a project
 
 In order to delete a project, you can:
