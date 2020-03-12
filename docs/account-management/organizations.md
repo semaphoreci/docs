@@ -42,11 +42,28 @@ In order to add a new user to your organization, you can:
 3. Click on **Invite**.
 
 If you don’t immediately see the new user on the People page, please 
-click on the **Refresh list** button at the bottom of the page.
+click on the **Refresh list** button.
 
 **Note:** If you want someone to have access to a project on Semaphore, 
 you first need to give this person access to the repository on GitHub, 
 and then add them as a member to Semaphore.
+
+All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
+by clicking on the **Promote** button next to their username.
+
+## Adding multiple users to an organization
+
+If you want to add more users to your organization at the same time, you can:
+
+1. Go to the **People** page of your organization,
+2. At the bottom of the page, select users you'd like to add to your organization,
+3. Enter their emails to which they will receive an invite. If you don’t know 
+someone’s email, just leave the field empty. We will still add them to your 
+organization, just won’t email them,
+4. On the right, click on the **Add selected people** button.
+
+If you don’t immediately see new users on the People page, please 
+click on the **Refresh list** button.
 
 All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
 by clicking on the **Promote** button next to their username.
