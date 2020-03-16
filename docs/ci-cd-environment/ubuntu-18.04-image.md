@@ -100,7 +100,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.2
-- Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1
+- Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1, 1.10.2
 
 Additional libraries:
 
@@ -115,6 +115,7 @@ Versions:
 - 1.11.13
 - 1.12.17
 - 1.13.8
+- 1.14
 
 ### Java and JVM languages
 
@@ -140,7 +141,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.21.1
+- Yarn: 1.22.4
 - Bower: 1.8.8
 
 ### PHP

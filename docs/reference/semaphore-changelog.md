@@ -4,6 +4,16 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 16, 2020
+
+- Additions to the ubuntu1804 image:
+    - Elixir 1.10.2
+    - Go 1.14
+- Updates to the ubuntu1804 image: 
+    - Aws-cli 1.18.7 -> 1.18.21
+    - Heroku  7.38.2 -> 7.39.0
+    - Yarn    1.21.1 -> 1.22.4
+
 ### Week of March 02, 2020
 
 - Additions to the ubuntu1804 image:
