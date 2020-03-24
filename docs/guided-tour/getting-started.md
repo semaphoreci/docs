@@ -54,7 +54,7 @@ hosting and cloud providers, leaving you freedom to choose optimal solutions.
 
 ## Semaphore Basics
 
-In this section you can find a short overwiev of Semaphore and the way it works. 
+In this section you can find a short overview of Semaphore and the way it works. 
 
 ### Pipelines, Blocks, Jobs
 
