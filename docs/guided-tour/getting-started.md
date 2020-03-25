@@ -219,6 +219,3 @@ customizing it for your use case.
 
 [next]: https://docs.semaphoreci.com/article/63-your-first-project
 
-If you want to find out more about the product and participate in a live Q&A
-session with one of Semaphore's co-founders, you can register for 
-Semaphore Class. [More info here](https://semaphoreci.com/learn/class).
