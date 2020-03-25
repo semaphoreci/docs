@@ -62,6 +62,14 @@ use e1-standard-2 machine and a1-standard-4 machine.
 You can have an unlimited number of organizations, but only one of the
 organizations you own can be on a free plan.
 
+## Grandfathered plans for Semaphore Classic users
+
+If your organization is on a paid plan on Semaphore Classic, you are eligible for 
+a Grandfathered plan on Semaphore 2.0. On this plan, we match your Semaphore Classic 
+costs and capacity so you can use Semaphore 2.0 at the same monthly price. 
+
+If you are interested in this plan, please reach out to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com).
+
 ## Upgrading to a paid plan
 
 To upgrade to a paid plan, go to the Billing page and click on
