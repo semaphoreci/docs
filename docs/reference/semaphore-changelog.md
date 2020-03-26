@@ -4,6 +4,13 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 30, 2020
+
+- Updates to the ubuntu1804 image: 
+    - Aws-cli 1.18.21 -> 1.18.28
+    - Git        2.25 -> 2.26
+    - Heroku   7.39.0 -> 7.39.1
+  
 ### Week of March 16, 2020
 
 - Additions to the ubuntu1804 image:
