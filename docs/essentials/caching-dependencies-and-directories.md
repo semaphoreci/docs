@@ -26,6 +26,7 @@ Semaphore cache works for the following languages and dependency managers:
 * **Elixir** (mix) - default cache path: `deps` and `_build` if `mix.lock` is present.
 * **Java** (maven) - default cache path: `.m2` and `target` if `pom.xml` is present.
 * **nvm** default cache path: `$HOME/.nvm` if `.nvmrc` is present in the repository.
+* **golang** default cache path: `$HOME/go/pkg/mod` if `go.sum` is present in the repository.
 
 ### cache store
 
