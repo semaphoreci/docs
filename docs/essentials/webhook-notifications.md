@@ -271,4 +271,4 @@ Sample `tag` object:
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Notifications YAML Reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference)
+- [Notifications YAML Reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference/)
