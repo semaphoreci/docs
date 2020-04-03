@@ -10,6 +10,8 @@ This page is updated on a weekly basis.
     - Aws-cli 1.18.21 -> 1.18.28
     - Git        2.25 -> 2.26
     - Heroku   7.39.0 -> 7.39.1
+- Semaphore Toolbox:
+    - [autocache](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#basic-usage) support for Golang (>= 1.11)
   
 ### Week of March 16, 2020
 
