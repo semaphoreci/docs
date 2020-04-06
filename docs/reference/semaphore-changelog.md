@@ -4,6 +4,11 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 6, 2020
+
+- New convenience Docker image available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L1345).
+
 ### Week of March 30, 2020
 
 - Updates to the ubuntu1804 image: 
