@@ -6,6 +6,14 @@ This page is updated on a weekly basis.
 
 ### Week of April 6, 2020
 
+- Updates to the macOS image:
+    - `macos-mojave-xcode11` Xcode 11.4 installed, to switch version use
+    `xcversion select 11.4`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    - `macos-mojave-xcode11` Xcode 11.0 removed from the image.
+    - installed packages:
+      - google-chrome
+      - firefox
+      - microsoft-edge
 - New convenience Docker image available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L1345).
 
