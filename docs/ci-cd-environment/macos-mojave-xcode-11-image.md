@@ -60,6 +60,13 @@ Following version control tools are pre-installed:
 - jq
 - carthage
 
+### Browsers
+
+- Safari
+- google-chrome
+- firefox
+- microsoft-edge
+
 ### Gems
 
 Following gems are pre-installed:
@@ -111,20 +118,10 @@ Installed versions:
 
 Installed versions:
 
-- 11.0
 - 11.1
 - 11.2.1
-
-Xcode 11.0 has the following SDKs preinstalled:
-
-- macosx10.15
-- driverkit.macosx19.0
-- iphoneos13.0
-- iphonesimulator13.0
-- appletvos13.0
-- appletvsimulator13.0
-- watchos6.0
-- watchsimulator6.0
+- 11.3.1
+- 11.4
 
 Xcode 11.1 has the following SDKs preinstalled:
 
@@ -158,6 +155,17 @@ Xcode 11.3.1 has the following SDKs preinstalled:
 - appletvsimulator13.2
 - watchos6.1
 - watchsimulator6.1
+
+Xcode 11.4 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.4
+- iphonesimulator13.4
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
 
 
 ## See Also

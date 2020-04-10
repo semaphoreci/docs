@@ -6,14 +6,14 @@ IMAGE_REDIRECT="us.gcr.io/semaphore2-prod/docs-redirect"
 IMAGE_TAG_REDIRECT="start-$(BRANCH)-$(SEMAPHORE_WORKFLOW_ID)-sha-$(SEMAPHORE_GIT_SHA)"
 
 server:
-	docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+	docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:4.6.3
 
 configure.gcloud:
 	gcloud auth activate-service-account deploy-from-semaphore@semaphore2-prod.iam.gserviceaccount.com --key-file ~/gce-creds.json
 	gcloud --quiet auth configure-docker
 
 mkdocs.build:
-	docker run --rm -it -p 8001:8000 -v ${PWD}:/docs squidfunk/mkdocs-material -- build
+	docker run --rm -it -p 8001:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:4.6.3 -- build
 
 nginx.build:
 	-docker pull $(IMAGE_REDIRECT):latest
