@@ -4,6 +4,20 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 13, 2020
+
+- Updates to the ubuntu1804 image:  
+    - Aws-cli 1.18.32 -> 1.18.39
+    - Google Chrome 80 -> 81
+    - Chromedriver 80 -> 81
+    - Erlang 22.2 -> 22.3
+    - Go 1.13.8 -> 1.13.9
+    - Go 1.14.0 -> 1.14.1
+    - Ruby 2.4.9 -> 2.4.10
+    - Ruby 2.5.7 -> 2.5.8 
+    - Ruby 2.6.5 -> 2.6.6
+    - Ruby 2.7.0 -> 2.7.1
+
 ### Week of April 6, 2020
 
 - Updates to the macOS image:
