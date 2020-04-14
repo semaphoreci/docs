@@ -1,0 +1,29 @@
+version: "v1.0"
+name: Staging
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Deploy to staging"
+    task:
+      secrets:
+        - name: github-keypair
+        - name: public-keys
+        - name: STG
+      jobs:
+      - name: Deploy Docs
+        commands:
+          - checkout
+          - git log -1 --pretty=%B | sed '/Merge pull/d' | sed '/^\s*$/d' | tr '\n' ' ' > /tmp/commit_message
+          - echo -n $PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
+          - chmod 400 ~/.ssh/id_rsa
+          - git clone $STG_REPO /tmp/stg
+          - cd /tmp/stg
+          - make docs.deploy
+
+promotions:
+  - name: Production
+    pipeline_file: prod.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"

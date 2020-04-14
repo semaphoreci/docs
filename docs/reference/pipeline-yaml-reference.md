@@ -1,64 +1,5 @@
 # Pipeline YAML Reference
 
-- [Overview](#overview)
-- [Properties](#properties)
-- [version](#version)
-- [name](#name-in-preface)
-- [agent](#agent)
-  - [A Preface example](#a-preface-example)
-- [execution\_time\_limit](#execution_time_limit)
-- [fail\_fast](#fail_fast)
-- [auto\_cancel](#auto_cancel)
-- [global\_job\_config](#global_job_config)
-- [Blocks](#blocks)
-  - [name](#name-in-blocks)
-  - [dependencies](#dependencies-in-blocks)
-  - [task](#task-in-blocks)
-  - [skip](#skip-in-blocks)
-- [Task](#task)
-  - [jobs](#jobs)
-  - [agent in task](#agent-in-task)
-  - [secrets](#secrets)
-  - [prologue](#prologue)
-  - [epilogue](#epilogue)
-  - [env_vars](#env_vars)
-    - [Example of a task block](#example-of-task)
-    - [Example of a task block with agent](#example-of-a-task-block-with-agent)
-- [Jobs](#jobs)
-  - [name](#name-in-jobs)
-  - [commands](#commands)
-    - [Example of commands](#example-of-commands)
-  - [commands_file](#commands_file)
-    - [Example of commands_file](#example-of-commands_file)
-  - [env_vars in jobs](#env_vars-in-jobs)
-    - [Example of env_vars in jobs](#example-of-env_vars-in-jobs)
-  - [matrix](#matrix)
-  - [parallelism](#parallelism)
-- [Prologue and Epilogue](#prologue-and-epilogue)
-  - [The prologue property](#the-prologue-property)
-  - [Example of prologue use](#example-of-prologue)
-  - [The epilogue property](#the-epilogue-property)
-  - [Example of epilogue use](#example-of-epilogue)
-- [The secrets property](#the-secrets-property)
-  - [name](#name-in-secrets)
-  - [files in secrets](#files-in-secrets)
-  - [Example of secrets use](#example-of-secrets-with-environment-variables)
-  - [Example of secrets with files](#example-of-secrets-with-files)
-- [promotions](#promotions)
-  - [name](#name-in-promotions)
-  - [pipeline_file](#pipeline_file)
-  - [Example of promotions use](#example-of-promotions)
-  - [auto_promote](#auto_promote)
-  - [Example of auto\_promote](#example-of-auto_promote)
-  - [auto\_promote\_on - DEPRECATED](#auto_promote_on_-_deprecated)
-  - [Example of auto\_promote\_on - DEPRECATED](#example-of-auto_promote_on_-_deprecated)
-- [Complete examples](#complete-configuration-examples)
-- [The order of execution](#the-order-of-execution)
-- [Comments](#comments)
-- [See also](#see-also)
-
-## Overview
-
 This document is the reference of the YAML grammar used for describing the
 pipelines of Semaphore 2.0 projects.
 
@@ -91,9 +32,8 @@ The `name` property is a Unicode string that assigns a name to a Semaphore
 pipeline and is optional. However, you should always give descriptive names
 to your Semaphore pipelines.
 
-*Note*: The `name` property can be found in other sections for defining the
-name of a job inside a `jobs` block or the name of a `task` section defined
-within `task`.
+*Note*: The `name` property can be found in other sections such as defining the
+name of a job inside a `jobs` block.
 
 Example of `name` usage:
 
@@ -183,6 +123,7 @@ agent:
       image: semaphoreci/ruby:2.6.1
     - name: db
       image: postgres:9.6
+      user: postgres
       env_vars:
         - name: POSTGRES_PASSOWRD
           value: keyboard-cat
@@ -196,8 +137,18 @@ The first container runs the jobs' commands, while the rest of the containers
 are linked via DNS records. The container with name `db` is registered with a
 hostname `db` in the first container.
 
-Each container can optionally have a list of environment variables that are
-injected into the container.
+Other optional parameters of each container definition can be divided into two groups:
+
+1. Docker related parameters that are passed to docker run command that starts the container. More information about them can be found in [docker run][docker-run] docs.
+
+    - `user` - The user that will be used within the container
+    - `command` - The first command to execute within the container. It overrides the command defined in Dockerfile.
+    - `entrypoint` - This specifies what executable to run when the container starts
+
+2. The data that needs to be injected into containers that is either defined directly there in YAML file or is stored in Semaphore secrets
+
+    - `env_vars` - Environment variables that are injected into the the container. They are defined in the same way as in [task definition][env-var-in-task].
+    - `secrets` - Secrets which hold the data the should be injected into the container. They are defined in the same way as in [task definition][secrets-in-task]. *Note*: currently, only environment variables defined in a secret will be injected into container, the files within the secret will be ignored.
 
 ### A Preface example
 
@@ -474,6 +425,90 @@ blocks:
       - name: Job C
         commands:
           - sleep 60
+```
+
+## queue
+
+The optional `queue` property enables you to assign the pipeline to the custom
+execution queue.
+
+It can have two sub-properties, `name` and `scope`.
+
+The `name` property is required and it should hold the string that uniquely
+identifies wanted queue within the configured scope.
+
+The `scope` property can have one of two values, **project** or **organization**.
+
+If `scope` property is omitted, its value will be automatically set to **project**.
+
+The pipelines within the project are, by default, assigned to queues based on the
+git branch/tag name or pull request number and the YAML configuration file name.
+
+This means that pipelines will only queue if they are initiated from the same
+branch/tag/pull request with the same configuration, e.g. multiple pushes or
+multiple promotions.
+
+If you assign a pipeline to a custom execution queue via the `queue` property, it
+will wait for all previously initiated pipelines that are assigned to same the
+queue.
+
+This will be true even if for the pipelines that have different YAML configuration
+files or are from different branches/tags, or even from different projects (for
+this last one `scope` has to be set to **organization**).
+
+This is especially useful when you need to forbid parallel access to some external
+resource, such as deployments to production servers or calling external APIs.
+
+### An example of setting a custom execution queue with project scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different git branches, tags or pull
+requests.
+
+``` yaml
+version: "v1.0"
+name: Project-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: production
+  scope: organization
+
+blocks:
+  - task:
+      jobs:
+        - name: Deploy to production
+          commands:
+            - echo "Deploying service to production server(s)"
+```
+
+### An example of setting a custom execution queue with organization scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different projects or git branches tags
+or pull requests.
+
+``` yaml
+version: "v1.0"
+name: Organization-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: external-api
+  scope: project
+
+blocks:
+  - task:
+      jobs:
+        - name: Tests
+          commands:
+            - echo "Tests that call the external API"
 ```
 
 ## auto_cancel
@@ -753,9 +788,11 @@ Its result_reason will be set to `skipped` and other blocks which depend on it
 passing will be started and executed as if this block executed regularly and all
 of its jobs passed.
 
-Examples for frequent use cases can be found [here][when-repo-skip-exemples].
+*Note*: It is not possible to have both `skip` and [run](#run-in-blocks)
+properties defined for the same block since both of them configure the same
+behavior, but in opposite ways.
 
-### Example of Blocks
+Example of a block that is skipped on all branches except on master:
 
 ``` yaml
 version: v1.0
@@ -768,6 +805,43 @@ blocks:
  - name: Inspect Linux environment
    skip:
      when: "branch != 'master'"
+   task:
+      jobs:
+        - name: Print Environment variables
+          commands:
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo $HOME
+```
+
+### run in blocks
+
+The `run` property is optional and it allows you to define a condition, written
+in [Conditions DSL][conditions-reference], that is based on properties of the push
+which initiated the whole pipeline.
+
+Only if the condition defined in this way is evaluated to be true, the block and
+all of its jobs will be run, otherwise, block will be skipped.
+
+When a block is skipped, it means that it will immediately finish with the result
+`passed` and the result_reason `skipped` without actually running any of its jobs.
+
+*Note*: It is not possible to have both `run` and [skip](#skip-in-blocks)
+properties defined for the same block since both of them configure the same
+behavior, but in opposite ways.
+
+Example of a block that is run only on the master branch:
+
+``` yaml
+version: v1.0
+name: The name of the Semaphore 2.0 project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+ - name: Inspect Linux environment
+   run:
+     when: "branch = 'master'"
    task:
       jobs:
         - name: Print Environment variables
@@ -894,19 +968,19 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
- - name: Inspect Linux environment
+ - name: Run in Linux environment
    task:
       jobs:
         - name: Learn about SEMAPHORE_GIT_DIR
           commands:
             - echo $SEMAPHORE_GIT_DIR
 
- - name: Agent in task
+ - name: Run in macOS environment
    task:
       agent:
           machine:
-            type: e1-standard-2
-            os_image: ubuntu1804
+            type: a1-standard-4
+            os_image: macos-mojave-xcode11
       jobs:
         - name: Using agent job
           commands:
@@ -1036,7 +1110,7 @@ blocks:
           - name: VAR_2
             value: This is VAR_2 from First Job
 
-  - name: Both local end global env_vars
+  - name: Both local and global env_vars
     task:
       env_vars:
         - name: APP_ENV
@@ -1100,7 +1174,7 @@ blocks:
 ```
 
 In this example, the job specification named `Elixir + Erlang matrix` expands
-to 6 parallel jobs as there are 2 - 3 = 6 combinations of the provided
+to 6 parallel jobs as there are 2 x 3 = 6 combinations of the provided
 environment variables:
 
 - `Elixir + Erlang matrix - ELIXIR=1.4, ERLANG=21`
@@ -1948,12 +2022,14 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 - [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
 - [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
 
 [ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/120-macos-mojave-xcode-10-image
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
 [conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
+[docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
+[env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
+[secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets

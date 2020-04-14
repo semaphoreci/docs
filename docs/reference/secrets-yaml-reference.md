@@ -1,22 +1,4 @@
-- [Overview](#overview)
-- [Properties](#properties)
-  - [apiVersion](#apiversion)
-  - [kind](#kind)
-  - [metadata](#metadata)
-    - [name](#name-in-metadata)
-  - [data](#data)
-  - [env_vars](#env_vars)
-    - [name](#name-in-env_vars)
-    - [value](#value)
-  - [files](#files)
-    - [path](#path)
-    - [content](#content)
-- [Example](#example)
-- [Example with files](#example-with-files)
-- [Example with an empty secret](#example-with-an-empty-secret)
-- [See also](#see-also)
-
-## Overview
+# Secrets YAML Reference
 
 This document is the reference for the YAML grammar used for creating secrets.
 
@@ -178,4 +160,3 @@ data:
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)

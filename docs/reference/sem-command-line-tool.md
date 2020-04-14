@@ -1,57 +1,8 @@
-# sem command line tool
+# sem CLI Reference
 
 sem, the Semaphore Command Line Interface (CLI), makes it easy to create and
 manage your Semaphore projects and resources directly from the terminal. It’s an
 essential part of using Semaphore.
-
-#### Table of contents
-
-- [Download and install](#download-and-install)
-- [Overview](#overview)
-  - [Syntax](#syntax)
-  - [Operations](#operations)
-  - [Resource types](#resource-types)
-    - [Dashboards](#dashboards)
-    - [Jobs](#jobs)
-    - [Notifications](#notifications)
-    - [Projects](#projects)
-    - [Pipelines](#pipelines)
-    - [Secrets](#secrets)
-    - [Workflows](#workflows)
-- [Working with organizations](#working-with-organizations)
-  - [sem connect](#sem-connect)
-  - [sem context](#sem-context)
-- [Working with resources](#working-with-resources)
-  - [sem create](#sem-create)
-  - [sem edit](#sem-edit)
-  - [sem get](#sem-get)
-  - [sem apply](#sem-apply)
-  - [sem delete](#sem-delete)
-- [Working with jobs](#working-with-jobs)
-  - [Creating one-off jobs](#creating-one-off-jobs)
-  - [sem attach](#sem-attach)
-  - [sem logs](#sem-logs)
-  - [sem port-forward](#sem-port-forward)
-  - [sem debug for jobs](#sem-debug-for-jobs)
-  - [sem stop](#sem-stop)
-- [Working with projects](#working-with-projects)
-  - [sem init](#sem-init)
-  - [sem debug for projects](#sem-debug-for-projects)
-  - [Changing the initial pipeline file](#changing-the-initial-pipeline-file)
-  - [Changing GitHub status check notifications](#changing-github-status-check-notifications)
-- [Working with notifications](#working-with-notifications)
-  - [Create a notification](#creating-a-notification)
-  - [List notifications](#list-notifications)
-  - [Describe a notification](#describe-a-notification)
-  - [Edit a notification](#edit-a-notification)
-  - [Delete a notification](#delete-a-notification)
-- [Working with pipelines](#working-with-pipelines)
-- [Working with workflows](#working-with-workflows)
-- [Help commands](#help-commands)
-- [Flags](#flags)
-- [Defining an editor](#defining-an-editor)
-- [Command aliases](#command-aliases)
-- [See also](#see-also)
 
 ## Download and install
 
@@ -1485,7 +1436,6 @@ sem get projects
 - [Installing sem](https://docs.semaphoreci.com/article/63-your-first-project)
 - [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
 - [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-- [Changing Organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
 - [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)

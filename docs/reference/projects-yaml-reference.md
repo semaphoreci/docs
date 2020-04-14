@@ -1,27 +1,4 @@
-# Projects YAML reference
-
-- [Overview](#overview)
-- [Properties](#properties)
-- [apiVersion](#apiversion)
-- [kind](#kind)
-- [metadata](#metadata)
-  - [name](#name)
-- [spec](#spec)
-  - [repository](#repository)
-    - [url](#url)
-    - [run](#run)
-    - [run_on](#run_on)
-    - [forked\_pull\_requests](#forked_pull_requests)
-        - [allowed_secrets](#allowed_secrets)
-        - [allowed_contributors](#allowed_contributors)
-    - [pipeline\_file](#pipeline_file)
-    - [status](#status)
-        - [pipeline\_files](#pipeline_files)
-  - [schedulers](#schedulers)
-- [Examples](#examples)
-- [See also](#see-also)
-
-## Overview
+# Projects YAML Reference
 
 This document is the YAML grammar reference used for adding and editing
 Semaphore 2.0 projects using the `sem` command line utility.
@@ -288,7 +265,6 @@ spec:
 ## See Also
 
 - [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options)

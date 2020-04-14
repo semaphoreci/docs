@@ -1,59 +1,5 @@
 # Billing
 
-With Semaphore 2.0 you will only pay for what you used and you can customize
-your usage according to your team's needs.
-
-## Trial Period
-
-Once you sign up, you can choose between a **Free plan** and a **Trial**. The
-trial period lasts 14 days. During the trial, you can use
-[the default machine quota](https://docs.semaphoreci.com/article/133-quotas-and-limits)
-completely free of charge.
-
-Of course, you can easily scale up if you need a bigger capacity by going to
-**Billing > See detailed insights… > Quota > Request upgrade…** or by reaching
-out to
-[customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)
-(please include which type of machine you prefer).
-
-## Plans
-
-After your trial period expires, your organization will be blocked and you will
-be prompted to choose a **Free plan** or a **Paid plan**.
-
-The **Free plan** includes $10 of free credit per calendar month. At the
-beginning of each month, you will receive a new $10 credit for your
-organization. On this plan, you will be able to run 1 job and you can use the
-e1-standard-2
-[machine](https://docs.semaphoreci.com/article/20-machine-types#linux-machine-types).
-You can have an unlimited number of organizations, but only one of the
-organizations you own can be on a free plan.
-
-The **Paid plan** is activated once you add your credit card. You will be
-charged based on your usage at the beginning of each month for the previous
-month. Billing cycles are based on calendar months.
-
-Every organization has a set of quotas that define the maximum number of
-parallel running jobs. You can see those numbers on the
-[Quotas and limits](https://docs.semaphoreci.com/article/133-quotas-and-limits)
-page. Refer to
-[Machine types](https://docs.semaphoreci.com/article/20-machine-types)
-page for more information about available hardware you can use.
-
-If you are on a **paid plan** or in **trial** and you’d like to run more jobs in
-parallel than given by default, you can easily scale up by reaching out to
-[customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)
-(please include which type of machine you prefer) or through the Semaphore 2.0
-UI (Billing > See detailed insights… > Quota > Request upgrade…).
-
-In Semaphore 2.0 all organizations are on monthly plans.
-
-**Note:** If you currently have an annual subscription on Semaphore Classic and
-would like to migrate to 2.0, please reach out to
-[customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com).
-
-## Billing page
-
 Billing page is accessible to the creator of the organization and admins and you
 can find it in the Owner’s area of your organization.
 
@@ -83,28 +29,45 @@ time. This data is available for the current and previous months.
 ## Budget alert
 
 Organization owner and admins can set up budget alerts. An email notification
-will be sent, to the organization's owner email address, when you spend 50%, 90%
-and 100% of your budget within one month's spending. However, pipelines won't be
-disabled once you go past the budget.
+will be sent to the organization's owner email address when you spend 50%, 90%
+and 100% of your budget within one month's spending. However, please note that
+pipelines won't be disabled once you go past the budget.
 
-You can set a budget alert through the Semaphore 2.0 UI (Billing > Set budget…)
-when the organization is on a paid plan.
+You can set the budget alert through the Semaphore UI (Billing > Set budget…)
+if your organization is on a paid plan.
 
-## Upgrading to a paid plan
+## Changing credit card information
 
-To upgrade to a paid plan, go to the Billing page and click on
-**Upgrade to remove the limit** button in the top right corner. After that,
-enter your credit card information and that’s it.
+In order to change credit card/PayPal information, you can follow these steps:
+
+1. Go to the **Billing** page of your organization,
+2. In the top right corner, click on **Credit Card and Billing Info…**,
+3. Open the **Subscriptions** tab,
+4. Click on **Manage button** > **Update payment method**.
+
+## Changing billing information
+
+If you want to change the recipient name, company name, address, phone number,
+billing email, VAT ID or country on the invoice, please contact us at
+[support@semaphoreci.com](mailto:support@semaphoreci.com).
 
 ## Invoices
 
 You will receive an invoice for your organization at the end of every billing
 period to the email address you entered while adding your credit card.
 
-If you want to change the recipient name, company name, address, phone number,
-billing email, VAT ID or country on the invoice, please contact us at
-[support@semaphoreci.com](mailto:support@semaphoreci.com).
+You can also find your invoices at the bottom of the Billing page.
 
 ## Refunds
 
-Unless in cases of extended downtime (multiple hours in a day, or multiple days in a month), we do not offer refunds. In extenuating circumstances, please email us at [billing@semaphoreci.com](mailto:billing@semaphoreci.com) and our team will make sure your request is handled. Please include the affected Workflow ID when contacting our Billing team regarding refunds.
+Unless in cases of extended downtime (multiple hours in a day, or multiple days 
+in a month), we do not offer refunds. In extenuating circumstances, please email 
+us at [billing@semaphoreci.com](mailto:billing@semaphoreci.com) and our team will make sure your request 
+is handled. Please include the affected Workflow ID when contacting our Billing 
+team regarding refunds.
+
+## See also
+
+- [Plans](https://docs.semaphoreci.com/account-management/plans/)
+- [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
+- [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)

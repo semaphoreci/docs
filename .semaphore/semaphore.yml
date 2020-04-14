@@ -1,0 +1,28 @@
+version: v1.0
+name: Docs
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Make & push
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: Mkdocs & Nginx
+          commands:
+            - make configure.gcloud
+            - make mkdocs.build
+            - make nginx.build
+            - make nginx.test
+            - make nginx.push
+      secrets:
+        - name: s2prod-gce
+
+promotions:
+  - name: Staging
+    pipeline_file: stg.yml
+    auto_promote:
+      when: "result = 'passed'"

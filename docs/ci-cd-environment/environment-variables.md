@@ -93,11 +93,64 @@ The first workflow in each of those gets the `1` for the value of
 `SEMAPHORE_WORKFLOW_NUMBER` and on each subsequent push or workflow rerun this
 value is increased by one.
 
-The `SEMAPHORE_WORKFLOW__NUMBER` environment variable remains the same during
+The `SEMAPHORE_WORKFLOW_NUMBER` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
 all promoted and auto promoted pipelines of the same workflow.
 
 Example value: `42`
+
+#### SEMAPHORE\_WORKFLOW\_RERUN
+
+The value of the `SEMAPHORE_WORKFLOW_RERUN` environment variable  is `true` if
+workflow is a rerun of a previously created workflow, otherwise, it is `false`.
+
+The `SEMAPHORE_WORKFLOW_RERUN` environment variable remains the same during
+a pipeline run and is available in all the blocks of a pipeline as well as in
+all promoted and auto promoted pipelines of the same workflow.
+
+Example value: `false`
+
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_HOOK
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable is
+`true` if workflow run was triggered via hook from the git repository.
+
+It has the value `false` in workflows which were triggered via
+[cron scheduler][scheduler] feature or through Semaphore's API.
+
+The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable remains the same
+during a pipeline run and is available in all the blocks of a pipeline as well
+as in all promoted and auto-promoted pipelines of the same workflow.
+
+Example value: `true`
+
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_SCHEDULE
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable
+is `true` if workflow run was triggered via [cron scheduler][scheduler] feature.
+
+It has the value `false` in workflows which were triggered via hook from the git
+repository or through Semaphore's API.
+
+The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable remains the same
+during a pipeline run and is available in all the blocks of a pipeline as well
+as in all promoted and auto-promoted pipelines of the same workflow.
+
+Example value: `false`
+
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_API
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable
+is `true` if workflow run was triggered through Semaphore's API.
+
+It has the value `false` in workflows which were triggered via hook from the git
+repository or via [cron scheduler][scheduler] feature.
+
+The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable remains the same
+during a pipeline run and is available in all the blocks of a pipeline as well
+as in all promoted and auto-promoted pipelines of the same workflow.
+
+Example value: `false`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
@@ -109,6 +162,54 @@ all the blocks of a pipeline, which makes it the perfect candidate for sharing
 data inside the same pipeline.
 
 Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
+
+#### SEMAPHORE\_PIPELINE\_PROMOTION
+
+The value of the `SEMAPHORE_PIPELINE_PROMOTION` environment variable is `true`
+if the pipeline is started via the promotion of some other pipeline.
+
+It has the value `false` only in the initial pipeline which is created when
+workflow is created.
+
+The `SEMAPHORE_PIPELINE_PROMOTION` environment variable remains the same
+throughout all the blocks of a pipeline.
+
+Example value: `false`
+
+#### SEMAPHORE\_PIPELINE\_RERUN
+
+The value of the `SEMAPHORE_PIPELINE_RERUN` environment variable is `true` if
+the pipeline is a rerun of a previously failed pipeline, otherwise, it is `false`.
+
+*Note*: Pipeline reruns are in the alpha phase of development and only available
+through CLI.
+
+The `SEMAPHORE_PIPELINE_RERUN` environment variable remains the same throughout
+all the blocks of a pipeline.
+
+Example value: `false`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_TYPE` environment variable specifies
+the type of agent used in the job that is being executed.
+
+Example value: `e1-standard-4`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_OS\_IMAGE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_OS_IMAGE` environment variable represents
+the operating system image that is being used.
+
+Example value: `ubuntu1804`
+
+#### SEMAPHORE\_AGENT\_MACHINE\_ENVIRONMENT\_TYPE
+
+The value of the `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE` environment variable
+specifies the type of environment in which the job is being executed,
+inside the `container` or inside the `VM`.
+
+Example value: `container`
 
 ### Git repository related
 
@@ -250,7 +351,6 @@ Example value: `/home/semaphore/.ssh/semaphore_cache_key`
 ### Private Docker Registry related variables
 
 Private Docker registry is a beta feature that is available on a request.
-You can find more information on [Private Docker Registry] page.
 
 This feature adds the following environment variables to every job for a given project:
 
@@ -263,4 +363,5 @@ This feature adds the following environment variables to every job for a given p
 - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 - [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
 
-[Private Docker Registry]: https://docs.semaphoreci.com/article/163-private-docker-registry
+
+[scheduler]: https://docs.semaphoreci.com/essentials/schedule-a-workflow-run/

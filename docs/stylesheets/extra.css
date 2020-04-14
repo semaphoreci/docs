@@ -2,6 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
     color: #283233 !important;
     -webkit-font-smoothing: auto !important;
+    -moz-osx-font-smoothing: auto !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,13 +18,13 @@ td {
 }
 
 header {
-    background: #0aa75e !important;
+    background: #15913F !important;
     box-shadow: none !important;
 }
 
 @media only screen and (max-width: 76.1875em) {
     html .md-nav--primary .md-nav__title--site {
-        background-color: #0aa75e !important;
+        background-color: #15913F !important;
     }
 
     html .md-nav--primary .md-nav__title--site .md-nav__button {
@@ -33,7 +34,7 @@ header {
 
 .md-tabs {
     font-weight: 500 !important;
-    color: #068639 !important;
+    color: #016c2c !important;
 }
 
 .md-tabs__link {
@@ -69,7 +70,7 @@ header {
     max-width: 64rem !important;
 }
 
-.md-search__input {
+.custom-search__input {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
 }
 
@@ -111,12 +112,12 @@ main .md-typeset a {
 
 .md-nav__link--active,
 .md-nav__link:active {
-    color: #068639 !important;
+    color: #016c2c !important;
     font-weight: 500 !important;
 }
 
 [data-md-color-accent=green] .md-nav__link:focus, [data-md-color-accent=green] .md-nav__link:hover, [data-md-color-accent=green] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=green] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=green] .md-typeset .md-clipboard:active:before, [data-md-color-accent=green] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=green] .md-typeset [id] .headerlink:focus, [data-md-color-accent=green] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=green] .md-typeset [id]:target .headerlink {
-    color: #068639 !important;
+    color: #016c2c !important;
 }
 
 html body .md-typeset .headerlink {
@@ -154,35 +155,35 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 }
 
 
-@media only screen and (min-width: 60em) {
-    [data-md-toggle=search]:checked~.md-header .md-search__input+.md-search__icon,
-    [data-md-toggle=search]:checked~.md-header .md-search__input::placeholder,
-    .md-search__input,
-    .md-search__input:hover,
-    .md-search__input+.md-search__icon,
-    .md-search__icon[type=reset] {
+/* @media only screen and (min-width: 60em) {
+    [data-md-toggle=search]:checked~.md-header .custom-search__input+.custom-search__icon,
+    [data-md-toggle=search]:checked~.md-header .custom-search__input::placeholder,
+    .custom-search__input,
+    .custom-search__input:hover,
+    .custom-search__input+.custom-search__icon,
+    .custom-search__icon[type=reset] {
         color: #283233 !important;
         background: #fff !important;
     }
 
-    .md-search__input {
+    .custom-search__input {
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
         border-radius: 4px !important;
     }
 
-    [data-md-toggle=search]:checked~.md-header .md-search__input {
+    [data-md-toggle=search]:checked~.md-header .custom-search__input {
         box-shadow: none;
         border-radius: 4px 4px 0 0 !important;
     }
 
-    .md-search__input::placeholder {
+    .custom-search__input::placeholder {
         color: #97A4A4 !important;
     }
 }
 
-.md-search__output {
+.custom-search__output {
     border-radius: 0 0 4px 4px !important;
-}
+} */
 
 .md-typeset__scrollwrap {
     padding-top: 2px;
@@ -194,4 +195,207 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 .md-main__inner {
     padding-top: 0 !important;
+}
+
+/* Welcome page */
+
+.welcome-page {
+    position: relative;
+}
+
+.welcome-page h2 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.welcome-blocks-wrapper {
+    margin: 0 -24px;
+}
+
+.welcome-block {
+    width: 100%;
+    padding: 12px 24px;
+}
+
+@media screen and (min-width: 640px) {
+    .welcome-blocks-wrapper {
+        display: flex;
+        padding-top: 8px;
+        border-top: 1px solid #ddd;
+    }
+
+    .welcome-block {
+        width: 50%;
+        padding: 24px;
+    }
+}
+
+.welcome-page .welcome-block-description {
+    margin: 0 0 1em 0;
+}
+
+.welcome-page .welcome-intro {
+    display: none;
+}
+
+@media screen and (min-width: 960px) {
+    .welcome-page .welcome-intro {
+        display: block;
+        position: absolute;
+        top: -78px;
+        left: -250px;
+        width: 224px;
+        padding-right: 20px;
+        height: 100%;
+        background-color: #fff;
+        font-size: 14px;
+
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .welcome-page .welcome-intro {
+        top: -82px;
+        left: -275px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .welcome-page .welcome-intro {
+        top: -92px;
+        left: -300px;
+        width: 270px;
+    }
+}
+
+.md-sidebar--primary {
+    border-right: 0 !important;
+}
+
+/* SiteSearch360 style overrides ----------------- */
+
+.md-header-nav .md-flex__cell:nth-child(4) {
+    position: static;
+}
+
+.custom-search {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 47px;
+}
+
+.md-icon--search {
+    display: none;
+}
+
+.custom-search #searchBox {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    padding: 8px 14px;
+    margin-top: 1px;
+    width: 100%;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.25);
+}
+
+.md-content {
+    padding-top: 30px;
+}
+
+.custom-search #unibox-suggest-box, #unibox-suggest-box-special {
+    border: none;
+    margin-top: 1px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+@media screen and (min-width: 960px) {
+    .custom-search {
+        background: transparent;
+        width: 220px;
+        position: static;
+        padding: 0;
+        top: 6px;
+        margin-right: 16px;
+    }
+
+    .custom-search #searchBox {
+        border-radius: 5px;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    }
+
+    .md-content {
+        padding-top: 0;
+    }
+
+    .custom-search #unibox-suggest-box, #unibox-suggest-box-special {
+        border-radius: 5px;
+        margin-top: 7px;
+    }
+}
+
+.custom-search .unibox-selectable {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.custom-search #unibox-suggest-box-special a,
+.custom-search #unibox-suggest-box a {
+    font-size: 15px;
+    text-decoration: underline;
+    color: #3f51b5 !important;
+}
+
+.custom-search #unibox-suggest-box .unibox-selectable:hover a {
+    color: #fff !important;
+}
+
+.custom-search .unibox-selectable p.unibox-result-content {
+    margin-bottom: 5px;
+}
+
+.custom-search #unibox-suggest-box-special > * > div, #unibox-suggest-box > * > div {
+    padding: 10px 12px !important;
+}
+
+.ss360-content-container p {
+    font-size: 14px !important;
+    margin-bottom: 0 !important;
+}
+
+.ss360-layer:not(.ss360--skeleton) header {
+    background: none !important;
+}
+
+.ss360-suggests a {
+    font-size: 16px !important;
+    color: #3f51b5 !important;
+    text-decoration: underline;
+}
+
+#ss360-layer {
+    font-size: 14px !important;
+    padding: 16px !important;
+}
+
+@media screen and (min-width: 1200px) {
+    #ss360-layer {
+        padding: 25px !important;
+    }
+}
+
+#ss360-search-result-heading {
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+}
+
+.ss360-more-results {
+    font-size: 14px !important;
+    border-radius: 5px !important;
+    font-weight: 400 !important;
+    min-width: auto !important;
+}
+
+.md-header #ss360Darken, .md-header #ss360Darken-input {
+    background-color: rgba(0,0,0,.5) !important;
 }
