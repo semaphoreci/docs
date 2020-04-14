@@ -61,8 +61,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.4.1
 - geckodriver 0.26.0
-- Google Chrome 80
-- chrome_driver 80
+- Google Chrome 81
+- chrome_driver 81
 - xvfb (X Virtual Framebuffer)
 - phantomjs 2.1.1
 
@@ -99,7 +99,7 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.3, 22.2
+- Erlang: 20.3, 21.3, 22.3
 - Elixir: 1.7.3, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1, 1.10.2
 
 Additional libraries:
@@ -114,8 +114,8 @@ Versions:
 - 1.10.8
 - 1.11.13
 - 1.12.17
-- 1.13.8
-- 1.14
+- 1.13.9
+- 1.14.1
 
 ### Java and JVM languages
 
@@ -189,10 +189,10 @@ Available versions:
 - 2.1.0 to 2.1.10
 - 2.2.0 to 2.2.10
 - 2.3.0 to 2.3.8
-- 2.4.0 to 2.4.9
-- 2.5.0 to 2.5.7
-- 2.6.0 to 2.6.5
-- 2.7.0
+- 2.4.0 to 2.4.10
+- 2.5.0 to 2.5.8
+- 2.6.0 to 2.6.6
+- 2.7.0 and 2.7.1
 - jruby-9.1.17.0
 
 ## See Also
