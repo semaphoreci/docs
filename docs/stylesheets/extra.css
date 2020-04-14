@@ -18,13 +18,13 @@ td {
 }
 
 header {
-    background: #078C54 !important;
+    background: #029162 !important;
     box-shadow: none !important;
 }
 
 @media only screen and (max-width: 76.1875em) {
     html .md-nav--primary .md-nav__title--site {
-        background-color: #078C54 !important;
+        background-color: #029162 !important;
     }
 
     html .md-nav--primary .md-nav__title--site .md-nav__button {
@@ -34,7 +34,7 @@ header {
 
 .md-tabs {
     font-weight: 500 !important;
-    color: #287543 !important;
+    color: #2c7d54 !important;
 }
 
 .md-tabs__link {
@@ -112,12 +112,12 @@ main .md-typeset a {
 
 .md-nav__link--active,
 .md-nav__link:active {
-    color: #287543 !important;
+    color: #2c7d54 !important;
     font-weight: 500 !important;
 }
 
 [data-md-color-accent=green] .md-nav__link:focus, [data-md-color-accent=green] .md-nav__link:hover, [data-md-color-accent=green] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=green] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=green] .md-typeset .md-clipboard:active:before, [data-md-color-accent=green] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=green] .md-typeset [id] .headerlink:focus, [data-md-color-accent=green] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=green] .md-typeset [id]:target .headerlink {
-    color: #287543 !important;
+    color: #2c7d54 !important;
 }
 
 html body .md-typeset .headerlink {
