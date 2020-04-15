@@ -67,7 +67,7 @@ blocks:
           - npm run build:all
           # The script puts website files in directory `public`,
           # store it in cache to propagate to deployment:
-          - cache store website-build public
+          - cache store website-build-$SEMAPHORE_GIT_SHA public
 
 promotions:
   - name: Production deploy
@@ -121,7 +121,7 @@ blocks:
         - name: Copy to S3
           commands:
             - checkout
-            - cache restore website-build
+            - cache restore website-build-$SEMAPHORE_GIT_SHA
             - aws s3 sync "public" "s3://bucket-name" --acl "public-read"
 ```
 
