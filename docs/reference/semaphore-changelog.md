@@ -4,6 +4,12 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 20, 2020
+
+- Updates to the ubuntu1804 image:  
+    - TCP port 8000 is no longer occupied.
+
+
 ### Week of April 13, 2020
 
 - Updates to the ubuntu1804 image:  
