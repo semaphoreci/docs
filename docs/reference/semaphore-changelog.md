@@ -7,7 +7,7 @@ This page is updated on a weekly basis.
 ### Week of April 20, 2020
 
 - Updates to the ubuntu1804 image:  
-    - TCP port 8000 is no longer occupied by our internal services, they are listening now on TCP/64123. 
+    - TCP port 8000 is no longer occupied.
 
 
 ### Week of April 13, 2020
