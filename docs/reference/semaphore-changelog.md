@@ -6,9 +6,12 @@ This page is updated on a weekly basis.
 
 ### Week of April 20, 2020
 
+- Updates to the macOS image:
+    - `macos-mojave-xcode11` Xcode 11.4.1 installed, to switch version, use
+    `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
 - Updates to the ubuntu1804 image:  
     - TCP port 8000 is no longer occupied.
-
 
 ### Week of April 13, 2020
 
