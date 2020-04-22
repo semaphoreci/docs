@@ -152,6 +152,8 @@ blocks:
           - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
           - git remote add heroku $HEROKU_REMOTE
           - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
+          - heroku run --app <YOUR-HEROKU-APP-NAME> rake db:migrate
+          - heroku ps:restart
 ```
 
 **Note**: change the value of `HEROKU_REMOTE` to match your application's
@@ -160,6 +162,8 @@ name as it is registered on Heroku.
 **Note**: For deploying to Heroku, it is required that you use `checkout` with
 the `--use-cache` option in order to avoid the shallow clone of your GitHub
 repository.
+
+**Note**: In order to invoke commands on a remote Heroku application, `HEROKU_API_KEY` environment variable should be set on Semaphore. The API key can be found by logging in to Heroku website and navigating to your `Account Settings`. Clicking on the `Reveal` button next to the API Key textbox will reveal your API key.
 
 #### Comments
 
