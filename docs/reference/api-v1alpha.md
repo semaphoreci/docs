@@ -23,7 +23,7 @@ All API requests require authentication. To authenticate, you need an
 authentication token. You can find your authentication token by visiting your
 [account settings](https://me.semaphoreci.com/account).
 
-Authentication Token should be sent as a HTTP header in all requests:
+Authentication Token must be sent as a HTTP header in all requests:
 
 ```
 curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/api/v1alpha/{resource_name}"
