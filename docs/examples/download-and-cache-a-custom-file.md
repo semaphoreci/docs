@@ -72,9 +72,9 @@ for example.
 
 ## See also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Toolbox Reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Toolbox Reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Environment variables][env-vars]
 
-[env-vars]: https://docs.semaphoreci.com/article/12-environment-variables
+[env-vars]: https://docs.semaphoreci.com/ci-cd-environment/environment-variables/

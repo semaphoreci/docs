@@ -300,16 +300,16 @@ blocks:
 - [Pipeline YAML Reference][pipeline-reference]
 - [Using secrets to manage sensitive data][using-secrets]
 
-[microservices-k8s-tutorial]: https://docs.semaphoreci.com/article/119-ci-cd-for-microservices-on-kubernetes
+[microservices-k8s-tutorial]: https://docs.semaphoreci.com/examples/ci-cd-for-microservices-on-kubernetes/
 [semaphore-demo-ruby-kubernetes]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
-[java-spring-tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
+[java-spring-tutorial]: https://docs.semaphoreci.com/examples/java-spring-continuous-integration/
 [semaphore-demo-java-spring]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[ecr-tutorial]: https://docs.semaphoreci.com/article/71-aws-elastic-container-registry-ecr
-[gcr-tutorial]: https://docs.semaphoreci.com/article/72-google-container-registry-gcr
-[using-secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#docker
-[sem-reference]: https://docs.semaphoreci.com/article/53-sem-reference
-[using-promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[docker-environment]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[using-docker-compose]: https://docs.semaphoreci.com/article/140-using-docker-compose-in-ci
+[ecr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-aws-elastic-container-registry-ecr/
+[gcr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-google-container-registry-gcr/
+[using-secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#docker
+[sem-reference]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[using-promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[docker-environment]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[using-docker-compose]: https://docs.semaphoreci.com/examples/using-docker-compose-in-ci/

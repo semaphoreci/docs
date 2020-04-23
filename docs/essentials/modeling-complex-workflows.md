@@ -7,7 +7,7 @@ process.
 
 You can model your CI/CD with an unlimited number of blocks put in a
 sequence. These blocks run sequentially in the same order as you define them
-in the [Pipeline YAML file](https://docs.semaphoreci.com/article/50-pipeline-yaml).
+in the [Pipeline YAML file](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/).
 In each of those blocks, you can split the work across arbitrary number of
 parallel jobs.
 
@@ -183,4 +183,4 @@ automatically to delivery phases.
 
 Happy building!
 
-[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
+[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/

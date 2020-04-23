@@ -242,12 +242,12 @@ blocks:
 To see how an iOS project can be configured on Semaphore, see the [`semaphore-demo-ios-swift-xcode` GitHub repository][demo-project].
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
-[ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
+[ios-tutorial]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/
 [fastlane]: https://fastlane.tools
 [fastlane-setup-guide]: https://docs.fastlane.tools/getting-started/ios/setup/
 [code-signing]: https://codesigning.guide
 [fastlane-match]: https://docs.fastlane.tools/actions/match/
 [fastlane-produce]: https://docs.fastlane.tools/actions/produce/
-[using-private-deps]: https://docs.semaphoreci.com/article/109-using-private-dependencies
-[sem]: https://docs.semaphoreci.com/article/53-sem-reference
-[secrets-intro]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[using-private-deps]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
+[sem]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[secrets-intro]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/

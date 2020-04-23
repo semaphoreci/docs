@@ -142,11 +142,11 @@ See _[Netlify Continuous Deployment][netlify-guide]_ guide.
 - [Cache reference][cache-ref]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-static-website
-[promotions-guide]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[caching-guide]: https://docs.semaphoreci.com/article/68-caching-dependencies
-[nodejs]: https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs
-[secrets-guide]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
-[pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[netlify-guide]: https://docs.semaphoreci.com/article/141-netlify-continuous-deployment
+[promotions-guide]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[caching-guide]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[nodejs]: https://docs.semaphoreci.com/programming-languages/javascript-and-node-js/
+[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
+[pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
+[netlify-guide]: https://docs.semaphoreci.com/examples/netlify-continuous-deployment/

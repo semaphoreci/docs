@@ -31,7 +31,7 @@ the `.semaphore` directory:
 ### Continuous Integration Pipeline
 
 If you are new to Semaphore, be sure to read the 
-[guided tour](https://docs.semaphoreci.com/category/56-guided-tour) 
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) 
 and the linked pages for more information.
 
 ``` yaml
@@ -93,7 +93,7 @@ promotions:
 ```
 
 Semaphore's
-[Ubuntu 18.04](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+[Ubuntu 18.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 Virtual Machine comes with [leiningen](https://leiningen.org/)
 preinstalled. `lein` automates Clojure projects and manages
 dependencies.
@@ -101,7 +101,7 @@ dependencies.
 The CI pipeline is made of 3 blocks:
 
   - Setup: installs the project dependencies and stores them in the
-    [cache](https://docs.semaphoreci.com/article/54-toolbox-reference#cache)
+    [cache](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
     to speed up subsequent jobs.
   - Tests: runs the luminus 
     [unit tests](http://www.luminusweb.net/docs/testing.html).
@@ -109,19 +109,19 @@ The CI pipeline is made of 3 blocks:
     standalone package.
 
 In order to reduce build times, each block includes a 
-[prologue](https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue)
+[prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue)
 that attempts to retrieve dependencies using Semaphore's
-[cache](https://docs.semaphoreci.com/article/54-toolbox-reference#cache)
+[cache](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
 utility.
 The prologue is run before each job in the the block.
 
 ### Promotion
 
 You can create complex workflows with
-[promotions](https://docs.semaphoreci.com/article/67-deploying-with-promotions).
+[promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
 A promotion can trigger the start of the next pipeline either manually
 or on user-defined conditions. The
-[auto_promote_on](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote_on)
+[auto_promote_on](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote_on)
 keyword is used to automatically start the deployment pipeline once
 integration has completed successfully.
 
@@ -182,12 +182,12 @@ Excellent work\! You now have integration and delivery pipelines for
 your Clojure projects. The next step is implementing a deployment scenario. 
 For further information, consult the following tutorials:
 
-  - [Publishing Docker images on Docker Hub](https://docs.semaphoreci.com/article/70-dockerhub)
-  - [Heroku Deployment](https://docs.semaphoreci.com/article/100-heroku-deployment)
-  - [Google Cloud Run Continuous Deployment](https://docs.semaphoreci.com/article/128-google-cloud-run-cicd)
+  - [Publishing Docker images on Docker Hub](https://docs.semaphoreci.com/examples/publishing-docker-images-on-dockerhub/)
+  - [Heroku Deployment](https://docs.semaphoreci.com/examples/heroku-deployment/)
+  - [Google Cloud Run Continuous Deployment](https://docs.semaphoreci.com/examples/google-cloud-run-continuous-deployment/)
 
 ## See Also
 
-  - [Tutorials and sample Projects](https://docs.semaphoreci.com/article/123-tutorials-and-example-projects)
-  - [Clojure support on Semaphore](https://docs.semaphoreci.com/article/112-language-clojure)
-  - [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+  - [Tutorials and sample Projects](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/)
+  - [Clojure support on Semaphore](https://docs.semaphoreci.com/programming-languages/clojure/)
+  - [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)

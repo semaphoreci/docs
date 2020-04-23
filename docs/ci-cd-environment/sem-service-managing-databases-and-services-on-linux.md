@@ -67,7 +67,7 @@ sem-service start rabbitmq 3.7
 ```
 
 Services are not automatically shared across blocks. To do that, start services
-within the [prologue](https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue)
+within the [prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue)
 property of each task and populate data as needed.
 
 Example `sem-service` in your pipelines:

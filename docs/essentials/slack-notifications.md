@@ -200,14 +200,14 @@ sem create -f release-cycle-notifications.yml
 ## Modifying notification settings
 
 Notification settings can be listed, described, edited and deleted in your
-organization by using the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference).
+organization by using the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
 - List notifications with: `sem get notifications`
 - Describe a notification with: `sem get notifications [name]`
 - Edit a notification with: `sem edit notification [name]`
 - Delete a notification with: `sem delete notification [name]`
 
-See the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference)
+See the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 for further details.
 
 ## Setting up, editing and deleting Slack notifications through the UI
@@ -222,5 +222,5 @@ and follow the steps from there.
 
 ## See also
 
-- [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Notifications YAML Reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference/)

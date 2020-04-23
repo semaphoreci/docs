@@ -146,7 +146,7 @@ Additional preinstalled simulators:
 - [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
 
 [mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_6_release_notes
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
-[agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
-[ios-guide]: https://docs.semaphoreci.com/article/124-ios-continuous-integration
+[agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
+[ios-guide]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/

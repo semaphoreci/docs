@@ -119,6 +119,6 @@ to avoid inconsistencies due to minute precision of the Crontab expressions.
 [update-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#download-and-install
 [cli-edit-project]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit_1
 [scheduler-yml-spec]: https://docs.semaphoreci.com/reference/projects-yaml-reference/#schedulers
-[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
-[wf-trigger-options]: https://docs.semaphoreci.com/article/152-project-workflow-tigger-options
-[pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
+[wf-trigger-options]: https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/
+[pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/

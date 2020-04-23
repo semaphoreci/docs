@@ -78,5 +78,5 @@ That's all there is to it. You can use the approach to add more deploy
 keys to the `private-repo` secret to cover more projects and reuse the
 secret across other projects.
 
-[secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets#storing-files-in-secrets
+[secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/#storing-files-in-secrets
 [deploy keys]: https://developer.github.com/v3/guides/managing-deploy-keys/

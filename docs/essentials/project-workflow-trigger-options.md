@@ -110,5 +110,5 @@ In every job from this workflow, Semaphore will export
 
 ## See also
 
-- [Environment Variables](https://docs.semaphoreci.com/article/12-environment-variables)
-- [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+- [Environment Variables](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/)
+- [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
