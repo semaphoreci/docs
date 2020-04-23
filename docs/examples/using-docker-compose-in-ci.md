@@ -217,7 +217,7 @@ The only thing that you should take care of is using a valid value for the
   - [Storing sensitive
     data](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
   - [Working with docker
-    images](https://docs.semaphoreci.com/article/78-working-with-docker-images)
+    images](https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/)
 
 [docker-agents]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
 [ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
