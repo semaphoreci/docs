@@ -23,10 +23,10 @@ All API requests require authentication. To authenticate, you need an
 authentication token. You can find your authentication token by visiting your
 [account settings](https://me.semaphoreci.com/account).
 
-Authentication Token is sent as a HTTP header
+Authentication Token must be sent as a HTTP header in all requests:
 
-``` bash
-curl -H "Authorization: Token <token>" https://{org_name}.semaphoreci.com/api/v1alpha
+```
+curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/api/v1alpha/{resource_name}"
 ```
 
 ### Errors
@@ -130,7 +130,7 @@ HTTP status: 200
 ```
 curl -i -H "Authorization: Token {api_token}" \
      -d "project_id={project_id}&reference={reference}" \
-     -X POST  https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
+     -X POST  "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows"
 ```
 
 ### Describe Workflow
@@ -170,7 +170,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id"
 ```
 
 ### List Workflows
@@ -225,7 +225,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows\?project_id\=:project_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows\?project_id\=:project_id"
 ```
 
 ### Rerun Workflow
@@ -254,7 +254,7 @@ HTTP status: 200
 
 ```
 curl -i -X POST -H "Authorization: Token {api_token}" \
-        https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/reschedule\?request_token\=:request_token
+        "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/reschedule\?request_token\=:request_token"
 ```
 
 ### Stop Workflow
@@ -277,7 +277,7 @@ HTTP status: 200
 
 ```
 curl -i -X POST -H "Authorization: Token {api_token}" \
-        https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/terminate
+        "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/terminate"
 ```
 
 ## Pipelines
@@ -435,7 +435,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id"
 ```
 
 
@@ -510,7 +510,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/pipelines\?project_id\=:project_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/pipelines\?project_id\=:project_id"
 ```
 
 ### Stop Pipeline
@@ -536,7 +536,7 @@ HTTP status: 200
 curl -i -X PATCH  -H "Authorization: Token {api_token}" \
      --header "Accept: application/json"  --header "Content-Type: application/json" \
      --data '{"terminate_request": true}' \
-     https://{org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id"
 ```
 
 ## Promotions
@@ -579,7 +579,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/promotions\?pipeline_id\=:pipeline_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/promotions\?pipeline_id\=:pipeline_id"
 ```
 
 ### Trigger Promotion
@@ -605,7 +605,7 @@ HTTP status: 200
 ```
 curl -H "Authorization: Token {api_token}"  \
      -d "name=:promotion_name&pipeline_id=:pipeline_id"  \
-     -X POST  https://{org_name}.semaphoreci.com/api/v1alpha/promotions
+     -X POST  "https://{org_name}.semaphoreci.com/api/v1alpha/promotions"
 ```
 
 ## Jobs
@@ -684,7 +684,7 @@ HTTP status: 200
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id
+     "https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id"
 ```
 
 ### Stop Job
@@ -703,7 +703,7 @@ HTTP status: 200
 
 ```
 curl -i -X POST -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id/stop
+     "https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id/stop"
 ```
 
 ### Get Log
@@ -730,5 +730,5 @@ BranchPage.Models.BranchTest
 
 ```
 curl -i -H "Authorization: Token {api_token}" \
-     https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json
+     "https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json"
 ```
