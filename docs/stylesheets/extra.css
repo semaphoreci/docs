@@ -341,7 +341,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 .custom-search #unibox-suggest-box-special a,
 .custom-search #unibox-suggest-box a {
-    font-size: 15px;
+    font-size: 14px;
     text-decoration: underline;
     color: #3f51b5 !important;
 }
@@ -398,4 +398,23 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 .md-header #ss360Darken, .md-header #ss360Darken-input {
     background-color: rgba(0,0,0,.5) !important;
+}
+
+.unibox__result-content {
+    margin-bottom: 4px !important;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.custom-search #unibox-suggest-box-special>*>div,
+#unibox-suggest-box>*>div {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 0 !important;
+}
+
+.unibox__selectable--active .unibox__content-container,
+.unibox__selectable--active .unibox__highlight-container,
+.unibox__selectable:hover .unibox__content-container,
+.unibox__selectable:hover .unibox__highlight-container {
+    background: #f1f5f5 !important;
 }
