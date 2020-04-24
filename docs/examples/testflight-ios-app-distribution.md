@@ -66,6 +66,6 @@ working Fastlane and Semaphore configuration for your convenience.
 [semaphore]: https://semaphoreci.com
 [testflight]: https://developer.apple.com/testflight/
 [fastlane]: https://fastlane.tools
-[ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
-[code-signing]: https://docs.semaphoreci.com/article/134-code-signing-for-ios-projects
+[ios-tutorial]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/
+[code-signing]: https://docs.semaphoreci.com/examples/code-signing-for-ios-projects/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode

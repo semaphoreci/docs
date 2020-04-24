@@ -198,5 +198,5 @@ blocks:
 
 ## See Also
 
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)

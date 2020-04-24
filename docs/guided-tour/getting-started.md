@@ -58,7 +58,7 @@ It's time to [create your first project][next] using an example Semaphore
 configuration file. You will be able to see Semaphore in action first before
 customizing it for your use case.
 
-[next]: https://docs.semaphoreci.com/article/63-your-first-project
+[next]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
 
 If you want to find out more about the product and participate in a live Q&A
 session with one of Semaphore's co-founders, you can register for 

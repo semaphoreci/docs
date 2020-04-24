@@ -50,8 +50,8 @@ name: Elixir Phoenix example CI pipeline on Semaphore
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images. See:
-# https://docs.semaphoreci.com/article/20-machine-types
-# https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -60,7 +60,7 @@ agent:
 # Blocks make up the structure of a pipeline and are executed sequentially.
 # Each block has a task that defines one or many parallel jobs. Jobs define
 # the commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Set up
     task:
@@ -76,8 +76,8 @@ blocks:
 
           # Restore dependencies from cache, command won't fail if it's
           # missing. More on caching:
-          # - https://docs.semaphoreci.com/article/149-caching
-          # - https://docs.semaphoreci.com/article/87-language-elixir
+          # - https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
+          # - https://docs.semaphoreci.com/programming-languages/elixir/
           - cache restore
           # Cache the PLT generated from the dialyzer to speed up pipeline process.
           # As suggested here - https://github.com/jeremyjh/dialyxir#continuous-integration
@@ -96,7 +96,7 @@ blocks:
   - name: Analyze code
     task:
       # Commands in prologue run at the beginning of each parallel job.
-      # https://docs.semaphoreci.com/article/50-pipeline-yaml
+      # https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
       prologue:
         commands:
         - checkout
@@ -130,13 +130,13 @@ blocks:
       jobs:
       - name: ex_unit
         # Define an environment variable
-        # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+        # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
         env_vars:
         - name: DATABASE_URL
           value: "ecto://postgres:@0.0.0.0:5432/sema_test"
         commands:
         # Start Postgres database service
-        # https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+        # https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service
         - sem-service start postgres
         - mix test
 
@@ -182,9 +182,9 @@ deployment. For more information and practical examples, see:
 - [Deployment tutorials and example projects][deployment-tutorials]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
-[concepts]: https://docs.semaphoreci.com/article/62-concepts
-[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
-[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[deployment-tutorials]: https://docs.semaphoreci.com/article/123-tutorials-and-example-projects#deployment
+[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
+[guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[deployment-tutorials]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment

@@ -188,13 +188,13 @@ options you have available when designing delivery pipelines on Semaphore.
 - [Set up a deployment dashboard][deployment-dashboards] to keep track of
 your team's activities.
 
-[create-project]: https://docs.semaphoreci.com/article/63-your-first-project
-[use-cases]: https://docs.semaphoreci.com/category/59-use-cases
-[language-guides]: https://docs.semaphoreci.com/category/58-programming-languages
-[promotions-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
-[promotions-intro]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[secrets-guide]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[sem-create-ref]: https://docs.semaphoreci.com/article/53-sem-reference#sem-create
+[create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
+[language-guides]: https://docs.semaphoreci.com/programming-languages/android/
+[promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
+[promotions-intro]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[sem-create-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create
 [heroku-keys]: https://devcenter.heroku.com/articles/keys
 [heroku-ssh-git]: https://devcenter.heroku.com/articles/git#ssh-git-transport
-[deployment-dashboards]: https://docs.semaphoreci.com/article/101-deployment-dashboards
+[deployment-dashboards]: https://docs.semaphoreci.com/essentials/deployment-dashboards/

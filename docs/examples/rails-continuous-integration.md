@@ -51,8 +51,8 @@ name: Demo Rails 5 app
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images.
-# See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -61,7 +61,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Setup
     task:
@@ -72,10 +72,10 @@ blocks:
           # job is to work with your code.
           # Optionally you may use --use-cache flag to avoid roundtrip to
           # remote repository.
-          # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
+          # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
           - checkout
           # Restore dependencies from cache.
-          # Read about caching: https://docs.semaphoreci.com/article/149-caching
+          # Read about caching: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
           - cache restore
           # Set Ruby version:
           - sem-version ruby 2.6.0
@@ -104,13 +104,13 @@ blocks:
     task:
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
-      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
       prologue:
         commands:
           - checkout
           - cache restore
           # Start Postgres database service.
-          # See https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+          # See https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service
           - sem-service start postgres
           - sem-version ruby 2.6.0
           - bundle install --deployment --path vendor/bundle
@@ -128,7 +128,7 @@ blocks:
   # Note that it's possible to define an agent on a per-block level.
   # For example, if your integration tests need more RAM, you could override
   # agent configuration here to use e1-standard-8.
-  # See https://docs.semaphoreci.com/article/50-pipeline-yaml#agent-in-task
+  # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task
   - name: Integration tests
     task:
       prologue:
@@ -204,9 +204,9 @@ deployment to Heroku.
 - [sem-service reference][sem-service]
 
 [rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
-[ruby-guide]: https://docs.semaphoreci.com/article/73-ruby
-[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
-[pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[cache-ref]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
-[heroku-guide]: https://docs.semaphoreci.com/article/100-heroku-deployment
+[ruby-guide]: https://docs.semaphoreci.com/programming-languages/ruby/
+[guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
+[pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[heroku-guide]: https://docs.semaphoreci.com/examples/heroku-deployment/

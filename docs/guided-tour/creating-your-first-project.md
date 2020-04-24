@@ -79,8 +79,8 @@ You can do the following:
   organization. You can do that [here][github-connection].
 - Request the GitHub organization owner to give access to Semaphore. [Here](https://help.github.com/en/articles/requesting-organization-approval-for-oauth-apps) you can find how.
 
-[next]: https://docs.semaphoreci.com/article/62-concepts
-[install-cli]: https://docs.semaphoreci.com/article/53-sem-reference
+[next]: https://docs.semaphoreci.com/guided-tour/concepts/
+[install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
 [github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
 
 ### Renaming a project
@@ -92,7 +92,7 @@ If you want to rename your project, you can:
 3. Change the name in the **Name of the Project** field and
 4. Click on **Save Changes**.
 
-This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/article/53-sem-reference#sem-edit-examples).
+This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit-examples).
 
 ### Transferring project ownership
 
@@ -113,4 +113,4 @@ In order to delete a project, you can:
 4. Re-enter the name of the project and
 5. Click on **Delete project** button.
 
-If you prefer using CLI, you can delete a project by using [`sem delete` command](https://docs.semaphoreci.com/article/53-sem-reference#sem-delete-example).
+If you prefer using CLI, you can delete a project by using [`sem delete` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-delete-example).

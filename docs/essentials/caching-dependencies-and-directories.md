@@ -272,5 +272,5 @@ blocks:
 __Note:__ Launch a [debugging session][debug session] to clear corrupted archives for your project
 by executing `cache clear` or `cache delete <key>`.
 
-[debug session]: https://docs.semaphoreci.com/article/75-debugging-with-ssh-access
-[prologue commands]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
+[prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/

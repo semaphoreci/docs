@@ -2,7 +2,7 @@
 
 This guide will help you get started with a JavaScript project on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -128,7 +128,7 @@ blocks:
 ```
 
 If you need to clear cache for your project, launch a
-[debug session](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access)
+[debug session](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/)
 and execute `cache clear` or `cache delete <key>`.
 
 ### Yarn is supported
@@ -164,13 +164,13 @@ library and it should work out of the box, same goes for higher level
 libraries that leverage Selenium. See the official [Node
 examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).
 
-Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on pre-installed browsers and testing tools on Semaphore.
 
-[browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
-[tutorial]: https://docs.semaphoreci.com/article/121-nodejs-typescript-continuous-integration
+[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
+[tutorial]: https://docs.semaphoreci.com/examples/node-js-and-typescript-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
-[ubuntu-javascript]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#javascript-via-node-js
-[macos-javascript]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#javascript-via-node-js
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#javascript-via-node-js
+[macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#javascript-via-node-js
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [node-docker-image]: https://hub.docker.com/r/semaphoreci/node

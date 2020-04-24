@@ -51,16 +51,16 @@ version: v1.0
 # promotions, the pipeline name will help you differentiate between
 # them. For example, you might have a build phase and a delivery phase.
 # For more information on promotions, see:
-# https://docs.semaphoreci.com/article/67-deploying-with-promotions
+# https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
 name: Tallest Towers
 
 # The agent defines the environment in which your CI runs. It is a combination
 # of a machine type and an operating system image. For a project built with
 # Xcode you must use one of the Apple machine types, coupled with a macOS image
 # running either Xcode 10 or Xcode 11.
-# See https://docs.semaphoreci.com/article/20-machine-types
-# https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
-# https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+# See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/ and
+# https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
 agent:
   machine:
     type: a1-standard-4
@@ -69,12 +69,12 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially. Each block
 # has a task that defines one or more parallel jobs. Jobs define commands that
 # should be executed by the pipeline.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Run tests
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       env_vars:
         - name: LANG
           value: en_US.UTF-8
@@ -86,7 +86,7 @@ blocks:
           # Restore dependencies from cache. This command will not fail in
           # case of a cache miss. In case of a cache hit, bundle  install will
           # complete in about a second.
-          # See https://docs.semaphoreci.com/article/68-caching-dependencies
+          # See https://docs.semaphoreci.com/guided-tour/caching-dependencies/
           - cache restore
           - bundle install --path vendor/bundle
           - cache store
@@ -94,8 +94,8 @@ blocks:
         - name: Test
           commands:
             # Select an Xcode version.
-            # See https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image and
-            # https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
+            # See https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/ and
+            # https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
             - bundle exec xcversion select 11.2.1
 
             # Run tests of iOS and Mac app on a simulator or connected device.
@@ -110,12 +110,12 @@ blocks:
       secrets:
         # Make the SSH key for the certificate repository and the MATCH_PASSWORD
         # environment variable available.
-        # See https://docs.semaphoreci.com/article/109-using-private-dependencies
+        # See https://docs.semaphoreci.com/essentials/using-private-dependencies/
         - name: match-secrets
       prologue:
         commands:
           # Add the key for the match certificate repository to ssh
-          # See https://docs.semaphoreci.com/article/109-using-private-dependencies
+          # See https://docs.semaphoreci.com/essentials/using-private-dependencies/
           - chmod 0600 ~/.ssh/*
           - ssh-add ~/.ssh/match-repository-private-key
 
@@ -131,7 +131,7 @@ blocks:
             - bundle exec fastlane build
 
             # Upload the IPA file as a job artifact.
-            # See https://docs.semaphoreci.com/article/155-artifacts
+            # See https://docs.semaphoreci.com/essentials/artifacts/
             - artifact push job TallestTowers.ipa
   - name: Take screenshots
     task:
@@ -151,7 +151,7 @@ blocks:
             - bundle exec fastlane screenshots
 
             # Upload the screenshots directory as a project artifact.
-            # See https://docs.semaphoreci.com/article/155-artifacts
+            # See https://docs.semaphoreci.com/essentials/artifacts/
             - artifact push job screenshots
 ```
 
@@ -372,24 +372,24 @@ yourself. Here’s how to build the demo project with your own account:
 - [TestFlight integration][testflight]
 - [HockeyApp integration][hockeyapp]
 
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [example-project-readme]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/README.md
 [example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/.semaphore/semaphore.yml
-[concepts]: https://docs.semaphoreci.com/article/62-concepts
-[checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
-[cache-command]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
+[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
+[checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
+[cache-command]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
 [fastlane]: https://fastlane.tools/
 [fastlane-scan]: https://docs.fastlane.tools/actions/scan/
 [fastlane-match]: https://docs.fastlane.tools/actions/match/
 [fastlane-plugin]: https://github.com/semaphoreci/fastlane-plugin-semaphore
 [fastlane-snapshot]: https://docs.fastlane.tools/actions/snapshot/
-[encrypted-secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[promotions]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[code-signing]: https://docs.semaphoreci.com/article/134-code-signing-for-ios-projects
-[testflight]: https://docs.semaphoreci.com/article/137-testflight-ios-app-distribution
-[hockeyapp]: https://docs.semaphoreci.com/article/138-hockeyapp-ios-app-distribution
-[artifacts]: https://docs.semaphoreci.com/article/155-artifacts
-[private-dependencies]: https://docs.semaphoreci.com/article/109-using-private-dependencies
+[encrypted-secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[code-signing]: https://docs.semaphoreci.com/examples/code-signing-for-ios-projects/
+[testflight]: https://docs.semaphoreci.com/examples/testflight-ios-app-distribution/
+[hockeyapp]: https://docs.semaphoreci.com/examples/hockeyapp-ios-app-distribution/
+[artifacts]: https://docs.semaphoreci.com/essentials/artifacts/
+[private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/

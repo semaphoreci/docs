@@ -4,7 +4,7 @@ Semaphore allows building, testing and releasing Swift, Objective-C and
 React Native applications with customizable CI/CD workflows.
 
 If you’re new to Semaphore, we recommend reading our
-[guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 macOS Mojave images running *either* Xcode 10, *or* Xcode 11 are available. Each
 image also has a full complement of useful tools and utilities pre-installed.

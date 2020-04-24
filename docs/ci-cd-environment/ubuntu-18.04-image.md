@@ -8,7 +8,7 @@ of your pipeline or block.
 
 The `ubuntu1804` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access. The image will be updated bi-weekly, on first and third Monday of every month.
-Updates can be followed on [Semaphore Changelog](https://docs.semaphoreci.com/article/113-changelog).
+Updates can be followed on [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/).
 
 The `ubuntu1804` VM uses an *APT mirror* that is in the same data center as
 Semaphore's build cluster, which means that caching packages will have little
@@ -197,11 +197,11 @@ Available versions:
 
 ## See Also
 
-- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+[agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
+[sem-version]: hhttps://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

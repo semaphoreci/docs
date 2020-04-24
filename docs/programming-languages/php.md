@@ -2,7 +2,7 @@
 
 This guide covers configuring PHP projects on Semaphore. If you are new to
 Semaphore we recommend reading our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -146,8 +146,8 @@ blocks:
             - codecept run
 ```
 
-[laravel-tutorial]: https://docs.semaphoreci.com/article/114-laravel-php-continuous-integration
+[laravel-tutorial]: https://docs.semaphoreci.com/examples/laravel-php-continuous-integration/
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel
-[ubuntu-php]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#php
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[ubuntu-php]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#php
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [php-docker-image]: https://hub.docker.com/r/semaphoreci/php

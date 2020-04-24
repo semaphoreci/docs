@@ -55,8 +55,8 @@ name: Build and test
 # An agent defines the environment in which your code runs.
 # It is a combination of one of the available machine types and operating
 # system images.
-# See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -65,7 +65,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Install dependencies
     task:
@@ -105,7 +105,7 @@ promotions:
 ```
 
 
-Two [promotions](https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions)
+Two [promotions](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions)
 branch out of the CI pipeline:
 
 -   Deploy to production: automatically started once all tests are green
@@ -207,8 +207,8 @@ Hello World!
 ## See also
 
 -   [Semaphore guided
-    tour](https://docs.semaphoreci.com/category/56-guided-tour)
+    tour](https://docs.semaphoreci.com/guided-tour/getting-started/)
 -   [Pipelines
-    reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
--   [Environment variables and secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
+    reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+-   [Environment variables and secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
 -   [JavaScript and Node.js](https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs)

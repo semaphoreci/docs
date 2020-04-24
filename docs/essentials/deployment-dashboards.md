@@ -67,8 +67,8 @@ A dashboard can apply additional conditions and display data from more than one
 source. For more information, consult the
 [dashboard reference documentation][dashboard-ref].
 
-[create-project]: https://docs.semaphoreci.com/article/63-your-first-project
-[promotions-guide]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[sem-ref]: https://docs.semaphoreci.com/article/53-sem-reference
-[pipelines-dashboard]: https://docs.semaphoreci.com/article/60-dashboards-yaml-reference#pipelines-list
-[dashboard-ref]: https://docs.semaphoreci.com/article/60-dashboards-yaml-referencet
+[create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[promotions-guide]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[sem-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[pipelines-dashboard]: https://docs.semaphoreci.com/reference/dashboards-yaml-reference/#pipelines-list
+[dashboard-ref]: https://docs.semaphoreci.com/reference/dashboards-yaml-reference/

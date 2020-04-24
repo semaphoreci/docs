@@ -225,10 +225,10 @@ promotions:
 
 
 
-[run-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml#run-in-blocks
-[change-in-ref]: https://docs.semaphoreci.com/article/142-conditions-reference#change_in
-[use-cases]: https://docs.semaphoreci.com/category/59-use-cases
-[promotions-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
-[skip-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml#skip-in-blocks
-[promotions-guided]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[conditions-ref]: https://docs.semaphoreci.com/article/142-conditions-reference
+[run-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#run-in-blocks
+[change-in-ref]: https://docs.semaphoreci.com/reference/conditions-reference/#change_in
+[use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
+[promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
+[skip-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
+[promotions-guided]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[conditions-ref]: https://docs.semaphoreci.com/reference/conditions-reference/

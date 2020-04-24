@@ -2,7 +2,7 @@
 
 This guide covers configuring Golang projects on Semaphore.
 If you’re new to Semaphore we recommend reading the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -157,10 +157,10 @@ blocks:
             - make test
 ```
 
-[ubuntu-go]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#go
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[go-tutorial]: https://docs.semaphoreci.com/article/115-golang-continuous-integration
+[ubuntu-go]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#go
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[go-tutorial]: https://docs.semaphoreci.com/examples/golang-continuous-integration/
 [go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [go-docker-image]: https://hub.docker.com/r/semaphoreci/golang
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

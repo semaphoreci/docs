@@ -260,5 +260,5 @@ yourself. Here’s how to build the demo project with your own account:
    push the commit to GitHub, Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
-[secrets-guide]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-[docker-hub-guide]: https://docs.semaphoreci.com/article/70-dockerhub
+[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[docker-hub-guide]: https://docs.semaphoreci.com/examples/publishing-docker-images-on-dockerhub/

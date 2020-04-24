@@ -43,8 +43,8 @@ name: Java Spring example CI pipeline on Semaphore
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images. See:
-# https://docs.semaphoreci.com/article/20-machine-types
-# https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -53,13 +53,13 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
 
   - name: "Build"
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       env_vars:
         - name: MAVEN_OPTS
           value: "-Dmaven.repo.local=.m2"
@@ -73,7 +73,7 @@ blocks:
 
             # Restore dependencies from cache, command won't fail if it's
             # missing.
-            # More on caching: https://docs.semaphoreci.com/article/149-caching
+            # More on caching: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
           - cache restore
 
           - mvn -q package jmeter:configure -Dmaven.test.skip=true
@@ -90,7 +90,7 @@ blocks:
 
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
-      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
       prologue:
         commands:
           - checkout
@@ -134,7 +134,7 @@ blocks:
 # In this example we run docker build automatically on every branch.
 # You may want to limit it by branch name, or trigger it manually.
 # For more on such options, see:
-# https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
+# https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
 promotions:
   - name: Dockerize
     pipeline_file: docker-build.yml
@@ -187,7 +187,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       secrets:
       - name: docker-hub
 
@@ -215,7 +215,7 @@ blocks:
           # You could use $SEMAPHORE_WORKFLOW_ID environment variable to
           # produce a unique image tag.  For a list of available environment
           # variables on Semaphore, see:
-          # https://docs.semaphoreci.com/article/12-environment-variables
+          # https://docs.semaphoreci.com/ci-cd-environment/environment-variables/
           - docker build --cache-from semaphoredemos/semaphore-demo-java-spring:latest --build-arg ENVIRONMENT="${ENVIRONMENT}" -t semaphoredemos/semaphore-demo-java-spring:latest .
 
           # Push a new image to container registry:
@@ -234,4 +234,4 @@ yourself. Here’s how to build the demo project with your own account:
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[secrets-guide]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/

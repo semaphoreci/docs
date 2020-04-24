@@ -27,7 +27,7 @@ blocks or pipelines to which secret has be connected.
 
 ### YAML
 
-To connect secret to a particular block add [secrets property](https://docs.semaphoreci.com/article/50-pipeline-yaml#secrets) like in example:
+To connect secret to a particular block add [secrets property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets) like in example:
 
 ```yaml
 version: v1.0
@@ -52,7 +52,7 @@ blocks:
 ```
 
 To connect secret to all jobs in the pipeline use
-[global_job_config](https://docs.semaphoreci.com/article/50-pipeline-yaml#global_job_config) like in
+[global_job_config](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#global_job_config) like in
 the example:
 
 ```yaml
@@ -117,11 +117,11 @@ To edit secret use:
 sem edit secret blue-secret
 ```
 
-For more information about managing secrets check [sem CLI Reference](https://docs.semaphoreci.com/article/53-sem-reference).
+For more information about managing secrets check [sem CLI Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
 
 ## See also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Secrets YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Secrets YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)

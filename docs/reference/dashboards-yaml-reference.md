@@ -205,4 +205,4 @@ spec:
 
 ## See also
 
-- [sem CLI installation and reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [sem CLI installation and reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)

@@ -2,7 +2,7 @@
 
 This guide will help you get started with a Rust project on Semaphore.
 If you’re new to Semaphore, we recommend reading our
-_[Guided tour](https://docs.semaphoreci.com/article/77-getting-started)_ first.
+_[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/)_ first.
 
 ## Hello World
 
@@ -35,5 +35,5 @@ or build your own container image that matches your needs.
 For more information about pre-built Rust images provided by Semaphore, see
 [semaphoreci/rust][rust-docker-image] documentation on Docker Hub.
 
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [rust-docker-image]: https://hub.docker.com/r/semaphoreci/rust

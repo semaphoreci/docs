@@ -49,7 +49,7 @@ The value of this parameter is an ID of the project.
 https://{ORGANIZATION_NAME}.semaphoreci.com/badges/{PROJECT_NAME}.svg?key={PROJECT_ID}
 ```
 
-You can find `PROJECT_ID` using [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference):
+You can find `PROJECT_ID` using [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/):
 
 ``` bash
 sem get project {PROJECT_NAME}
