@@ -213,7 +213,7 @@ have its own cache and therefore you will avoid cache collision.
 
 ## See Also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Toolbox Reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Environment Variables Reference](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/)

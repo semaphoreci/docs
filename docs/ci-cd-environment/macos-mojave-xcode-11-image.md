@@ -159,7 +159,7 @@ Xcode 11.4.1 has the following SDKs preinstalled:
 
 - [iOS Continuous Integration guide][ios-guide]
 - [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
-- [Toolbox reference page](https://docs.semaphoreci.com/ci-cd-environment/toolbox-reference/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_6_release_notes

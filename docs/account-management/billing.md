@@ -5,7 +5,7 @@ can find it in the Owner’s area of your organization.
 
 Here you can find all the details related to your usage:
 
-1. [Machine types](https://docs.semaphoreci.com/article/20-machine-types)
+1. [Machine types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 2. [Prices](https://semaphoreci.com/pricing) of each machine in dollars per
 second
 3. Number of seconds each machine was used

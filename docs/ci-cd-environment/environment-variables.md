@@ -325,7 +325,7 @@ Example values: `Update Readme.md`
 
 The following environment variables are related to the `cache` utility. You can
 find more information about the `cache` utility at
-[Toolbox reference](https://docs.semaphoreci.com/article/54-toolbox-reference).
+[Toolbox reference](https://docs.semaphoreci.com/reference/toolbox-reference/).
 
 #### SEMAPHORE\_CACHE\_USERNAME
 
@@ -360,8 +360,8 @@ This feature adds the following environment variables to every job for a given p
 
 ## See Also
 
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 
 
 [scheduler]: https://docs.semaphoreci.com/essentials/schedule-a-workflow-run/

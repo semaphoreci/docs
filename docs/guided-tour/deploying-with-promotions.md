@@ -164,7 +164,7 @@ have along the way.
 
 Happy building!
 
-[auto-promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
-[pipeline-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml
-[reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
-[next]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[auto-promotions]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote
+[pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
+[next]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/

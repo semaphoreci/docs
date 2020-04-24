@@ -158,5 +158,5 @@ blocks:
 
 ## See also
 
-- [Auto-cancel pipeline YAML property](https://docs.semaphoreci.com/article/50-pipeline-yaml#auto\_cancel)
-- [Defining 'when' conditions](https://docs.semaphoreci.com/article/142-conditions-reference)
+- [Auto-cancel pipeline YAML property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto\_cancel)
+- [Defining 'when' conditions](https://docs.semaphoreci.com/reference/conditions-reference/)

@@ -29,7 +29,7 @@ To upload files to job level artifacts store use built-in artifact CLI.
 
 If you want to upload artifacts only in the case of failed job
 using
-[epilogue](https://docs.semaphoreci.com/article/50-pipeline-yaml#the-epilogue-property) in combination with `on_fail` condition is a usual pattern.
+[epilogue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property) in combination with `on_fail` condition is a usual pattern.
 
 ``` yaml
 blocks:
@@ -109,4 +109,4 @@ use the `pull` command.
 
 `artifact pull project myapp-v1.25.tar.gz`
 
-[artifact-cli-reference]: https://docs.semaphoreci.com/article/154-artifact-cli-reference
+[artifact-cli-reference]: https://docs.semaphoreci.com/reference/artifact-cli-reference/

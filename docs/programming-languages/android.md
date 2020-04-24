@@ -2,7 +2,7 @@
 
 This guide will help you get started with an Android project on Semaphore.
 If you’re new to Semaphore please read our
-[guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Overview
 
@@ -61,7 +61,7 @@ blocks:
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
-            # For more info on caching, see https://docs.semaphoreci.com/article/68-caching-dependencies
+            # For more info on caching, see https://docs.semaphoreci.com/guided-tour/caching-dependencies/
             - cache restore
             - npm install
 
@@ -106,7 +106,7 @@ variants with Node.js preinstalled for React Native development.
 
 For more information on using Docker images to define your Semaphore CI/CD
 environment, see [Custom CI/CD environment with
-Docker](https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker)
+Docker](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/)
 documentation page.
 
 ## Example projects
@@ -177,9 +177,9 @@ CI pipeline for Android and iOS that you can use to get started quickly:
 
 ## See Also
 
-- [iOS Continuous Integration guide](https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode)
-- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [iOS Continuous Integration guide](https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/)
+- [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [react-native-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-react-native

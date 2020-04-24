@@ -101,8 +101,8 @@ dependencies, set environment variables, etc. Semaphore has several features
 which make this very easy. Let's move on to
 [customizing the build environment][next].
 
-[first-project]: https://docs.semaphoreci.com/article/63-your-first-project
-[concepts]: https://docs.semaphoreci.com/article/62-concepts
-[checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout
-[pipeline]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[first-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
+[checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#libcheckout
+[pipeline]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [next]: https://docs.semaphoreci.com/guided-tour/customizing-the-build-environment/

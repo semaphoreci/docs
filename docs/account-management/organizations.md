@@ -120,7 +120,7 @@ After that, we’ll change the ownership on your behalf.
 
 ## Deleting an organization 
 
-Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/article/63-your-first-project#deleting-a-project) in it. 
+Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#deleting-a-project) in it. 
 Note that once you delete an organization, its content cannot be restored. 
 Only the onwer of the organization can delete the organization.
 

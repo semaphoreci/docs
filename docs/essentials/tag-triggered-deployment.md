@@ -106,8 +106,8 @@ blocks:
 - [Project workflow trigger options][wf-trigger-options]
 - [Pipelines reference][pipelines-ref]
 
-[promotions]: https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
-[conditions]: https://docs.semaphoreci.com/article/142-conditions-reference
-[guided-tour]: https://docs.semaphoreci.com/category/56-guided-tour
-[wf-trigger-options]: https://docs.semaphoreci.com/article/152-project-workflow-tigger-options
-[pipelines-ref]: https://docs.semaphoreci.com/article/50-pipeline-yaml
+[promotions]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
+[conditions]: https://docs.semaphoreci.com/reference/conditions-reference/
+[guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
+[wf-trigger-options]: https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/
+[pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/

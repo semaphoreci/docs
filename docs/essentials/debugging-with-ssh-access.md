@@ -95,7 +95,7 @@ command.
 
 ## See also
 
-- [Sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+- [Sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Secrets YAML Reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
 
-[install-cli]: https://docs.semaphoreci.com/article/53-sem-reference
+[install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/

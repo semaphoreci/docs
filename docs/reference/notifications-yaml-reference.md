@@ -157,7 +157,7 @@ The `webhook` property holds the `endpoint`, `action`, and `timeout` properties.
 The `endpoint` property holds the URL to which Semaphore will send notification.
 
 You can learn more about payload of a notification visiting
-[Webhook Notification](https://docs.semaphoreci.com/guided-tour/webhook-notifications).
+[Webhook Notification](https://docs.semaphoreci.com/essentials/webhook-notifications/).
 
 The `endpoint` property is mandatory.
 
@@ -245,13 +245,13 @@ notification to the `https://example.org/postreceiver` URL.
 Please note that the `status` property at the end is not currently being used.
 
 You can find out how to create new notifications by visiting the
-[Slack Notification](https://docs.semaphoreci.com/article/91-slack-notifications)
-[Webhook Notification](https://docs.semaphoreci.com/guided-tour/webhook-notifications)
-and the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+[Slack Notification](https://docs.semaphoreci.com/essentials/slack-notifications/)
+[Webhook Notification](https://docs.semaphoreci.com/essentials/webhook-notifications/)
+and the [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 pages of the Semaphore 2.0 documentation.
 
 ## See Also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Slack Notifications](https://docs.semaphoreci.com/article/91-slack-notifications)
-- [Webhook Notifications](https://docs.semaphoreci.com/guided-tour/webhook-notifications)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Slack Notifications](https://docs.semaphoreci.com/essentials/slack-notifications/)
+- [Webhook Notifications](https://docs.semaphoreci.com/essentials/webhook-notifications/)

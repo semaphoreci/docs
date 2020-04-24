@@ -6,7 +6,7 @@ your usage according to your team's needs.
 ## Trial Period
 
 The trial period lasts for 14 days. During the trial period, you can use
-[the default machine quota](https://docs.semaphoreci.com/article/133-quotas-and-limits)
+[the default machine quota](https://docs.semaphoreci.com/reference/quotas-and-limits/)
 completely free of charge.
 
 Of course, you can easily scale up if you need a bigger capacity by going to

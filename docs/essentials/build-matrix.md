@@ -1,7 +1,7 @@
 # Job Matrix
 
 This guide shows how to set up a
-[job matrix](https://docs.semaphoreci.com/article/50-pipeline-yaml#matrix):
+[job matrix](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#matrix):
 dynamically created parallel jobs with different environment variables.
 
 To configure a job matrix, you need to set the `matrix` property on
@@ -75,4 +75,4 @@ parallel jobs are executed:
 - `FOO=C BAR=2`
 - `FOO=C BAR=3`
 
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

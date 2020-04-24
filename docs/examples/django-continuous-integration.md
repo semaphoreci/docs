@@ -58,8 +58,8 @@ name: Semaphore Python / Django Example Pipeline
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images.
-# See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -68,7 +68,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: "Install Dependencies"
     task:
@@ -76,11 +76,11 @@ blocks:
       # as well as all the required Linux packages.
       # The prologue section is always executed before each job on
       # the block.
-      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
       prologue:
         commands:
           # Set the python version.
-          # See https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+          # See https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
           - sem-version python 3.7
           # Install Linux dependencies.
           - sudo apt-get update && sudo apt-get install -y python3-dev && sudo apt-get install default-libmysqlclient-dev
@@ -88,12 +88,12 @@ blocks:
         - name: pip
           commands:
             # Get the latest version of our source code from GitHub:
-            # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
+            # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
             - checkout
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, pip can use it
             # to speed up the installation.
-            # For more info on caching, see https://docs.semaphoreci.com/article/149-caching
+            # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore
             # Install python dependencies.
             # If not found in the cache, pip will download them.
@@ -133,8 +133,8 @@ blocks:
           - sem-version python 3.7
           # Start a MySQL database. On Semaphore, databases run in the same
           # environment as your code.
-          # See https://docs.semaphoreci.com/article/32-ubuntu-1804-image#databases-and-services
-          # Also https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service
+          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services
+          # Also https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service
           - sem-service start mysql
           - checkout
           - cache restore
@@ -154,7 +154,7 @@ blocks:
     task:
       # This block runs browser-based tests.
       # We need to set environment variables.
-      # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       env_vars:
         - name: DB_NAME
           value: 'pydjango'
@@ -200,7 +200,7 @@ blocks:
 ### Python
 
 Semaphore provides [python 2 &
-3](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python)
+3](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python)
 stable versions, as well as pip, pypy and virtualvenv.
 
 ### Database access
@@ -208,14 +208,14 @@ stable versions, as well as pip, pypy and virtualvenv.
 In Semaphore, databases run in the same environment as the jobs, and can
 be accessed with a blank password. For more information on using
 databases see [databases and
-services](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#databases-and-services)
+services](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services)
 and
-[sem-service](https://docs.semaphoreci.com/article/54-toolbox-reference#sem-service).
+[sem-service](https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service).
 
 ### Browser testing
 
 Semaphore provides [Chrome
-preinstalled](https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing)
+preinstalled](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing)
 so no installation steps are required for doing browser tests.
 
 Run the demo yourself
@@ -242,18 +242,18 @@ on Semaphore. The next step is to configure deployment. For further
 information, please check the following tutorials:
 
 -   [Deploying with
-    promotions](https://docs.semaphoreci.com/article/67-deploying-with-promotions).
+    promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
 -   [Deployment tutorials and example
-    projects](https://docs.semaphoreci.com/article/123-tutorials-and-example-projects#deployment).
+    projects](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment).
 
 See also
 --------
 
 -   [Semaphore guided
-    tour](https://docs.semaphoreci.com/category/56-guided-tour)
+    tour](https://docs.semaphoreci.com/guided-tour/getting-started/)
 -   [Pipelines
-    reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+    reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 -   [Toolbox
-    reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
+    reference](https://docs.semaphoreci.com/reference/toolbox-reference/)
 -   [Environment variables and
-    secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
+    secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)

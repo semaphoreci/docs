@@ -84,8 +84,8 @@ working Fastlane and Semaphore configuration for your convenience.
 [semaphore]: https://semaphoreci.com
 [hockeyapp]: https://hockeyapp.net
 [fastlane]: https://fastlane.tools
-[ios-tutorial]: https://docs.semaphoreci.com/article/124-ios-continuous-integration-xcode
-[code-signing]: https://docs.semaphoreci.com/article/134-code-signing-for-ios-projects
+[ios-tutorial]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/
+[code-signing]: https://docs.semaphoreci.com/examples/code-signing-for-ios-projects/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [appcenter-docs]: https://github.com/Microsoft/fastlane-plugin-appcenter/
-[secrets]: https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+[secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/

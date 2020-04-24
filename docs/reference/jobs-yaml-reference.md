@@ -56,7 +56,7 @@ status:
 
 So, the description of a job as returned by Semaphore 2.0 contains many
 properties. Some of them are defined by Semaphore 2.0 whereas other can be
-defined by the user. You can visit the [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+defined by the user. You can visit the [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 page for learning how to define a job using the `sem create` command.
 
 ## Properties
@@ -136,7 +136,7 @@ If you are creating a new job, you can define the values of `type` and
 `os_image` as you wish, provided that you will be using valid values.
 
 You can learn more about the `agent` property and the properties under it at
-the [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+the [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 page.
 
 #### machine
@@ -150,7 +150,7 @@ The `type` property is intended for specifying the machine (hardware) you would
 use on the Virtual Machine for building a specific job.
 
 You can learn about the list of valid values for the `type` property by visiting
-the [Machine Types](https://docs.semaphoreci.com/article/20-machine-types) page.
+the [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) page.
 
 #### os_image
 
@@ -235,8 +235,8 @@ property is the TCP port number used for the `ssh` connection.
 
 ## See also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Environment Variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
-- [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Environment Variables Reference](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/)
+- [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)

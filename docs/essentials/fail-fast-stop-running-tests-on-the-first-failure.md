@@ -140,5 +140,5 @@ The Security Scan and Integration Tests are canceled.
 
 ## See also
 
-- [Fail-Fast pipeline YAML property](https://docs.semaphoreci.com/article/50-pipeline-yaml#fail\_fast)
-- [Defining 'when' conditions](https://docs.semaphoreci.com/article/142-conditions-reference)
+- [Fail-Fast pipeline YAML property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#fail\_fast)
+- [Defining 'when' conditions](https://docs.semaphoreci.com/reference/conditions-reference/)
