@@ -2,7 +2,7 @@
 
 This guide will help you get started with a Ruby project on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -117,7 +117,7 @@ blocks:
 ```
 
 If you need to clear cache for your project, launch a
-[debug session](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access)
+[debug session](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/)
 and execute `cache clear` or `cache delete <key>`.
 
 ## Environment variables
@@ -239,16 +239,16 @@ blocks:
 solution for browser tests in Ruby. The Firefox, Chrome, and Chrome Headless
 drivers work out of the box.
 
-Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on preinstalled browsers and testing tools on Semaphore.
 
-[rails-tutorial]: https://docs.semaphoreci.com/article/99-rails-continuous-integration
+[rails-tutorial]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
-[browser-ref]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#browsers-and-headless-browser-testing
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
 [rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
-[rails-guide]: https://docs.semaphoreci.com/article/99-rails-continuous-integration
-[ubuntu-ruby]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#ruby
-[macos-ruby]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#ruby
+[rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
+[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
+[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#ruby
 [ruby-docker-image]: https://hub.docker.com/r/semaphoreci/ruby
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

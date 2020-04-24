@@ -287,5 +287,5 @@ In the previous example, the `retry` script succeeded after three failed tries.
 
 ## See also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)

@@ -365,8 +365,8 @@ blocks:
 
 
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
-[skip]: https://docs.semaphoreci.com/article/50-pipeline-yaml#skip-in-blocks
-[run]: https://docs.semaphoreci.com/article/50-pipeline-yaml#run-in-blocks
-[fail_fast]: https://docs.semaphoreci.com/article/50-pipeline-yaml#fail_fast
-[auto_cancel]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_cancel
-[auto_promote]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
+[skip]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
+[run]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#run-in-blocks
+[fail_fast]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#fail_fast
+[auto_cancel]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel
+[auto_promote]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote

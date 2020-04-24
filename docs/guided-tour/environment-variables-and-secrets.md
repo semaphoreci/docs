@@ -141,8 +141,8 @@ reference guides:
 Now that you've learned how to configure environment variables and secrets,
 you're ready to move on to [deploying with promotions][next].
 
-[envvars-perblock]: https://docs.semaphoreci.com/article/50-pipeline-yaml#env_vars
-[envvars-perjob]: https://docs.semaphoreci.com/article/50-pipeline-yaml#env_vars-in-jobs
-[next]: https://docs.semaphoreci.com/article/67-deploying-with-promotions
-[secrets]: https://docs.semaphoreci.com/article/51-secrets-yaml-reference
-[sem]: https://docs.semaphoreci.com/article/53-sem-reference
+[envvars-perblock]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
+[envvars-perjob]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars-in-jobs
+[next]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[secrets]: https://docs.semaphoreci.com/reference/secrets-yaml-reference/
+[sem]: https://docs.semaphoreci.com/reference/sem-command-line-tool/

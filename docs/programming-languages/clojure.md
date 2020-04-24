@@ -15,7 +15,7 @@ executing a specific command in order to change the current Clojure version.
 
 ## Dependency management
 
-You can use Semaphore's [cache tool](https://docs.semaphoreci.com/article/54-toolbox-reference#cache)
+You can use Semaphore's [cache tool](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
 to store and load any files or Clojure libraries that you want to reuse between jobs.
 
 ## System dependencies
@@ -112,8 +112,8 @@ follows:
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 - [The Leiningen home page](https://leiningen.org/)

@@ -222,15 +222,15 @@ yourself. Here’s how to build the demo project with your own account:
 
 ### See also
 
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Ubuntu 18.04 image](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Ubuntu 18.04 image](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
-[sem-version]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
-[checkout]: https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
-[cache]: https://docs.semaphoreci.com/article/54-toolbox-reference#cache
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
+[cache]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

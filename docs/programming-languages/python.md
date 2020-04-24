@@ -2,7 +2,7 @@
 
 This guide will help you get started with a Python project on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -135,7 +135,7 @@ blocks:
 ```
 
 If you need to clear cache for your project, launch a
-[debug session](https://docs.semaphoreci.com/article/75-debugging-with-ssh-access)
+[debug session](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/)
 and execute `cache clear` or `cache delete <key>`.
 
 ## Environment Variables
@@ -176,9 +176,9 @@ blocks:
             - python test.py
 ```
 
-[django-tutorial]: https://docs.semaphoreci.com/article/116-django-continuous-integration
-[ubuntu-python]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#python
-[macos-python]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#python
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[django-tutorial]: https://docs.semaphoreci.com/examples/django-continuous-integration/
+[ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python
+[macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#python
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [python-docker-image]: https://hub.docker.com/r/semaphoreci/python
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

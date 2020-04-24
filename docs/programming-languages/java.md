@@ -2,7 +2,7 @@
 
 This guide will help you get started with a Java project on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -110,12 +110,12 @@ blocks:
             - mvn -q package
 ```
 
-[tutorial]: https://docs.semaphoreci.com/article/122-java-spring-continuous-integration
+[tutorial]: https://docs.semaphoreci.com/examples/java-spring-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[ubuntu-java]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#java-and-jvm-languages
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos-java]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image#java
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
-[caching]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[ubuntu-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#java-and-jvm-languages
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#java
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[caching]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
 [java-docker-image]: https://hub.docker.com/r/semaphoreci/openjdk

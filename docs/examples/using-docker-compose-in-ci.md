@@ -22,7 +22,7 @@ It's useful to keep in mind that:
     pipelines in a workflow. This makes it a great candidate for tagging
     images.
   - Don't forget to
-    [checkout](https://docs.semaphoreci.com/article/54-toolbox-reference#checkout)
+    [checkout](https://docs.semaphoreci.com/reference/toolbox-reference/#checkout)
     your code if you have any `Dockerfile` or `docker-compose.yml` in your
     project.
 
@@ -62,7 +62,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       secrets:
         - name: pyflask-semaphore
       jobs:
@@ -84,7 +84,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       secrets:
         - name: pyflask-semaphore
       prologue:
@@ -111,7 +111,7 @@ The CI pipeline consists of two blocks:
 
 Building with docker tends to be a resource intensive process. Consider
 using a more powerful [machine
-type](https://docs.semaphoreci.com/article/20-machine-types) for the
+type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for the
 pipelines that create images. The `e1-standard-4` machine is a good,
 cost-effective option.
 
@@ -133,7 +133,7 @@ Hub:
 ### Run and test the image
 
 A
-[prologue](https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue)
+[prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue)
 is executed before every job in the block:
 
 1.  Checkout to get `docker-compose.yml`.
@@ -211,13 +211,13 @@ The only thing that you should take care of is using a valid value for the
 ## See also
 
   - [Semaphore guided
-    tour](https://docs.semaphoreci.com/category/56-guided-tour)
+    tour](https://docs.semaphoreci.com/guided-tour/getting-started/)
   - [Pipelines
-    reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+    reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
   - [Storing sensitive
-    data](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets)
+    data](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
   - [Working with docker
     images](https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/)
 
-[docker-agents]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[ubuntu-vm]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+[docker-agents]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/

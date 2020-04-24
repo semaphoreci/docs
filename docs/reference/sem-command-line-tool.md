@@ -257,10 +257,10 @@ sem create dashbord [name]
 ```
 
 Should you wish to learn more about creating new resources, you can visit
-the [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference),
-the [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference),
-the [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
-and the [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
+the [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/),
+the [Dashboard YAML reference](https://docs.semaphoreci.com/reference/dashboards-yaml-reference/),
+the [Jobs YAML reference](https://docs.semaphoreci.com/reference/jobs-yaml-reference/)
+and the [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
 pages of the Semaphore 2.0 documentation.
 
 #### sem create examples
@@ -519,7 +519,7 @@ The `sem stop` command allows you to stop a running job or entire pipeline.
 You can use `sem create -f` to create a one-off job that runs without being
 part of an existing pipeline. You will need to provide `sem create -f` a valid
 YAML file as described in the
-[Jobs YAML Reference page](https://docs.semaphoreci.com/article/74-jobs-yaml-reference).
+[Jobs YAML Reference page](https://docs.semaphoreci.com/reference/jobs-yaml-reference/).
 
 This can be very useful for checking out things like compiler versions and
 package availability before adding a command into a bigger and slower pipeline.
@@ -767,7 +767,7 @@ for the changes to take effect, you will have to save the changes and exit your
 text editor.
 
 To learn more about the configuration options for projects, visit the
-[Projects YAML Reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference).
+[Projects YAML Reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/).
 
 ### sem debug for projects
 
@@ -1010,7 +1010,7 @@ sem get notifications [name]
 
 The output of the previous command will be a YAML file – you can learn more
 about the Notifications YAML grammar by visiting the
-[Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference).
+[Notifications YAML reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference/).
 
 ### Edit a notification
 
@@ -1433,10 +1433,10 @@ sem get projects
 
 ## See also
 
-- [Installing sem](https://docs.semaphoreci.com/article/63-your-first-project)
-- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Dashboard YAML reference](https://docs.semaphoreci.com/article/60-dashboards-yaml-reference)
-- [Jobs YAML reference](https://docs.semaphoreci.com/article/74-jobs-yaml-reference)
-- [Notifications YAML reference](https://docs.semaphoreci.com/article/89-notifications-yaml-reference)
+- [Installing sem](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/)
+- [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+- [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Dashboard YAML reference](https://docs.semaphoreci.com/reference/dashboards-yaml-reference/)
+- [Jobs YAML reference](https://docs.semaphoreci.com/reference/jobs-yaml-reference/)
+- [Notifications YAML reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference/)

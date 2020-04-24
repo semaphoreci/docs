@@ -50,8 +50,8 @@ name: Semaphore JavaScript Example Pipeline
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images.
-# See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -60,12 +60,12 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Install dependencies
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       env_vars:
         - name: NODE_ENV
           value: test
@@ -74,7 +74,7 @@ blocks:
 
       # This block runs two jobs in parallel and they both share common
       # setup steps. We can group them in a prologue.
-      # See https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+      # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
       prologue:
         commands:
           # Get the latest version of our source code from GitHub:
@@ -94,7 +94,7 @@ blocks:
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
-            # For more info on caching, see https://docs.semaphoreci.com/article/149-caching
+            # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm install
 
@@ -178,7 +178,7 @@ blocks:
           - npm --version
           # Start a Postgres database. On Semaphore, databases run in the same
           # environment as your code.
-          # See https://docs.semaphoreci.com/article/32-ubuntu-1804-image#databases-and-services
+          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services
           - sem-service start postgres
           # With unrestricted sudo access, you can install any additional
           # system package:

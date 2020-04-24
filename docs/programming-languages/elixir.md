@@ -2,7 +2,7 @@
 
 This guide covers configuring Elixir projects on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) first.
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 
 ## Hello World
@@ -149,8 +149,8 @@ blocks:
           commands:
             - mix test
 ```
-[ubuntu-elixir]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image#erlang-and-elixir
+[ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
 [elixir-docker-image]: https://hub.docker.com/r/semaphoreci/elixir
-[docker-env]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[tutorial]: https://docs.semaphoreci.com/article/125-elixir-phoenix-continuous-integration
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[tutorial]: https://docs.semaphoreci.com/examples/elixir-phoenix-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix

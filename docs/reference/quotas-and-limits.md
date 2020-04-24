@@ -175,5 +175,5 @@ This limit is not adjustable.
 For collecting longer textual files, or output from long and verbose process,
 we recommend using a blob store like AWS S3 or Google Cloud Storage.
 
-[execution-time-limit-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#execution_time_limit
+[execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
 [yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue

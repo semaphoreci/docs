@@ -76,7 +76,7 @@ The `type` property is intended for selecting the hardware you would
 like to use for the Virtual Machine of your jobs.
 
 A complete list of valid values for the `type` is available on the
-[Machine Types](https://docs.semaphoreci.com/article/20-machine-types) page.
+[Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) page.
 
 Example of `type` usage:
 
@@ -1365,7 +1365,7 @@ A secret is a place for keeping sensitive information in the form of
 environment variables and small files. Sharing sensitive data in a secret is
 both safer and more flexible than storing it using plain text files or
 environment variables that anyone can access. A secret is defined using a specific
-[YAML grammar](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+[YAML grammar](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
 and processed using the `sem` command line tool.
 
 The `secrets` property is used for importing all the environment variables
@@ -2019,16 +2019,16 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 
 ### See also
 
-- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
+- [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+- [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[macos-mojave-xcode10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
+[conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
