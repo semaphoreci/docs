@@ -92,7 +92,7 @@ blocks:
 ### CLI
 
 Use the [sem create
-secret](https://docs.semaphoreci.com/article/53-sem-reference#sem-create)
+secret](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create)
 command:
 
 ```

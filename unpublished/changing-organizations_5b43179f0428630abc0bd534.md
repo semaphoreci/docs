@@ -101,4 +101,4 @@ $ sem context
 
 ## See also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
