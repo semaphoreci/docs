@@ -211,4 +211,4 @@ Hello World!
 -   [Pipelines
     reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 -   [Environment variables and secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
--   [JavaScript and Node.js](https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs)
+-   [JavaScript and Node.js](https://docs.semaphoreci.com/programming-languages/javascript-and-node-js/)

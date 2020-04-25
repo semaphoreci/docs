@@ -26,7 +26,7 @@ charged based on your usage at the beginning of each month for the previous
 month. Billing cycles are based on calendar months.
 
 You can find the default number of machines for Paid plans on the [Quotas and
-Limits page](https://docs.semaphoreci.com/article/133-quotas-and-limits).
+Limits page](https://docs.semaphoreci.com/reference/quotas-and-limits/).
 If you need to scale up, you can easily do that by going to
 **Billing > See detailed insights… > Quota > Request upgrade…** or by reaching
 out to
