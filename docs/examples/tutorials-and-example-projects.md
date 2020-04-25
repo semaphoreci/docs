@@ -22,8 +22,8 @@ possible and jump-start your own projects.
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix">semaphore-demo-elixir-phoenix</a></td>
     </tr>
     <tr>
-      <td><a href="https://docs.semaphoreci.com/article/143-clojure-luminus-ci-cd">Clojure</a></td>
-      <td><a href="https://docs.semaphoreci.com/article/143-clojure-luminus-ci-cd">Luminus</a></td>
+      <td><a href="https://docs.semaphoreci.com/examples/clojure-luminus-ci-cd/">Clojure</a></td>
+      <td><a href="https://docs.semaphoreci.com/examples/clojure-luminus-ci-cd/">Luminus</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-clojure-luminus">semaphore-demo-clojure-luminus</a></td>
     </tr>
     <tr>

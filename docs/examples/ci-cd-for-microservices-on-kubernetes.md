@@ -53,8 +53,8 @@ name: CI
 # An agent defines the environment in which your code runs.
 # It is a combination of one of available machine types and operating
 # system images. See:
-# https://docs.semaphoreci.com/article/20-machine-types
-# https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 agent:
   machine:
     type: e1-standard-2
@@ -63,7 +63,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/guided-tour/concepts/
 blocks:
   - name: Install dependencies
     task:
@@ -74,12 +74,12 @@ blocks:
             # job is to work with your code.
             # Optionally you may use --use-cache flag to avoid roundtrip to
             # remote repository.
-            # See https://docs.semaphoreci.com/article/54-toolbox-reference#checkout
+            # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
             - checkout
 
             # Restore dependencies from cache, command won't fail if it's
             # missing.
-            # More on caching: https://docs.semaphoreci.com/article/149-caching
+            # More on caching: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore
             - bundle install --deployment --path vendor/bundle
             # Store the latest version of dependencies in cache,
@@ -110,7 +110,7 @@ blocks:
 # In this example we run docker build automatically on every branch.
 # You may want to limit it by branch name, or trigger it manually.
 # For more on such options, see:
-# https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
+# https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
 promotions:
   - name: Dockerize
     pipeline_file: docker-build.yml
@@ -141,7 +141,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       secrets:
         - name: markoa-dockerhub
       jobs:
@@ -161,7 +161,7 @@ blocks:
           # Use $SEMAPHORE_WORKFLOW_ID environment variable to produce a
           # unique image tag.
           # For a list of available environment variables on Semaphore, see:
-          # https://docs.semaphoreci.com/article/12-environment-variables
+          # https://docs.semaphoreci.com/ci-cd-environment/environment-variables/
           - docker build --cache-from semaphoredemos/semaphore-demo-ruby-kubernetes:latest -t semaphoredemos/semaphore-demo-ruby-kubernetes:$SEMAPHORE_WORKFLOW_ID .
           - docker images
 
@@ -175,7 +175,7 @@ blocks:
 # You could, for example, add another promotion to a pipeline that
 # automatically deploys to a staging environment from branches named
 # after a certain pattern.
-# https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
+# https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
 promotions:
   - name: Deploy to Kubernetes
     pipeline_file: deploy-k8s.yml
@@ -205,7 +205,7 @@ blocks:
       # Mount a secret which defines /home/semaphore/.kube/dok8s.yaml.
       # By mounting it, we make file available in the job environment.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
       secrets:
         - name: do-k8s
 

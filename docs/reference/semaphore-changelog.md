@@ -250,7 +250,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
  - Semaphore toolbox:
    - Fix issue with cache corruption during parallel uploads.
  - New [environment variables available in Semaphore
-   jobs](https://docs.semaphoreci.com/article/12-environment-variables):
+   jobs](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/):
    - `SEMAPHORE_AGENT_MACHINE_TYPE`
    - `SEMAPHORE_AGENT_MACHINE_OS_IMAGE`
    - `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE`
