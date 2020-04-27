@@ -9,7 +9,7 @@ This page is updated on a weekly basis.
 - Updates to the ubuntu1804 image:
     - Aws-cli 1.18.39 -> 1.18.42
     - Jruby 9.1.17.0 -> 9.2.11.1
-    - Heorku 7.39.1 -> 7.39.3
+    - Heroku 7.39.1 -> 7.39.3
 
 ### Week of April 20, 2020
 
