@@ -158,6 +158,27 @@ This limit is not adjustable.
 If you have a use case where this limit is too constraining, please contact us
 on <support@semaphoreci.com> so we can work on the solution to that problem.
 
+## Limit on the number of blocks in the pipeline
+
+Semaphore imposes a limit on the number of blocks defined in one pipeline and
+that limit is  **100 blocks per pipeline**.
+
+This limit is not adjustable.
+
+If you have a use case where this limit is too constraining, please contact us
+on <support@semaphoreci.com> so we can work on the solution to that problem.
+
+## Limit on the number of jobs in the block
+
+Semaphore imposes a limit on the  number of jobs defined in one block and that
+limit is  **50 jobs per block** .
+
+This limit is not adjustable.
+
+If you need more jobs to be executed in parallel, you can split them into
+multiple blocks that are run in parallel. This can be achieved by configuring
+the [dependency][dependency-reference] property of the blocks.
+
 ## Job Log Size Limit
 
 Semaphore collects up to 16 megabytes of raw log data from every job in a
@@ -177,3 +198,4 @@ we recommend using a blob store like AWS S3 or Google Cloud Storage.
 
 [execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
 [yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
+[dependency-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks
