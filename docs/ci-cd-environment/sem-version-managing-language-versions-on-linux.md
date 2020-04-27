@@ -1,5 +1,3 @@
- # sem-version: Managing Language Versions on Linux
-
 The `sem-version` utility in Linux based virtual machines is used for changing
 the version of a programming language.
 
