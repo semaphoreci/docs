@@ -6,7 +6,7 @@ This page is updated on a weekly basis.
 
 ### Week of May 03, 2020
 
-- Secret names are now restricted to only alphanumeric values (regex `[-._a-zA-Z0-9]+`).
+- Secret names are now restricted to only alphanumeric characters (regex `[-._a-zA-Z0-9]+`).
 
 ### Week of April 27, 2020
 
