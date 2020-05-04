@@ -106,7 +106,7 @@ nav:
       - Working with Docker: ci-cd-environment/working-with-docker.md
     - "iOS/macOS":
       - macOS Mojave Xcode 11 image: ci-cd-environment/macos-mojave-xcode-11-image.md
-      - macOS Mojave Xcode 10 image: ci-cd-environment/macos-mojave-xcode-10-image.md
+      - macOS Catalina Xcode 11 image: ci-cd-environment/macos-catalina-xcode-11-image.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
