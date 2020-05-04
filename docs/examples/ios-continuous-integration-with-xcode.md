@@ -5,7 +5,7 @@ Xcode that run on iOS, macOS, watchOS, or tvOS.
 
 Semaphore supports building, testing, and deploying Swift, Objective-C and
 React Native projects. Projects can be built with
-[Xcode 10][macos-mojave-xcode10] or [Xcode 11][macos-mojave-xcode11] running on
+[Xcode 11][macos-mojave-xcode11] running on
 macOS Mojave on an `a1-standard-4` or higher [machine type][machine-types].
 
 ## Example project
@@ -57,9 +57,8 @@ name: Tallest Towers
 # The agent defines the environment in which your CI runs. It is a combination
 # of a machine type and an operating system image. For a project built with
 # Xcode you must use one of the Apple machine types, coupled with a macOS image
-# running either Xcode 10 or Xcode 11.
+# running Xcode 11.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/ and
 # https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
 agent:
   machine:
@@ -94,8 +93,7 @@ blocks:
         - name: Test
           commands:
             # Select an Xcode version.
-            # See https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/ and
-            # https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+            # See https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
             - bundle exec xcversion select 11.2.1
 
             # Run tests of iOS and Mac app on a simulator or connected device.
@@ -173,8 +171,7 @@ them. For example, you might have a build phase and a delivery phase.
 The agent defines the environment in which your CI runs. It is a combination of
 a machine type and an operating system image. For a project built with Xcode you
 must use one of the Apple [machine types][machine-types], coupled with a macOS
-image running either [Xcode 10][macos-mojave-xcode10] or
-[Xcode 11][macos-mojave-xcode11].
+image running [Xcode 11][macos-mojave-xcode11].
 
 ``` yaml
 agent:
@@ -205,7 +202,7 @@ blocks:
       jobs:
         - name: Run tests
           commands:
-            - bundle exec xcversion select 11.1
+            - bundle exec xcversion select 11.2.1
             - bundle exec fastlane test
         - name: Second parallel job
           commands:
@@ -250,12 +247,12 @@ information on the exact functionality of `cache` can be found in
 ### Selecting an Xcode version
 
 You can find the list of available versions of Xcode on the
-[Xcode 10][macos-mojave-xcode10] or [Xcode 11][macos-mojave-xcode11] image
-references. Select the desired version for your project with `xcversion`.
+[Xcode 11][macos-mojave-xcode11] image references. 
+Select the desired version for your project with `xcversion`.
 
 ``` yaml
         commands:
-          - bundle exec xcversion select 11.1
+          - bundle exec xcversion select 11.2.1
 ```
 
 ### Running tests
@@ -372,7 +369,6 @@ yourself. Here’s how to build the demo project with your own account:
 - [TestFlight integration][testflight]
 - [HockeyApp integration][hockeyapp]
 
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode

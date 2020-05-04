@@ -93,7 +93,6 @@ the machine type is used.
 These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
-- `macos-mojave-xcode10` ([reference][macos-mojave-xcode10])
 - `macos-mojave-xcode11` ([reference][macos-mojave-xcode11])
 
 The default operating system depends on the type of the machine:
@@ -2027,7 +2026,6 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults

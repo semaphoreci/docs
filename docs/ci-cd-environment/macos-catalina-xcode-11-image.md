@@ -1,17 +1,17 @@
-# macOS Mojave Xcode 10 Image
+# macOS Catalina Xcode 11 Image
 
-The `macos-mojave-xcode10` is a customized image based on [MacOS 10.14.6][mojave-release-notes]
+The `macos-xcode11` is a customized image based on [MacOS 10.15.4][catalina-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
-The `macos-mojave-xcode10` is a virtual machine (VM) image. The user in the environment,
+The `macos-xcode11` is a virtual machine (VM) image. The user in the environment,
 named `semaphore`, has full `sudo` access.
 
-## Using the macos-mojave-xcode10 OS image in your agent configuration
+## Using the macos-xcode11 OS image in your agent configuration
 
-To use the `macos-mojave-xcode10` OS image, define it as the `os_image` of your agent's
+To use the `macos-xcode11` OS image, define it as the `os_image` of your agent's
 machine.
 
 ``` yaml
@@ -21,7 +21,7 @@ name: Apple/Mojave Based Pipeline
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode10
+    os_image: macos-xcode11
 
 blocks:
   - name: "Unit tests"
@@ -32,7 +32,7 @@ blocks:
             - make test
 ```
 
-The `macos-mojave-xcode10` OS image can only be used in combination with an Apple
+The `macos-xcode11` OS image can only be used in combination with an Apple
 machine type `a1-standard-4`.
 
 ## System
@@ -58,15 +58,21 @@ Following version control tools are pre-installed:
 - curl
 - wget
 - jq
+- carthage
+
+### Browsers
+
+- Safari
+- google-chrome
+- firefox
+- microsoft-edge
 
 ### Gems
 
 Following gems are pre-installed:
 
-- fastlane 2.135.2
-- xcode-install 2.6.2
-- cocoapods 1.8.4
-- xcpretty 0.3.0
+- fastlane (2.145.0)
+- cocoapods (1.9.1)
 
 ## Languages
 
@@ -104,39 +110,50 @@ Installed versions:
 
 ## Flutter
 
-- v1.8.3
+- v1.12.13+hotfix.9
 
 ## Xcode
 
 Installed versions:
 
-- 10.2.1
-- 10.3
+- 11.2.1
+- 11.3.1
+- 11.4.1
 
-Xcode 10.2.1 has the following SDKs preinstalled:
 
-- macosx10.14
-- iphoneos12.2
-- iphonesimulator12.2
-- appletvos12.2
-- appletvsimulator12.2
-- watchos5.2
-- watchsimulator5.2
+Xcode 11.2.1 has the following SDKs preinstalled:
 
-Xcode 10.3 has the following SDKs preinstalled:
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.1
+- iphonesimulator13.2
+- appletvos13.2
+- appletvsimulator13.2
+- watchos6.1
+- watchsimulator6.1
 
-- macosx10.14
-- iphoneos12.4
-- iphonesimulator12.4
-- appletvos12.4
-- appletvsimulator12.4
-- watchos5.3
-- watchsimulator5.3
+Xcode 11.3.1 has the following SDKs preinstalled:
 
-Additional preinstalled simulators:
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.2
+- iphonesimulator13.2
+- appletvos13.2
+- appletvsimulator13.2
+- watchos6.1
+- watchsimulator6.1
 
-- iOS 11.4
-- iOS 12.1
+Xcode 11.4.1 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.4
+- iphonesimulator13.4
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
+
 
 ## See Also
 
@@ -145,7 +162,7 @@ Additional preinstalled simulators:
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_6_release_notes
+[catalina-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_4_release_notes
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent

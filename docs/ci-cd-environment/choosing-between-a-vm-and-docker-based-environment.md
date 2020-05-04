@@ -46,8 +46,7 @@ agent:
 ```
 
 Read more about [Machine Types][machine-types] and the
-[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 10][xcode10],
-[Mac OS XCode 11][xcode11] virtual machines images.
+[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 11][xcode11] virtual machines images.
 
 ## Docker-based environments
 
@@ -167,7 +166,6 @@ We recommend using Virtual Machines for building Docker images.
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[xcode10]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
 [xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
 [docker-based]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [blog-docker-in-docker]: https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
