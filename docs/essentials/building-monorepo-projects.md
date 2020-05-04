@@ -54,7 +54,7 @@ blocks:
     agent:
       machine:
         type: a1-standard-4
-        os_image: macos-mojave-xcode10
+        os_image: macos-mojave-xcode11
     task:
       jobs:
         - commands:
@@ -171,7 +171,7 @@ blocks:
     agent:
       machine:
         type: a1-standard-4
-        os_image: macos-mojave-xcode10
+        os_image: macos-mojave-xcode11
     task:
       jobs:
         - commands:
