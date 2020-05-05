@@ -142,6 +142,8 @@ blocks:
       env_vars:
         - name: HEROKU_REMOTE
           value: https://git.heroku.com/semaphore-demoapp.git
+        - name: HEROKU_APP_NAME
+          value: heroku-app-name
       jobs:
       - name: Push code
         commands:
@@ -152,7 +154,7 @@ blocks:
           - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
           - git remote add heroku $HEROKU_REMOTE
           - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
-          - heroku run --app <YOUR-HEROKU-APP-NAME> rake db:migrate
+          - heroku run --app $HEROKU_APP_NAME rake db:migrate
           - heroku ps:restart
 ```
 
