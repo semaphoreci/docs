@@ -6,7 +6,8 @@ This page is updated on a weekly basis.
 
 ### Week of May 03, 2020
 
-- Secret names are now restricted to only alphanumeric characters (regex `^[@: -._a-zA-Z0-9]+$`).
+- Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`. 
+  Regex: `^[@: -._a-zA-Z0-9]+$`).
 
 ### Week of April 27, 2020
 
