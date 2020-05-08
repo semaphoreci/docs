@@ -110,7 +110,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.12.13+hotfix.9
+- v1.17.0
 
 ## Xcode
 
