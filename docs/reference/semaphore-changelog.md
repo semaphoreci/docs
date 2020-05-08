@@ -8,6 +8,10 @@ This page is updated on a weekly basis.
 
 - Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`. 
   Regex: `^[@: -._a-zA-Z0-9]+$`).
+- Updates to the macOS image:
+    - Flutter version update to 1.17.0, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/), [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/)
+- New convenience Docker images available in Semaphore's DockerHub Account.
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2164).
 
 ### Week of April 27, 2020
 
