@@ -51,11 +51,11 @@ blocks:
     dependencies: []
     run:
       when: "change_in('/ios/')"
-    agent:
-      machine:
-        type: a1-standard-4
-        os_image: macos-mojave-xcode11
     task:
+      agent:
+        machine:
+          type: a1-standard-4
+          os_image: macos-mojave-xcode11
       jobs:
         - commands:
             - checkout
@@ -168,11 +168,11 @@ blocks:
     dependencies: []
     run:
       when: "change_in('/ios/')"
-    agent:
-      machine:
-        type: a1-standard-4
-        os_image: macos-mojave-xcode11
     task:
+      agent:
+        machine:
+          type: a1-standard-4
+          os_image: macos-mojave-xcode11
       jobs:
         - commands:
             - checkout
