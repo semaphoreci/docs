@@ -4,6 +4,10 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 11, 2020
+
+- Fixed: Secrets API was returning HTTP 404 for all Secrets with colon in the name (example: `a:b:c`).
+
 ### Week of May 03, 2020
 
 - Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`. 
