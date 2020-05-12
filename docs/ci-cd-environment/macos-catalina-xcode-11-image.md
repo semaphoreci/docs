@@ -37,9 +37,9 @@ machine type `a1-standard-4`.
 
 ## System
 
-- ProductVersion: 10.14.6
-- BuildVersion: 18G95
-- Kernel Version: Darwin 18.7.0
+- ProductVersion: 10.15.4
+- BuildVersion: 19E266
+- Kernel Version: Darwin 19.4.0
 
 ## Version control
 
