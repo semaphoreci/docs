@@ -1,6 +1,6 @@
 # Deploying with Git Deploy
 
-This guide shows you how to deploy with [git-deploy](https://github.com/mislav/git-deploy). 
+This guide shows you how to deploy with [git-deploy][git-deploy]. 
 
 For this guide you will need:
 
@@ -125,3 +125,20 @@ interactive confirmation step which would block our job.
 Push a new commit on any branch and open Semaphore to watch a new workflow run. 
 You should see the `Promote` button next to your initial pipeline. 
 Click on the button to launch the deployment, and open the `Push code` job to observe its' output.
+
+## Next steps
+
+Congratulations! You have automated deployment of your application using Git Deploy. Here’s some recommended reading:
+
+- [Explore the promotions reference][promotions-ref] to learn more about what options you have available when designing delivery pipelines on Semaphore.
+- [Set up a deployment dashboard][deployment-dashboards] to keep track of your team's activities.
+
+[git-deploy]: https://github.com/mislav/git-deploy
+[create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
+[language-guides]: https://docs.semaphoreci.com/programming-languages/android/
+[promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
+[promotions-intro]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[sem-create-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create
+[deployment-dashboards]: https://docs.semaphoreci.com/essentials/deployment-dashboards/
