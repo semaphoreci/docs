@@ -7,6 +7,7 @@ This page is updated on a weekly basis.
 ### Week of May 11, 2020
 
 - Fixed: Secrets API was returning HTTP 404 for all Secrets with colon in the name (example: `a:b:c`).
+- Semaphore will now log you out less often.
 
 ### Week of May 03, 2020
 
