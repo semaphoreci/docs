@@ -101,7 +101,7 @@ agent:
 blocks:
   - name: Deploy
     task:
-      # Mounting the secret with the private SSH key ~/.ssh/id_rsa_git_deploy..
+      # Mounting the secret with the private SSH key ~/.ssh/id_rsa_git_deploy.
       secrets:
         - name: demo-git-deploy
       env_vars:
@@ -115,7 +115,7 @@ blocks:
           # and bypass an interactive confirmation step that would block the job.
           - ssh-keyscan -H your-server.com >> ~/.ssh/known_hosts
           - chmod 600 ~/.ssh/id_rsa_git_deploy
-          # Manually adding the private SSH key to local SSH agent.
+          # Adding the private SSH key to the local SSH agent so it will be available while executing Git push.
           - ssh-add ~/.ssh/id_rsa_git_deploy
           - git remote add production $GIT_REMOTE
           # Using force-push ensures you can deploy any amended Git branch without issues.
