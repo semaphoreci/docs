@@ -2,6 +2,13 @@
 
 This guide shows you how to deploy with [git-deploy][git-deploy]. 
 
+We will cover these steps to set up git-deploy on Semaphore:
+
+1. Create a Git Deploy key that allows pushing to your production Git server. 
+2. Store the Git Deploy key in a [Secret](secret) on Semaphore.
+3. Create a deployment pipeline, and attach the Git Deploy key secret.
+4. Run a deployment from Semaphore, and ship your code to production.
+
 For this guide you will need:
 
 - [A working Semaphore project][create-project] with a basic CI pipeline. 
@@ -97,15 +104,13 @@ blocks:
       secrets:
         - name: demo-git-deploy
       env_vars:
-        - name: SERVER_NAME
-          value: your-server.com
         - name: GIT_REMOTE
-          value: user@$SERVER_NAME.com:/apps/myapp/current
+          value: user@your-server.com:/apps/myapp/current
       jobs:
       - name: Push code
         commands:
           - checkout
-          - ssh-keyscan -H $SERVER_NAME >> ~/.ssh/known_hosts
+          - ssh-keyscan -H your-server.com >> ~/.ssh/known_hosts
           - chmod 600 ~/.ssh/id_rsa_git_deploy
           - ssh-add ~/.ssh/id_rsa_git_deploy
           - git remote add production $GIT_REMOTE
@@ -120,7 +125,7 @@ interactive confirmation step which would block our job.
 - You need to manually add the private SSH key to local SSH agent.
 - Using force-push ensures you can deploy any amended Git branch without issues.
 
-### Does it work?
+### Run your first git-deploy production deployment
 
 Push a new commit on any branch and open Semaphore to watch a new workflow run. 
 You should see the `Promote` button next to your initial pipeline. 
