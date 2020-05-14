@@ -78,5 +78,16 @@ That's all there is to it. You can use the approach to add more deploy
 keys to the `private-repo` secret to cover more projects and reuse the
 secret across other projects.
 
+## Using private Ruby gems
+
+If project's dependencies are hosted on Github, 
+you can enable Semaphore to fetch repositories with these steps:
+
+- Create a [machine user][machine-user] with access to repositories.
+- Create a new SSH key pair for the purpose of automation.
+- Add the private SSH key to the project as a secret.
+- Add the public SSH key to the user settings for the machine user.
+
 [secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/#storing-files-in-secrets
 [deploy keys]: https://developer.github.com/v3/guides/managing-deploy-keys/
+[machine-user]: https://developer.github.com/v3/guides/managing-deploy-keys/#machine-users
