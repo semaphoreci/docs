@@ -104,6 +104,10 @@ possible and jump-start your own projects.
       <td></td>
     </tr>
     <tr>
+      <td><a href="https://docs.semaphoreci.com/examples/deploying_with_git_deploy/">Deploying with Git deploy</a></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="https://docs.semaphoreci.com/examples/publishing-docker-images-on-dockerhub/">Docker registry: Docker Hub</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-java-spring">semaphore-demo-java-spring</a></td>
     </tr>
