@@ -81,7 +81,7 @@ secret across other projects.
 ## Using private Ruby gems
 
 If project's dependencies are hosted on Github, 
-you can enable Semaphore environment to fetch repositories with these steps:
+you can enable Semaphore to fetch repositories with these steps:
 
 - Create a [machine user][machine-user] with access to repositories.
 - Create a new SSH key pair for the purpose of automation.
