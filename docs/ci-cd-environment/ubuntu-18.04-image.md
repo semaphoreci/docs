@@ -195,6 +195,30 @@ Available versions:
 - 2.7.0 and 2.7.1
 - jruby-9.2.11.1
 
+
+### How to install a dependency?
+
+The Semaphore platform has most of the popular programming languages and databases preinstalled.
+
+If the dependency you need is not already installed, you can install it with the Ubuntu package manager
+or using an alternative method such as compiling it from the source, or manually downloading binaries.
+
+To install dependecies using the package manager (apt-get) you can use the template command below and add it to your build settings:
+
+```
+sudo apt-get install -y your-dependency
+```
+
+At the start of your build settings you should have the following:
+
+```
+sudo apt-get update
+```
+
+
+
+
+
 ## See Also
 
 - [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
