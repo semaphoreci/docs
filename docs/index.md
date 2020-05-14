@@ -74,4 +74,17 @@
         </div>
     </div>
 
+    <div class="welcome-blocks-wrapper">
+        <div class="welcome-block">
+            <h2 id="semaphore20cicdenvs">CI/CD Environments</h2>
+            <p class="welcome-block-description">Explore the build environments</p>
+
+            <ul>
+              <li><a href="ci-cd-environment/ubuntu-18.04-image">Build on Linux</a></li>
+              <li><a href="ci-cd-environment/macos-catalina-xcode-11-image">Build on macOS</a></li>
+              <li><a href="ci-cd-environment/custom-ci-cd-environment-with-docker">Build in your own Docker images</a></li>
+            </ul>
+        </div>
+    </div>
+
 </div>
