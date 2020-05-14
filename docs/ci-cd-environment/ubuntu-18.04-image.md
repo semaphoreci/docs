@@ -198,9 +198,9 @@ Available versions:
 
 ### How to install a dependency?
 
-The Semaphore platform has most of the popular programming languages and databases preinstalled.
+The Semaphore platform has most of the popular programming languages, tools and databases preinstalled.
 
-If the dependency you need is not already installed, you can install it with the Ubuntu package manager
+If the dependency you need is not present in the list above, you can install it with the Ubuntu package manager
 or using an alternative method such as compiling it from the source, or manually downloading binaries.
 
 To install dependecies using the package manager (apt-get) you can use the template command below and add it to your build settings:
