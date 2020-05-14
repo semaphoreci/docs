@@ -126,7 +126,7 @@ blocks:
 
 Push a new commit on any branch and open Semaphore to watch a new workflow run. 
 You should see the `Promote` button next to your initial pipeline. 
-Click on the button to launch the deployment, and open the `Push code` job to observe its' output.
+Click on the button to launch the deployment, and open the `Push code` job to observe the output.
 
 ## Next steps
 
