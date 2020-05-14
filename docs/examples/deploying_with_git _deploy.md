@@ -1,6 +1,6 @@
 # Deploying with Git Deploy
 
-This guide demonstrate how to deploy with [git-deploy][git-deploy]. 
+This guide demonstrates how to deploy with [git-deploy][git-deploy]. 
 
 We will cover these steps to set up git-deploy on Semaphore:
 
