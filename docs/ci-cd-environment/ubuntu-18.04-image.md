@@ -197,8 +197,8 @@ Available versions:
 
 ### Installing dependancies with apt package manager
 
-TherSemaphore Ubuntu:1804 has most of the popular programming languages, tools
-and databases preinstalled.
+The Semaphore Ubuntu:18.04 image has most of the popular programming languages,
+tools and databases preinstalled.
 
 If the dependency you need is not present in the list above, you can install it
 with the Ubuntu package manager
