@@ -196,27 +196,23 @@ Available versions:
 - jruby-9.2.11.1
 
 
-### How to install a dependency?
+### Installing dependancies with apt package manager
 
-The Semaphore platform has most of the popular programming languages, tools and databases preinstalled.
+TherSemaphore Ubuntu:1804 has most of the popular programming languages, tools
+and databases preinstalled.
 
-If the dependency you need is not present in the list above, you can install it with the Ubuntu package manager
-or using an alternative method such as compiling it from the source, or manually downloading binaries.
+If the dependency you need is not present in the list above, you can install it
+with the Ubuntu package manager
+or using an alternative method such as compiling it from the source, or 
+manually downloading binaries.
 
-To install dependecies using the package manager (apt-get) you can use the template command below and add it to your build settings:
+To install dependecies using the package manager (apt-get) you can use the
+template command below and add it to your build settings:
 
-```
-sudo apt-get install -y your-dependency
-```
-
-At the start of your build settings you should have the following:
-
-```
+```bash
 sudo apt-get update
+sudo apt-get install -y [your-dependency]
 ```
-
-
-
 
 
 ## See Also
