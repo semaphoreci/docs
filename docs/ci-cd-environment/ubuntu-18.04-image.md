@@ -195,7 +195,7 @@ Available versions:
 - 2.7.0 and 2.7.1
 - jruby-9.2.11.1
 
-### Installing dependancies with apt package manager
+### Installing dependencies with apt package manager
 
 The Semaphore Ubuntu:18.04 image has most of the popular programming languages,
 tools and databases preinstalled.
