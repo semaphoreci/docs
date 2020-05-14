@@ -195,7 +195,6 @@ Available versions:
 - 2.7.0 and 2.7.1
 - jruby-9.2.11.1
 
-
 ### Installing dependancies with apt package manager
 
 TherSemaphore Ubuntu:1804 has most of the popular programming languages, tools
@@ -213,7 +212,6 @@ template command below and add it to your build settings:
 sudo apt-get update
 sudo apt-get install -y [your-dependency]
 ```
-
 
 ## See Also
 
