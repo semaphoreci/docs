@@ -22,11 +22,12 @@ ssh-keygen -t rsa -f id_rsa_semaphoreci
 Next, connect the SSH key to the project or user. Github [Deploy Keys][]
 are the easiest way to grant access to a single project.
 
-Another solution is to
-create a dedicated "ci" user, grant the "ci" user access to the
-relevant projects, and add the key to the user. Regardless of what you
-use, paste in the contents of `id_rsa.semaphoreci.pub` into relevant
-SSH key configuration on GitHub.
+If you need to fetch gems from multiple repositories follow these steps:
+
+- Create a [machine user][machine-user] with access to the repositories.
+- Create a new SSH key pair for the purpose of automation.
+- Add the private SSH key to the project as a secret.
+- Add the public SSH key to the user settings for the machine user.
 
 ### Create the secret
 
@@ -77,16 +78,6 @@ blocks:
 That's all there is to it. You can use the approach to add more deploy
 keys to the `private-repo` secret to cover more projects and reuse the
 secret across other projects.
-
-## Using private Ruby gems
-
-If project's dependencies are hosted on Github, 
-you can enable Semaphore to fetch repositories with these steps:
-
-- Create a [machine user][machine-user] with access to repositories.
-- Create a new SSH key pair for the purpose of automation.
-- Add the private SSH key to the project as a secret.
-- Add the public SSH key to the user settings for the machine user.
 
 [secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/#storing-files-in-secrets
 [deploy keys]: https://developer.github.com/v3/guides/managing-deploy-keys/
