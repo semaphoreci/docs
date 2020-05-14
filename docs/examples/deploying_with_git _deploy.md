@@ -101,6 +101,7 @@ agent:
 blocks:
   - name: Deploy
     task:
+      # Mounting the secret with the private SSH key ~/.ssh/id_rsa_git_deploy..
       secrets:
         - name: demo-git-deploy
       env_vars:
@@ -110,20 +111,16 @@ blocks:
       - name: Push code
         commands:
           - checkout
+          # Using `ssh-keyscan` you specify that your-server.com is a trusted domain
+          # and bypass an interactive confirmation step that would block the job.
           - ssh-keyscan -H your-server.com >> ~/.ssh/known_hosts
           - chmod 600 ~/.ssh/id_rsa_git_deploy
+          # Manually adding the private SSH key to local SSH agent.
           - ssh-add ~/.ssh/id_rsa_git_deploy
           - git remote add production $GIT_REMOTE
+          # Using force-push ensures you can deploy any amended Git branch without issues.
           - git push -f production $SEMAPHORE_GIT_BRANCH:master
 ```
-
-#### Comments
-
-- By mounting the `demo-git-deploy` secret the private SSH key is available inside the pipeline block.
-- Using `ssh-keyscan` you specify that your-server.com is a trusted domain and bypass an 
-interactive confirmation step which would block our job.
-- You need to manually add the private SSH key to local SSH agent.
-- Using force-push ensures you can deploy any amended Git branch without issues.
 
 ### Run your first git-deploy production deployment
 
