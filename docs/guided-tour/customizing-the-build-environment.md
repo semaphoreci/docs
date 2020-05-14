@@ -92,8 +92,8 @@ Cache servers, or other background services like RabbitMQ or Kafka.
 
 Let's learn how to do that in [the next section][next].
 
-[ubuntu]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[docker]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker
-[private-images]: https://docs.semaphoreci.com/article/127-custom-ci-cd-environment-with-docker#pulling-private-docker-images-from-dockerhub
-[next]: https://docs.semaphoreci.com/article/129-using-databases-and-services
+[ubuntu]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
+[docker]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[private-images]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#pulling-private-docker-images-from-dockerhub
+[next]: https://docs.semaphoreci.com/guided-tour/using-databases-and-services/

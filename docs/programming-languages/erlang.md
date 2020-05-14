@@ -27,7 +27,7 @@ sem-version erlang 21
 
 ## Dependency management
 
-You can use Semaphore's [cache tool](https://docs.semaphoreci.com/article/54-toolbox-reference#cache)
+You can use Semaphore's [cache tool](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
 to store and load any files or Erlang libraries that you want to reuse between jobs.
 
 ## System dependencies
@@ -97,9 +97,9 @@ helloWorld() -> io:fwrite("hello, world\n").
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/article/32-ubuntu-1804-image)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[sem-version]: https://docs.semaphoreci.com/article/131-sem-version-managing-language-version-on-linux
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

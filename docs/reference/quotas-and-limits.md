@@ -9,8 +9,8 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/article/104-billing#trial-period)** or on
-a **[paid plan](https://docs.semaphoreci.com/article/104-billing#paid-plan)**:
+Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
+a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -45,7 +45,7 @@ machine quotas, you can request an increase by sending a request to
 prefer) or through the UI (Billing > See detailed insights… > Quota > Request
 upgrade…).
 
-Default quotas per machine type for an organization on an **[open source plan](https://docs.semaphoreci.com/article/104-billing#open-source-plan)**:
+Default quotas per machine type for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -74,7 +74,7 @@ Default quotas per machine type for an organization on an **[open source plan](h
 </tbody>
 </table>
 
-Default quotas per machine type for an organization on a **[free plan](https://docs.semaphoreci.com/article/104-billing#free-plan)**:
+Default quotas per machine type for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -141,6 +141,44 @@ Pipeline YAML reference][execution-time-limit-reference].
 
 The maximum value of the `execution_time_limit` is 24 hours.
 
+## Limit on the number of pipelines in the queue
+
+Each pipeline is assigned to execution queue before running any jobs to prevent
+parallel execution of consecutive pushes or deployment promotions.
+
+By default, separate queues are created for each branch, tag or pull request and
+YAML configuration file combination. You can also define your own queues via
+[queue property][yml-reference-queue] in pipeline's YAML configuration.
+
+Semaphore imposes a limit on queue size of **30 active pipelines** at any moment
+to prevent system abuse and performance degradation.
+
+This limit is not adjustable.
+
+If you have a use case where this limit is too constraining, please contact us
+on <support@semaphoreci.com> so we can work on the solution to that problem.
+
+## Limit on the number of blocks in the pipeline
+
+Semaphore imposes a limit on the number of blocks defined in one pipeline and
+that limit is  **100 blocks per pipeline**.
+
+This limit is not adjustable.
+
+If you have a use case where this limit is too constraining, please contact us
+on <support@semaphoreci.com> so we can work on the solution to that problem.
+
+## Limit on the number of jobs in the block
+
+Semaphore imposes a limit on the  number of jobs defined in one block and that
+limit is  **50 jobs per block** .
+
+This limit is not adjustable.
+
+If you need more jobs to be executed in parallel, you can split them into
+multiple blocks that are run in parallel. This can be achieved by configuring
+the [dependency][dependency-reference] property of the blocks.
+
 ## Job Log Size Limit
 
 Semaphore collects up to 16 megabytes of raw log data from every job in a
@@ -158,4 +196,6 @@ This limit is not adjustable.
 For collecting longer textual files, or output from long and verbose process,
 we recommend using a blob store like AWS S3 or Google Cloud Storage.
 
-[execution-time-limit-reference]: https://docs.semaphoreci.com/article/50-pipeline-yaml#execution_time_limit
+[execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
+[yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
+[dependency-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks

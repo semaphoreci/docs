@@ -4,7 +4,7 @@ If you've used Semaphore prior to version to 2.0, this guide will outline the
 key differences and provide you with a direction to migrate to the new product.
 
 Even if you're a pro Semaphore user, we recommend that you read through the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started) for
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
 hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
@@ -34,7 +34,7 @@ can still run simple builds easily. You can also run multi-stage builds, each
 stage with its' own configuration.
 
 Servers on Semaphore Classic are superseded by
-[promotions](https://docs.semaphoreci.com/article/67-deploying-with-promotions).
+[promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
 Promotions connect different pipelines together, with optional conditions.
 For example, you could set up an auto-promotion on master branch that triggers
 deployment to production and runs smoke tests, and a manual promotion for any
@@ -46,11 +46,11 @@ You'll primarily interact with Semaphore 2.0 as you do your other development
 tools and platforms, through command line.
 
 In most cases, you'll migrate your projects from Semaphore Classic by copying
-your build and deploy commands to [YAML files](https://docs.semaphoreci.com/article/64-customizing-your-pipeline)
+your build and deploy commands to [YAML files](https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/)
 and moving your environment variables and configuration files to
-[secrets](https://docs.semaphoreci.com/article/66-environment-variables-and-secrets).
+[secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/).
 
-As you explore the [sem command line tool](https://docs.semaphoreci.com/article/53-sem-reference),
+As you explore the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/),
 you'll discover how you can do much more in Semaphore 2.0. Things like running
 one-off jobs and attaching to live-running jobs is one command away.
 
@@ -70,16 +70,15 @@ Because you can use Semaphore 2.0 to automate just about anything with code, it
 doesn't make assumptions about what you might want to do in each stage of your
 pipelines. Specifically this does not happen automatically:
 
-- S2 doesn't check out code: use [`checkout` command](https://docs.semaphoreci.com/article/54-toolbox-reference#libcheckout);
+- S2 doesn't check out code: use [`checkout` command](https://docs.semaphoreci.com/reference/toolbox-reference/#libcheckout);
 
 - Databases and other services are stopped by default: use [`sem-service`
   tool][sem-service]
   to start them;
 
 - Dependencies are not cached by default: see
-  [caching guide](https://docs.semaphoreci.com/article/68-caching-dependencies)
-  and examples for your
-  [programming language](https://docs.semaphoreci.com/category/58-programming-languages)
+  [caching guide](https://docs.semaphoreci.com/guided-tour/caching-dependencies/)
+  and examples in the Programming Languages category.
 
 S2 job logs provide much more information about your CI/CD environment in an
 easy to use full-page format. For example, you will see exactly how long it
@@ -87,6 +86,6 @@ takes Semaphore to start your job and all the details of environment
 preparation.
 
 For a full introduction to Semaphore 2.0, we recommend that you read through the
-[Guided tour](https://docs.semaphoreci.com/article/77-getting-started).
+[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/).
 
-[sem-service]: https://docs.semaphoreci.com/article/132-sem-service-managing-databases-and-services-on-linux
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

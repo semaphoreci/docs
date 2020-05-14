@@ -255,8 +255,8 @@ The supported map parameters are:
       <td>  
         Configures the commit range that is examined on all branches except the
         default one. The default value is
-        <b>$SEAMPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
-        <b>$SEAMPHORE_MERGE_BASE</b> is default branch in workflows initiated
+        <b>$SEMAPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
+        <b>$SEMAPHORE_MERGE_BASE</b> is default branch in workflows initiated
         from branches or targeted branch in workflows initiated from a pull
         request, and the <b>$SEMAPHORE_GIT_SHA</b> is the sha of the commit
         for which the workflow was initiated. You can use here this predefined
@@ -365,8 +365,8 @@ blocks:
 
 
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
-[skip]: https://docs.semaphoreci.com/article/50-pipeline-yaml#skip-in-blocks
-[run]: https://docs.semaphoreci.com/article/50-pipeline-yaml#run-in-blocks
-[fail_fast]: https://docs.semaphoreci.com/article/50-pipeline-yaml#fail_fast
-[auto_cancel]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_cancel
-[auto_promote]: https://docs.semaphoreci.com/article/50-pipeline-yaml#auto_promote
+[skip]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
+[run]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#run-in-blocks
+[fail_fast]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#fail_fast
+[auto_cancel]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel
+[auto_promote]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote

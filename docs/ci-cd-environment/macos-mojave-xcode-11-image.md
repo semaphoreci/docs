@@ -58,15 +58,21 @@ Following version control tools are pre-installed:
 - curl
 - wget
 - jq
+- carthage
+
+### Browsers
+
+- Safari
+- google-chrome
+- firefox
+- microsoft-edge
 
 ### Gems
 
 Following gems are pre-installed:
 
-- fastlane 2.135.2
-- xcode-install 2.6.2
-- cocoapods 1.8.4
-- xcpretty 0.3.0
+- fastlane (2.145.0)
+- cocoapods (1.9.1)
 
 ## Languages
 
@@ -104,37 +110,16 @@ Installed versions:
 
 ## Flutter
 
-- v1.8.3
+- v1.17.0
 
 ## Xcode
 
 Installed versions:
 
-- 11.0
-- 11.1
 - 11.2.1
+- 11.3.1
+- 11.4.1
 
-Xcode 11.0 has the following SDKs preinstalled:
-
-- macosx10.15
-- driverkit.macosx19.0
-- iphoneos13.0
-- iphonesimulator13.0
-- appletvos13.0
-- appletvsimulator13.0
-- watchos6.0
-- watchsimulator6.0
-
-Xcode 11.1 has the following SDKs preinstalled:
-
-- macosx10.15
-- driverkit.macosx19.0
-- iphoneos13.1
-- iphonesimulator13.1
-- appletvos13.0
-- appletvsimulator13.0
-- watchos6.0
-- watchsimulator6.0
 
 Xcode 11.2.1 has the following SDKs preinstalled:
 
@@ -147,16 +132,38 @@ Xcode 11.2.1 has the following SDKs preinstalled:
 - watchos6.1
 - watchsimulator6.1
 
+Xcode 11.3.1 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.2
+- iphonesimulator13.2
+- appletvos13.2
+- appletvsimulator13.2
+- watchos6.1
+- watchsimulator6.1
+
+Xcode 11.4.1 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.4
+- iphonesimulator13.4
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
+
 
 ## See Also
 
 - [iOS Continuous Integration guide][ios-guide]
-- [sem command line tool reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Pipeline YAML reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
+- [sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [mojave-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_mojave_10_14_6_release_notes
-[machine-types]: https://docs.semaphoreci.com/article/20-machine-types
+[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
-[agent]: https://docs.semaphoreci.com/article/50-pipeline-yaml#agent
-[ios-guide]: https://docs.semaphoreci.com/article/124-ios-continuous-integration
+[agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
+[ios-guide]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/

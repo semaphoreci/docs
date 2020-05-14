@@ -11,7 +11,7 @@ repository is not up to date, that does not contain a
 flexible than the `sem create` command.
 
 To learn more about the `sem` commands for project manipulation, you can visit the
-[sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference).
+[sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
 ## Properties
 
@@ -117,7 +117,7 @@ is not selected here.
 List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-requests`
 
 For more information about workflow triggers, visit the
-[Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options).
+[Project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/).
 
 ##### forked\_pull\_requests
 
@@ -207,7 +207,7 @@ The `pipeline_file` property contains the relative path to the pipeline
 definition file from the root of the project.
 
 For more information on defining a valid pipeline file, visit the
-[Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml).
+[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/).
 
 ## Examples
 
@@ -264,8 +264,7 @@ spec:
 
 ## See Also
 
-- [Secrets YAML Reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Project workflow tigger options](https://docs.semaphoreci.com/article/152-project-workflow-tigger-options)
+- [Secrets YAML Reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/)

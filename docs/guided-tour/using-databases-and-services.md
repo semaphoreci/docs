@@ -23,13 +23,11 @@ agent:
 blocks:
   - name: "Test"
     task:
-      prologue:
-        commands:
-          - sem-service start redis
-          - sem-service start postgres
       jobs:
         - name: Tests
           commands:
+            - sem-service start redis
+            - sem-service start postgres
             - createdb -U postgres -h 0.0.0.0 myapp_database
             - echo 'running tests'
 ```
@@ -104,7 +102,8 @@ Almost every project has dependencies, and we can save a lot of time by
 installing them once and reusing them from a cache. Let's learn how to do that
 in [the next section][next].
 
-[prologue]: https://docs.semaphoreci.com/article/50-pipeline-yaml#prologue
+[prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
 [postgres-docker]: https://hub.docker.com/_/postgres
 [redis-docker]: https://hub.docker.com/_/redis
-[next]: https://docs.semaphoreci.com/article/68-caching-dependencies
+[next]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

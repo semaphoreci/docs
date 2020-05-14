@@ -16,7 +16,7 @@ utility from the Semaphore Toolbox or push the Docker image to Docker Hub and
 pull it from there. For reasons of simplicity all the presented examples will
 use the `cache` utility from the Semaphore Toolbox. You can find more about
 the `cache` utility in the
-[Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference).
+[Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/).
 
 ## Environment variables
 
@@ -492,7 +492,7 @@ Last, in order for `.semaphore/p2.yml` to access the Docker image defined in
 
 ## See Also
 
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Pipeline YAML Reference](https://docs.semaphoreci.com/article/50-pipeline-yaml)
-- [Toolbox Reference](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Environment variables Reference](https://docs.semaphoreci.com/article/12-environment-variables)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+- [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Environment variables Reference](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/)

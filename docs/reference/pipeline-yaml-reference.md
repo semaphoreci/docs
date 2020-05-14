@@ -76,7 +76,7 @@ The `type` property is intended for selecting the hardware you would
 like to use for the Virtual Machine of your jobs.
 
 A complete list of valid values for the `type` is available on the
-[Machine Types](https://docs.semaphoreci.com/article/20-machine-types) page.
+[Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) page.
 
 Example of `type` usage:
 
@@ -93,7 +93,6 @@ the machine type is used.
 These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
-- `macos-mojave-xcode10` ([reference][macos-mojave-xcode10])
 - `macos-mojave-xcode11` ([reference][macos-mojave-xcode11])
 
 The default operating system depends on the type of the machine:
@@ -123,6 +122,7 @@ agent:
       image: semaphoreci/ruby:2.6.1
     - name: db
       image: postgres:9.6
+      user: postgres
       env_vars:
         - name: POSTGRES_PASSOWRD
           value: keyboard-cat
@@ -136,8 +136,18 @@ The first container runs the jobs' commands, while the rest of the containers
 are linked via DNS records. The container with name `db` is registered with a
 hostname `db` in the first container.
 
-Each container can optionally have a list of environment variables that are
-injected into the container.
+Other optional parameters of each container definition can be divided into two groups:
+
+1. Docker related parameters that are passed to docker run command that starts the container. More information about them can be found in [docker run][docker-run] docs.
+
+    - `user` - The user that will be used within the container
+    - `command` - The first command to execute within the container. It overrides the command defined in Dockerfile.
+    - `entrypoint` - This specifies what executable to run when the container starts
+
+2. The data that needs to be injected into containers that is either defined directly there in YAML file or is stored in Semaphore secrets
+
+    - `env_vars` - Environment variables that are injected into the the container. They are defined in the same way as in [task definition][env-var-in-task].
+    - `secrets` - Secrets which hold the data the should be injected into the container. They are defined in the same way as in [task definition][secrets-in-task]. *Note*: currently, only environment variables defined in a secret will be injected into container, the files within the secret will be ignored.
 
 ### A Preface example
 
@@ -414,6 +424,90 @@ blocks:
       - name: Job C
         commands:
           - sleep 60
+```
+
+## queue
+
+The optional `queue` property enables you to assign the pipeline to the custom
+execution queue.
+
+It can have two sub-properties, `name` and `scope`.
+
+The `name` property is required and it should hold the string that uniquely
+identifies wanted queue within the configured scope.
+
+The `scope` property can have one of two values, **project** or **organization**.
+
+If `scope` property is omitted, its value will be automatically set to **project**.
+
+The pipelines within the project are, by default, assigned to queues based on the
+git branch/tag name or pull request number and the YAML configuration file name.
+
+This means that pipelines will only queue if they are initiated from the same
+branch/tag/pull request with the same configuration, e.g. multiple pushes or
+multiple promotions.
+
+If you assign a pipeline to a custom execution queue via the `queue` property, it
+will wait for all previously initiated pipelines that are assigned to same the
+queue.
+
+This will be true even if for the pipelines that have different YAML configuration
+files or are from different branches/tags, or even from different projects (for
+this last one `scope` has to be set to **organization**).
+
+This is especially useful when you need to forbid parallel access to some external
+resource, such as deployments to production servers or calling external APIs.
+
+### An example of setting a custom execution queue with project scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different git branches, tags or pull
+requests.
+
+``` yaml
+version: "v1.0"
+name: Project-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: production
+  scope: organization
+
+blocks:
+  - task:
+      jobs:
+        - name: Deploy to production
+          commands:
+            - echo "Deploying service to production server(s)"
+```
+
+### An example of setting a custom execution queue with organization scope
+
+All pipelines initiated with the following configuration will enter the same
+execution queue, even if they are from different projects or git branches tags
+or pull requests.
+
+``` yaml
+version: "v1.0"
+name: Organization-scoped queue example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+queue:
+  name: external-api
+  scope: project
+
+blocks:
+  - task:
+      jobs:
+        - name: Tests
+          commands:
+            - echo "Tests that call the external API"
 ```
 
 ## auto_cancel
@@ -1079,7 +1173,7 @@ blocks:
 ```
 
 In this example, the job specification named `Elixir + Erlang matrix` expands
-to 6 parallel jobs as there are 2 - 3 = 6 combinations of the provided
+to 6 parallel jobs as there are 2 x 3 = 6 combinations of the provided
 environment variables:
 
 - `Elixir + Erlang matrix - ELIXIR=1.4, ERLANG=21`
@@ -1270,7 +1364,7 @@ A secret is a place for keeping sensitive information in the form of
 environment variables and small files. Sharing sensitive data in a secret is
 both safer and more flexible than storing it using plain text files or
 environment variables that anyone can access. A secret is defined using a specific
-[YAML grammar](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
+[YAML grammar](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
 and processed using the `sem` command line tool.
 
 The `secrets` property is used for importing all the environment variables
@@ -1924,15 +2018,16 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 
 ### See also
 
-- [Secrets YAML reference](https://docs.semaphoreci.com/article/51-secrets-yaml-reference)
-- [Projects YAML reference](https://docs.semaphoreci.com/article/52-projects-yaml-reference)
-- [sem command line tool Reference](https://docs.semaphoreci.com/article/53-sem-reference)
-- [Changing organizations](https://docs.semaphoreci.com/article/29-changing-organizations)
-- [Toolbox reference page](https://docs.semaphoreci.com/article/54-toolbox-reference)
-- [Machine Types](https://docs.semaphoreci.com/article/20-machine-types)
+- [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+- [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
-[ubuntu1804]: https://docs.semaphoreci.com/article/32-ubuntu-1804-image
-[macos-mojave-xcode11]: https://docs.semaphoreci.com/article/162-macos-mojave-xcode-11-image
-[macos-mojave-xcode10]: https://docs.semaphoreci.com/article/161-macos-mojave-xcode-10-image
-[conditions-reference]:https://docs.semaphoreci.com/article/142-conditions-reference
+[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
+[docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
+[env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
+[secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets

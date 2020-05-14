@@ -138,7 +138,8 @@ with the following Dockerfile:
 ``` Dockerfile
 FROM ubuntu:18.04
 
-RUN apt-get -y update && apt-get install -y git lftp docker openssh-client coreutils
+RUN apt-get -y update && apt-get install -y git lftp openssh-client coreutils
+RUN curl -sSL https://get.docker.com/ | sh
 ```
 
 ### Extending Semaphore's pre-build convenience Docker images
@@ -321,7 +322,7 @@ agent:
 ```
 
 
-[working-with-docker]: https://docs.semaphoreci.com/article/78-working-with-docker-images
+[working-with-docker]: https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/
 [dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
 [docker-images-repo]: https://github.com/semaphoreci/docker-images
 [lightweight-docker-images]: https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html

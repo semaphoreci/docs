@@ -27,10 +27,6 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 
 ## [Artifacts Management](#artifacts-management)
 
-- [Uploading Artifact](#uploading-artifact)
-- [Downloading Artifact](#downloading-artifact)
-- [Deleting Artifact](#deleting-artifact)
-
 ### Uploading Artifact
 
 To upload an artifact from Semaphore job it is necessary to specify
@@ -80,4 +76,4 @@ the store level and point to a file or directory with the `artifact yank` comman
 artifact yank project my-artifact-v3.tar
 ```
 
-[artifacts-use-cases]: https://docs.semaphoreci.com/article/155-artifacts
+[artifacts-use-cases]: https://docs.semaphoreci.com/essentials/artifacts/
