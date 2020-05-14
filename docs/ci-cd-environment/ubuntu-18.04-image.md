@@ -1,5 +1,6 @@
 # Ubuntu 18.04 Image
 
+
 The `ubuntu1804` is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes)
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
@@ -194,6 +195,24 @@ Available versions:
 - 2.6.0 to 2.6.6
 - 2.7.0 and 2.7.1
 - jruby-9.2.11.1
+
+### Installing dependencies with apt package manager
+
+The Semaphore Ubuntu:18.04 image has most of the popular programming languages,
+tools and databases preinstalled.
+
+If the dependency you need is not present in the list above, you can install it
+with the Ubuntu package manager
+or using an alternative method such as compiling it from the source, or 
+manually downloading binaries.
+
+To install dependecies using the package manager (apt-get) you can use the
+template command below and add it to your pipeline:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y [your-dependency]
+```
 
 ## See Also
 
