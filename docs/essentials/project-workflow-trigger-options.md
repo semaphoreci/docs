@@ -100,6 +100,15 @@ from forks. You can limit these contributors by following these steps:
 pull requests from forks,
 5. Click on **Save changes**.
 
+### Approve forked pull requests
+
+If you are using a filter for contributors, you can still review and approve blocked 
+pull requests by commenting with a `/sem-approve` message.
+
+Everyone who can run forked pull request can approve one also.
+
+It's working only for new comments. It won't work with edits.
+
 ## Build default branch
 
 When the project is not on pause, Semaphore will always create new workflows
