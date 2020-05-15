@@ -8,11 +8,11 @@ This page is updated on a weekly basis.
 
 - Fixed: Secrets API was returning HTTP 404 for all Secrets with colon in the name (example: `a:b:c`).
 - Semaphore will now log you out less often.
-- New: Run Pull Requests from outside contributors with [sem-approve](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#approve-forked-pull-requests)
+- New: Run Pull Requests from outside contributors with [sem-approve](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#approve-forked-pull-requests).
 
 ### Week of May 03, 2020
 
-- Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`. 
+- Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`.
   Regex: `^[@: -._a-zA-Z0-9]+$`).
 - Updates to the macOS image:
     - Flutter version update to 1.17.0, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/), [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/)
@@ -32,12 +32,12 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - `macos-mojave-xcode11` Xcode 11.4.1 installed, to switch version, use
     `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
     - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
-- Updates to the ubuntu1804 image:  
+- Updates to the ubuntu1804 image:
     - TCP port 8000 is no longer occupied.
 
 ### Week of April 13, 2020
 
-- Updates to the ubuntu1804 image:  
+- Updates to the ubuntu1804 image:
     - Aws-cli 1.18.32 -> 1.18.39
     - Google Chrome 80 -> 81
     - Chromedriver 80 -> 81
@@ -45,7 +45,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - Go 1.13.8 -> 1.13.9
     - Go 1.14.0 -> 1.14.1
     - Ruby 2.4.9 -> 2.4.10
-    - Ruby 2.5.7 -> 2.5.8 
+    - Ruby 2.5.7 -> 2.5.8
     - Ruby 2.6.5 -> 2.6.6
     - Ruby 2.7.0 -> 2.7.1
 
@@ -64,19 +64,19 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 ### Week of March 30, 2020
 
-- Updates to the ubuntu1804 image: 
+- Updates to the ubuntu1804 image:
     - Aws-cli 1.18.21 -> 1.18.28
     - Git        2.25 -> 2.26
     - Heroku   7.39.0 -> 7.39.1
 - Semaphore Toolbox:
     - [autocache](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#basic-usage) support for Golang (>= 1.11)
-  
+
 ### Week of March 16, 2020
 
 - Additions to the ubuntu1804 image:
     - Elixir 1.10.2
     - Go 1.14
-- Updates to the ubuntu1804 image: 
+- Updates to the ubuntu1804 image:
     - Aws-cli 1.18.7 -> 1.18.21
     - Heroku  7.38.2 -> 7.39.0
     - Yarn    1.21.1 -> 1.22.4
@@ -86,7 +86,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 - Additions to the ubuntu1804 image:
     - Elixir 1.10.1
     - Php    7.4.3
-- Updates to the ubuntu1804 image: 
+- Updates to the ubuntu1804 image:
     - Aws-cli 1.17.17 -> 1.18.7
     - Erlang     22.1 -> 22.2
     - Go      1.12.10 -> 1.12.17
@@ -97,7 +97,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - Php      7.2.27 -> 7.2.28
     - Php      7.3.11 -> 7.3.15
     - Scala    2.12.7 -> 2.12.10
- 
+
 ### Week of February 24, 2020
 
 - The values of secrets are hidden in the UI.
@@ -127,7 +127,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 - You can now specify MySQL and PostgreSQL username, password and database when using
   [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/).
 - In monorepo scenario, when a block is skipped, Semaphore now shows a “skipped” badge.
-- Jobs export `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK`, `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE`, and 
+- Jobs export `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK`, `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE`, and
   `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` [environment variables](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/#semaphore_workflow_triggered_by_hook).
 - Environment setup commands in jobs now have descriptive names. The new command names are:
     - `Exporting environment variables`
@@ -135,7 +135,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - `Setting up the Semaphore Toolbox`
     - `Starting an ssh-agent`
     - `Connecting to cache`
- - You can now override the default Docker command and entrypoint in attached containers. 
+ - You can now override the default Docker command and entrypoint in attached containers.
 
 ### Week of February 3, 2020
 
@@ -153,7 +153,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - Java11  11.0.5 -> 11.0.6
     - Git-lfs  2.9.2 -> 2.10.0
     - Aws-cli 1.17.2 -> 1.17.9
-    
+
 ### Week of January 27, 2020
 - Updates to the macOS image:
     - installed packages:
@@ -161,7 +161,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
         - `libimobiledevice`
         - `ideviceinstaller`
         - `ios-deploy`
-- New convenience Docker image available in Semaphore's 
+- New convenience Docker image available in Semaphore's
 DockerHub Account - android with `flutter` preinstalled.
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L792).
 
@@ -182,7 +182,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - Git           2.24 -> 2.25
     - Git-LFS      2.9.1 -> 2.9.2
     - Phpunit     7.5.18 -> 7.5.20
-    
+
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed, to switch version use
     `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
