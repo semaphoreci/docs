@@ -4,6 +4,22 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 18, 2020
+
+- Additions to the ubuntu1804 image:
+    - Doctl 1.43.0
+
+- Updates to the ubuntu1804 image:
+    - Aws-cli 1.18.42 -> 1.18.59
+    - Git-lfs 2.10.0 -> 2.11.0
+    - Go 1.13.9 -> 1.13.10
+    - Go 1.14.1 -> 1.14.2
+    - Heroku 7.39.3 -> 7.41.1
+    - Php 7.2.28 -> 7.2.29
+    - Php 7.3.15 -> 7.3.16
+    - Php 7.4.3 -> 7.4.4
+    - Sbt 0.13.17 -> 1.3.10
+
 ### Week of May 11, 2020
 
 - Fixed: Secrets API was returning HTTP 404 for all Secrets with colon in the name (example: `a:b:c`).
