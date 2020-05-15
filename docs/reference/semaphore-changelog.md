@@ -8,6 +8,7 @@ This page is updated on a weekly basis.
 
 - Fixed: Secrets API was returning HTTP 404 for all Secrets with colon in the name (example: `a:b:c`).
 - Semaphore will now log you out less often.
+- New: Run Pull Requests from outside contributors with [sem-approve](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#approve-forked-pull-requests)
 
 ### Week of May 03, 2020
 
