@@ -83,6 +83,7 @@ Docker toolset is installed and following versions are available:
 - aws-cli
 - eb-cli
 - ecs-cli
+- doctl
 - gcloud
 - kubectl
 - heroku
@@ -115,8 +116,8 @@ Versions:
 - 1.10.8
 - 1.11.13
 - 1.12.17
-- 1.13.9
-- 1.14.1
+- 1.13.10
+- 1.14.2
 
 ### Java and JVM languages
 
@@ -152,11 +153,11 @@ Installed versions:
 
 - 7.0.33
 - 7.1.33
-- 7.2.28
-- 7.3.15
-- 7.4.3
+- 7.2.29
+- 7.3.16
+- 7.4.4
 
-The default installed PHP version is `7.2.28`.
+The default installed PHP version is `7.2.29`.
 
 #### Additional libraries
 
@@ -168,6 +169,7 @@ Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
 - 2.7
+- 3.6
 - 3.7
 - 3.8
 
