@@ -56,7 +56,7 @@ the tags that you want to run by following these steps:
 3. Enter tags you want to whitelist in the text box,
 4. Click on **Save changes**.
 
-Tags can be separated by commas in the text box. Regular expressions enclosed 
+Tags can be separated by commas in the text box. Regular expressions enclosed
 with `/` are also allowed, for example: `/^v\d+\.\d+\.\d+$/`.
 
 ## Build pull requests
@@ -90,24 +90,24 @@ You can whitelist the secrets you want to expose specifying their names.
 
 ### Filter contributors in forked pull requests
 
-By default, Semaphore will allow all contributors to create workflows for pull requests 
+By default, Semaphore will allow all contributors to create workflows for pull requests
 from forks. You can limit these contributors by following these steps:
 
 1. Go to your project and click on **Settings** in the top right corner,
 2. In *What to build?* section click on the **Forked pull requests** checkbox,
 3. In *How to handle fork contributors?* section click on **Run workflows only for trusted**,
-4. Enter GitHub usernames of the users you'd like to be able to create workflows for 
+4. Enter GitHub usernames of the users you'd like to be able to create workflows for
 pull requests from forks,
 5. Click on **Save changes**.
 
 ### Approve forked pull requests
 
-If you are using a filter for contributors, you can still review and approve blocked 
+If you are using a filter for contributors, you can still review and approve blocked
 pull requests by commenting with a `/sem-approve` message.
 
-Everyone who can run forked pull request can approve one also.
+Everyone who can run a forked pull request, can also approve it.
 
-It's working only for new comments. It won't work with edits.
+Approving forked pull requests is limited to new comments only and is not possible for comment edits.
 
 ## Build default branch
 
