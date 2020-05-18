@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   <tr>
-    <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#why-my-jobs-dont-start">My jobs don't start</a></td>
+    <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
     <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#how-to-add-new-users">How to add new users?</a></td>
   </tr>
   </tbody>
