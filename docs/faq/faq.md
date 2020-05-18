@@ -32,7 +32,7 @@ You may also run `sem get jobs` to display all running jobs
 so you may confirm how much quota is being used. 
 More information about `sem get`: 
 https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
-</p>
+  </p>
 </details>
 
 #### How to add new users?
@@ -40,6 +40,6 @@ https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
 <details>
   <summary>Answer</summary>
   <p>
-Go to the `People` page of your organization and click on `Refresh list` button.
+Go to the People page of your organization and click on Refresh list button.
   </p>
 </details>
