@@ -10,15 +10,15 @@
   </thead>
   <tbody>
   <tr>
-    <td>My jobs don't start</td>
-    <td></td>
+    <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#why-jobs-dont-start">My jobs don't start</a>       </td>
+    <td><a href="">How to add new users?</a></td>
   </tr>
   </tbody>
 </table>  
   
   
 
-#### My jobs don't start
+#### Why my jobs don't start?
 
 <details>
   <summary>Answer</summary>
@@ -33,4 +33,13 @@ so you may confirm how much quota is being used.
 More information about `sem get`: 
 https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
 </p>
+</details>
+
+#### How to add new users?
+
+<details>
+  <summary>Answer</summary>
+  <p>
+Go to the `People` page of your organization and click on `Refresh list` button.
+  </p>
 </details>
