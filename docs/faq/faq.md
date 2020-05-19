@@ -20,6 +20,10 @@
     <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
     <td></td>
   </tr>
+  <tr>
+    <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
+    <td><td>
+  </tr>
   </tbody>
 </table>  
  
@@ -85,6 +89,26 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
   </p>
 </details>
 
+<details>
+  <summary id="how-to-build-with-git-submodules">How to build a project with git submodules?</summary>
+  <p>
+
+- Add the following commands as a [prologue][]:
+```
+git submodule init
+git submodule update
+```
+- Add the following command as an [epilogue][]:
+```
+git submodule deinit --force .
+```
+Make sure that Semaphore has permissions to clone your submodules repository. 
+In our [private dependencies][private-dependencies] page you can find more
+information about setting permissions for private repositories.
+  </p>
+</detail>
+
+
 ## Account support questions
 
 <details>
@@ -94,3 +118,9 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
 Go to the `People` page of your organization and click on `Refresh list` button.
   </p>
 </details>
+
+
+
+[prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property
+[epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
+[private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
