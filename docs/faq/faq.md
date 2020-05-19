@@ -17,10 +17,8 @@
 </table>  
  
 
-#### Why my jobs don't start?
-
-<details>
-  <summary>Answer</summary>
+ <details>
+ <summary>Why my jobs don't start?</summary>
   <p>
 You might be hitting the quota limitation. Check your organization's quota
 in Billing > See detailed insights… > Quota. More information about quota 
