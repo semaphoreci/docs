@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   <tr>
-    <td><a href="#why_my_jobs_dont_start">Why my jobs don't start?</a></td>
+    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
     <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#how-to-add-new-users">How to add new users?</a></td>
   </tr>
   </tbody>
@@ -37,7 +37,7 @@ Here's a page that contains three links, each leading to one of the anchors of t
  
 
  <details>
- <summary id="why_my_jobs_dont_start">Why my jobs don't start?</summary>
+ <summary id="why-my-jobs-dont-start">Why my jobs don't start?</summary>
   <p>
 You might be hitting the quota limitation. Check your organization's quota
 in Billing > See detailed insights… > Quota. More information about quota 
