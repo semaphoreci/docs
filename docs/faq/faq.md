@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   <tr>
-    <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
+    <td><a href="#anchor">Why my jobs don't start?</a></td>
     <td><a href="https://github.com/semaphoreci/docs/blob/faq/docs/faq/faq.md#how-to-add-new-users">How to add new users?</a></td>
   </tr>
   </tbody>
@@ -18,7 +18,7 @@
  
 
  <details>
- <summary>Why my jobs don't start?</summary>
+ <summary id="anchor">Why my jobs don't start?</summary>
   <p>
 You might be hitting the quota limitation. Check your organization's quota
 in Billing > See detailed insights… > Quota. More information about quota 
