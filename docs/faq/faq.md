@@ -4,8 +4,8 @@
 <table>
   <thead>
     <tr>
-      <th>Technical Support</th>
-      <th>Account Support</th>
+      <th>Technical support questions</th>
+      <th>Account support questions</th>
     </tr>
   </thead>
   <tbody>
@@ -16,9 +16,14 @@
   <tr>
     <td><a href="#fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</a></td>
     <td></td>
+  <tr>
+    <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
+    <td></td>
+  </tr>
   </tbody>
 </table>  
  
+## Technical Support questions
  
  <details>
  <summary id="why-my-jobs-dont-start">Why my jobs don't start?</summary>
@@ -35,13 +40,7 @@ More information about `sem get`:
 https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
   </p>
 </details>
-<details>
-  <summary id="how-to-add-new-users">How to add new users?</summary>
-  <p>
-    
-Go to the `People` page of your organization and click on `Refresh list` button.
-  </p>
-</details>
+
 <details>
   <summary id="fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</summary>
   <p>
@@ -68,3 +67,30 @@ The Gemfile.lock will now reference a valid git revision.
   </p>
 </details>
 
+<details>
+  <summary id="how-to-change-the-timezone">How to change the timezone?</summary>
+  <p>
+    
+The default timezone in the virtual machine is set to UTC. 
+The timezone can be changed in 2 ways:
+
+- Assign a different value to `TZ` environment variable: 
+```
+export TZ=Europe/Belgrade
+```
+- Create a symlink in `/etc/localtime` to one of the available timezones:
+```
+sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
+```
+  </p>
+</details>
+
+## Account support questions
+
+<details>
+  <summary id="how-to-add-new-users">How to add new users?</summary>
+  <p>
+    
+Go to the `People` page of your organization and click on `Refresh list` button.
+  </p>
+</details>
