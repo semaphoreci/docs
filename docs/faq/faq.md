@@ -24,6 +24,10 @@
     <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
     <td></td>
   </tr>
+  <tr>
+    <td><a href="#self-signed-certificate">How to use a self-signed certificate with private Docker registry?</a></td>
+    <td></td>
+  </tr>
   </tbody>
 </table>  
  
@@ -106,8 +110,24 @@ Make sure that Semaphore has permissions to clone your submodules repository.
 In our [private dependencies][private-dependencies] page you can find more
 information about setting permissions for private repositories.
   </p>
-</detail>
+</details>
 
+<details>
+  <summary id="self-signed-certificate">How to use a self-signed certificate with private Docker registry?</summary>
+  <p>
+
+If you have a private Docker registry that uses a self-signed SSL certificate 
+and pulling the Docker images does not work. The solution is to:
+
+- Add a self-signed certificate as a [secret][] on Semaphore
+- Save it under the name of domain.crt
+- Add the following command to your pipeline
+```
+sudo mv $SEMAPHORE_GIT_DIR/domain.crt /etc/docker/certs.d/myregistrydomain.com:5000/ca.crt
+```
+This will allow the connection to a private remote registry using the self-signed certificate.
+  </p>
+</details>
 
 ## Account support questions
 
@@ -124,3 +144,4 @@ Go to the `People` page of your organization and click on `Refresh list` button.
 [prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property
 [epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
 [private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
+[secret]: https://docs.semaphoreci.com/essentials/using-secrets/
