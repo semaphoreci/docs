@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
-    <td><td>
+    <td></td>
   </tr>
   </tbody>
 </table>  
