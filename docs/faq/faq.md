@@ -59,12 +59,12 @@ If this error persists you could try removing the cache directory '/home/runner/
 This problem occurs when there have been changes like 
 force-pushes to a git repo which is referenced in a Gemfile. 
 You can solve it by following these steps:
-- Comment that gem line in the Gemfile.
-- Run bundle.
-- Uncomment the gem line in the Gemfile.
-- Run bundle again. 
+- Comment that gem line in the Gemfile
+- Run `bundle install`
+- Uncomment the gem line in the Gemfile
+- Run `bundle install` again
 
-The Gemfile.lock will then reference a valid git revision.
+The Gemfile.lock will now reference a valid git revision.
   </p>
 </details>
 
