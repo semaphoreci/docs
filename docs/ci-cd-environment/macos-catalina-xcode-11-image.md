@@ -71,7 +71,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.145.0)
+- fastlane (2.148.1)
 - cocoapods (1.9.1)
 
 ## Languages
@@ -110,7 +110,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.17.0
+- v1.17.1
 
 ## Xcode
 
@@ -119,6 +119,7 @@ Installed versions:
 - 11.2.1
 - 11.3.1
 - 11.4.1
+- 11.5
 
 
 Xcode 11.2.1 has the following SDKs preinstalled:
@@ -149,6 +150,17 @@ Xcode 11.4.1 has the following SDKs preinstalled:
 - driverkit.macosx19.0
 - iphoneos13.4
 - iphonesimulator13.4
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
+
+Xcode 11.5 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.5
+- iphonesimulator13.5
 - appletvos13.4
 - appletvsimulator13.4
 - watchos6.2
