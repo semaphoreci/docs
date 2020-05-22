@@ -118,6 +118,9 @@ with return code 0.
 In case of insufficient disk space, `cache store` frees disk space by deleting
 the oldest keys.
 
+**Note:** `cache store` does not overwrite data for an existing key.
+You need to [delete the key](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#cache-delete-key) first to update the associated information.
+
 ### cache restore key[,second-key,...]
 
 Examples:
