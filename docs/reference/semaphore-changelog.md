@@ -5,6 +5,12 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of May 18, 2020
+- New convenience Docker images available in Semaphore's DockerHub Account.
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2421)
+- Updates to the [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/):
+    - Xcode 11.5 installed
+    - Flutter version update to 1.17.1
+    - Fastlane gem version update to 2.148.1
 
 - Additions to the ubuntu1804 image:
     - Doctl 1.43.0
