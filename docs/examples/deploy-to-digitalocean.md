@@ -30,8 +30,129 @@ sem create secret dockerhub \
 ```
 
 
+```yaml
+version: v1.0
+name: Application
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804    
+blocks:
+  - name: Install dependencies
+    task:
+      env_vars:
+        - name: NODE_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - nvm use
+      jobs:
+        - name: npm install and cache
+          commands:
+            - cache restore
+            - npm install
+            - cache store 
+  - name: Tests
+    task:
+      env_vars:
+        - name: NODE_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - nvm use
+          - cache restore 
+      jobs:
+        - name: Static test
+          commands:
+            - npm run lint
+        - name: Unit test
+          commands:
+            - sem-service start postgres
+            - npm run test
+promotions:
+  - name: Dockerize
+    pipeline_file: docker-build.yml
+    auto_promote:
+      when: "result = 'passed'"          
+```
 
 
+```yaml
+version: v1.0
+name: Docker build
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Build
+    task:
+      secrets:
+        - name: dockerhub   
+    task:
+      prologue:
+        commands:
+          - checkout
+          - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+      jobs:
+      - name: Docker build
+        commands:
+          - docker pull "${DOCKER_USERNAME}/addressbook:latest" || true
+          - docker build --cache-from "${DOCKER_USERNAME}/addressbook:latest" -t "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" .
+          - docker push "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID"
+promotions:
+  - name: Deploy to Kubernetes
+    pipeline_file: deploy-k8s.yml
+    auto_promote:
+      when: "result = 'passed'"         
+ ```         
+          
+ ```yaml
+version: v1.0
+name: Deploy to Kubernetes
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy to Kubernetes
+    task:
+      secrets:
+        - name: dockerhub
+        - name: do-access-token
+        - name: env-production
+      env_vars:
+        - name: CLUSTER_NAME
+          value: your-server 
+      prologue:
+        commands:
+          - doctl auth init --access-token $DO_ACCESS_TOKEN
+          - doctl kubernetes cluster kubeconfig save "${CLUSTER_NAME}"
+          - checkout 
+      jobs:
+      - name: Deploy
+        commands:
+          - source $HOME/env-production
+          - envsubst < deployment.yml | tee deploy.yml
+          - kubectl apply -f deploy.yml 
+   - name: Tag latest release
+    task:
+      secrets:
+        - name: dockerhub
+      prologue:
+        commands:
+          - checkout
+          - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+          - checkout
+      jobs:
+      - name: docker tag latest
+        commands:
+          - docker pull "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" 
+          - docker tag "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" "${DOCKER_USERNAME}/addressbook:latest"
+          - docker push "${DOCKER_USERNAME}/addressbook:latest"
+```
 
 [docker-hub]: https://docs.docker.com/docker-hub/
 [create-personal-token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
