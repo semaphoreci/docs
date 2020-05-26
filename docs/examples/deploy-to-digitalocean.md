@@ -4,10 +4,9 @@ This guide demonstrates how to deploy to DigitalOcean.
 
 We will cover these steps to set up the deployment to DigitalOcean on Semaphore:
 
-1. Create the Secrets to store the credentials. 
-2. Store the Git Deploy key in a [Secret](secret) on Semaphore.
-3. Create a deployment pipeline, and attach the Git Deploy key secret.
-4. Run a deployment from Semaphore, and ship your code to production.
+1. Create Secrets to store the credentials. 
+2. Create a deployment pipeline, attaching the Secrets.
+3. Run a deployment from Semaphore, and ship your code to production.
 
 For this example you will need:
 
@@ -15,99 +14,53 @@ For this example you will need:
 You can use one of the documented [use cases][use-cases] or [language guides][language-guides] as a starting point.
 - A DigitalOcean account and a Personal Access Token. 
 Follow [Create a Personal Access Token][create-personal-token] to set one up for your account.
-- A [Docker Hub][docker-hub] account.
+- A Docker Hub Account
+- A Kubernetes Cluster in DigitalOcean.
 - Basic familiarity with Git and SSH.
+
+## Connect CI and deployment pipelines with a promotion
+
+Start by defining a promotion at the end of your `semaphore.yml` file:
+
+```yaml
+# .semaphore/semaphore.yml
+promotions:
+  - name: Deploy to DigitalOcean
+    pipeline_file: deploy-k8s.yml
+```
+
+This defines a simple deployment pipeline which can be triggered manually on every revision on every branch. You can generally define as many pipelines for a project as you need using a variety of options and conditions. For designing custom delivery pipelines, consult the promotions reference documentation.
 
 ## Storing credentials in Secrets
 
-- Create the Secret to store the credentials for Docker Hub. 
+Create three new Semaphore secrets using the sem CLI.
+
+- Store the Docker Hub credentials.
+
+```bash
+sem create secret dockerhub-secrets \
+  -e DOCKER_USERNAME=<your-dockerhub-username> \
+  -e DOCKER_PASSWORD=<your-dockerhub-password>
+```  
+
+- Store the DigitalOcean Personal Access Token. 
 
 
 ```bash
-sem create secret dockerhub \
-  -e DOCKER_USERNAME=<your-dockerhub-username> \
-  -e DOCKER_PASSWORD=<your-dockerhub-password>
+sem create secret do-access-token \
+  -e DO_ACCESS_TOKEN=<your-do-access-token>
 ```
 
+- Store the .env file in the project root.
 
-```yaml
-version: v1.0
-name: Application
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804    
-blocks:
-  - name: Install dependencies
-    task:
-      env_vars:
-        - name: NODE_ENV
-          value: test
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-      jobs:
-        - name: npm install and cache
-          commands:
-            - cache restore
-            - npm install
-            - cache store 
-  - name: Tests
-    task:
-      env_vars:
-        - name: NODE_ENV
-          value: test
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-          - cache restore 
-      jobs:
-        - name: Static test
-          commands:
-            - npm run lint
-        - name: Unit test
-          commands:
-            - sem-service start postgres
-            - npm run test
-promotions:
-  - name: Dockerize
-    pipeline_file: docker-build.yml
-    auto_promote:
-      when: "result = 'passed'"          
+```bash
+$ sem create secret env-production \
+  --file /Users/joe/.env:/home/semaphore/env-production
 ```
 
-
-```yaml
-version: v1.0
-name: Docker build
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-blocks:
-  - name: Build
-    task:
-      secrets:
-        - name: dockerhub   
-    task:
-      prologue:
-        commands:
-          - checkout
-          - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-      jobs:
-      - name: Docker build
-        commands:
-          - docker pull "${DOCKER_USERNAME}/addressbook:latest" || true
-          - docker build --cache-from "${DOCKER_USERNAME}/addressbook:latest" -t "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" .
-          - docker push "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID"
-promotions:
-  - name: Deploy to Kubernetes
-    pipeline_file: deploy-k8s.yml
-    auto_promote:
-      when: "result = 'passed'"         
- ```         
+## Define the deployment pipeline  
+          
+Finally, let's define our `deploy-k8s.yml` pipeline:          
           
  ```yaml
 version: v1.0
@@ -119,10 +72,12 @@ agent:
 blocks:
   - name: Deploy to Kubernetes
     task:
+      # Adding the secrets you previously created
       secrets:
         - name: dockerhub
         - name: do-access-token
         - name: env-production
+      # Change the CLUSTER_NAME variable to match your server name  
       env_vars:
         - name: CLUSTER_NAME
           value: your-server 
@@ -153,6 +108,12 @@ blocks:
           - docker tag "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" "${DOCKER_USERNAME}/addressbook:latest"
           - docker push "${DOCKER_USERNAME}/addressbook:latest"
 ```
+
+## Verify it works
+
+Push a new commit on any branch and open Semaphore to watch a new workflow run. 
+If all goes well you'll see the `Promote` button next to your initial pipeline. 
+Click on the button to launch the deployment.
 
 [docker-hub]: https://docs.docker.com/docker-hub/
 [create-personal-token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
