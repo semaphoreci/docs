@@ -161,9 +161,7 @@ blocks:
 Install the
 [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
 library and it should work out of the box, same goes for higher level
-libraries that leverage Selenium. See the official [Node
-examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).
-
+libraries that leverage Selenium. See the official [Node examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).  
 Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on pre-installed browsers and testing tools on Semaphore.
 
@@ -174,3 +172,40 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [node-docker-image]: https://hub.docker.com/r/semaphoreci/node
+
+## Custom config.js
+
+You can create a custom config.js using [secrets](/guided-tour/environment-variables-and-secrets/#managing-sensitive-data-with-secrets) as files and environment variables.
+
+
+An example configuration file at project_name/config/config.js path might look like this:
+```
+// config/config.js
+
+module.exports = {
+  postgres: {
+    database: process.env.DATABASE_NAME,
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD
+  },
+}
+```
+You need to create the secrets for `DATABASE_NAME`, `DATABASE_USERNAME` and `DATABASE_PASSWORD`
+while taking care to start postgres through [sem-service](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/#sem-service-managing-databases-and-services-on-linux) with the appropriate parameters:
+
+```
+sem-service start postgres --username="$DATABASE_USERNAME" --password="$DATABASE_PASSWORD" --db="$DATABASE_NAME"
+```
+
+You can use credentials in config.js to instantiate [Sequelize](https://github.com/sequelize/sequelize):
+```
+var Sequelize = require('sequelize')
+  , config = require(__dirname + "/../config/config")
+
+var sequelize = new Sequelize(config.postgres.database,
+config.postgres.username, config.postgres.password, {
+  dialect:  'postgres',
+  protocol: 'postgres'
+})
+```
+
