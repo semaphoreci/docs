@@ -22,15 +22,15 @@ a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan
 <tbody>
 <tr>
   <td>e1-standard-2</td>
-  <td>8</td>
+  <td>50</td>
 </tr>
 <tr>
   <td>e1-standard-4</td>
-  <td>4</td>
+  <td>25</td>
 </tr>
 <tr>
   <td>e1-standard-8</td>
-  <td>1</td>
+  <td>10</td>
 </tr>
 <tr>
   <td>a1-standard-4</td>
