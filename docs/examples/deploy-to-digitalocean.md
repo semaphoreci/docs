@@ -144,6 +144,16 @@ Push a new commit on any branch and open Semaphore to watch a new workflow run.
 If all goes well you'll see the `Promote` button next to your initial pipeline. 
 Click on the button to launch the deployment.
 
+## Next steps
+
+Congratulations! You have automated deployment of your application to DigitalOcean Kubernetes.
+Here’s some recommended reading:
+
+- [Explore the promotions reference][promotions-ref] to learn more about what
+options you have available when designing delivery pipelines on Semaphore.
+- [Set up a deployment dashboard][deployment-dashboards] to keep track of
+your team's activities.
+
 [docker-hub]: https://docs.docker.com/docker-hub/
 [create-personal-token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
 [create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
