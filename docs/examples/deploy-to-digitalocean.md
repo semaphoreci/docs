@@ -65,7 +65,7 @@ sem get secrets
 NAME             AGE
 dockerhub        16s
 do-access-token  45s
-env-production  59s
+env-production   59s
 ```
 
 You can also view the content of a secret:
