@@ -10,12 +10,9 @@
   </thead>
   <tbody>
   <tr>
-    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
+    <td><a href="#fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</a></td>
     <td><a href="#how-to-add-new-users">How to add new users?</a></td>
   </tr>
-  <tr>
-    <td><a href="#fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</a></td>
-    <td></td>
   <tr>
     <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
     <td></td>
@@ -31,6 +28,9 @@
   <tr>
     <th>Jobs & Workflows</th>
     <th>Billing</th>
+  </tr>
+  <tr>
+    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
   </tr>
   </tbody>
 </table>  
