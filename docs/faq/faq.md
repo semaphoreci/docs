@@ -4,8 +4,8 @@
 <table>
   <thead>
     <tr>
-      <th>Technical support questions</th>
-      <th>Account support questions</th>
+      <th>Troubleshooting</th>
+      <th>Account management</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +27,10 @@
   <tr>
     <td><a href="#self-signed-certificate">How to use a self-signed certificate with private Docker registry?</a></td>
     <td></td>
+  </tr>
+  <tr>
+    <th>Jobs & Workflows</th>
+    <th>Billing</th>
   </tr>
   </tbody>
 </table>  
