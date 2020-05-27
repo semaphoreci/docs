@@ -129,6 +129,27 @@ This will allow the connection to a private remote registry using the self-signe
   </p>
 </details>
 
+<details>
+  <summary id="shell-configuration">Job breaks unexplicably after changing shell configuration</summary>
+  <p>
+Adding any of the following:
+```
+set -e
+set -o pipefail
+set -euxo pipefail
+```
+to your shell is not supported and will cause the jobs to immediately fail.
+  </p>
+  <p>
+This also applies when sourcing a script that contains the previous settings:
+```
+source ~/my_script
+. ~/my_script
+```
+
+  </p>
+</details>
+
 ## Account support questions
 
 <details>
