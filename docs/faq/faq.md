@@ -34,7 +34,7 @@
     <td></td>
   </tr>
   <tr>
-    <td><a href="#shell-configuration">Why my job breaks inexplicably after changing the shell configuration?</a></td>
+    <td><a href="#shell-configuration">Why does my job break inexplicably after changing the shell configuration?</a></td>
     <td></td>
   </tr>
   </tbody>
@@ -151,7 +151,7 @@ https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
 </details>
 
 <details>
-  <summary id="shell-configuration">Why my job breaks inexplicably after changing the shell configuration?</summary>
+  <summary id="shell-configuration">Why does my job break inexplicably after changing the shell configuration?</summary>
   <p>
     
 Adding any of the following to your shell is not supported and will cause the jobs to immediately fail.
