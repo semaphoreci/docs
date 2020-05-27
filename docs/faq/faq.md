@@ -31,6 +31,7 @@
   </tr>
   <tr>
     <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
+    <td></td>
   </tr>
   </tbody>
 </table>  
