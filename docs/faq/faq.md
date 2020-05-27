@@ -33,6 +33,10 @@
     <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
     <td></td>
   </tr>
+  <tr>
+    <td><a href="#shell-configuration">Why my job breaks inexplicably after changing the shell configuration?</a></td>
+    <td></td>
+  </tr>
   </tbody>
 </table>  
  
@@ -118,27 +122,6 @@ This will allow the connection to a private remote registry using the self-signe
   </p>
 </details>
 
-<details>
-  <summary id="shell-configuration">Job breaks unexplicably after changing shell configuration</summary>
-  <p>
-Adding any of the following:
-```
-set -e
-set -o pipefail
-set -euxo pipefail
-```
-to your shell is not supported and will cause the jobs to immediately fail.
-  </p>
-  <p>
-This also applies when sourcing a script that contains the previous settings:
-```
-source ~/my_script
-. ~/my_script
-```
-
-  </p>
-</details>
-
 ### Account management
 
 <details>
@@ -164,6 +147,27 @@ You may also run `sem get jobs` to display all running jobs
 so you may confirm how much quota is being used. 
 More information about `sem get`: 
 https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
+  </p>
+</details>
+
+<details>
+  <summary id="shell-configuration">Why my job breaks inexplicably after changing the shell configuration?</summary>
+  <p>
+    
+Adding any of the following to your shell is not supported and will cause the jobs to immediately fail.
+```
+set -e
+set -o pipefail
+set -euxo pipefail
+```
+  </p>
+  <p>
+  
+This also applies when sourcing a script that contains the previous settings:
+```
+source ~/my_script
+. ~/my_script
+```
   </p>
 </details>
 
