@@ -76,11 +76,11 @@ The default timezone in the virtual machine is set to UTC.
 The timezone can be changed in 2 ways:
 
 - Assign a different value to `TZ` environment variable: 
-```
+```bash
 export TZ=Europe/Belgrade
 ```
 - Create a symlink in `/etc/localtime` to one of the available timezones:
-```
+```bash
 sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
 ```
   </p>
@@ -91,12 +91,12 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
   <p>
 
 - Add the following commands as a [prologue][]:
-```
+```bash
 git submodule init
 git submodule update
 ```
 - Add the following command as an [epilogue][]:
-```
+```bash
 git submodule deinit --force .
 ```
 Make sure that Semaphore has permissions to clone your submodules repository. 
@@ -115,7 +115,7 @@ and pulling the Docker images does not work. The solution is to:
 - Add a self-signed certificate as a [secret][] on Semaphore
 - Save it under the name of domain.crt
 - Add the following command to your pipeline
-```
+```bash
 sudo mv $SEMAPHORE_GIT_DIR/domain.crt /etc/docker/certs.d/myregistrydomain.com:5000/ca.crt
 ```
 This will allow the connection to a private remote registry using the self-signed certificate.
