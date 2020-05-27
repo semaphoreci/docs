@@ -154,7 +154,7 @@ https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
   <summary id="shell-configuration">Why does my job break after changing the shell configuration?</summary>
   <p>
     
-Adding any of the following to your shell is not supported and will cause the jobs to immediately fail.
+Adding any of the following to your shell is not supported and will cause the jobs to immediately fail:
 ```
 set -e
 set -o pipefail
