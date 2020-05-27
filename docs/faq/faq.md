@@ -155,7 +155,7 @@ https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
   <p>
     
 Adding any of the following to your shell is not supported and will cause the jobs to immediately fail:
-```
+```bash
 set -e
 set -o pipefail
 set -euxo pipefail
@@ -164,7 +164,7 @@ set -euxo pipefail
   <p>
   
 This also applies when sourcing a script that contains the previous settings:
-```
+```bash
 source ~/my_script
 . ~/my_script
 ```
