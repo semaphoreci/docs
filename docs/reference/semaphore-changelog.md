@@ -4,6 +4,19 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 1, 2020
+
+- Additions to the ubuntu1804 image
+    - Erlang 23.0
+
+- Updates to the ubuntu1804 image:
+    - Aws-cli 1.18.59 -> 1.18.68
+    - Chromedriver 81 -> 83
+    - Google Chrome 81 -> 83
+    - Php 7.2.29 -> 7.2.31
+    - Php 7.3.16 -> 7.3.18
+    - Php 7.4.4 -> 7.4.6
+
 ### Week of May 18, 2020
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2421)
