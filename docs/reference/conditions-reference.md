@@ -179,7 +179,7 @@ change_in(<paths>, [configuration])
           e.g. ['svcA/lib', '/doc', '../README.md']
 
 [configuration] - Optional, map containing the values for configurable parameters.
-                  All parameters and their default values are stated bellow.
+                  All parameters and their default values are stated below.
                   e.g. {on_tags: false, default_branch: 'master-new'}
 ```
 
