@@ -142,7 +142,7 @@ RUN apt-get -y update && apt-get install -y git lftp openssh-client coreutils
 RUN curl -sSL https://get.docker.com/ | sh
 ```
 
-### Extending Semaphore's pre-build convenience Docker images
+### Extending Semaphore's pre-built convenience Docker images
 
 An alternative to building a fully custom Docker image from scratch is to extend
 one of the pre-built images from [Semaphore's DockerHub repository][dockerhub-semaphore].
@@ -234,7 +234,7 @@ agent:
 
 ## Pulling private Docker images from Google GCR
 
-Private Docker Images stored in Google container registry can be used in your CI/CD pipelines.
+Private Docker images stored in Google container registry can be used in your CI/CD pipelines.
 
 First, set up the secret to store your GCE credential file and repository hostname.
 It's important to set the destination path for the file to `/tmp/gcr/keyfile.json`
@@ -264,7 +264,7 @@ agent:
 
 ## Pulling private Docker images from Quay.io
 
-Private Docker Images stored in [Quay.io](https://quay.io) can be used in your CI/CD pipelines.
+Private Docker images stored in [Quay.io](https://quay.io) can be used in your CI/CD pipelines.
 
 First, set up secret to store your Login credentials and Quay.io url:
 
