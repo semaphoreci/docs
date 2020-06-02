@@ -175,10 +175,7 @@ for details on pre-installed browsers and testing tools on Semaphore.
 
 ## Connecting your Node.js application to the test Database
 
-Create a custom `config.js` using [secrets](/guided-tour/environment-variables-and-secrets/#managing-sensitive-data-with-secrets) as files and environment variables.
-
-
-An example configuration file at `project_name/config/config.js` path might look like this:
+Create an example configuration file at `project_name/config/config.js` with the following:
 ``` javascript
 // config/config.js
 
@@ -190,14 +187,14 @@ module.exports = {
   },
 }
 ```
-Create the secrets for `DATABASE_NAME`, `DATABASE_USERNAME` and `DATABASE_PASSWORD`
+Define the [secrets](/guided-tour/environment-variables-and-secrets/#managing-sensitive-data-with-secrets) for `DATABASE_NAME`, `DATABASE_USERNAME` and `DATABASE_PASSWORD`
 while taking care to start postgres through [sem-service](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/#sem-service-managing-databases-and-services-on-linux) with the appropriate parameters:
 
 ``` bash
 sem-service start postgres --username="$DATABASE_USERNAME" --password="$DATABASE_PASSWORD" --db="$DATABASE_NAME"
 ```
 
-Then use the credentials in `config.js` to instantiate [Sequelize](https://github.com/sequelize/sequelize):
+Then, use the credentials in `config.js` to instantiate [Sequelize](https://github.com/sequelize/sequelize):
 ``` javascript
 var Sequelize = require('sequelize')
   , config = require(__dirname + "/../config/config")
