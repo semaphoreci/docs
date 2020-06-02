@@ -99,7 +99,7 @@ open its' current definition in your default editor:
 sem edit secret aws-secrets
 ```
 
-Change the `env_vars` and `files` in the bellow definition:
+Change the `env_vars` and `files` in the below definition:
 
 ``` yaml
 # aws-secret.yml

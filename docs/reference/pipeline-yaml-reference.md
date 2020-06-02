@@ -1574,8 +1574,8 @@ pipeline:
 - `branch` - the name of the branch for which pipeline is initiated (empty if it is a tag or pull request)
 - `tag` - the name of the tag for which pipeline is initiated (empty if it is a branch or pull-requests)
 - `pull request` - the number of pull request for which pipeline is initiated (empty if it is a branch or tag)
-- `result` - the result of pipeline's execution, see possible values bellow
-- `result_reason` - the reason for specific pipeline execution result, see possible values for each result type bellow
+- `result` - the result of pipeline's execution, see possible values below
+- `result_reason` - the reason for specific pipeline execution result, see possible values for each result type below
 
 The valid values for `result` are:
 
