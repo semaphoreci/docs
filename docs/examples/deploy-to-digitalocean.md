@@ -90,7 +90,7 @@ data:
           
 Finally, let's define our `deploy-k8s.yml` pipeline:          
           
- ```yaml
+```yaml
 version: v1.0
 name: Deploy to Kubernetes
 agent:
