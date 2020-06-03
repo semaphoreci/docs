@@ -175,7 +175,7 @@ for details on pre-installed browsers and testing tools on Semaphore.
 
 ## Connecting your Node.js application to the test Database
 
-Create an example configuration file at `project_name/config/config.js` with the following:
+Set up a `config/config.js` file in your repository with the following content:
 ``` javascript
 // config/config.js
 
@@ -187,10 +187,14 @@ module.exports = {
   },
 }
 ```
-Define the [secrets](/guided-tour/environment-variables-and-secrets/#managing-sensitive-data-with-secrets) for `DATABASE_NAME`, `DATABASE_USERNAME` and `DATABASE_PASSWORD`
-while taking care to start postgres through [sem-service](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/#sem-service-managing-databases-and-services-on-linux) with the appropriate parameters:
+
+Start a Postgres database in your job with [sem-service](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/#sem-service-managing-databases-and-services-on-linux):
 
 ``` bash
+export DATABASE_USERNAME="test-user"
+export DATABASE_PASSWORD="keyboard-cat"
+export DATABASE_NAME="test-db"
+
 sem-service start postgres --username="$DATABASE_USERNAME" --password="$DATABASE_PASSWORD" --db="$DATABASE_NAME"
 ```
 
