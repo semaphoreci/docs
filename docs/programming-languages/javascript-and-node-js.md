@@ -161,9 +161,7 @@ blocks:
 Install the
 [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
 library and it should work out of the box, same goes for higher level
-libraries that leverage Selenium. See the official [Node
-examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).
-
+libraries that leverage Selenium. See the official [Node examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example).  
 Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on pre-installed browsers and testing tools on Semaphore.
 
@@ -174,3 +172,41 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [node-docker-image]: https://hub.docker.com/r/semaphoreci/node
+
+## Connecting your Node.js application to the test Database
+
+Set up a `config/config.js` file in your repository with the following content:
+``` javascript
+// config/config.js
+
+module.exports = {
+  postgres: {
+    database: process.env.DATABASE_NAME,
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD
+  },
+}
+```
+
+Start a Postgres database in your job with [sem-service](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/#sem-service-managing-databases-and-services-on-linux):
+
+``` bash
+export DATABASE_USERNAME="test-user"
+export DATABASE_PASSWORD="keyboard-cat"
+export DATABASE_NAME="test-db"
+
+sem-service start postgres --username="$DATABASE_USERNAME" --password="$DATABASE_PASSWORD" --db="$DATABASE_NAME"
+```
+
+Then, use the credentials in `config.js` to instantiate [Sequelize](https://github.com/sequelize/sequelize):
+``` javascript
+var Sequelize = require('sequelize')
+  , config = require(__dirname + "/../config/config")
+
+var sequelize = new Sequelize(config.postgres.database,
+config.postgres.username, config.postgres.password, {
+  dialect:  'postgres',
+  protocol: 'postgres'
+})
+```
+
