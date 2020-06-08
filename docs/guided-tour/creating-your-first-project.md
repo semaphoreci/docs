@@ -46,9 +46,29 @@ see with the generated YAML file.
 [Let's move on to an overview of key Semaphore concepts][next] to learn what
 each part means.
 
-### Troubleshooting
+## Troubleshooting
 
-In case running `sem init` throws an error:
+Here are some useful tips on what to do if you find yourself in one of the
+situations described below.
+
+### "Fetching repositories..." message showing continuously
+
+In the situation where Semaphore is showing "Fetching repositories..." message
+longer than expected, please do the following:
+
+1. Check if you have an Admin permission level for the repository on GitHub.
+2. Check if the access has been granted for Semaphore 2.0 within your GitHub 
+organization. You can use [this link](https://github.com/settings/connections/applications/328c742132e5407abd7d) for that. There should be a green checkmark next to the name of your organization.
+3. If the access hasn't been granted, you can request the GitHub organization owner 
+to give access to Semaphore. [Here](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps) you can find how.
+
+If all of the above mentioned is met and you are still experiencing issues,
+please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com).
+
+### Running `sem init` returns an error
+
+
+If you see one of the following error messages while running `sem init`:
 
 ``` txt
 error: http status 422 with message
@@ -83,7 +103,7 @@ You can do the following:
 [install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
 [github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
 
-### Renaming a project
+## Renaming a project
 
 If you want to rename your project, you can:
 
@@ -94,7 +114,7 @@ If you want to rename your project, you can:
 
 This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit-examples).
 
-### Transferring project ownership
+## Transferring project ownership
 
 If you need to transfer ownership of any project in your organization,
 please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com). In this email please include 
@@ -103,7 +123,7 @@ the name of the project and the GitHub username of the new owner.
 **Note:** After the project ownership transfer, you need to push a new commit. 
 Rerunning old builds will no longer work if the ownership of a project is changed.
 
-### Deleting a project
+## Deleting a project
 
 In order to delete a project, you can:
 
