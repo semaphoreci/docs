@@ -4,6 +4,9 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 8, 2020
+- macOS Mojave image (macos-mojave-xcode11) has been deprecated. 
+
 ### Week of June 1, 2020
 
 - Additions to the ubuntu1804 image
