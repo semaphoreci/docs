@@ -4,6 +4,9 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 8, 2020
+- macOS Mojave image (macos-mojave-xcode11) has been deprecated. 
+
 ### Week of June 1, 2020
 
 - Additions to the ubuntu1804 image
@@ -55,7 +58,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2164).
 
 ### Week of April 27, 2020
-
+- New macOS image available - [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/)
 - Updates to the ubuntu1804 image:
     - Aws-cli 1.18.39 -> 1.18.42
     - Jruby 9.1.17.0 -> 9.2.11.1
