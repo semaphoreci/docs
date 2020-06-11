@@ -1,8 +1,7 @@
 # Docker Layer Caching
 
-This document will show you how you can use Layer Caching in Docker in order to
-make your builds faster and is indented for Semaphore 2.0 users that create
-Docker containers in their Semaphore 2.0 projects.
+This document will show you how to use Layer Caching in Docker to make your
+builds faster and apply it in CI/CD workflows on Semaphore.
 
 ## About Layer Caching in Docker
 
