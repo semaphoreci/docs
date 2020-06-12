@@ -4,7 +4,7 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of June 1, 2020
+### Week of June 15, 2020
 
 - Updates to the ubuntu1804 image:
     - Aws-cli 1.18.68 -> 1.18.77
