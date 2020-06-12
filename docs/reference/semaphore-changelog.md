@@ -4,6 +4,16 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 1, 2020
+
+- Updates to the ubuntu1804 image:
+    - Aws-cli 1.18.68 -> 1.18.77
+    - Firefox 68.4esr -> 68.9esr
+    - Git 2.26 -> 2.27
+    - Go 1.13.10 -> 1.13.12
+    - Go 1.14.2 -> 1.14.4
+    - Heroku 7.41.1 -> 7.42.1
+    
 ### Week of June 8, 2020
 - macOS Mojave image (macos-mojave-xcode11) has been deprecated. 
 
