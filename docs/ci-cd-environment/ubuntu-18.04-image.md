@@ -60,7 +60,7 @@ Following version control tools are pre-installed:
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.4.1
+- Firefox 68.9
 - geckodriver 0.26.0
 - Google Chrome 83
 - chrome_driver 83
@@ -116,8 +116,8 @@ Versions:
 - 1.10.8
 - 1.11.13
 - 1.12.17
-- 1.13.10
-- 1.14.2
+- 1.13.12
+- 1.14.4
 
 ### Java and JVM languages
 
