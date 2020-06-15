@@ -118,6 +118,10 @@ to be met:
 
 After that, we’ll change the ownership on your behalf.
 
+**Note:** Transferring ownership of an organization doesn't automatically transfer 
+the projects you own in that organization. If you'd like us to transfer ownership of 
+the projects, too, please include that in your message.
+
 ## Deleting an organization 
 
 Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#deleting-a-project) in it. 
