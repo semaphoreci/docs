@@ -8,7 +8,7 @@ This page is updated on a weekly basis.
 
 - Updates to the ubuntu1804 image:
     - Aws-cli 1.18.68 -> 1.18.77
-    - Firefox 68.4esr -> 68.9esr
+    - Firefox 68.4esr -> 68.9.0esr
     - Git 2.26 -> 2.27
     - Go 1.13.10 -> 1.13.12
     - Go 1.14.2 -> 1.14.4
