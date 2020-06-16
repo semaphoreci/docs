@@ -37,6 +37,9 @@
     <td><a href="#shell-configuration">Why does my job break after changing the shell configuration?</a></td>
     <td></td>
   </tr>
+  <tr>
+    <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
+    <td></td>
   </tbody>
 </table>  
  
@@ -171,6 +174,14 @@ source ~/my_script
   </p>
 </details>
 
+<details>
+  <summary id="workflows-parallel">Why are my workflows not running in parallel?</summary>
+  <p>
+
+When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
+
+The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the [auto_cancel][auto-cancel] feature.
+
 ### Billing
 
 
@@ -179,3 +190,5 @@ source ~/my_script
 [epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
 [private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
 [secret]: https://docs.semaphoreci.com/essentials/using-secrets/
+[auto-cancel]: https://docs.semaphoreci.com/article/153-auto-cancel
+
