@@ -26,6 +26,10 @@
     <td></td>
   </tr>
   <tr>
+    <td><a href="#attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</a></td>
+    <td></td>
+  </tr>  
+  <tr>
     <th>Jobs & Workflows</th>
     <th>Billing</th>
   </tr>
@@ -40,6 +44,7 @@
   <tr>
     <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
     <td></td>
+  </tr>  
   </tbody>
 </table>  
  
@@ -125,6 +130,16 @@ This will allow the connection to a private remote registry using the self-signe
   </p>
 </details>
 
+<details>
+  <summary id="attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</summary>
+  <p>
+    
+It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session. 
+To get the job ID you can use `sem get jobs` to get the list of all running jobs.
+
+ </p>
+</details>
+
 ### Account management
 
 <details>
@@ -182,6 +197,9 @@ When pushing several commits into the same branch, Semaphore won't run parallel 
 
 The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the [auto_cancel][auto-cancel] feature.
 
+</p>
+</details>
+
 ### Billing
 
 
@@ -191,4 +209,4 @@ The only way to push several commits to a single branch and not wait for the wor
 [private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
 [secret]: https://docs.semaphoreci.com/essentials/using-secrets/
 [auto-cancel]: https://docs.semaphoreci.com/article/153-auto-cancel
-
+[sem-attach]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach
