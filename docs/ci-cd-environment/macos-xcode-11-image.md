@@ -71,24 +71,24 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.148.1)
-- cocoapods (1.9.1)
+- fastlane (2.149.1)
+- cocoapods (1.9.3)
 
 ## Languages
 
 ### Java
 
-- openjdk 11.0.2
+- openjdk 14
 
 ### JavaScript via Node.js
 
 Installed version:
 
-- v11.10.0
+- v13.12.0
 
 #### Additional tools
 
-- Yarn: 1.13.0
+- Yarn: 1.22.4
 
 ### Python
 
@@ -99,7 +99,8 @@ Installed version:
 
 Supporting libraries:
 
-- pip3: 18.1
+- pip: 20.2b1
+- pip3: 20.0.2
 
 ### Ruby
 
@@ -110,7 +111,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.17.1
+- v1.17.3
 
 ## Xcode
 
@@ -121,6 +122,7 @@ Installed versions:
 - 11.4.1
 - 11.5
 
+To switch between versions use `xcversion select <version>` e.g `xcversion select 11.5`
 
 Xcode 11.2.1 has the following SDKs preinstalled:
 
