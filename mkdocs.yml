@@ -105,7 +105,7 @@ nav:
       - Docker layer caching: ci-cd-environment/docker-layer-caching.md
       - Working with Docker: ci-cd-environment/working-with-docker.md
     - "iOS/macOS":
-      - macOS Catalina Xcode 11 image: ci-cd-environment/macos-catalina-xcode-11-image.md
+      - macOS Xcode 11 image: ci-cd-environment/macos-xcode-11-image.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
