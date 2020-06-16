@@ -6,6 +6,13 @@ This page is updated on a weekly basis.
 
 ### Week of June 15, 2020
 
+- Updates to macos-xcode11 image:
+  - flutter v1.17.3
+  - cocoapods 1.9.3
+  - nodejs v13.12.0
+  - yarn v1.22.4
+  - fastlane 2.149.1
+
 - Updates to the ubuntu1804 image:
     - Aws-cli 1.18.68 -> 1.18.77
     - Firefox 68.4esr -> 68.9.0esr
