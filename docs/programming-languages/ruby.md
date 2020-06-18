@@ -252,3 +252,35 @@ for details on preinstalled browsers and testing tools on Semaphore.
 [macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#ruby
 [ruby-docker-image]: https://hub.docker.com/r/semaphoreci/ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+
+## Running RSpec and Cucumber in parallel
+
+To run Cucumber or RSpec suites in parallel across multiple jobs you can use `semaphore_test_boosters` gem.
+
+To set it up use the following snippet for your RSpec block:
+```yaml
+...
+
+jobs:
+  - name: RSpec
+    parallelism: 5 # Number of jobs to run in parallel
+    commands:
+      - gem install semaphore_test_boosters
+      - rspec_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
+      
+ ...
+ ```
+ 
+ The similar setup is also used for Cucumber block:
+```yaml
+...
+
+jobs:
+  - name: Cucumber
+    parallelism: 5  # Number of jobs to run in parallel
+    commands:
+      - gem install semaphore_test_boosters
+      - cucumber_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
+      
+ ...
+ ```
