@@ -93,9 +93,14 @@ manually stop a debug session execute `sem stop job [job-id]` from your local
 machine. You can find the Job ID of your debug job using the `sem get jobs`
 command.
 
+## Attaching to an ongoing SSH session
+
+It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session. To get the job ID of the SSH session you can use `sem get jobs` to get the list of all running jobs.
+
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Secrets YAML Reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
 
 [install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[sem-attach]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach
