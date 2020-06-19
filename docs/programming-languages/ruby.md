@@ -265,7 +265,7 @@ jobs:
     parallelism: 5 # Number of jobs to run in parallel
     commands:
       - gem install semaphore_test_boosters
-      - rspec_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
+      - rspec_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
  
  The similar setup is also used for Cucumber block:
@@ -276,5 +276,5 @@ jobs:
     parallelism: 5  # Number of jobs to run in parallel
     commands:
       - gem install semaphore_test_boosters
-      - cucumber_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
+      - cucumber_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
