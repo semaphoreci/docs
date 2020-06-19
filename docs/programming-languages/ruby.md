@@ -266,7 +266,7 @@ jobs:
     commands:
       - gem install semaphore_test_boosters
       - rspec_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
- ```
+```
  
  The similar setup is also used for Cucumber block:
  
@@ -277,4 +277,4 @@ jobs:
     commands:
       - gem install semaphore_test_boosters
       - cucumber_booster --job $SEMAPHORE_JOB_INDEX/5 # Use environment variable to run portion of a spec suite
- ```
+```
