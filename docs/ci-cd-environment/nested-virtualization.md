@@ -2,16 +2,16 @@
 
 Linux based virtual machines support nested virtualization.
 
-To check that nested virtualization is supported , we suggest
+To check if nested virtualization is supported , we suggest
 issuing `grep -cw vmx /proc/cpuinfo`. The resulting number 
-will be greater than 0 since virtualization flag is present 
+will be greater than 0 since the virtualization flag is present 
 on all VM cpu cores.
 
 Nested virtualization can be managed through `libvirt`, 
 which is already preinstalled.
 
 Predefined default network for nested virtualization is `192.168.123.0/24`.
-The base VM provides `virbr0` interface, having IP address `192.168.123.1`.
+The base VM provides `virbr0` interface with the IP address: `192.168.123.1`.
 
 Example of nested virtualization, using `uvltool` and prebuilt 
 Ubuntu cloud images:
