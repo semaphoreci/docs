@@ -2,7 +2,7 @@
 
 Linux based virtual machines support nested virtualization.
 
-To check if nested virtualization is supported , we suggest
+To check if nested virtualization is supported, we suggest
 issuing `grep -cw vmx /proc/cpuinfo`. The resulting number 
 will be greater than 0 since the virtualization flag is present 
 on all VM cpu cores.
