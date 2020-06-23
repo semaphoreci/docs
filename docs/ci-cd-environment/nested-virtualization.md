@@ -28,7 +28,7 @@ blocks:
   - name: with uvltool
     task:
       jobs:
-      - name: Using sem-version
+      - name: Using ubuntu cloud images
         commands:
           - checkout
           - sudo apt-get install -y uvtool sshpass net-tools netcat-openbsd
