@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
-    <td></td>
+    <td><a href="#add-repositories-github">How can I add repositories that belong to my GitHub organization?</a></td>
   </tr>
   <tr>
     <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
@@ -148,6 +148,17 @@ To get the job ID you can use `sem get jobs` to get the list of all running jobs
     
 Go to the `People` page of your organization and click on `Refresh list` button.
   </p>
+</details>
+
+<details>
+  <summary id="add-repositories-github">How can I add repositories that belong to my GitHub organization?</summary>
+  <p>
+    
+In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization. 
+You can grant the access [here](https://github.com/settings/connections/applications/328c742132e5407abd7d). If it has already been granted, there should be a green checkmark next to the name of your organization. 
+If not, you should either grant access or request it from the organization's owner.    
+
+</p>
 </details>
 
 ### Jobs & Workflows
