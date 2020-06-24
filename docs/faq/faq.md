@@ -35,11 +35,11 @@
   </tr>
   <tr>
     <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
-    <td></td>
+    <td><a href="#replace-old-credit">How can I correctly replace the old credit card with the new one?</a></td>
   </tr>
   <tr>
     <td><a href="#shell-configuration">Why does my job break after changing the shell configuration?</a></td>
-    <td></td>
+    <td><a href="#remove-old-card">How to remove the old credit card information from the subscription?</a></td>
   </tr>
   <tr>
     <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
@@ -202,7 +202,42 @@ The only way to push several commits to a single branch and not wait for the wor
 
 ### Billing
 
+<details>
+  <summary id="replace-old-credit">How can I correctly replace the old credit card with the new one?</summary>
+  <p>
+    
+If you’ve added a new credit card to the subscription, but the old one is still being charged, 
+it means that the new credit card wasn't marked for usage. Here’s how to do that:
 
+1. Go to Billing,
+2. Click on Credit card and Billing info...
+3. Go to Subscription tab,
+4. Click on Manage,
+5. Go to Update Payment Method,
+6. Click on Use this button next to the credit card you'd like to use.
+
+After that, you can also remove the old credit card if you don't need it anymore.
+</p>
+</details>
+
+<details>
+  <summary id="remove-old-card">How to remove the old credit card information from the subscription?</summary>
+  <p>
+
+If you run into this situation, it means that the old credit card is still in use. 
+In order to mark the new credit card for usage, you can:
+
+1. Go to Billing,
+2. Click on Credit card and Billing info...
+3. Go to Subscription tab,
+4. Click on Manage,
+5. Go to Update Payment Method,
+6. Click on Use this button next to the credit card you'd like to use.
+
+After that, you’ll be able to remove the old credit card.
+
+</p>
+</details>
 
 [prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property
 [epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
