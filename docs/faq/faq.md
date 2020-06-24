@@ -209,12 +209,12 @@ The only way to push several commits to a single branch and not wait for the wor
 If you’ve added a new credit card to the subscription, but the old one is still being charged, 
 it means that the new credit card wasn't marked for usage. Here’s how to do that:
 
-1. Go to Billing,
-2. Click on Credit card and Billing info...
-3. Go to Subscription tab,
-4. Click on Manage,
-5. Go to Update Payment Method,
-6. Click on Use this button next to the credit card you'd like to use.
+1. Go to `Billing`,
+2. Click on `Credit card and Billing info...`
+3. Go to `Subscription` tab,
+4. Click on `Manage`,
+5. Go to `Update Payment Method`,
+6. Click on the `Use this` button next to the credit card you'd like to use.
 
 After that, you can also remove the old credit card if you don't need it anymore.
 </p>
@@ -227,12 +227,12 @@ After that, you can also remove the old credit card if you don't need it anymore
 If you run into this situation, it means that the old credit card is still in use. 
 In order to mark the new credit card for usage, you can:
 
-1. Go to Billing,
-2. Click on Credit card and Billing info...
-3. Go to Subscription tab,
-4. Click on Manage,
-5. Go to Update Payment Method,
-6. Click on Use this button next to the credit card you'd like to use.
+1. Go to `Billing`,
+2. Click on `Credit card and Billing info...`
+3. Go to `Subscription` tab,
+4. Click on `Manage`,
+5. Go to `Update Payment Method`,
+6. Click on the `Use this` button next to the credit card you'd like to use.
 
 After that, you’ll be able to remove the old credit card.
 
