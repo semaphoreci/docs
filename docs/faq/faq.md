@@ -19,15 +19,12 @@
   </tr>
   <tr>
     <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
-    <td></td>
   </tr>
   <tr>
     <td><a href="#self-signed-certificate">How to use a self-signed certificate with private Docker registry?</a></td>
-    <td></td>
   </tr>
   <tr>
     <td><a href="#attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</a></td>
-    <td></td>
   </tr>  
   <tr>
     <th>Jobs & Workflows</th>
@@ -43,7 +40,6 @@
   </tr>
   <tr>
     <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
-    <td></td>
   </tr>  
   </tbody>
 </table>  
