@@ -1,4 +1,4 @@
-# FAQ [Attention! This site is under construction]
+# FAQ
 
 <!-- markdownlint-disable -->
 <table>
