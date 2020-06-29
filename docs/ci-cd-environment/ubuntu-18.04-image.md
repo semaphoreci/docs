@@ -76,7 +76,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 19.03
-- docker-compose 1.24.1
+- docker-compose 1.26.0
 
 ### Cloud CLIs
 
