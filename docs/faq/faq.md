@@ -5,20 +5,21 @@
   <thead>
     <tr>
       <th>Troubleshooting</th>
-      <th>Account management</th>
+      <th>Jobs & Workflows</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td><a href="#fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</a></td>
-    <td><a href="#how-to-add-new-users">How to add new users?</a></td>
+    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
   </tr>
   <tr>
     <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
-    <td><a href="#add-repositories-github">How can I add repositories that belong to my GitHub organization?</a></td>
+    <td><a href="#shell-configuration">Why does my job break after changing the shell configuration?</a></td>
   </tr>
   <tr>
     <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
+    <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
   </tr>
   <tr>
     <td><a href="#self-signed-certificate">How to use a self-signed certificate with private Docker registry?</a></td>
@@ -27,20 +28,16 @@
     <td><a href="#attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</a></td>
   </tr>  
   <tr>
-    <th>Jobs & Workflows</th>
     <th>Billing</th>
+    <th>Account management</th>
   </tr>
   <tr>
-    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
     <td><a href="#replace-old-credit">How can I correctly replace the old credit card with the new one?</a></td>
+    <td><a href="#add-repositories-github">How can I add repositories that belong to my GitHub organization?</a></td>
   </tr>
   <tr>
-    <td><a href="#shell-configuration">Why does my job break after changing the shell configuration?</a></td>
     <td><a href="#remove-old-card">How to remove the old credit card information from the subscription?</a></td>
   </tr>
-  <tr>
-    <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
-  </tr>  
   </tbody>
 </table>  
  
@@ -136,26 +133,6 @@ To get the job ID you can use `sem get jobs` to get the list of all running jobs
  </p>
 </details>
 
-### Account management
-
-<details>
-  <summary id="how-to-add-new-users">How to add new users?</summary>
-  <p>
-    
-Go to the `People` page of your organization and click on `Refresh list` button.
-  </p>
-</details>
-
-<details>
-  <summary id="add-repositories-github">How can I add repositories that belong to my GitHub organization?</summary>
-  <p>
-    
-In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization. 
-You can grant the access [here](https://github.com/settings/connections/applications/328c742132e5407abd7d). If it has already been granted, there should be a green checkmark next to the name of your organization. 
-If not, you should either grant access or request it from the organization's owner.    
-
-</p>
-</details>
 
 ### Jobs & Workflows
 
@@ -242,6 +219,19 @@ In order to mark the new credit card for usage, you can:
 6. Click on the `Use this` button next to the credit card you'd like to use.
 
 After that, you’ll be able to remove the old credit card.
+
+</p>
+</details>
+
+### Account management
+
+<details>
+  <summary id="add-repositories-github">How can I add repositories that belong to my GitHub organization?</summary>
+  <p>
+    
+In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization. 
+You can grant the access [here](https://github.com/settings/connections/applications/328c742132e5407abd7d). If it has already been granted, there should be a green checkmark next to the name of your organization. 
+If not, you should either grant access or request it from the organization's owner.    
 
 </p>
 </details>
