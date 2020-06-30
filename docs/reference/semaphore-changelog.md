@@ -4,6 +4,12 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 29, 2020
+
+- Updates to the ubuntu1804 image:
+    - Aws-cli 1.18.77 -> 1.18.89
+    - Docker-compose 1.24.1 -> 1.26.0
+
 ### Week of June 15, 2020
 
 - Updates to macos-xcode11 image:

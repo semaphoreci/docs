@@ -57,7 +57,9 @@ you will need to modify or delete `.ruby-version` in order to choose a different
 Ruby version.
 
 You can also change the active Ruby version by calling `sem-version ruby`
-followed by the desired Ruby version. Here's an example:
+followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the 
+desired ruby version can be forced. In this case `.ruby-version` file is not taken into account.
+Here's an example:
 
 ``` yaml
 blocks:
@@ -65,7 +67,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version ruby 2.5.1
+          - sem-version ruby 2.5.1 -f
       jobs:
         - name: Tests
           commands:
