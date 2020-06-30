@@ -159,3 +159,5 @@ nav:
     - Checking the connection between GitHub and Semaphore 2.0: account-management/checking-the-connection-between-github-and-semaphore-2.0.md
     - Discounts: account-management/discounts.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md
+  - FAQ:
+    - FAQ: faq/faq.md
