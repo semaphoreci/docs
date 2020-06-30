@@ -10,7 +10,7 @@ This page is updated on a weekly basis.
     - Sysstat
 
 - Updates to the ubuntu1804 image:
-    - Aws-cli 1.18.77 -> 1.18.89
+    - Aws-cli 1.18.77 -> 1.18.90
     - Docker-compose 1.24.1 -> 1.26.0
 
 ### Week of June 15, 2020
