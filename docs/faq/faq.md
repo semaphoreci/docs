@@ -1,6 +1,5 @@
 # Frequently asked questions
 
-<!-- markdownlint-disable -->
 <table>
   <thead>
     <tr>
@@ -129,10 +128,8 @@ This will allow the connection to a private remote registry using the self-signe
     
 It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session. 
 To get the job ID you can use `sem get jobs` to get the list of all running jobs.
-
  </p>
 </details>
-
 
 ### Jobs & Workflows
 
@@ -180,7 +177,6 @@ source ~/my_script
 When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
 
 The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the [auto_cancel][auto-cancel] feature.
-
 </p>
 </details>
 
@@ -219,7 +215,6 @@ In order to mark the new credit card for usage, you can:
 6. Click on the `Use this` button next to the credit card you'd like to use.
 
 After that, you’ll be able to remove the old credit card.
-
 </p>
 </details>
 
@@ -232,7 +227,6 @@ After that, you’ll be able to remove the old credit card.
 In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization. 
 You can grant the access [here](https://github.com/settings/connections/applications/328c742132e5407abd7d). If it has already been granted, there should be a green checkmark next to the name of your organization. 
 If not, you should either grant access or request it from the organization's owner.    
-
 </p>
 </details>
 
