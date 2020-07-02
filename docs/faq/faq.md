@@ -92,7 +92,7 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
   <summary id="how-to-build-with-git-submodules">How to build a project with git submodules?</summary>
   <p>
 
-- Add the following commands as a [prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property):
+- Add the following commands as a <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property">prologue</a>:
 ```bash
 git submodule init
 git submodule update
@@ -102,7 +102,7 @@ git submodule update
 git submodule deinit --force .
 ```
 Make sure that Semaphore has permissions to clone your submodules repository.
-In our [private dependencies][private-dependencies] page you can find more
+In our <a href="https://docs.semaphoreci.com/essentials/using-private-dependencies">private dependencies</a> page you can find more
 information about setting permissions for private repositories.
   </p>
 </details>
@@ -114,7 +114,7 @@ information about setting permissions for private repositories.
 If you have a private Docker registry that uses a self-signed SSL certificate
 and pulling the Docker images does not work. The solution is to:
 
-- Add a self-signed certificate as a [secret][] on Semaphore
+- Add a self-signed certificate as a <a href="https://docs.semaphoreci.com/essentials/using-secrets">secret</a> on Semaphore
 - Save it under the name of domain.crt
 - Add the following command to your pipeline
 ```bash
@@ -128,7 +128,7 @@ This will allow the connection to a private remote registry using the self-signe
   <summary id="attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</summary>
   <p>
 
-It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session.
+It's possible to use <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">sem attach</a> to an ongoing SSH session but you'd need to attach to the job ID of the SSH session.
 To get the job ID you can use <code>sem get jobs</code> to get the list of all running jobs.
  </p>
 </details>
@@ -141,13 +141,11 @@ To get the job ID you can use <code>sem get jobs</code> to get the list of all r
 
 You might be hitting the quota limitation. Check your organization's quota
 in Billing > See detailed insights… > Quota. More information about quota
-and how to ask for an increase here:
-https://docs.semaphoreci.com/article/133-quotas-and-limits.
+and how to ask for an increase <a href="https://docs.semaphoreci.com/article/133-quotas-and-limits">here</a>.
 
 You may also run <code>sem get jobs</code> to display all running jobs
 so you may confirm how much quota is being used.
-More information about <code>sem get</code>:
-https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
+More information about <code>sem get</code> <a href="https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples">here</a>.
   </p>
 </details>
 
@@ -178,7 +176,7 @@ source ~/my_script
 
 When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
 
-The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the [auto_cancel][auto-cancel] feature.
+The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the <a href="https://docs.semaphoreci.com/article/153-auto-cancel">auto_cancel</a> feature.
 </p>
 </details>
 
@@ -190,14 +188,17 @@ The only way to push several commits to a single branch and not wait for the wor
 
 If you’ve added a new credit card to the subscription, but the old one is still being charged,
 it means that the new credit card wasn't marked for usage. Here’s how to do that:
-
+</p>
+<p>
+  
 1. Go to <code>Billing</code>,
-2. Click on <code>Credit card and Billing info...</code>
-3. Go to <code>Subscription</code> tab,
-4. Click on <code>Manage</code>,
-5. Go to <code>Update Payment Method</code>,
-6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
-
+<br>2. Click on <code>Credit card and Billing info...</code>
+<br>3. Go to <code>Subscription</code> tab,
+<br>4. Click on <code>Manage</code>,
+<br>5. Go to <code>Update Payment Method</code>,
+<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
+</p>
+<p>
 After that, you can also remove the old credit card if you don't need it anymore.
 </p>
 </details>
@@ -208,14 +209,18 @@ After that, you can also remove the old credit card if you don't need it anymore
 
 If you run into this situation, it means that the old credit card is still in use.
 In order to mark the new credit card for usage, you can:
-
+</p>
+<p>
+  
 1. Go to <code>Billing</code> ,
-2. Click on <code>Credit card and Billing info...</code>
-3. Go to <code>Subscription</code> tab,
-4. Click on <code>Manage</code> ,
-5. Go to <code>Update Payment Method</code> ,
-6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
-
+<br>2. Click on <code>Credit card and Billing info...</code>
+<br>3. Go to <code>Subscription</code> tab,
+<br>4. Click on <code>Manage</code> ,
+<br>5. Go to <code>Update Payment Method</code> ,
+<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
+</p>
+<p>
+  
 After that, you’ll be able to remove the old credit card.
 </p>
 </details>
@@ -227,7 +232,7 @@ After that, you’ll be able to remove the old credit card.
   <p>
 
 In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization.
-You can grant the access [here](https://github.com/settings/applications). If it has already been granted, there should be a green checkmark next to the name of your organization.
+You can grant the access <a href="https://github.com/settings/applications">here</a>. If it has already been granted, there should be a green checkmark next to the name of your organization.
 If not, you should either grant access or request it from the organization's owner.
 </p>
 </details>
