@@ -113,13 +113,18 @@ information about setting permissions for private repositories.
 
 If you have a private Docker registry that uses a self-signed SSL certificate
 and pulling the Docker images does not work. The solution is to:
-
+</p>
+<p>
+  
 - Add a self-signed certificate as a <a href="https://docs.semaphoreci.com/essentials/using-secrets">secret</a> on Semaphore
-- Save it under the name of domain.crt
-- Add the following command to your pipeline
+<br>- Save it under the name of domain.crt
+<br>- Add the following command to your pipeline:
 ```bash
 sudo mv $SEMAPHORE_GIT_DIR/domain.crt /etc/docker/certs.d/myregistrydomain.com:5000/ca.crt
 ```
+</p>  
+<p>
+  
 This will allow the connection to a private remote registry using the self-signed certificate.
   </p>
 </details>
@@ -175,7 +180,9 @@ source ~/my_script
   <p>
 
 When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
-
+</p>
+<p>
+  
 The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the <a href="https://docs.semaphoreci.com/article/153-auto-cancel">auto_cancel</a> feature.
 </p>
 </details>
@@ -191,12 +198,12 @@ it means that the new credit card wasn't marked for usage. Here’s how to do th
 </p>
 <p>
   
-1. Go to <code>Billing</code>,
+1. Go to <code>Billing</code>
 <br>2. Click on <code>Credit card and Billing info...</code>
-<br>3. Go to <code>Subscription</code> tab,
-<br>4. Click on <code>Manage</code>,
-<br>5. Go to <code>Update Payment Method</code>,
-<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
+<br>3. Go to <code>Subscription</code> tab
+<br>4. Click on <code>Manage</code>
+<br>5. Go to <code>Update Payment Method</code>
+<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use
 </p>
 <p>
 After that, you can also remove the old credit card if you don't need it anymore.
@@ -212,12 +219,12 @@ In order to mark the new credit card for usage, you can:
 </p>
 <p>
   
-1. Go to <code>Billing</code> ,
+1. Go to <code>Billing</code> 
 <br>2. Click on <code>Credit card and Billing info...</code>
-<br>3. Go to <code>Subscription</code> tab,
-<br>4. Click on <code>Manage</code> ,
-<br>5. Go to <code>Update Payment Method</code> ,
-<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
+<br>3. Go to <code>Subscription</code> tab
+<br>4. Click on <code>Manage</code> 
+<br>5. Go to <code>Update Payment Method</code> 
+<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use
 </p>
 <p>
   
@@ -233,6 +240,8 @@ After that, you’ll be able to remove the old credit card.
 
 In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization.
 You can grant the access <a href="https://github.com/settings/applications">here</a>. If it has already been granted, there should be a green checkmark next to the name of your organization.
+</p>
+<p>
 If not, you should either grant access or request it from the organization's owner.
 </p>
 </details>
