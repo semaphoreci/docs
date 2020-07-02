@@ -63,8 +63,8 @@ force-pushes to a git repo which is referenced in a Gemfile.
 You can solve it by following these steps:
 </p>
 <p>
-  
-<br>- Comment that gem line in the Gemfile
+
+- Comment that gem line in the Gemfile
 <br>- Run <code>bundle install</code>
 <br>- Uncomment the gem line in the Gemfile
 <br>- Run <code>bundle install</code> again
