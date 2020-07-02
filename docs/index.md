@@ -6,7 +6,7 @@
         Welcome to <a href="https://semaphoreci.com">Semaphore 2.0</a> Documentation. All pages are open source. If you feel something could be improved, you can <a href="https://github.com/semaphoreci/docs/blob/master/CONTRIBUTING.md">propose changes</a>.
     </div>
 
-    <img src="images/ill-docs-welcome.svg">
+    <img src="images/ill-couple-in-office-docs.svg" style="margin-bottom: -8px">
 
     <div class="welcome-blocks-wrapper">
         <div class="welcome-block">

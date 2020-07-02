@@ -1,6 +1,8 @@
 # Frequently asked questions
 
-<table>
+<p>Issues we stumble upon regularly, across all parts of Semaphore 2.0</p>
+
+<!-- <table>
   <thead>
     <tr>
       <th>Troubleshooting</th>
@@ -25,7 +27,7 @@
   </tr>
   <tr>
     <td><a href="#attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</a></td>
-  </tr>  
+  </tr>
   <tr>
     <th>Billing</th>
     <th>Account management</th>
@@ -38,31 +40,31 @@
     <td><a href="#remove-old-card">How to remove the old credit card information from the subscription?</a></td>
   </tr>
   </tbody>
-</table>  
- 
+</table> -->
+
 ### Troubleshooting
- 
+
 <details>
   <summary id="fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</summary>
   <p>
-    
-If the `bundle install` output looks like this:
+
+If the <code>bundle install</code> output looks like this:
 ```bash
 Fetching gem metadata from http://rubygems.org/.......
 Fetching gem metadata from http://rubygems.org/..
 Updating git://github.com/some/gem.git
 fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
-Git error: command `git reset --hard a84dd3407eaf064064cca9650c354cb163384467` in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
+Git error: command <code>git reset --hard a84dd3407eaf064064cca9650c354cb163384467</code> in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
 If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
 ```
-    
-This problem occurs when there have been changes like 
-force-pushes to a git repo which is referenced in a Gemfile. 
+
+This problem occurs when there have been changes like
+force-pushes to a git repo which is referenced in a Gemfile.
 You can solve it by following these steps:
 - Comment that gem line in the Gemfile
-- Run `bundle install`
+- Run <code>bundle install</code>
 - Uncomment the gem line in the Gemfile
-- Run `bundle install` again
+- Run <code>bundle install</code> again
 
 The Gemfile.lock will now reference a valid git revision.
   </p>
@@ -71,15 +73,15 @@ The Gemfile.lock will now reference a valid git revision.
 <details>
   <summary id="how-to-change-the-timezone">How to change the timezone?</summary>
   <p>
-    
-The default timezone in the virtual machine is set to UTC. 
+
+The default timezone in the virtual machine is set to UTC.
 The timezone can be changed in 2 ways:
 
-- Assign a different value to `TZ` environment variable: 
+- Assign a different value to <code>TZ</code> environment variable:
 ```bash
 export TZ=Europe/Belgrade
 ```
-- Create a symlink in `/etc/localtime` to one of the available timezones:
+- Create a symlink in <code>/etc/localtime</code> to one of the available timezones:
 ```bash
 sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
 ```
@@ -99,7 +101,7 @@ git submodule update
 ```bash
 git submodule deinit --force .
 ```
-Make sure that Semaphore has permissions to clone your submodules repository. 
+Make sure that Semaphore has permissions to clone your submodules repository.
 In our [private dependencies][private-dependencies] page you can find more
 information about setting permissions for private repositories.
   </p>
@@ -109,7 +111,7 @@ information about setting permissions for private repositories.
   <summary id="self-signed-certificate">How to use a self-signed certificate with private Docker registry?</summary>
   <p>
 
-If you have a private Docker registry that uses a self-signed SSL certificate 
+If you have a private Docker registry that uses a self-signed SSL certificate
 and pulling the Docker images does not work. The solution is to:
 
 - Add a self-signed certificate as a [secret][] on Semaphore
@@ -125,9 +127,9 @@ This will allow the connection to a private remote registry using the self-signe
 <details>
   <summary id="attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</summary>
   <p>
-    
-It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session. 
-To get the job ID you can use `sem get jobs` to get the list of all running jobs.
+
+It's possible to use [sem attach][sem-attach] to an ongoing SSH session but you'd need to attach to the job ID of the SSH session.
+To get the job ID you can use <code>sem get jobs</code> to get the list of all running jobs.
  </p>
 </details>
 
@@ -136,15 +138,15 @@ To get the job ID you can use `sem get jobs` to get the list of all running jobs
  <details>
  <summary id="why-my-jobs-dont-start">Why my jobs don't start?</summary>
   <p>
-    
+
 You might be hitting the quota limitation. Check your organization's quota
-in Billing > See detailed insights… > Quota. More information about quota 
-and how to ask for an increase here: 
+in Billing > See detailed insights… > Quota. More information about quota
+and how to ask for an increase here:
 https://docs.semaphoreci.com/article/133-quotas-and-limits.
 
-You may also run `sem get jobs` to display all running jobs 
-so you may confirm how much quota is being used. 
-More information about `sem get`: 
+You may also run <code>sem get jobs</code> to display all running jobs
+so you may confirm how much quota is being used.
+More information about <code>sem get</code>:
 https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
   </p>
 </details>
@@ -152,7 +154,7 @@ https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples.
 <details>
   <summary id="shell-configuration">Why does my job break after changing the shell configuration?</summary>
   <p>
-    
+
 Adding any of the following to your shell is not supported and will cause the jobs to immediately fail:
 ```bash
 set -e
@@ -161,7 +163,7 @@ set -euxo pipefail
 ```
   </p>
   <p>
-  
+
 This also applies when sourcing a script that contains the previous settings:
 ```bash
 source ~/my_script
@@ -185,16 +187,16 @@ The only way to push several commits to a single branch and not wait for the wor
 <details>
   <summary id="replace-old-credit">How can I correctly replace the old credit card with the new one?</summary>
   <p>
-    
-If you’ve added a new credit card to the subscription, but the old one is still being charged, 
+
+If you’ve added a new credit card to the subscription, but the old one is still being charged,
 it means that the new credit card wasn't marked for usage. Here’s how to do that:
 
-1. Go to `Billing`,
-2. Click on `Credit card and Billing info...`
-3. Go to `Subscription` tab,
-4. Click on `Manage`,
-5. Go to `Update Payment Method`,
-6. Click on the `Use this` button next to the credit card you'd like to use.
+1. Go to <code>Billing</code>,
+2. Click on <code>Credit card and Billing info...</code>
+3. Go to <code>Subscription</code> tab,
+4. Click on <code>Manage</code>,
+5. Go to <code>Update Payment Method</code>,
+6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
 
 After that, you can also remove the old credit card if you don't need it anymore.
 </p>
@@ -204,15 +206,15 @@ After that, you can also remove the old credit card if you don't need it anymore
   <summary id="remove-old-card">How to remove the old credit card information from the subscription?</summary>
   <p>
 
-If you run into this situation, it means that the old credit card is still in use. 
+If you run into this situation, it means that the old credit card is still in use.
 In order to mark the new credit card for usage, you can:
 
-1. Go to `Billing`,
-2. Click on `Credit card and Billing info...`
-3. Go to `Subscription` tab,
-4. Click on `Manage`,
-5. Go to `Update Payment Method`,
-6. Click on the `Use this` button next to the credit card you'd like to use.
+1. Go to <code>Billing</code> ,
+2. Click on <code>Credit card and Billing info...</code>
+3. Go to <code>Subscription</code> tab,
+4. Click on <code>Manage</code> ,
+5. Go to <code>Update Payment Method</code> ,
+6. Click on the <code>Use this</code> button next to the credit card you'd like to use.
 
 After that, you’ll be able to remove the old credit card.
 </p>
@@ -223,10 +225,10 @@ After that, you’ll be able to remove the old credit card.
 <details>
   <summary id="add-repositories-github">How can I add repositories that belong to my GitHub organization?</summary>
   <p>
-    
-In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization. 
-You can grant the access [here](https://github.com/settings/connections/applications/328c742132e5407abd7d). If it has already been granted, there should be a green checkmark next to the name of your organization. 
-If not, you should either grant access or request it from the organization's owner.    
+
+In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization.
+You can grant the access [here](https://github.com/settings/applications). If it has already been granted, there should be a green checkmark next to the name of your organization.
+If not, you should either grant access or request it from the organization's owner.
 </p>
 </details>
 

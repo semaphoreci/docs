@@ -18,13 +18,13 @@ td {
 }
 
 header {
-    background: #029162 !important;
+    background: #00a569 !important;
     box-shadow: none !important;
 }
 
 @media only screen and (max-width: 76.1875em) {
     html .md-nav--primary .md-nav__title--site {
-        background-color: #029162 !important;
+        background-color: #00a569 !important;
     }
 
     html .md-nav--primary .md-nav__title--site .md-nav__button {
@@ -77,6 +77,10 @@ header {
 .md-typeset h1, .md-typeset h2 {
     letter-spacing: 0 !important;
     color: #283233;
+}
+
+.md-typeset h1 {
+    margin-bottom: 16px;
 }
 
 .md-footer-nav {
@@ -197,6 +201,22 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
     padding-top: 0 !important;
 }
 
+.md-typeset details {
+    font-size: 16px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    border-left-color: #00a569;
+}
+
+.md-typeset details > summary {
+    font-weight: normal;
+    background-color: #f5f5f5;
+    border-bottom-color: #e2e2e2;
+}
+
+.md-typeset details > summary:before {
+    color: #00a569;
+}
+
 /* Welcome page */
 
 .welcome-page {
@@ -243,7 +263,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
     .welcome-page .welcome-intro {
         display: block;
         position: absolute;
-        top: -78px;
+        top: -56px;
         left: -250px;
         width: 224px;
         padding-right: 20px;
@@ -256,14 +276,14 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 @media screen and (min-width: 1600px) {
     .welcome-page .welcome-intro {
-        top: -82px;
+        top: -60px;
         left: -275px;
     }
 }
 
 @media screen and (min-width: 2000px) {
     .welcome-page .welcome-intro {
-        top: -92px;
+        top: -70px;
         left: -300px;
         width: 270px;
     }
