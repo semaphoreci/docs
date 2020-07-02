@@ -92,12 +92,12 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
   <summary id="how-to-build-with-git-submodules">How to build a project with git submodules?</summary>
   <p>
 
-- Add the following commands as a [prologue][]:
+- Add the following commands as a [prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property):
 ```bash
 git submodule init
 git submodule update
 ```
-- Add the following command as an [epilogue][]:
+- Add the following command as an <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property">epilogue</a>:
 ```bash
 git submodule deinit --force .
 ```
