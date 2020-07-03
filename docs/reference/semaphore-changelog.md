@@ -13,6 +13,13 @@ This page is updated on a weekly basis.
     - Aws-cli 1.18.77 -> 1.18.90
     - Docker-compose 1.24.1 -> 1.26.0
 
+- The [macos-xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image update.
+The following packages were updated:
+    - Fastlane 1.50.1
+    - Flutter 1.17.5
+- New convenience Docker image available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2939).
+
 ### Week of June 15, 2020
 
 - Updates to macos-xcode11 image:
