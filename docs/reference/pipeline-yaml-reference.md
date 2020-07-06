@@ -608,9 +608,11 @@ It can contain any of these properties:
 - [epilogue](#epilogue)
 - [secrets](#secrets)
 - [env_vars](#env_vars)
+- [priority](#priority)
 
 The defined configuration values have completely the same syntax as the ones
-defined on a task level and are applied to all the tasks and jobs in a pipeline.
+defined on a task or a job level and are applied to all the tasks and jobs in a
+pipeline.
 
 In the case of `prologue` and `env_vars` the global values, ones from
 `global_job_config`, are exported first, and after them, the ones defined on a
@@ -622,6 +624,11 @@ In the case of `epilogue`, the order of exporting is reversed, so, for example,
 one can firstly perform specific cleanup commands before the global ones.
 
 The `secrets` are just merged since ordering plays no role there.
+
+In the case of the `priority`, the global values are added at the end of the list
+of the priorities and their conditions defined on a job level.
+This allows for job-specific priorities to be evaluated first, and only if none
+of them matches will the global ones be evaluated and used.
 
 ### An example of using global\_job\_config property
 
@@ -1131,6 +1138,57 @@ blocks:
         commands:
           - echo $VAR_1
           - echo $APP_ENV
+```
+
+### priority
+
+The `priority` property allows you to configure a job priority that affects the
+order in which jobs are started when the parallel jobs quota for the organization
+is reached.
+
+It holds a list of items where each item has a `value` property that represents
+the numerical value for the job priority in range from a 0 to a 100, and a `when`
+condition property written in [Conditions DSL][conditions-reference].
+
+The items are evaluated from the top of the list and the value of the first item
+which `when` condition is evaluated as true will be set as the priority for the
+given job.
+
+If non of the conditions is evaluated as true, the
+[default job priority][default-priorities] will be set.
+
+#### Example of priority
+
+The following pipeline illustrates the use of the `priority` property:
+
+``` yaml
+version: v1.0
+name: Job priorities
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Tests
+    task:
+      jobs:
+      - name: Unit tests
+        priority:
+        - value: 70
+          when: "branch = 'master'"
+        - value: 45
+          when: true
+        commands:
+          - make unit-test
+      - name: Integration tests
+        priority:
+        - value: 58
+          when: "branch = 'master'"
+        - value: 42
+          when: true
+        commands:
+          - make integration-test
 ```
 
 ### matrix
@@ -2031,3 +2089,4 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
 [secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
+[default-priorities]: https://docs.semaphoreci.com/essentials/prioritizing-jobs/#default-job-priorities
