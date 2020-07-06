@@ -65,6 +65,7 @@ nav:
     - Monorepo workflows: essentials/building-monorepo-projects.md
     - Tag-triggered deployment: essentials/tag-triggered-deployment.md
     - Job matrix: essentials/build-matrix.md
+    - Prioritizing jobs: essentials/prioritization.md
     - Debugging with SSH: essentials/debugging-with-ssh-access.md
     - Caching: essentials/caching-dependencies-and-directories.md
     - Artifacts: essentials/artifacts.md
