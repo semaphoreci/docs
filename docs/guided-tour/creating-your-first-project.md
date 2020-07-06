@@ -46,7 +46,7 @@ see with the generated YAML file.
 [Let's move on to an overview of key Semaphore concepts][next] to learn what
 each part means.
 
-### Troubleshooting
+## Troubleshooting
 
 In case running `sem init` throws an error:
 
@@ -83,7 +83,7 @@ You can do the following:
 [install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
 [github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
 
-### Renaming a project
+## Renaming a project
 
 If you want to rename your project, you can:
 
@@ -94,16 +94,21 @@ If you want to rename your project, you can:
 
 This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit-examples).
 
-### Transferring project ownership
+## Transferring project ownership
 
-If you need to transfer ownership of any project in your organization,
-please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com). In this email please include 
-the name of the project and the GitHub username of the new owner.
+In order to transfer the project ownership to a new user, the following conditions need to be met:
 
-**Note:** After the project ownership transfer, you need to push a new commit. 
-Rerunning old builds will no longer work if the ownership of a project is changed.
+1. New project owner needs to have Admin permission level for the project on GitHub,
+2. New owner needs to grant access for Semaphore to all repositories. They
+can check that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account).
 
-### Deleting a project
+After that, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
+and include the name of the project and the GitHub username of the new owner in your message.
+
+**Note:** After the project ownership is transferred, you need to push a new commit. 
+Rerunning old builds will no longer work if the ownership of the project is changed.
+
+## Deleting a project
 
 In order to delete a project, you can:
 
