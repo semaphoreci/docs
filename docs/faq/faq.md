@@ -143,6 +143,36 @@ To get the job ID you can use <code>sem get jobs</code> to get the list of all r
  </p>
 </details>
 
+<details>
+  <summary id="change-locale">How to change the Postgres locale?</summary>
+  <p>
+    
+Semaphore uses <code>sem-service</code> to provide different versions of databases. The <code>sem-service</code> tool uses Docker containers
+instead of traditional Linux services. 
+So, the traditional way of changing locales no longer works since it does not affect containers.
+<br>
+<br>The following recipe provides an altered version of the container to <code>sem-service</code>. 
+The database should be available as before, without modifying your application in any way:
+</p>
+<p>
+  
+1. Create a Dockerfile with the following:
+```
+FROM postgres:9.6
+RUN localedef -i ru_RU -c -f UTF-8 -A /usr/share/locale/locale.alias ru_RU.UTF-8
+ENV LANG ru_RU.UTF-8
+```
+2. Rebuild the Postgres image using the locale:
+```
+docker build - -t postgres:lang < Dockerfile
+```
+3. Start the newly created image:
+```
+docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v /var/run/postgresql:/var/run/postgresql postgres:lang
+```
+</p>
+</details>
+
 ### Jobs & Workflows
 
  <details>
