@@ -164,11 +164,11 @@ ENV LANG ru_RU.UTF-8
 ```
 2. Rebuild the Postgres image using the locale:
 ```
-docker build - -t postgres:lang < Dockerfile
+docker build - -t postgres:[lang] < Dockerfile
 ```
 3. Start the newly created image:
 ```
-docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v /var/run/postgresql:/var/run/postgresql postgres:lang
+docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v /var/run/postgresql:/var/run/postgresql postgres:[lang]
 ```
 </p>
 </details>
