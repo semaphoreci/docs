@@ -225,7 +225,7 @@ The only way to push several commits to a single branch and not wait for the wor
 ### Billing
 
 <details>
-  <summary id="replace-old-credit">How can I correctly replace the old credit card with the new one?</summary>
+  <summary id="replace-old-credit">Why are you still charging my old credit card when I added a new default credit card?</summary>
   <p>
 
 If you’ve added a new credit card to the subscription, but the old one is still being charged,
@@ -246,7 +246,7 @@ After that, you can also remove the old credit card if you don't need it anymore
 </details>
 
 <details>
-  <summary id="remove-old-card">How to remove the old credit card information from the subscription?</summary>
+  <summary id="remove-old-card">Why can't I remove the old credit card after adding a new one?</summary>
   <p>
 
 If you run into this situation, it means that the old credit card is still in use.
