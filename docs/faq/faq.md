@@ -159,8 +159,8 @@ The database should be available as before, without modifying your application i
 1. Create a Dockerfile with the following:
 ```
 FROM postgres:9.6
-RUN localedef -i ru_RU -c -f UTF-8 -A /usr/share/locale/locale.alias ru_RU.UTF-8
-ENV LANG ru_RU.UTF-8
+RUN localedef -i pt_BR -c -f UTF-8 -A /usr/share/locale/locale.alias pt_BR.UTF-8
+ENV LANG pt_BR.UTF-8
 ```
 2. Rebuild the Postgres image using the locale:
 ```
