@@ -1,30 +1,34 @@
 # Concepts
 
 Semaphore manages your build, test and deployment workflows with _pipelines_,
-_blocks_, and _promotions_. Workflows may contain multiple pipelines, for
-example one for tests and another for deployment. _Blocks_ define what to do
-at each step in the pipeline. _Promotions_ connect different pipelines.
-Semaphore schedules and runs the blocks on agents. Each agent manages the
-environment the blocks run in. All configuration is written in YAML files.
-The initial pipeline is always kept in `.semaphore/semaphore.yml`. Promoted
-pipelines have different filenames.
+_blocks_, and _promotions_:
+
+- Workflows may contain multiple pipelines, for example one to run tests and
+  another for deployment.
+- _Blocks_ define what to do at each step in the pipeline.
+- Blocks run in _agents_ that define the hardware and software environment.
+- _Promotions_ connect different pipelines.
+
+All configuration is specified in YAML files. The initial pipeline is always
+sourced from `.semaphore/semaphore.yml`. Additional pipelines triggered via
+promotions are defined in separate files.
 
 ![Semaphore 2.0 concepts diagram](https://storage.googleapis.com/semaphore-public-assets/public/images/semaphoreci2-concepts.png)
 
 ## Blocks & Tasks
 
-_Blocks_ are the heart of a pipeline. Each block has a _task_ that
-defines one or more _jobs_. Jobs define the commands to execute.
+Blocks are the building blocks of a pipeline. Each block has a _task_ defined by
+one or more _jobs_. Jobs specify the _commands_ to execute.
 
 If your task contains multiple jobs, Semaphore will execute them in parallel.
-Each job runs in a separate, isolated machine that starts from scratch.
-So, a **test** task could define jobs for **linting**, **unit tests**, and
-**integration tests** that run in parallel, making the task finish faster.
+Each job runs in a separate, isolated machine that boots a clean environment.
+For example, a `Tests` task may define jobs for running unit and integration
+tests in parallel, making the task finish faster.
 
-By default blocks run sequentially, 
-waiting for all tasks in the previous block to complete before continuing. 
-However, you can alter this behavior and run blocks in parallel by using 
-[dependencies in blocks](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks). 
+By default blocks run sequentially, waiting for all tasks in the previous block
+to complete before continuing.  However, you can also define your pipeline as a
+dependency graph or run blocks in parallel by defining
+[block dependencies](https://docs.semaphoreci.com/essentials/modeling-complex-workflows/).
 
 Each task can configure its own environment,
 including machine type, set its own environment variables and use any
