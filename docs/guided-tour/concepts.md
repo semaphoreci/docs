@@ -16,12 +16,17 @@ pipelines have different filenames.
 _Blocks_ are the heart of a pipeline. Each block has a _task_ that
 defines one or more _jobs_. Jobs define the commands to execute.
 
-If your task contains multiple jobs, they are executed in parallel.
-So, a "test" task could define jobs for "linting", "unit tests", and
-"integration tests" that run in parallel, making the task finish faster.
+If your task contains multiple jobs, Semaphore will execute them in parallel.
+Each job runs in a separate, isolated machine that starts from scratch.
+So, a **test** task could define jobs for **linting**, **unit tests**, and
+**integration tests** that run in parallel, making the task finish faster.
 
-Blocks are executed sequentially, waiting for all tasks in the previous block
-to complete before continuing. Each task can configure its own environment,
+By default blocks run sequentially, 
+waiting for all tasks in the previous block to complete before continuing. 
+However, you can alter this behavior and run blocks in parallel by using 
+[dependencies in blocks](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks). 
+
+Each task can configure its own environment,
 including machine type, set its own environment variables and use any
 predefined secret.
 
@@ -31,7 +36,7 @@ for complete information.
 
 ## Promotions
 
-_Promotions_ are junctions blocks in your larger workflow. Promotions are
+_Promotions_ are junction blocks in your larger workflow. Promotions are
 commonly used for deployment and promoting builds to different environments.
 A pipeline can have multiple promotions. Promoting loads an entirely new
 pipeline, so you can build up complex pipelines using only configuration files.
