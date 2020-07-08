@@ -40,10 +40,10 @@ from the existing private key in `id_rsa_semaphoreci` on your local
 machine:
 
 ``` bash
-sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.ssh/private-repo
+sem create secret private-repo --file id_rsa_semaphoreci:/home/semaphore/.ssh/id_rsa_semaphoreci
 ```
 
-This will create the file `~/.ssh/private-repo` in your Semaphore jobs.
+This will create the file `~/.ssh/id_rsa_semaphoreci` in your Semaphore jobs.
 
 Note: on macOS the home directory is `/Users/semaphore`.
 
@@ -62,11 +62,11 @@ blocks:
         - name: private-repo
       prologue:
         commands:
+          - checkout
           # Correct premissions since they are too open by default:
           - chmod 0600 ~/.ssh/id_rsa_semaphoreci
           # Add the key to the ssh agent:
           - ssh-add ~/.ssh/id_rsa_semaphoreci
-          - checkout
           # Now bundler/yarn/etc are able to pull private dependencies:
           - bundle install
       jobs:
