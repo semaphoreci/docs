@@ -1,17 +1,15 @@
 # Prioritizing jobs
 
-At the end of the day when everyone is committing their work or in cases when there
-is a sudden burst of activity like when you start to roll out deployments for
-multiple services, the [quota][quota-link] of maximum parallel jobs for your
-organization could easily be reached.
-
-In these situations, it is important to know which job will be run next and to be
-able to configure it if needed.
-
-The feature that enables this is called the job `priority`.
+The job `priority`  allows you to manage the order in which the enqueued jobs are
+starting to run when the [quota][quota-link] of maximum parallel jobs for your
+organization is reached.
 
 Each new job is assigned a priority between a `0` and a `100` and the jobs with
 higher priority are run first.
+
+These priorities are assigned automatically as it is described below, but you
+can also override those default values and configure the job priorities directly
+in your YAML configuration files.
 
 ## Default job priorities
 
