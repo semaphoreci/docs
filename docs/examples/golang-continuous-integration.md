@@ -220,6 +220,43 @@ yourself. Here’s how to build the demo project with your own account:
 5. Edit the `.semaphore/semaphore.yml` file and make a commit. When you push a
    commit to GitHub, Semaphore will run the CI pipeline.
 
+## Managing module dependencies in private repositories on GitHub
+
+You can keep your go modules private and automate their installation with the
+help of [GitHub tokens](https://github.com/settings/tokens):
+
+1. [Generate a GitHub token](https://github.com/settings/tokens/new).
+2. [Create a secret](https://docs.semaphoreci.com/essentials/using-secrets/#creating-and-managing-secrets) named `my-token` with the environment variable 
+`GITHUB_TOKEN` containing the information obtained above.
+3. After checking out your code configure `git` to use the token:
+
+`git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/mycompany".insteadOf "https://github.com/mycompany"`
+
+where `mycompany` is the name of your account/organization.
+
+The `.semaphore/semaphore.yml` file should have the following additions:
+
+``` yaml
+version: v1.0
+name: Go project example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Build project
+    task:
+      secrets:
+        - name: my-token
+      jobs:
+      - name: Get Go packages
+        commands:
+          - checkout
+          - git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/mycompany".insteadOf "https://github.com/mycompany"
+          - sem-version go 1.12
+```
+
 ### See also
 
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
