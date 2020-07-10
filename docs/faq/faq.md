@@ -172,6 +172,14 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
 ```
 </p>
 </details>
+<details>
+  <summary id="remove-status-checks-in-pull-requests">How can I remove Semaphore Status checks on pull requests?</summary>
+  <p>
+    
+ You can disable Semaphore as a required status check through the <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> in your GitHub account.
+  
+  </p>  
+</details>
 
 ### Jobs & Workflows
 
