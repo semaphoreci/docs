@@ -1,3 +1,7 @@
+---
+description: To build, test and deploy your code on Semaphore 2.0, you'll need to create a project for it to live in. This guide will show you how to do that.
+---
+
 # Creating Your First Project
 
 To build, test and deploy your code on Semaphore, you'll need to
