@@ -1,3 +1,7 @@
+---
+description: Learn the basic concepts of Semaphore 2.0 such as Blocks & Tasks, Promotions, Secrets, Agents, Machines, and Containers.
+---
+
 # Concepts
 
 Semaphore manages your build, test and deployment workflows with _pipelines_,

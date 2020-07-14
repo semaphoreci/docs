@@ -1,3 +1,7 @@
+---
+description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features. 
+---
+
 # Getting Started
 
 Welcome to the guided tour of Semaphore! In this guide we help you get up and
