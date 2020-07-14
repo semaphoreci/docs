@@ -1,3 +1,8 @@
+---
+description: Discover how to define your own pipelines on Semaphore 2.0 through 4 basic steps - Compile,
+Run unit tests, Run integration tests and Run performance tests.
+---
+
 # Customizing Your Pipeline
 
 After [creating your first project][first-project], you've initialized
