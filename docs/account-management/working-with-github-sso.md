@@ -1,5 +1,5 @@
 ---
-description: To authorize Semaphore to access repositories hosted on GitHub SSO, you need to grant Semaphore 2.0 access to your organization on GitHub.
+description: To authorize Semaphore 2.0 to access repositories hosted on GitHub SSO, you need to grant Semaphore 2.0 access to your organization on GitHub.
 ---
 
 # Working with GitHub SSO
