@@ -1,3 +1,7 @@
+---
+description: The ubuntu1804 is a customized image based on Ubuntu 18.04 LTS optimized for CI/CD. It comes with a set of preinstalled languages, databases, and utility tools.
+---
+
 # Ubuntu 18.04 Image
 
 

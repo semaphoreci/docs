@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore to set up automatic deployment for each new tagged commit in your repository.
+---
+
 # Tag-triggered Deployment
 
 This guide shows you how to use Semaphore to set up automatic deployment for

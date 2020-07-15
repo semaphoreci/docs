@@ -1,3 +1,7 @@
+---
+description: With Semaphore 2.0 you will only pay for what you used and you can customize your usage according to your team's needs. See more about Semaphore 2.0 plans.
+---
+
 # Plans
 
 With Semaphore 2.0 you will only pay for what you used and you can customize

@@ -1,3 +1,7 @@
+---
+description: This guide describes how to set up code signing in CI/CD for your iOS project on Semaphore 2.0 using Fastlane Match.
+---
+
 # Code Signing for iOS Projects
 
 This guide describes how to set up code signing in CI/CD for your iOS project on Semaphore using Fastlane Match.

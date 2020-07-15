@@ -1,3 +1,7 @@
+---
+description: Scheduling workflow runs daily, hourly or even every other minute. Workflow scheduler/cron can be set up via GUI or CLI.
+---
+
 # Workflow scheduler/cron
 
 Scheduling workflow runs daily, hourly or even every other minute can be useful

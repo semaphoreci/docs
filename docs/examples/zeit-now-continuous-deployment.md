@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to set up continuous integration and deployment to ZEIT Now.
+---
+
 # Zeit Now Continuous Deployment
 
 This guide shows you how to use Semaphore to set up continuous integration and

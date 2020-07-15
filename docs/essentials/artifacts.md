@@ -1,3 +1,7 @@
+---
+description: There are three levels of artifact store - job, workflow and project. Artifacts are used to persist files that are final deliverables or debugging files.
+---
+
 # Artifacts
 
 __Note__: *Using Artifacts during the beta period is free. Once the artifacts

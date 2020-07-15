@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to set up pipeline level status checks and block level status checks in Semaphore 2.0.
+---
+
 # GitHub Status Checks
 
 GitHub status checks are an excellent way to track and control the CI/CD status

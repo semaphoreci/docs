@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Ruby projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Ruby
 
 This guide will help you get started with a Ruby project on Semaphore.

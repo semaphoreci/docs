@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 supports setting environment variables on per-job and per-block level. This guide provides an example which applies one to all jobs in the block.
+---
+
 # Environment Variables and Secrets
 
 Semaphore supports setting environment variables on a

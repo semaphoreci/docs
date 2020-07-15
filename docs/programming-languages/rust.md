@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Rust projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Rust
 
 This guide will help you get started with a Rust project on Semaphore.

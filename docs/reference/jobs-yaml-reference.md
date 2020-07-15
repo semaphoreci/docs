@@ -1,3 +1,7 @@
+---
+description: This document is the reference to the YAML grammar used for managing jobs and provides and example that will help you use it.
+---
+
 # Jobs YAML Reference
 
 This document is the reference to the YAML grammar used for managing jobs.

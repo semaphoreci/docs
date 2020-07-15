@@ -1,3 +1,7 @@
+---
+description: This page describes all the resources that make up the Semaphore 2.0 API version v1alpha. The root of the API is https://{org_name}.semaphoreci.com/api/v1alpha.
+---
+
 # API
 
 This document describes all the resources that make up the Semaphore 2.0 API version `v1alpha` . If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).

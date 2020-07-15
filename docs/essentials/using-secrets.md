@@ -1,3 +1,7 @@
+---
+description: This page shows how to store and access sensitive data such as API keys, passwords, certificates, SSH keys or other sensitive data.
+---
+
 # Secrets
 
 This page shows how to store and access sensitive data such as API keys,
