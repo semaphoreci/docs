@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to create a badge that displays your project's current build status. You can use this badge in your project's README file or web page.
+---
+
 # Status Badges
 
 This guide shows you how to create a badge that displays your project's current

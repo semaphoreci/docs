@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for an Elixir Phoenix web application.
+---
+
 # Elixir Phoenix Continuous Integration
 
 This guide shows you how to use Semaphore to set up a continuous integration

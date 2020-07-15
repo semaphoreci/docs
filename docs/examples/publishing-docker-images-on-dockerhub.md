@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to publish Docker Images on DockerHub. Pushing images to the official registry is straightforward.
+---
+
 # Publishing Docker Images on DockerHub
 
 Pushing images to the official registry is straightforward. You'll

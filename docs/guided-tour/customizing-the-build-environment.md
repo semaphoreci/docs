@@ -1,3 +1,7 @@
+---
+description: Learn more about the three types of build environments available in Semaphore 2.0 - Linux Ubuntu environment, MacOS environment and Docker environment.
+---
+
 # Customizing the Build Environment
 
 Semaphore runs each job in a clean and isolated environment. Three types of

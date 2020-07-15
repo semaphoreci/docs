@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to download one or more files and store them in Semaphore 2.0 cache indefinitely.
+---
+
 # Download and Cache a Custom File
 
 This guide shows you how to download one or more files and store them in

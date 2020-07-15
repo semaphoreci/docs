@@ -1,3 +1,7 @@
+---
+description: Semaphore CI/CD jobs can run and build Docker images, and can also push images to Docker repositories or other remote storage.
+---
+
 # Working with Docker
 
 Semaphore CI/CD jobs can run and build Docker images, and can also push images

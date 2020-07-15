@@ -1,3 +1,7 @@
+---
+description: This guide demonstrates how to deploy to DigitalOcean's Kubernetes and covers the necessary steps to set up the deployment to DigitalOcean on Semaphore 2.0.
+---
+
 # Deploy to DigitalOcean
 
 This guide demonstrates how to deploy to DigitalOcean's Kubernetes.

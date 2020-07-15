@@ -1,3 +1,7 @@
+---
+description: The two fail-fast strategies, stop and cancel help you get instant feedback when a job fails. This guide shows you how to achieve that.
+---
+
 # Fail-Fast: Stop Running Tests on the First Failure
 
 On Semaphore, a fail-fast strategy means that you get instant feedback when a

@@ -1,3 +1,7 @@
+---
+description: Check out the examples explaining how to use databases and background services in VM based environments and with Docker containers.
+---
+
 # Using Databases and Services
 
 Semaphore offers a virtual machine (VM) based environment, and a containerized

@@ -1,3 +1,7 @@
+---
+description: See how to access all running jobs via SSH, to restart your jobs in debug mode, or to start on-demand VMs to explore the CI/CD environment.
+---
+
 # Debugging with SSH Access
 
 Often the best way to troubleshoot failures and bugs in your pipelines is to

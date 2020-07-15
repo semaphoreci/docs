@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 has webhook based notifications that are delivered on the success or failure of a pipeline. This guide shows you how to set them up.
+---
+
 # Webhook Notifications
 
 Semaphore has webhook based notifications that are delivered on the success or

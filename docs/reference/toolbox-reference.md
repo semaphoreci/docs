@@ -1,3 +1,7 @@
+---
+description: This document describes additional open source command line tools that are provided by Semaphore and available in all VMs.
+---
+
 # Toolbox Reference
 
 This document describes additional

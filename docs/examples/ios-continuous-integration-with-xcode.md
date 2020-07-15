@@ -1,3 +1,7 @@
+---
+description: This guide gives an overview of CI/CD with Semaphore for apps created with Xcode that run on iOS, macOS, watchOS, or tvOS.
+---
+
 # iOS Continuous Integration with Xcode
 
 This guide gives an overview of CI/CD with Semaphore for apps created with

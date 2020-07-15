@@ -1,3 +1,7 @@
+---
+description: This document is the reference to the YAML grammar used for describing notifications and specifying notification rules.
+---
+
 # Notifications YAML Reference
 
 This document is the reference to the YAML grammar used for describing

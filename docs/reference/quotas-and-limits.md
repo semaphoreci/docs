@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 enforces usage quotas and limits to protect customers and the platform from unforeseen spikes in usage. This page provides more information on it.
+---
+
 # Quotas and Limits
 
 Semaphore 2.0 enforces usage quotas and limits to protect customers and the
