@@ -1,5 +1,5 @@
 ---
-description: At Semaphore, we offer discounts for non-profit, student and educational organizations. Read this page to learn if you qualify for a discount.
+description: At Semaphore 2.0, we offer discounts for non-profit, student and educational organizations. Read this page to learn if you qualify for a discount.
 ---
 
 # Discounts
