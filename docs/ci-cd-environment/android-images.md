@@ -1,0 +1,1 @@
+Semaphore provides publicly available docker images for android developement.
