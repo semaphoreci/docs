@@ -7,4 +7,4 @@ Imges come in three forms:
 where `sdk-version` can be 25, 26, 27, 28, 29.
 
 For images using stable sdk versions (28,29 for now), we provide cached access.<br/>
-The images are updated on a bi-weekly basis.
+The images are updated on a biweekly basis.
