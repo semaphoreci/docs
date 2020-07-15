@@ -1,3 +1,7 @@
+---
+description: This page explains the billing details and provides information on changing credit card and billing information on Semaphore 2.0.
+---
+
 # Billing
 
 Billing page is accessible to the creator of the organization and admins and you

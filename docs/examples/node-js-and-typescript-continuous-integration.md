@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration pipeline for a Node.js app. It applies to both TypeScript and JavaScript.
+---
+
 # Node.js and TypeScript Continuous Integration
 
 This guide shows you how to use Semaphore to set up a continuous integration

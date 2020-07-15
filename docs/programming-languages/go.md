@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Golang projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Go
 
 This guide covers configuring Golang projects on Semaphore.

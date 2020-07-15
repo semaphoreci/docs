@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to push Docker Images to AWS Elastic Container Registry (ECR). Pushing images to your AWS ECR is straightforward.
+---
+
 # Pushing Docker Images to AWS Elastic Container Registry (ECR)
 
 Pushing images to your AWS ECR is straight forward. Your workflow

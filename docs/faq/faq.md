@@ -1,3 +1,7 @@
+---
+description: Frequently asked questions are the common situations we stumble upon regularly, across all parts of Semaphore 2.0.
+---
+
 # Frequently asked questions
 
 <p>Issues we stumble upon regularly, across all parts of Semaphore 2.0</p>

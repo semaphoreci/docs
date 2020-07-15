@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure PHP projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # PHP
 
 This guide covers configuring PHP projects on Semaphore. If you are new to

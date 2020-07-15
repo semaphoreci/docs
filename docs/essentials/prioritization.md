@@ -1,3 +1,7 @@
+---
+description: The job priority allows you to manage the order in which the enqueued jobs are starting to run when the quota of maximum parallel jobs is reached.
+---
+
 # Prioritizing jobs
 
 The job `priority`  allows you to manage the order in which the enqueued jobs are

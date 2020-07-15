@@ -1,3 +1,7 @@
+---
+description: This guide lists and describes the available Linux and Apple machine types available in Semaphore 2.0.
+---
+
 # Machine Types
 
 A **machine type** specifies a particular collection of virtualized

@@ -1,3 +1,7 @@
+---
+description: This document is the reference for the YAML grammar used for creating secrets. A secret is a bucket that stores environment variables and files.
+---
+
 # Secrets YAML Reference
 
 This document is the reference for the YAML grammar used for creating secrets.

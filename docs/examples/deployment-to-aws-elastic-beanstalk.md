@@ -1,3 +1,7 @@
+---
+description: This guide demonstrates how to use Semaphore to set up deployment to Elastic Beanstalk and covers the necessary steps of the process.
+---
+
 # Deployment to AWS Elastic Beanstalk
 
 This guide shows you how to use Semaphore to set up deployment to Elastic Beanstalk.

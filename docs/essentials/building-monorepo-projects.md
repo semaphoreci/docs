@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to optimize your Semaphore 2.0 workflow for monorepo projects. This page shows an example monorepo project setup.
+---
+
 # Monorepo Workflows
 
 *Note*: The monorepo support is currently in `beta` stage of development.

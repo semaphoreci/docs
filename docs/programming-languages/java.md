@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Java projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Java
 
 This guide will help you get started with a Java project on Semaphore.

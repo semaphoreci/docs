@@ -1,3 +1,7 @@
+---
+description: You can choose which GitHub events should trigger new workflows for your Semaphore 2.0 project by selecting one of the available triggers.
+---
+
 # Workflow Triggers
 
 You can choose which GitHub events should trigger new workflows for your Semaphore project.

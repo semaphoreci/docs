@@ -1,3 +1,7 @@
+---
+description: This article walks you through the process of managing SSH keys by using Semaphore's secrets to authenticate to private Git repositories.
+---
+
 # Private Dependencies
 
 Dependency mangagers like Bundler, Yarn, and Go's module system allow

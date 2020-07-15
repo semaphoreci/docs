@@ -1,3 +1,7 @@
+---
+description: TThis guide shows you how to use Semaphore 2.0 to set up continuous integration and deployment to Google Cloud Run for web applications written in any language.
+---
+
 # Google Cloud Run Continuous Deployment
 
 This guide shows you how to use Semaphore to set up continuous integration and
