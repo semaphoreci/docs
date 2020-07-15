@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure C projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # C
 
 This guide covers configuring C projects on Semaphore.

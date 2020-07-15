@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to set up continuous deployment for a static website and it includes and example project.
+---
+
 # Continuous Deployment of a Static Website
 
 This guide shows you how to use Semaphore to set up continuous deployment for

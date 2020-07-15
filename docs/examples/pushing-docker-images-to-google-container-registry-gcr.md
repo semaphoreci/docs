@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to use Semaphore 2.0 to push Docker Images to Google Container Registry (GCR). Pushing images to your GCR is straightforward.
+---
+
 # Pushing Docker Images to Google Container Registry (GCR)
 
 Semaphore includes the `gcloud` command for authenticating to the

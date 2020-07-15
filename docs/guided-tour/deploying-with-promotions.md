@@ -1,3 +1,7 @@
+---
+description: Deployment and delivery is managed with promotions, which may be performed automatically or manually and may depend on user-defined conditions.
+---
+
 # Deploying With Promotions
 
 Each Semaphore project starts with the default pipeline specified in

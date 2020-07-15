@@ -1,3 +1,7 @@
+---
+description: This guide will help you get started with an Android project on Semaphore 2.0. Semaphore 2.0 supports both Android and React Native projects.
+---
+
 # Android
 
 This guide will help you get started with an Android project on Semaphore.

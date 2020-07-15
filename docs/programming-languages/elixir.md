@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Elixir projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Elixir
 
 This guide covers configuring Elixir projects on Semaphore.

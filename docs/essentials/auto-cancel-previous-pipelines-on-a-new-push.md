@@ -1,3 +1,7 @@
+---
+description: The auto-cancel strategy defines the behavior of pipelines when a queue for execution forms. There are two auto-cancel strategies - running and queued.
+---
+
 # Auto-cancel Previous Pipelines on a New Push
 
 The *auto-cancel* strategy defines the behavior of pipelines when a queue for

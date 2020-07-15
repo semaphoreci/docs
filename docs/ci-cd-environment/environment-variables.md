@@ -1,3 +1,7 @@
+---
+description: Environment variables used in Semaphore 2.0 projects can be predefined, git repository related, cache related or private docker registry related.
+---
+
 # Environment Variables
 
 This document describes the environment variables used in Semaphore 2.0
