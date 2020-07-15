@@ -1,3 +1,7 @@
+---
+description: This guide shows you how to set up a Semaphore 2.0 dashboard showing deployment activity across selected projects.
+---
+
 # Deployment Dashboards
 
 This guide shows you how to set up a dashboard showing deployment activity

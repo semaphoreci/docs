@@ -1,3 +1,7 @@
+---
+description: This page describes how you can create a new regular user as well as a user with administrative privileges on the databases supported by Semaphore 2.0.
+---
+
 # Configuring Database Access
 
 This document describes how you can create a new regular user as well as a user

@@ -1,3 +1,7 @@
+---
+description: In this guide, we will show you how to use Semaphore 2.0 to implement continuous integration and deployment for a Clojure Luminus web application.
+---
+
 # Clojure Luminus CI/CD
 
 In this guide, we will show you how to use Semaphore to implement

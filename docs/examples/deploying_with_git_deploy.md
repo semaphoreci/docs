@@ -1,3 +1,7 @@
+---
+description: This guide demonstrates how to deploy with git-deploy and covers the necessary steps to set up git-deploy on Semaphore 2.0.
+---
+
 # Deploying with Git Deploy
 
 This guide demonstrates how to deploy with [git-deploy][git-deploy]. 

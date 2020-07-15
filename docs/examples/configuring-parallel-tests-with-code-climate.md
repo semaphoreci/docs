@@ -1,3 +1,7 @@
+---
+description: The Code Climate test reporter can join parallelized test reports, combining them into one individual test report that can be submitted to Code Climate.
+---
+
 # Configuring Parallel Tests with Code Climate
 
 The Code Climate test reporter can join parallelized test reports, combining them into one individual test report that can be submitted to Code Climate.

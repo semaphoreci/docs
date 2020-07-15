@@ -1,3 +1,7 @@
+---
+description: This page contains tutorials and open source repositories that show you practical examples of CI/CD pipelines.
+---
+
 # Tutorials and Example Projects
 
 Semaphore provides tutorials and open source repositories that show you

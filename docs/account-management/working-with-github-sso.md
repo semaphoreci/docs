@@ -1,3 +1,7 @@
+---
+description: To authorize Semaphore to access repositories hosted on GitHub SSO, you need to grant Semaphore 2.0 access to your organization on GitHub.
+---
+
 # Working with GitHub SSO
 
 Semaphore supports repositories hosted on GitHub with SAML single sign-on (SSO).

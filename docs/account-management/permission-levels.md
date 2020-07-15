@@ -1,3 +1,7 @@
+---
+description: Semaphore organizations can have an unlimited number of users. Users in the organization have different permissions based on their role.
+---
+
 # Permission levels
 
 Semaphore organizations can have an unlimited number of users. Users in the organization

@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 is a cloud-based automation service for building, testing and deploying software. Welcome to Semaphore 2.0 Documentation!
+---
+
 #Hello, how can we help?
 
 <div class="welcome-page">

@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 lets you model CI/CD processes with much higher complexity by defining your pipeline as a dependency graph. This guide shows you how to do that.
+---
+
 # Workflows and Pipelines
 
 ![complex pipeline](https://raw.githubusercontent.com/semaphoreci/docs/master/public/complex-pipeline.png)

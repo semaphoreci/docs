@@ -1,3 +1,7 @@
+---
+description: This guide outlines the key differences between Semaphore Classic and Semaphore 2.0 and provides you with a direction to migrate to Semaphore 2.0.
+---
+
 # Migration Guide for Semaphore Classic Users
 
 If you've used Semaphore prior to version to 2.0, this guide will outline the

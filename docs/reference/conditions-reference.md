@@ -1,3 +1,7 @@
+---
+description: The Conditions DSL is a universal way of specifying conditional execution of CI/CD commands in Semaphore 2.0.
+---
+
 # Conditions Reference
 
 The Conditions DSL is a universal way of specifying conditional execution of

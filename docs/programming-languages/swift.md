@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 allows building, testing and releasing Swift, Objective-C and React Native applications with customizable CI/CD workflows. 
+---
+
 # Swift
 
 Semaphore allows building, testing and releasing Swift, Objective-C and

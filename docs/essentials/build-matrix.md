@@ -1,3 +1,7 @@
+---
+description: This guide shows how to set up a job matrix - dynamically created parallel jobs with different environment variables.
+---
+
 # Job Matrix
 
 This guide shows how to set up a
