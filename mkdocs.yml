@@ -108,6 +108,9 @@ nav:
       - Working with Docker: ci-cd-environment/working-with-docker.md
     - "iOS/macOS":
       - macOS Xcode 11 image: ci-cd-environment/macos-xcode-11-image.md
+    - Android:
+      - Docker images: ci-cd-environment/android-images.md
+      - Flutter example: ci-cd-environment/flutter.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
