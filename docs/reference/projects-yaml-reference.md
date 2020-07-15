@@ -1,3 +1,7 @@
+---
+description: This document is the YAML grammar reference used for adding and editing Semaphore 2.0 projects using the sem command line utility.
+---
+
 # Projects YAML Reference
 
 This document is the YAML grammar reference used for adding and editing

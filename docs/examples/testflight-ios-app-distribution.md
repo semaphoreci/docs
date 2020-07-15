@@ -1,3 +1,7 @@
+---
+description: This guide shows how to configure iOS app distribution from Semaphore to Apple TestFlight using Fastlane.
+---
+
 # TestFlight iOS App Distribution
 
 This guide shows how to configure iOS app distribution from

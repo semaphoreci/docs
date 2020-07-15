@@ -1,3 +1,7 @@
+---
+description: Each job runs in a clean and isolated VM and therefore project dependencies need to be defined. Semaphore 2.0 includes a caching tool backed by fast network.
+---
+
 # Caching Dependencies
 
 Since each job runs in a clean and isolated VM, we need to explicitly configure

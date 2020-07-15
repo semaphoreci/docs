@@ -1,3 +1,7 @@
+---
+description: This guide provides an example project with Node.js, TypeScript and React providing information on dependency caching and environment variables.
+---
+
 # JavaScript and Node.js
 
 This guide will help you get started with a JavaScript project on Semaphore.

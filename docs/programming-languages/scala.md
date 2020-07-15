@@ -1,3 +1,7 @@
+---
+description: This guide provides an explanation on how to configure Scala projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+---
+
 # Scala
 
 This guide covers configuring Scala projects on semaphore.

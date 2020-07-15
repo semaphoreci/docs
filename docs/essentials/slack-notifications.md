@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 has integrated Slack based chat notifications that are delivered on the success or failure of a pipeline. This guide shows you how to set them up.
+---
+
 # Slack Notifications
 
 Semaphore has integrated Slack based chat notifications that are delivered on

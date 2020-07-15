@@ -1,3 +1,7 @@
+---
+description: Organization is an account management framework that lets you grant different permissions to team members and delegate project management under an account.
+---
+
 # Organizations
 
 Organizations are Semaphore's account management framework that lets you 

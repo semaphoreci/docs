@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 cache tool helps optimize CI/CD runtime by reusing files that your project depends on but are not part of version control.
+---
+
 # Caching
 
 Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your

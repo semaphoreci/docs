@@ -1,3 +1,7 @@
+---
+description: Every project on Semaphore 2.0 has access to three levels of the artifact store - project, workflow and job. See this page for more information.
+---
+
 # Artifact CLI Reference
 
 __Note__: *Using Artifacts during the beta period is free. Once the artifacts

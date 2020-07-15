@@ -1,3 +1,7 @@
+---
+description: Semaphore 2.0 lets you easily run Docker Compose to build and test multi-container applications. This page shows you how it can be done.
+---
+
 # Using Docker Compose in CI
 
 Semaphore lets you easily run Docker Compose to build and test multi-container

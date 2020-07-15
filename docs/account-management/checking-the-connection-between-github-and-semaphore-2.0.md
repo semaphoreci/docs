@@ -1,3 +1,7 @@
+---
+description: This document provides instructions on how to check the connection between GitHub and Semaphore 2.0.
+---
+
 # Checking the Connection Between GitHub and Semaphore 2.0
 
 To check the status of the connection between Semaphore 2.0 and GitHub, please visit

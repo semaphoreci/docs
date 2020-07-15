@@ -1,3 +1,7 @@
+---
+description: The macos-xcode11 is a customized image based on MacOS 10.15.4 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
+---
+
 # macOS Catalina Xcode 11 Image
 
 The `macos-xcode11` is a customized image based on [MacOS 10.15.4][catalina-release-notes]
