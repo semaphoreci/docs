@@ -143,4 +143,4 @@ Apple machine types can be paired with the [MacOS Mojave image][macos-mojave].
 
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos-mojave]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[macos-mojave]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/

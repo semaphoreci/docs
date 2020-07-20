@@ -2087,10 +2087,10 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 - [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[macos-mojave-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
 [secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
-[default-priorities]: https://docs.semaphoreci.com/essentials/prioritizing-jobs/#default-job-priorities
+[default-priorities]: https://docs.semaphoreci.com/essentials/prioritization/#default-job-priorities

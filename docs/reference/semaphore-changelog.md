@@ -101,7 +101,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 - Names of Semaphore Secrets are now restricted to alphanumeric characters, dashed, dots and `@`.
   Regex: `^[@: -._a-zA-Z0-9]+$`).
 - Updates to the macOS image:
-    - Flutter version update to 1.17.0, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/), [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/)
+    - Flutter version update to 1.17.0, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/), [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-catalina-xcode-11-image/)
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2164).
 
@@ -116,7 +116,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4.1 installed, to switch version, use
-    `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
     - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
 - Updates to the ubuntu1804 image:
     - TCP port 8000 is no longer occupied.
@@ -139,7 +139,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4 installed, to switch version, use
-    `xcversion select 11.4`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    `xcversion select 11.4`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
     - `macos-mojave-xcode11` Xcode 11.0 removed from the image.
     - installed packages:
       - google-chrome
@@ -271,7 +271,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed, to switch version use
-    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
     - installed packages:
       - carthage
     - updated gems:
@@ -346,7 +346,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 ### Week of November 11, 2019
 - macOS image updates:
     - `macos-mojave-xcode11` Xcode 11.2.1 installed, to switch version use
-    `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
     - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/)
     - packages:
           - fastlane 2.135.2
@@ -399,7 +399,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.1 installed, to switch version use
-    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/)
+    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
 - You can change which blocks and pipelines send status checks to pull requests
   on GitHub. [See how](https://docs.semaphoreci.com/reference/sem-command-line-tool/#changing-github-status-check-notifications).
 
@@ -426,7 +426,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - New macOS `os_image` types:
     - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/) image spec.
-    - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/) image spec.
+    - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
     - `macos-mojave` no longer available.
 - Mojave system update:
     - ProductVersion: 10.14.6
