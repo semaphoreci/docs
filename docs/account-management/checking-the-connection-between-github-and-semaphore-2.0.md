@@ -47,12 +47,12 @@ There could be several reasons why deploy key is not available anymore:
 - Original project creator revoked GitHub access to Semaphore app;
 - Original project creator does not have access to that GitHub repository anymore.
 
-If deploy key is broken Semaphore will not be able to check out code from that repository and job log might display following error:
+If a deploy key is broken Semaphore will not be able to check out code from that repository and job log might display following error:
 ``` yaml
 git@github.com: Permission denied (publickey).
 fatal: Could not read from remote repository.
 ```
-To check the status of deploy key go to project settings on Semaphore 2.0 and find GitHub settings.  
+To check the status of deploy key go to the project settings on Semaphore 2.0 and find GitHub settings.  
 Green check mark next to "Deploy Key" means that Semaphore found a valid deploy key.  
 If the deploy key is broken a red "X" icon will be shown instead. 
 
@@ -62,7 +62,7 @@ To regenerate the deploy key, click "Repair" next to the red "X" icon. This shou
 Semaphore uses GitHub webhook to detect updates to repository and trigger builds.  
 If a webhook is deleted on GitHub, Semaphore will not be able to detect updates and will not run builds.  
 
-To check the status of a webhook go to project settings on Semaphore 2.0 and find GitHub settings.  
+To check the status of a webhook go to the project settings on Semaphore 2.0 and find GitHub settings.  
 Green check mark next to "Webhook" means that Semaphore managed to connect to the GitHub repository.  
 If the webhook is broken a red "X" icon will be shown instead. 
 
