@@ -90,5 +90,5 @@ you want it.
 [next]: https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [ubuntu]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
 [docker-containers]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
