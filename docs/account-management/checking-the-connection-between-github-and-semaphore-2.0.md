@@ -42,7 +42,8 @@ that yourself.
 ## Check deploy key health
 When a Semaphore 2.0 project is created a deploy key is generated on GitHub.  
 One deploy key is generated on GitHub repository per each Semaphore 2.0 project connected to that repository.  
-There could be several reasons why deploy key is not available anymore: 
+There could be several reasons why deploy key is not available anymore:  
+
 - It was manually removed from the repository;
 - Original project creator revoked GitHub access to Semaphore app;
 - Original project creator does not have access to that GitHub repository anymore.
