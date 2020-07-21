@@ -180,9 +180,37 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
   <summary id="remove-status-checks-in-pull-requests">How can I remove Semaphore Status checks on pull requests?</summary>
   <p>
     
- You can disable Semaphore as a required status check through the <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> in your GitHub account.
+ You can disable Semaphore as a required status check through the 
+ <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> in your GitHub account.
   
   </p>  
+</details>
+
+<details>
+  <summary id="divide-command-multiple-lines">How to divide a command into multiple lines?</summary>
+  <p>
+
+You can divide a command in several lines by writing the line in the folded style <code>></code> 
+and by stripping the line break in the yaml file <code>-</code>. 
+To do this, we can start the command with line containing only <code>>-</code> 
+and write the command in more lines below it:
+```bash
+          commands:
+            - >-
+              if [ "foo" = "foo" ];
+              then commands...;
+              else commands...;
+              fi;
+```
+**Block Style Indicator**: The block style indicates how newlines inside the block should behave. 
+If you want to keep them as newlines, use the literal style, indicated by a pipe <code>|</code>. 
+If instead you want them to be replaced by spaces, use the folded style, indicated by a right angle bracket <code>></code>. 
+
+<br>**Block Chomping Indicator**: The chomping indicator controls what should happen with newlines at the end of the string. 
+The default, clip, puts a single newline at the end of the string. 
+To remove all newlines, strip them by putting a minus sign <code>-</code> after the style indicator. 
+Both clip and strip ignore how many newlines are actually at the end of the block; to keep them all put a plus sign <code>+</code> after the style indicator.
+</p>
 </details>
 
 ### Jobs & Workflows
