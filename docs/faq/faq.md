@@ -202,14 +202,14 @@ and write the command in more lines below it:
               else commands...;
               fi;
 ```
-**Block Style Indicator**: The block style indicates how newlines inside the block should behave. 
-If you want to keep them as newlines, use the literal style, indicated by a pipe <code>|</code>. 
+**Block Style Indicator**: The block style indicates how new lines inside the block should behave. 
+If you want to keep them as new lines, use the literal style, indicated by a pipe <code>|</code>. 
 If instead you want them to be replaced by spaces, use the folded style, indicated by a right angle bracket <code>></code>. 
 
-<br>**Block Chomping Indicator**: The chomping indicator controls what should happen with newlines at the end of the string. 
-The default, clip, puts a single newline at the end of the string. 
-To remove all newlines, strip them by putting a minus sign <code>-</code> after the style indicator. 
-Both clip and strip ignore how many newlines are actually at the end of the block; to keep them all put a plus sign <code>+</code> after the style indicator.
+<br>**Block Chomping Indicator**: The chomping indicator controls what should happen with new lines at the end of the string. 
+The default, clip, puts a single new line at the end of the string. 
+To remove all new lines, strip them by putting a minus sign <code>-</code> after the style indicator. 
+Both clip and strip ignore how many new lines are actually at the end of the block; to keep them all put a plus sign <code>+</code> after the style indicator.
 </p>
 </details>
 
