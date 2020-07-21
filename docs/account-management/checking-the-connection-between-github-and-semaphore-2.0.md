@@ -35,7 +35,7 @@ If Semaphore 2.0 already has access, the checkmark will be green.
 
 ## Grant access to organization repositories
 
-On the Semaphore 2.0 application page you can also request from a GitHub organization admin
+On the [Semaphore 2.0 application page](https://github.com/settings/connections/applications/328c742132e5407abd7d) you can also request from a GitHub organization admin
 to grant Semaphore 2.0 access to its repositories. If you are an admin, then you can do
 that yourself.
 
@@ -70,7 +70,7 @@ If the webhook is broken a red "X" icon will be shown instead.
 To regenerate the webhook, click "Repair" next to the red "X" icon. This should generate a new webhook and repair connection between Semaphore and GitHub.  
 
 
-## Knows issues after a connection between GitHub and Semaphore 2.0 is lost
+## Known issues after a connection between GitHub and Semaphore 2.0 is lost
 
 You might see the following error message when trying to run workflows on Semaphore:
 
