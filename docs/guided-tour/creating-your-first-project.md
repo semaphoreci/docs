@@ -99,7 +99,7 @@ This can also be performed from the CLI by using [`sem edit` command](https://do
 In order to transfer the project ownership to a different user, the following 
 conditions need to be met:
 
-1. New project owner needs to have Admin permission level for the project on GitHub,
+1. New project owner needs to have Admin permission level for the repository on GitHub,
 2. If you plan to build private projects, the new owner needs to grant access 
 for Semaphore to all repositories. They can do that that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account).
 3. If you plan to build only public projects, the new owner needs to grant access for 
