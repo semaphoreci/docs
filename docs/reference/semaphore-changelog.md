@@ -10,6 +10,21 @@ This page is updated on a weekly basis.
 
 ### Week of July 27, 2020
 
+**(Improved) Ubuntu1804 image**
+  
+  **(New)** Parallel version 20161222 was added to the image
+  **(Updated)**
+    - Aws-cli 1.18.96 -> 1.18.104
+    - Go 1.13.12 -> 1.13.14
+    - Go 1.14.4 -> 1.14.6
+    - Heroku 7.42.2 -> 7.42.5
+    - OpenJDK 11.0.7 -> 11.0.8
+    - PHP 7.2.31 -> 7.3.32
+    - PHP 7.3.19 -> 7.3.20
+    - PHP 7.4.7 -> 7.4.8
+
+To learn more check our {ubuntu1804 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+
 ### Week of July 20, 2020
 **(New) Job prioritization**  
 The job `priority`  allows you to manage the order in which the enqueued jobs are
