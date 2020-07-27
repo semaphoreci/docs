@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of July 27, 2020
+
 ### Week of July 20, 2020
 **(New) Job prioritization**  
 The job `priority`  allows you to manage the order in which the enqueued jobs are
