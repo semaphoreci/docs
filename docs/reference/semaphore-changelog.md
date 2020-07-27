@@ -13,7 +13,6 @@ This page is updated on a weekly basis.
 **(Improved) Ubuntu1804 image**
   
   **(New)** Parallel version 20161222 was added to the image 
-  
   **(Updated)** Language versions:  
     - Aws-cli 1.18.96 -> 1.18.104  
     - Go 1.13.12 -> 1.13.14  
