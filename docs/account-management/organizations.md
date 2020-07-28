@@ -88,6 +88,15 @@ of those projects to another user in the organization. Please include GitHub
 username of the user you'd like to remove and GitHub username of the new project 
 owner in the email.
 
+**Note:** The new project owner needs to ensure that the following conditions are met before 
+the project ownership transfer:
+
+1. New project owner needs to have Admin permission level for the repository on GitHub,
+2. If you plan to build private projects, the new owner needs to grant access 
+for Semaphore to all repositories. They can do that that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account).
+3. If you plan to build only public projects, the new owner needs to grant access for 
+Semaphore to public repositories. They can do that that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account). 
+
 ## Changing the name and the URL of an organization
 
 If you'd like to change the name of your organization:
