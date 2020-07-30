@@ -60,6 +60,7 @@ nav:
     - Workflow triggers: essentials/project-workflow-trigger-options.md
     - Workflow scheduler/cron: essentials/schedule-a-workflow-run.md
     - "Fail-fast": essentials/fail-fast-stop-running-tests-on-the-first-failure.md
+    - Pipeline queues: essentials/pipeline-queues.md
     - Auto-cancel: essentials/auto-cancel-previous-pipelines-on-a-new-push.md
     - Skipping commits: essentials/skip-building-some-commits-with-ci-skip.md
     - Monorepo workflows: essentials/building-monorepo-projects.md
