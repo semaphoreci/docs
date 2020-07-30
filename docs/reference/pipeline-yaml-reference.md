@@ -462,6 +462,14 @@ pull request number and the YAML configuration file name for the given pipeline.
 
 The `scope` property can have one of two values, **project** or **organization**.
 
+If the `scope` is set to **organization** the pipelines from the queue will be
+queued together with pipelines from other projects within the organization that
+have the queue configuration with same `name` and `scope` values.
+
+On the other hand, the queues with the same values for `name` property in different
+projects that have `scope` set to **project** are mutually independent and their
+pipelines will not be queued together.
+
 If `scope` property is omitted, its value will be automatically set to **project**.
 
 The `processing` property configures the way pipelines are processed in the queue

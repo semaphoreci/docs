@@ -1,73 +1,94 @@
 ---
-description: See how to assign pipelines to different execution queues in order
-to control access to some external resource or how to configure them to run in
-parallel to save time when such control is not needed.
+description: See how to assign pipelines to execution queues and run them
+sequentially or how to run them in parallel to save time.
 ---
 
 # Pipeline Queues
 
-The pipeline queues allow you to control which pipelines should be executed one
-by one in order to control access to some singular resource and also which
-pipelines could be run in parallel in order to save the time.
+Pipeline queues allow you to control which pipelines Semaphore must run
+sequentially and which may run in parallel. For example, you may configure
+parallel pipelines on the main branch, while allowing only one deployment to
+production to be running at any given time.
 
-This behaviour is configured via [queue][queue-reference] property in the
-pipeline's YAML configuration files.
+You can configure this behaviour via [queue][queue-reference] property in the
+pipeline's YAML configuration file.
 
-If a queue is not configured in pipeline's YAML configuration, Semaphore will
-automatically configure the default queue configuration for that pipeline.
+## Default behaviour
 
-## Default queue configuration
+By default, the pipelines will be assigned to the same queue and run sequentially  
+if they are initiated from the same branch/tag/pull request with the same
+configuration, e.g. multiple pushes or multiple promotions.
 
-The pipelines are, by default, assigned to project-scoped queues based on the
-git branch/tag name or pull request number and the YAML configuration file name.
+## Using queues for deployments
 
-This means that pipelines will only queue if they are initiated from the same
-branch/tag/pull request with the same configuration, e.g. multiple pushes or
-multiple promotions.
+You can use queues to prevent parallel runs of deployment pipelines that might
+cause issues in the environment you are deploying to.
 
-This behaviour is equivalent to the following explicit configuration:
+If your projects are deployed independently one from another, you can use the
+separate queues for each project by setting the `scope` property of the queue
+configuration to value **project**.
+
+In the following example, we are configuring the deployment pipeline that should
+be defined as a [promotion][deploying-with-promotions] to run sequentially in
+the queue called `Deployment queue`.
 
 ``` yaml
+version: v1.0
+name: Production deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
 queue:
-  name: [branch/tag name or PR number]-[yaml-file-name]
+  name: Deployment queue
   scope: project
-  processing: serialized
+
+blocks:
+  - name: Deploy
+    task:
+      jobs:
+      - commands:
+          - make deploy
 ```
 
-where the values in brackets are replaced with actual values for a given pipeline.
+In cases where multiple projects are deployed to the same environment (e.g.
+same Kubernetes cluster) you need the deployment pipelines from those projects to
+queue together. To set that up you should use the queue configuration with the
+same value for `name` and `scope` set to **organization** in all related projects.
 
-*Note*: If you want to explicitly define the default queue behaviour in your YAML
-configuration you should omit the `name` and `scope` properties and only configure
-the desired type of `processing`.
+The following example illustrates the queue configuration that can be used in all
+projects that need to have a shared deployment queue.
 
-## Queue scopes
+``` yaml
+version: v1.0
+name: Project A deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
 
-The queues can be defined in the scope of the `project` or in the scope of the
-`organization`.
+queue:
+  name: Shared deployment queue
+  scope: organization
 
-This behaviour is configured with `scope` property of the queue configuration.
-
-The pipelines from different projects assigned to the `organization-scoped`
-queue with the same name will be queued together and executed one by one.
-
-This is especially useful when you need to forbid parallel access to some external
-resource, such as deployments to production servers or calling external APIs.
-
-On the other hand, the `project-scoped` queues with the same names in different
-projects are mutually independent and their pipelines will not be queued together.
-
-This is useful when projects are deployed to different servers and they do not
-need to be queued together.
+blocks:
+  - name: Deploy
+    task:
+      jobs:
+      - commands:
+          - make deploy
+```
 
 ## Running pipelines in parallel
 
 In cases where pipeline runs are completely independent one from another, you
 might want to run them in parallel to receive faster feedback.
 
-This behaviour is configured with `processing` property of the queue configuration.
+You can configure this via `processing` property of the queue configuration.
 
 It is mostly useful for pipelines that are only running tests and when you want
-to have results for each push to GitHub.
+to have results for each push to GitHub, e.g. on the main branch.
 
 In case you only need the result of the pipeline from the latest push you might
 want to consider the [auto-cancel][auto-cancel] feature.  
@@ -114,11 +135,11 @@ agent:
 
 queue:
   - when: "branch = 'master'"
-    name: production
+    name: Production
     scope: organization
 
   - when: "tag =~ '.*'"
-    name: image-build-queue
+    name: Image build queue
 
   - when: true
     processing: parallel
@@ -148,15 +169,17 @@ blocks:
           - make deploy
 ```
 
-In this example the pipeline will be assigned to either organization-scoped queue
-called `production` if it is triggered from master branch or to project-scoped
-queue called `image-build-queue` if it is triggered from any git tag.
+In this example, if the pipeline is triggered from the master branch it will be
+assigned to the queue called `Production` that is defined in the scope of the
+organization and can be shared with other projects.
 
-With that queue configuration we will achieve that only one deployment is
-possible at any given time in the whole organization.
+With that queue configuration, we will achieve that only one production deployment
+is possible at any given time in the whole organization.
 
-Similarly, tag-triggered pipelines in the same project will be queued which
-should ensure that images are pushed in chronological order.
+On the other hand, if the pipeline is triggered from any git tag it will be
+assigned to the queue called `Image build queue` that is specific to that project.
+
+That should ensure that images are built and pushed in chronological order.
 
 If neither of the conditions above is true (which is the case for all non-master
 branches and pull request) the third configuration will be used since its
@@ -166,8 +189,9 @@ condition is always true and pipelines will be run in parallel.
 
 - [Auto-cancel previous pipelines in the queue][auto-cancel]
 - [Defining 'when' conditions](https://docs.semaphoreci.com/reference/conditions-reference)
-- [Deploying with promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/)
+- [Deploying with promotions][deploying-with-promotions]
 
 [queue-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
 [cond-queue-defs-reference]:https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#conditional-queue-configurations
 [auto-cancel]: https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/
+[deploying-with-promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
