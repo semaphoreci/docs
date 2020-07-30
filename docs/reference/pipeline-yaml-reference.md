@@ -2093,4 +2093,4 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
 [secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
-[default-priorities]: https://docs.semaphoreci.com/essentials/prioritizing-jobs/#default-job-priorities
+[default-priorities]: https://docs.semaphoreci.com/essentials/prioritization/#default-job-priorities
