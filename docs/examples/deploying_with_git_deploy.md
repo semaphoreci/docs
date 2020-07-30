@@ -9,7 +9,7 @@ This guide demonstrates how to deploy with [git-deploy][git-deploy].
 We will cover these steps to set up git-deploy on Semaphore:
 
 1. Create a Git Deploy key that allows pushing to your production Git server. 
-2. Store the Git Deploy key in a [Secret](secret) on Semaphore.
+2. Store the Git Deploy key in a [Secret](https://docs.semaphoreci.com/essentials/using-secrets/) on Semaphore.
 3. Create a deployment pipeline, and attach the Git Deploy key secret.
 4. Run a deployment from Semaphore, and ship your code to production.
 
