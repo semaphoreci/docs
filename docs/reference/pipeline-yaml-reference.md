@@ -433,86 +433,87 @@ blocks:
 ## queue
 
 The optional `queue` property enables you to assign the pipeline to the custom
-execution queue.
+execution queues and/or to configure the way the pipelines are processed when
+queuing is about to happen.
 
-It can have two sub-properties, `name` and `scope`.
+There are two ways you can define a `queue` behaviour.
 
-The `name` property is required and it should hold the string that uniquely
-identifies wanted queue within the configured scope.
+The first one is with `direct queue configuration` that will be applied to all
+pipelines initiated with a given YAML configuration file.
+
+The second approach is `conditional queue configurations` that allows you to
+define an array of queue definitions and conditions under which those definitions
+should be applied.
+
+All the sub-properties with their possible values for both approaches are listed
+below and you can find more examples and use cases for different queue
+configurations on the [Pipeline Queues][pipeline-queues] page
+
+### direct queue configuration
+
+When using this approach, you can use the `name`, `scope` and `processing`
+properties as a direct sub-properties of a `queue` property.
+
+The `name` property should hold the string that uniquely identifies wanted queue
+within the configured scope.
+
+If it is omitted, it will be auto-generated based on the git branch/tag name or
+pull request number and the YAML configuration file name for the given pipeline.
 
 The `scope` property can have one of two values, **project** or **organization**.
 
+If the `scope` is set to **organization** the pipelines from the queue will be
+queued together with pipelines from other projects within the organization that
+have the queue configuration with same `name` and `scope` values.
+
+On the other hand, the queues with the same values for `name` property in different
+projects that have `scope` set to **project** are mutually independent and their
+pipelines will not be queued together.
+
 If `scope` property is omitted, its value will be automatically set to **project**.
 
-The pipelines within the project are, by default, assigned to queues based on the
-git branch/tag name or pull request number and the YAML configuration file name.
+The `processing` property configures the way pipelines are processed in the queue
+and it can have one of two values, **serialized** or **parallel**.
 
-This means that pipelines will only queue if they are initiated from the same
-branch/tag/pull request with the same configuration, e.g. multiple pushes or
-multiple promotions.
+If the `processing` is set to **serialized** the pipelines in the queue will be
+queued and executed one by one in the ascending order by creation time.
 
-If you assign a pipeline to a custom execution queue via the `queue` property, it
-will wait for all previously initiated pipelines that are assigned to same the
-queue.
+If the `processing` is set to **parallel** all pipelines in the queue will be
+executed as soon as they are created and there will be no queuing at all.
 
-This will be true even if for the pipelines that have different YAML configuration
-files or are from different branches/tags, or even from different projects (for
-this last one `scope` has to be set to **organization**).
+If `processing` property is omitted, its value will be automatically set to
+**serialized**.
 
-This is especially useful when you need to forbid parallel access to some external
-resource, such as deployments to production servers or calling external APIs.
+Either `name` or `processing` property are required for queue definitions to be
+valid and `scope` property can only be configured if the `name` property is also
+configured.
 
-### An example of setting a custom execution queue with project scope
+### conditional queue configurations
 
-All pipelines initiated with the following configuration will enter the same
-execution queue, even if they are from different git branches, tags or pull
-requests.
+In this approach, you should define an array of items with queue configurations
+as a sub-property of the `queue` property.
 
-``` yaml
-version: "v1.0"
-name: Project-scoped queue example
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
+Each array item can have the same properties, `name`, `scope` and `processing`,
+as in [direct queue configuration](#direct-queue-configuration).
 
-queue:
-  name: production
-  scope: organization
+Besides those, one additional property is required in each array item and that is
+a `when` property that should hold the condition written in [Conditions DSL][conditions-reference].
 
-blocks:
-  - task:
-      jobs:
-        - name: Deploy to production
-          commands:
-            - echo "Deploying service to production server(s)"
-```
+When the `queue` configuration is evaluated in this approach, the `when` conditions
+from the items in the array are evaluated one by one starting with the first item
+in the array.
 
-### An example of setting a custom execution queue with organization scope
+The evaluation is stopped as soon as one of the `when` conditions are evaluated
+as `true` and the rest of the properties from the same array item are used
+to configure the queue for the given pipeline.
 
-All pipelines initiated with the following configuration will enter the same
-execution queue, even if they are from different projects or git branches tags
-or pull requests.
+This means that the `order of the items` in the array is important and that the
+items should be ordered so the ones with most specific conditions are defined
+first followed by the ones with the more generalized conditions (e.g. the one with
+`branch = 'develop'` before the one with `branch != 'master'`).
 
-``` yaml
-version: "v1.0"
-name: Organization-scoped queue example
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
-queue:
-  name: external-api
-  scope: project
-
-blocks:
-  - task:
-      jobs:
-        - name: Tests
-          commands:
-            - echo "Tests that call the external API"
-```
+If none of the conditions is evaluated as true, the
+[default queue behaviour][default-queue-config] will be used.
 
 ## auto_cancel
 
@@ -2094,3 +2095,5 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
 [secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
 [default-priorities]: https://docs.semaphoreci.com/essentials/prioritization/#default-job-priorities
+[pipeline-queues]: https://docs.semaphoreci.com/essentials/pipeline-queues
+[default-queue-config]: https://docs.semaphoreci.com/essentials/pipeline-queues#default-queue-configuration
