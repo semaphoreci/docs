@@ -20,7 +20,7 @@ This page is updated on a weekly basis.
   - Go 1.14.4 -> 1.14.6
   - Heroku 7.42.2 -> 7.42.5
   - OpenJDK 11.0.7 -> 11.0.8
-  - PHP 7.2.31 -> 7.3.32
+  - PHP 7.2.31 -> 7.2.32
   - PHP 7.3.19 -> 7.3.20
   - PHP 7.4.7 -> 7.4.8
 
