@@ -20,7 +20,7 @@ machine.
 
 ``` yaml
 version: 1.0
-name: Apple/Mojave Based Pipeline
+name: Apple Based Pipeline
 
 agent:
   machine:

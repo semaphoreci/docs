@@ -59,7 +59,7 @@ blocks:
       agent:
         machine:
           type: a1-standard-4
-          os_image: macos-mojave-xcode11
+          os_image: macos-xcode11
       jobs:
         - commands:
             - checkout
@@ -176,7 +176,7 @@ blocks:
       agent:
         machine:
           type: a1-standard-4
-          os_image: macos-mojave-xcode11
+          os_image: macos-xcode11
       jobs:
         - commands:
             - checkout
