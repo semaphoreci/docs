@@ -255,7 +255,7 @@ for details on preinstalled browsers and testing tools on Semaphore.
 [rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
 [rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
-[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#ruby
+[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
 [ruby-docker-image]: https://hub.docker.com/r/semaphoreci/ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 

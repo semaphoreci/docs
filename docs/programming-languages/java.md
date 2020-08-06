@@ -118,7 +118,7 @@ blocks:
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [ubuntu-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#java-and-jvm-languages
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#java
+[macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#java
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [caching]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/

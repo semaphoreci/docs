@@ -27,7 +27,7 @@ name: Semaphore iOS Swift example
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode11
+    os_image: macos-xcode11
 blocks:
   - name: Build
     task:

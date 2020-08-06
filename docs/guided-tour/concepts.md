@@ -72,7 +72,7 @@ When configuring an agent, you can select from a number of [memory/CPU
 combinations][machine-types] and virtual machine (VM) operating system
 environments.
 
-The [Ubuntu Linux][ubuntu] and [MacOS Mojave][macos] VM environments have
+The [Ubuntu Linux][ubuntu] and [MacOS][macos] VM environments have
 common build tools and programming languages preinstalled, so you can
 run your code without an overhead of installing many dependencies in
 every workflow. Agents provide full `sudo` access to you so you can install
@@ -90,5 +90,5 @@ you want it.
 [next]: https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [ubuntu]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
 [docker-containers]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
