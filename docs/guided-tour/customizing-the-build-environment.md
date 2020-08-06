@@ -41,7 +41,7 @@ Alternatively, if you want to run a MacOS based pipeline, configure it with:
 agent:
   machine:
     type: a1-standard-2    # Apple machine type with 2 vCPUs, 4 GB of RAM
-    os_image: macos-mojave-xcode11 # MacOS Mojave os image
+    os_image: macos-xcode11 # MacOS os image
 ```
 
 If you prefer to have a fully custom, containerized environment, define one or
@@ -97,7 +97,7 @@ Cache servers, or other background services like RabbitMQ or Kafka.
 Let's learn how to do that in [the next section][next].
 
 [ubuntu]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-10-image/
+[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
 [docker]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [private-images]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#pulling-private-docker-images-from-dockerhub
 [next]: https://docs.semaphoreci.com/guided-tour/using-databases-and-services/

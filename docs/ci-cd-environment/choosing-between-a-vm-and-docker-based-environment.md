@@ -46,7 +46,7 @@ agent:
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-mojave-xcode11
+    os_image: macos-xcode11
 ```
 
 Read more about [Machine Types][machine-types] and the
@@ -170,6 +170,6 @@ We recommend using Virtual Machines for building Docker images.
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/
+[xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
 [docker-based]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [blog-docker-in-docker]: https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/

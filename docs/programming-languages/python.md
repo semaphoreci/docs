@@ -182,7 +182,7 @@ blocks:
 
 [django-tutorial]: https://docs.semaphoreci.com/examples/django-continuous-integration/
 [ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python
-[macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-mojave-xcode-11-image/#python
+[macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#python
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [python-docker-image]: https://hub.docker.com/r/semaphoreci/python
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
