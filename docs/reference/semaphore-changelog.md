@@ -9,9 +9,16 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of August 10, 2020
+**(New) Configurable pipeline queues**  
+We added the option to create custom queues for pipelines. You can now set pipelines to run sequentially or in parallel based on various conditions.
+
+For example, you can now configure a pipeline to run in parallel on the same branch or create a single queue across the whole organization for all pipelines that deploy to production.  
+
+To learn how to use this feature check [pipeline queues](https://docs.semaphoreci.com/essentials/pipeline-queues/) documentation page.
+
 **(Improved) Ubuntu 18.04 image update**  
 
-**(New)** Added Firefox version 78.1.0esr. 
+**(New)** Added Firefox version 78.1.0esr.   
 Added possibility to change firefox version with the `sem-version` tool: `sem-version firefox [52|68|78]`
 
 **(Updated)** Language versions:
@@ -19,6 +26,8 @@ Added possibility to change firefox version with the `sem-version` tool: `sem-ve
   - Aws-cli 1.18.104 ->1.18.112
   - Heroku 7.42.5 -> 7.42.6
   - Google-cloud-sdk downgraded 300 -> 297
+  
+  To learn more about this image check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of July 27, 2020
 **(Improved) Ubuntu 18.04 image update**  
