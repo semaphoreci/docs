@@ -1,6 +1,5 @@
 ---
-description: See how to assign pipelines to execution queues and run them
-sequentially or how to run them in parallel to save time.
+description: See how to assign pipelines to execution queues and run them sequentially or how to run them in parallel to save time.
 ---
 
 # Pipeline Queues
