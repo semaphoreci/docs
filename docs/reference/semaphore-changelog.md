@@ -10,7 +10,8 @@ This page is updated on a weekly basis.
 
 ### Week of August 10, 2020
 **(New) Configurable pipeline queues**  
-We added the option to create custom queues for pipelines. You can now set pipelines to run sequentially or in parallel based on various conditions.
+We added the option to override the default queue and create custom queues for pipelines.  
+Pipelines can be configured to run sequentially or in parallel based on various conditions.
 
 For example, you can now configure a pipeline to run in parallel on the same branch or create a single queue across the whole organization for all pipelines that deploy to production.  
 
