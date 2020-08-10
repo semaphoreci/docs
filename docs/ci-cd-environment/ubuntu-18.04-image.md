@@ -64,12 +64,12 @@ Following version control tools are pre-installed:
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.9
+- Firefox 78.1
 - geckodriver 0.26.0
 - Google Chrome 83
-- chrome_driver 83
-- xvfb (X Virtual Framebuffer)
-- phantomjs 2.1.1
+- Chrome_driver 83
+- Xvfb (X Virtual Framebuffer)
+- Phantomjs 2.1.1
 
 Chrome and Firefox both support headless mode. You shouldn't need to do more
 than install and use the relevant Selenium library for your language.
@@ -80,7 +80,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 19.03
-- docker-compose 1.26.0
+- docker-compose 1.26.2
 
 ### Cloud CLIs
 
@@ -125,7 +125,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u242, 11.0.6
+- Java: 8u242, 11.0.8
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
