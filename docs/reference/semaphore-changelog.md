@@ -8,6 +8,17 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 10, 2020
+**(Improved) Ubuntu 18.04 image update**  
+
+**(New)** Firefox version 78.1.0esr
+
+**(Updated)** Language versions:
+  
+  - Aws-cli 1.18.104 ->1.18.112
+  - Heroku 7.42.5 -> 7.42.6
+  - Google-cloud-sdk downgraded 300 -> 297
+
 ### Week of July 27, 2020
 **(Improved) Ubuntu 18.04 image update**  
 
