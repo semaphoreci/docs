@@ -11,7 +11,8 @@ This page is updated on a weekly basis.
 ### Week of August 10, 2020
 **(Improved) Ubuntu 18.04 image update**  
 
-**(New)** Firefox version 78.1.0esr
+**(New)** Added Firefox version 78.1.0esr. 
+Added possibility to change firefox version with the `sem-version` tool: `sem-version firefox [52|68|78]`
 
 **(Updated)** Language versions:
   
