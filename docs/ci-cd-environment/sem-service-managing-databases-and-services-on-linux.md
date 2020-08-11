@@ -20,10 +20,10 @@ sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearc
 Therefore, each `sem-service` command requires at least two parameters: the
 first one is the task you want to perform and the second parameter is the name
 of the service that will be used for the task. The third parameter is optional
-and is the version of the service that you want to start.<br/> For MySQL and PostgreSQL it 
-is possible to provide `username` via ```--username=username```, password for the new username 
+and is the version of the service that you want to start.<br/> For MySQL and PostgreSQL it
+is possible to provide `username` via ```--username=username```, password for the new username
 via ```--password=password``` and database name for which the user will be granted admin access
-via ```--db=dbname```. 
+via ```--db=dbname```.
 
 - The default MySQL username is `root`, the password is blank and the default database name is `test`
 - The default PostgreSQL username is `postgres` and password is blank.
@@ -70,9 +70,9 @@ sem-service start rabbitmq
 sem-service start rabbitmq 3.7
 ```
 
-Services are not automatically shared across blocks. To do that, start services
+Services are not automatically shared across jobs in a task. To do that, start services
 within the [prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue)
-property of each task and populate data as needed.
+property of the task and populate data as needed.
 
 Example `sem-service` in your pipelines:
 
