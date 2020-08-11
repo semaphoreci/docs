@@ -6,7 +6,7 @@ description: There are three levels of artifact store - job, workflow and projec
 
 __Note__: *Using Artifacts during the beta period is free. Once the artifacts
 system is in the general availability, additional charges will apply based on
-the usage.*
+usage.*
 
 Artifacts are used to persist files that are either final deliverables or
 intermediary/debugging files.
@@ -22,12 +22,12 @@ that usually stores final deliverables of CI/CD pipelines.
 
 ## Job Artifacts
 
-Each job has an artifact store. You can view stored files from job page.
+Each job has an artifact store. You can view stored files from a job's page.
 Look for "Job Artifacts" button.
 The main use-case for job level artifacts is storing logs,
 screenshots and other types of files that make debugging easier.
 
-To upload files to job level artifacts store use built-in artifact CLI.
+To upload files to the job level artifacts store, use the built-in artifact CLI.
 
 `artifact push job <my_file_or_dir>`
 
@@ -50,8 +50,8 @@ blocks:
             - artifact push job screenshots
 ```
 
-Since job level debugging artifacts are relevant in a week or two after job has
-finished you can set artifacts to expire with `--expire-in` flag.
+Since job level debugging artifacts become irrelevant some time after a job has
+finished, you can set artifacts to expire with `--expire-in` flag.
 
 `artifact push job --expire-in 2w logs/test.log`
 
@@ -60,8 +60,8 @@ the [artifact CLI reference][artifact-cli-reference].
 
 ## Workflow Artifacts
 
-As in case of jobs, each workflow also gets its own artifact store.
-On the workflow page look for "Workflow Artifacts" button.
+As in the case of jobs, each workflow also gets its own artifact store.
+On the workflow page look for the "Workflow Artifacts" button.
 
 Workflow artifacts can be used for storing various build and test reports and
 build artifacts. Promoting build artifacts through blocks and pipelines of a
@@ -101,14 +101,14 @@ For more details about uploading and downloading artifacts see
 ## Project Artifacts
 
 Project level artifacts are great for storing final deliverables of the
-CI/CD process. To access them in the UI look for "Project Artifacts"
-button on the job page.
+CI/CD process. To access them in the UI, look for the "Project Artifacts"
+button on the project page.
 
-To upload artifacts from any job of any workflow you need to use:
+To upload project artifacts from any job of any workflow you need to use:
 
 `artifact push project myapp-v1.25.tar.gz`
 
-Similarly, if you want to download file from the project level artifact store
+Similarly, if you want to download file from the project level artifact store,
 use the `pull` command.
 
 `artifact pull project myapp-v1.25.tar.gz`
