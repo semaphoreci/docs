@@ -62,7 +62,7 @@ or files. You can create a secret using the `sem` CLI and reference it in
 the pipeline YML definition.
 
 We will see how to define and use secrets later in this guide. You can refer
-to the [secrets reference docs](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
+to the [secrets docs](https://docs.semaphoreci.com/essentials/using-secrets/)
 for more information.
 
 ## Agents, Machines, and Containers
