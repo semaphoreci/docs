@@ -289,6 +289,25 @@ total 8
 
 In the previous example, the `retry` script succeeded after three failed tries.
 
+## install-package
+
+The `install-package` script can be used to cache missing packages and their dependencies.
+It works by creating a "temporary package cache" folder(if its not present), downloading packages(that are not present),  
+installing the packages from "temporary package cache" than uploading the folder to the projects cache.
+
+Usage:
+```
+install-package [--update|--skip-update|--update-new] pkg1[=version] [pkg2[=version]] 
+```
+
+-`--update` forces repository list update before installing packages.  
+-`--skip-update` skips repository list update before installing packages.  
+-`--update-new` updates only repository lists added in the last one hour.
+
+-`pkg1` is the desired package, which accepts `=version` paramether.
+ Multiple package names, with versions,  are supported.
+
+
 ## See also
 
 - [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
