@@ -293,7 +293,7 @@ In the previous example, the `retry` script succeeded after three failed tries.
 
 The `install-package` script can be used to cache missing packages and their dependencies.
 It works by creating a "temporary package cache" folder(if its not present), downloading packages(that are not present),  
-installing the packages from "temporary package cache" than uploading the folder to the projects cache.
+installing the packages from "temporary package cache", then uploading the folder to the projects cache.
 
 Usage:
 ```
@@ -304,8 +304,8 @@ install-package [--update|--skip-update|--update-new] pkg1[=version] [pkg2[=vers
 -`--skip-update` skips repository list update before installing packages.  
 -`--update-new` updates only repository lists added in the last one hour.
 
--`pkg1` is the desired package, which accepts `=version` paramether.
- Multiple package names, with versions,  are supported.
+-`pkg1` is the desired package which accepts the `=version` parameter.
+ Multiple package names with versions are supported.
 
 
 ## See also
