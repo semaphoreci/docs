@@ -9,8 +9,8 @@ Xcode that run on iOS, macOS, watchOS, or tvOS.
 
 Semaphore supports building, testing, and deploying Swift, Objective-C and
 React Native projects. Projects can be built with
-[Xcode 11][macos-xcode11] running on
-macOS Mojave on an `a1-standard-4` or higher [machine type][machine-types].
+[Xcode 11][macos-xcode11] running on macOS `a1-standard-4` 
+or higher [machine type][machine-types].
 
 ## Example project
 
