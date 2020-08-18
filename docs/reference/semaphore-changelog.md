@@ -10,10 +10,10 @@ This page is updated on a weekly basis.
 
 ### Week of August 17, 2020
 **(New) Install-package command**  
-"Toolbox" command line tools have been extended to include `install-package` utility.  
+"Toolbox" command line tools have been extended to include the `install-package` utility.  
 The `install-package` command can help with package installations by automatically caching the desired packages and their dependencies.  
 
-To find out more, please check [install-package](https://docs.semaphoreci.com/reference/toolbox-reference/#install-package) documentation page.
+To find out more, please check the [install-package](https://docs.semaphoreci.com/reference/toolbox-reference/#install-package) documentation page.
 
 ### Week of August 10, 2020
 **(New) Configurable pipeline queues**  
