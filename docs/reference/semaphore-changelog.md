@@ -9,6 +9,9 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of August 24, 2020
+- Workflow favicon
+- Branch deletion ends workflow
+- Timestamps in job log
 
 ### Week of August 17, 2020
 **(New) Install-package command**  
