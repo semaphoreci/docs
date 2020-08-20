@@ -12,6 +12,7 @@ This page is updated on a weekly basis.
 - Workflow favicon
 - Branch deletion ends workflow
 - Timestamps in job log
+- skip-ci on PRs
 
 ### Week of August 17, 2020
 **(New) Install-package command**  
