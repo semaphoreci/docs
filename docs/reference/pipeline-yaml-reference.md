@@ -183,8 +183,10 @@ pipeline and second, with a `block` scope where you define the execution time
 limit for a single block. In the latter case you can use the `execution_time_limit`
 property in multiple blocks.
 
-Please note that the pipeline time limit is time limit for the sum of the
-running times of all the blocks of the pipeline.
+*Note*: The pipeline time limit is time limit for the sum of the
+running times of all the blocks of the pipeline, this also includes the time jobs
+are waiting for quota. Please keep this in mind when using the 
+`execution_time_limit` proberty.
 
 The `execution_time_limit` property can hold two other properties, which are
 named `hours` and `minutes`, for specifying the execution time limit in hours,
