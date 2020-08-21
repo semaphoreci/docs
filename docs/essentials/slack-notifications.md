@@ -33,10 +33,9 @@ $ sem create notification master-pipelines \
     --slack-endpoint [slack-webhook-endpoint]
 ```
 
-## Setting up Slack notifications for multiple projects and channels
+## Setting up Slack notifications for multiple projects
 
-When creating the notification, you can specify multiple projects as source, and
-multiple slack channels as the target of your notifications.
+When creating the notification, you can specify multiple projects for which you want to be notified when the pipeline finishes.
 
 For example, if your team manages three projects named `web`, `cli` and `api`
 and you want to get notified for every finished pipeline on the master branch,
@@ -47,17 +46,6 @@ $ sem create notifications teamA-notifications \
     --projects "web,cli,api" \
     --branches "master" \
     --slack-endpoint [slack-webhook-endpoint]
-```
-
-If you also want to send these notifications to multiple slack channels, for
-example `#dev-team` and `#qa-team`, use the following command:
-
-``` bash
-$ sem create notifications new-releases \
-    --projects "web,cli,api" \
-    --branches "master" \
-    --slack-endpoint [slack-webhook-endpoint] \
-    --slack-channels "#dev-team,#qa-team"
 ```
 
 ## Filtering by project, branch and pipeline names
@@ -178,8 +166,6 @@ spec:
       notify:
         slack:
           endpoint: https://hooks.slack.com/XXXXXXXXXXX/YYYYYYYYYYYY/ZZZZZZZZZZ
-          channels:
-            - "#qa-team"
 
     - name: "On master branches"
       filter:
@@ -190,9 +176,6 @@ spec:
       notify:
         slack:
           endpoint: https://hooks.slack.com/XXXXXXXXXXX/YYYYYYYYYYYY/ZZZZZZZZZZ
-          channels:
-            - "#devops-team"
-            - "#secops-team"
 ```
 
 Then, apply the resource to your organization:
