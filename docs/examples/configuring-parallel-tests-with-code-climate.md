@@ -36,6 +36,7 @@ blocks:
             - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             - chmod +x ./cc-test-reporter
             - ./cc-test-reporter before-build
+            - # run your tests here
             - ./cc-test-reporter format-coverage --output "coverage/codeclimate.$SEMAPHORE_JOB_ID.json"
             # uploading partial test Coverage to S3
             - aws s3 cp "coverage/codeclimate.$SEMAPHORE_JOB_ID.json" "s3://my_coverage_bucket/$SEMAPHORE_PROJECT_NAME/$SEMAPHORE_GIT_BRANCH/coverage/$SEMAPHORE_WORKFLOW_ID/"
@@ -47,8 +48,8 @@ blocks:
           commands:
             - checkout
             # fetching partial tests from S3
-            - aws s3 sync coverage/ "s3://my_coverage_bucket/$SEMAPHORE_PROJECT_NAME/$SEMAPHORE_GIT_BRANCH/coverage/$SEMAPHORE_WORKFLOW_ID/"
+            - aws s3 sync "s3://my_coverage_bucket/$SEMAPHORE_PROJECT_NAME/$SEMAPHORE_GIT_BRANCH/coverage/$SEMAPHORE_WORKFLOW_ID/" coverage/
             # merging tests
-            - ./cc-test-reporter sum-coverage --output - --parts $(ls -1 coverage/ | wc -l) coverage/codeclimate.*.json 
+            - ./cc-test-reporter sum-coverage --output - --parts $(ls -1 coverage/ | wc -l) coverage/codeclimate.*.json > coverage/codeclimate.json
             - ./cc-test-reporter upload-coverage
 ```
