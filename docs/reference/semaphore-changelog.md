@@ -14,6 +14,19 @@ This page is updated on a weekly basis.
 - Timestamps in job log
 - skip-ci on PRs
 
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Updated)** Language versions:
+  
+  - Aws-cli 1.18.112 ->1.18.124
+  - Elixir 1.10.4 now uses Erlang 23.0.3
+  - Heroku 7.42.6 -> 7.42.8
+  - Java 8u252 -> 8u265
+  - Php 7.3.20 -> 7.3.21
+  - Php 7.4.8 -> 7.4.9
+  - Pypy 5.8.0 -> 7.3.1
+
+  
 ### Week of August 17, 2020
 **(New) Install-package command**  
 "Toolbox" command line tools have been extended to include the `install-package` utility.  
