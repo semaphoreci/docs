@@ -180,6 +180,18 @@ throughout all the blocks of a pipeline.
 
 Example value: `false`
 
+#### SEMAPHORE\_PIPELINE\_PROMOTED\_BY
+
+The value of the `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable is `auto-promotion`
+if the pipeline is auto-promoted.
+
+If the pipeline is manually promoted, the value is the GitHub username 
+of the person that promoted the pipeline.
+
+However, if it is an initial pipeline, the value of the environment variable is an empty string.
+
+Example value: `auto-promotion`
+
 #### SEMAPHORE\_PIPELINE\_RERUN
 
 The value of the `SEMAPHORE_PIPELINE_RERUN` environment variable is `true` if
