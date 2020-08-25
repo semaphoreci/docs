@@ -175,16 +175,16 @@ blocks:
 
 The concept behind the `execution_time_limit` property is simple: you do not
 want your jobs to be executed forever and you need to be able to set a time
-limit for the entire pipeline as well as for individual blocks.
+limit for the entire pipeline as well as for individual blocks and jobs.
 
-The `execution_time_limit` property can be used in two ways. First, with a
-`pipeline` scope where you define the execution time limit for the entire
-pipeline and second, with a `block` scope where you define the execution time
-limit for a single block. In the latter case you can use the `execution_time_limit`
-property in multiple blocks.
+The `execution_time_limit` property can be used at the `pipeline`, `block`
+or `job` scope. In the latter two cases you can use the propery for multiple
+blocks or jobs.
 
-Please note that the pipeline time limit is time limit for the sum of the
-running times of all the blocks of the pipeline.
+*Note*: The pipeline time limit is time limit for the sum of the
+running times of all the blocks of the pipeline, this also includes the time jobs
+are waiting for quota. Please keep this in mind when using the 
+`execution_time_limit` property.
 
 The `execution_time_limit` property can hold two other properties, which are
 named `hours` and `minutes`, for specifying the execution time limit in hours,
@@ -265,6 +265,37 @@ blocks:
         commands:
           - echo 360
           - echo "Building executable"
+```
+
+### An example with an execution\_time\_limit at the job level
+
+The following pipeline YAML file uses the `execution_time_limit` property with
+ a `job` scope:
+
+``` yaml
+version: v1.0
+name: Using execution_time_limit on a job
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Tests
+    task:
+      jobs:
+
+      - name: Lint
+        commands:
+          - checkout
+          - make lint
+
+      - name:  Tests
+        execution_time_limit:
+          minutes: 30
+        commands:
+          - checkout
+          - make test
 ```
 
 ### An example with multiple execution\_time\_limit
