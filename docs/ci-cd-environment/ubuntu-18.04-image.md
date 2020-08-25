@@ -106,7 +106,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.3, 23.0
-- Elixir: 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1, 1.10.2
+- Elixir: 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1, 1.10.4
 
 Additional libraries:
 
@@ -125,7 +125,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u242, 11.0.8
+- Java: 8u265, 11.0.8
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -158,10 +158,10 @@ Installed versions:
 - 7.0.33
 - 7.1.33
 - 7.2.31
-- 7.3.18
-- 7.4.6
+- 7.3.21
+- 7.4.9
 
-The default installed PHP version is `7.2.29`.
+The default installed PHP version is `7.2.31`.
 
 #### Additional libraries
 
@@ -179,8 +179,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 5.8.0
-- pypy3: 5.8.0
+- pypy: 7.3.1
+- pypy3: 7.3.1
 - pip: 20.0.2
 - pip3: 19
 - venv: 16.0.0
