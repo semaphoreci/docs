@@ -8,6 +8,28 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 24, 2020
+**(New) Information on promoter is stored in enviroment variable**  
+Inside a Semaphore job you can now see who initiated the promotion by checking the value of `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable.
+
+Information on all available enviroment variables can be found in our [documentation](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by).
+
+**(Improved) Ubuntu 18.04 image update**  
+**(Updated)** Language versions:
+  - Aws-cli 1.18.112 ->1.18.124
+  - Elixir 1.10.4 now uses Erlang 23.0.3
+  - Heroku 7.42.6 -> 7.42.8
+  - Java 8u252 -> 8u265
+  - Php 7.3.20 -> 7.3.21
+  - Php 7.4.8 -> 7.4.9
+  - Pypy 5.8.0 -> 7.3.1
+  
+ To learn more about this image check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+ 
+ **Minor improvements and fixes:**  
+ - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
+ - **(Improved)** Deleting a git branch will now stop any queued or running pipeline started on that branch.
+ 
 ### Week of August 17, 2020
 **(New) Install-package command**  
 "Toolbox" command line tools have been extended to include the `install-package` utility.  
@@ -63,13 +85,13 @@ organization is reached.
 
 For more details on setting job priorities check [prioritization page](https://docs.semaphoreci.com/essentials/prioritization/) in our documentation.
 
-**(Improvement) GitHub Settings**  
+**(Improved) GitHub Settings**  
 Option to check the health of GitHub deploy key and webhook have been added in project settings UI.  
 New settings also allow you to quickly repair connection between the Semaphore project and GitHub repository.
 
 Read more about troubleshooting connection between Semaphore and GitHub in our [docs](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health).
 
-**(Improvement) Cached Android docker images**  
+**(Improved) Cached Android docker images**  
 From now on, Android docker images for two latest stable SDK versions will always be cached, meaning that the jobs using these images will now start up even faster.
 
 For more details see our documentation on [Android docker images](https://docs.semaphoreci.com/ci-cd-environment/android-images/).  
