@@ -24,7 +24,7 @@ Information on all available enviroment variables can be found in our [documenta
   - Php 7.4.8 -> 7.4.9
   - Pypy 5.8.0 -> 7.3.1
   
- To learn more about this image check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
  
  **Minor improvements and fixes:**  
  - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
