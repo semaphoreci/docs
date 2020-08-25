@@ -16,6 +16,7 @@ Information on all available enviroment variables can be found in our [documenta
 
 **(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
+
   - Aws-cli 1.18.112 ->1.18.124
   - Elixir 1.10.4 now uses Erlang 23.0.3
   - Heroku 7.42.6 -> 7.42.8
