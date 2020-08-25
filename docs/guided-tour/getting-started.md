@@ -1,5 +1,5 @@
 ---
-description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features. 
+description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features.
 ---
 
 # Getting Started
@@ -46,7 +46,7 @@ for getting things done:
 - **Pipelines as code**: traditionally associated with tools that require
 costly self-hosting and detailed customization, infinitely configurable CD
 pipelines are now available in an easy to use package.
-- **It's fastest there is**: Semaphore provides the best out of the box CI/CD
+- **It's the fastest there is**: Semaphore provides the best out of the box CI/CD
 performance on the market, which means shorter development cycles and faster
 innovation. Moving to Semaphore usually saves hours of precious time per week
 per developer.
@@ -65,5 +65,5 @@ customizing it for your use case.
 [next]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
 
 If you want to find out more about the product and participate in a live Q&A
-session with one of Semaphore's co-founders, you can register for 
+session with one of Semaphore's co-founders, you can register for
 Semaphore Class. [More info here](https://semaphoreci.com/learn/class).

@@ -828,10 +828,10 @@ blocks:
 
 The `run` property is optional and it allows you to define a condition, written
 in [Conditions DSL][conditions-reference], that is based on properties of the push
-which initiated the whole pipeline.
+which initiated the whole workflow.
 
-Only if the condition defined in this way is evaluated to be true, the block and
-all of its jobs will be run, otherwise, block will be skipped.
+Only if the run condition is evaluated to be true will the block and
+all of its jobs be run, otherwise the block will be skipped.
 
 When a block is skipped, it means that it will immediately finish with the result
 `passed` and the result_reason `skipped` without actually running any of its jobs.

@@ -14,7 +14,7 @@ images, refer to the [Working with Docker Images][working-with-docker].
 
 ## Using a Docker container as your pipelines' CI/CD environment
 
-To run your commands inside of Docker container, define the `containers` section in
+To run your commands inside a Docker container, define the `containers` section in
 your agent specification.
 
 For example, in the following pipeline we will use the `semaphoreci/ruby-2.6.1`
@@ -240,7 +240,7 @@ agent:
 
 Private Docker images stored in Google container registry can be used in your CI/CD pipelines.
 
-First, set up the secret to store your GCE credential file and repository hostname.
+First, set up the secret to store your GCR credential file and repository hostname.
 It's important to set the destination path for the file to `/tmp/gcr/keyfile.json`
 as this is the default path and filename that Semaphore agent will lookup for GCR credentials.
 
