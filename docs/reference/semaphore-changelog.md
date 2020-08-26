@@ -14,9 +14,9 @@ Inside a Semaphore job you can now see who initiated the promotion by checking t
 
 Information on all available enviroment variables can be found in our [documentation](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by).
   
-**(Improved) Ubuntu 18.04 image update**
+**(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
-
+  
   - Aws-cli 1.18.112 ->1.18.124
   - Elixir 1.10.4 now uses Erlang 23.0.3
   - Heroku 7.42.6 -> 7.42.8
@@ -28,9 +28,8 @@ Information on all available enviroment variables can be found in our [documenta
  To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
   
 **(Improved) macOS Xcode11 image update**  
-
 **(Updated)** Updated packages:  
-
+  
   - Fastlane 2.149.1 -> 2.156.1
   - Flutter v1.17.3 -> v1.20.2
   
