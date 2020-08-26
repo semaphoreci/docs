@@ -5,13 +5,13 @@ description: This page shows how to store and access sensitive data such as API 
 # Secrets
 
 This page shows how to store and access sensitive data such as API keys,
-passwords, certificates, SSH keys other sensitive data.
+passwords, certificates, SSH keys or other sensitive data.
 
 ## Overview
 
-Secret is a organization level object that contains collection of environment
-variables and files. Content of secret can be accessed in jobs that are part of
-blocks or pipelines to which secret has be connected.
+Secrets are organization level objects that contain environment
+variables and files. Contents of secrets can be accessed in jobs that are part of
+blocks or pipelines to which the secrets have been connected.
 
 ## Using secrets in jobs
 

@@ -92,9 +92,9 @@ images to start your services.
 ### Using services and test data across blocks
 
 Note that, since all jobs run in isolated environments, the services that you
-start in one block are not automatically available in other blocks.
-Likewise, starting a service in one job, doesn't automatically make it
-available in other jobs of the same block.
+start in one job are not automatically available in other jobs.
+The isolation of jobs from each other within their block also means that
+services are not shared across blocks or pipelines.
 
 To use a service or populate test data in all parallel jobs within a block,
 specify that in the task [prologue][prologue]. Repeat the same steps in the

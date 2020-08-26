@@ -41,18 +41,25 @@ Example YAML:
 
 ``` yaml
 blocks:
-  prologue:
-    commands:
-      - cache restore
-
-  epilogue:
-    commands:
-      - cache store
-
-  jobs:
-    - name: Bundle Install
-       commands:
-         - bundle install --path vendor/bundle
+- name: Cache bundle
+  task:
+    jobs:
+      - name: Bundle install and cache
+        commands:
+          - bundle install --path vendor/bundle
+          - cache store
+- name: Use cache
+  task:
+    prologue:
+      commands:
+        - cache restore
+    jobs:
+      - name: Job 1
+        commands: echo Use cache 1
+      - name: Job 2
+        commands: echo Use cache 2
+      - name: Job 3
+        commands: echo Use cache 3
 ```
 
 The output of cache store in a project that has a Gemfile.lock and packages-lock.json
@@ -272,7 +279,7 @@ blocks:
           commands:
         - name: RSpec 1
           commands:
-        - name: RSpec 1
+        - name: RSpec 2
           commands:
 ```
 
