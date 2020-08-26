@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 31, 2020
+
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in enviroment variable**  
 Inside a Semaphore job you can now see who initiated the promotion by checking the value of `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable.
