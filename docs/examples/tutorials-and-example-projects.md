@@ -46,7 +46,7 @@ possible and jump-start your own projects.
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-java-spring">semaphore-demo-java-spring</a></td>
     </tr>
     <tr>
-      <td>Java</td>
+      <td>Android, Java</td>
       <td>Kotlin</td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-android/">semaphore-demo-android</a></td>
     </tr>
