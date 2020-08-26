@@ -75,7 +75,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.149.1)
+- fastlane (2.156.1)
 - cocoapods (1.9.3)
 
 ## Languages
@@ -115,7 +115,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.17.3
+- v1.20.2
 
 ## Xcode
 

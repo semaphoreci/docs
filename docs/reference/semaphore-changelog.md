@@ -25,6 +25,13 @@ Information on all available enviroment variables can be found in our [documenta
   - Pypy 5.8.0 -> 7.3.1
   
  To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Updated packages:
+  - Fastlane 2.149.1 -> 2.156.1
+  - Flutter v1.17.3 -> v1.20.2
+
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
  
  **Minor improvements and fixes:**  
  - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
