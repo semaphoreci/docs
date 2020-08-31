@@ -8,6 +8,14 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 31, 2020
+  
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Xcode 11.6 installed, to switch version simply use `xcversion select 11.6` 
+**(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.
+  
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in enviroment variable**  
 Inside a Semaphore job you can now see who initiated the promotion by checking the value of `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable.
