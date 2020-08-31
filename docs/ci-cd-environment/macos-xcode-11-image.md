@@ -125,6 +125,7 @@ Installed versions:
 - 11.3.1
 - 11.4.1
 - 11.5
+- 11.6
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 11.5`
 
@@ -167,6 +168,17 @@ Xcode 11.5 has the following SDKs preinstalled:
 - driverkit.macosx19.0
 - iphoneos13.5
 - iphonesimulator13.5
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
+
+Xcode 11.6 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.6
+- iphonesimulator13.6
 - appletvos13.4
 - appletvsimulator13.4
 - watchos6.2
