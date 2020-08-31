@@ -9,16 +9,21 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of August 31, 2020
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Xcode 11.6 installed, to switch version simply use `xcversion select 11.6`  
+**(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.  
+  
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).  
 
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in enviroment variable**  
 Inside a Semaphore job you can now see who initiated the promotion by checking the value of `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable.
 
 Information on all available enviroment variables can be found in our [documentation](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by).
-
+  
 **(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
-
+  
   - Aws-cli 1.18.112 ->1.18.124
   - Elixir 1.10.4 now uses Erlang 23.0.3
   - Heroku 7.42.6 -> 7.42.8
@@ -27,8 +32,16 @@ Information on all available enviroment variables can be found in our [documenta
   - Php 7.4.8 -> 7.4.9
   - Pypy 5.8.0 -> 7.3.1
   
- To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
- 
+ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
+  
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Updated packages:  
+  
+  - Fastlane 2.149.1 -> 2.156.1
+  - Flutter v1.17.3 -> v1.20.2
+  
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+  
  **Minor improvements and fixes:**  
  - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
  - **(Improved)** Deleting a git branch will now stop any queued or running pipeline started on that branch.

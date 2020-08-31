@@ -13,6 +13,8 @@ To set up a Slack notification, first you need to configure an [incoming
 webhook](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks) in your Slack
 workspace.
 
+**Note:** To be able to use full power of Semaphore integration with Slack, always use [Incoming Webhooks app](https://semaphore.slack.com/apps/A0F7XDUAZ-incoming-webhooks?next_id=0) instead of [creating your own](https://api.slack.com/start) on Slack. In case you set up the notification with an endpoint from your custom Slack app, you won't be able to use channel override feature.
+
 Use the generated Endpoint URL to set up a notification on Semaphore,
 with the following command:
 
