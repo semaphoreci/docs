@@ -8,6 +8,26 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 31, 2020
+**(Improved) New Semaphore UI public beta release**  
+After a successful private beta, the new Semaphore UI has been rolled out to a larger number of users.  
+The new UI brings several improvements:  
+
+- Easier navigation through better breadcrumbs and a new "Jump to" element.
+- Additional information in workflow lists allows you to quickly see the status of deployments.
+- Enhanced Workflow builder - new options like job prioritization have been added to the Workflow builder.
+- Improved job logs with collapsable command lines and dark theme.
+- Activity Monitor page that provides a handy overview of your running pipelines and quota limits.
+
+You can read more about new UI in our [latest blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).  
+If you want to try out the new UI but it's not yet rolled out to your organization, please reach out to [our support team](mailto:support@semaphoreci.com).
+
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Xcode 11.6 installed, to switch version simply use `xcversion select 11.6`  
+**(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.  
+  
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in enviroment variable**  
 Inside a Semaphore job you can now see who initiated the promotion by checking the value of `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable.
@@ -83,6 +103,7 @@ Added possibility to change firefox version with the `sem-version` tool: `sem-ve
   - PHP 7.2.31 -> 7.2.32
   - PHP 7.3.19 -> 7.3.20
   - PHP 7.4.7 -> 7.4.8
+  - Chrome_driver 83 > 84
 
 To learn more check our [ubuntu1804 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
