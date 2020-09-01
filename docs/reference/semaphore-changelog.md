@@ -10,17 +10,17 @@ This page is updated on a weekly basis.
 
 ### Week of August 31, 2020
 **(Improved) New Semaphore UI public beta release**  
-After successful private beta the new Semaphore UI has been rolled out to a larger number of users.  
+After a successful private beta, the new Semaphore UI has been rolled out to a larger number of users.  
 The new UI brings several improvements:  
 
-- Easier navigation through better breadcrumbs and new "Jump to" element.
+- Easier navigation through better breadcrumbs and a new "Jump to" element.
 - Additional information in workflow lists allows you to quickly see the status of deployments.
-- Enhanced Workflow builder - new options like job prioritization have been added in Workflow builder.
+- Enhanced Workflow builder - new options like job prioritization have been added to the Workflow builder.
 - Improved job logs with collapsable command lines and dark theme.
 - Activity Monitor page that provides a handy overview of your running pipelines and quota limits.
 
 You can read more about new UI in our [latest blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).  
-If you want to try out new UI but it's not yet rolled out to your organization please reach out to [our support team](mailto:support@semaphoreci.com).
+If you want to try out the new UI but it's not yet rolled out to your organization, please reach out to [our support team](mailto:support@semaphoreci.com).
 
 **(Improved) macOS Xcode11 image update**  
 **(Updated)** Xcode 11.6 installed, to switch version simply use `xcversion select 11.6`  
