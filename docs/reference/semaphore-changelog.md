@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of September 7, 2020
+
 ### Week of August 31, 2020
 **(Improved) New Semaphore UI public beta release**  
 After a successful private beta, the new Semaphore UI has been rolled out to a larger number of users.  
