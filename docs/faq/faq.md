@@ -111,7 +111,7 @@ git submodule update
 git submodule deinit --force .
 ```
 Make sure that Semaphore has permissions to clone your submodules repository.
-In our <a href="https://docs.semaphoreci.com/essentials/using-private-dependencies">private dependencies</a> page you can find more
+In our <a href="https://docs.semaphoreci.com/essentials/using-private-dependencies/">private dependencies</a> page you can find more
 information about setting permissions for private repositories.
   </p>
 </details>
@@ -125,7 +125,7 @@ and pulling the Docker images does not work. The solution is to:
 </p>
 <p>
   
-- Add a self-signed certificate as a <a href="https://docs.semaphoreci.com/essentials/using-secrets">secret</a> on Semaphore
+- Add a self-signed certificate as a <a href="https://docs.semaphoreci.com/essentials/using-secrets/">secret</a> on Semaphore
 <br>- Save it under the name of domain.crt
 <br>- Add the following command to your pipeline:
 ```bash
@@ -193,11 +193,11 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
 
 You might be hitting the quota limitation. Check your organization's quota
 in Billing > See detailed insights… > Quota. More information about quota
-and how to ask for an increase <a href="https://docs.semaphoreci.com/article/133-quotas-and-limits">here</a>.
+and how to ask for an increase <a href="https://docs.semaphoreci.com/reference/quotas-and-limits/">here</a>.
 
 You may also run <code>sem get jobs</code> to display all running jobs
 so you may confirm how much quota is being used.
-More information about <code>sem get</code> <a href="https://docs.semaphoreci.com/article/53-sem-reference#sem-get-examples">here</a>.
+More information about <code>sem get</code> <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-get-examples">here</a>.
   </p>
 </details>
 
@@ -230,7 +230,7 @@ When pushing several commits into the same branch, Semaphore won't run parallel 
 </p>
 <p>
   
-The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the <a href="https://docs.semaphoreci.com/article/153-auto-cancel">auto_cancel</a> feature.
+The only way to push several commits to a single branch and not wait for the workflows to finish one by one is to enable the <a href="https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/">auto_cancel</a> feature.
 </p>
 </details>
 
@@ -297,5 +297,5 @@ If not, you should either grant access or request it from the organization's own
 [epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
 [private-dependencies]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
 [secret]: https://docs.semaphoreci.com/essentials/using-secrets/
-[auto-cancel]: https://docs.semaphoreci.com/article/153-auto-cancel
+[auto-cancel]: https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/
 [sem-attach]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach
