@@ -66,4 +66,4 @@ customizing it for your use case.
 
 If you want to find out more about the product and participate in a live Q&A
 session with one of Semaphore's co-founders, you can register for
-Semaphore Class. [More info here](https://semaphoreci.com/learn/class).
+Semaphore Class. [More info here](https://semaphoreci.com/resources/semaphore-class/).

@@ -15,7 +15,7 @@ This web page shows you:
 
 If the page is not showing Semaphore 2.0 application on GitHub, and you
 previously logged in to Semaphore 2.0 with the GitHub account that you are
-currently using, please check your [account settings](https://me.semaphoreci.com/account) page.  
+currently using, please check your [account settings](https://me.semaphoreci.com/account/) page.  
 Under the "Repository access" section, click on grayed out checkmarks to reauthorize the Semaphore app.
 
 **If [Semaphore 2.0 application page on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d) is still not showing the Semaphore 2.0 application

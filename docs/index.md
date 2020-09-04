@@ -60,7 +60,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
             <p class="welcome-block-description">Dive into the details</p>
 
             <ul>
-                <li><a href="programming-languages/android">Android</a></li>
+                <li><a href="programming-languages/android/">Android</a></li>
                 <li><a href="programming-languages/c/">C</a></li>
                 <li><a href="programming-languages/cpp/">C++</a></li>
                 <li><a href="programming-languages/clojure/">Clojure</a></li>

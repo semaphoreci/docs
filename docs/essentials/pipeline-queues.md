@@ -191,7 +191,7 @@ or any pull request so those pipelines will run in parallel.
 
 - [Deploying with promotions][deploying-with-promotions]
 - [Auto-cancel previous pipelines in the queue][auto-cancel]
-- [Defining 'when' conditions](https://docs.semaphoreci.com/reference/conditions-reference)
+- [Defining 'when' conditions](https://docs.semaphoreci.com/reference/conditions-reference/)
 
 [queue-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
 [cond-queue-defs-reference]:https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#conditional-queue-configurations
