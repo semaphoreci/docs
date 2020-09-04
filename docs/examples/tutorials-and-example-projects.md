@@ -113,7 +113,7 @@ possible and jump-start your own projects.
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://docs.semaphoreci.com/examples/deploy-to-digitalocean">Deploy to DigitalOcean</a></td>
+      <td><a href="https://docs.semaphoreci.com/examples/deploy-to-digitalocean/">Deploy to DigitalOcean</a></td>
       <td></td>
     </tr>
     <tr>

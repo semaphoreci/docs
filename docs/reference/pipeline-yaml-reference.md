@@ -2095,5 +2095,5 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [env-var-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#env_vars
 [secrets-in-task]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets
 [default-priorities]: https://docs.semaphoreci.com/essentials/prioritization/#default-job-priorities
-[pipeline-queues]: https://docs.semaphoreci.com/essentials/pipeline-queues
+[pipeline-queues]: https://docs.semaphoreci.com/essentials/pipeline-queues/
 [default-queue-config]: https://docs.semaphoreci.com/essentials/pipeline-queues#default-behaviour
