@@ -13,7 +13,7 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per machine type for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
+Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
 a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
@@ -49,7 +49,7 @@ machine quotas, you can request an increase by sending a request to
 prefer) or through the UI (Billing > See detailed insights… > Quota > Request
 upgrade…).
 
-Default quotas per machine type for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)**:
+Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -78,7 +78,7 @@ Default quotas per machine type for an organization on an **[open source plan](h
 </tbody>
 </table>
 
-Default quotas per machine type for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)**:
+Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
