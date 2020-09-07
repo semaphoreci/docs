@@ -9,6 +9,21 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of September 7, 2020
+**(New) Ubuntu 18.04 image additions** 
+- Added go 1.15
+- Added azure-cli, version 2.11.1
+
+**(Improved) Ubuntu 18.04 image update**  
+**(Updated)** Language versions:
+
+- Aws cli 1.18.124 -> 1.18.129
+- Chrome 84 -> 85
+- Chromedriver 84 -> 85
+- Go 1.13.14 -> 1.13.15
+- Go 1.14.6 -> 1.14.7
+- Heroku 7.42.8 -> 7.42.13
+- Yarn 1.22.4 -> 1.22.5
+
 
 ### Week of August 31, 2020
 **(Improved) New Semaphore UI public beta release**  
