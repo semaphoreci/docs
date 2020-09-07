@@ -11,7 +11,7 @@ This page is updated on a weekly basis.
 ### Week of September 7, 2020  
 **(Improved) macOS Xcode11 image update**  
 **(Updated)** Xcode 11.7 installed, to switch version simply use `xcversion select 11.7`  
-**(Deprecated)** Xcode 11.2.1 removed from the images.  
+**(Removed)** Xcode 11.2.1 removed from the images.  
   
 **(Updated)** Updated packages:  
   - Fastlane 2.149.1 -> 2.158.0  
