@@ -8,7 +8,16 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of September 7, 2020
+### Week of September 7, 2020  
+**(Improved) macOS Xcode11 image update**  
+**(Updated)** Xcode 11.7 installed, to switch version simply use `xcversion select 11.7`  
+**(Deprecated)** Xcode 11.2.1 removed from the images.  
+  
+**(Updated)** Updated packages:  
+  - Fastlane 2.149.1 -> 2.158.0  
+  - Flutter v1.20.2 -> v1.20.3  
+  
+To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
 
 ### Week of August 31, 2020
 **(Improved) New Semaphore UI public beta release**  
