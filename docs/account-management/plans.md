@@ -47,8 +47,8 @@ plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
 ## Open Source plan
 
 On this plan, you have unlimited build minutes for building your public
-repositories. You also have four e1-standard-2 machines and one a1-standard-4 
-machine at your disposal.
+repositories completely free of charge. You also have [four e1-standard-2 machines 
+and one a1-standard-4 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) at your disposal.
 
 Only one of the organizations you own can be on an open source plan.
 
@@ -61,7 +61,7 @@ for these builds.
 The Free plan includes $10 (up to 1300 build minutes) of free credit per calendar 
 month. At the beginning of each month, you will receive a new $10 credit for your
 organization. On this plan, you will be able to run 1 job at a time and you can 
-use e1-standard-2 machine and a1-standard-4 machine.
+use [e1-standard-2 machine and a1-standard-4 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/).
 
 You can have an unlimited number of organizations, but only one of the
 organizations you own can be on a free plan.
