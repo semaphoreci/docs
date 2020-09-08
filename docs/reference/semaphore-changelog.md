@@ -26,7 +26,7 @@ The new UI brings several improvements:
 
 - Easier navigation through better breadcrumbs and a new "Jump to" element.
 - Additional information in workflow lists allows you to quickly see the status of deployments.
-- Enhanced Workflow builder - new options like job prioritization have been added to the Workflow builder.
+- Enhanced Workflow builder - new options like fail-fast and auto-cancel have been added to the Workflow builder.
 - Improved job logs with collapsable command lines and dark theme.
 - Activity Monitor page that provides a handy overview of your running pipelines and quota limits.
 
