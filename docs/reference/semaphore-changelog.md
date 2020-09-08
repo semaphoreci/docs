@@ -9,12 +9,12 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of September 7, 2020  
-**(Improved) New UI improvements and fixes:**
-**(New)** Timestamps - in job logs you can now enable timestamps for comand output lines.
-**(Improved)** In workflow page it is now clearly specified if pipeline was stopped by branch deletion.
-**(Fixed)** Automated scrolling to selected pipeline was removed in workflow page.
-**(Fixed)** Fixed the issue where `exit_code` of the last executed command in the job log was missing.
-**(Fixed)** Fixed several performance and stability issues that were causing 500s on multiple pages.
+**(Improved) New UI improvements and fixes**  
+**(New)** Timestamps - in job logs you can now enable timestamps for command output lines.  
+**(Improved)** In the workflow page it is now clearly specified if the pipeline was stopped by branch deletion.  
+**(Fixed)** Automated scrolling to the selected pipeline was removed in the workflow page.  
+**(Fixed)** Fixed the issue where `exit_code` of the last executed command in the job log was missing.  
+**(Fixed)** Fixed several performance and stability issues that were causing 500s on multiple pages.  
 
 If you want to try out the new UI but it's not yet rolled out to your organization, please reach out to [our support team](mailto:support@semaphoreci.com).
 
