@@ -115,17 +115,17 @@ Installed versions:
 
 ## Flutter
 
-- v1.20.2
+- v1.20.3
 
 ## Xcode
 
 Installed versions:
 
-- 11.2.1
 - 11.3.1
 - 11.4.1
 - 11.5
 - 11.6
+- 11.7
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 11.5`
 
@@ -184,6 +184,16 @@ Xcode 11.6 has the following SDKs preinstalled:
 - watchos6.2
 - watchsimulator6.2
 
+Xcode 11.7 has the following SDKs preinstalled:
+
+- macosx10.15
+- driverkit.macosx19.0
+- iphoneos13.6
+- iphonesimulator13.6
+- appletvos13.4
+- appletvsimulator13.4
+- watchos6.2
+- watchsimulator6.2
 
 ## See Also
 
