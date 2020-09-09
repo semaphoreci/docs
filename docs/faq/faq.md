@@ -194,7 +194,7 @@ Either a debug statement or a cleanup procedure in the catch procedure.
 Reproducing this can be hard sometimes. These are the steps we recommend:
 </p>
 1. Start a build on a branch and let it get stale.
-<br>2. <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">Attach</a> to a running job: `sem attach <job-id>`.
+<br>2. <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">Attach</a> to a running job: <code>sem attach <job-id></code>.
 <br>3. Now, you should be in the instance of the job's virtual machine.
 <p>
   
