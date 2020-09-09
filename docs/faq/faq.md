@@ -198,20 +198,22 @@ Reproducing this can be hard sometimes. These are the steps we recommend:
 <br>3. Now, you should be in the instance of the job's virtual machine.
 <p>
   
-  In the running instance, you can:
-  
-- List the running processes with `ps aux` or `top`. Is there any suspicious process in the list that is still running?
-<br>- Run a `strace` on the running process: `sudo strace -p <process-id>`. We can find the last kernel instruction that it is waiting for. 
-For example `select(1, ...` can mean that the process is waiting for user input.
-<br>- Look into the system metrics at `/tmp/system-metrics`. This tracks memory and disk usage. 
-Lack of disk space or free memory can introduce unwanted stalling into jobs.
-<br>- Look into the Agent logs at `/tmp/agent_logs`. The logs could indicate waiting for some conditions.
-<br>- Look into the Job logs at `/tmp/job_logs.json`. The logs could also indicate waiting for some conditions.
-<br>- Check the syslog as it can be also a valuable source of information: `tail /var/log/syslog`. It can indicate 'Out of memory' conditions.
+In the running instance, you can:
 </p>
 <p>
-While this issue is ongoing, you might consider using a shorter `execution_time_limit` in your pipelines. 
-  This will prevent stale builds to run for a full hour, and fail sooner.
+- List the running processes with <code>ps aux</code> or <code>top</code>. Is there any suspicious process running?
+<br>- Run a <code>strace</code> on the running process: <code>sudo strace -p <process-id></code> 
+  to see the last kernel instruction that it is waiting for. 
+For example, <code>select(1, ...</code> can mean the process is waiting for user's input.
+<br>- Look into the system metrics at <code>/tmp/system-metrics</code>. This tracks memory and disk usage. 
+Lack of disk space or free memory can introduce unwanted stalling into jobs.
+<br>- Look into the Agent logs at <code>/tmp/agent_logs</code>. The logs could indicate waiting for some conditions.
+<br>- Look into the Job logs at <code>/tmp/job_logs.json</code>. The logs could also indicate waiting for some conditions.
+<br>- Check the syslog as it can be also a valuable source of information: <code>tail /var/log/syslog</code>. It can indicate 'Out of memory' conditions.
+</p>
+<p>
+While this issue is ongoing, you might consider using a shorter <code>execution_time_limit</code> in your pipelines. 
+This will prevent stale builds to run for a full hour, and fail sooner.
 
   </p>  
 </details>
