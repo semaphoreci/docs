@@ -185,6 +185,37 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
   </p>  
 </details>
 
+<details>
+  <summary id="troubleshoot-a-stalling-job">How to troubleshoot a stalling job?</summary>
+  <p>
+
+The most common reason for stalled builds is a process that refuses to shut down properly.
+Either a debug statement or a cleanup procedure in the catch procedure. 
+Reproducing this can be hard sometimes. These are the steps we recommend:
+</p>
+1. Start a build on a branch and let it get stale.
+<br>2. <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">Attach</a> to a running job: `sem attach <job-id>`.
+<br>3. Now, you should be in the instance of the job's virtual machine.
+<p>
+  
+  In the running instance, you can:
+  
+- List the running processes with `ps aux` or `top`. Is there any suspicious process in the list that is still running?
+<br>- Run a `strace` on the running process: `sudo strace -p <process-id>`. We can find the last kernel instruction that it is waiting for. 
+For example `select(1, ...` can mean that the process is waiting for user input.
+<br>- Look into the system metrics at `/tmp/system-metrics`. This tracks memory and disk usage. 
+Lack of disk space or free memory can introduce unwanted stalling into jobs.
+<br>- Look into the Agent logs at `/tmp/agent_logs`. The logs could indicate waiting for some conditions.
+<br>- Look into the Job logs at `/tmp/job_logs.json`. The logs could also indicate waiting for some conditions.
+<br>- Check the syslog as it can be also a valuable source of information: `tail /var/log/syslog`. It can indicate 'Out of memory' conditions.
+</p>
+<p>
+While this issue is ongoing, you might consider using a shorter `execution_time_limit` in your pipelines. 
+  This will prevent stale builds to run for a full hour, and fail sooner.
+
+  </p>  
+</details>
+
 ### Jobs & Workflows
 
  <details>
