@@ -278,12 +278,13 @@ it means that the new credit card wasn't marked for usage. Here’s how to do th
 </p>
 <p>
   
-1. Go to <code>Billing</code>
-<br>2. Click on <code>Credit card and Billing info...</code>
-<br>3. Go to <code>Subscription</code> tab
-<br>4. Click on <code>Manage</code>
-<br>5. Go to <code>Update Payment Method</code>
-<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use
+1. Click on the initial of your organization in the top right corner of the page, 
+<br>2. In the dropdown menu, choose <code>Plans & Billing</code>,
+<br>3. Next to the Payment details, click on <code>Credit card info</code>,
+<br>4. Go to <code>Subscription</code> tab
+<br>5. Click on <code>Manage</code>
+<br>6. Go to <code>Update Payment Method</code>
+<br>7. Click on the <code>Use this</code> button next to the credit card you'd like to use
 </p>
 <p>
 After that, you can also remove the old credit card if you don't need it anymore.
@@ -299,12 +300,13 @@ In order to mark the new credit card for usage, you can:
 </p>
 <p>
   
-1. Go to <code>Billing</code> 
-<br>2. Click on <code>Credit card and Billing info...</code>
-<br>3. Go to <code>Subscription</code> tab
-<br>4. Click on <code>Manage</code> 
-<br>5. Go to <code>Update Payment Method</code> 
-<br>6. Click on the <code>Use this</code> button next to the credit card you'd like to use
+1. Click on the initial of your organization in the top right corner of the page, 
+<br>2. In the dropdown menu, choose <code>Plans & Billing</code>
+<br>3. Next to the Payment details, click on <code>Credit card info</code>,
+<br>4. Go to <code>Subscription</code> tab
+<br>5. Click on <code>Manage</code> 
+<br>6. Go to <code>Update Payment Method</code> 
+<br>7. Click on the <code>Use this</code> button next to the credit card you'd like to use
 </p>
 <p>
   
