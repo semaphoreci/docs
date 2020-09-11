@@ -4,9 +4,7 @@ description: This page explains the billing details and provides information on 
 
 # Billing
 
-Billing page is accessible to the creator of the organization and admins and you
-can find it in the Owner’s area of your organization.
-
+Billing page can be accessed only by an [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) or [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admins) of the organization.
 Here you can find all the details related to your usage:
 
 1. [Machine types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
@@ -14,38 +12,35 @@ Here you can find all the details related to your usage:
 second
 3. Number of seconds each machine was used
 4. Spendings (per machine and total)
+5. Daily spending chart
+6. Most active projects
 
 **Note:** To see the fully updated usage, you should allow for up to
 24h to pass.
 
-## Billing insights
-
-The organization owner and admins can see usage in more details by clicking on
-**See detailed insights…** in the top right corner of the Billing page. Here
-you can find:
-
-- Daily spending chart which contains spending per machine type. This data is
-available for any selected period.
-- Quota chart which contains the maximal number of machines running at the same
-time. This data is available for the current and previous months.
-- Top spending projects.
-
 ## Budget alert
 
-Organization owner and admins can set up budget alerts. An email notification
+Organization [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) and [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admins) can set up budget alerts. An email notification
 will be sent to the organization's owner email address when you spend 50%, 90%
 and 100% of your budget within one month's spending. However, please note that
 pipelines won't be disabled once you go past the budget.
 
-You can set the budget alert through the Semaphore UI (Billing > Set budget…)
-if your organization is on a paid plan.
+You can set the budget alert in the following way:
+
+1. Click on the initial of your organization in the top right corner of the page,
+2. In the dropdown menu, choose **Plans & Billing**,
+3. Next to the Spending budget email, click on **Set…**,
+4. Enter your budget and click on **Save budget** button.
+
+You can change or remove the budget you set at any time.
 
 ## Changing credit card information
 
 In order to change credit card/PayPal information, you can follow these steps:
 
-1. Go to the **Billing** page of your organization,
-2. In the top right corner, click on **Credit Card and Billing Info…**,
+1. Click on the initial of your organization in the top right corner of the page,
+2. In the dropdown menu, choose **Plans & Billing**,
+3. Next to the Payment details, click on **Credit card info**,
 3. Open the **Subscriptions** tab,
 4. Click on **Manage button** > **Update payment method**.
 
@@ -60,7 +55,7 @@ billing email, VAT ID or country on the invoice, please contact us at
 You will receive an invoice for your organization at the end of every billing
 period to the email address you entered while adding your credit card.
 
-You can also find your invoices at the bottom of the Billing page.
+You can also find your invoices at the bottom of the Plans & Billing page.
 
 ## Refunds
 
