@@ -25,7 +25,7 @@ will be sent to the organization's owner email address when you spend 50%, 90%
 and 100% of your budget within one month's spending. However, please note that
 pipelines won't be disabled once you go past the budget.
 
-You can set the budget alert the following way:
+You can set the budget alert in the following way:
 
 1. Click on the initial of your organization in the top right corner of the page,
 2. In the dropdown menu, choose **Plans & Billing**,
