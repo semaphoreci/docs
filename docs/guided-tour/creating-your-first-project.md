@@ -12,13 +12,15 @@ create a project for it to live in.
 Once you're inside an organization that you've created or were invited to,
 you're ready to create a CI/CD project.
 
-Follow the `Projects > Create new project (+ sign)` link in the sidebar of Semaphore web interface.
-You'll go through a simple two-step process:
+Follow the **+ New Project** link in the top right corner of Semaphore web interface.
+You'll go through a simple three-step process:
 
-1. Find the wanted repository and click on `Add Repository`;
-2. In the Workflow Builder, edit your Semaphore pipeline and commit it to start your first workflow.
+1. Find the wanted repository and click on **Choose**,
+2. Add people to the project,
+3. Choose a starter workflow - you can use one of the templates or customize it on 
+your own.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5u3NDj0xBm0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+You are all set!
 
 ## Alternative: creating a project from command line
 
@@ -92,8 +94,8 @@ You can do the following:
 If you want to rename your project, you can:
 
 1. Choose the project whose name you want to change,
-2. Go to **Settings**,
-3. Change the name in the **Name of the Project** field and
+2. Go to **Settings** in the top right corner of the page,
+3. Change the name in the **Name and Description** section and
 4. Click on **Save Changes**.
 
 This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit-examples).
@@ -105,9 +107,9 @@ conditions need to be met:
 
 1. New project owner needs to have Admin permission level for the repository on GitHub,
 2. If you plan to build private projects, the new owner needs to grant access 
-for Semaphore to all repositories. They can do that that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account).
+for Semaphore to all repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account).
 3. If you plan to build only public projects, the new owner needs to grant access for 
-Semaphore to public repositories. They can do that that under [My Account -> GitHub Settings](https://me.semaphoreci.com/account). 
+Semaphore to public repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account). 
 
 After that, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
 and include the name of the project and the GitHub username of the new owner in your message.
@@ -120,9 +122,12 @@ Rerunning old builds will no longer work if the ownership of the project is chan
 In order to delete a project, you can:
 
 1. Choose the project you want to delete,
-2. Go to **Settings**,
-3. At the bottom of the page, click on **Delete project…**,
-4. Re-enter the name of the project and
+2. Go to **Settings** in the top right corner of the page,
+3. At the bottom of the page, click on the link in the **Delete project** section,
+4. Leave your feedback,
+5. Enter project name for final confirmation and
 5. Click on **Delete project** button.
+
+**Please note that this action cannot be reversed.**
 
 If you prefer using CLI, you can delete a project by using [`sem delete` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-delete-example).
