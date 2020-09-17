@@ -127,6 +127,8 @@ Installed versions:
 - 11.6
 - 11.7
 
+The default installed Xcode version is `11.4.1`.
+
 To switch between versions use `xcversion select <version>` e.g `xcversion select 11.5`
 
 Xcode 11.2.1 has the following SDKs preinstalled:
