@@ -98,7 +98,7 @@ blocks:
           commands:
             # Select an Xcode version.
             # See https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
-            - bundle exec xcversion select 11.2.1
+            - xcversion select 11.2.1
 
             # Run tests of iOS and Mac app on a simulator or connected device.
             # See https://docs.fastlane.tools/actions/scan/
@@ -129,7 +129,7 @@ blocks:
       jobs:
         - name: Build
           commands:
-            - bundle exec xcversion select 11.2.1
+            - xcversion select 11.2.1
             - bundle exec fastlane build
 
             # Upload the IPA file as a job artifact.
@@ -149,7 +149,7 @@ blocks:
       jobs:
         - name: Screenshots
           commands:
-            - bundle exec xcversion select 11.2.1
+            - xcversion select 11.2.1
             - bundle exec fastlane screenshots
 
             # Upload the screenshots directory as a project artifact.
@@ -206,7 +206,7 @@ blocks:
       jobs:
         - name: Run tests
           commands:
-            - bundle exec xcversion select 11.2.1
+            - xcversion select 11.2.1
             - bundle exec fastlane test
         - name: Second parallel job
           commands:
@@ -256,7 +256,7 @@ Select the desired version for your project with `xcversion`.
 
 ``` yaml
         commands:
-          - bundle exec xcversion select 11.2.1
+          - xcversion select 11.2.1
 ```
 
 ### Running tests
