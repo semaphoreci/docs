@@ -9,6 +9,20 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of September 21, 2020
+**(New) Ubuntu 18.04 image additions** 
+- Added elixir versions: 1.10.0, 1.10.2, 1.10.3
+
+**(Improved) Ubuntu 18.04 image update**  
+**(Updated)** Language versions:
+
+- Aws cli 1.18.129 -> 1.18.142
+- Docker-compose 1.26.2 -> 1.27.2
+- Heroku 7.42.13 -> 7.43.0
+- Php 7.2.31 -> 7.2.33
+- Php 7.3.21 -> 7.3.22
+- Php 7.4.9 -> 7.4.10
+
+
 
 ### Week of September 7, 2020  
 **(Improved) New UI improvements and fixes**  

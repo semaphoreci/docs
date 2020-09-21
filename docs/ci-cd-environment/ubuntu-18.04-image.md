@@ -80,7 +80,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 19.03
-- docker-compose 1.26.2
+- docker-compose 1.27.2
 
 ### Cloud CLIs
 
@@ -107,7 +107,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.3, 23.0.3
-- Elixir: 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.1, 1.10.4
+- Elixir: 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4
 
 Additional libraries:
 
@@ -122,8 +122,8 @@ Versions:
 - 1.11.13
 - 1.12.17
 - 1.13.15
-- 1.14.7
-- 1.15.1
+- 1.14.9
+- 1.15.2
 
 ### Java and JVM languages
 
@@ -159,11 +159,11 @@ Installed versions:
 
 - 7.0.33
 - 7.1.33
-- 7.2.31
-- 7.3.21
-- 7.4.9
+- 7.2.33
+- 7.3.22
+- 7.4.10
 
-The default installed PHP version is `7.2.31`.
+The default installed PHP version is `7.2.33`.
 
 #### Additional libraries
 
