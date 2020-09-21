@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of September 21, 2020
+
 ### Week of September 7, 2020  
 **(Improved) New UI improvements and fixes**  
 **(New)** Timestamps - in job logs you can now enable timestamps for command output lines.  
