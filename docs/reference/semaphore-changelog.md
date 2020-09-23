@@ -11,7 +11,7 @@ This page is updated on a weekly basis.
 ### Week of September 21, 2020
 **(New) Ubuntu 18.04 image additions** 
 
-- Added possibility to change `kubectl` version with the sem-version tool: sem-version kubectl [version]
+- Added possibility to change `kubectl` version with the sem-version tool: `sem-version kubectl [version]`
 - Added elixir versions: 1.10.0, 1.10.2, 1.10.3
 
 **(Improved) Ubuntu 18.04 image update**  
