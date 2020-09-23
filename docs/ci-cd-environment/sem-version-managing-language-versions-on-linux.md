@@ -1,11 +1,11 @@
 ---
-description: Used for changing the version of a programming language - elixir, erlang, go, java, php, ruby, python, scala and node.
+description: Used for changing the version of a programming language - elixir, erlang, go, java, kubectl, php, ruby, python, scala and node.
 ---
 
 The `sem-version` utility in Linux based virtual machines is used for changing
 the version of a programming language.
 
-The supported programming languages are `elixir`, `erlang`, `go`, `java`,
+The supported programming languages are `elixir`, `erlang`, `go`, `java`, `kubectl`, 
 `php`, `ruby`, `python`, `scala` and `node`.
 
 The general form of the `sem-version` utility is:
@@ -14,7 +14,7 @@ The general form of the `sem-version` utility is:
 sem-version [PROGRAMMING LANGUAGE] [VERSION]
 ```
 
-where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`,
+where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`, `kubectl`, 
 `php`, `ruby`, `python`, `scala` and `node`. The value of the `[VERSION]`
 parameter depends on the programming language used.
 
