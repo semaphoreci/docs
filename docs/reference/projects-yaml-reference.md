@@ -147,6 +147,9 @@ that is executed when a post-commit hook is received by Semaphore.
 
 The default value is `.semaphore/semaphore.yml`.
 
+*Note*: When modifying the initial pipeline file it is necessary to also update 
+the corresponding [GitHub status check](https://docs.semaphoreci.com/essentials/configuring-github-status-checks/).
+
 ##### status
 
 The `status` property is used to specify which Semaphore pipeline(s) will
