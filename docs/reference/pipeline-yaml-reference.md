@@ -98,6 +98,7 @@ These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
 - `macos-xcode11` ([reference][macos-xcode11])
+- `macos-xcode12` ([reference][macos-xcode12])
 
 The default operating system depends on the type of the machine:
 
@@ -1022,7 +1023,7 @@ blocks:
       agent:
           machine:
             type: a1-standard-4
-            os_image: macos-xcode11
+            os_image: macos-xcode12
       jobs:
         - name: Using agent job
           commands:
@@ -2119,7 +2120,7 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 - [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
+[macos-xcode12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults
