@@ -218,6 +218,18 @@ This will prevent stale builds to run for a full hour, and fail sooner.
   </p>  
 </details>
 
+<details>
+  <summary id="test-suite-failing-tests-pass">Why is my test suite failing if all the tests pass?</summary>
+  <p>
+    
+ This usually happens because code coverage tools, for instance <a href="https://github.com/simplecov-ruby/simplecov">simplecov</a>, can be set to fail the test
+ suite if a <a href="https://github.com/simplecov-ruby/simplecov#minimum-coverage">minimum coverage is not achieved</a>.
+ <br>
+ Besides the above, some dependencies can configure an <a href="https://relishapp.com/rspec/rspec-core/v/2-99/docs/command-line/exit-status#exit-with-rspec's-exit-code-when-an-at-exit-hook-is-added-upstream">at_exit hook</a> and will change the final exit code of the suite.
+  
+  </p>  
+</details>
+
 ### Jobs & Workflows
 
  <details>
