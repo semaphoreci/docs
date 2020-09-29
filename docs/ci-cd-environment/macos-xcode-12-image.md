@@ -75,7 +75,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.156.1)
+- fastlane (2.160.1)
 - cocoapods (1.9.3)
 
 ## Languages
@@ -115,7 +115,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.20.3
+- v1.20.4
 
 ## Xcode
 
@@ -127,16 +127,12 @@ The default installed Xcode version is `12.0`.
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 12.0`
 
-Xcode 11.7 has the following SDKs preinstalled:
+Xcode 12.0 has the following SDKs preinstalled:
 
-- macosx10.15
-- driverkit.macosx19.0
-- iphoneos13.6
-- iphonesimulator13.6
-- appletvos13.4
-- appletvsimulator13.4
-- watchos6.2
-- watchsimulator6.2
+- iphoneos14.0
+- iphonesimulator14.0
+- driverkit.macosx20.0
+- sdk macosx11.0
 
 ## See Also
 
