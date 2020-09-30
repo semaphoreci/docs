@@ -1,6 +1,6 @@
 # Using Semaphore's android image as CI/CD environment
 
-The example uses our public [demo project](https://github.com/semaphoreci-demos/semaphore-flutter-example)
+The example uses our public [demo project](https://github.com/semaphoreci-demos/semaphore-demo-flutter)
 
 ```
 version: v1.0
