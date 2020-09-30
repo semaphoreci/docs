@@ -88,7 +88,7 @@ Implementation of `e1` series of machine types:
 
 ## Apple machine type
 
-Apple machine types can be paired with the [MacOS image][macos-xcode11].
+Apple machine types can be paired with the [MacOS Xcode11 mage][macos-xcode11] or [MacO Xcode12 image][macos-xcode12].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -144,3 +144,4 @@ Apple machine types can be paired with the [MacOS image][macos-xcode11].
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [macos-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
+[macos-xcode12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
