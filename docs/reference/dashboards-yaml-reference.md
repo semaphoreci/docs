@@ -122,16 +122,6 @@ The supported properties in `filters` for a workflows list are the following:
   match and that there is currently no support for regular expressions in the
   `branch` property.
 
-- **github_uid** (optional): The `github_uid` property allows you to display
-  workflows that were initiated by a specific GitHub user. The value of
-  `github_uid` should correspond to the numeric ID of the user account on
-  GitHub for which we want to list workflows. The value can be found by
-  visiting the following URL <https://api.github.com/users/USERNAME> and
-  replacing `USERNAME` with an actual GitHub username. There is a special
-  value for the `github_uid` property, which is `'{{github_uid}}'`, that is
-  automatically expanded to the GitHub user ID of the user that is visiting the
-  page.
-
 If you are using a `list_worflows` type and you have no filters, the value of
 `filters` should be `filters: {}`.
 
