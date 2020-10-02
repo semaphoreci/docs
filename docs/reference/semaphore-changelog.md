@@ -8,6 +8,15 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of October 5, 2020
+- xcode 12
+- ubuntu 18.04 update
+- fork and run
+- fixes and stability
+  - branch search
+  - page speed
+  - page stability
+
 ### Week of September 21, 2020
 **(New) Ubuntu 18.04 image additions** 
 
