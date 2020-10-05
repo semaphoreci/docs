@@ -41,7 +41,7 @@ Alternatively, if you want to run a MacOS based pipeline, configure it with:
 agent:
   machine:
     type: a1-standard-2    # Apple machine type with 2 vCPUs, 4 GB of RAM
-    os_image: macos-xcode11 # MacOS os image
+    os_image: macos-xcode12 # MacOS os image
 ```
 
 If you prefer to have a fully custom, containerized environment, define one or

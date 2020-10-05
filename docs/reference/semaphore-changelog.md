@@ -9,13 +9,10 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 5, 2020
-- xcode 12
-- ubuntu 18.04 update
-- fork and run
-- fixes and stability
-  - branch search
-  - page speed
-  - page stability
+**(New) macOS Xcode 12 image**  
+**(Updated)** Xcode 12.0 installed, to switch version simply use `xcversion select 12.0`  
+  
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
 ### Week of September 21, 2020
 **(New) Ubuntu 18.04 image additions** 
