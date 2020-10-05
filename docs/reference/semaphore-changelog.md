@@ -9,6 +9,26 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 5, 2020
+**(New) Ubuntu 18.04 image additions** 
+
+- Added ruby 2.7.2, 3.0.0-preview1 (preview version will be replaced by first `release` version)
+- Added elixir 1.11
+
+**(Improved) Ubuntu 18.04 image update**  
+**(Updated)** Language versions:
+
+- Aws-cli 1.18.142 -> 1.18.151
+- Azure-cli 2.11.1 -> 2.12.1
+- Erlang 21.3 -> 21.3.8.17
+- Erlang 22.3 -> 22.3.4.10
+- Erlang 23.0.3 -> 23.1
+- Heroku 7.43.0 -> 7.44.0
+- PHP 7.2.33 -> 7.2.34
+- PHP 7.3.22 -> 7.3.23
+- PHP 7.4.10 -> 7.4.11
+- Pypy 7.3.1 -> 7.3.2
+
+
 - xcode 12
 - ubuntu 18.04 update
 - fork and run
