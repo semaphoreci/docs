@@ -9,12 +9,12 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 5, 2020
-**(New) Ubuntu 18.04 image additions** 
-
-- Added ruby 2.7.2, 3.0.0-preview1 (preview version will be replaced by first `release` version)
-- Added elixir 1.11
-
 **(Improved) Ubuntu 18.04 image update**  
+**(New)** Language versions:  
+
+- Added ruby 2.7.2, 3.0.0-preview1 (preview version will be replaced by first `release` version)  
+- Added elixir 1.11  
+
 **(Updated)** Language versions:
 
 - Aws-cli 1.18.142 -> 1.18.151
