@@ -28,6 +28,7 @@ This page is updated on a weekly basis.
 - PHP 7.4.10 -> 7.4.11
 - Pypy 7.3.1 -> 7.3.2
 
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
 
 **(New) New os_image - macOS Xcode 12**  
 New MacOS image is now available - `macos-xcode12`.  
