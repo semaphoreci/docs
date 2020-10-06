@@ -46,7 +46,7 @@ Find more tutorials and examples [in our documentation](https://docs.semaphoreci
 
 **(Improved) New UI fixes and upgrades**  
 **(Fixed)** - issue causing some branches to be missing in search in various locations.  
-**(Stability)** - Reduced the number of errors and improved the stability of key pages in new UI.  
+**(Stability)** - Reduced the number of errors and improved the stability of key pages in the new UI.  
 **(Stability)** - Load time has been improved on several key pages in the new UI.  
 
 ### Week of September 21, 2020
