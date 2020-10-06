@@ -29,13 +29,24 @@ This page is updated on a weekly basis.
 - Pypy 7.3.1 -> 7.3.2
 
 
-- xcode 12
-- ubuntu 18.04 update
-- fork and run
-- fixes and stability
-  - branch search
-  - page speed
-  - page stability
+**(New) New os_image - macOS Xcode 12**  
+New MacOS image is now available - `macos-xcode12`.  
+The default Xcode version on this image is Xcode 12.0 and will be updated in the future.  
+If you are using `macos-xcode11` you can switch to the latest image by changing `os_image` value in your YAML file.  
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+**(New) Fork&Run example projects**  
+Semaphore provides several different examples of projects that showcase the basic features of our product.  
+You can now easily fork these repositories in-app and run the example workflow provided.  
+You can access this feature by clicking on a _New project_ button in the top right corner.  
+
+Find more tutorials and examples [in our documentation](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/).
+
+**(Improved) New UI fixes and upgrades**  
+**(Fixed)** - issue causing some branches to be missing in search in various locations.  
+**(Stability)** - Reduced the number of errors and improved the stability of key pages in new UI.  
+**(Stability)** - Load time has been improved on several key pages in the new UI.  
 
 ### Week of September 21, 2020
 **(New) Ubuntu 18.04 image additions** 
