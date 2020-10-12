@@ -10,6 +10,14 @@ This page is updated on a weekly basis.
 
 ### Week of October 12, 2020
 
+**(Updated)** Xcode 12.0.1 installed, to switch version simply use `xcversion select 12.0.1`  
+  
+**(Updated)** Updated packages:  
+  - Fastlane 2.158.0 -> 2.162.0  
+  - Flutter v1.20.2 -> v1.22.1  
+  
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
 ### Week of October 5, 2020
 **(Improved) Ubuntu 18.04 image update**  
 **(New)** Language versions:  
