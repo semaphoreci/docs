@@ -9,6 +9,7 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 19, 2020
+- Everyone's work doesn't show projects you don't have access to anymore.
 
 ### Week of October 12, 2020
 
