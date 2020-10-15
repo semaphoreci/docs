@@ -76,3 +76,16 @@ agent:
     - name: docker-hub
 ```
 ## How to check if you are logged in
+The `docker login` command will display a **Login Succeeded** message. 
+Also, the `auths` field in `~/.docker/config.json` will be updated accordingly when logged in:
+```
+{
+	"auths": {
+		"https://index.docker.io/v1/": {....
+    }
+```
+If logged out, the `auths` field will be empty:
+```
+{
+	"auths": {},
+```  
