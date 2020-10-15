@@ -50,7 +50,7 @@ sem create secret <name-of-your-secret> \
   -e DOCKER_USERNAME=<your-dockerhub-username> \
   -e DOCKER_PASSWORD=<your-dockerhub-password> \
 ```
-**Adding a secret to your pipeline YAML**
+**Adding a secret to your pipeline YAML**  
 To use your newly created secret in your jobs you have to first attach it.  
 You can attach a secret to individual blocks in your workflow or the whole pipeline.  
 We suggest doing the latter so that it's available to **all jobs** in the workflow.  
@@ -78,6 +78,7 @@ In order to for your docker pulls to be authenticated you have to log into Docke
 echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
 ```
 You should run this command before pulling any Docker images.  
+
 Same as with secrets, to avoid having to add this to every job or block we suggest that you include it in the `global_job_config` prologue of your pipeline:
 ```yaml
 global_job_config:
@@ -87,6 +88,7 @@ global_job_config:
       - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
   ...
 ```
+This way the `docker login` command will be ran at the start of each job in the pipeline.
 
 If however, you prefer to log in to Docker Hub in individual jobs only, you can do it like in this example:
 ```bash
