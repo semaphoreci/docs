@@ -26,3 +26,7 @@ If you want to be on the safe side, you can always start authenticating pulls of
 
 Feel free to reach out to our support team with any questions that you might have. 
 We will continue with our efforts to ensure that this transition goes smoothly for all Semaphore users. 
+
+## How to authenticate compose style
+## How to authenticate other Docker pulls
+## How to check if you are logged in
