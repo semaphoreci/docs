@@ -1,14 +1,14 @@
 ---
-description: This guide explains Docker Hub rate limits and how to pull public Docker images as authenticated user.
+description: This guide explains Docker Hub rate limits and how to pull public Docker images as an authenticated user.
 ---
 
 # Docker Hub authentication
 
 As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub will introduce [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for public image pulls.  
 
-The rate limits of 100 pulls per 6 hours will apply to anonymous public image pulls, while the authenticated users on a free Docker Hub plan will be able to make up to 200 pulls per 6 hours. Authenticated users with Pro and Team Docker Hub accounts have unlimited pull rate.  
+The rate limits of 100 pulls per 6 hours will apply to anonymous public image pulls, while the authenticated users on a free Docker Hub plan will be able to make up to 200 pulls per 6 hours. Authenticated users with Pro and Team Docker Hub accounts have an unlimited pull rate.  
 
-Exceeding the explained rate limits will cause a disruption in your Semaphore 2.0 workflows and below you can find the recommended steps in order to avoid it.  
+Exceeding the explained rate limits will disrupt your Semaphore 2.0 workflows and below you can find the recommended steps to avoid it.  
 
 ## Will this affect you
 Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address.  
@@ -77,7 +77,7 @@ blocks:
 ```
 
 ### Use secret to authenticate Docker images pulls  
-In order to for your docker pulls to be authenticated you have to log into Docker Hub:  
+For your docker pulls to be authenticated you have to log into Docker Hub:  
 ```bash
 echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
 ```
@@ -92,7 +92,7 @@ global_job_config:
       - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
   ...
 ```
-This way the `docker login` command will be ran at the start of each job in the pipeline.
+This way the `docker login` command will be run at the start of each job in the pipeline.
 
 If however, you prefer to log in to Docker Hub in individual jobs only, you can do it like in this example:
 ```bash
