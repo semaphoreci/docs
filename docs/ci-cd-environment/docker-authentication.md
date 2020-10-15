@@ -8,7 +8,7 @@ Exceeding the explained rate limits will cause a disruption in your Semaphore 2.
 
 ## Will this affect you
 Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address.  
-This means that if you are pulling images from a public repository as an anonymous user, your Semaphore jobs will be affected by the new DockerHub rate limit.  
+This means that if you are pulling images from a public Docker Hub repository as an anonymous user, your Semaphore jobs will be affected by the new DockerHub rate limit.  
 
 ## What should you do to minimize the effect of the rate limit  
 If you have a DockerHub account, we suggest that you start authenticating your pulls in your Semaphore configuration.  
