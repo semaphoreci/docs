@@ -136,8 +136,11 @@ agent:
 ```
 
 ## How to check if you are logged in
-The `docker login` command will display a **Login Succeeded** message as an output. 
-Also, the `auths` field in `~/.docker/config.json` will be updated accordingly when logged in:
+The `docker login` command will display a **Login Succeeded** message as an output if authentication was successfull. 
+
+Another way to check is to open `~/.docker/config.json` and check the `auths` field. 
+
+If you have been successfully logged in the `auths` field will be updated accordingly:
 ```
 {
 	"auths": {
@@ -145,7 +148,7 @@ Also, the `auths` field in `~/.docker/config.json` will be updated accordingly w
     }
 ```
 
-If logged out, the `auths` field will be empty:
+If you are not logged in, the `auths` field will be empty:
 ```
 {
 	"auths": {},
