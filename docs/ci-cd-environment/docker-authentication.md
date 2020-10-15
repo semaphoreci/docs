@@ -14,7 +14,7 @@ We want to support you through this transition and help you reduce the impact of
 Feel free to reach out to our support team with any questions that you might have.  
 
 ## What should you do to minimize the effect of the rate limit  
-If you have a DockerHub account, we suggest that you **start authenticating your pulls** in your Semaphore configuration.  
+If you have a DockerHub account, **to avoid failing jobs we suggest that you start authenticating your pulls** in your Semaphore configuration.  
 Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
 Please check instructions on [how to authenticate Docker pulls](#how-to-authenticate-Docker-pulls) in the section below.  
 
