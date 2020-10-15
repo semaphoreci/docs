@@ -8,12 +8,13 @@ Exceeding the explained rate limits will cause a disruption in your Semaphore 2.
 
 ## Will this affect you
 Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address.  
-This means that if you are pulling images from a public Docker Hub repository as an anonymous user, your Semaphore jobs will be affected by the new DockerHub rate limit.  
+This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the new DockerHub rate limit**.  
+
 We want to support you through this transition and help you reduce the impact of the Docker Hub rate limit introduction.  
 Feel free to reach out to our support team with any questions that you might have.  
 
 ## What should you do to minimize the effect of the rate limit  
-If you have a DockerHub account, we suggest that you start authenticating your pulls in your Semaphore configuration.  
+If you have a DockerHub account, we suggest that you **start authenticating your pulls** in your Semaphore configuration.  
 Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
 Please check instructions on [how to authenticate Docker pulls](#how-to-authenticate-Docker-pulls) in the section below.  
 
@@ -52,7 +53,7 @@ sem create secret <name-of-your-secret> \
 **Adding a secret to your pipeline YAML**
 To use your newly created secret in your jobs you have to first attach it.  
 You can attach a secret to individual blocks in your workflow or the whole pipeline.  
-We suggest doing the latter so it's available to all jobs in the workflow.  
+We suggest doing the latter so that it's available to **all jobs** in the workflow.  
 You can achieve this by using `global_job_config` like this:  
 ```yaml
 version: v1.0
