@@ -27,6 +27,52 @@ If you want to be on the safe side, you can always start authenticating pulls of
 Feel free to reach out to our support team with any questions that you might have. 
 We will continue with our efforts to ensure that this transition goes smoothly for all Semaphore users. 
 
-## How to authenticate compose style
-## How to authenticate other Docker pulls
+## How to authenticate Docker pulls
+You can safely store your DockerHub credentials in a [Semaphore secret](https://docs.semaphoreci.com/essentials/using-secrets/):
+```bash
+sem create secret docker-hub \
+  -e DOCKER_CREDENTIAL_TYPE=DockerHub \
+  -e DOCKER_USERNAME=<your-dockerhub-username> \
+  -e DOCKER_PASSWORD=<your-dockerhub-password> \
+```
+Once you create the secret you will be able to pull Docker images authenticated:
+```
+# .semaphore/semaphore.yml
+version: v1.0
+name: Using a Docker image
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Run container from Docker Hub
+    task:
+      jobs:
+      - name: Authenticate docker pull
+        commands:
+          - checkout
+          - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+          - docker pull <repository>/<image>
+          - docker images
+          - docker run <repository>/<image>
+      secrets:
+      - name: docker-hub
+```
+
+
+## Running jobs inside Docker images
+You can attach the `docker-hub` secret to your agent's properties to pull the images:
+```bash
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: <repository>/<image>
+
+  image_pull_secrets:
+    - name: docker-hub
+```
 ## How to check if you are logged in
