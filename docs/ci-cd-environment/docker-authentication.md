@@ -1,3 +1,7 @@
+---
+description: This guide explains Docker Hub rate limits and how to pull public Docker images as authenticated user.
+---
+
 # Docker Hub authentication
 
 As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub will introduce [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for public image pulls.  
