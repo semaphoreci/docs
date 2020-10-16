@@ -18,13 +18,13 @@ We want to support you through this transition and help you reduce the impact of
 Feel free to reach out to our support team with any questions that you might have.  
 
 ## What should you do to minimize the effect of the rate limit  
-If you have a DockerHub account, **to avoid failing jobs we suggest that you start authenticating your pulls** in your Semaphore configuration.  
+If you have a DockerHub account, **to avoid failing jobs, we suggest that you start authenticating your pulls** in your Semaphore configuration.  
 Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
-Please check instructions on [how to authenticate Docker pulls](#how-to-authenticate-Docker-pulls) in the section below.  
+Please, check the instructions on [how to authenticate Docker pulls](#how-to-authenticate-Docker-pulls) in the section below.  
 
 ## How can you know if you are hitting the limit
-If you have exceeded the rate limit Docker will throw the `Too Many Requests` error.  
-In the job log check the output of your `docker pull` command, if you have exceeded the rate limit output will be the following:  
+If you have exceeded the rate limit, Docker will throw the `Too Many Requests` error.  
+Check the output of your `docker pull` command in the job log. If you have exceeded the rate limit, the output will be the following:  
 ```bash
 Error pulling image <docker-image-name>: Error response from daemon: toomanyrequests: Too Many Requests.`
 ```
@@ -55,10 +55,10 @@ sem create secret <name-of-your-secret> \
   -e DOCKER_PASSWORD=<your-dockerhub-password> \
 ```
 **Adding a secret to your pipeline YAML**  
-To use your newly created secret in your jobs you have to first attach it.  
+To use the newly created secret in your jobs, you first need to attach it.  
 You can attach a secret to individual blocks in your workflow or the whole pipeline.  
 We suggest doing the latter so that it's available to **all jobs** in the workflow.  
-You can achieve this by using `global_job_config` like this:  
+You can achieve it by using `global_job_config` like this:  
 ```yaml
 version: v1.0
 name: My project
@@ -83,7 +83,7 @@ echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-st
 ```
 You should run this command before pulling any Docker images.  
 
-Same as with secrets, to avoid having to add this to every job or block we suggest that you include it in the `global_job_config` prologue of your pipeline:
+Same as with secrets, to avoid having to add this to every job or block, we suggest that you include it in the `global_job_config` prologue of your pipeline:
 ```yaml
 global_job_config:
   prologue:
@@ -121,7 +121,7 @@ blocks:
 
 
 ### Running jobs inside a Docker image
-When you're using Docker image as your pipeline CI/CD environment make sure to attach the `docker-hub` secret to your agent's properties to pull the images:
+When you're using Docker image as your pipeline CI/CD environment, make sure to attach the `docker-hub` secret to your agent's properties to pull the images:
 ```bash
 agent:
   machine:
@@ -140,7 +140,7 @@ The `docker login` command will display a **Login Succeeded** message as an outp
 
 Another way to check is to open `~/.docker/config.json` and check the `auths` field. 
 
-If you have been successfully logged in then the `auths` field will be updated accordingly:
+If you have been successfully logged in, then the `auths` field will be updated accordingly:
 ```
 {
 	"auths": {
