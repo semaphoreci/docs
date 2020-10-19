@@ -40,8 +40,8 @@ The first step is to store your Docker Hub credentials. You can use [Semaphore s
 - Click on **New Secret**  
 - Fill in a unique name for your secret  
 - Add the first environment variable: `Variable name: "DOCKER_CREDENTIAL_TYPE", Value: "DockerHub"`  
-- Click on **+ Add another** and add new variable: `Variable name: DOCKER_USERNAME, Value:<your-dockerhub-username>`  
-- Add the third environment variable: `Variable name: DOCKER_PASSWORD, Value:<your-dockerhub-password>`  
+- Click on **+ Add another** and add new variable: `Variable name: DOCKERHUB_USERNAME, Value:<your-dockerhub-username>`  
+- Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
 - Click on **Save Secret**  
 
 **Creating a secret through CLI**  
@@ -51,8 +51,8 @@ After connecting to your Semaphore organization update the details in the exampl
 ```bash
 sem create secret <name-of-your-secret> \
   -e DOCKER_CREDENTIAL_TYPE=DockerHub \
-  -e DOCKER_USERNAME=<your-dockerhub-username> \
-  -e DOCKER_PASSWORD=<your-dockerhub-password> \
+  -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
+  -e DOCKERHUB_PASSWORD=<your-dockerhub-password> \
 ```
 **Adding a secret to your pipeline YAML**  
 To use the newly created secret in your jobs, you first need to attach it.  
@@ -79,7 +79,7 @@ blocks:
 ### Use secret to authenticate Docker images pulls  
 For your docker pulls to be authenticated you have to log into Docker Hub:  
 ```bash
-echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
 ```
 You should run this command before pulling any Docker images.  
 
@@ -89,7 +89,7 @@ global_job_config:
   prologue:
   # Execute at the start of every job in the pipeline
     commands:
-      - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+      - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
   ...
 ```
 This way the `docker login` command will be run at the start of each job in the pipeline.
@@ -111,7 +111,7 @@ blocks:
       - name: Authenticate docker pull
         commands:
           - checkout
-          - echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin
+          - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
           - docker pull <repository>/<image>
           - docker images
           - docker run <repository>/<image>
