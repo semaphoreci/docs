@@ -9,6 +9,10 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 19, 2020
+**(Updated) New UI - Everyone's latest work page**  
+Updated the behavior on the main page (Everyone's latest work) to exclude the workflows of the projects user doesn't have access to.  
+If the user doesn't have access to the project, or the project was deleted, the workflows of that project won't appear in the workflow list.  
+
 **(Improved) Ubuntu 18.04 image update**  
 
 **(Updated)** Language versions:
@@ -20,6 +24,8 @@ This page is updated on a weekly basis.
 - Go 1.14.9 -> 1.14.10
 - Go 1.15.2 ->1.15.3
 - Heroku 7.44.0 -> 7.46.0
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of October 12, 2020
 
