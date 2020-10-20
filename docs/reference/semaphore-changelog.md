@@ -1,4 +1,4 @@
----
+----
 description: We continuously deploy changes that improve the product for you. This page is updated on a weekly basis.
 ---
 
@@ -9,7 +9,17 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of October 19, 2020
-- Everyone's work doesn't show projects you don't have access to anymore.
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Updated)** Language versions:
+
+- Aws-cli 1.18.151 -> 1.18.159
+- Azure-cli 2.12.1 -> 2.13.0
+- Chrome 85 -> 86
+- Chromedriver 85 -> 86
+- Go 1.14.9 -> 1.14.10
+- Go 1.15.2 ->1.15.3
+- Heroku 7.44.0 -> 7.46.0
 
 ### Week of October 12, 2020
 
