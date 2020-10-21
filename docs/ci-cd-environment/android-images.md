@@ -1,4 +1,4 @@
-Semaphore provides public [docker images for android developement](https://hub.docker.com/r/semaphoreci/android).
+Semaphore provides public [docker images for android developement](/ci-cd-enviroment/semaphore-registry-images/#android) that can be used inside Semaphore enviroment.
 
 Images come in three forms:
 - Android:[sdk version]
