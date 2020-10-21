@@ -90,11 +90,11 @@ blocks:
 
 ## Android image variants
 
-The pre-built Android images are available on [Semaphore Registry](/ci-cd-enviroment/semaphore-registry-images/).
+The pre-built Android images are available on [Semaphore Registry](/ci-cd-environment/semaphore-registry-images/).
 
 The source code and Dockerfiles for these images are available in [an open
 source repository
-semaphoreci/docker-images](/ci-cd-enviroment/semaphore-registry-images/#android).
+semaphoreci/docker-images](/ci-cd-environment/semaphore-registry-images/#android).
 
 The Semaphore Android images are based on the `ubuntu:16.04` official Docker
 image. Jobs commands are executed by root user.
