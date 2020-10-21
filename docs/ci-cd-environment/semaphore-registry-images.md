@@ -10,7 +10,7 @@ Instruction on how you should proceed if you need unsuported version
   
 ## Supported sem-service images  
 The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services.  
-The `sem-service` pulls images from Semaphore registry and supports all versions that are listed bellow.  
+You can use `sem-service` to pull images from Semaphore registry. All versions that are supported are listed bellow.  
   
 ### Postgres    
 [postgres:9.4](https://registry.semaphoreci.com/postgres:9.4)    
