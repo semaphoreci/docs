@@ -41,8 +41,7 @@ Semaphore supports all versions of PHP. You have the following options:
 
 - Linux: PHP and related tools are available out-of-the-box in the
   [Ubuntu 18.04 VM image][ubuntu-php].
-- Docker: use [semaphoreci/php][php-docker-image] or
-  [your own Docker image][docker-env] with the version of PHP and other
+- Docker: Use [your own Docker image][docker-env] with the version of PHP and other
   packages that you need.
 
 Follow the links above for details on currently available language versions and
@@ -154,4 +153,3 @@ blocks:
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel
 [ubuntu-php]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#php
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-[php-docker-image]: https://hub.docker.com/r/semaphoreci/php

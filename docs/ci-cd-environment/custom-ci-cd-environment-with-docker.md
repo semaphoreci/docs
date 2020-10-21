@@ -13,11 +13,10 @@ how run jobs inside of Docker containers. For building and running Docker
 images, refer to the [Working with Docker Images][working-with-docker].
 
 ## Using a Docker container as your pipelines' CI/CD environment
-
 To run your commands inside a Docker container, define the `containers` section in
 your agent specification.
 
-For example, in the following pipeline we will use the `semaphoreci/ruby-2.6.1`
+For example, in the following pipeline we will use the `semaphoreci/ruby-2.6`
 image for our tests.
 
 ``` yaml
@@ -32,7 +31,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6.1
+      image: semaphoreci/ruby:2.6
 
 blocks:
   - name: "Hello"
@@ -44,7 +43,7 @@ blocks:
           - ruby --version
 ```
 
-Note: *The example image `semaphoreci/ruby.2.6.1` is part of the pre-built
+Note: *The example image `semaphoreci/ruby.2.6` is part of the pre-built
 Docker images optimized for Semaphore CI/CD jobs.*
 
 ## Using multiple Docker containers
@@ -67,7 +66,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6.1
+      image: semaphoreci/ruby:2.6
 
     - name: db
       image: postgres:9.6
@@ -101,21 +100,10 @@ on the `db` hostname in the first container.
 ## Pre-built convenience Docker images for Semaphore CI/CD jobs
 
 For convenience, Semaphore comes with a [repository of pre-built images hosted
-on Dockerhub][dockerhub-semaphore]. The source code of the Semaphore Docker
+on Semaphore registry][semaphore-registry]. The source code of the Semaphore Docker
 images is [hosted on Github][docker-images-repo].
 
-- [Android](https://hub.docker.com/r/semaphoreci/android)
-- [Ruby](https://hub.docker.com/r/semaphoreci/ruby)
-- [Python](https://hub.docker.com/r/semaphoreci/python)
-- [Haskell](https://hub.docker.com/r/semaphoreci/haskell)
-- [Ubuntu](https://hub.docker.com/r/semaphoreci/ubuntu)
-- [Rust](https://hub.docker.com/r/semaphoreci/rust)
-- [Golang](https://hub.docker.com/r/semaphoreci/golang)
-- [Clojure](https://hub.docker.com/r/semaphoreci/clojure)
-- [Elixir](https://hub.docker.com/r/semaphoreci/elixir)
-- [Node](https://hub.docker.com/r/semaphoreci/node)
-- [Openjdk](https://hub.docker.com/r/semaphoreci/openjdk)
-- [Php](https://hub.docker.com/r/semaphoreci/php)
+You can find the list of all convenience Docker images on our [Semaphore registry images][semaphore-registry] page.
 
 ## Building custom Docker images
 
@@ -134,6 +122,10 @@ To enable caching support, the following requirements need to be met:
 
 To enable running Docker-in-Docker the `docker` executable needs to be installed.
 
+!!! warning "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub all pulls have to be authenticated. 
+    If you are pulling any images from Docker Hub public repository please make sure you are logged in to avoid any failiures. You can find info on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
+  
 ### Building a minimal Docker image for Semaphore
 
 An example `Dockerfile` that meets the minimal requirements can be constructed
@@ -149,13 +141,13 @@ RUN curl -sSL https://get.docker.com/ | sh
 ### Extending Semaphore's pre-built convenience Docker images
 
 An alternative to building a fully custom Docker image from scratch is to extend
-one of the pre-built images from [Semaphore's DockerHub repository][dockerhub-semaphore].
+one of the pre-built images from [Semaphore's registry][semaphore-registry].
 
 For example, to extend one of Semaphore's Ruby based images and install MySQL
 libraries use the following Dockerfile:
 
 ``` Dockerfile
-FROM semaphoreci/ruby:2.6.2
+FROM semaphoreci/ruby:2.6
 
 RUN apt-get -y install -y mysql-client libmysqlclient-dev
 ```
@@ -327,6 +319,7 @@ agent:
 
 
 [working-with-docker]: https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/
+[semaphore-registry]: /ci-cd-environment/semaphore-registry-images/
 [dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
 [docker-images-repo]: https://github.com/semaphoreci/docker-images
 [lightweight-docker-images]: https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html
