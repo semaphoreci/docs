@@ -141,7 +141,7 @@ RUN curl -sSL https://get.docker.com/ | sh
 ### Extending Semaphore's pre-built convenience Docker images
 
 An alternative to building a fully custom Docker image from scratch is to extend
-one of the pre-built images from [Semaphore's repository][semaphore-repository].
+one of the pre-built images from [Semaphore's registry][semaphore-registry].
 
 For example, to extend one of Semaphore's Ruby based images and install MySQL
 libraries use the following Dockerfile:
