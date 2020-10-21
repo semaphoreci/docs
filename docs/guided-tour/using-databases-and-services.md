@@ -59,7 +59,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6.1
+      image: semaphoreci/ruby:2.6
 
     - name: db
       image: postgres:9.6
@@ -86,7 +86,7 @@ blocks:
           - redis-cli -h cache KEYS *
 ```
 
-We used the official [Postgres][postgres-docker] and [Redis][redis-docker]
+We used the Semaphore hosted [Postgres](/ci-cd-enviroment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-enviroment/semaphore-registry-images/#redis)
 images to start your services.
 
 ### Using services and test data across blocks
@@ -107,7 +107,5 @@ installing them once and reusing them from a cache. Let's learn how to do that
 in [the next section][next].
 
 [prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
-[postgres-docker]: https://hub.docker.com/_/postgres
-[redis-docker]: https://hub.docker.com/_/redis
 [next]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
