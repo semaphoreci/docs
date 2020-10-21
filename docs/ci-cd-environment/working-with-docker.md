@@ -82,8 +82,11 @@ blocks:
       - name: Docker Hub
         commands:
           - checkout
+          - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
           - docker run -d -p 1234:80 nginx:alpine
           - wget http://localhost:1234
+      secrets:
+      - name: docker-hub
 ```
 
 The `wget http://localhost:1234` command is an example to verify that the
