@@ -42,7 +42,7 @@ Semaphore supports all versions of Ruby. You have the following options:
 
 - Linux: Ruby is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-ruby].
 - macOS: Ruby is available out-of-the-box in the [macOS VM image][macos-ruby].
-- Docker: use [semaphoreci/ruby](/ci-cd-enviroment/semaphore-registry-images/#ruby) or
+- Docker: use [semaphoreci/ruby](/ci-cd-environment/semaphore-registry-images/#ruby) or
   [your own Docker image][docker-env] with the version of Ruby and other
   packages that you need.
 
