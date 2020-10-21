@@ -22,6 +22,8 @@ If you have a DockerHub account, **to avoid failing jobs, we suggest that you st
 Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
 Please, check the instructions on [how to authenticate Docker pulls](#how-to-authenticate-docker-pulls) in the section below.  
 
+## What are we doing? (sem-service, convenience images)
+
 ## How can you know if you are hitting the limit
 If you have exceeded the rate limit, Docker will throw the `Too Many Requests` error.  
 Check the output of your `docker pull` command in the job log. If you have exceeded the rate limit, the output will be the following:  
@@ -31,7 +33,7 @@ Error pulling image <docker-image-name>: Error response from daemon: toomanyrequ
 
 ## How to authenticate Docker pulls
 ### Create the Semaphore secret  
-The first step is to store your Docker Hub credentials. You can use [Semaphore secret](https://docs.semaphoreci.com/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
+The first step is to store your Docker Hub credentials. You can use [Semaphore secret](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
 
 **Creating a secret from the UI**
 - Click on the organization icon in the top right corner  
@@ -154,4 +156,4 @@ If you are not logged in, the `auths` field will be empty:
 	"auths": {},
 ```  
 
-[install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[install-cli]: /reference/sem-command-line-tool/
