@@ -56,8 +56,9 @@ The `sem-service` pulls images from Semaphore registry and supports all versions
 [memcached:1.5](https://registry.semaphoreci.com/memcached:1.5)    
 [memcached:1.6](https://registry.semaphoreci.com/memcached:1.6)    
 ### RabbitMQ  
-MISSING  
-  
+[rabbitmq:3.8.2](https://registry.semaphoreci.com/rabbitmq:3.8.2)
+[rabbitmq:3.6](https://registry.semaphoreci.com/rabbitmq:3.6)
+
 ## Convenience Docker images  
 For convenience, Semaphore comes with a pre-built convenience Docker images hosted on Semaphore Registry.  
 The source code of the Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/docker-images).  
