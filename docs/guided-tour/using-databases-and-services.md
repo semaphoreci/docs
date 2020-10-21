@@ -86,7 +86,7 @@ blocks:
           - redis-cli -h cache KEYS *
 ```
 
-We used the Semaphore hosted [Postgres](/ci-cd-enviroment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-enviroment/semaphore-registry-images/#redis)
+We used the Semaphore hosted [Postgres](/ci-cd-environment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-environment/semaphore-registry-images/#redis)
 images to start your services.
 
 ### Using services and test data across blocks
