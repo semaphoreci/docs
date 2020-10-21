@@ -318,7 +318,7 @@ agent:
 
 
 [working-with-docker]: https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/
-[semaphore-registry]: https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/
+[semaphore-registry]: /ci-cd-environment/semaphore-registry-images/
 [dockerhub-semaphore]: https://hub.docker.com/u/semaphoreci
 [docker-images-repo]: https://github.com/semaphoreci/docker-images
 [lightweight-docker-images]: https://semaphoreci.com/blog/2016/12/13/lightweight-docker-images-in-5-steps.html
