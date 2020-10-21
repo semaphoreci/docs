@@ -41,7 +41,7 @@ Semaphore supports all versions of Node.js. You have the following options:
 
 - Linux: Node.js is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-javascript].
 - macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
-- Docker: use [semaphoreci/node][node-docker-image] or
+- Docker: use [semaphoreci/node](/ci-cd-enviroment/semaphore-registry-images/#node) or
   [your own Docker image][docker-env] with the version of Node.js and other
   packages that you need.
 
@@ -175,7 +175,6 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#javascript-via-node-js
 [macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-[node-docker-image]: https://hub.docker.com/r/semaphoreci/node
 
 ## Connecting your Node.js application to the test Database
 
