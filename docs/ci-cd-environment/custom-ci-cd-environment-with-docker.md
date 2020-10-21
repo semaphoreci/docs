@@ -123,7 +123,7 @@ To enable caching support, the following requirements need to be met:
 To enable running Docker-in-Docker the `docker` executable needs to be installed.
 
 !!! warning "Docker Hub rate limits"
-  Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, if you are pulling any images from Docker Hub public repository you need to make sure your pulls are [authenticated](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/).
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, if you are pulling any images from Docker Hub public repository you need to make sure your pulls are [authenticated](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/).
   
 ### Building a minimal Docker image for Semaphore
 
