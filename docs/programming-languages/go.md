@@ -40,7 +40,7 @@ CI pipeline that you can use to get started quickly:
 Semaphore supports all versions of Go. You have the following options:
 
 - Linux: Go is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-go].
-- Docker: use [semaphoreci/golang](/ci-cd-enviroment/semaphore-registry-images/#golang) or
+- Docker: use [semaphoreci/golang](/ci-cd-environment/semaphore-registry-images/#golang) or
   [your own Docker image][docker-env] with the version of Go and other
   packages that you need.
 
