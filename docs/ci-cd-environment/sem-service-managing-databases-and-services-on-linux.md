@@ -39,7 +39,7 @@ If no `version` value is given, a default value will be used according to the fo
 - rabbitmq: The default is `3.8.2`
 
 `sem-service` pulls images from Semaphore registry. 
-You can find the list of available versions on our [Semaphore registry images](/ci-cd-enviroment/semaphore-registry-images/#supported-sem-service-images) page.
+You can find the list of available versions on our [Semaphore registry images](/ci-cd-environment/semaphore-registry-images/#supported-sem-service-images) page.
 
 The following are valid uses of `sem-service`:
 
