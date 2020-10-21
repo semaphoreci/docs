@@ -38,17 +38,8 @@ If no `version` value is given, a default value will be used according to the fo
 - elasticsearch: The default value is `6.5.1`
 - rabbitmq: The default is `3.8.2`
 
-`sem-service` pulls images from Docker Hub and supports all versions that are
-available in Docker Hub. You can find the list of available versions at the
-following URLs:
-
-- ElasticSearch: <https://hub.docker.com/_/elasticsearch/>
-- MySQL: <https://hub.docker.com/_/mysql/>
-- PostgreSQL: <https://hub.docker.com/_/postgres/>
-- Redis: <https://hub.docker.com/_/redis/>
-- MongoDB: <https://hub.docker.com/_/mongo/>
-- Memcached: <https://hub.docker.com/_/memcached/>
-- RabbitMQ: <https://hub.docker.com/_/rabbitmq/>
+`sem-service` pulls images from Semaphore registry. 
+You can find the list of available versions on our [Semaphore registry images](/semaphore-registry-images/#supported-sem-service-images) page.
 
 The following are valid uses of `sem-service`:
 
@@ -59,15 +50,15 @@ sem-service start redis 5
 sem-service status postgres
 sem-service start postgres 11
 sem-service start postgres 11 --username=some_user_name --password=some_password --db=some_db_name
-sem-service start mysql 8.0.19 --username=some_user_name --password=some_password --db=some_db_name
+sem-service start mysql 8.0 --username=some_user_name --password=some_password --db=some_db_name
 sem-service status mysql
 sem-service start memcached
 sem-service start elasticsearch
-sem-service start elasticsearch 6.5.2
+sem-service start elasticsearch 6.5
 sem-service start mongodb
 sem-service start mongodb 3.2
 sem-service start rabbitmq
-sem-service start rabbitmq 3.7
+sem-service start rabbitmq 3.6
 ```
 
 Services are not automatically shared across jobs in a task. To do that, start services
