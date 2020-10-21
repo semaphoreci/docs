@@ -111,6 +111,7 @@ nav:
     - "iOS/macOS":
       - macOS Xcode 11 image: ci-cd-environment/macos-xcode-11-image.md
       - macOS Xcode 12 image: ci-cd-environment/macos-xcode-12-image.md
+    - Semaphore Registry: ci-cd-enviroment/semaphore-registry-images.md
     - Android:
       - Docker images: ci-cd-environment/android-images.md
       - Flutter example: ci-cd-environment/flutter.md
