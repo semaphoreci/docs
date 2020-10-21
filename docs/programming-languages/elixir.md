@@ -41,7 +41,7 @@ CI pipeline that you can use to get started quickly:
 Semaphore supports all versions of Elixir. You have the following options:
 
 - Linux: Elixir is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-elixir].
-- Docker: use [semaphoreci/elixir](/ci-cd-enviroment/semaphore-registry-images/#elixir) or
+- Docker: use [semaphoreci/elixir](/ci-cd-environment/semaphore-registry-images/#elixir) or
   [your own Docker image][docker-env] with the version of Elixir and other
   packages that you need.
 
