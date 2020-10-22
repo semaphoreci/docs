@@ -33,6 +33,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ruby:2.6-node-browsers | `registry.semaphoreci.com/ruby:2.6-node-browsers` |  
 | ruby:2.7 | `registry.semaphoreci.com/ruby:2.7` |  
 | ruby:2.7-node-browsers | `registry.semaphoreci.com/ruby:2.7-node-browsers` |  
+
 ### Python  
 | Image | Link |
 |--------|--------|
@@ -58,6 +59,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | python:3.8-node-browsers | `registry.semaphoreci.com/python:3.8-node-browsers` |  
 | python:3.9 | `registry.semaphoreci.com/python:3.9` |  
 | python:3.9-node-browsers | `registry.semaphoreci.com/python:3.9-node-browsers` |  
+
 ### Haskell  
 | Image | Link |
 |--------|--------|
@@ -67,6 +69,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | haskell:8.5-node-browsers | `registry.semaphoreci.com/haskell:8.5-node-browsers` |  
 | haskell:8.6 | `registry.semaphoreci.com/haskell:8.6` |  
 | haskell:8.6-node-browsers | `registry.semaphoreci.com/haskell:8.6-node-browsers` |  
+
 ### Rust  
 | Image | Link |
 |--------|--------|
@@ -74,6 +77,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | rust:1.45-node-browsers | `registry.semaphoreci.com/rust:1.45-node-browsers` |  
 | rust:1.46 | `registry.semaphoreci.com/rust:1.46` |  
 | rust:1.46-node-browsers | `registry.semaphoreci.com/rust:1.46-node-browsers` |  
+
 ### Golang  
 | Image | Link |
 |--------|--------|
@@ -89,11 +93,13 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | golang:1.18-node-browsers | `registry.semaphoreci.com/golang:1.18-node-browsers` |  
 | golang:1.19 | `registry.semaphoreci.com/golang:1.19` |  
 | golang:1.19-node-browsers | `registry.semaphoreci.com/golang:1.19-node-browsers` |  
+
 ### Clojure  
 | Image | Link |
 |--------|--------|
 | clojure:13 | `registry.semaphoreci.com/clojure:13` |  
 | clojure:13-node-browsers | `registry.semaphoreci.com/clojure:13-node-browsers` |  
+
 ### Elixir  
 | Image | Link |
 |--------|--------|
@@ -107,6 +113,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | elixir:1.8-node-browsers | `registry.semaphoreci.com/elixir:1.8-node-browsers` |  
 | elixir:1.9 | `registry.semaphoreci.com/elixir:1.9` |  
 | elixir:1.9-node-browsers | `registry.semaphoreci.com/elixir:1.9-node-browsers` |  
+
 ### Node  
 | Image | Link |
 |--------|--------|
@@ -120,12 +127,14 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | node:13-browsers | `registry.semaphoreci.com/node:13-browsers` |  
 | node:14 | `registry.semaphoreci.com/node:14` |  
 | node:14-browsers | `registry.semaphoreci.com/node:14-browsers` |  
+
 ### Ubuntu  
 | Image | Link |
 |--------|--------|
 | ubuntu:14.04 | `registry.semaphoreci.com/ubuntu:14.04` |  
 | ubuntu:18.04 | `registry.semaphoreci.com/ubuntu:18.04` |  
 | ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
+
 ### Android  
 MISSING  
 
@@ -143,6 +152,7 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | postgres:11 | `registry.semaphoreci.com/postgres:11` |    
 | postgres:12 | `registry.semaphoreci.com/postgres:12` |    
 | postgres:13 | `registry.semaphoreci.com/postgres:13` |    
+
 ### ElasticSearch    
 | Image | Link |
 |--------|--------|
@@ -159,7 +169,8 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | elasticsearch:7.6 | `registry.semaphoreci.com/elasticsearch:7.6` |    
 | elasticsearch:7.7 | `registry.semaphoreci.com/elasticsearch:7.7` |    
 | elasticsearch:7.8 | `registry.semaphoreci.com/elasticsearch:7.8` |    
-| elasticsearch:7.9 | `registry.semaphoreci.com/elasticsearch:7.9` |    
+| elasticsearch:7.9 | `registry.semaphoreci.com/elasticsearch:7.9` |   
+
 ### MongoDB    
 | Image | Link |
 |--------|--------|
@@ -168,6 +179,7 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | mongo:4.0 | `registry.semaphoreci.com/mongo:4.0` |    
 | mongo:4.1 | `registry.semaphoreci.com/mongo:4.1` |    
 | mongo:4.2 | `registry.semaphoreci.com/mongo:4.2` |    
+
 ### Redis    
 | Image | Link |
 |--------|--------|
@@ -176,6 +188,7 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | redis:4.0 | `registry.semaphoreci.com/redis:4.0` |    
 | redis:5.0 | `registry.semaphoreci.com/redis:5.0` |    
 | redis:6.0 | `registry.semaphoreci.com/redis:6.0` |    
+
 ### MySQL    
 | Image | Link |
 |--------|--------|
@@ -183,11 +196,13 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | mysql:5.6 | `registry.semaphoreci.com/mysql:5.6` |    
 | mysql:5.7 | `registry.semaphoreci.com/mysql:5.7` |    
 | mysql:8.0 | `registry.semaphoreci.com/mysql:8.0` |    
+
 ### Memcached    
 | Image | Link |
 |--------|--------|
 | memcached:1.5 | `registry.semaphoreci.com/memcached:1.5` |    
 | memcached:1.6 | `registry.semaphoreci.com/memcached:1.6` |    
+
 ### RabbitMQ  
 | Image | Link |
 |--------|--------|
