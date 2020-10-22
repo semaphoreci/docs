@@ -8,69 +8,6 @@ Semaphore hosts a set of images that are used by `sem-service` as well as a set 
 ### Using unsuported version  
 Instruction on how you should proceed if you need unsuported version  
   
-## Supported sem-service images  
-The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services.  
-You can use `sem-service` to pull images from Semaphore registry. All versions that are supported are listed bellow.  
-  
-### Postgres  
-| Image | Link |
-|--------|--------|
-| postgres:9.4 | `registry.semaphoreci.com/postgres:9.4` |    
-| postgres:9.5 | `registry.semaphoreci.com/postgres:9.5` |    
-| postgres:9.6 | `registry.semaphoreci.com/postgres:9.6` |    
-| postgres:10 | `registry.semaphoreci.com/postgres:10` |    
-| postgres:11 | `registry.semaphoreci.com/postgres:11` |    
-| postgres:12 | `registry.semaphoreci.com/postgres:12` |    
-| postgres:13 | `registry.semaphoreci.com/postgres:13` |    
-### ElasticSearch    
-| Image | Link |
-|--------|--------|
-| elasticsearch:5.4 | `registry.semaphoreci.com/elasticsearch:5.4` |    
-| elasticsearch:5.5 | `registry.semaphoreci.com/elasticsearch:5.5` |    
-| elasticsearch:5.6 | `registry.semaphoreci.com/elasticsearch:5.6` |    
-| elasticsearch:6.5 | `registry.semaphoreci.com/elasticsearch:6.5` |    
-| elasticsearch:6.6 | `registry.semaphoreci.com/elasticsearch:6.6` |    
-| elasticsearch:7.1 | `registry.semaphoreci.com/elasticsearch:7.1` |    
-| elasticsearch:7.2 | `registry.semaphoreci.com/elasticsearch:7.2` |    
-| elasticsearch:7.3 | `registry.semaphoreci.com/elasticsearch:7.3` |    
-| elasticsearch:7.4 | `registry.semaphoreci.com/elasticsearch:7.4` |    
-| elasticsearch:7.5 | `registry.semaphoreci.com/elasticsearch:7.5` |    
-| elasticsearch:7.6 | `registry.semaphoreci.com/elasticsearch:7.6` |    
-| elasticsearch:7.7 | `registry.semaphoreci.com/elasticsearch:7.7` |    
-| elasticsearch:7.8 | `registry.semaphoreci.com/elasticsearch:7.8` |    
-| elasticsearch:7.9 | `registry.semaphoreci.com/elasticsearch:7.9` |    
-### MongoDB    
-| Image | Link |
-|--------|--------|
-| mongo:3.2 | `registry.semaphoreci.com/mongo:3.2` |    
-| mongo:3.6 | `registry.semaphoreci.com/mongo:3.6` |    
-| mongo:4.0 | `registry.semaphoreci.com/mongo:4.0` |    
-| mongo:4.1 | `registry.semaphoreci.com/mongo:4.1` |    
-| mongo:4.2 | `registry.semaphoreci.com/mongo:4.2` |    
-### Redis    
-| Image | Link |
-|--------|--------|
-| redis:2.8 | `registry.semaphoreci.com/redis:2.8` |    
-| redis:3.2 | `registry.semaphoreci.com/redis:3.2` |    
-| redis:4.0 | `registry.semaphoreci.com/redis:4.0` |    
-| redis:5.0 | `registry.semaphoreci.com/redis:5.0` |    
-| redis:6.0 | `registry.semaphoreci.com/redis:6.0` |    
-### MySQL    
-| mysql:5.5 | `registry.semaphoreci.com/mysql:5.5` |    
-| mysql:5.6 | `registry.semaphoreci.com/mysql:5.6` |    
-| mysql:5.7 | `registry.semaphoreci.com/mysql:5.7` |    
-| mysql:8.0 | `registry.semaphoreci.com/mysql:8.0` |    
-### Memcached    
-| Image | Link |
-|--------|--------|
-| memcached:1.5 | `registry.semaphoreci.com/memcached:1.5` |    
-| memcached:1.6 | `registry.semaphoreci.com/memcached:1.6` |    
-### RabbitMQ  
-| Image | Link |
-|--------|--------|
-| rabbitmq:3.8.2 | `registry.semaphoreci.com/rabbitmq:3.8.2` |  
-| rabbitmq:3.6 | `registry.semaphoreci.com/rabbitmq:3.6` |  
-
 ## Convenience Docker images  
 For convenience, Semaphore comes with a pre-built convenience Docker images hosted on Semaphore Registry.  
 The source code of the Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/docker-images).  
@@ -191,3 +128,69 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
 ### Android  
 MISSING  
+
+## Supported sem-service images  
+The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services.  
+You can use `sem-service` to pull images from Semaphore registry. All versions that are supported are listed bellow.  
+  
+### Postgres  
+| Image | Link |
+|--------|--------|
+| postgres:9.4 | `registry.semaphoreci.com/postgres:9.4` |    
+| postgres:9.5 | `registry.semaphoreci.com/postgres:9.5` |    
+| postgres:9.6 | `registry.semaphoreci.com/postgres:9.6` |    
+| postgres:10 | `registry.semaphoreci.com/postgres:10` |    
+| postgres:11 | `registry.semaphoreci.com/postgres:11` |    
+| postgres:12 | `registry.semaphoreci.com/postgres:12` |    
+| postgres:13 | `registry.semaphoreci.com/postgres:13` |    
+### ElasticSearch    
+| Image | Link |
+|--------|--------|
+| elasticsearch:5.4 | `registry.semaphoreci.com/elasticsearch:5.4` |    
+| elasticsearch:5.5 | `registry.semaphoreci.com/elasticsearch:5.5` |    
+| elasticsearch:5.6 | `registry.semaphoreci.com/elasticsearch:5.6` |    
+| elasticsearch:6.5 | `registry.semaphoreci.com/elasticsearch:6.5` |    
+| elasticsearch:6.6 | `registry.semaphoreci.com/elasticsearch:6.6` |    
+| elasticsearch:7.1 | `registry.semaphoreci.com/elasticsearch:7.1` |    
+| elasticsearch:7.2 | `registry.semaphoreci.com/elasticsearch:7.2` |    
+| elasticsearch:7.3 | `registry.semaphoreci.com/elasticsearch:7.3` |    
+| elasticsearch:7.4 | `registry.semaphoreci.com/elasticsearch:7.4` |    
+| elasticsearch:7.5 | `registry.semaphoreci.com/elasticsearch:7.5` |    
+| elasticsearch:7.6 | `registry.semaphoreci.com/elasticsearch:7.6` |    
+| elasticsearch:7.7 | `registry.semaphoreci.com/elasticsearch:7.7` |    
+| elasticsearch:7.8 | `registry.semaphoreci.com/elasticsearch:7.8` |    
+| elasticsearch:7.9 | `registry.semaphoreci.com/elasticsearch:7.9` |    
+### MongoDB    
+| Image | Link |
+|--------|--------|
+| mongo:3.2 | `registry.semaphoreci.com/mongo:3.2` |    
+| mongo:3.6 | `registry.semaphoreci.com/mongo:3.6` |    
+| mongo:4.0 | `registry.semaphoreci.com/mongo:4.0` |    
+| mongo:4.1 | `registry.semaphoreci.com/mongo:4.1` |    
+| mongo:4.2 | `registry.semaphoreci.com/mongo:4.2` |    
+### Redis    
+| Image | Link |
+|--------|--------|
+| redis:2.8 | `registry.semaphoreci.com/redis:2.8` |    
+| redis:3.2 | `registry.semaphoreci.com/redis:3.2` |    
+| redis:4.0 | `registry.semaphoreci.com/redis:4.0` |    
+| redis:5.0 | `registry.semaphoreci.com/redis:5.0` |    
+| redis:6.0 | `registry.semaphoreci.com/redis:6.0` |    
+### MySQL    
+| Image | Link |
+|--------|--------|
+| mysql:5.5 | `registry.semaphoreci.com/mysql:5.5` |    
+| mysql:5.6 | `registry.semaphoreci.com/mysql:5.6` |    
+| mysql:5.7 | `registry.semaphoreci.com/mysql:5.7` |    
+| mysql:8.0 | `registry.semaphoreci.com/mysql:8.0` |    
+### Memcached    
+| Image | Link |
+|--------|--------|
+| memcached:1.5 | `registry.semaphoreci.com/memcached:1.5` |    
+| memcached:1.6 | `registry.semaphoreci.com/memcached:1.6` |    
+### RabbitMQ  
+| Image | Link |
+|--------|--------|
+| rabbitmq:3.8.2 | `registry.semaphoreci.com/rabbitmq:3.8.2` |  
+| rabbitmq:3.6 | `registry.semaphoreci.com/rabbitmq:3.6` |  
+
