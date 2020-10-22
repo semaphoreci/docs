@@ -50,7 +50,7 @@ that you can use to get started quickly:
 ## Using a public Docker image in CI/CD jobs
 
 In order to use an existing Docker image from a public Docker Hub repository,
-you only need to execute `docker run` as follows:
+you need to execute `docker run` as follows:
 
 ``` bash
 docker run -d -p 1234:80 nginx:alpine
@@ -58,6 +58,11 @@ docker run -d -p 1234:80 nginx:alpine
 
 The command will download the public `nginx:alpine` image and run it in your
 Semaphore job.
+
+!!! warning "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub all pulls have to be authenticated. 
+    If you are pulling any images from Docker Hub public repository please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
+
 
 An example Semaphore pipeline file:
 
@@ -77,8 +82,11 @@ blocks:
       - name: Docker Hub
         commands:
           - checkout
+          - echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
           - docker run -d -p 1234:80 nginx:alpine
           - wget http://localhost:1234
+      secrets:
+      - name: docker-hub
 ```
 
 The `wget http://localhost:1234` command is an example to verify that the
