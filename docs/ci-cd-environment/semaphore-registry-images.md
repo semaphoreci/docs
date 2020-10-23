@@ -60,6 +60,26 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | python:3.9 | `registry.semaphoreci.com/python:3.9` |  
 | python:3.9-node-browsers | `registry.semaphoreci.com/python:3.9-node-browsers` |  
 
+### PHP
+| Image | Link |
+|--------|--------|
+| php:5.6 | `registry.semaphoreci.com/php:5.6` |
+| php:7.2 | `registry.semaphoreci.com/php:7.2` |
+| php:7.3 | `registry.semaphoreci.com/php:7.3` |
+| php:7.4 | `registry.semaphoreci.com/php:7.4` |
+| php:5.6-node | `registry.semaphoreci.com/php:5.6-node` |
+| php:7.2-node | `registry.semaphoreci.com/php:7.2-node` |
+| php:7.3-node | `registry.semaphoreci.com/php:7.3-node` |
+| php:7.4-node | `registry.semaphoreci.com/php:7.4-node` |
+| php:5.6-browsers | `registry.semaphoreci.com/php:5.6-browsers` |
+| php:7.2-browsers | `registry.semaphoreci.com/php:7.2-browsers` |
+| php:7.3-browsers | `registry.semaphoreci.com/php:7.3-browsers` |
+| php:7.4-browsers | `registry.semaphoreci.com/php:7.4-browsers` |
+| php:5.6-node-browsers | `registry.semaphoreci.com/php:5.6-node-browsers` |
+| php:7.2-node-browsers | `registry.semaphoreci.com/php:7.2-node-browsers` |
+| php:7.3-node-browsers | `registry.semaphoreci.com/php:7.3-node-browsers` |
+| php:7.4-node-browsers | `registry.semaphoreci.com/php:7.4-node-browsers` |
+
 ### Haskell  
 | Image | Link |
 |--------|--------|
@@ -136,7 +156,23 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
 
 ### Android  
-MISSING  
+| Image | Link |
+|--------|--------|
+| android:25 | `registry.semaphoreci.com/android:25` |
+| android:25-flutter | `registry.semaphoreci.com/android:25-flutter` |
+| android:25-node | `registry.semaphoreci.com/android:25-node` |
+| android:26 | `registry.semaphoreci.com/android:26` |
+| android:26-flutter | `registry.semaphoreci.com/android:26-flutter` |
+| android:26-node | `registry.semaphoreci.com/android:26-node` |
+| android:27 | `registry.semaphoreci.com/android:27` |
+| android:27-flutter | `registry.semaphoreci.com/android:27-flutter` |
+| android:27-node | `registry.semaphoreci.com/android:27-node` |
+| android:28 | `registry.semaphoreci.com/android:28` |
+| android:28-flutter | `registry.semaphoreci.com/android:28-flutter` |
+| android:28-node | `registry.semaphoreci.com/android:28-node` |
+| android:29 | `registry.semaphoreci.com/android:29` |
+| android:29-flutter | `registry.semaphoreci.com/android:29-flutter` |
+| android:29-node | `registry.semaphoreci.com/android:29-node` |
 
 ## Supported sem-service images  
 The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services.  
