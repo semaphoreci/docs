@@ -18,6 +18,9 @@ your agent specification.
 
 For example, in the following pipeline we will use the `semaphoreci/ruby-2.6`
 image for our tests.
+!!! info "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub for your convenience any compose style pull from `semaphoreci` Docker Hub repository will automatically redirected to [Semaphore registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
+
 
 ``` yaml
 # .semaphore/semaphore.yml
