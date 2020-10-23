@@ -29,6 +29,8 @@ blocks:
           - printf 'fn main() { println!("Hello World!"); }' > hello.rs && rustc hello.rs
           - ./hello
 ```
+!!! info "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub for your convenience any compose style pull from `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
 
 ## Supported Rust Versions
 
