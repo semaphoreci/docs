@@ -79,7 +79,10 @@ agent:
 
     - name: cache
       image: redis:5.0
-
+      
+  image_pull_secrets:
+    - name: dockerhub-pull-secrets
+    
 blocks:
   - name: "Hello"
     task:
