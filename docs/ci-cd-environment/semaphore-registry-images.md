@@ -209,3 +209,12 @@ You can use `sem-service` to pull images from Semaphore registry. All versions t
 | rabbitmq:3.8.2 | `registry.semaphoreci.com/rabbitmq:3.8.2` |  
 | rabbitmq:3.6 | `registry.semaphoreci.com/rabbitmq:3.6` |  
 
+### Cassandra DB
+| Image | Link |
+|--------|--------|
+| cassandra:3 | `registry.semaphoreci.com/cassandra:3` |  
+
+### Rethink DB
+| Image | Link |
+|--------|--------|
+| rethinkdb:2 | `registry.semaphoreci.com/rethinkdb:2 ` |  
