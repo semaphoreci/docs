@@ -3,13 +3,20 @@ description: This page contains the list of docker images available on Semaphore
 ---  
   
 # Semaphore Registry  
-Semaphore hosts a set of images that are used by `sem-service` as well as a set of convinience images that you can easily pull in your Semaphore jobs.  
+Semaphore hosts a set of images that are used by `sem-service` as well as a set of convinience images.
+You can use these images inside your Semaphore envionrment without any restrictions or limits.
   
 ### Using unsuported version  
-Instruction on how you should proceed if you need unsuported version  
+In case that you need to use a Docker image that is not covered in this list please note that Semaphore allows pulls from any Docker repository.  
+
+You can find more information in our [working with Docker](/ci-cd-environment/working-with-docker/) documentation page. 
+
+!!! info "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub all pulls have to be authenticated. 
+    If you are pulling any images from Docker Hub public repository please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
   
 ## Convenience Docker images  
-For convenience, Semaphore comes with a pre-built convenience Docker images hosted on Semaphore Registry.  
+Semaphore comes with a pre-built convenience Docker images hosted on Semaphore Registry.  
 The source code of the Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/docker-images).  
   
 ### Ruby  
