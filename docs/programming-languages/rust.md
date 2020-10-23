@@ -37,7 +37,6 @@ Semaphore supports all versions of Rust. To run Rust programs you should define
 or build your own container image that matches your needs.
 
 For more information about pre-built Rust images provided by Semaphore, see
-[semaphoreci/rust][rust-docker-image] documentation on Docker Hub.
+[semaphoreci/rust](/ci-cd-environment/semaphore-registry-images/#rust) documentation page.
 
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-[rust-docker-image]: https://hub.docker.com/r/semaphoreci/rust
