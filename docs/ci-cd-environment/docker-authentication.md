@@ -28,11 +28,10 @@ If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci
 - **Authenticate your pulls** - If you have a Docker Hub account start authenticating your pulls in your Semaphore configuration. 
 
 ## How to authenticate Docker pulls
-### Step 1: Create the Semaphore secret  
-The first step is to store your Docker Hub credentials. You can use [Semaphore secret](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
+### Step 1: Create a Semaphore secret  
+The first step is to store your Docker Hub credentials. You can use [Semaphore secrets](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
 
-=== "Creating a secret from the UI"
-
+**Creating a secret from the UI**  
 1. Click on the organization icon in the top right corner  
 2. From the menu select **Settings**  
 3. On the left side pick **Secrets**  
@@ -43,7 +42,7 @@ The first step is to store your Docker Hub credentials. You can use [Semaphore s
 8. Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
 9. Click on **Save Secret**  
 
-=== "Creating a secret through CLI"
+**Creating a secret through CLI**
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].  
 
 After connecting to your Semaphore organization update the details in the example command below and run it:  
@@ -53,7 +52,7 @@ sem create secret <name-of-your-secret> \
   -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
   -e DOCKERHUB_PASSWORD=<your-dockerhub-password>
 ```
-**Adding a secret to your pipeline YAML**  
+### Step 2: Add a secret to your pipeline YAML
 To use the newly created secret in your jobs, you first need to attach it.  
 You can attach a secret to individual blocks in your workflow or the whole pipeline.  
 We suggest doing the latter so that it's available to **all jobs** in the workflow.  
@@ -75,7 +74,7 @@ blocks:
   ...
 ```
 
-### Use secret to authenticate Docker images pulls  
+### Step 3-a: Use the secret to authenticate Docker images pulls  
 For your docker pulls to be authenticated you have to log into Docker Hub:  
 ```bash
 echo $DOCKERHUB_PASSWORD | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
@@ -119,8 +118,8 @@ blocks:
 ```
 
 
-### Running jobs inside a Docker image
-When you're using Docker image as your pipeline CI/CD environment, make sure to attach the `docker-hub` secret to your agent's properties to pull the images:
+### Step 3-b: Running jobs inside a Docker image
+When you're using Docker image as your pipeline CI/CD environment, you only need to attach the `docker-hub` secret to your agent's properties:
 ```yaml
 agent:
   machine:
