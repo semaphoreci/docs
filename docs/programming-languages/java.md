@@ -42,8 +42,7 @@ Semaphore supports all versions of Java. You have the following options:
 
 - Linux: Java and related tools are available out-of-the-box in the
   [Ubuntu 18.04 VM image][ubuntu-java].
-- Docker: use [semaphoreci/openjdk][java-docker-image] or
-  [your own Docker image][docker-env] with the version of Java and other
+- Docker: Use [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
 
 Follow the links above for details on currently available language versions and
@@ -122,4 +121,3 @@ blocks:
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [caching]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
-[java-docker-image]: https://hub.docker.com/r/semaphoreci/openjdk
