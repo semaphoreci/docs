@@ -42,7 +42,7 @@ The first step is to store your Docker Hub credentials. You can use [Semaphore s
 8. Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
 9. Click on **Save Secret**  
 
-**Creating a secret through CLI**
+**Creating a secret through CLI**  
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].  
 
 After connecting to your Semaphore organization update the details in the example command below and run it:  
