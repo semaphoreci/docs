@@ -16,7 +16,7 @@ images, refer to the [Working with Docker Images][working-with-docker].
 To run your commands inside a Docker container, define the `containers` section in
 your agent specification.
 
-For example, in the following pipeline we will use the `semaphoreci/ruby-2.6`
+For example, in the following pipeline, we will use the `semaphoreci/ruby-2.6`
 image for our tests.
 
 ``` yaml
