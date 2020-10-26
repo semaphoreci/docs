@@ -31,9 +31,10 @@ Error pulling image <docker-image-name>: Error response from daemon: toomanyrequ
 
 ## How to authenticate Docker pulls
 ### Create the Semaphore secret  
-The first step is to store your Docker Hub credentials. You can use [Semaphore secret](https://docs.semaphoreci.com/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
+The first step is to store your Docker Hub credentials. You can use [Semaphore secret](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
 
 **Creating a secret from the UI**
+
 - Click on the organization icon in the top right corner  
 - From the menu select **Settings**  
 - On the left side pick **Secrets**  
@@ -154,4 +155,4 @@ If you are not logged in, the `auths` field will be empty:
 	"auths": {},
 ```  
 
-[install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[install-cli]: /reference/sem-command-line-tool/

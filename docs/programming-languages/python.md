@@ -40,7 +40,7 @@ Semaphore supports all versions of Python. You have the following options:
 
 - Linux: Python is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-python].
 - macOS: Python is available out-of-the-box in the [macOS VM image][macos-python].
-- Docker: use [semaphoreci/python][python-docker-image] or
+- Docker: use [semaphoreci/python](/ci-cd-environment/semaphore-registry-images/#python) or
   [your own Docker image][docker-env] with the version of Python and other
   packages that you need.
 
@@ -184,5 +184,4 @@ blocks:
 [ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python
 [macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#python
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
-[python-docker-image]: https://hub.docker.com/r/semaphoreci/python
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
