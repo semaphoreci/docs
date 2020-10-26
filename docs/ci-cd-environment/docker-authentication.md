@@ -133,7 +133,7 @@ agent:
 ```
 
 ## How to check if you are logged in
-The `docker login` command will display a **Login Succeeded** message as an output if authentication was successfull. 
+The `docker login` command will display a **Login Succeeded** message as an output if authentication was successful. 
 
 Another way to check is to open `~/.docker/config.json` and check the `auths` field. 
 
