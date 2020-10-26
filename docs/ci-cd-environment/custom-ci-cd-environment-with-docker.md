@@ -47,7 +47,7 @@ Note: *The example image `semaphoreci/ruby.2.6` is part of the pre-built
 Docker images optimized for Semaphore CI/CD jobs.*
 
 !!! info "Docker Hub rate limits"
-    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pull from `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pull from `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
 
 ## Using multiple Docker containers
 
@@ -106,10 +106,10 @@ on the `db` hostname in the first container.
 ## Pre-built convenience Docker images for Semaphore CI/CD jobs
 
 For convenience, Semaphore comes with a [repository of pre-built images hosted
-on Semaphore registry][semaphore-registry]. The source code of the Semaphore Docker
+on Semaphore Container Registry][semaphore-registry]. The source code of the Semaphore Docker
 images is [hosted on Github][docker-images-repo].
 
-You can find the list of all convenience Docker images on our [Semaphore registry images][semaphore-registry] page.
+You can find the list of all convenience Docker images on our [Semaphore Container Registry images][semaphore-registry] page.
 
 ## Building custom Docker images
 
