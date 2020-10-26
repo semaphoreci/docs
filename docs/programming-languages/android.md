@@ -93,7 +93,7 @@ blocks:
     
 ## Android image variants
 
-The pre-built Android images are available on [Semaphore Registry](/ci-cd-environment/semaphore-registry-images/).
+The pre-built Android images are available on [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).
 
 The source code and Dockerfiles for these images are available in [an open
 source repository
