@@ -1,8 +1,8 @@
 ---  
-description: This page contains a list of docker images available on Semaphore registry.  
+description: This page contains a list of docker images available on Semaphore Container Registry.  
 ---  
   
-# Semaphore Registry  
+# Semaphore Container Registry  
 Semaphore hosts a set of images that are used by `sem-service` as well as a set of convinience images.
 You can use these images inside your Semaphore envionrment without any restrictions or limits.
   
@@ -183,7 +183,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 
 ## Supported sem-service images  
 The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services.  
-You can use `sem-service` to pull images from the Semaphore registry. All versions that are supported are listed bellow.  
+You can use `sem-service` to pull images from the Semaphore Container Registry. All versions that are supported are listed bellow.  
   
 ### Postgres  
 | Image | Link |
