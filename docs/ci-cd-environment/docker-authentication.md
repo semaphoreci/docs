@@ -53,9 +53,8 @@ sem create secret <name-of-your-secret> \
   -e DOCKERHUB_PASSWORD=<your-dockerhub-password>
 ```
 ### Step 2: Add a secret to your pipeline YAML
-To use the newly created secret in your jobs, you first need to attach it.  
-You can attach a secret to individual blocks in your workflow or the whole pipeline.  
-We suggest doing the latter so that it's available to **all jobs** in the workflow.  
+To use the newly created secret in your jobs, you first need to attach it. You can attach a secret to individual blocks in your workflow or the whole pipeline. We suggest doing the latter so that it's available to **all jobs** in the workflow.  
+
 You can achieve it by using `global_job_config` like this:  
 ```yaml
 version: v1.0
@@ -119,7 +118,7 @@ blocks:
 
 
 ### Step 3-b: Running jobs inside a Docker image
-When you're using Docker image as your pipeline CI/CD environment, you only need to attach the `docker-hub` secret to your agent's properties:
+If you're using Docker image as your pipeline CI/CD environment, you only need to attach the `docker-hub` secret to your agent's properties:
 ```yaml
 agent:
   machine:
