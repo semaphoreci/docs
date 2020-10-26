@@ -7,9 +7,9 @@ As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docke
 
 Following rate limits will apply:
 
-- 100 pulls per 6 hours for anonymous public image pulls
-- 200 pulls per 6 hours for authenticated users on the free Docker Hub plan
-- Unlimited pull rate for the authenticated users with Pro and Team Docker Hub accounts.  
+- **100 pulls per 6 hours** for anonymous public image pulls
+- **200 pulls per 6 hours** for authenticated users on the free Docker Hub plan
+- **Unlimited pull rate** for the authenticated users with Pro and Team Docker Hub accounts.  
 
 Exceeding the explained rate limits will disrupt your Semaphore workflows. You can find the recommended steps to avoid it below.  
 
@@ -28,22 +28,22 @@ If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci
 - **Authenticate your pulls** - If you have a Docker Hub account start authenticating your pulls in your Semaphore configuration. 
 
 ## How to authenticate Docker pulls
-### Create the Semaphore secret  
+### Step 1: Create the Semaphore secret  
 The first step is to store your Docker Hub credentials. You can use [Semaphore secret](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
 
-**Creating a secret from the UI**
+=== "Creating a secret from the UI"
 
-- Click on the organization icon in the top right corner  
-- From the menu select **Settings**  
-- On the left side pick **Secrets**  
-- Click on **New Secret**  
-- Fill in a unique name for your secret  
-- Add the first environment variable: `Variable name: "DOCKER_CREDENTIAL_TYPE", Value: "DockerHub"`  
-- Click on **+ Add another** and add new variable: `Variable name: DOCKERHUB_USERNAME, Value:<your-dockerhub-username>`  
-- Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
-- Click on **Save Secret**  
+1. Click on the organization icon in the top right corner  
+2. From the menu select **Settings**  
+3. On the left side pick **Secrets**  
+4. Click on **New Secret**  
+5. Fill in a unique name for your secret  
+6. Add the first environment variable: `Variable name: "DOCKER_CREDENTIAL_TYPE", Value: "DockerHub"`  
+7. Click on **+ Add another** and add new variable: `Variable name: DOCKERHUB_USERNAME, Value:<your-dockerhub-username>`  
+8. Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
+9. Click on **Save Secret**  
 
-**Creating a secret through CLI**  
+=== "Creating a secret through CLI"
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].  
 
 After connecting to your Semaphore organization update the details in the example command below and run it:  
