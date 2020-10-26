@@ -9,7 +9,7 @@ Following rate limits will apply:
 
 - 100 pulls per 6 hours for anonymous public image pulls
 - 200 pulls per 6 hours for authenticated users on the free Docker Hub plan
-- Unlimited pull rate for the authenticated users with Pro and Team Docker Hub accounts.
+- Unlimited pull rate for the authenticated users with Pro and Team Docker Hub accounts.  
 Exceeding the explained rate limits will disrupt your Semaphore workflows and below you can find the recommended steps to avoid it.  
 
 ## Will this affect you
