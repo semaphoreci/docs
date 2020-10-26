@@ -3,35 +3,24 @@ description: This guide explains Docker Hub rate limits and how to pull public D
 ---
 
 # Docker Hub authentication
-
 As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub will introduce [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for public image pulls.  
 
 The rate limits of 100 pulls per 6 hours will apply to anonymous public image pulls, while the authenticated users on a free Docker Hub plan will be able to make up to 200 pulls per 6 hours. Authenticated users with Pro and Team Docker Hub accounts have an unlimited pull rate.  
 
-Exceeding the explained rate limits will disrupt your Semaphore 2.0 workflows and below you can find the recommended steps to avoid it.  
+Exceeding the explained rate limits will disrupt your Semaphore workflows and below you can find the recommended steps to avoid it.  
 
 ## Will this affect you
-Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address.  
-This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the new DockerHub rate limit**.  
+Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address. This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the new DockerHub rate limit**.
 
-We want to support you through this transition and help you reduce the impact of the Docker Hub rate limit introduction.  
-Feel free to reach out to our support team with any questions that you might have.  
-
-## What should you do to minimize the effect of the rate limit  
-If you have a DockerHub account, **to avoid failing jobs, we suggest that you start authenticating your pulls** in your Semaphore configuration.  
-Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
-Please, check the instructions on [how to authenticate Docker pulls](#how-to-authenticate-docker-pulls) in the section below.  
+We want to help you reduce the impact of the Docker Hub rate limit introduction so feel free to reach out to our support team with any questions that you might have.  
 
 ## What are we doing to help?  
 For your convenience, we have created the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/) which contains some of the most frequently used Docker images. You can pull these images in your Semaphore environment without any restrictions or limitations.  
-If you are using a Docker-based CI/CD environment in combination with convenience images, note that Semaphore will automatically redirect any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
 
-## How can you know if you are hitting the limit
-If you have exceeded the rate limit, Docker will throw the `Too Many Requests` error.  
-Check the output of your `docker pull` command in the job log. If you have exceeded the rate limit, the output will be the following:  
-```bash
-Error pulling image <docker-image-name>: Error response from daemon: toomanyrequests: Too Many Requests.`
-```
+If you are using a Docker-based CI/CD environment in combination with convenience images, note that Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
+
+## What should you do to minimize the effect of the rate limit  
+If you have a DockerHub account, **to avoid failing jobs, we suggest that you start authenticating your pulls** in your Semaphore configuration. Docker offers a rate limit of 200 pulls per 6 hours for their free plan accounts and unlimited pulls for Pro and Team Docker Hub accounts.  
 
 ## How to authenticate Docker pulls
 ### Create the Semaphore secret  
@@ -57,7 +46,7 @@ After connecting to your Semaphore organization update the details in the exampl
 sem create secret <name-of-your-secret> \
   -e DOCKER_CREDENTIAL_TYPE=DockerHub \
   -e DOCKERHUB_USERNAME=<your-dockerhub-username> \
-  -e DOCKERHUB_PASSWORD=<your-dockerhub-password> \
+  -e DOCKERHUB_PASSWORD=<your-dockerhub-password>
 ```
 **Adding a secret to your pipeline YAML**  
 To use the newly created secret in your jobs, you first need to attach it.  
@@ -100,7 +89,7 @@ global_job_config:
 This way the `docker login` command will be run at the start of each job in the pipeline.
 
 If however, you prefer to log in to Docker Hub in individual jobs only, you can do it like in this example:
-```bash
+```yaml
 # .semaphore/semaphore.yml
 version: v1.0
 name: Using a Docker image
@@ -127,7 +116,7 @@ blocks:
 
 ### Running jobs inside a Docker image
 When you're using Docker image as your pipeline CI/CD environment, make sure to attach the `docker-hub` secret to your agent's properties to pull the images:
-```bash
+```yaml
 agent:
   machine:
     type: e1-standard-2
@@ -145,8 +134,8 @@ The `docker login` command will display a **Login Succeeded** message as an outp
 
 Another way to check is to open `~/.docker/config.json` and check the `auths` field. 
 
-If you have been successfully logged in, then the `auths` field will be updated accordingly:
-```
+If you have been successfully logged in, then the `auths` field will be updated accordingly:  
+```json
 {
 	"auths": {
 		"https://index.docker.io/v1/": {....
@@ -154,9 +143,14 @@ If you have been successfully logged in, then the `auths` field will be updated 
 ```
 
 If you are not logged in, the `auths` field will be empty:
-```
+```json
 {
 	"auths": {},
-```  
+```
 
+## How can you know if you are hitting the limit
+If you have exceeded the rate limit, Docker will throw the `Too Many Requests` error. Check the output of your `docker pull` command in the job log. If you have exceeded the rate limit, the output will be the following:  
+```bash
+Too Many Requests. Please see https://docs.docker.com/docker-hub/download-rate-limit/`
+```
 [install-cli]: /reference/sem-command-line-tool/
