@@ -46,8 +46,8 @@ blocks:
 Note: *The example image `semaphoreci/ruby.2.6` is part of the pre-built
 Docker images optimized for Semaphore CI/CD jobs.*
 
-!!! info "Docker Hub rate limits"
-    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pull from `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
+!!! info "Semaphore convenience images redirection"
+	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
 
 ## Using multiple Docker containers
 
@@ -130,7 +130,7 @@ To enable running Docker-in-Docker the `docker` executable needs to be installed
 
 !!! warning "Docker Hub rate limits"
     Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, all pulls have to be authenticated. 
-    If you are pulling any images from Docker Hub public repository, please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
+    If you are pulling any images from Docker Hub public repository, please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](/ci-cd-environment/docker-authentication/) guide.
   
 ### Building a minimal Docker image for Semaphore
 
