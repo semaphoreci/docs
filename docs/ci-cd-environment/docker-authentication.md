@@ -24,7 +24,7 @@ For your convenience, we have created the [Semaphore Container Registry](/ci-cd-
 If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
 
 ## What should you do to minimize the effect of the rate limit  
-- **Switch to Semaphore Container Registry** - if the image you need is available in [our Container Registry](/ci-cd-environment/semaphore-registry-images/) you can update your configuration to pull images from:`registry.semaphoreci.com/<image>`
+- **Switch to Semaphore Container Registry** - if the image you need is available in [our Container Registry](/ci-cd-environment/semaphore-registry-images/) you can update your configuration to pull images from `registry.semaphoreci.com`
 - **Authenticate your pulls** - If you have a Docker Hub account start authenticating your pulls in your Semaphore configuration. 
 
 ## How to authenticate Docker pulls
