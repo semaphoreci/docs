@@ -29,6 +29,8 @@ blocks:
           - printf 'fn main() { println!("Hello World!"); }' > hello.rs && rustc hello.rs
           - ./hello
 ```
+!!! info "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pulls from the `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
 
 ## Supported Rust Versions
 
@@ -37,7 +39,6 @@ Semaphore supports all versions of Rust. To run Rust programs you should define
 or build your own container image that matches your needs.
 
 For more information about pre-built Rust images provided by Semaphore, see
-[semaphoreci/rust][rust-docker-image] documentation on Docker Hub.
+[semaphoreci/rust](/ci-cd-environment/semaphore-registry-images/#rust) documentation page.
 
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-[rust-docker-image]: https://hub.docker.com/r/semaphoreci/rust
