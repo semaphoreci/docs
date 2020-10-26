@@ -42,7 +42,7 @@ Semaphore supports all versions of Ruby. You have the following options:
 
 - Linux: Ruby is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-ruby].
 - macOS: Ruby is available out-of-the-box in the [macOS VM image][macos-ruby].
-- Docker: use [semaphoreci/ruby][ruby-docker-image] or
+- Docker: use [semaphoreci/ruby](/ci-cd-environment/semaphore-registry-images/#ruby) or
   [your own Docker image][docker-env] with the version of Ruby and other
   packages that you need.
 
@@ -71,7 +71,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version ruby 2.5.1 -f
+          - sem-version ruby 2.5 -f
       jobs:
         - name: Tests
           commands:
@@ -256,7 +256,6 @@ for details on preinstalled browsers and testing tools on Semaphore.
 [rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
 [macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
-[ruby-docker-image]: https://hub.docker.com/r/semaphoreci/ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 
 ## Running RSpec and Cucumber in parallel
