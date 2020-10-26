@@ -75,7 +75,7 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6.1
+      image: semaphoreci/ruby:2.6
 
     - name: db
       image: postgres:9.6
@@ -88,6 +88,9 @@ agent:
 ```
 
 Read more about [docker based environments][docker-based].
+
+!!! info "Docker Hub rate limits"
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pull from `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
 
 ## When should you use Virtual Machines for your projects?
 
