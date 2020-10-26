@@ -61,7 +61,7 @@ Semaphore job.
 
 !!! warning "Docker Hub rate limits"
     Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, all pulls have to be authenticated. 
-    If you are pulling any images from the Docker Hub public repositor,y please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
+    If you are pulling any images from the Docker Hub public repository, please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
 
 
 An example Semaphore pipeline file:
