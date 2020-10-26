@@ -38,8 +38,8 @@ If no `version` value is given, a default value will be used according to the fo
 - elasticsearch: The default value is `6.5.1`
 - rabbitmq: The default is `3.8.2`
 
-`sem-service` pulls images from Semaphore registry. 
-You can find the list of available versions on our [Semaphore registry images](/ci-cd-environment/semaphore-registry-images/#supported-sem-service-images) page.
+`sem-service` pulls images from Semaphore Container Registry. 
+You can find the list of available versions on our [Semaphore Container Registry images](/ci-cd-environment/semaphore-registry-images/#supported-sem-service-images) page.
 
 The following are valid uses of `sem-service`:
 
