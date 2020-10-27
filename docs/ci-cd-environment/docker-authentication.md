@@ -32,15 +32,15 @@ If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci
 The first step is to store your Docker Hub credentials. You can use [Semaphore secrets](/essentials/using-secrets/) to safely store any credentials and make them available in your projects.  
 
 **Creating a secret from the UI**  
-1. Click on the organization icon in the top right corner  
-2. From the menu select **Settings**  
-3. On the left side pick **Secrets**  
-4. Click on **New Secret**  
-5. Fill in a unique name for your secret  
-6. Add the first environment variable: `Variable name: "DOCKER_CREDENTIAL_TYPE", Value: "DockerHub"`  
-7. Click on **+ Add another** and add new variable: `Variable name: DOCKERHUB_USERNAME, Value:<your-dockerhub-username>`  
-8. Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
-9. Click on **Save Secret**  
+ 1. Click on the organization icon in the top right corner  
+ 2. From the menu select **Settings**  
+ 3. On the left side pick **Secrets**  
+ 4. Click on **New Secret**  
+ 5. Fill in a unique name for your secret  
+ 6. Add the first environment variable: `Variable name: "DOCKER_CREDENTIAL_TYPE", Value: "DockerHub"`  
+ 7. Click on **+ Add another** and add new variable: `Variable name: DOCKERHUB_USERNAME, Value:<your-dockerhub-username>`  
+ 8. Add the third environment variable: `Variable name: DOCKERHUB_PASSWORD, Value:<your-dockerhub-password>`  
+ 9. Click on **Save Secret**  
 
 **Creating a secret through CLI**  
 Before you begin, you'll need to [install the Semaphore CLI][install-cli].  
