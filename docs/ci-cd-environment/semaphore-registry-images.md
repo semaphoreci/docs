@@ -89,8 +89,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 ### Rust  
 | Image | Link |
 |--------|--------|
-| rust:1.47 | `registry.semaphoreci.com/rust:1.14` |  
-| rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.14-node-browsers` |  
+| rust:1.47 | `registry.semaphoreci.com/rust:1.47` |  
+| rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.47-node-browsers` |  
 
 ### Golang  
 | Image | Link |
