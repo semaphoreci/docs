@@ -43,12 +43,6 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 ### Python  
 | Image | Link |
 |--------|--------|
-| python:2.8 | `registry.semaphoreci.com/python:2.8` |  
-| python:2.8-node-browsers | `registry.semaphoreci.com/python:2.8-node-browsers` |  
-| python:3.0 | `registry.semaphoreci.com/python:3.0` |  
-| python:3.0-node-browsers | `registry.semaphoreci.com/python:3.0-node-browsers` |  
-| python:3.0 | `registry.semaphoreci.com/python:3.0` |  
-| python:3.1-node-browsers | `registry.semaphoreci.com/python:3.1-node-browsers` |  
 | python:3.2 | `registry.semaphoreci.com/python:3.2` |  
 | python:3.2-node-browsers | `registry.semaphoreci.com/python:3.2-node-browsers` |  
 | python:3.3 | `registry.semaphoreci.com/python:3.3` |  
@@ -89,20 +83,14 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 ### Haskell  
 | Image | Link |
 |--------|--------|
-| haskell:8.4 | `registry.semaphoreci.com/haskell:8.4` |  
-| haskell:8.4-node-browsers | `registry.semaphoreci.com/haskell:8.4-node-browsers` |  
-| haskell:8.5 | `registry.semaphoreci.com/haskell:8.5` |  
-| haskell:8.5-node-browsers | `registry.semaphoreci.com/haskell:8.5-node-browsers` |  
-| haskell:8.6 | `registry.semaphoreci.com/haskell:8.6` |  
-| haskell:8.6-node-browsers | `registry.semaphoreci.com/haskell:8.6-node-browsers` |  
+| haskell:8.8 | `registry.semaphoreci.com/haskell:8.8` |  
+| haskell:8.10 | `registry.semaphoreci.com/haskell:8.10` |  
 
 ### Rust  
 | Image | Link |
 |--------|--------|
-| rust:1.45 | `registry.semaphoreci.com/rust:1.45` |  
-| rust:1.45-node-browsers | `registry.semaphoreci.com/rust:1.45-node-browsers` |  
-| rust:1.46 | `registry.semaphoreci.com/rust:1.46` |  
-| rust:1.46-node-browsers | `registry.semaphoreci.com/rust:1.46-node-browsers` |  
+| rust:1.47 | `registry.semaphoreci.com/rust:1.14` |  
+| rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.14-node-browsers` |  
 
 ### Golang  
 | Image | Link |
@@ -111,55 +99,30 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | golang:1.14-node-browsers | `registry.semaphoreci.com/golang:1.14-node-browsers` |  
 | golang:1.15 | `registry.semaphoreci.com/golang:1.15` |  
 | golang:1.15-node-browsers | `registry.semaphoreci.com/golang:1.15-node-browsers` |  
-| golang:1.16 | `registry.semaphoreci.com/golang:1.16` |  
-| golang:1.16-node-browsers | `registry.semaphoreci.com/golang:1.16-node-browsers` |  
-| golang:1.17 | `registry.semaphoreci.com/golang:1.17` |  
-| golang:1.17-node-browsers | `registry.semaphoreci.com/golang:1.17-node-browsers` |  
-| golang:1.18 | `registry.semaphoreci.com/golang:1.18` |  
-| golang:1.18-node-browsers | `registry.semaphoreci.com/golang:1.18-node-browsers` |  
-| golang:1.19 | `registry.semaphoreci.com/golang:1.19` |  
-| golang:1.19-node-browsers | `registry.semaphoreci.com/golang:1.19-node-browsers` |  
-
-### Clojure  
-| Image | Link |
-|--------|--------|
-| clojure:13 | `registry.semaphoreci.com/clojure:13` |  
-| clojure:13-node-browsers | `registry.semaphoreci.com/clojure:13-node-browsers` |  
 
 ### Elixir  
 | Image | Link |
 |--------|--------|
 | elixir:1.5 | `registry.semaphoreci.com/elixir:1.5` |  
-| elixir:1.5-node-browsers | `registry.semaphoreci.com/elixir:1.5-node-browsers` |  
 | elixir:1.6 | `registry.semaphoreci.com/elixir:1.6` |  
-| elixir:1.6-node-browsers | `registry.semaphoreci.com/elixir:1.6-node-browsers` |  
 | elixir:1.7 | `registry.semaphoreci.com/elixir:1.7` |  
-| elixir:1.7-node-browsers | `registry.semaphoreci.com/elixir:1.7-node-browsers` |  
 | elixir:1.8 | `registry.semaphoreci.com/elixir:1.8` |  
-| elixir:1.8-node-browsers | `registry.semaphoreci.com/elixir:1.8-node-browsers` |  
 | elixir:1.9 | `registry.semaphoreci.com/elixir:1.9` |  
-| elixir:1.9-node-browsers | `registry.semaphoreci.com/elixir:1.9-node-browsers` |  
 
 ### Node  
 | Image | Link |
 |--------|--------|
 | node:10 | `registry.semaphoreci.com/node:10` |  
-| node:10-browsers | `registry.semaphoreci.com/node:10-browsers` |  
-| node:11 | `registry.semaphoreci.com/node:11` |  
-| node:11-browsers | `registry.semaphoreci.com/node:11-browsers` |  
+| node:10-browsers | `registry.semaphoreci.com/node:10-browsers` |   
 | node:12 | `registry.semaphoreci.com/node:12` |  
 | node:12-browsers | `registry.semaphoreci.com/node:12-browsers` |  
-| node:13 | `registry.semaphoreci.com/node:13` |  
-| node:13-browsers | `registry.semaphoreci.com/node:13-browsers` |  
 | node:14 | `registry.semaphoreci.com/node:14` |  
 | node:14-browsers | `registry.semaphoreci.com/node:14-browsers` |  
 
 ### Ubuntu  
 | Image | Link |
 |--------|--------|
-| ubuntu:14.04 | `registry.semaphoreci.com/ubuntu:14.04` |  
 | ubuntu:18.04 | `registry.semaphoreci.com/ubuntu:18.04` |  
-| ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
 
 ### Android  
 | Image | Link |
@@ -197,6 +160,8 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 ### ElasticSearch    
 | Image | Link |
 |--------|--------|
+| elasticsearch:1.7 | `registry.semaphoreci.com/elasticsearch:1.7` |    
+| elasticsearch:2.4 | `registry.semaphoreci.com/elasticsearch:2.4` |    
 | elasticsearch:5.4 | `registry.semaphoreci.com/elasticsearch:5.4` |    
 | elasticsearch:5.5 | `registry.semaphoreci.com/elasticsearch:5.5` |    
 | elasticsearch:5.6 | `registry.semaphoreci.com/elasticsearch:5.6` |    
@@ -220,6 +185,7 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 | mongo:4.0 | `registry.semaphoreci.com/mongo:4.0` |    
 | mongo:4.1 | `registry.semaphoreci.com/mongo:4.1` |    
 | mongo:4.2 | `registry.semaphoreci.com/mongo:4.2` |    
+| mongo:4.4 | `registry.semaphoreci.com/mongo:4.4` |    
 
 ### Redis    
 | Image | Link |
@@ -247,16 +213,17 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 ### RabbitMQ  
 | Image | Link |
 |--------|--------|
-| rabbitmq:3.8.2 | `registry.semaphoreci.com/rabbitmq:3.8.2` |  
-| rabbitmq:3.6 | `registry.semaphoreci.com/rabbitmq:3.6` |  
+| rabbitmq:3.6 | `registry.semaphoreci.com/rabbitmq:3.6` | 
+| rabbitmq:3.8 | `registry.semaphoreci.com/rabbitmq:3.8` |  
 
 ### Cassandra DB
 | Image | Link |
 |--------|--------|
-| cassandra:3 | `registry.semaphoreci.com/cassandra:3` |  
+| cassandra:3.11 | `registry.semaphoreci.com/cassandra:3.11` |  
 
 ### Rethink DB
 | Image | Link |
 |--------|--------|
-| rethinkdb:2 | `registry.semaphoreci.com/rethinkdb:2 ` |  
+| rethinkdb:2.3 | `registry.semaphoreci.com/rethinkdb:2.3 ` |  
+| rethinkdb:2.4 | `registry.semaphoreci.com/rethinkdb:2.4 ` |  
 
