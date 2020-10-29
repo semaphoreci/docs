@@ -50,6 +50,13 @@ If you want to change the recipient name, company name, address, phone number,
 billing email, VAT ID or country on the invoice, please contact us at
 [support@semaphoreci.com](mailto:support@semaphoreci.com).
 
+## Changing VAT number
+
+After the subscription has been purchased, it is not possible to add or change
+the VAT number (VAT ID) from the UI. In that case, please reach out to 
+[support@semaphoreci.com](mailto:support@semaphoreci.com), send us the VAT number 
+you want to add and we will gladly do that for you.
+
 ## Invoices
 
 You will receive an invoice for your organization at the end of every billing
