@@ -19,7 +19,7 @@ agent:
     type: e1-standard-2
   containers:
     - name: main
-      image: semaphoreci/rust:1.35
+      image: 'registry.semaphoreci.com/rust:1.35'
 blocks:
   - name: Hello world
     task:
