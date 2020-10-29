@@ -59,16 +59,16 @@ agent:
 
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6
+      image: 'registry.semaphoreci.com/ruby:2.6'
 
     - name: db
-      image: postgres:9.6
+      image: 'registry.semaphoreci.com/postgres:9.6'
       env_vars:
         - name: POSTGRES_PASSWORD
           value: keyboard-cat
 
     - name: cache
-      image: redis:5.0
+      image: 'registry.semaphoreci.com/redis:5.0'
 
 blocks:
   - name: "Hello"
