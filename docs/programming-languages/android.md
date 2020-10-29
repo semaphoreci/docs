@@ -32,7 +32,7 @@ agent:
     type: e1-standard-2
   containers:
     - name: main
-      image: semaphoreci/android:29
+      image: 'registry.semaphoreci.com/android:29'
 blocks:
   - name: Build
     task:
@@ -53,7 +53,7 @@ agent:
     type: e1-standard-2
   containers:
     - name: main
-      image: semaphoreci/android:29-node
+      image: 'registry.semaphoreci.com/android:29-node'
 blocks:
   - name: Install dependencies
     task:
