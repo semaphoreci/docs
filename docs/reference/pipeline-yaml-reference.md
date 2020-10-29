@@ -124,9 +124,9 @@ agent:
     type: e1-standard-2
   containers:
     - name: main
-      image: semaphoreci/ruby:2.6.1
+      image: 'registry.semaphoreci.com/ruby:2.6'
     - name: db
-      image: postgres:9.6
+      image: 'registry.semaphoreci.com/postgres:9.6'
       user: postgres
       env_vars:
         - name: POSTGRES_PASSOWRD
