@@ -51,7 +51,7 @@ blocks:
           os_image: ubuntu1804
         containers:
           - name: main
-            image: 'semaphoreci/android:29-flutter'
+            image: 'registry.semaphoreci.com/android:29-flutter'
       jobs:
         - name: Unit Tests
           commands:
