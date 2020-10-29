@@ -56,10 +56,10 @@ agent:
 
   containers:
     - name: main             # The first container will be used to run your jobs
-      image: bitnami/rails   # use any Docker image
+      image: 'registry.semaphoreci.com/ruby:2.6'   # use any Docker image
 
     - name: db               # Additional containers can be started
-      image: postgres:9.6    # and will be available in the first image
+      image: 'registry.semaphoreci.com/postgres:9.6'    # and will be available in the first image
 ```
 
 If your custom Docker images are privately hosted, follow the [private Docker
