@@ -30,13 +30,14 @@ extra_javascript:
   - 'javascript/extra.js'
 extra:
   social:
-    - type: 'github'
+    - icon: fontawesome/brands/github-alt
       link: 'https://github.com/semaphoreci'
-    - type: 'twitter'
+    - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/semaphoreci'
-    - type: 'linkedin'
+    - icon: fontawesome/brands/linkedin
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
+  - pymdownx.tabbed
   - admonition
   - codehilite:
       guess_lang: false
