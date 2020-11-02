@@ -8,6 +8,20 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 2, 2020
+
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Updated)** Language versions:
+
+- Aws-cli 1.18.159 -> 1.19.8
+- Azure-cli 2.13.0 -> 2.14.0
+- Git 2.28 -> 2.29
+- Heroku 7.46.0 -> 7.47.0
+- OpenJDK 8u265 -> 8u272
+- Openjdk 11.0.8 -> 11.0.9
+- PHP 7.3.23 -> 7.3.24
+
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
 Updated the behavior on the main page (Everyone's latest work) to exclude the workflows of the projects user doesn't have access to.  
