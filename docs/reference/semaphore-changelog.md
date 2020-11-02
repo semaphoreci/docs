@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 2, 2020
+
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
 Updated the behavior on the main page (Everyone's latest work) to exclude the workflows of the projects user doesn't have access to.  
