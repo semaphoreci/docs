@@ -155,6 +155,10 @@ If you are not logged in, the `auths` field will be empty:
 ## How can you know if you are hitting the limit
 If you have exceeded the rate limit, Docker will throw the `Too Many Requests` error. Check the output of your `docker pull` command in the job log. If you have exceeded the rate limit, the output will be the following:  
 ```bash
-Too Many Requests. Please see https://docs.docker.com/docker-hub/download-rate-limit/`
+You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit`
 ```
+
+Docker published [this guide](https://www.docker.com/blog/checking-your-current-docker-pull-rate-limits-and-status/) that can also help in determining how close you are to reaching the rate limit.
+
+
 [install-cli]: /reference/sem-command-line-tool/
