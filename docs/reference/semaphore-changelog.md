@@ -20,7 +20,7 @@ This page is updated on a weekly basis.
 - Heroku 7.46.0 -> 7.47.0
 - OpenJDK 8u265 -> 8u272
 - Openjdk 11.0.8 -> 11.0.9
-- Php 7.3.23 -> 7.3.24
+- PHP 7.3.23 -> 7.3.24
 
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
