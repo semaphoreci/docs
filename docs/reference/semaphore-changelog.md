@@ -8,13 +8,53 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 2, 2020
+
+**(Updated) UI updates and improvements**  
+UI was updated to address the most common points received as feedback in the beta phase. Some of the improvements made include:  
+
+- Added the "Projects" menu in the header for easier navigation.
+- Added more visual structure to emphasize individual elements.
+- Redesigned workflow item in workflow list to make branches more prominent.
+- Added "My starred items" tab on the home page.
+- Added icons to make it easier to differentiate Branch/PR/Tag triggers in the workflow list.
+
+We appreciate your feedback and encourage you to send any suggestions to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=Beta%20Feedback).
+
+**(New) Semaphore Container Registry**  
+For your convenience we have introduced Semaphore Container Registry. Inside the Semaphore environment, you can pull these Docker images without any restrictions or limitations.
+
+You can find the list of supported images in [our documentation](/ci-cd-environment/semaphore-registry-images/).
+
+**(Improved) macOS Xcode 12 image update**  
+**(Updated)** Xcode 12.1 installed, to switch version simply use `xcversion select 12.1`  
+  
+**(Updated)** Updated packages:  
+
+- Fastlane 2.162.0 -> 2.166  
+- Flutter v1.22.1  -> 1.22.3
+  
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+**(Improved) Ubuntu 18.04 image update**  
+**(Updated)** Language versions:
+
+- Aws-cli 1.18.159 -> 1.19.8
+- Azure-cli 2.13.0 -> 2.14.0
+- Git 2.28 -> 2.29
+- Heroku 7.46.0 -> 7.47.0
+- OpenJDK 8u265 -> 8u272
+- Openjdk 11.0.8 -> 11.0.9
+- PHP 7.3.23 -> 7.3.24
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
 Updated the behavior on the main page (Everyone's latest work) to exclude the workflows of the projects user doesn't have access to.  
 If the user doesn't have access to the project, or the project was deleted, the workflows of that project won't appear in the workflow list.  
 
 **(Improved) Ubuntu 18.04 image update**  
-
 **(Updated)** Language versions:
 
 - Aws-cli 1.18.151 -> 1.18.159
