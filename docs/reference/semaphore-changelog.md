@@ -9,13 +9,30 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of November 2, 2020
-**(New) Semaphore Container Registry**
 
+**(Updated) UI updates and improvements**  
+UI was updated to address the most common points received as feedback in the beta phase. Some of the improvements made include:  
+
+- Added the "Projects" menu in the header for easier navigation.
+- Added more visual structure to emphasize individual elements.
+- Redesigned workflow item in workflow list to make branches more prominent.
+- Added "My starred items" tab on the home page.
+- Added icons to make it easier to differentiate Branch/PR/Tag triggers in the workflow list.
+
+We appreciate your feedback and encourage you to send any suggestions to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=Beta%20Feedback).
+
+**(New) Semaphore Container Registry**  
+For your convenience we have introduced Semaphore Container Registry. Inside the Semaphore environment, you can pull these Docker images without any restrictions or limitations.
+
+You can find the list of supported images in [our documentation](/ci-cd-environment/semaphore-registry-images/).
+
+**(Improved) macOS Xcode 12 image update**  
 **(Updated)** Xcode 12.1 installed, to switch version simply use `xcversion select 12.1`  
   
 **(Updated)** Updated packages:  
-  - Fastlane 2.162.0 -> 2.166  
-  - Flutter v1.22.1  -> 1.22.3
+
+- Fastlane 2.162.0 -> 2.166  
+- Flutter v1.22.1  -> 1.22.3
   
 To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
