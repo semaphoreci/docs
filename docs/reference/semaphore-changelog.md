@@ -18,6 +18,7 @@ UI was updated to address the most common points received as feedback in the bet
 - Redesigned workflow item in workflow list to make branches more prominent.
 - Added "My starred items" tab on the home page.
 - Added icons to make it easier to differentiate Branch/PR/Tag triggers in the workflow list.
+- Nicer UI for manual promotions.
 
 We appreciate your feedback and encourage you to send any suggestions to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=Beta%20Feedback).
 
