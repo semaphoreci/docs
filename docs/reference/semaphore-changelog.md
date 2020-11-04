@@ -9,9 +9,9 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of November 2, 2020
+**(New) Semaphore Container Registry
 
 **(Improved) Ubuntu 18.04 image update**  
-
 **(Updated)** Language versions:
 
 - Aws-cli 1.18.159 -> 1.19.8
@@ -22,13 +22,14 @@ This page is updated on a weekly basis.
 - Openjdk 11.0.8 -> 11.0.9
 - PHP 7.3.23 -> 7.3.24
 
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
 Updated the behavior on the main page (Everyone's latest work) to exclude the workflows of the projects user doesn't have access to.  
 If the user doesn't have access to the project, or the project was deleted, the workflows of that project won't appear in the workflow list.  
 
 **(Improved) Ubuntu 18.04 image update**  
-
 **(Updated)** Language versions:
 
 - Aws-cli 1.18.151 -> 1.18.159
