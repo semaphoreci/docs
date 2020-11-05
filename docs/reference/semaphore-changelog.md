@@ -8,6 +8,9 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 9, 2020
+- Fixed issue with job logs scrolling to failed
+
 ### Week of November 2, 2020
 
 **(Updated) UI updates and improvements**  
