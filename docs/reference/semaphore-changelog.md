@@ -8,19 +8,6 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of November 9, 2020
-- Fixed issue with job logs scrolling to failed
-
-**(Improved) macOS Xcode 12 image update**  
-**(Updated)** Xcode 12.2 installed, to switch version simply use `xcversion select 12.2`  
-**(Deprecated)** Xcode 12.0 will be removed from the images with the next release.  
-  
-**(Updated)** Updated packages:  
- 
-- Cocoapods 1.9.3 -> 1.10.0
-  
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
-
 ### Week of November 2, 2020
 
 **(Updated) UI updates and improvements**  

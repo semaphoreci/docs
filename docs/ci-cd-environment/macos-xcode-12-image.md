@@ -124,7 +124,6 @@ Installed versions:
 - 12.0
 - 12.0.1
 - 12.1
-- 12.2
 
 The default installed Xcode version is `12.0`.
 
@@ -158,17 +157,6 @@ Xcode 12.1 has the following SDKs preinstalled:
 - appletvsimulator14.0
 - watchos7.0
 - watchsimulator7.0
-
-Xcode 12.2 has the following SDKs preinstalled:
-
-- macosx10.8
-- macosx10.9
-- iphoneos6.1
-- iphoneos7.0
-- iphonesimulator6.0
-- iphonesimulator6.1
-- iphonesimulator7.0
-
 
 ## See Also
 
