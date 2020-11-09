@@ -124,6 +124,7 @@ Installed versions:
 - 12.0
 - 12.0.1
 - 12.1
+- 12.2
 
 The default installed Xcode version is `12.0`.
 

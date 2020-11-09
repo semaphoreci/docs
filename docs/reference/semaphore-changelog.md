@@ -13,6 +13,7 @@ This page is updated on a weekly basis.
 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** Xcode 12.2 installed, to switch version simply use `xcversion select 12.2`  
+**(Deprecated)** Xcode 12.0 will be removed from the images with the next release.  
   
 **(Updated)** Updated packages:  
  
