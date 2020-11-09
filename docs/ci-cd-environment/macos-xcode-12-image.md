@@ -158,6 +158,17 @@ Xcode 12.1 has the following SDKs preinstalled:
 - watchos7.0
 - watchsimulator7.0
 
+Xcode 12.2 has the following SDKs preinstalled:
+
+- macosx10.8
+- macosx10.9
+- iphoneos6.1
+- iphoneos7.0
+- iphonesimulator6.0
+- iphonesimulator6.1
+- iphonesimulator7.0
+
+
 ## See Also
 
 - [iOS Continuous Integration guide][ios-guide]
