@@ -9,8 +9,15 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of November 9, 2020
-- Fixed issue with job logs scrolling to failed
-
+**(Updated) New UI available to everyone**
+New UI is available to all users. Minor performance updates and fixes have been implemented:
+ 
+- **(Fixed)** issue with job logs auto-scrolling to top of the failed command output instead of the bottom. 
+- **(Fixed)** issue with manual promotions being triggered based on promotion name.
+ 
+You can read more about the new UI in our [blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).
+We appreciate your feedback and encourage you to send any suggestions to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=Beta%20Feedback).
+ 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** Xcode 12.2 installed, to switch version simply use `xcversion select 12.2`  
 **(Deprecated)** Xcode 12.0 will be removed from the images with the next release.  
