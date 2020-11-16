@@ -21,44 +21,6 @@ Some advantages of a monorepo approach are:
 
 Semaphore comes with out-of-box support for monorepos.
 
-## Usage examples for change_in
-
-### When a directory changes
-
-```yaml
-blocks:
-  - name: Test WEB server
-    run:
-      when: "change_in('/web-app/')"
-```
-
-### When a file changes
-
-```yaml
-blocks:
-  - name: Unit tests
-    run:
-      when: "change_in('../Gemfile.lock/')"
-```
-
-### When the default branch is main
-
-```yaml
-blocks:
-  - name: Test WEB server
-    run:
-      when: "change_in('/web-app/', {default_branch: 'main'})"
-```
-
-### Exclude the pipeline file
-
-```yaml
-blocks:
-  - name: Test WEB server
-    run:
-      when: "change_in('/web-app/', {pipeline_file: 'ignore'})"
-```
-
 ## An example monorepo project setup
 
 Let's say you have a fairly simple monorepo project that consists of:
@@ -257,6 +219,47 @@ promotions:
     pipeline_file: docs-prod.yml
     auto_promote:
       when: "branch = 'master' and result = 'passed' and change_in('/docs/')"
+```
+
+## Additional examples of monorepo configuration
+
+### When a directory changes
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/')"
+```
+
+### When a file changes
+
+```yaml
+blocks:
+  - name: Unit tests
+    run:
+      when: "change_in('../Gemfile.lock/')"
+```
+
+### Changing the default branch from master to main
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {default_branch: 'main'})"
+```
+
+### Exclude changes in the pipeline file
+
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+The following illustrates how to disable this behaviour.
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {pipeline_file: 'ignore'})"
 ```
 
 ## See also
