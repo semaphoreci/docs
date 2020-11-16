@@ -305,7 +305,7 @@ blocks:
       when: "change_in('../Gemfile.lock/')"
 ```
 
-### When the default branch is main
+### Changing the default branch from master to main
 
 ```yaml
 blocks:
@@ -314,7 +314,7 @@ blocks:
       when: "change_in('/web-app/', {default_branch: 'main'})"
 ```
 
-### Exclude the pipeline file
+### Exclude changes in the pipeline file
 
 ```yaml
 blocks:
