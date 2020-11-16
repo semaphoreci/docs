@@ -217,7 +217,7 @@ with given paths.
 
 - For `tags` the change_in always returns true if not configured otherwise.
 
-The behavior of change_in is configurable via a map of parameters that can be
+The behavior of `change_in` is configurable via a map of parameters that can be
 given as a second parameter, as was stated above.
 
 The supported map parameters are:
@@ -283,8 +283,50 @@ The supported map parameters are:
   </tbody>
 </table>
 
+The `change_in` function is ideal for modeling [Monorepo CI/CD][monorepo].
 
-## Usage examples
+## Usage examples for change_in
+
+### When a directory changes
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/')"
+```
+
+### When a file changes
+
+```yaml
+blocks:
+  - name: Unit tests
+    run:
+      when: "change_in('../Gemfile.lock')"
+```
+
+### Changing the default branch from master to main
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {default_branch: 'main'})"
+```
+
+### Exclude changes in the pipeline file
+
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+The following illustrates how to disable this behaviour.
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {pipeline_file: 'ignore'})"
+```
+
+## Usage examples for skip
 
 ### Always true
 
@@ -367,10 +409,10 @@ blocks:
       when: "branch !~ '^dev\/'"
 ```
 
-
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 [skip]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
 [run]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#run-in-blocks
 [fail_fast]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#fail_fast
 [auto_cancel]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel
 [auto_promote]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote
+[monorepo]: https://docs.semaphoreci.com/essentials/building-monorepo-projects
