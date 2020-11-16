@@ -221,6 +221,47 @@ promotions:
       when: "branch = 'master' and result = 'passed' and change_in('/docs/')"
 ```
 
+## Additional examples of monorepo configuration
+
+### When a directory changes
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/')"
+```
+
+### When a file changes
+
+```yaml
+blocks:
+  - name: Unit tests
+    run:
+      when: "change_in('../Gemfile.lock')"
+```
+
+### Changing the default branch from master to main
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {default_branch: 'main'})"
+```
+
+### Exclude changes in the pipeline file
+
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+The following illustrates how to disable this behaviour.
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {pipeline_file: 'ignore'})"
+```
+
 ## See also
 
 - [Skip block execution][skip-ref]
