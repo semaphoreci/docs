@@ -316,6 +316,9 @@ blocks:
 
 ### Exclude changes in the pipeline file
 
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+The following illustrates how to disable this behaviour.
+
 ```yaml
 blocks:
   - name: Test WEB server
