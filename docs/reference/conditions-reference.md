@@ -302,7 +302,7 @@ blocks:
 blocks:
   - name: Unit tests
     run:
-      when: "change_in('../Gemfile.lock/')"
+      when: "change_in('../Gemfile.lock')"
 ```
 
 ### Changing the default branch from master to main
