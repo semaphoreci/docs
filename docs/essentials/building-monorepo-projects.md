@@ -21,6 +21,44 @@ Some advantages of a monorepo approach are:
 
 Semaphore comes with out-of-box support for monorepos.
 
+## Usage examples for change_in
+
+### When a directory changes
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/')"
+```
+
+### When a file changes
+
+```yaml
+blocks:
+  - name: Unit tests
+    run:
+      when: "change_in('../Gemfile.lock/')"
+```
+
+### When the default branch is main
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {default_branch: 'main'})"
+```
+
+### Exclude the pipeline file
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in('/web-app/', {pipeline_file: 'ignore'})"
+```
+
 ## An example monorepo project setup
 
 Let's say you have a fairly simple monorepo project that consists of:
