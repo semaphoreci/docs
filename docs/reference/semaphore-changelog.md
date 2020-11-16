@@ -9,7 +9,6 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of November 16, 2020
-
 **(Improved) macOS Xcode 11 image update**  
 **(Updated)** Updated packages:  
  
