@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 16, 2020
+
 ### Week of November 9, 2020
 **(Updated) New UI available to everyone**  
 New UI is available to all users. Minor performance updates and fixes have been implemented:
