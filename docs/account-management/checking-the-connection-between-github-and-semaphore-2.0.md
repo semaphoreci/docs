@@ -69,6 +69,22 @@ If the webhook is broken a red "X" icon will be shown instead.
 
 To regenerate the webhook, click "Repair" next to the red "X" icon. This should generate a new webhook and repair connection between Semaphore and GitHub.  
 
+## Re-connecting Semaphore project to the renamed GitHub repository
+
+If you:
+
+1. change the location of the repository on GitHub,
+2. rename the repository on GitHub,
+3. rename your user account on GitHub or
+4. rename your organization on GitHub,
+
+it is needed to change the URL of the GitHub repository on Semaphore, too, in order to match this change. 
+You can do that through the sem CLI. Detailed instructions can be found on [the sem CLI doc page](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit_1).
+
+[This project YML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/#examples) 
+might also help.
+
+After the URL change, please double check [the deploy key health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health) and [webhook health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-webhook-health) of your project.
 
 ## Known issues after a connection between GitHub and Semaphore 2.0 is lost
 
