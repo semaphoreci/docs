@@ -81,7 +81,7 @@ If you:
 it is needed to change the URL of the GitHub repository on Semaphore, too, in order to match this change. 
 You can do that through the sem CLI. Detailed instructions can be found on [the sem CLI doc page](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit_1).
 
-[This project YML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/#examples) 
+[This project YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/#examples) 
 might also help.
 
 After the URL change, please double check [the deploy key health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health) and [webhook health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-webhook-health) of your project.
