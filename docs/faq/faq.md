@@ -237,8 +237,9 @@ This will prevent stale builds to run for a full hour, and fail sooner.
   <p>
 
 You might be hitting the quota limitation. Check your organization's quota
-in Billing > See detailed insights… > Quota. More information about quota
-and how to ask for an increase <a href="https://docs.semaphoreci.com/reference/quotas-and-limits/">here</a>.
+in the <code>Activity Monitor</code> by clicking on the initial of your organization 
+in the top right corner of the page. More information about quota and how to ask for 
+an increase <a href="https://docs.semaphoreci.com/reference/quotas-and-limits/">here</a>.
 
 You may also run <code>sem get jobs</code> to display all running jobs
 so you may confirm how much quota is being used.
