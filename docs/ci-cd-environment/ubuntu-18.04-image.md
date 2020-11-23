@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 85
-- Chrome_driver 85
+- Google Chrome 87
+- Chrome_driver 87
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,7 +80,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 19.03
-- docker-compose 1.27.2
+- docker-compose 1.27.4
 
 ### Cloud CLIs
 
@@ -107,7 +107,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.3, 23.0.3
-- Elixir: 1.7.4, 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2
 
 Additional libraries:
 
@@ -127,7 +127,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u265, 11.0.8
+- Java: 8u275, 11.0.9
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -160,8 +160,8 @@ Installed versions:
 - 7.0.33
 - 7.1.33
 - 7.2.33
-- 7.3.22
-- 7.4.10
+- 7.3.24
+- 7.4.12
 
 The default installed PHP version is `7.2.33`.
 
@@ -201,7 +201,7 @@ Available versions:
 - 2.4.0 to 2.4.10
 - 2.5.0 to 2.5.8
 - 2.6.0 to 2.6.6
-- 2.7.0 and 2.7.1
+- 2.7.0 to 2.7.2
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager

@@ -10,6 +10,23 @@ This page is updated on a weekly basis.
 
 ### Week of November 23, 2020
 
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Language versions:  
+
+- Added elixir 1.11.2 
+
+**(Updated)** Language versions:
+
+- Aws-cli 1.18.272 -> 1.18.183
+- Azure-cli 2.14.0 -> 2.15.1
+- Chromedriver 86 -> 87
+- Dockercompose 1.27.2 -> 1.27.4
+- Erlang 23.1.1 -> 23.1.4
+- Google Chrome 86 -> 87
+- Heroku 7.47.0 -> 7.47.3
+- Java 8u272 -> 8u275
+- Php 7.4.11 -> 7.4.12
+
 ### Week of November 16, 2020
 **(New) Added ability to overwrite branch whitelist rule**  
 On the project page click on the three dots icon in the top right corner of the workflow list to build a branch that is otherwise blocked by the whitelist rule. 
@@ -77,7 +94,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 **(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
 
-- Aws-cli 1.18.159 -> 1.19.8
+- Aws-cli 1.18.159 -> 1.18.272
 - Azure-cli 2.13.0 -> 2.14.0
 - Git 2.28 -> 2.29
 - Heroku 7.46.0 -> 7.47.0
