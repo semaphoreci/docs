@@ -20,6 +20,7 @@ This page is updated on a weekly basis.
 - Aws-cli 1.18.272 -> 1.18.183
 - Azure-cli 2.14.0 -> 2.15.1
 - Chromedriver 86 -> 87
+- Dockercompose 1.27.2 -> 1.27.4
 - Erlang 23.1.1 -> 23.1.4
 - Google Chrome 86 -> 87
 - Heroku 7.47.0 -> 7.47.3
