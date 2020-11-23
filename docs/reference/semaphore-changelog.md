@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 23, 2020
+
 ### Week of November 16, 2020
 **(New) Added ability to overwrite branch whitelist rule**  
 On the project page click on the three dots icon in the top right corner of the workflow list to build a branch that is otherwise blocked by the whitelist rule. 
