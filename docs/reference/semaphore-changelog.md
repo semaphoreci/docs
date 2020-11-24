@@ -27,6 +27,8 @@ This page is updated on a weekly basis.
 - Java 8u272 -> 8u275
 - Php 7.4.11 -> 7.4.12
 
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 16, 2020
 **(New) Added ability to overwrite branch whitelist rule**  
 On the project page click on the three dots icon in the top right corner of the workflow list to build a branch that is otherwise blocked by the whitelist rule. 
