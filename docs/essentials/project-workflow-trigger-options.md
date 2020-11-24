@@ -112,6 +112,8 @@ pull requests by commenting with a `/sem-approve` message.
 Everyone who can run a forked pull request, can also approve it.
 
 Approving forked pull requests is limited to new comments only and is not possible for comment edits.
+Due to security concerns `/sem-approve` will work only once. Subsequent pushes to the forked
+pull request require to be approved again.
 
 ## Build default branch
 
