@@ -12,13 +12,20 @@ create a project for it to live in.
 Once you're inside an organization that you've created or were invited to,
 you're ready to create a CI/CD project.
 
-Follow the **+ New Project** link in the top right corner of Semaphore web interface.
-You'll go through a simple three-step process:
+Click on the **+ Create new** button in the application header (next to the **Projects** button) and you will be offered 2 options:
 
-1. Find the wanted repository and click on **Choose**,
-2. Add people to the project,
+### Option 1 - Start a real project 
+
+If you'd like to hook up your GitHub repository with Semaphore and start a real project, follow the steps described below:
+
+1. Click on **Choose Repository**,
+2. Add people to the project by ticking the checkbox next to their name, submitting their email address (optional), and clicking on **Add selected**,
 3. Choose a starter workflow - you can use one of the templates or customize it on 
 your own.
+
+### Option 2 - Fork & Run
+
+If you'd like to try a quick experiment, Fork & Run will copy a working example to your GitHub, connect Semaphore, and trigger the first build. All you need to do is click on the **Fork and Run** button next to the programming language of your choice.
 
 You are all set!
 
