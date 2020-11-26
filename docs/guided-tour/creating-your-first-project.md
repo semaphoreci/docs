@@ -12,7 +12,7 @@ create a project for it to live in.
 Once you're inside an organization that you've created or were invited to,
 you're ready to create a CI/CD project.
 
-Click on the **+ Create new** button in the application header (next to the **Projects** button) and you will be offered 2 options:
+Click on the **+ Create new** button in the application header (next to the **Projects** button) and you will be able to choose between 2 options:
 
 ### Option 1 - Start a real project 
 
