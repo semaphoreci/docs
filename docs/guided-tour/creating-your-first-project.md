@@ -19,7 +19,7 @@ Click on the **+ Create new** button in the application header (next to the **Pr
 If you'd like to hook up your GitHub repository with Semaphore and start a real project, follow the steps described below:
 
 1. Click on **Choose Repository**,
-2. Add people to the project by ticking the checkbox next to their name, submitting their email address (optional), and clicking on **Add selected**,
+2. Add people to the project,
 3. Choose a starter workflow - you can use one of the templates or customize it on 
 your own.
 
