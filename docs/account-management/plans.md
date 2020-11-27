@@ -14,7 +14,7 @@ The trial period lasts for 14 days. During the trial period, you can use
 completely free of charge.
 
 Of course, you can easily scale up if you need a bigger capacity by going to
-**Billing > See detailed insights… > Quota > Request upgrade…** or by reaching
+**Billing > Request a quota increase** or by reaching
 out to
 [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)
 (please include which type of machine you prefer).
@@ -32,7 +32,7 @@ month. Billing cycles are based on calendar months.
 You can find the default number of machines for Paid plans on the [Quotas and
 Limits page](https://docs.semaphoreci.com/reference/quotas-and-limits/).
 If you need to scale up, you can easily do that by going to
-**Billing > See detailed insights… > Quota > Request upgrade…** or by reaching
+**Billing > Request a quota increase** or by reaching
 out to
 [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)
 (please include which type of machine you prefer).
@@ -76,9 +76,8 @@ If you are interested in this plan, please reach out to [customersuccess@semapho
 
 ## Upgrading to a paid plan
 
-To upgrade to a paid plan, go to the Billing page and click on
-**Upgrade to remove the limit** button in the top right corner. After that,
-enter your credit card information and that’s it.
+If you'd like to upgrade to a paid plan, you can do that from the  Billing page of
+your organization. All you need to do is enter your payment information and that’s it.
 
 ## See also
 
