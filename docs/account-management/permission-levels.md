@@ -16,6 +16,7 @@ The Owner can:
 
 - See all projects;
 - Add projects to the organization if they have Admin access to the repository on GitHub;
+- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
 - Delete projects if they have Admin access to the repository on Github;
 - Manage people;
 - Manage billing;
@@ -29,6 +30,7 @@ Users with Admin permission level can:
 - See all projects;
 - Add projects to the organization if they have Admin access to the 
 repository on GitHub;
+- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
 - Delete projects if they have Admin access to the repository on Github;
 - Manage people;
 - Manage billing.
@@ -40,6 +42,7 @@ Users with Member permission level can:
 - See all projects;
 - Add projects to the organization if they have Admin access to the 
 repository on GitHub;
+- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
 - Delete projects if they have Admin access to the repository on Github;
 
 ## Changing the permission level
