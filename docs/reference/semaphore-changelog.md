@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 30, 2020
+
 ### Week of November 23, 2020
 
 **(Improved) Ubuntu 18.04 image update**  
