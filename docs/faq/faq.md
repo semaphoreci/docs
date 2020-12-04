@@ -244,7 +244,7 @@ As a workaround, you may add <code>retry</code> to the failed command:
 ```bash
 retry -t 5 <command>
 ```
-You may find more information about the retry tool here: https://docs.semaphoreci.com/reference/toolbox-reference/#retry.
+You may find more information about the <code>retry</code> tool <a href="https://docs.semaphoreci.com/reference/toolbox-reference/#retry">here</a>. 
     </p>
 </details>
 
