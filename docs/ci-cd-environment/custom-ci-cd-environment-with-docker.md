@@ -119,6 +119,7 @@ following requirements are met:
 - `git >= 2.0` is installed in the image
 - `openssh-client` is installed in the image
 - `unzip` is installed in the image
+- `curl` is installed in the image
 
 To enable caching support, the following requirements need to be met:
 
