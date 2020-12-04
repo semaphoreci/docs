@@ -230,6 +230,24 @@ This will prevent stale builds to run for a full hour, and fail sooner.
   </p>  
 </details>
 
+<details>
+  <summary id="network-issue-github">How to solve the "fatal: expected flush after ref listing" error?</summary>
+    <p>
+      
+If a commands fails with this:
+```
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+fatal: expected flush after ref listing
+```
+It means the communication between Semaphore and Github was interrupted. 
+As a workaround, you may add <code>retry</code> to the failed command:
+```bash
+retry -t 5 <command>
+```
+You may find more information about the retry tool here: https://docs.semaphoreci.com/reference/toolbox-reference/#retry.
+    </p>
+</details>
+
 ### Jobs & Workflows
 
  <details>
