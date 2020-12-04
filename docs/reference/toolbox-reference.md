@@ -263,31 +263,16 @@ The `retry` bash script only depends on the `/bin/bash` executable.
 Examples:
 
 ``` bash
-$ retry lsa -l
-/usr/bin/retry: line 46: lsa: command not found
-[1/3] Execution Failed with exit status 127. Retrying.
-/usr/bin/retry: line 46: lsa: command not found
-[2/3] Execution Failed with exit status 127. Retrying.
-/usr/bin/retry: line 46: lsa: command not found
-[3/3] Execution Failed with exit status 127. No more retries.
+$ retry bundle install
 ```
-
-In the previous example the `retry` command will never be successful because
-the `lsa` command does not exist.
 
 ``` bash
-$ retry.sh -t 5 -s 10 lsa -l
-./retry.sh: line 46: lsa: command not found
-[1/5] Execution Failed with exit status 127. Retrying.
-./retry.sh: line 46: lsa: command not found
-[2/5] Execution Failed with exit status 127. Retrying.
-./retry.sh: line 46: lsa: command not found
-[3/5] Execution Failed with exit status 127. Retrying.
-total 8
--rwxr-xr-x   1 mtsouk  staff  1550 Aug 30 10:58 retry.sh
+$ retry --times 10 go get ./...
 ```
 
-In the previous example, the `retry` script succeeded after three failed tries.
+``` bash
+$ retry --times 3 --sleep 5 make install.deps
+```
 
 ## install-package
 
