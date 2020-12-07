@@ -75,8 +75,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.162.0)
-- cocoapods (1.9.3)
+- fastlane (2.169)
+- cocoapods (1.10.0)
 
 ## Languages
 
