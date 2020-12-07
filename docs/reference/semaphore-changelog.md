@@ -10,6 +10,13 @@ This page is updated on a weekly basis.
 
 ### Week of December 7, 2020
 
+**(Improved) macOS Xcode 11 and 12 image update**  
+**(Fix)** Fix missing Safari browser
+**(Updated)** Updated packages:
+ 
+- Fastalne 2.167.0 ->  2.169.0
+
+
 ### Week of November 23, 2020
 
 **(Improved) Ubuntu 18.04 image update**  
