@@ -8,6 +8,16 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 7, 2020
+
+**(Improved) macOS Xcode 11 and 12 image update**  
+**(Fix)** Fixed the missing Safari browser issue.  
+**(Updated)** Updated packages:
+ 
+- Fastalne 2.167.0 ->  2.169.0
+
+To learn more about our image macOS images, check our [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and [macOS Xcode 11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) documentation pages. 
+
 ### Week of November 23, 2020
 
 **(Improved) Ubuntu 18.04 image update**  
