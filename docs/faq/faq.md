@@ -298,6 +298,37 @@ The only way to push several commits to a single branch and not wait for the wor
 </p>
 </details>
 
+<details>
+  <summary id="redeliver-webhooks">How to redeliver webhooks from Github to Semaphore?</summary>
+  <p>
+
+Even if this is not a common problem, it might happen that Semaphore does not receive a webhook from Github.
+This results in a workflow not being triggered. You can redeliver the webhook and this should trigger the workflow.
+These are the steps to redeliver webhooks from Github:
+</p>
+<p>
+
+1. Go to your repository on GitHub
+<br>2. Click **Settings**
+<br>3. Click **Webhooks**
+<br>4. Click **Edit** for the webhook you want to redeliver
+<br>5. Scroll down to **Recent Deliveries** and search for the failed one
+<br>6. Click the <code>...</code> symbol, then click **Redeliver** 
+</p>
+</details>
+
+<details>
+  <summary id="auto-cancel-stops-workflow">Why does my workflow stop without explanation?</summary>
+  <p>
+
+The workflow might have been stopped by the <a href="https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/">auto_cancel</a> feature. There are two <code>auto-cancel</code> strategies: _running_ and _queued_.
+
+The _running_ strategy stops all pipelines in the queue as soon as a new one appears.
+
+The _queued_ strategy will only cancel pipelines that are waiting in the queue and have not yet started to run.
+</p>
+</details>
+
 ### Billing
 
 <details>
