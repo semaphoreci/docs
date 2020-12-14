@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 14, 2020
+
 ### Week of December 7, 2020
 
 **(Improved) macOS Xcode 11 and 12 image update**  
