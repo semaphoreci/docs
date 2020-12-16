@@ -123,7 +123,9 @@ Versions:
 - 1.12.17
 - 1.13.15
 - 1.14.9
+- 1.14.13
 - 1.15.2
+- 1.15.6
 
 ### Java and JVM languages
 
@@ -161,7 +163,9 @@ Installed versions:
 - 7.1.33
 - 7.2.33
 - 7.3.24
+- 7.3.25
 - 7.4.12
+- 7.4.13
 
 The default installed PHP version is `7.2.33`.
 
