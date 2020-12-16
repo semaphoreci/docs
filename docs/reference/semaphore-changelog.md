@@ -8,6 +8,17 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 14, 2020
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Language versions:  
+
+- Go 1.14.13
+- Go 1.15.6
+- Php 7.3.25
+- Php 7.4.13
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of December 7, 2020
 
 **(Improved) macOS Xcode 11 and 12 image update**  
