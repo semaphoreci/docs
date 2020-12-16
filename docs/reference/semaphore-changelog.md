@@ -17,7 +17,7 @@ This page is updated on a weekly basis.
 - Php 7.3.25
 - Php 7.4.13
 
-
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of December 7, 2020
 
