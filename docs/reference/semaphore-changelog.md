@@ -9,6 +9,12 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of December 21, 2020
+**(Improved) macOS Xcode 12 image update**
+**(Deprecated)** Xcode 12.0 and Xcode 12.0.1 are no longer supported on the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.
+**(Updated)** Default Xcode version changed to 12.3 for the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.
+**(Updated)** Updated packages:
+ 
+- Fastalne 2.169.0 ->  2.170.0
 
 ### Week of December 14, 2020
 **(Improved) Ubuntu 18.04 image update**  
