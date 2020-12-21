@@ -8,6 +8,21 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 21, 2020  
+**(Improved) macOS Xcode 12 image update**  
+**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported on the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
+**(New)** Xcode 12.3 was added to the image.  
+**(Updated)** Updated packages:
+ 
+- Fastlane 2.169.0 ->  2.170.0
+
+Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.
+
+**Minor improvements and fixes:**
+
+- **(Fixed)** the issue where email invite was not sent to some collaborators durring project creation phase. 
+- **(Fixed)** the issue where multiple instances of the project are created when user clicks multiple times when chosing repository.
+
 ### Week of December 14, 2020
 **(Improved) Ubuntu 18.04 image update**  
 **(New)** Language versions:  
