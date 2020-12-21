@@ -20,8 +20,8 @@ Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12]
 
 **Minor improvements and fixes:**
 
-- **(Fixed)** the issue where email invite was not sent to some collaborators durring project creation phase. 
-- **(Fixed)** the issue where multiple instances of the project are created when user clicks multiple times when chosing repository.
+- **(Fixed)** the issue where email invite was not sent to some collaborators during the project creation phase. 
+- **(Fixed)** the issue where multiple instances of the project are created when the user clicks multiple times when choosing a repository.
 
 ### Week of December 14, 2020
 **(Improved) Ubuntu 18.04 image update**  
