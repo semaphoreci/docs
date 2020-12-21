@@ -115,7 +115,7 @@ Installed versions:
 
 ## Flutter
 
-- v1.22.1
+- v1.22.5
 
 ## Xcode
 
