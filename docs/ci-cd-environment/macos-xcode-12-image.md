@@ -75,7 +75,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.169)
+- fastlane (2.170)
 - cocoapods (1.10.0)
 
 ## Languages
@@ -115,38 +115,20 @@ Installed versions:
 
 ## Flutter
 
-- v1.22.1
+- v1.22.5
 
 ## Xcode
 
 Installed versions:
 
-- 12.0
-- 12.0.1
 - 12.1
 - 12.2
+- 12.3
 
-The default installed Xcode version is `12.0`.
+The default installed Xcode version is `12.3`.
 
-To switch between versions use `xcversion select <version>` e.g `xcversion select 12.0`
+To switch between versions use `xcversion select <version>` e.g `xcversion select 12.2`
 
-Xcode 12.0 has the following SDKs preinstalled:
-
-- iphoneos14.0
-- iphonesimulator14.0
-- driverkit.macosx20.0
-- sdk macosx11.0
-
-Xcode 12.0.1 has the following SDKs preinstalled:
-
-- iphoneos14.0
-- iphonesimulator14.0
-- driverkit.macosx19.0
-- macosx10.15
-- appletvos14.0
-- appletvsimulator14.0
-- watchos7.0
-- watchsimulator7.0
 
 Xcode 12.1 has the following SDKs preinstalled:
 
@@ -161,14 +143,25 @@ Xcode 12.1 has the following SDKs preinstalled:
 
 Xcode 12.2 has the following SDKs preinstalled:
 
-- macosx10.8
-- macosx10.9
-- iphoneos6.1
-- iphoneos7.0
-- iphonesimulator6.0
-- iphonesimulator6.1
-- iphonesimulator7.0
+- iphoneos14.2
+- iphonesimulator14.2
+- driverkit.macosx20.0
+- macosx11.0
+- appletvos14.2
+- appletvsimulator14.2
+- watchos7.1
+- watchsimulator7.1
 
+Xcode 12.3 has the following SDKs preinstalled:
+
+- iphoneos14.3
+- iphonesimulator14.3
+- driverkit.macosx20.2
+- macosx11.1
+- appletvos14.3
+- appletvsimulator14.3
+- watchos7.2
+- watchsimulator7.2
 
 ## See Also
 
