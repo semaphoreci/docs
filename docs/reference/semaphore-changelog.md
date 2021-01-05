@@ -8,7 +8,7 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of Ianuary 4, 2021
+### Week of January 4, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)** Language versions:  
 
@@ -17,7 +17,7 @@ This page is updated on a weekly basis.
 
 **(New)** Package:
 
-- Shellcheck
+- [Shellcheck](https://packages.ubuntu.com/bionic/shellcheck)
 
 **(Updated)** Updated packages:
 
