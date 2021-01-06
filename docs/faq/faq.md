@@ -329,6 +329,40 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
 </p>
 </details>
 
+<details>
+  <summary id="splitting-parallel-tests">What can I use to split my parallel tests?</summary>
+  <p>
+
+The recommended way is by using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, for instance <a href="https://knapsackpro.com/">Knapsack</a>, both free and pro versions.
+  </p>
+  <p>
+Knapsack Rspec example:
+  
+```yml
+jobs:
+  - name: Knapsack RSpec
+    parallelism: 5
+    commands:
+      - CI_NODE_TOTAL=$SEMAPHORE_JOB_COUNT CI_NODE_INDEX=$((SEMAPHORE_JOB_INDEX-1)) bundle exec rake 'knapsack:rspec'
+```
+  </p>
+  <p>
+Knapsack Pro Rspec example:
+  
+```yml
+jobs:
+  - name: Knapsack Pro RSpec
+    parallelism: 5
+    commands:
+      - bundle exec rake 'knapsack_pro:queue:rspec'
+```
+  </p>
+  <p>
+  <br>
+  You can find a more detailed example in the <a href="https://github.com/KnapsackPro/knapsack_pro-ruby#semaphore-20">official documentation</a>.
+  </p>
+</details>
+
 ### Billing
 
 <details>
@@ -396,3 +430,4 @@ If not, you should either grant access or request it from the organization's own
 [secret]: https://docs.semaphoreci.com/essentials/using-secrets/
 [auto-cancel]: https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/
 [sem-attach]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach
+[test-boosters]: https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel
