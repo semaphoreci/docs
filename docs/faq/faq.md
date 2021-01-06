@@ -354,8 +354,12 @@ jobs:
   - name: Knapsack Pro RSpec
     parallelism: 5
     commands:
-      - CI_NODE_TOTAL=$SEMAPHORE_JOB_COUNT CI_NODE_INDEX=$((SEMAPHORE_JOB_INDEX-1)) bundle exec rake 'knapsack_pro:queue:rspec'
+      - bundle exec rake 'knapsack_pro:queue:rspec'
 ```
+  </p>
+  <p>
+  <br>
+  You can find a more detailed example in the <a href="https://github.com/KnapsackPro/knapsack_pro-ruby#semaphore-20">official documentation</a>.
   </p>
 </details>
 
