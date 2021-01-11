@@ -186,9 +186,9 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.1
-- pypy3: 7.3.1
-- pip: 20.0.2
+- pypy: 7.3.3
+- pypy3: 7.3.3
+- pip: 20.3.3
 - pip3: 19
 - venv: 16.0.0
 
