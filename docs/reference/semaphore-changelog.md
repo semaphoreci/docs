@@ -8,6 +8,33 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of January 11, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Language versions:  
+
+- Ruby 3.0.0
+- Php 8.0.0
+
+**(New)** Package:
+
+- [Shellcheck](https://packages.ubuntu.com/bionic/shellcheck)
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.15.1 -> 2.17.1
+- Aws-cli 1.18.183 -> 1.18.207
+- Docker 19.0.3 -> 20.10.1
+- Erlang 23.1 -> 23.2.1
+- Git 2.29 -> 2.30
+- Git-Lfs 1.12.1 -> 1.13.1
+- Heroku 7.47.3 -> 7.47.6
+- Pypy 7.3.2 -> 7.3.3
+- Pip 20.2 -> 20.3.3
+
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+
 ### Week of December 21, 2020  
 **(Improved) macOS Xcode 12 image update**  
 **(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported on the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
