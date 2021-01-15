@@ -32,11 +32,9 @@ This can be done through both Web UI and CLI.
 
 1. Open project page.
 
-2. Click **Settings** button.
+2. Click on **Manage Schedulers** on the top right side
 
-3. Scroll down to **Scheduler** section.
-
-4. Click **Create new Schedule** button.
+3. Click on **New Scheduler** button.
 
 5. Fill out the form with necessary data:
 
