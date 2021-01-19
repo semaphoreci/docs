@@ -8,6 +8,32 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of January 18, 2021
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Reverted)** Docker 20.10.1 -> 19.03.14  
+Docker was reverted to the previous version due to the degradation in performance and stability.  
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.18.207 -> 1.18.216
+- Elixir 1.11.2 -> 1.11.3
+- Erlang 23.2.1 -> 23.2.2
+- Git 2.29 -> 2.30
+- Git-Lfs 1.13.1 -> 1.13.2
+- Heroku 7.47.6 -> 7.47.7
+- Pip 20.3.3 -> 20.2.4
+- php 7.3.25 -> 7.3.26
+- Php 7.4.13 -> 7.4.14
+- Php 8.0.0 -> 8.0.1
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+**Minor improvements and fixes:**
+
+- **(Fixed)**  Favicon on the workflow page is now fixed and it reflects the status of the build.  
+- **(Improved)** Artifacts will now open in-browser (depending on mime type)  
+
 ### Week of January 11, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)** Language versions:  
