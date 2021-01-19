@@ -25,6 +25,7 @@ This page is updated on a weekly basis.
 - Php 7.4.13 -> 7.4.14
 - Php 8.0.0 -> 8.0.1
 
+**(Improved)** Artifacts will now open in-browser (depending on mime type)
 
 ### Week of January 11, 2021
 **(Improved) Ubuntu 18.04 image update**  
