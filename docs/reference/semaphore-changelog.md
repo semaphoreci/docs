@@ -12,7 +12,7 @@ This page is updated on a weekly basis.
 **(Improved) Ubuntu 18.04 image update**  
 
 **(Reverted)** Docker 20.10.1 -> 19.03.14  
-We had to revert the Docker version to the previous one due to the degradation in performance and stability.  
+Docker was reverted to the previous version due to the degradation in performance and stability.  
 
 **(Updated)** Updated packages:
 
