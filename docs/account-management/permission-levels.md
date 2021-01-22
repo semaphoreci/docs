@@ -14,7 +14,7 @@ it is possible to [transfer the ownership](https://docs.semaphoreci.com/account-
 
 The Owner can:
 
-- See all projects;
+- See all projects they can also see on GitHub;
 - Add projects to the organization if they have Admin access to the repository on GitHub;
 - [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
 - Delete projects if they have Admin access to the repository on Github;
@@ -27,7 +27,7 @@ The Owner can:
 
 Users with Admin permission level can:
 
-- See all projects;
+- See all projects they can also see on GitHub;
 - Add projects to the organization if they have Admin access to the 
 repository on GitHub;
 - [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
@@ -39,7 +39,7 @@ repository on GitHub;
 
 Users with Member permission level can:
 
-- See all projects;
+- See all projects they can also see on GitHub;
 - Add projects to the organization if they have Admin access to the 
 repository on GitHub;
 - [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
