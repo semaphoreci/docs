@@ -29,10 +29,10 @@ Formal language definition in [extended Backus-Naur Form (EBNF)][ebnf] notation:
 expression = expression bool_operator term
            | term
 
-term = "(" expression ")"      
+term = "(" expression ")"
      | keyword operator string
      | string operator keyword
-     | basic_val                  
+     | basic_val
      | fun
      | fun operator term
 
@@ -78,7 +78,7 @@ float = ? any float value, e.g. 0.123, -78.9012, 42.0 etc. ?
 map_key = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]*: regex, e.g. first-name_1: ?
 
 identifier = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]* regex, e.g. foo-bar_1 ?
-```           
+```
 
 Each `keyword` in passed expression is replaced with actual value of that
 attribute for current pipeline when expression is evaluated, and then operations
@@ -165,22 +165,26 @@ boolean or regex matches.
 *Note*: This feature is currently in `beta` stage of development.
 
 The `change_in` function accepts one path or list of paths within the repository
-as a first parameter.
-It checks if any of those paths matches or contains one of the files that were
-changed in a particular range of commits.
+as a first parameter. It checks if any of those paths matches or contains one
+of the files that were changed in a particular range of commits.
 
 ``` txt
-change_in(<path>, [configuration])
-or
-change_in(<paths>, [configuration])
+change_in(<file-pattern>, [configuration])
 
-<path>  - Required, string with the absolute or relative path within the repository.
-          Relative paths are relative to the location of the yml file.
-          e.g. 'svcA/lib' or '/doc'
+<file-pattern>  - Required. A pattern can be:
 
-<paths> - Required, list of strings with absolute or relative paths within the
-          repository. Relative paths are relative to the location of yml file.
-          e.g. ['svcA/lib', '/doc', '../README.md']
+   - A file pattern relative to the root of the directory
+     example: "/lib" matches every file recursively in the lib directory
+
+   - A file pattern relative to the pipeline file
+     example: "../lib" matches every file recursively in the lib directory
+
+   - A glob pattern
+     example: "/lib/**/*.js" matches every JS file in the lib directory
+
+   - A list of multiple file patterns
+     example: "['/lib', '/app', '/config/**/*.rb']" matches every file in the
+     lib, app directories, and every Ruby file in the config directory
 
 [configuration] - Optional, map containing the values for configurable parameters.
                   All parameters and their default values are stated below.
@@ -232,14 +236,14 @@ The supported map parameters are:
   <tbody>
     <tr>
       <td> on_tags </td>
-      <td>  
+      <td>
         The value of change_in function in workflows initiated by tags.
         Default value is <b>true</b>.
       </td>
     </tr>
     <tr>
       <td> default_branch </td>
-      <td>  
+      <td>
         The default value is <b>master</b>. If changed to another branch,
         change_in will behave on that branch as it behaves by default on the
         master, and all other branches will be compared to it instead of to master.
@@ -247,7 +251,7 @@ The supported map parameters are:
     </tr>
     <tr>
       <td> pipeline_file </td>
-      <td>  
+      <td>
         Possible values are <b>track</b> and <b>ignore</b>, default is
         <b>track</b>. Only if track is chosen, the path to the give pipeline file
         will be automatically added to the paths that are given as a parameters
@@ -256,7 +260,7 @@ The supported map parameters are:
     </tr>
     <tr>
       <td> branch_range </td>
-      <td>  
+      <td>
         Configures the commit range that is examined on all branches except the
         default one. The default value is
         <b>$SEMAPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
@@ -272,18 +276,30 @@ The supported map parameters are:
     </tr>
     <tr>
       <td> default_range </td>
-      <td>  
+      <td>
         Configures the commit range that is examined on the default branch. The
         default value is <b>$SEMAPHORE_GIT_COMMIT_RANGE</b> which behavior is
         described above. It accepts any commit range specified in double-dot or
         triple-dot syntax and same predefined values are available as stated
-        above in the description of <b>branch_range</b> property.  
+        above in the description of <b>branch_range</b> property.
+      </td>
+    </tr>
+    <tr>
+      <td> exclude </td>
+      <td>
+        List of file patterns to exclude from the change-in pattern match.
+        For example, `change_in('/', exclude: ['/docs'])` will evaluate to true
+        for any change in the repository, except if the change happens in the
+        "docs" directory.
       </td>
     </tr>
   </tbody>
 </table>
 
 The `change_in` function is ideal for modeling [Monorepo CI/CD][monorepo].
+
+Pipelines that use `change_in` expressions need the full Git history and are
+[evaluated in dedicated Semaphore Jobs](pipeline-initialization).
 
 ## Usage examples for change_in
 
@@ -305,6 +321,15 @@ blocks:
       when: "change_in('../Gemfile.lock')"
 ```
 
+### When any file changes, except in the docs directory
+
+```yaml
+blocks:
+  - name: Unit tests
+    run:
+      when: "change_in('/', exclude: ['/docs'])"
+```
+
 ### Changing the default branch from master to main
 
 ```yaml
@@ -316,7 +341,7 @@ blocks:
 
 ### Exclude changes in the pipeline file
 
-**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true.
 The following illustrates how to disable this behaviour.
 
 ```yaml
@@ -416,3 +441,4 @@ blocks:
 [auto_cancel]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel
 [auto_promote]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote
 [monorepo]: https://docs.semaphoreci.com/essentials/building-monorepo-projects
+[pipeline-initialization]: https://docs.semaphoreci.com/reference/pipeline-initialization
