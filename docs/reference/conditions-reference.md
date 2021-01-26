@@ -298,6 +298,9 @@ The supported map parameters are:
 
 The `change_in` function is ideal for modeling [Monorepo CI/CD][monorepo].
 
+Pipelines that use `change_in` expressions need the full Git history and are
+[evaluated in dedicated Semaphore Jobs](pipeline-initialization).
+
 ## Usage examples for change_in
 
 ### When a directory changes
@@ -438,3 +441,4 @@ blocks:
 [auto_cancel]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel
 [auto_promote]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote
 [monorepo]: https://docs.semaphoreci.com/essentials/building-monorepo-projects
+[pipeline-initialization]: https://docs.semaphoreci.com/reference/pipeline-initialization
