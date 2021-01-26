@@ -165,22 +165,26 @@ boolean or regex matches.
 *Note*: This feature is currently in `beta` stage of development.
 
 The `change_in` function accepts one path or list of paths within the repository
-as a first parameter.
-It checks if any of those paths matches or contains one of the files that were
-changed in a particular range of commits.
+as a first parameter. It checks if any of those paths matches or contains one
+of the files that were changed in a particular range of commits.
 
 ``` txt
-change_in(<path>, [configuration])
-or
-change_in(<paths>, [configuration])
+change_in(<file-pattern>, [configuration])
 
-<path>  - Required, string with the absolute or relative path within the repository.
-          Relative paths are relative to the location of the yml file.
-          e.g. 'svcA/lib' or '/doc'
+<file-pattern>  - Required. A pattern can be:
 
-<paths> - Required, list of strings with absolute or relative paths within the
-          repository. Relative paths are relative to the location of yml file.
-          e.g. ['svcA/lib', '/doc', '../README.md']
+   - A file pattern relative to the root of the directory
+     example: "/lib" matches every file recursively in the lib directory
+
+   - A file pattern relative to the pipeline file
+     example: "../lib" matches every file recursively in the lib directory
+
+   - A glob pattern
+     example: "/lib/**/*.js" matches every JS file in the lib directory
+
+   - A list of multiple file patterns
+     example: "['/lib', '/app', '/config/**/*.rb']" matches every file in the
+     lib, app directories, and every Ruby file in the config directory
 
 [configuration] - Optional, map containing the values for configurable parameters.
                   All parameters and their default values are stated below.
