@@ -6,50 +6,10 @@ description: Frequently asked questions are the common situations we stumble upo
 
 <p>Issues we stumble upon regularly, across all parts of Semaphore 2.0</p>
 
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Troubleshooting</th>
-      <th>Jobs & Workflows</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><a href="#fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</a></td>
-    <td><a href="#why-my-jobs-dont-start">Why my jobs don't start?</a></td>
-  </tr>
-  <tr>
-    <td><a href="#how-to-change-the-timezone">How to change the timezone?</a></td>
-    <td><a href="#shell-configuration">Why does my job break after changing the shell configuration?</a></td>
-  </tr>
-  <tr>
-    <td><a href="#how-to-build-with-git-submodules">How to build a project with git submodules?</a></td>
-    <td><a href="#workflows-parallel">Why are my workflows not running in parallel?</a></td>
-  </tr>
-  <tr>
-    <td><a href="#self-signed-certificate">How to use a self-signed certificate with private Docker registry?</a></td>
-  </tr>
-  <tr>
-    <td><a href="#attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</a></td>
-  </tr>
-  <tr>
-    <th>Billing</th>
-    <th>Account management</th>
-  </tr>
-  <tr>
-    <td><a href="#replace-old-credit">How can I correctly replace the old credit card with the new one?</a></td>
-    <td><a href="#add-repositories-github">How can I add repositories that belong to my GitHub organization?</a></td>
-  </tr>
-  <tr>
-    <td><a href="#remove-old-card">How to remove the old credit card information from the subscription?</a></td>
-  </tr>
-  </tbody>
-</table> -->
-
 ### Troubleshooting
 
 <details>
-  <summary id="fail-could-not-parse-object">How to solve "Fail: Could not parse object" during bundle install?</summary>
+  <summary id="how-to-solve-fail-could-not-parse-object-during-bundle-install">How to solve "Fail: Could not parse object" during bundle install?</summary>
   <p>
 
 If the <code>bundle install</code> output looks like this:
@@ -117,7 +77,7 @@ information about setting permissions for private repositories.
 </details>
 
 <details>
-  <summary id="self-signed-certificate">How to use a self-signed certificate with private Docker registry?</summary>
+  <summary id="how-to-use-a-self-signed-certificate-with-private-docker-registry">How to use a self-signed certificate with private Docker registry?</summary>
   <p>
 
 If you have a private Docker registry that uses a self-signed SSL certificate
@@ -139,7 +99,7 @@ This will allow the connection to a private remote registry using the self-signe
 </details>
 
 <details>
-  <summary id="attach-to-ssh-session">Is it possible to attach to an ongoing SSH session?</summary>
+  <summary id="is-it-possible-to-attach-to-an-ongoing-ssh-session">Is it possible to attach to an ongoing SSH session?</summary>
   <p>
 
 It's possible to use <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">sem attach</a> to an ongoing SSH session but you'd need to attach to the job ID of the SSH session.
@@ -148,7 +108,7 @@ To get the job ID you can use <code>sem get jobs</code> to get the list of all r
 </details>
 
 <details>
-  <summary id="change-locale">How to change the Postgres locale?</summary>
+  <summary id="how-to-change-the-postgres-locale">How to change the Postgres locale?</summary>
   <p>
     
 Semaphore uses <code>sem-service</code> to provide different versions of databases. The <code>sem-service</code> tool uses Docker containers
@@ -177,7 +137,7 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
 </p>
 </details>
 <details>
-  <summary id="remove-status-checks-in-pull-requests">How can I remove Semaphore Status checks on pull requests?</summary>
+  <summary id="how-can-i-remove-semaphore-status-checks-on-pull-requests">How can I remove Semaphore Status checks on pull requests?</summary>
   <p>
     
  You can disable Semaphore as a required status check through the <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> in your GitHub account.
@@ -186,7 +146,7 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
 </details>
 
 <details>
-  <summary id="troubleshoot-a-stalling-job">How to troubleshoot a stalling job?</summary>
+  <summary id="how-to-troubleshoot-a-stalling-job">How to troubleshoot a stalling job?</summary>
   <p>
 
 The most common reason for stalled builds is a process that refuses to shut down properly.
@@ -219,7 +179,7 @@ This will prevent stale builds to run for a full hour, and fail sooner.
 </details>
 
 <details>
-  <summary id="test-suite-failing-tests-pass">Why is my test suite failing if all the tests pass?</summary>
+  <summary id="why-is-my-test-suite-failing-if-all-the-tests-pass">Why is my test suite failing if all the tests pass?</summary>
   <p>
     
  This usually happens because code coverage tools, for instance <a href="https://github.com/simplecov-ruby/simplecov">simplecov</a>, can be set to fail the test
@@ -231,7 +191,7 @@ This will prevent stale builds to run for a full hour, and fail sooner.
 </details>
 
 <details>
-  <summary id="network-issue-github">How to solve the "fatal: expected flush after ref listing" error?</summary>
+  <summary id="how-to-solve-the-fatal-expected-flush-after-ref-listing-error">How to solve the "fatal: expected flush after ref listing" error?</summary>
     <p>
       
 If a commands fails with this:
@@ -266,7 +226,7 @@ More information about <code>sem get</code> <a href="https://docs.semaphoreci.co
 </details>
 
 <details>
-  <summary id="shell-configuration">Why does my job break after changing the shell configuration?</summary>
+  <summary id="why-does-my-job-break-after-changing-the-shell-configuration">Why does my job break after changing the shell configuration?</summary>
   <p>
 
 Adding any of the following to your shell is not supported and will cause the jobs to immediately fail:
@@ -287,7 +247,7 @@ source ~/my_script
 </details>
 
 <details>
-  <summary id="workflows-parallel">Why are my workflows not running in parallel?</summary>
+  <summary id="why-are-my-workflows-not-running-in-parallel">Why are my workflows not running in parallel?</summary>
   <p>
 
 When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
@@ -299,7 +259,7 @@ The only way to push several commits to a single branch and not wait for the wor
 </details>
 
 <details>
-  <summary id="redeliver-webhooks">How to redeliver webhooks from Github to Semaphore?</summary>
+  <summary id="how-to-redeliver-webhooks-from-github-to-semaphore">How to redeliver webhooks from Github to Semaphore?</summary>
   <p>
 
 Even if this is not a common problem, it might happen that Semaphore does not receive a webhook from Github.
@@ -318,7 +278,7 @@ These are the steps to redeliver webhooks from Github:
 </details>
 
 <details>
-  <summary id="auto-cancel-stops-workflow">Why does my workflow stop without explanation?</summary>
+  <summary id="why-does-my-workflow-stop-without-explanation">Why does my workflow stop without explanation?</summary>
   <p>
 
 The workflow might have been stopped by the <a href="https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/">auto_cancel</a> feature. There are two <code>auto-cancel</code> strategies: <i>running</i> and <i>queued</i>.
@@ -330,7 +290,7 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
 </details>
 
 <details>
-  <summary id="splitting-parallel-tests">What can I use to split my parallel tests?</summary>
+  <summary id="what-can-i-use-to-split-my-parallel-tests">What can I use to split my parallel tests?</summary>
   <p>
 
 The recommended way is by using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, for instance <a href="https://knapsackpro.com/">Knapsack</a>, both free and pro versions.
@@ -366,7 +326,7 @@ jobs:
 ### Billing
 
 <details>
-  <summary id="replace-old-credit">Why are you still charging my old credit card when I added a new default credit card?</summary>
+  <summary id="why-are-you-still-charging-my-old-credit-card-when-i-added-a-new-default-credit-card">Why are you still charging my old credit card when I added a new default credit card?</summary>
   <p>
 
 If you’ve added a new credit card to the subscription, but the old one is still being charged,
@@ -388,7 +348,7 @@ After that, you can also remove the old credit card if you don't need it anymore
 </details>
 
 <details>
-  <summary id="remove-old-card">Why can't I remove the old credit card after adding a new one?</summary>
+  <summary id="why-cant-i-remove-the-old-credit-card-after-adding-a-new-one">Why can't I remove the old credit card after adding a new one?</summary>
   <p>
 
 If you run into this situation, it means that the old credit card is still in use.
@@ -413,7 +373,7 @@ After that, you’ll be able to remove the old credit card.
 ### Account management
 
 <details>
-  <summary id="add-repositories-github">How can I add repositories that belong to my GitHub organization?</summary>
+  <summary id="how-can-i-add-repositories-that-belong-to-my-github-organization">How can I add repositories that belong to my GitHub organization?</summary>
   <p>
 
 In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization.
