@@ -75,8 +75,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.170)
-- cocoapods (1.10.0)
+- fastlane (2.172.0)
+- cocoapods (1.10.1)
 
 ## Languages
 
@@ -124,10 +124,11 @@ Installed versions:
 - 12.1
 - 12.2
 - 12.3
+- 12.4
 
-The default installed Xcode version is `12.3`.
+The default installed Xcode version is `12.4`.
 
-To switch between versions use `xcversion select <version>` e.g `xcversion select 12.2`
+To switch between versions use `xcversion select <version>` e.g `xcversion select 12.3`
 
 
 Xcode 12.1 has the following SDKs preinstalled:
@@ -156,6 +157,17 @@ Xcode 12.3 has the following SDKs preinstalled:
 
 - iphoneos14.3
 - iphonesimulator14.3
+- driverkit.macosx20.2
+- macosx11.1
+- appletvos14.3
+- appletvsimulator14.3
+- watchos7.2
+- watchsimulator7.2
+
+Xcode 12.4 has the following SDKs preinstalled:
+
+- iphoneos14.4
+- iphonesimulator14.4
 - driverkit.macosx20.2
 - macosx11.1
 - appletvos14.3

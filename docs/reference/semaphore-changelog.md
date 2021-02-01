@@ -8,6 +8,19 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 1, 2021
+- Refresh issue
+- Logs stability
+
+**(Improved) macOS Xcode 12 image update**  
+**(Removed)** Xcode 12.4 installed, to switch version simply use `xcversion select 12.4`.
+**(Updated)** Updated packages:
+ 
+- Fastlane 2.170.0 -> 2.172.0
+- Cocoapods 1.10.0 -> 1.10.1
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
 ### Week of January 18, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
