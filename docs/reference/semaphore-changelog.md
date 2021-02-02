@@ -10,7 +10,7 @@ This page is updated on a weekly basis.
 
 ### Week of February 1, 2021
 **(Improved) macOS Xcode 12 image update**  
-**(New)** Xcode 12.4 installed, to switch version simply use `xcversion select 12.4`.
+**(New)** Xcode 12.4 is installed and set as default version. To switch to any other supported version simply use `xcversion select <version>`.
 **(Updated)** Updated packages:
  
 - Fastlane 2.170.0 -> 2.172.0
