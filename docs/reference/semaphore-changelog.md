@@ -8,6 +8,25 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 1, 2021
+**(Improved) macOS Xcode 12 image update**  
+**(New)** Xcode 12.4 is installed and set as default version. To switch to any other supported version simply use `xcversion select <version>`.
+**(Updated)** Updated packages:
+ 
+- Fastlane 2.170.0 -> 2.172.0
+- Cocoapods 1.10.0 -> 1.10.1
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+**(Updated)** Docker image:
+New convenience Docker image available in Semaphore's [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_02-2021#L237).
+
+**Minor improvements and fixes:**
+
+- **(Fixed)** Fixed the issue with _Refresh_ not working on _People page_ for users with _Member_ role.  
+- **(Improved)** Rendering speed has been improved for some logs on _job page_.
+
 ### Week of January 18, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
