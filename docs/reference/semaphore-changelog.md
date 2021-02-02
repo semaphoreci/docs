@@ -21,6 +21,10 @@ This page is updated on a weekly basis.
 
 To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
+**(Updated)** Docker image:
+New convenience Docker image available in Semaphore's [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_02-2021#L237).
+
 ### Week of January 18, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
