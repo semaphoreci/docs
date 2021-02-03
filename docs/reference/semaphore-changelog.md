@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 8, 2021
+
 ### Week of February 1, 2021
 **(Improved) macOS Xcode 12 image update**  
 **(New)** Xcode 12.4 is installed and set as default version. To switch to any other supported version simply use `xcversion select <version>`.  
