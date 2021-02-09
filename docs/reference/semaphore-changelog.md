@@ -8,6 +8,22 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 8, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)**  
+- Python 3.9
+  
+**(Updated)** Updated packages:
+ 
+- Aws-cli 1.18.216 -> 1.19.3
+- Azure-cli 2.17.1 -> 1.18.0
+- Chrome 87 -> 88
+- Chromedriver 87 -> 88
+- Doctl 1.43.0 -> 1.55.0
+- Docker 19.03 -> 20.10.03
+- Docker-compose 1.27.4 -> 1.28.2
+- Heroku 7.47.7 -> 7.47.12
+
 ### Week of February 1, 2021
 **(Improved) macOS Xcode 12 image update**  
 **(New)** Xcode 12.4 is installed and set as default version. To switch to any other supported version simply use `xcversion select <version>`.  

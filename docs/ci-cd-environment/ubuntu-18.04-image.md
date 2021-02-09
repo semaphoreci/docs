@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 87
-- Chrome_driver 87
+- Google Chrome 88
+- Chrome_driver 88
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -79,8 +79,8 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and following versions are available:
 
-- Docker 19.03
-- docker-compose 1.27.4
+- Docker 20.10
+- docker-compose 1.28.2
 
 ### Cloud CLIs
 
@@ -106,7 +106,7 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.3, 22.3, 23.2
+- Erlang: 20.3, 21.3, 22.3, 23.1, 23.2
 - Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3
 
 Additional libraries:
@@ -181,6 +181,7 @@ Python versions are installed and managed by
 - 3.6
 - 3.7
 - 3.8
+- 3.9
 
 Supporting libraries:
 
