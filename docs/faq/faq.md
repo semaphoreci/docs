@@ -323,6 +323,16 @@ jobs:
   </p>
 </details>
 
+<details>
+  <summary id="why-workflows-dont-trigger-on-pull-requests">Why workflows don't trigger on pull requests?</summary>
+  <p>
+Make sure to <a href="https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#build-pull-requests">enable pull requests</a> in the project <code>Settings</code>.
+</p><p>
+If the configuration is correct, check if the pull request can be merged, or if there are conflicts.<br>
+Semaphore uses the merge commit to run the workflows and there is no merge commit if there is a conflict on the pull request.<br>
+  </p>
+</details>
+
 ### Billing
 
 <details>
