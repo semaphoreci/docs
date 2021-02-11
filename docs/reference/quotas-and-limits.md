@@ -13,7 +13,7 @@ time, your quotas may increase accordingly.
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
+Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a verified **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
 a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)**:
 
 <table style="background-color: rgb(255, 255, 255);">
@@ -42,6 +42,17 @@ a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan
 </tr>
 </tbody>
 </table>
+
+
+!!! info "Verified vs Unverified Trials"
+	
+  **Verified trials** are the ones initiated by users with a work email address provided upon the registration
+  and the above described quotas and parallelism apply. Alternatively, to verify your trial account 
+  with a non-work email address, contact us at [support@semaphoreci.com](mailto:support@semaphoreci.com). 
+  
+  **Unverfified trials** are trials initiated by users with non-work email address provided upon the registration.
+  Such trials can run a maximum of 5 parallel jobs.
+  
 
 If your organization needs are bigger than what is provided with the default
 machine quotas, you can request an increase by sending a request to
