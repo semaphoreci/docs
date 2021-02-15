@@ -8,9 +8,28 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 15, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)**  New language version:
+
+- Python 3.9
+  
+**(Updated)** Updated packages:
+ 
+- Aws-cli 1.18.216 -> 1.19.3
+- Azure-cli 2.17.1 -> 1.18.0
+- Chrome 87 -> 88
+- Chromedriver 87 -> 88
+- Doctl 1.43.0 -> 1.55.0
+- Docker 19.03 -> 20.10.03
+- Docker-compose 1.27.4 -> 1.28.2
+- Heroku 7.47.7 -> 7.47.12
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 1, 2021
 **(Improved) macOS Xcode 12 image update**  
-**(New)** Xcode 12.4 is installed and set as default version. To switch to any other supported version simply use `xcversion select <version>`.  
+**(New)** Xcode 12.4 is installed and set as the default version. To switch to any other supported version simply use `xcversion select <version>`.  
 **(Updated)** Updated packages:
  
 - Fastlane 2.170.0 -> 2.172.0
@@ -19,7 +38,7 @@ This page is updated on a weekly basis.
 To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
 **(Updated)** Docker image:
-New convenience Docker image available in Semaphore's [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
+New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
 A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_02-2021#L237).
 
 **Minor improvements and fixes:**
