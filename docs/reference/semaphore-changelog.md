@@ -9,6 +9,7 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of February 22, 2021
+- artifactsCLI
 
 ### Week of February 15, 2021
 **(Improved) Ubuntu 18.04 image update**  
