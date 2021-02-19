@@ -10,7 +10,7 @@ CI/CD commands in Semaphore.
 Using Conditions you can perform a full or regular expression matches and
 combine them with boolean operations. For example:
 ```
-branch == 'master' OR tag =~ '^v1\.'
+branch = 'master' OR tag =~ '^v1\.'
 ```
 
 Currently you can use Conditions DSL to configure following features:
