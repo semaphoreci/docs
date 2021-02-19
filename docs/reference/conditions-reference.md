@@ -288,7 +288,7 @@ The supported map parameters are:
       <td> exclude </td>
       <td>
         List of file patterns to exclude from the change-in pattern match.
-        For example, `change_in('/', exclude: ['/docs'])` will evaluate to true
+        For example, `change_in('/', {exclude: ['/docs']})` will evaluate to true
         for any change in the repository, except if the change happens in the
         "docs" directory.
       </td>
@@ -327,7 +327,7 @@ blocks:
 blocks:
   - name: Unit tests
     run:
-      when: "change_in('/', exclude: ['/docs'])"
+      when: "change_in('/', {exclude: ['/docs']})"
 ```
 
 ### Changing the default branch from master to main
