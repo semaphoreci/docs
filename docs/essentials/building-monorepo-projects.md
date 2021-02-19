@@ -4,8 +4,6 @@ description: This guide shows you how to optimize your Semaphore 2.0 workflow fo
 
 # Monorepo Workflows
 
-*Note*: The monorepo support is currently in `beta` stage of development.
-
 This guide shows you how to optimize your Semaphore workflow for monorepo
 projects.
 
@@ -247,7 +245,7 @@ blocks:
 blocks:
   - name: JS tests
     run:
-      when: "change_in('/assets/**/*.js')
+      when: "change_in('/assets/**/*.js')"
 ```
 
 ### When any file changes, except docs
@@ -256,7 +254,7 @@ blocks:
 blocks:
   - name: Test Web Server
     run:
-      when: "change_in('/web-app/', exclude: ['/web-app/docs'])"
+      when: "change_in('/web-app/', {exclude: ['/web-app/docs', '/**/*.md']})"
 ```
 
 ### Changing the default branch from master to main

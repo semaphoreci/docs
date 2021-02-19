@@ -1,7 +1,7 @@
 # Pipeline Initialization
 
 Every Semaphore pipeline goes through an initialization process during
-which Semaphore fetches, evaluated, and verifies the Pipeline YAML file.
+which Semaphore fetches, evaluates, and verifies the Pipeline YAML file.
 
 For pipelines that need a full clone of the Git repository for evaluation
 (ex. pipelines that use [change-in][change-in] expressions), Semaphore runs a
