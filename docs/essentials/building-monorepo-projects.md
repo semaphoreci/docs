@@ -4,8 +4,6 @@ description: This guide shows you how to optimize your Semaphore 2.0 workflow fo
 
 # Monorepo Workflows
 
-*Note*: The monorepo support is currently in `beta` stage of development.
-
 This guide shows you how to optimize your Semaphore workflow for monorepo
 projects.
 
@@ -241,6 +239,24 @@ blocks:
       when: "change_in('../Gemfile.lock')"
 ```
 
+### When any Javascript file changes
+
+```yaml
+blocks:
+  - name: JS tests
+    run:
+      when: "change_in('/assets/**/*.js')"
+```
+
+### When any file changes, except docs
+
+```yaml
+blocks:
+  - name: Test Web Server
+    run:
+      when: "change_in('/web-app/', {exclude: ['/web-app/docs', '/**/*.md']})"
+```
+
 ### Changing the default branch from master to main
 
 ```yaml
@@ -252,7 +268,7 @@ blocks:
 
 ### Exclude changes in the pipeline file
 
-**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true. 
+**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true.
 The following illustrates how to disable this behaviour.
 
 ```yaml
