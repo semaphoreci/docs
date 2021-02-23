@@ -8,6 +8,17 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of February 22, 2021
+**(Improved) Artifacts CLI fixes and improvements:**
+
+- `push` and `pull` commands now have an output on success.
+- Fixed the issue where the name of the file got changed to the parent directory name in some cases.
+- Fixed the issue where the dot at the start of the directory name was not preserved. 
+- If the `SEMAPHORE_WORKFLOW_ID` variable is not set `artifact push workflow` will now fail.
+- Added new alias for `artifact yank`, from now on artifacts can be deleted by running `artifact delete` too.
+
+Check our [Artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/) documentation page to learn more about artifacts.
+
 ### Week of February 15, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)**  New language version:
