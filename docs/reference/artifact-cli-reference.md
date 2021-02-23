@@ -24,7 +24,7 @@ The general interface of the `artifact` utility is:
 artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 ```
 
-- `[COMMAND]` - action to be performed for an artifact (`push`, `pull` or `yank`)
+- `[COMMAND]` - action to be performed for an artifact (`push`, `pull` or `yank`/`delete`)
 - `[STORE LEVEL]` - level on which specific artifact is available within the artifact store (`project`, `workflow`, `job`)
 - `[PATH]` - points to the artifact (e.g. file or directory)
 - `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
@@ -74,7 +74,7 @@ Example: `artifact pull project releases/my-artifact-v3.tar --destination my-art
 ### Deleting Artifact
 
 To remove an artifact from the specific artifact store it is necessary to specify
-the store level and point to a file or directory with the `artifact yank` command.
+the store level and point to a file or directory with the `artifact yank` or `artifact delete` command.
 
 ```sh
 artifact yank project my-artifact-v3.tar
