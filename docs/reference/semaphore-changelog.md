@@ -17,6 +17,8 @@ This page is updated on a weekly basis.
 - If the `SEMAPHORE_WORKFLOW_ID` variable is not set `artifact push workflow` will now fail.
 - Added new alias for `artifact yank`, from now on artifacts can be deleted by running `artifact delete` too.
 
+Check our [Artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/) documentation page to learn more about artifacts.
+
 ### Week of February 15, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)**  New language version:
