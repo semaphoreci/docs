@@ -129,7 +129,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u275, 11.0.9
+- Java: 8u282, 11.0.10
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -152,7 +152,6 @@ Installed version:
 #### Additional tools
 
 - Yarn: 1.22.5
-- Bower: 1.8.8
 
 ### PHP
 
