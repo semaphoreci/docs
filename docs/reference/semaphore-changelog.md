@@ -14,7 +14,7 @@ This page is updated on a weekly basis.
 **(Updated)** Updated packages:
  
 - Aws-cli 1.19.3 -> 1.19.18
-- Azure-cli 2.18.0 -> 1.20.1
+- Azure-cli 2.18.0 -> 1.20.0
 - Docker 20.10.03 -> 20.10.04
 - Heroku 7.47.12 -> 7.49.1
 - Java 8u275 -> 8u282
