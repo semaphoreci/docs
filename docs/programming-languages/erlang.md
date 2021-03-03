@@ -6,12 +6,7 @@ description: This guide provides an explanation on how to configure Erlang proje
 
 ## Supported Erlang versions
 
-The list of supported Erlang versions is the following:
-
-- 20.3
-- 21.3
-- 22.3
-- 23.2
+The list of supported Erlang versions is [available here.][erlang-versions]
 
 ## Changing Erlang version
 
@@ -109,3 +104,4 @@ helloWorld() -> io:fwrite("hello, world\n").
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[erlang-versions]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
