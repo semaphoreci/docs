@@ -72,6 +72,7 @@ leads to a much shorter job setup.
 
 You can still use `phpbrew` directly but it will always compile the
 target version which is a slow process:
+
 ``` yaml
 blocks:
   - name: Tests
