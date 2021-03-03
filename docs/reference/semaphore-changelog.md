@@ -20,6 +20,7 @@ This page is updated on a weekly basis.
 - Java 8u275 -> 8u282
 - Java 11.0.9 -> 11.0.10
 
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of February 22, 2021
 **(Improved) Artifacts CLI fixes and improvements:**
