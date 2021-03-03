@@ -9,7 +9,9 @@ description: This guide provides an explanation on how to configure Erlang proje
 The list of supported Erlang versions is the following:
 
 - 20.3
-- 21.0
+- 21.3
+- 22.3
+- 23.2
 
 ## Changing Erlang version
 
