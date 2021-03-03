@@ -6,7 +6,7 @@ description: This guide provides an explanation on how to configure Erlang proje
 
 ## Supported Erlang versions
 
-The list of supported Erlang versions is [available here.][erlang-versions]
+The list of supported Erlang versions is [available here][erlang-versions].
 
 ## Changing Erlang version
 
