@@ -14,6 +14,10 @@ This page is updated on a weekly basis.
 **(Updated)** Updated packages:
  
 - Docker 20.10.04 -> 20.10.05
+- Aws-cli 1.19.18 -> 1.19.25
+- Chromedriver 88 -> 89
+- Google Chrome 88 -> 89
+- Heroku 7.49.1 -> 7.50.0
 
 To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
