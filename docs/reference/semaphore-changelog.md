@@ -8,6 +8,15 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 08, 2021
+**(Improved) Ubuntu 18.04 image update** 
+
+**(Updated)** Updated packages:
+ 
+- Docker 20.10.04 -> 20.10.05
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of March 01, 2021
 **(Improved) Ubuntu 18.04 image update** 
 
