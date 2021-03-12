@@ -145,9 +145,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v8.17.0 (set as default, with alias 8.17)
-- v10.19.0
-- v12.16.0
+- v10.15.3 (set as default, with alias 10.15)
 
 #### Additional tools
 
