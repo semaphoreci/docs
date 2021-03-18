@@ -9,7 +9,8 @@ description: This guide shows you how to optimize your Semaphore 2.0 workflow fo
 This guide shows you how to optimize your Semaphore workflow for monorepo
 projects.
 
-A monorepo (short for monolithic repository) is a software development strategy
+[A monorepo](https://semaphoreci.com/blog/what-is-monorepo)
+(short for monolithic repository) is a software development strategy
 where code for many applications that may or may not be mutually dependent is
 stored in the same version-controlled repository.
 
