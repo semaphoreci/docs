@@ -1,23 +1,26 @@
-version: "v1.0"
+version: v1.0
 name: Production
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: "Deploy to Production"
+  - name: Deploy to production
     task:
       secrets:
-        - name: github-keypair
-        - name: public-keys
-        - name: PROD
+        - name: semaphore-robot
       jobs:
-      - name: Deploy Docs
-        commands:
-          - checkout
-          - git log -1 --pretty=%B | sed '/Merge pull/d' | sed '/^\s*$/d' | tr '\n' ' ' > /tmp/commit_message
-          - echo -n $PRIVATE_KEY | base64 --decode > ~/.ssh/id_rsa
-          - chmod 400 ~/.ssh/id_rsa
-          - git clone $PROD_REPO /tmp/prod
-          - cd /tmp/prod
-          - make docs.deploy
+        - name: Deploy
+          commands:
+            - checkout
+            - export COMPONENT_ENV=prod
+            - export COMPONENT_MESSAGE=$(git log -1 --pretty=%B | tr '\n' ' ')
+            - export COMPONENT_NAME=docs-redirect
+            - export COMPONENT_TAG=start-$(echo -n $SEMAPHORE_GIT_BRANCH | sed s/[^a-z]//g)-$SEMAPHORE_WORKFLOW_ID-sha-$SEMAPHORE_GIT_SHA
+            - 'echo [$COMPONENT_ENV]: $COMPONENT_NAME:$COMPONENT_TAG $COMPONENT_MESSAGE'
+            - 'export PPL_ID=$(curl -fsS -H "Authorization: Token $SEMAPHORE_ROBOT_AUTH_TOKEN" -d "project_id=a552245a-9791-438d-9d53-f3b7710276ba&reference=refs/heads/master&pipeline_file=.semaphore/component_init.yml" -X POST  https://semaphore.semaphoreci.com/api/v1alpha/plumber-workflows | jq .pipeline_id | tr -d \");'
+            - echo $PPL_ID
+            - sleep 1s
+            - 'export PROMOTION_MESSAGE=$(curl -fsS -H "Authorization: Token $SEMAPHORE_ROBOT_AUTH_TOKEN" -d "name=Update&pipeline_id=$PPL_ID&COMPONENT_NAME=$COMPONENT_NAME&COMPONENT_TAG=$COMPONENT_TAG&COMPONENT_MESSAGE=$COMPONENT_MESSAGE&COMPONENT_ENV=$COMPONENT_ENV&override=true" -X POST https://semaphore.semaphoreci.com/api/v1alpha/promotions);'
+            - echo $PROMOTION_MESSAGE
+            - '[[ $PROMOTION_MESSAGE =~ "Promotion successfully triggered." ]] || exit 1'
