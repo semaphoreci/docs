@@ -13,7 +13,7 @@ This page is updated on a weekly basis.
 Based on user feedback UI was updated to make the navigation even more intuitive.  
 Some of the changes that were introduced:   
 
-- Top right page menu links have been redesign as tabs.
+- Top right page menu links have been redesigned as tabs.
 - New breadcrumbs will always be present on the page.
 - Several new visual queues have been introduced to draw attention to active elements. 
 - Updated fonts and icons make it easier to find key information on the page.
