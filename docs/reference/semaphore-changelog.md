@@ -8,6 +8,18 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 22, 2021
+**(Improved) New UI updates**  
+Based on user feedback UI was updated to make the navigation even more intuitive.  
+Some of the changes that were introduced:   
+
+- Top right page menu links have been redesign as tabs.
+- New breadcrumbs will always be present on the page.
+- Several new visual queues have been introduced to draw attention to active elements. 
+- Updated fonts and icons make it easier to find key information on the page.
+
+If you have any suggestions or further improvements you would like to see in our UI we encourage you to send them to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=UI%20Feedback).
+
 ### Week of March 08, 2021
 **(Improved) Ubuntu 18.04 image update** 
 
