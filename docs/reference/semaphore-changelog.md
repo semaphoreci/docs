@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 29, 2021
+
 ### Week of March 22, 2021
 **(Improved) New UI updates**  
 Based on user feedback UI was updated to make the navigation even more intuitive.  
