@@ -8,6 +8,32 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of March 29, 2021
+**(Improved) Ubuntu 18.04 image update** 
+**(New)**  New language version:
+
+- Erlang 23.3
+
+**(Updated)** Updated packages:
+ 
+- Aws-cli 1.19.25 -> 1.19.39
+- Azure-cli 2.20.0 -> 2.21.0
+- Git 2.30 -> 2.31
+- Git-lfs 2.13.2 -> 2.13.3
+- Grunt 1.3.2 -> 1.4.1
+- Heroku  -> 7.51.0
+
+**Toolbox** Updates:
+- Sem-service addons: 
+  elasticsearch (7.10.0, 7.11.2, 7.12.0)
+  mysql (5.7.33, 8.0.23) 
+  mongo (4.2.13, 4.4.1, 4.4.4) 
+  postgres (10.16, 11.11, 12.6, 13.2)
+  rabbitmq (3.8.14)
+  redis (6.2.1)
+- Sem-version updates:
+  Php versions 7.3.x , 7.4.x, 8.0.x got composer updated to version 2 (composer.json files might need update)
+
 ### Week of March 22, 2021
 **(Improved) New UI updates**  
 Based on user feedback UI was updated to make the navigation even more intuitive.  
