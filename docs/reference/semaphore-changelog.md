@@ -23,16 +23,23 @@ This page is updated on a weekly basis.
 - Grunt 1.3.2 -> 1.4.1
 - Heroku  -> 7.51.0
 
-**Toolbox** Updates:
-- Sem-service addons: 
-  elasticsearch (7.10.0, 7.11.2, 7.12.0)
-  mysql (5.7.33, 8.0.23) 
-  mongo (4.2.13, 4.4.1, 4.4.4) 
-  postgres (10.16, 11.11, 12.6, 13.2)
-  rabbitmq (3.8.14)
-  redis (6.2.1)
-- Sem-version updates:
-  Php versions 7.3.x , 7.4.x, 8.0.x got composer updated to version 2 (composer.json files might need update)
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+**(Improved) Toolbox**  
+**(Updated)** Sem-service addons:  
+
+- elasticsearch (7.10.0, 7.11.2, 7.12.0)
+- mysql (5.7.33, 8.0.23) 
+- mongo (4.2.13, 4.4.1, 4.4.4) 
+- postgres (10.16, 11.11, 12.6, 13.2)
+- rabbitmq (3.8.14)
+- redis (6.2.1)
+
+**(Updated)** Sem-version updates:  
+
+- Php versions 7.3.x , 7.4.x, 8.0.x got composer updated to version 2 (composer.json files might need update)
+
+You can find out more about Semaphore toolbox by checking [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/#toolbox-reference) docs page.
 
 ### Week of March 22, 2021
 **(Improved) New UI updates**  
