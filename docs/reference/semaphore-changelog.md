@@ -9,7 +9,7 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of March 29, 2021
-**(Improved) Ubuntu 18.04 image update** 
+**(Improved) Ubuntu 18.04 image update**  
 **(New)**  New language version:
 
 - Erlang 23.3
