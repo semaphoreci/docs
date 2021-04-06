@@ -4,21 +4,19 @@ description: This guide shows you how to optimize your Semaphore 2.0 workflow fo
 
 # Monorepo Workflows
 
-A [monorepo](https://semaphoreci.com/blog/what-is-monorepo)
-(short for monolithic repository) is a software development strategy
-where code for many applications that may or may not be mutually dependent is
-stored in the same version-controlled repository.
-
-This guide shows you how to optimize your Semaphore workflow for monorepo
-projects.
+A [monorepo](https://semaphoreci.com/blog/what-is-monorepo) (short for
+monolithic repository) is a software development strategy where code for
+many applications, which may or may not be mutually dependent, is stored
+in the same version-controlled repository. This guide shows you how to
+optimize your Semaphore workflow for monorepo projects.
 
 Some advantages of a monorepo approach are:
 
-- Ease of code reuse - it is easy to abstract shared behavior into common libraries.
-- Simplified dependency management - third-party dependencies are easily shared.
-- Atomic commits across multiple applications - you can refactor multiple applications at once with a single commit.
-- Single source of truth - there’s only one version of each dependency.
-- Unified CI/CD - a standardized CI process can build and deploy every application in the repository.
+- Ease of code reuse — it is easy to abstract shared behavior into common libraries.
+- Simplified dependency management — third-party dependencies are easily shared.
+- Atomic commits across multiple applications — you can refactor multiple applications at once with a single commit.
+- Single source of truth — there’s only one version of each dependency.
+- Unified CI/CD — a standardized process can build and deploy every application in the repository.
 
 Semaphore comes with out-of-box support for monorepos and provides
 a [example project][monorepo-example] for you to try.
@@ -31,7 +29,8 @@ Let's say you have a simple monorepo project that consists of:
 - An iOS client application located inside `/ios/` directory.
 - A separate docs web page located inside `/docs/` directory.
 
-We can setup a Semaphore pipeline that builds and test each one of these applications.
+We can setup a Semaphore pipeline that builds and test each one of these
+parts.
 
 ![Monorepo
 Pipeline](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/pipeline.png)
@@ -43,15 +42,14 @@ integration tests once both web application and iOS client tests pass.
 
 You can set the criteria for running the jobs within a block in the
 *Skip/Run conditions* section. The [run property][run-ref] is evaluated on
-each workflow to decide is the block should run or be skipped.
+each workflow to decide is the block should be run or skipped.
 
 ![Skip/Run
 conditions](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/skip-run-condition.png)
 
 When combined with `change_in` function, which checks whether there were
-any changes on given paths, allows us to only run tests for those parts of
-the project that are currently being
-worked on.
+recent changes on a given path, allows us to only run tests for those
+parts of the project that are currently being worked on.
 
 In the example below, this means that if we are working only on the iOS
 client app within the `/ios/` directory of the repository, the only blocks
@@ -63,24 +61,23 @@ Everything else will be skipped.
 This can significantly reduce the time and cost while still providing you
 with required feedback for the changes introduced into the monorepo.
 
-The `change_in` function calculates the changeset (all changed files in
-the commit range of interest for given workflow) in a slightly different
-way for the `master/main` and the other branches or pull requests. For
-more details and ways in which this can be modified please check the
-[reference][change-in-ref].
+The `change_in` function checks for changed files in recent commits. The
+commit range analyzed depends on whether you're working on `master/main`
+or on a branch/pull request. For more details and ways in which this can
+be modified please check the [reference][change-in-ref].
 
 ## Set up the automatic deployments for a monorepo project
 
 Here we will assume that you already have three pipelines for:
 
-- Deploying the web app
-- Releasing the iOS client
-- Publishing the documentation pages
+- Deploying the web app.
+- Releasing the iOS client.
+- Publishing the documentation pages.
 
 You can find examples for various kinds of deployments in the [use
 cases][use-cases] section of our docs. We will focus on auto-promoting the
 right pipelines using change detection. To achieve this, we need to
-introduce the [promotions][promotions-ref] conditions.
+introduce [promotion][promotions-ref] conditions.
 
 ![Adding a promotion](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/add-promotion.png)
 
@@ -102,8 +99,8 @@ Client](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/p
 pages](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/promotion-docs.png)
 
 Each part of the system will be automatically deployed when the tests pass
-on the master branch only if the push that initiated workflow contains
-changes in the location(s) given to the `change_in` function.
+on the master branch, only if the push that initiated workflow contains
+changes in the locations monitored by the `change_in` function.
 
 ## Additional examples of monorepo configuration
 
