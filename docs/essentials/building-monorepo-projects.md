@@ -19,7 +19,7 @@ Some advantages of a monorepo approach are:
 - Unified CI/CD — a standardized process can build and deploy every application in the repository.
 
 Semaphore comes with out-of-box support for monorepos and provides
-a [example project][monorepo-example] for you to try.
+an [example project][monorepo-example] for you to try.
 
 ## Setting up a monorepo project
 
@@ -29,8 +29,8 @@ Let's say you have a simple monorepo project that consists of:
 - An iOS client application located inside `/ios/` directory.
 - A separate docs web page located inside `/docs/` directory.
 
-We can setup a Semaphore pipeline that builds and test each one of these
-parts.
+We can set up a Semaphore pipeline that builds and tests each one of these
+components.
 
 ![Monorepo
 Pipeline](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/pipeline.png)
@@ -42,7 +42,7 @@ integration tests once both web application and iOS client tests pass.
 
 You can set the criteria for running the jobs within a block in the
 *Skip/Run conditions* section. The [run property][run-ref] is evaluated on
-each workflow to decide is the block should be run or skipped.
+each workflow to decide if the block should be run or skipped.
 
 ![Skip/Run
 conditions](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/skip-run-condition.png)
@@ -81,7 +81,7 @@ introduce [promotion][promotions-ref] conditions.
 
 ![Adding a promotion](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/add-promotion.png)
 
-Ticking **Enable automatic promotion** brings up the a conditions field.
+Ticking **Enable automatic promotion** brings up the conditions field.
 Semaphore supports using `change_in` in this field. You can combine it
 with the `branch` and `result` properties to start a pipeline on a given
 branch. For example, for the web app:
@@ -98,9 +98,9 @@ Client](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/p
 ![Promotion for docs
 pages](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/promotion-docs.png)
 
-Each part of the system will be automatically deployed when the tests pass
-on the master branch, only if the push that initiated workflow contains
-changes in the locations monitored by the `change_in` function.
+Each part of the system will be automatically deployed when the tests pass on
+the master branch, only if the push that initiated workflow contains changes in
+the locations monitored by the `change_in` function.
 
 ## Additional examples of monorepo configuration
 
@@ -124,8 +124,8 @@ change_in('/web-app/', {default_branch: 'main'})
 
 ### Exclude changes in the pipeline file
 
-**Note:** If you change the pipeline file, Semaphore will consider `change_in` as true.
-The following illustrates how to disable this behaviour.
+**Note:** If you change the pipeline file, Semaphore will consider `change_in`
+as true. The following illustrates how to disable this behaviour.
 
 ```yaml
 change_in('/web-app/', {pipeline_file: 'ignore'})
