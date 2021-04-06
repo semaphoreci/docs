@@ -95,6 +95,11 @@ possible and jump-start your own projects.
       <td><a href="https://docs.semaphoreci.com/examples/node-js-and-typescript-continuous-integration/">Node.js.  Nest.js / Express, React</a></td>
       <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-javascript">semaphore-demo-javascript</a></td>
     </tr>
+    <tr>
+      <td><a href="https://docs.semaphoreci.com/examples/change-based-execution-for-monorepos/">Monorepo</a></td>
+      <td><a href="https://docs.semaphoreci.com/examples/change-based-execution-for-monorepos/">Go, Ruby, Elixir</a></td>
+      <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-monorepo">semaphore-demo-monorepo</a></td>
+    </tr>
   </tbody>
 </table>
 
