@@ -162,8 +162,6 @@ boolean or regex matches.
 
 ### change_in
 
-*Note*: This feature is currently in `beta` stage of development.
-
 The `change_in` function accepts one path or list of paths within the repository
 as a first parameter. It checks if any of those paths matches or contains one
 of the files that were changed in a particular range of commits.
