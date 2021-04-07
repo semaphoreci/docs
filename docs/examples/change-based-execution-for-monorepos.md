@@ -204,6 +204,8 @@ To continue learning about `change_in`, check these resources:
 - [Ruby reference][ruby-ref]
 - [Elixir reference][elixif-ref]
 
+[monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
+[change-in]: https://docs.semaphoreci.com/reference/conditions-reference/#usage-examples-for-change_in
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-monorepo
 [promotions-guide]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
 [caching-guide]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
