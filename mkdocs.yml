@@ -133,6 +133,7 @@ nav:
       - Scala Play continuous integration: examples/scala-play-continuous-integration.md
       - Configuring parallel tests with Code Climate: examples/configuring-parallel-tests-with-code-climate.md
       - Clojure Luminus CI/CD: examples/clojure-luminus-ci-cd.md
+      - Change-based execution for monorepos: examples/change-based-execution-for-monorepos.md
     - Deployment:
       - Zeit Now continuous deployment: examples/zeit-now-continuous-deployment.md
       - Publishing Docker images on DockerHub: examples/publishing-docker-images-on-dockerhub.md
