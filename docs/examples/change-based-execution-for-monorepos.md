@@ -202,7 +202,7 @@ To continue learning about `change_in`, check these resources:
 - [Cache reference][cache-ref]
 - [Go reference][go-ref]
 - [Ruby reference][ruby-ref]
-- [Elixir reference][elixif-ref]
+- [Elixir reference][elixir-ref]
 
 [monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
 [change-in]: https://docs.semaphoreci.com/reference/conditions-reference/#usage-examples-for-change_in
