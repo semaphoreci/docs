@@ -384,7 +384,7 @@ blocks:
 blocks:
   - name: Unit tests
     skip:
-      when: "branch =~ '^df\/'"
+      when: "branch =~ '^df/'"
 ```
 
 ### When branch is staging or master
@@ -429,7 +429,7 @@ blocks:
 blocks:
   - name: Unit tests
     skip:
-      when: "branch !~ '^dev\/'"
+      when: "branch !~ '^dev/'"
 ```
 
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
