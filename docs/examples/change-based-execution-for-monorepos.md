@@ -217,3 +217,4 @@ To continue learning about `change_in`, check these resources:
 [ruby-ref]: https://docs.semaphoreci.com/programming-languages/ruby/
 [go-ref]: https://docs.semaphoreci.com/programming-languages/go/
 [promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[sinatra]: http://sinatrarb.com/
