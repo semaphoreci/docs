@@ -8,6 +8,27 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 5, 2021
+**(Improved) Monorepo support shipped to GA**  
+A new set of improvements focused on monorepo support were shipped:  
+
+- **Initialization step** - Runs at the start of each monorepo pipeline and compiles the workflow, ensuring that misconfigurations are detected before any job starts.
+- **UI indicator** - A new UI element shows the initialization log, making troubleshooting fast and easy. 
+- **Exclude parameter** - A new option in change_in adds the ability to define which folders or files to skip. 
+- **Glob pattern support** - change_in conditions have been further extended to allow the use of wildcards.
+- **Clearer error messages** - Improved error messages for most common misconfiguration issues.
+
+- **Improved stability** - All compilation errors coming from edge cases were eliminated, making these features more reliable. 
+
+You can read more about this feature in our [blog post](https://semaphoreci.com/blog/monorepo-support-available). 
+
+Additional reading material:
+
+- [Example project](https://github.com/semaphoreci-demos/semaphore-demo-monorepo/)
+- [Monorepo docs page](https://docs.semaphoreci.com/essentials/building-monorepo-projects/)
+- [change_in docs](https://docs.semaphoreci.com/reference/conditions-reference/#change_in)
+
+
 ### Week of March 29, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)**  New language version:
