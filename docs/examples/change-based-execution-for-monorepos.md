@@ -209,7 +209,7 @@ To continue learning about `change_in`, check these resources:
 [caching-guide]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
 [pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
-[cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache [netlify-guide]:
+[cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
 [mux]: https://github.com/gorilla/mux
 [elixir-ref]: https://docs.semaphoreci.com/programming-languages/elixir/
 [ruby-ref]: https://docs.semaphoreci.com/programming-languages/ruby/
