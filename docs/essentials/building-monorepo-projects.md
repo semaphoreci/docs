@@ -33,7 +33,7 @@ We can set up a Semaphore pipeline that builds and tests each one of these
 components.
 
 ![Monorepo
-Pipeline](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/pipeline.png)
+Pipeline](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/pipeline.png)
 
 With this setup, we run separate tests for each part of the system and
 integration tests once both web application and iOS client tests pass.
@@ -45,7 +45,7 @@ You can set the criteria for running the jobs within a block in the
 each workflow to decide if the block should be run or skipped.
 
 ![Skip/Run
-conditions](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/skip-run-condition.png)
+conditions](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/skip-run-condition.png)
 
 When combined with `change_in` function, which checks whether there were
 recent changes on a given path, allows us to only run tests for those
@@ -56,7 +56,7 @@ client app within the `/ios/` directory of the repository, the only blocks
 that will be executed are the `Test iOS client` and `Integration tests`.
 Everything else will be skipped.
 
-![change_in examples](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/skip-run-blocks.png)
+![change_in examples](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/skip-run-blocks.png)
 
 This can significantly reduce the time and cost while still providing you
 with required feedback for the changes introduced into the monorepo.
@@ -79,7 +79,7 @@ cases][use-cases] section of our docs. We will focus on auto-promoting the
 right pipelines using change detection. To achieve this, we need to
 introduce [promotion][promotions-ref] conditions.
 
-![Adding a promotion](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/add-promotion.png)
+![Adding a promotion](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/add-promotion.png)
 
 Ticking **Enable automatic promotion** brings up the conditions field.
 Semaphore supports using `change_in` in this field. You can combine it
@@ -87,16 +87,16 @@ with the `branch` and `result` properties to start a pipeline on a given
 branch. For example, for the web app:
 
 ![Promotion for Web
-app](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/promotion-web.png)
+app](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/promotion-web.png)
 
 To complete the example, this is how the `iOS Release` and `Publish
 docs` pipelines should look:
 
 ![Promotion for iOS
-Client](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/promotion-ios.png)
+Client](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/promotion-ios.png)
 
 ![Promotion for docs
-pages](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-example/public/essentials-monorepo-workflows/promotion-docs.png)
+pages](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/promotion-docs.png)
 
 Each part of the system will be automatically deployed when the tests pass on
 the master branch, only if the push that initiated workflow contains changes in
