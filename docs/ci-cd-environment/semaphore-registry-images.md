@@ -39,6 +39,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ruby:2.6-node-browsers | `registry.semaphoreci.com/ruby:2.6-node-browsers` |  
 | ruby:2.7 | `registry.semaphoreci.com/ruby:2.7` |  
 | ruby:2.7-node-browsers | `registry.semaphoreci.com/ruby:2.7-node-browsers` |  
+| ruby:3.0 | `registry.semaphoreci.com/ruby:3.0` |  
+| ruby:3.0-node-browsers | `registry.semaphoreci.com/ruby:3.0-node-browsers` |  
 
 ### Python  
 | Image | Link |
@@ -67,30 +69,38 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | php:7.2 | `registry.semaphoreci.com/php:7.2` |
 | php:7.3 | `registry.semaphoreci.com/php:7.3` |
 | php:7.4 | `registry.semaphoreci.com/php:7.4` |
+| php:8.0 | `registry.semaphoreci.com/php:8.0` |
 | php:5.6-node | `registry.semaphoreci.com/php:5.6-node` |
 | php:7.2-node | `registry.semaphoreci.com/php:7.2-node` |
 | php:7.3-node | `registry.semaphoreci.com/php:7.3-node` |
 | php:7.4-node | `registry.semaphoreci.com/php:7.4-node` |
+| php:8.0-node | `registry.semaphoreci.com/php:8.0-node` |
 | php:5.6-browsers | `registry.semaphoreci.com/php:5.6-browsers` |
 | php:7.2-browsers | `registry.semaphoreci.com/php:7.2-browsers` |
 | php:7.3-browsers | `registry.semaphoreci.com/php:7.3-browsers` |
 | php:7.4-browsers | `registry.semaphoreci.com/php:7.4-browsers` |
+| php:8.0-browsers | `registry.semaphoreci.com/php:8.0-browsers` |
 | php:5.6-node-browsers | `registry.semaphoreci.com/php:5.6-node-browsers` |
 | php:7.2-node-browsers | `registry.semaphoreci.com/php:7.2-node-browsers` |
 | php:7.3-node-browsers | `registry.semaphoreci.com/php:7.3-node-browsers` |
 | php:7.4-node-browsers | `registry.semaphoreci.com/php:7.4-node-browsers` |
+| php:8.0-node-browsers | `registry.semaphoreci.com/php:8.0-node-browsers` |
 
 ### Haskell  
 | Image | Link |
 |--------|--------|
 | haskell:8.8 | `registry.semaphoreci.com/haskell:8.8` |  
 | haskell:8.10 | `registry.semaphoreci.com/haskell:8.10` |  
+| haskell:9.0 | `registry.semaphoreci.com/haskell:9.0` |  
 
 ### Rust  
 | Image | Link |
 |--------|--------|
 | rust:1.47 | `registry.semaphoreci.com/rust:1.47` |  
-| rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.47-node-browsers` |  
+| rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.47-node-browsers` |
+| rust:1.51 | `registry.semaphoreci.com/rust:1.51` |  
+| rust:1.51-node-browsers | `registry.semaphoreci.com/rust:1.51-node-browsers` |
+
 
 ### Golang  
 | Image | Link |
@@ -99,6 +109,9 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | golang:1.14-node-browsers | `registry.semaphoreci.com/golang:1.14-node-browsers` |  
 | golang:1.15 | `registry.semaphoreci.com/golang:1.15` |  
 | golang:1.15-node-browsers | `registry.semaphoreci.com/golang:1.15-node-browsers` |  
+| golang:1.16 | `registry.semaphoreci.com/golang:1.16` |  
+| golang:1.16-node-browsers | `registry.semaphoreci.com/golang:1.16-node-browsers` |  
+
 
 ### Elixir  
 | Image | Link |
@@ -108,6 +121,10 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | elixir:1.7 | `registry.semaphoreci.com/elixir:1.7` |  
 | elixir:1.8 | `registry.semaphoreci.com/elixir:1.8` |  
 | elixir:1.9 | `registry.semaphoreci.com/elixir:1.9` |  
+| elixir:1.10 | `registry.semaphoreci.com/elixir:1.10` |  
+| elixir:1.11 | `registry.semaphoreci.com/elixir:1.11` |  
+| elixir:1.12 | `registry.semaphoreci.com/elixir:1.12` |  
+
 
 ### Node  
 | Image | Link |
@@ -118,6 +135,9 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | node:12-browsers | `registry.semaphoreci.com/node:12-browsers` |  
 | node:14 | `registry.semaphoreci.com/node:14` |  
 | node:14-browsers | `registry.semaphoreci.com/node:14-browsers` |  
+| node:15 | `registry.semaphoreci.com/node:15` |  
+| node:15-browsers | `registry.semaphoreci.com/node:15-browsers` |  
+
 
 ### Ubuntu  
 | Image | Link |
@@ -179,6 +199,9 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 | elasticsearch:7.7 | `registry.semaphoreci.com/elasticsearch:7.7` |    
 | elasticsearch:7.8 | `registry.semaphoreci.com/elasticsearch:7.8` |    
 | elasticsearch:7.9 | `registry.semaphoreci.com/elasticsearch:7.9` |   
+| elasticsearch:7.10 | `registry.semaphoreci.com/elasticsearch:7.10` |   
+| elasticsearch:7.11 | `registry.semaphoreci.com/elasticsearch:7.11` |   
+| elasticsearch:7.12 | `registry.semaphoreci.com/elasticsearch:7.12` |   
 
 ### MongoDB    
 | Image | Link |

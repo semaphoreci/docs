@@ -8,6 +8,23 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 11, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)**  New language version:
+
+- Ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1
+
+**(Improved) macOS Xcode 12 image update**  
+**(Updated)** Updated packages:
+ 
+- Curl 7.64.1 -> 7.71.1
+- Flutter 1.17 -> 2.0.4
+
+**(Updated)** Docker image:
+New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
+A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_04-2021).
+
+
 ### Week of April 5, 2021
 **(Improved) Monorepo support shipped to GA**  
 A new set of improvements focused on monorepo support were shipped:  
