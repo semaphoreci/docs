@@ -46,6 +46,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
+  # Run this block on changes in the web-app folder at the root of the repository
   - name: Test WEB server
     dependencies: []
     run:
@@ -57,6 +58,7 @@ blocks:
             - cd web-app
             - make test
 
+  # Run this block on changes in the ios folder at the root of the repository
   - name: Test iOS client
     dependencies: []
     run:
@@ -72,6 +74,7 @@ blocks:
             - cd ios
             - make test
 
+  # Run this block on changes in the docs folder at the root of the repository
   - name: Test docs page
     dependencies: []
     run:
@@ -83,6 +86,7 @@ blocks:
             - cd docs
             - make test
 
+  # Run this block on changes in web-app or ios folders at the root of the repository
   - name: Integration tests
     dependencies: ["Test WEB server", "Test iOS client"]
     run:
@@ -161,14 +165,17 @@ The resulting YAML for the promotions is:
 
 ```yaml
 promotions:
+  # deploy web app when test pass on master branch and there are changes in the web-app folder
   - name: Deploy Web Server
     pipeline_file: web-prod.yml
     auto_promote:
       when: "branch = 'master' and result = 'passed' and change_in('/web-app/')"
+  # deploy web app when test pass on master branch and there are changes in the ios folder
   - name: Release iOS client
     pipeline_file: ios-prod.yml
     auto_promote:
       when: "branch = 'master' and result = 'passed' and change_in('/ios/')"
+  # deploy web app when test pass on master branch and there are changes in the docs folder
   - name: Publish docs
     pipeline_file: docs-prod.yml
     auto_promote:
