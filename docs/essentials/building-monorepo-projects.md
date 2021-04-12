@@ -35,6 +35,65 @@ components.
 ![Monorepo
 Pipeline](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/pipeline.png)
 
+The YAML for this pipeline is:
+
+```yaml
+version: "v1.0"
+name: Monorepo project
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Test WEB server
+    dependencies: []
+    run:
+      when: "change_in('/web-app/')"
+    task:
+      jobs:
+        - commands:
+            - checkout
+            - cd web-app
+            - make test
+
+  - name: Test iOS client
+    dependencies: []
+    run:
+      when: "change_in('/ios/')"
+    task:
+      agent:
+        machine:
+          type: a1-standard-4
+          os_image: macos-xcode12
+      jobs:
+        - commands:
+            - checkout
+            - cd ios
+            - make test
+
+  - name: Test docs page
+    dependencies: []
+    run:
+      when: "change_in('/docs/')"
+    task:
+      jobs:
+        - commands:
+            - checkout
+            - cd docs
+            - make test
+
+  - name: Integration tests
+    dependencies: ["Test WEB server", "Test iOS client"]
+    run:
+      when: "change_in(['/web-app/', '/ios/'])"
+    task:
+      jobs:
+        - commands:
+            - checkout
+            - make integration-tests
+```
+
 With this setup, we run separate tests for each part of the system and
 integration tests once both web application and iOS client tests pass.
 
@@ -97,6 +156,24 @@ Client](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows
 
 ![Promotion for docs
 pages](https://raw.githubusercontent.com/semaphoreci/docs/tf/monorepo-workflows/public/essentials-monorepo-workflows/promotion-docs.png)
+
+The resulting YAML for the promotions is:
+
+```yaml
+promotions:
+  - name: Deploy Web Server
+    pipeline_file: web-prod.yml
+    auto_promote:
+      when: "branch = 'master' and result = 'passed' and change_in('/web-app/')"
+  - name: Release iOS client
+    pipeline_file: ios-prod.yml
+    auto_promote:
+      when: "branch = 'master' and result = 'passed' and change_in('/ios/')"
+  - name: Publish docs
+    pipeline_file: docs-prod.yml
+    auto_promote:
+      when: "branch = 'master' and result = 'passed' and change_in('/docs/')"
+```
 
 Each part of the system will be automatically deployed when the tests pass on
 the master branch, only if the push that initiated workflow contains changes in
