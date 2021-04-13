@@ -1675,6 +1675,7 @@ pipeline:
 - `branch` - the name of the branch for which pipeline is initiated (empty if it is a tag or pull request)
 - `tag` - the name of the tag for which pipeline is initiated (empty if it is a branch or pull-requests)
 - `pull request` - the number of pull request for which pipeline is initiated (empty if it is a branch or tag)
+- `change_in` - the fact that at least one file has changed in a given path. Used for [monorepo workflows][monorepo-workflows].
 - `result` - the result of pipeline's execution, see possible values below
 - `result_reason` - the reason for specific pipeline execution result, see possible values for each result type below
 
@@ -1712,8 +1713,8 @@ For a `result` value of `failed`, the valid values of `result_reason` are
 
 ### Example of auto\_promote
 
-The following pipeline YAML file presents an example use of `auto_promote` and
-depends on two other pipeline YAML files named `p1.yml` and `p2.yml`:
+The following pipeline YAML file presents two examples using `auto_promote` and
+depends on three other pipeline YAML files named `p1.yml`, `p2.yml`, and `p3.yml`:
 
 ``` yaml
 version: v1.0
@@ -1728,8 +1729,13 @@ promotions:
   pipeline_file: p1.yml
   auto_promote:
     when: "result = 'passed' and (branch = 'master' or tag =~ '^v1\.')"
-- name: Production
+- name: Documentation
   pipeline_file: p2.yml
+  auto_promote:
+    when: "branch = 'master' and change_in('/docs/')"
+- name: Production
+  pipeline_file: p3.yml
+
 
 blocks:
   - name: Block 1
@@ -1751,17 +1757,22 @@ blocks:
             - echo Job 2 - Block 2
 ```
 
-According to the specified rules, only the `Staging` promotion of the `promotions`
-list can be auto promoted – in case condition specified in `when` sub-property of
-`auto_promote` property is fulfilled. However, the `Production` promotion of the
-`promotions` list has no `auto_promote` property so there is no way it can be auto
-promoted.
+According to the specified rules, only the `Staging` and `Documentation` promotions
+can be auto-promoted – when the conditions specified in `when` sub-property of
+`auto_promote` property are fulfilled. However, the `Production` promotion has no
+`auto_promote` property so there is no way it can be auto-promoted.
 
 So, if the pipeline finishes with result `passed` and it was initiated from the
 `master` branch then the `p1.yml` pipeline file will be auto-promoted.
+
 The same will happen if the pipeline was initiated from the tag that has a name
 which matches the expression given in PCRE (*Perl Compatible Regular Expression*)
 syntax, which is, in this case, any string that starts with `v1.`.
+
+As for the `Documentation` promotion, it will be auto-promoted when initiated from
+the `master` branch and there is at least one changed file in the `docs` folder
+(relative to the root of the repository). Check the 
+[change_in reference][change-in-ref] for additional usage details.
 
 The content of `p1.yml` is as follows:
 
@@ -1784,9 +1795,28 @@ blocks:
 
 The content of `p2.yml` is the following:
 
+```yaml
+version: v1.0
+name: Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Update docs
+    task:
+      jobs:
+      - name: make docs
+        commands:
+          - make docs
+```
+
+Finally, the contents of `p3.yml` are:
+
 ``` yaml
 version: v1.0
-name: This is Pipeline 2
+name: This is Pipeline 3
 agent:
   machine:
     type: e1-standard-2
@@ -1802,7 +1832,7 @@ blocks:
           - uname -a
 ```
 
-Both `p1.yml` and `p2.yml` are perfectly correct pipeline YAML files that could
+All the shown files are perfectly correct pipeline YAML files that could
 have been used as `semaphore.yml` files.
 
 ### auto\_promote\_on - DEPRECATED
@@ -2135,3 +2165,5 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [default-priorities]: https://docs.semaphoreci.com/essentials/prioritization/#default-job-priorities
 [pipeline-queues]: https://docs.semaphoreci.com/essentials/pipeline-queues/
 [default-queue-config]: https://docs.semaphoreci.com/essentials/pipeline-queues#default-behaviour
+[monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
+[change-in-ref]: https://docs.semaphoreci.com/reference/conditions-reference/#change_in
