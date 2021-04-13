@@ -150,11 +150,58 @@ promotions:
     auto_promote:
       when: "result = 'passed'"
 ```
+### Change-based continuous deployment
+
+Pipelines can also be promoted on file change. When two or more independent
+projects share a single repository, you may want to trigger different pipelines
+depending on which project was modified in the recent commits. These is a pattern
+typically found in [monorepo workflows][monorepo-workflows]. 
+
+You can define what folders or files you're interested in deploying with `change_in`. 
+Let's say you have an Android and an iOS application in the same repository.
+In this case, each app must be deployed using a different pipeline. The following 
+example shows two promotions:
+
+- The *Android release* pipeline starts automatically when all jobs have passed on the `master` branch, and at least one file has changed in the `android` folder.
+- The *iOS release* pipeline does the same when at least one file has changed in the `ios` folder.
+
+In both cases, paths are relative the the repository's root.
+
+
+``` yaml
+# .semaphore/semaphore.yml
+version: v1.0
+name: Promotions and Auto-promotions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Promotions
+    task:
+      jobs:
+        - name: Everything
+          commands:
+            - echo 'Running tests'
+
+promotions:
+  - name: Android release
+    pipeline_file: android-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'master' and change_in('/android/')"
+  - name: iOS release
+    pipeline_file: ios-deploy.yml
+    auto_promote:
+      when: "result = 'passed' and branch = 'master' and change_in('/ios/')"
+```
+
+Note that `change_in` can also be used to run or skip blocks in the pipeline. 
+For more information, consult the [change_in][change-in-ref] reference page.
 
 Promotions are powerful tools to build up complex multi-pipeline
 workflows. Refer to the [promotions reference][reference] for complete
 information.
-
 ## Next steps
 
 This chapter concludes the guided tour of Semaphore. Hopefully you're now able
@@ -172,3 +219,5 @@ Happy building!
 [pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
 [next]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
+[change-in-ref]: https://docs.semaphoreci.com/reference/conditions-reference/#change_in
