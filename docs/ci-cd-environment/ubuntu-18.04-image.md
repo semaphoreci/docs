@@ -92,6 +92,7 @@ Docker toolset is installed and following versions are available:
 - gcloud
 - kubectl
 - heroku
+- terraform
 
 ### Network utilities
 
