@@ -8,6 +8,26 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 19, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)**  Tools:
+
+- Bazel 4
+- Terraform 0.15.0
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.21.0 -> 2.22.0
+- Aws-cli 1.19.39 -> 1.19.53
+- Chrome 89 -> 90
+- ChromeDriver 89 -> 90
+- Heroku 7.51.0 -> 7.52.0
+- Pypy 7.3.3 -> 7.3.4
+- Pypy3 7.3.3 -> 7.3.4
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+
 ### Week of April 12, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)**  New language version:
