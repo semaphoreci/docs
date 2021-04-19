@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 89
-- Chrome_driver 89
+- Google Chrome 90
+- Chrome_driver 90
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -92,6 +92,7 @@ Docker toolset is installed and following versions are available:
 - gcloud
 - kubectl
 - heroku
+- terraform
 
 ### Network utilities
 
@@ -106,7 +107,7 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.3, 22.3, 23.1, 23.2
+- Erlang: 20.3, 21.3, 22.3, 23.1, 23.2, 23.3
 - Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3
 
 Additional libraries:
@@ -138,6 +139,7 @@ Versions:
 
 - Maven: 3.6.3
 - Gradle: 5.2
+- Bazel 4
 
 ### JavaScript via Node.js
 
@@ -182,8 +184,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.3
-- pypy3: 7.3.3
+- pypy: 7.3.4
+- pypy3: 7.3.4
 - pip: 20.2.4
 - pip3: 19
 - venv: 16.0.0
