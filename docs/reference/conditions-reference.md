@@ -155,6 +155,12 @@ identified with one of the `operators` from above are executed with those values
 
 \* PCRE = Perl Compatible Regular Expression
 
+!!! warning "Keyword usage"
+    The `result` keyword can only be used together with
+    [auto_promotions][auto_promote] but not with `when` conditions since it is
+    redundant and this will lead to unexpected  behavior.
+
+
 ## Functions
 
 The functions allow you to perform more complex checks that are not just direct
