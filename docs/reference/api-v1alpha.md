@@ -522,7 +522,7 @@ curl -i -H "Authorization: Token {api_token}" \
 ### Stop Pipeline
 
 ```
-POST {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
+PATCH {org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
 ```
 
 **Params**
