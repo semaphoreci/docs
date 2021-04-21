@@ -207,6 +207,36 @@ retry -t 5 <command>
 You may find more information about the <code>retry</code> tool <a href="https://docs.semaphoreci.com/reference/toolbox-reference/#retry">here</a>. 
     </p>
 </details>
+<details>
+  <summary id="why-are-tests-passing-locally-but-not-on-semaphore">Why are tests passing locally but not on Semaphore?</summary>
+  <p>
+
+The main reason for this behavior is differences in the stacks. As a first step, ensure the same versions of languages, services, tools and frameworks
+such as Selenium, browser drivers, Capybara, Cypress are used both locally and in the CI environment.
+To achieve this make use of <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">sem-service</a>
+, <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/">sem-version</a> and also the operating systems' package manager.
+Environment variables can also lead to unexpected behaviors, for instance, Semaphore 2.0 will set <code>CI=true</code> by default.
+
+  </p>
+
+<p>
+If you are using Docker containers when performing the tests, in some cases it's possible that while the command itself runs instantly
+the process will not be completely started, leading to certain endpoints not being available. Using <code>sleep 10</code> or a larger value
+can help in this scenario.
+Cypress has the <a href="https://docs.cypress.io/guides/continuous-integration/introduction.html#Boot-your-server">wait-on module</a> that provides a similar functionality.
+
+</p>
+Finally, when tests have different outcomes between reruns using the same commit or in an <a href="https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/">SSH session</a>
+then this is a case of flaky tests. The following articles should help in this regard:
+<br>
+<a href="https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests">https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests</a>
+<br>
+<a href="https://semaphoreci.com/blog/2017/08/03/tips-on-treating-flakiness-in-your-test-suite.html">https://semaphoreci.com/blog/2017/08/03/tips-on-treating-flakiness-in-your-test-suite.html</a>
+<p>
+
+</p>
+</details>
+
 
 ### Jobs & Workflows
 
