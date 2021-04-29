@@ -8,6 +8,15 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of April 26, 2021
+**(Improved) macOS Xcode 12 image update**  
+**(Updated)** Updated packages:
+ 
+- Homebrew 2.4.3 -> 3.1.4
+- Rbenv can install ruby: 2.6.7, 2.7.3, 3.0.1
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
 ### Week of April 19, 2021
 **(Improved) Ubuntu 18.04 image update**  
 **(New)**  Tools:
