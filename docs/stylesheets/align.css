@@ -1,0 +1,13 @@
+.centered {
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block
+}
+
+.side-by-side {
+    display: flex;
+}
+      
+.side-by-side-column {
+    flex: 50%;
+}

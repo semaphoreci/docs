@@ -18,11 +18,12 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
             <p class="welcome-block-description">Learn the basic concepts</p>
 
             <ul>
-                <li><a href="/guided-tour/creating-your-first-project/">Creating your first project</a></li>
-                <li><a href="/guided-tour/concepts/">Semaphore concepts</a></li>
-                <li><a href="/essentials/modeling-complex-workflows/">Modeling complex workflows</a></li>
-                <li><a href="/essentials/debugging-with-ssh-access/">Debugging with SSH</a></li>
-                <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing between a VM and Docker-based environment</a></li>
+                <li><a href="/guided-tour/getting-started/">Getting started</a></li>
+                <li><a href="/guided-tour/TBD/">Adding GitHub repositories</a></li>
+            
+                <li><a href="/guided-tour/TBD/">Customizing the build environment</a></li>
+                <li><a href="/essentials/TBD/">Troubleshooting pipelines</a></li>
+                <li><a href="/essentials/TBD/">Starting a deployment</a></li>
             </ul>
         </div>
 
@@ -37,6 +38,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
                 <li><a href="/reference/pipeline-yaml-reference/">Pipeline YAML Reference</a></li>
                 <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
                 <li><a href="/reference/semaphore-changelog/">Semaphore Changelog</a></li>
+                <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing between a VM and Docker-based environment</a></li>
             </ul>
         </div>
     </div>
