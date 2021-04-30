@@ -1,69 +1,244 @@
----
-description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features.
----
+# Getting Started with Semaphore
 
-# Getting Started
+## Welcome
 
-Welcome to the guided tour of Semaphore! In this guide we help you get up and
-running with Semaphore and introduce you to its key features. If you're new
-to Semaphore or have limited Semaphore experience, then this is the best place
-to start.
+Welcome to Semaphore 👋 We’re proud to be your [continuous integration](https://semaphoreci.com/continuous-integration) platform. In this guide, we’ll help you get up and running.
 
-## What is Semaphore?
+## Your first project
 
-Semaphore is a cloud-based automation service for building, testing and
-deploying software.
+If you haven’t already, head over to [Semaphore](https://semaphoreci.com) and sign up. Once logged in, you’re ready to try creating your first project.
 
-Developers use Semaphore to implement
-[continuous integration (CI)](https://semaphoreci.com/continuous-integration) and
-continuous delivery (CD) pipelines, which help get software from version
-control right to users in a safe and automated way.
+To start a new project, click on **+ create new** on the top of the page.
 
-Semaphore is built for developer productivity, guided by two principles:
+![Create a new project](./getting-started/create-new.png)
 
-1. **Speed**: Developers must work in a fast feedback loop,
-so CI/CD processes must be fast.
-2. **Ease of use**: CI/CD tool needs to support developers in everything they
-need to build, at any scale, and shouldn't get in the way.
+The next page will show you two ways of setting up a project: <u>start a real project</u> or <u>try a quick experiment</u>. We’ll use the second option. 
 
-Configuration files describe to Semaphore the
-[CI/CD pipelines](https://semaphoreci.com/blog/cicd-pipeline) which need to run
-based on Git repositories. Semaphore executes pipelines on every change in
-code. As the configuration changes, Semaphore is able to determine what changed
-and adapt the workflow accordingly.
+Scroll down to see a list of ready-made examples and select **Ruby (Rails)**.
 
-In the background, Semaphore manages the hardware resources needed to run
-CI/CD jobs just-in-time. It also maintains the base software environment in
-which your code runs in secure isolation. With Semaphore, there is no software
-to install or infrastructure to maintain in order to implement continuous
-delivery in your organization.
+![Selecting a fork and run example](./getting-started/fork-and-run.png)
 
-## What sets Semaphore apart?
+Wait a few seconds while Semaphore prepares your fork. You should see the demonstration pipeline starting up soon.
 
-A combination of features make Semaphore a strong fit for teams that optimize
-for getting things done:
+![First run](./getting-started/first-run.png)
 
-- **Pipelines as code**: traditionally associated with tools that require
-costly self-hosting and detailed customization, infinitely configurable CD
-pipelines are now available in an easy to use package.
-- **It's the fastest there is**: Semaphore provides the best out of the box CI/CD
-performance on the market, which means shorter development cycles and faster
-innovation. Moving to Semaphore usually saves hours of precious time per week
-per developer.
-- **There's nothing to maintain**: with no resources to manage, scale and pay
-for separately, developers can focus on building products. Semaphore has a
-track record of providing a reliable CI/CD service since 2012.
-- **No vendor lock-in**: Semaphore is committed to supporting all major code
-hosting and cloud providers, leaving you freedom to choose optimal solutions.
+👍 that’s it. Let’s see how it works.
 
-## Next steps
+## Guided tour
 
-It's time to [create your first project][next] using an example Semaphore
-configuration file. You will be able to see Semaphore in action first before
-customizing it for your use case.
+What you see here is a running *pipeline*. A pipeline describes the steps needed to build, test, release, or deploy your code.
 
-[next]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+![A continuous integration pipeline starting up](./getting-started/first-run.png)
 
-If you want to find out more about the product and participate in a live Q&A
-session with one of Semaphore's co-founders, you can register for
-Semaphore Class. [More info here](https://semaphoreci.com/resources/semaphore-class/).
+The first thing you need to know is that pipelines run from left to right.
+
+![Pipeline flow](./getting-started/pipeline-flow.png)
+
+In Semaphore, everything happens in *jobs*. A job implements all the shell commands needed to achieve a task.
+
+Green ✅ indicates that the job successfully ended, while 🔵 shows that the it is currently running.
+
+![Jobs completed and in-progress](./getting-started/first-run-progress.png)
+
+Some jobs may run in parallel. Here, for instance, we have two simultaneous unit test jobs.
+
+![Unit tests run simultaneously](./getting-started/first-run-parallel.png)
+
+A red ❌ means that the job ended with an error, making the pipeline stop prematurely.
+
+![An error in the pipeline causes it to stop](./getting-started/first-run-error.png)
+
+We will cover a few troubleshooting techniques in another section. By now, the pipeline hopefully is all ✅.
+
+![Pipeline is all green](./getting-started/first-run-complete.png)
+
+### How pipelines work
+
+Pipelines are composed of jobs and *blocks*. A block, by itself, doesn’t do anything, it’s mostly a way of organizing execution flow.
+
+![Blocks and jobs in the pipeline](./getting-started/blocks-vs-jobs.png)
+
+Jobs that share a block run simultaneously. Blocks, on the other hand, run from left to right, one at a time, **following dependency lines**. A block will only start when all the jobs in the previous block end without errors.
+
+![Job execution flow](./getting-started/series-vs-parallel.png)
+
+Internally, pipelines are written in [YAML](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/), a format simple to read for both humans and machines. While it’s possible for you to edit the code directly, you don’t need to — **Semaphore features an easy-to-use visual editor**.
+
+Click on **edit workflow** to try the workflow editor.
+
+![Open the visual editor](./getting-started/edit-workflow.png)
+
+The editor should open with the first block already selected. You can see its configuration on the right pane.
+
+![Setup block](./getting-started/b1.png)
+
+<div class="side-by-side">
+    <div class="side-by-side-column">
+        <p>Viewing the pane from top to bottom, we see:</p>
+        <ol>
+        <li>A descriptive name.</li>
+        <li>A list of dependencies.</li>
+        <li>At least one job.</li>
+        </ol>
+        <p>We’ll talk about the rest of the settings in a bit.</p>
+    </div>
+    <div class="class-by-side-column">
+        <img src="right-pane.png" alt="Job in setup block" />
+    </div>
+</div>
+
+### Building your application
+
+The goal of the first block is to download the Ruby gems (dependencies). Here is the job in focus:
+
+``` bash
+sem-version ruby 2.7.3
+sem-version node 14.16.1
+checkout
+cache restore
+bundle install
+cache store
+```
+
+The commands we want to show you next are `sem-version`, `checkout`, and `cache`.
+
+**Use sem-version to select language version**
+
+It’s essential to use the same programming language version across all platforms. Semaphore provides native support for several [languages](https://docs.semaphoreci.com/programming-languages/android/). In order to activate a specific version for a language, you should use the built-in [sem-version](https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/).
+
+This tool takes two arguments:
+
+-   Language name.
+-   Version string.
+
+``` bash
+sem-version LANGUAGE_NAME VERSION_NUMBER
+```
+
+For instance, this is how we select JavaScript and Ruby versions in the job:
+
+``` bash
+sem-version ruby 2.7.3
+sem-version node 14.16.1
+```
+
+**Cloning the repository with checkout**
+
+Every job in Semaphore starts from a blank slate. You won’t find your source code anywhere until you use [checkout](https://docs.semaphoreci.com/reference/toolbox-reference/#checkout). This command clones your repository, allowing you to build, test, and deploy your applications. You’ll find yourself using `checkout` in most of your jobs.
+
+**Using cache to persist files**
+
+As said, every job starts in a fresh filesystem. Files created by one job are not available in another, even if the jobs share a block. The [cache](https://docs.semaphoreci.com/reference/toolbox-reference/#cache) is one of the ways that Semaphore provides to pass files around, between jobs and pipelines.
+
+The `cache` script has quite a bit of magic inside. After executing `cache store`, it will detect the layout of your project and automatically save dependencies found in well-known folders like `node_modules`, `bundle/vendor`, or `vendor`. To restore these files, simply call `cache restore`.
+
+One of the most common patterns for making pipelines run fast “restore -&gt; install -&gt; store.” Take a look at how this job manages Ruby gems:
+
+``` bash
+cache restore
+bundle install
+cache store
+```
+
+The first command restores the gems from the cache. At first, the cache space is empty, so in the initial run, nothing happens.
+
+The second command, `bundle install`, causes [Bundler](https://bundler.io/), Ruby’s package manager, to download and install the gems in the `vendor/bundle` folder.
+
+Finally, `cache store` saves the downloaded gems. On successive runs, the gems will be directly restored from the cache.
+
+If `cache` doesn't support or detect your project layout, you can always supply the paths you want to save and restore. For additional details, check the [reference page](https://docs.semaphoreci.com/reference/toolbox-reference/#cache).
+
+### Analyzing your code
+
+Blocks may have dependencies. A dependency means that a block will not start until all the other blocks listed as dependencies finished running. The second block, for instance, depends on the first one.
+
+![Code scanning depends on the setup block](./getting-started/dependencies.png)
+
+The code scanning block shows an example of how you can use Semaphore to test and analyze your applications. This block runs some static checks on the code to evaluate its quality, catching many bugs and errors before they can do any harm. 
+
+The job in this block repeats the same commands we've seen with two additions:
+
+- **rubocop** is a static code analyser and formatter.
+- **brakeman** is a free vulnerability scanner designed for Ruby on Rails applications.
+
+Semaphore will capture the return status of every command in the job to determine if it succeeded or failed.
+
+![Static analysis block](./getting-started/b2.png)
+
+### Testing with unit tests
+
+The third block, called Unit tests, runs two jobs using [RSpec](https://rspec.info/), Ruby’s behavior-driven development (BDD) tool.
+
+One job runs unit tests on the Rails models and the other on the Rails controllers.
+
+![Unit tests block](./getting-started/b3.png)
+
+Scrolling down past the jobs, you will find the *prologue* and the *epilogue*, valuable for implementing shared setup and clean-up commands. The commands in the prologue are executed **before** all the jobs in the block. And those in the epilogue run **after** the jobs.
+
+![Prologue in the third block](./getting-started/b3-prologue.png)
+
+Opening the prologue reveals a new built-in script: [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/). This nifty tool lets you start or stop databases and other popular services. It takes two mandatory arguments:
+
+-   **action**: can be `start`, `stop`, or `status`.
+-   **service name**: the system to start, for instance, `postgres`.
+
+Here’s how we use `sem-service` to start a blank PostgreSQL database in background:
+
+``` bash
+sem-service start postgres
+```
+
+### Adding jobs
+
+<div class="side-by-side">
+    <div class="side-by-side-column">
+        <p>You can use the workflow editor to add, change, or remove jobs and blocks. Let’s try adding a unit testing job.</p>
+
+        <p>In the jobs section of the third block, press:</p>
+        <p><u>+ Add another job</u></p>
+
+        <p>Then, add the following line, which runs the tests cases the features folder. The test will run after the commands in the prologue.</p>
+
+        <div class="codehilite">
+        <pre><code>bundle exec rspec spec/features</code></pre>
+        </div>
+
+        <p>The block should now have three unit test jobs.</p>
+    </div>
+    <div class="side-by-side-column">
+        <img src="feature-tests.png" alt="The new unit test"/>
+    </div>
+</div>
+
+### Performing integration testing
+
+The last block runs the integration tests. It combines everything you’ve learned so far:
+
+- A prologue. 
+- `sem-version` to switch between language versions. 
+- `checkout` to clone the repository.
+- `sem-service` to start a test database.
+
+![Integration tests](./getting-started/b4.png)
+
+### Saving the pipeline
+
+To save the changes you did to the pipeline, click on **run the workflow** on the top right corner of the page. You’ll see a confirmation window. Here, you can change the commit message and the Git branch where the new pipeline will be installed.
+
+![Run the workflow to save changes](./getting-started/run-workflow.png)
+
+The updated pipeline should start up immediately.
+
+![Final pipeline](./getting-started/ci-final.png)
+
+Congrats 🚀 You’ve completed your first steps using Semaphore.
+
+## Next Steps
+
+Now that you know how pipelines are made and how to edit them, you're ready to take the next steps. The following sections will show:
+
+-   How to create a project using any repository in GitHub.
+-   How to customize your build environment.
+-   How to troubleshoot pipelines.
+-   How to perform a deployment.
+-   Where to find more documentation.
