@@ -10,17 +10,17 @@ If you haven’t already, head over to [Semaphore](https://semaphoreci.com) and 
 
 To start a new project, click on **+ create new** on the top of the page.
 
-<img src="./create-new.png" alt="Create a new project" style="width:90%"/>
+![Create a new project](./getting-started/create-new.png)
 
 The next page will show you two ways of setting up a project: <u>start a real project</u> or <u>try a quick experiment</u>. We’ll use the second option. 
 
 Scroll down to see a list of ready-made examples and select **Ruby (Rails)**.
 
-<img src="./fork-and-run.png" alt="Selecting a fork and run example" style="width:90%"/>
+![Selecting a fork and run example](./getting-started/fork-and-run.png)
 
 Wait a few seconds while Semaphore prepares your fork. You should see the demonstration pipeline starting up soon.
 
-<img src="./first-run.png" alt="First run" />
+![First run](./getting-started/first-run.png)
 
 👍 that’s it. Let’s see how it works.
 
@@ -28,49 +28,49 @@ Wait a few seconds while Semaphore prepares your fork. You should see the demons
 
 What you see here is a running *pipeline*. A pipeline describes the steps needed to build, test, release, or deploy your code.
 
-<img src="./first-run.png" alt="A continuous integration pipeline starting up" />
+![A continuous integration pipeline starting up](./getting-started/first-run.png)
 
 The first thing you need to know is that pipelines run from left to right.
 
-<img src="./pipeline-flow.png" alt="Pipeline flow" />
+![Pipeline flow](./getting-started/pipeline-flow.png)
 
 In Semaphore, everything happens in *jobs*. A job implements all the shell commands needed to achieve a task.
 
 Green ✅ indicates that the job successfully ended, while 🔵 shows that the it is currently running.
 
-<img src="./first-run-progress.png" alt="Jobs completed and in-progress" />
+![Jobs completed and in-progress](./getting-started/first-run-progress.png)
 
 Some jobs may run in parallel. Here, for instance, we have two simultaneous unit test jobs.
 
-<img src="./first-run-parallel.png" alt="Unit tests run simultaneously" />
+![Unit tests run simultaneously](./getting-started/first-run-parallel.png)
 
 A red ❌ means that the job ended with an error, making the pipeline stop prematurely.
 
-<img src="./first-run-error.png" alt="An error in the pipeline causes it to stop" />
+![An error in the pipeline causes it to stop](./getting-started/first-run-error.png)
 
 We will cover a few troubleshooting techniques in another section. By now, the pipeline hopefully is all ✅.
 
-<img src="./first-run-complete.png" alt="Pipeline is all green" />
+![Pipeline is all green](./getting-started/first-run-complete.png)
 
 ### How pipelines work
 
 Pipelines are composed of jobs and *blocks*. A block, by itself, doesn’t do anything, it’s mostly a way of organizing execution flow.
 
-<img src="./blocks-vs-jobs.png" alt="Blocks and jobs in the pipeline" />
+![Blocks and jobs in the pipeline](./getting-started/blocks-vs-jobs.png)
 
 Jobs that share a block run simultaneously. Blocks, on the other hand, run from left to right, one at a time, **following dependency lines**. A block will only start when all the jobs in the previous block end without errors.
 
-<img src="./series-vs-parallel.png" alt="Job execution flow" />
+![Job execution flow](./getting-started/series-vs-parallel.png)
 
 Internally, pipelines are written in [YAML](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/), a format simple to read for both humans and machines. While it’s possible for you to edit the code directly, you don’t need to — **Semaphore features an easy-to-use visual editor**.
 
 Click on **edit workflow** to try the workflow editor.
 
-<img src="./edit-workflow.png" alt="Open the visual editor" />
+![Open the visual editor](./getting-started/edit-workflow.png)
 
 The editor should open with the first block already selected. You can see its configuration on the right pane.
 
-<img src="./b1.png" alt="Setup block" />
+![Setup block](./getting-started/b1.png)
 
 <div class="side-by-side">
     <div class="side-by-side-column">
@@ -83,7 +83,7 @@ The editor should open with the first block already selected. You can see its co
         <p>We’ll talk about the rest of the settings in a bit.</p>
     </div>
     <div class="class-by-side-column">
-        <img src="./right-pane.png" alt="Job in setup block" style="width:95%"/>
+        <img src="right-pane.png" alt="Job in setup block" />
     </div>
 </div>
 
@@ -152,7 +152,7 @@ If `cache` doesn't support or detect your project layout, you can always supply 
 
 Blocks may have dependencies. A dependency means that a block will not start until all the other blocks listed as dependencies finished running. The second block, for instance, depends on the first one.
 
-<img src="./dependencies.png" alt="Code scanning depends on the setup block" />
+![Code scanning depends on the setup block](./getting-started/dependencies.png)
 
 The code scanning block shows an example of how you can use Semaphore to test and analyze your applications. This block runs some static checks on the code to evaluate its quality, catching many bugs and errors before they can do any harm. 
 
@@ -163,7 +163,7 @@ The job in this block repeats the same commands we've seen with two additions:
 
 Semaphore will capture the return status of every command in the job to determine if it succeeded or failed.
 
-<img src="./b2.png" alt="Static analysis block" />
+![Static analysis block](./getting-started/b2.png)
 
 ### Testing with unit tests
 
@@ -171,11 +171,11 @@ The third block, called Unit tests, runs two jobs using [RSpec](https://rspec.in
 
 One job runs unit tests on the Rails models and the other on the Rails controllers.
 
-<img src="./b3.png" alt="Unit tests block" />
+![Unit tests block](./getting-started/b3.png)
 
 Scrolling down past the jobs, you will find the *prologue* and the *epilogue*, valuable for implementing shared setup and clean-up commands. The commands in the prologue are executed **before** all the jobs in the block. And those in the epilogue run **after** the jobs.
 
-<img src="./b3-prologue.png" alt="Prologue in the third block" />
+![Prologue in the third block](./getting-started/b3-prologue.png)
 
 Opening the prologue reveals a new built-in script: [sem-service](https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/). This nifty tool lets you start or stop databases and other popular services. It takes two mandatory arguments:
 
@@ -192,7 +192,6 @@ sem-service start postgres
 
 <div class="side-by-side">
     <div class="side-by-side-column">
-
         <p>You can use the workflow editor to add, change, or remove jobs and blocks. Let’s try adding a unit testing job.</p>
 
         <p>In the jobs section of the third block, press:</p>
@@ -207,7 +206,7 @@ sem-service start postgres
         <p>The block should now have three unit test jobs.</p>
     </div>
     <div class="side-by-side-column">
-        <img src="./feature-tests.png" alt="The new unit test" style="width:95%" />
+        <img src="feature-tests.png" alt="The new unit test"/>
     </div>
 </div>
 
@@ -220,17 +219,17 @@ The last block runs the integration tests. It combines everything you’ve learn
 - `checkout` to clone the repository.
 - `sem-service` to start a test database.
 
-<img src="./b4.png" alt="Integration tests" />
+![Integration tests](./getting-started/b4.png)
 
 ### Saving the pipeline
 
 To save the changes you did to the pipeline, click on **run the workflow** on the top right corner of the page. You’ll see a confirmation window. Here, you can change the commit message and the Git branch where the new pipeline will be installed.
 
-<img src="./run-workflow.png" alt="Run the workflow to save changes" />
+![Run the workflow to save changes](./getting-started/run-workflow.png)
 
 The updated pipeline should start up immediately.
 
-<img src="./ci-final.png" alt="Final pipeline" />
+![Final pipeline](./getting-started/ci-final.png)
 
 Congrats 🚀 You’ve completed your first steps using Semaphore.
 
