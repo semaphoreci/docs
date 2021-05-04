@@ -237,6 +237,39 @@ then this is a case of flaky tests. The following articles should help in this r
 </p>
 </details>
 
+<details>
+  <summary id="how-can-i-insert-multiline-commands">How can I insert multiline commands?</summary>
+    <p>
+You can divide a command in several lines by writing the line in the folded 
+style <code>></code> and by stripping the line break in the yaml file
+<code>-</code>. To do this, we can start the command with line containing only
+<code>>-</code> and write the command in more lines below it:
+```bash
+commands:
+  - >-
+    if [ "foo" = "foo" ];
+    then commands...;
+    else commands...;
+    fi;
+```
+
+    </p>
+    <p>
+Block Style Indicator: The block style indicates how new lines inside the block 
+should behave. If you want to keep them as new lines, use the literal style, 
+indicated by a pipe <code>|</code>. If instead you want them to be replaced by 
+spaces, use the folded style, indicated by a right angle bracket <code>></code>.
+    </p>
+    <p>
+Block Chomping Indicator: The chomping indicator controls what should happen 
+with new lines at the end of the string. The default, clip, puts a single new 
+line at the end of the string. To remove all new lines, strip them by putting a 
+minus sign <code>-</code> after the style indicator. Both clip and strip ignore how many new 
+lines are actually at the end of the block; to keep them all put a plus sign <code>+</code>
+after the style indicator.
+    </p>
+
+</details>
 
 ### Jobs & Workflows
 
