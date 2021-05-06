@@ -48,11 +48,12 @@ nav:
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
     - Working with repositories:
-      - Adding a GitHub repo: guided-tour/TBD.md
-    - Peeking under the hood:
-      - Customizing the environment: guided-tour/TBD.md
-      - Troubleshooting pipelines: guided-tour/TBD.md
-    - Starting a deployment: guided-tour/TBD.md
+      - Adding a GitHub repo: guided-tour/adding-a-github-repo.md
+    - The build environment:
+      - Choosing a build machine: guided-tour/choosing-a-machine.md
+      - Tailoring the environment: guided-tour/tailoring-the-environment.md
+      - Troubleshooting the build: guided-tour/troubleshooting-the-build.md
+    - Configuring deployments: guided-tour/configuring-deployments.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md

@@ -12,7 +12,7 @@ To start a new project, click on **+ create new** on the top of the page.
 
 ![Create a new project](./getting-started/create-new.png)
 
-The next page will show you two ways of setting up a project: <u>start a real project</u> or <u>try a quick experiment</u>. We’ll use the second option. 
+The next page will show you two ways of setting up a project: <u>start a real project</u> or <u>try a quick experiment</u>. We’ll use the second option.
 
 Scroll down to see a list of ready-made examples and select **Ruby (Rails)**.
 
@@ -154,7 +154,7 @@ Blocks may have dependencies. A dependency means that a block will not start unt
 
 ![Code scanning depends on the setup block](./getting-started/dependencies.png)
 
-The code scanning block shows an example of how you can use Semaphore to test and analyze your applications. This block runs some static checks on the code to evaluate its quality, catching many bugs and errors before they can do any harm. 
+The code scanning block shows an example of how you can use Semaphore to test and analyze your applications. This block runs some static checks on the code to evaluate its quality, catching many bugs and errors before they can do any harm.
 
 The job in this block repeats the same commands we've seen with two additions:
 
@@ -214,8 +214,8 @@ sem-service start postgres
 
 The last block runs the integration tests. It combines everything you’ve learned so far:
 
-- A prologue. 
-- `sem-version` to switch between language versions. 
+- A prologue.
+- `sem-version` to switch between language versions.
 - `checkout` to clone the repository.
 - `sem-service` to start a test database.
 
@@ -231,14 +231,9 @@ The updated pipeline should start up immediately.
 
 ![Final pipeline](./getting-started/ci-final.png)
 
-Congrats 🚀 You’ve completed your first steps using Semaphore.
+Congrats 🚀 You’ve completed your first [build stage](https://semaphoreci.com/blog/build-stage) on Semaphore.
 
 ## Next Steps
 
-Now that you know how pipelines are made and how to edit them, you're ready to take the next steps. The following sections will show:
+Now that you know how pipelines are made and how to edit them, you're ready to take the next steps. The following sections will show to add any [GitHub repository](/guided-tour/adding-a-github-repo/) and [customize the build environment](/guided-tour/choosing-a-machine/).
 
--   How to create a project using any repository in GitHub.
--   How to customize your build environment.
--   How to troubleshoot pipelines.
--   How to perform a deployment.
--   Where to find more documentation.
