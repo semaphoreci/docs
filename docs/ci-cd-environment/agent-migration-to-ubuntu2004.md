@@ -10,21 +10,21 @@ key differences and provide you with a direction to migrate to the Ubuntu 20.04 
 ### You don't have to migrate
 
 We know how much you rely on Semaphore to do your work and don't want to impose
-migration timeline. We do not depricate the Ubuntu 18.04 image.
+migration timeline. We won't deprecate the Ubuntu 18.04 image.
 
 ### Benefits of using the Ubuntu 20.04
 
 Ubuntu 20.04 LTS (Focal Fossa) is the latest lts release for the Ubuntu linux
-server operating system.(At the time of writing.) 
-It has enhanced resource usage and newer kernel, compared to Ubuntu 18.04.
-Will be supported by Canonical until April 2025.
+server operating system. 
+Compared to the previous LTS version, this release has enhanced resource usage and includes a newer kernel.
+Canonical will support Ubuntu 20.04 until April 2025. 
 If you want to read more about Ubuntu 20.04 check out (Ubuntu Blog)[https://ubuntu.com/blog/ubuntu-server-20-04]
 
 ### Ubuntu 20.04 image on Semaphore 2.0
 
 The Ubuntu 20.04 image on Semaphore 2.0 is the successor of the Ubuntu 18.04 image.
-Its preinstalled software stack is reduced to the most recent versions. For the exact list 
-please consult (Ubuntu 20.04)[ubuntu-20.04-image.md]
+Its preinstalled stack includes the most recent versions for many languages and frameworks.
+ For the exact list please consult (Ubuntu 20.04)[ubuntu-20.04-image.md]
 
 We will release the new image gradually. In the first step it will be available for the 
 `e1-standard-2` agent type only, then `e1-standard-4` and lastly `e1-standard-8` 
