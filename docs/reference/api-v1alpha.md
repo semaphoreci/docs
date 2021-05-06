@@ -20,6 +20,7 @@ Every API request and response satisfies the following constraints:
   - Unixtime Epoch time: `"create_time": "1571083003"`
   - Unixtime Epoch time with nanoseconds: `"created_at": {"seconds": 1571063401, "nanos": 559492000}`
   - Custom format: `YYYY-MM-DD HH:MM:SS.ffffffZ` e.g.`"2019-10-14 12:11:47.824128Z"`
+  - All API requests must set a User-Agent to `SemaphoreCI v2.0 Client`.
 
 ### Authentication
 
