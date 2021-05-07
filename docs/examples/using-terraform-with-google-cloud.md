@@ -16,13 +16,6 @@ You can use one of the documented [use cases][use-cases] or
 
 ## Store credentials in secrets
 
-- Store the Terraform Personal Access Token
-
-```bash
-sem create secret terraform-token \
-  -e TERRAFORM_TOKEN=<your-personal-token> 
-```  
-
 - Store the Google Cloud credentials
 
 Assuming that your Google Cloud credentials are stored on your computer in
@@ -62,7 +55,7 @@ The key's randomart image is:
 
 We need to make the private key `id_rsa_semaphore_terraform` available on
 Semaphore, and add the corresponding public key `id_rsa_semaphore_terraform.pub`
-to Google Cloud.
+to the Google Cloud project under `Metadata/SSh keys`
 
 ``` bash
 $ sem create secret terraform-key \
