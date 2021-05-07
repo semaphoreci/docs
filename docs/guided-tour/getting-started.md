@@ -72,8 +72,8 @@ The editor should open with the first block already selected. You can see its co
 
 ![Setup block](./getting-started/b1.png)
 
-<div class="side-by-side">
-    <div class="side-by-side-column">
+<div class="combined">
+    <div class="combined__text">
         <p>Viewing the pane from top to bottom, we see:</p>
         <ol>
         <li>A descriptive name.</li>
@@ -82,9 +82,7 @@ The editor should open with the first block already selected. You can see its co
         </ol>
         <p>We’ll talk about the rest of the settings in a bit.</p>
     </div>
-    <div class="class-by-side-column">
-        <img src="right-pane.png" alt="Job in setup block" />
-    </div>
+    <img class="combined__image" alt="Job in setup block" src="right-pane.png" style="margin-left:30px;"/>
 </div>
 
 ### Building your application
@@ -190,8 +188,8 @@ sem-service start postgres
 
 ### Adding jobs
 
-<div class="side-by-side">
-    <div class="side-by-side-column">
+<div class="combined">
+    <div class="combined__text">
         <p>You can use the workflow editor to add, change, or remove jobs and blocks. Let’s try adding a unit testing job.</p>
 
         <p>In the jobs section of the third block, press:</p>
@@ -205,9 +203,7 @@ sem-service start postgres
 
         <p>The block should now have three unit test jobs.</p>
     </div>
-    <div class="side-by-side-column">
-        <img src="feature-tests.png" alt="The new unit test"/>
-    </div>
+    <img class="combined__image" alt="The new unit test" src="feature-tests.png" style="margin-left:30px;"/>
 </div>
 
 ### Performing integration testing

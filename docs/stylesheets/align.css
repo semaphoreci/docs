@@ -4,18 +4,7 @@
     display: block
 }
 
-.side-by-side {
-    display: flex;
-}
-      
-.side-by-side-column-left {
-    flex: 60%;
-}
-
-.side-by-side-column-right {
-    flex: 40%;
-}
-
+/* combined text + image */
 .combined {
   max-width: 100%;
   display: flex;
