@@ -8,6 +8,23 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 10, 2021
+**(Improved) macOS Xcode 12 image update**  
+**(Updated)** MacOS Catalina upgraded to Big Sur
+
+Updated packages:
+ 
+- Homebrew 3.1.4 -> 3.1.5
+- Flutter 2.0.4 -> 2.0.6
+- Fastlane 2.172.0 -> 2.182.0
+
+New packages: 
+- Xcode 12.5
+
+Deprecated packages:
+- Xcode 12.1
+
+
 ### Week of April 26, 2021
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** Updated packages:
