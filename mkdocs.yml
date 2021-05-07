@@ -26,6 +26,7 @@ theme:
     accent: 'green'
 extra_css:
   - 'stylesheets/extra.css'
+  - 'stylesheets/align.css'
 extra_javascript:
   - 'javascript/extra.js'
 extra:
@@ -46,14 +47,13 @@ nav:
   - Welcome: index.md
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
-    - Creating your first project: guided-tour/creating-your-first-project.md
-    - Concepts: guided-tour/concepts.md
-    - Customizing your pipeline: guided-tour/customizing-your-pipeline.md
-    - Customizing the build environment: guided-tour/customizing-the-build-environment.md
-    - Using databases and services: guided-tour/using-databases-and-services.md
-    - Caching dependencies: guided-tour/caching-dependencies.md
-    - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
-    - Deploying with promotions: guided-tour/deploying-with-promotions.md
+    - Working with repositories:
+      - Adding a GitHub repo: guided-tour/adding-a-github-repo.md
+    - The build environment:
+      - Choosing a build machine: guided-tour/choosing-a-machine.md
+      - Tailoring the environment: guided-tour/tailoring-the-environment.md
+      - Troubleshooting the build: guided-tour/troubleshooting-the-build.md
+    - Configuring deployments: guided-tour/configuring-deployments.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md

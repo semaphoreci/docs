@@ -1,0 +1,19 @@
+.centered {
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block
+}
+
+/* combined text + image */
+.combined {
+  max-width: 100%;
+  display: flex;
+  text-align: justify;
+  &__image {
+    object-fit: contain;
+    align-self: flex-end;
+  }
+  &__text {
+    flex: 1 1 auto;
+  }
+}
