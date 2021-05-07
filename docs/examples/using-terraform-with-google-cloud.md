@@ -80,7 +80,6 @@ blocks:
     task:
       secrets:
         - name: terraform-key
-        - name: terraform-token
         - name: gcp
       jobs:
         - name: 'Init Terraform Gcloud'
