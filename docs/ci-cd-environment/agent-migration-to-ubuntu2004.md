@@ -14,15 +14,15 @@ migration timeline. The Ubuntu 18.04 image will be available too, there are no c
 
 ### Benefits of using the Ubuntu 20.04 image
 
-Ubuntu 20.04 LTS (Focal Fossa) is the latest lts release for the Ubuntu linux
+Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu linux
 server operating system. 
 Compared to the previous LTS version, this release has enhanced resource usage and includes a newer kernel.
 Canonical will support Ubuntu 20.04 until April 2025. 
 If you want to read more about Ubuntu 20.04 check out [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-server-20-04).
 
-### Ubuntu 20.04 image on Semaphore 2.0
+### Ubuntu 20.04 image on Semaphore
 
-The Ubuntu 20.04 image on Semaphore 2.0 is the successor of the Ubuntu 18.04 image.
+The Ubuntu 20.04 image on Semaphore is the successor of the Ubuntu 18.04 image.
 Its preinstalled stack includes the most recent versions for many languages and frameworks. 
 For the exact list please consult [Ubuntu 20.04](ubuntu-20.04-image.md)
 
