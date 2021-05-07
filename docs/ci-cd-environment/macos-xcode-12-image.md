@@ -1,10 +1,10 @@
 ---
-description: The macos-xcode12 is a customized image based on MacOS 10.15.4 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
+description: The macos-xcode12 is a customized image based on MacOS 11.3.1 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
 ---
 
-# macOS Catalina Xcode 12 Image
+# macOS Big Sur Xcode 12 Image
 
-The `macos-xcode12` is a customized image based on [MacOS 10.15.4][catalina-release-notes]
+The `macos-xcode12` is a customized image based on [MacOS 11.3.1][bigsur-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -41,9 +41,9 @@ machine type `a1-standard-4`.
 
 ## System
 
-- ProductVersion: 10.15.4
-- BuildVersion: 19E266
-- Kernel Version: Darwin 19.4.0
+- ProductVersion: 11.3.1
+- BuildVersion: 20E241
+- Kernel Version: Darwin 20.5.0
 
 ## Version control
 
@@ -115,32 +115,21 @@ Installed versions:
 
 ## Flutter
 
-- 2.0.4
+- 2.0.6
 
 ## Xcode
 
 Installed versions:
 
-- 12.1
 - 12.2
 - 12.3
 - 12.4
+- 12.5
 
-The default installed Xcode version is `12.4`.
+The default installed Xcode version is `12.5`.
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 12.3`
 
-
-Xcode 12.1 has the following SDKs preinstalled:
-
-- iphoneos14.1
-- iphonesimulator14.1
-- driverkit.macosx19.0
-- macosx10.15
-- appletvos14.0
-- appletvsimulator14.0
-- watchos7.0
-- watchsimulator7.0
 
 Xcode 12.2 has the following SDKs preinstalled:
 
@@ -175,6 +164,18 @@ Xcode 12.4 has the following SDKs preinstalled:
 - watchos7.2
 - watchsimulator7.2
 
+Xcode 12.5 has the following SDKs preinstalled:
+
+- iphoneos14.1
+- iphonesimulator14.1
+- driverkit.macosx19.0
+- macosx10.15
+- appletvos14.0
+- appletvsimulator14.0
+- watchos7.0
+- watchsimulator7.0
+
+
 ## See Also
 
 - [iOS Continuous Integration guide][ios-guide]
@@ -182,7 +183,7 @@ Xcode 12.4 has the following SDKs preinstalled:
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[catalina-release-notes]: https://developer.apple.com/documentation/macos_release_notes/macos_catalina_10_15_4_release_notes
+[bigsur-release-notes]: https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_3-release-notes
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
