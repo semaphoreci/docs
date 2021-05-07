@@ -166,14 +166,14 @@ Xcode 12.4 has the following SDKs preinstalled:
 
 Xcode 12.5 has the following SDKs preinstalled:
 
-- iphoneos14.1
-- iphonesimulator14.1
-- driverkit.macosx19.0
-- macosx10.15
-- appletvos14.0
-- appletvsimulator14.0
-- watchos7.0
-- watchsimulator7.0
+- iphoneos14.5
+- iphonesimulator14.5
+- driverkit.macosx20.4
+- macosx11.3
+- appletvos14.5
+- appletvsimulator14.5
+- watchos7.4
+- watchsimulator7.4
 
 
 ## See Also
