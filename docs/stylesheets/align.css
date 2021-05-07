@@ -8,6 +8,23 @@
     display: flex;
 }
       
-.side-by-side-column {
-    flex: 50%;
+.side-by-side-column-left {
+    flex: 60%;
+}
+
+.side-by-side-column-right {
+    flex: 40%;
+}
+
+.combined {
+  max-width: 100%;
+  display: flex;
+  text-align: justify;
+  &__image {
+    object-fit: contain;
+    align-self: flex-end;
+  }
+  &__text {
+    flex: 1 1 auto;
+  }
 }
