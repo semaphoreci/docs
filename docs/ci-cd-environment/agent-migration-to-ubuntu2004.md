@@ -26,9 +26,12 @@ The Ubuntu 20.04 image on Semaphore is the successor of the Ubuntu 18.04 image.
 Its preinstalled stack includes the most recent versions for many languages and frameworks. 
 For the exact list please consult [Ubuntu 20.04](ubuntu-20.04-image.md)
 
-We will release the new image gradually. In the first step it will be available for the 
+### Ubuntu 20.04 image rollout on Semaphore
+
+The new image will be released gradually. In the first step it will be available for the 
 `e1-standard-2` agent type only, then `e1-standard-4` and lastly `e1-standard-8` 
-agent types will follow.
+agent types will follow. Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to be up to date 
+regarding the available agent types.
 
 ### Using the Ubuntu 20.04 image
 
