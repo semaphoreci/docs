@@ -51,7 +51,7 @@ nav:
       - Adding a GitHub repo: guided-tour/adding-a-github-repo.md
     - The build environment:
       - Choosing a build machine: guided-tour/choosing-a-machine.md
-      - Tailoring the environment: guided-tour/tailoring-the-environment.md
+      - Customizing the environment: guided-tour/customizing-the-environment.md
       - Troubleshooting the build: guided-tour/troubleshooting-the-build.md
     - Configuring deployments: guided-tour/configuring-deployments.md
     - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
