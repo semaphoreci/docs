@@ -10,7 +10,7 @@ This page is updated on a weekly basis.
 
 ### Week of May 10, 2021
 **(Improved) macOS Xcode 12 image update**  
-**(Updated)** MacOS Catalina upgraded to Big Sur
+**(Updated)** MacOS Catalina upgraded to **Big Sur**
 
 Updated packages:
  
@@ -18,12 +18,11 @@ Updated packages:
 - Flutter 2.0.4 -> 2.0.6
 - Fastlane 2.172.0 -> 2.182.0
 
-New packages: 
-- Xcode 12.5
+**(New)** Xcode 12.5
 
-Deprecated packages:
-- Xcode 12.1
+**(Removed)** Xcode 12.1
 
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
 ### Week of April 26, 2021
 **(Improved) macOS Xcode 12 image update**  
