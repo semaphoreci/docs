@@ -38,7 +38,7 @@ When creating your first Semaphore project select the "GitHub - Legacy" tab. You
 - All public repositories.
 - All public and private repositories.
 
-![OAuth permissions](./images/oauth_permissions.png)
+![OAuth permissions](.images/oauth_permissions.png)
 
 You can always check which access level you gave on [Profile Settings page](https://me.semaphoreci.com/account).
 
@@ -50,7 +50,7 @@ If you gave full access to Semaphore but you only see your personal repositories
 
 Note that Semaphore usually needs some time to sync with any access changes on GitHub. If all the access has been properly given but you still don't see the repository in the list click the "Sync repos" button to force a refresh. Your repository should appear after a few seconds and a page refresh. 
 
-![OAuth Refresh](./images/oauth_refresh.png)
+![OAuth Refresh](.images/oauth_refresh.png)
 
 For more information on how to troubleshoot connections between Semaphore and GitHub via the OAuth app please check our [GitHub OAuth - connection troubleshooting](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/) guide.
 
