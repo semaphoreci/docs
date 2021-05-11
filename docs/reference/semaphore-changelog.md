@@ -9,6 +9,24 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of May 10, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)**  Tools:
+- Helm 3.5.4
+
+Packages:
+- Elixir 11.4
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.22.0 -> 2.23.0
+- Aws-cli 1.19.53 -> 1.19.69
+- Erlang 23.3.0 -> 23.3.2
+- Heroku 7.52.0 -> 7.53.0
+- Java 8u282 -> 8u292
+- Java 11u10 -> 11u11
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** MacOS Catalina upgraded to **Big Sur**
 
