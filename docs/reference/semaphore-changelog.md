@@ -13,7 +13,7 @@ This page is updated on a weekly basis.
 **(New)**  Tools:
 - Helm 3.5.4
 
-Pakcages:
+Packages:
 - Elixir 11.4
 
 **(Updated)** Updated packages:
@@ -24,6 +24,8 @@ Pakcages:
 - Heroku 7.52.0 -> 7.53.0
 - Java 8u282 -> 8u292
 - Java 11u10 -> 11u11
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** MacOS Catalina upgraded to **Big Sur**
