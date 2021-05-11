@@ -10,10 +10,13 @@ This page is updated on a weekly basis.
 
 ### Week of May 10, 2021
 **(Improved) Ubuntu 18.04 image update**  
-**(New)**  Tools:
+
+**(New)** Tools:
+
 - Helm 3.5.4
 
-Packages:
+**(New)** Packages:
+
 - Elixir 11.4
 
 **(Updated)** Updated packages:
