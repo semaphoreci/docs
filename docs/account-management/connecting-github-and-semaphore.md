@@ -30,6 +30,27 @@ Using GitHub App is the advised method of connecting your repositories because o
 Another important difference is that OAuth App creates a webhook on each GitHub repository while GitHub App uses a single webhook per GitHub App installation. 
 This makes webhook troubleshooting a bit harder for GitHub App projects.
 
+### Connecting a repository via GitHub app
+In order to connect the repository via [Semaphore GitHub App](#) three conditions need to be met:
+1. You can view the repository on GitHub with your account
+2. The GitHub App is installed on the GitHub organization/account that repository belongs to
+3. The GitHub App is given access either to All repositories or the one you want to connect.
+
+If the conditions above are not met, you will see the empty repository list when trying to create the project:
+
+![GH App - Empty list](.images/ghapp_zero.png)
+
+To give access to more repositories:
+
+1. Click on the "Give access to more repositories"
+2. Select GitHub account/organization on which you want to install the app
+3. Select "All repositories" or pick individual ones you want to give access to. 
+4. You will be returned to the repository list in Semaphore and repositories should appear. 
+
+You can always edit and update the access permissions of each installed GitHub App. 
+
+**Note: You might not be able to install the GitHub app on the GitHub organisations that you're not the owner of. In such cases you can follow the steps above to request the installation but the repositories will not be available until installation is approved by the owner in GitHub. Once you request the installation, GitHub organization owner will receive the email request for approval.**
+
 ### Connecting a repository via OAuth token (Legacy)
 As of DATE, 2021, this method of connecting the repositories is considered deprecated. Even though it will still be available to organizations created before this date, we advise users to [transfer their projects to the GitHub app](#). Organizations created after this date do not have the option to connect repositories via the OAuth app. 
 
@@ -53,28 +74,6 @@ Note that Semaphore usually needs some time to sync with any access changes on G
 ![OAuth Refresh](.images/oauth_refresh.png)
 
 For more information on how to troubleshoot connections between Semaphore and GitHub via the OAuth app please check our [GitHub OAuth - connection troubleshooting](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/) guide.
-
-### Connecting a repository via GitHub app
-In order to connect the repository via [Semaphore GitHub App](#) three conditions need to be met:
-1. You can view the repository on GitHub with your account
-2. The GitHub App is installed on the GitHub organization/account that repository belongs to
-3. The GitHub App is given access either to All repositories or the one you want to connect.
-
-If the conditions above are not met, you will see the empty repository list when trying to create the project:
-
-![GH App - Empty list](.images/ghapp_zero.png)
-
-To give access to more repositories:
-
-1. Click on the "Give access to more repositories"
-2. Select GitHub account/organization on which you want to install the app
-3. Select "All repositories" or pick individual ones you want to give access to. 
-4. You will be returned to the repository list in Semaphore and repositories should appear. 
-
-You can always edit and update the access permissions of each installed GitHub App. 
-
-**Note: You might not be able to install the GitHub app on the GitHub organisations that you're not the owner of. In such cases you can follow the steps above to request the installation but the repositories will not be available until installation is approved by the owner in GitHub. Once you request the installation, GitHub organization owner will receive the email request for approval.**
-
 
 ### Transferring from OAuth to GitHub app
 You can easily transfer your OAuth projects to GitHub App authorisation by following these instructions:
