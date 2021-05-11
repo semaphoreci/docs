@@ -15,12 +15,10 @@ To view or change the agent, open the workflow editor and click on the pipeline 
 ## Pipeline settings
 
 <div class="combined">
-    <div class="combined__text">
-        <p>The right pane shows the pipeline settings.</p>
-        <p>Pipelines, like blocks and jobs, have descriptive names. Below it, you’ll find the agent configuration.</p>
-        <p>Machines come in different CPU, memory, disk sizes to accomodate different workloads. In many cases, jobs can be speed up by choosing a more powerful machine. For instance, Linux-based VMs come in three capacities.</p>
-    </div>
-    <img class="combined__image" alt="Environment types" src="env-types.png" style="margin-left:30px;"/>
+    <p>The right pane shows the pipeline settings.</p>
+    <p>Pipelines, like blocks and jobs, have descriptive names. Below it, you’ll find the agent configuration.</p>
+    <p>Machines come in different CPU, memory, disk sizes to accomodate different workloads. In many cases, jobs can be speed up by choosing a more powerful machine. For instance, Linux-based VMs come in three capacities.</p>
+    <img alt="Environment types" src="env-types.png" />
 </div>
 
 The **environment type** sets the operating system and hardware for the build machine. There are three types of build environments available:
@@ -32,37 +30,31 @@ The **environment type** sets the operating system and hardware for the build ma
 All machines come with full sudo access to customize the environment however you need.
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Available settings will change depending on the chosen environment type. Here, for example, we’re presented with different OS and hardware combinations for Apple-based machines.</p>
-        <p>To see all available machine combinations, read the <a href="https://docs.semaphoreci.com/ci-cd-environment/machine-types/">machine types reference</a>.<p>
-    </div>
-    <img class="combined__image" alt="Mac settings" src="right-pane2.png" style="margin-left:30px;"/>
+    <p>Available settings will change depending on the chosen environment type. Here, for example, we’re presented with different OS and hardware combinations for Apple-based machines.</p>
+    <p>To see all available machine combinations, read the <a href="https://docs.semaphoreci.com/ci-cd-environment/machine-types/">machine types reference</a>.<p>
+    <img alt="Mac settings" src="right-pane2.png" />
 </div>
 
 ## Docker environments
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Docker-based environments are a bit different. They share the same hardware settings as Linux, but there’s one extra parameter: the container. Here, we can define the name and image where the pipeline jobs will run.</p>
+    <p>Docker-based environments are a bit different. They share the same hardware settings as Linux, but there’s one extra parameter: the container. Here, we can define the name and image where the pipeline jobs will run.</p>
 
-        <p>You may even start several containers at once and link them to build complex composer-like build environments. For more information, consult the <a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/">custom CI environment with Docker</a> page.</p>
-    </div>
-    <img class="combined__image" alt="Docker environment settings" src="right-pane3.png" style="margin-left:30px;"/>
+    <p>You may even start several containers at once and link them to build complex composer-like build environments. For more information, consult the <a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/">custom CI environment with Docker</a> page.</p>
+    <img alt="Docker environment settings" src="right-pane3.png" />
 </div>
 
 ## Global pipeline settings
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Further scrolling down the settings page, we find more ways of customizing it:</p>
-        <ul>
-            <li>Global <strong>prologue</strong> and <strong>epilogue</strong>: define commands to run before and after every job in the pipeline.</li>
-            <li><a href="https://docs.semaphoreci.com/reference/quotas-and-limits/")>Time limit</a>: enforces a time limit to avoid pipelines from running too long, by default 1 hour.</li>
-            <li><a href="https://docs.semaphoreci.com/essentials/fail-fast-stop-running-tests-on-the-first-failure/">Fail fast</a>: tells Semaphore what to do when a job fails.</li>
-            <li><a href="https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/">Auto cancel</a>: defines how Semaphore queues pipeline executions.</li>
-        </ul>
-    </div>
-    <img class="combined__image" alt="Global settings" src="right-pane4.png" style="margin-left:30px;"/>
+    <p>Further scrolling down the settings page, we find more ways of customizing it:</p>
+    <ul>
+        <li>Global <strong>prologue</strong> and <strong>epilogue</strong>: define commands to run before and after every job in the pipeline.</li>
+        <li><a href="https://docs.semaphoreci.com/reference/quotas-and-limits/")>Time limit</a>: enforces a time limit to avoid pipelines from running too long, by default 1 hour.</li>
+        <li><a href="https://docs.semaphoreci.com/essentials/fail-fast-stop-running-tests-on-the-first-failure/">Fail fast</a>: tells Semaphore what to do when a job fails.</li>
+        <li><a href="https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/">Auto cancel</a>: defines how Semaphore queues pipeline executions.</li>
+    </ul>
+    <img alt="Global settings" src="right-pane4.png" />
 </div>
 
 ## Learn more

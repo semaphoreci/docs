@@ -6,14 +6,8 @@
 
 /* combined text + image */
 .combined {
-  max-width: 100%;
-  display: flex;
+  -webkit-columns: 2 300px;
+  -moz-columns: 2 300px;
+  columns: 2 300px;
   text-align: justify;
-  &__image {
-    object-fit: contain;
-    align-self: flex-end;
-  }
-  &__text {
-    flex: 1 1 auto;
-  }
 }

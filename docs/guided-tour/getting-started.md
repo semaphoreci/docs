@@ -73,17 +73,16 @@ The editor should open with the first block already selected. You can see its co
 ![Setup block](./getting-started/b1.png)
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Viewing the pane from top to bottom, we see:</p>
-        <ol>
+    <p>Viewing the pane from top to bottom, we see:</p>
+    <ol>
         <li>A descriptive name.</li>
         <li>A list of dependencies.</li>
         <li>At least one job.</li>
-        </ol>
-        <p>We’ll talk about the rest of the settings in a bit.</p>
-    </div>
-    <img class="combined__image" alt="Job in setup block" src="right-pane.png" style="margin-left:30px;"/>
+    </ol>
+    <img alt="Job in setup block" src="right-pane.png"/>
 </div>
+
+We’ll talk about the rest of the settings in a bit.
 
 ### Building your application
 
@@ -189,21 +188,19 @@ sem-service start postgres
 ### Adding jobs
 
 <div class="combined">
-    <div class="combined__text">
-        <p>You can use the workflow editor to add, change, or remove jobs and blocks. Let’s try adding a unit testing job.</p>
+    <p>You can use the workflow editor to add, change, or remove jobs and blocks. Let’s try adding a unit testing job.</p>
 
-        <p>In the jobs section of the third block, press:</p>
-        <p><u>+ Add another job</u></p>
+    <p>In the jobs section of the third block, press:</p>
+    <p><u>+ Add another job</u></p>
 
-        <p>Then, add the following line, which runs the tests cases the features folder. The test will run after the commands in the prologue.</p>
+    <p>Then, add the following line, which runs the tests cases the features folder. The test will run after the commands in the prologue.</p>
 
-        <div class="codehilite">
-        <pre><code>bundle exec rspec spec/features</code></pre>
-        </div>
-
-        <p>The block should now have three unit test jobs.</p>
+    <div class="codehilite">
+    <pre><code>bundle exec rspec spec/features</code></pre>
     </div>
-    <img class="combined__image" alt="The new unit test" src="feature-tests.png" style="margin-left:30px;"/>
+
+    <p>The block should now have three unit test jobs.</p>
+    <img alt="The new unit test" src="feature-tests.png" />
 </div>
 
 ### Performing integration testing

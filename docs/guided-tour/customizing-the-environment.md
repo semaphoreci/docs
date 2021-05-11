@@ -7,10 +7,8 @@ Blocks have some settings we have not seen in [getting started](/getting-started
 ## Environment Variables
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Environment variables are essential for defining the build environment. Variables are set before any commands are executed.</p>
-    </div>
-    <img class="combined__image" alt="Environment variables" src="env-vars.png" style="margin-left:30px;"/>
+    <p>Environment variables are essential for defining the build environment. Variables are set before any commands are executed.</p>
+    <img alt="Environment variables" src="env-vars.png" />
 </div>
 
 ## Parallelism
@@ -32,10 +30,8 @@ Selecting **multiple instances based on a matrix** inside the parallelism sectio
 ## Secrets
 
 <div class="combined">
-    <div class="combined__text">
-        <p>Secrets,like environment variables, import files or variables into jobs before any command is executed. They are used for securely injecting sensitive data such as passwords or API keys.</p>
-    </div>
-    <img class="combined__image" alt="Secrets to activate" src="secrets-example.png" style="margin-left:30px;"/>
+    <p>Secrets,like environment variables, import files or variables into jobs before any command is executed. They are used for securely injecting sensitive data such as passwords or API keys.</p>
+    <img alt="Secrets to activate" src="secrets-example.png" />
 </div>
 
 The main difference is that they are defined in a central per-organization location. And once created, they cannot be viewed. To learn how create secrets, read [using secrets](https://docs.semaphoreci.com/essentials/using-secrets/).
@@ -43,19 +39,15 @@ The main difference is that they are defined in a central per-organization locat
 ## Skip/Run conditions
 
 <div class="combined">
-    <div class="combined__text">
-        <p>The skip/run conditions let us choose the criteria to execute or skip a block. These settings can be used to set <a href="https://docs.semaphoreci.com/essentials/building-monorepo-projects/">monorepo pipelines</a>. For more information, consult the <a href="https://docs.semaphoreci.com/reference/conditions-reference">conditions reference</a>.</p>
-    </div>
-    <img class="combined__image" alt="Run conditions" src="conditions.png" style="margin-left:30px;"/>
+    <p>The skip/run conditions let us choose the criteria to execute or skip a block. These settings can be used to set <a href="https://docs.semaphoreci.com/essentials/building-monorepo-projects/">monorepo pipelines</a>. For more information, consult the <a href="https://docs.semaphoreci.com/reference/conditions-reference">conditions reference</a>.</p>
+    <img alt="Run conditions" src="conditions.png"/>
 </div>
 
 ## Overriding the agent
 
 <div class="combined">
-    <div class="combined__text">
-        <p>As we’ve seen on the <a href="/choosing-a-machine/">previous page</a>, all jobs run on the machine type defined at pipeline level. But this setting lets you override the global pipeline machine type and operating system.</p>
-    </div>
-    <img class="combined__image" alt="Override pipeline agent" src="override.png" style="margin-left:30px;"/>
+    <p>As we’ve seen on the <a href="/choosing-a-machine/">previous page</a>, all jobs run on the machine type defined at pipeline level. But this setting lets you override the global pipeline machine type and operating system.</p>
+    <img alt="Override pipeline agent" src="override.png" />
 </div>
 
 ## Learn more
