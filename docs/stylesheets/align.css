@@ -1,0 +1,13 @@
+.centered {
+    margin-left: auto; 
+    margin-right: auto; 
+    display: block
+}
+
+/* combined text + image */
+.combined {
+  -webkit-columns: 2 300px;
+  -moz-columns: 2 300px;
+  columns: 2 300px;
+  text-align: justify;
+}
