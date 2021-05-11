@@ -93,6 +93,7 @@ Docker toolset is installed and following versions are available:
 - kubectl
 - heroku
 - terraform
+- helm
 
 ### Network utilities
 
@@ -108,7 +109,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.3, 23.1, 23.2, 23.3
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4
 
 Additional libraries:
 
@@ -127,10 +128,11 @@ Versions:
 - 1.14.13
 - 1.15.2
 - 1.15.6
+- 1.16.3
 
 ### Java and JVM languages
 
-- Java: 8u282, 11.0.10
+- Java: 8u292, 11.0.11
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -147,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v10.15.3 (set as default, with alias 10.15)
+- v14.16.1 (set as default, with alias 14.16)
 
 #### Additional tools
 
@@ -162,8 +164,8 @@ Installed versions:
 - 7.1.33
 - 7.2.33
 - 7.3.26
-- 7.4.14
-- 8.0.1
+- 7.4.18
+- 8.0.5
 
 The default installed PHP version is `7.2.33`.
 
@@ -202,10 +204,10 @@ Available versions:
 - 2.2.0 to 2.2.10
 - 2.3.0 to 2.3.8
 - 2.4.0 to 2.4.10
-- 2.5.0 to 2.5.8
-- 2.6.0 to 2.6.6
-- 2.7.0 to 2.7.2
-- 3.0.0
+- 2.5.0 to 2.5.9
+- 2.6.0 to 2.6.7
+- 2.7.0 to 2.7.3
+- 3.0.0 to 3.0.1
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
