@@ -271,7 +271,7 @@ blocks:
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
 [cache]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
