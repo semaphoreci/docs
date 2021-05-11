@@ -12,7 +12,7 @@ Semaphore will require read access for your GitHub email address in order to sig
 Once you sign up, there are two different ways to give access to your repositories - the OAuth app or the GitHub App.
 
 ### OAuth App vs. GitHub App
-Originally Semaphore interacted with GitHub via the OAuth app. On May 26th, 2021 GitHub App was introduced as a new way to connect Semaphore and GitHub. 
+Originally Semaphore interacted with GitHub via the OAuth app. On DATE, 2021 GitHub App was introduced as a new way to connect Semaphore and GitHub. 
 
 **All organizations created before this date will have both OAuth and GitHub app available and can choose between these two ways to connect their repositories. All organizations created after this date have only GitHub App available as the method of connecting GitHub repositories.**
 
@@ -31,7 +31,7 @@ Another important difference is that OAuth App creates a webhook on each GitHub 
 This makes webhook troubleshooting a bit harder for GitHub App projects.
 
 ### Connecting a repository via OAuth token (Legacy)
-As of May 26th, 2021, this method of connecting the repositories is considered deprecated. Even though it will still be available to organizations created before this date, we advise users to [transfer their projects to the GitHub app](#). Organizations created after this date do not have the option to connect repositories via the OAuth app. 
+As of DATE, 2021, this method of connecting the repositories is considered deprecated. Even though it will still be available to organizations created before this date, we advise users to [transfer their projects to the GitHub app](#). Organizations created after this date do not have the option to connect repositories via the OAuth app. 
 
 When creating your first Semaphore project select the "GitHub - Legacy" tab. You can give Semaphore access to:
 
