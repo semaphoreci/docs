@@ -9,12 +9,9 @@ your usage according to your team's needs.
 
 ## Trial Period
 
-The trial period lasts for 14 days, during which you can use
+The trial period lasts for 14 days. During the trial period, you can use
 [the default machine quota](https://docs.semaphoreci.com/reference/quotas-and-limits/)
-with a verified trial account completely free of charge. To verify your trial account, 
-contact us at [support@semaphoreci.com](mailto:support@semaphoreci.com). 
-Unverified trial users can run a maximum of 5 parallel jobs.
-
+completely free of charge. 
 
 Of course, you can easily scale up if you need a bigger capacity by going to
 **Billing > Request a quota increase** or by reaching
