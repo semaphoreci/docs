@@ -162,7 +162,7 @@ blocks:
           - heroku ps:restart
 ```
 
-**Note**: change the value of `HEROKU_REMOTE` to match your application's
+**Note**: change the value of `HEROKU_APP_NAME` to match your application's
 name as it is registered on Heroku.
 
 **Note**: For deploying to Heroku, it is required that you use `checkout` with
