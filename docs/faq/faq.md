@@ -395,6 +395,60 @@ If the configuration is correct, check if the pull request can be merged, or if 
 Semaphore uses the merge commit to run the workflows and there is no merge commit if there is a conflict on the pull request.<br>
   </p>
 </details>
+<details>
+  <summary id="how-can-i-use-different-machines-in-the-same-pipeline">How can I use different machines in the same pipeline?</summary>
+  <p>
+In certain scenarios it's advantageous to use different machine types for certain jobs in a pipeline. 
+For instance, some operations require less resources and it would be wasteful to use a bigger machine 
+or a test suite has to run in multiple environments.
+  </p>
+  <p>
+Semaphore 2.0 provides the <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task">agent in task feature</a> that allows
+mixing and matching of various machine types and even 
+<a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#using-a-docker-container-as-your-pipelines-cicd-environment">Docker based CI/CD</a>:
+<br>
+```yml
+version: v1.0
+name: Tests
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'MacOS tests'
+    task:
+      agent:
+        machine:
+          type: a1-standard-4
+          os_image: macos-xcode12
+      jobs:
+        - name: 'MacOS test'
+          commands:
+            - echo 'Testing MacOS'
+
+  - name: Docker tests
+    task:
+      agent:
+        machine:
+          type: e1-standard-4
+        containers:
+          - name: main
+            image: 'registry.semaphoreci.com/ruby:2.6'
+      jobs:
+        - name: Docker test
+          commands:
+            - echo 'Testing Docker'
+  - name: Ubuntu tests
+    task:
+      jobs:
+        - name: Ubuntu test
+          commands:
+            - echo 'Testing Ubuntu'
+```
+  </p>
+</details>
+
+
 
 ### Billing
 
