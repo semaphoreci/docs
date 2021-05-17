@@ -63,6 +63,48 @@ $ sem create secret terraform-key \
 Secret 'terraform-key' created.
 ```
 
+## Define the Terraform configuration file
+
+```tf
+provider "google" {
+ credentials = file("~/.ssh/gcp.json")
+ project     = "example-project"
+ region      = "us-west1"
+}
+// Terraform plugin for creating random ids
+resource "random_id" "instance_id" {
+ byte_length = 8
+}
+
+// A single Compute Engine instance
+resource "google_compute_instance" "default" {
+ name         = "terraformvm-${random_id.instance_id.hex}"
+ machine_type = "f1-micro"
+ zone         = "us-west1-a"
+metadata = {
+   ssh-keys = "terraform:${file("~/.ssh/id_rsa_semaphore_terraform")}"
+ }
+ boot_disk {
+   initialize_params {
+     image = "debian-cloud/debian-9"
+   }
+ }
+
+// Make sure flask is installed on all new instances for later steps
+ metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq nginx"
+
+ network_interface {
+   network = "default"
+
+   access_config {
+     // Include this section to give the VM an external ip address
+   }
+ }
+}
+output "ip" {
+ value = google_compute_instance.default.network_interface.0.access_config.0.nat_ip
+}
+```
 
 ## Define the pipeline
 
@@ -85,7 +127,7 @@ blocks:
         - name: 'Init Terraform Gcloud'
           commands:
             - checkout
-            - chmod 0600 ~/.ssh/id_rsa.local
+            - chmod 0600 ~/.ssh/id_rsa_semaphore_terraform
             - cd gcloud
             - terraform init
             - terraform plan
@@ -96,7 +138,7 @@ blocks:
 ### Verify it works
 
 Push a new commit on any branch and open Semaphore to watch a new workflow run.
-If all goes well you'll see a `Passed` box next to your pipeline indicating
+If all goes well you'll see a `Passed` green box next to your pipeline indicating
 the workflow finished successfully.
 
 ### Next steps
