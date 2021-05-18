@@ -100,6 +100,11 @@ possible and jump-start your own projects.
        <td><a href="https://docs.semaphoreci.com/examples/change-based-execution-for-monorepos/">Go, Ruby, Elixir</a></td>
        <td><a href="https://github.com/semaphoreci-demos/semaphore-demo-monorepo">semaphore-demo-monorepo</a></td>
      </tr>
+     <tr>
+       <td><a href="https://docs.semaphoreci.com/examples/using-terraform-with-google-cloud/">Terraform</a></td>
+       <td></td>
+       <td></td>
+     </tr>
   </tbody>
 </table>
 
