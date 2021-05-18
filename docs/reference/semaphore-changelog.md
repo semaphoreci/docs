@@ -8,6 +8,19 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 17, 2021
+**(Improved) Ubuntu 18.04 image update**  
+
+**(New)** Packages:
+
+- Erlang 24.0
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.69 -> 1.19.74
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 10, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
