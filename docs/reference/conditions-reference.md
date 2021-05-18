@@ -156,9 +156,10 @@ identified with one of the `operators` from above are executed with those values
 \* PCRE = Perl Compatible Regular Expression
 
 !!! warning "Keyword usage"
-    The `result` keyword can only be used together with
-    [auto_promotions][auto_promote] but not with `when` conditions since it is
-    redundant and this will lead to unexpected  behavior.
+    Both `result` and `result_reason` keywords can only be used in [auto_promote][auto_promote] conditions 
+    since they are evaluated after the pipeline execution is done and its result is known.
+    All other when conditions are evaluated during pipeline initialization at which point 
+    the pipeline execution result is unknown. 
 
 
 ## Functions
