@@ -24,7 +24,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 **(Updated) Toolbox**
 
 - sem-version fails the job if the switch was unsuccessful
-- sem-version beta introduced for macOS based agents, ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1 versions are available.
+- sem-version **beta** introduced for macOS based agents, ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1 versions are available.
 
 
 
