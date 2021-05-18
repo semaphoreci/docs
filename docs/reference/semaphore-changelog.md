@@ -17,7 +17,7 @@ This page is updated on a weekly basis.
 
 **(New)** Packages:
 
-- Elixir 11.4
+- Elixir 1.11.4
 
 **(Updated)** Updated packages:
 
