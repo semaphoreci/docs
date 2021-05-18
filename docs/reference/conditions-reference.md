@@ -109,7 +109,7 @@ identified with one of the `operators` from above are executed with those values
     </tr>
     <tr>
       <td>result</td>
-      <td> Execution result of pipeline, block, or job. Possible values are: passed, stopped, canceled and failed.</td>
+      <td> Execution result of a pipeline. Possible values are: passed, stopped, canceled and failed.</td>
     </tr>
     <tr>
       <td>result_reason</td>
