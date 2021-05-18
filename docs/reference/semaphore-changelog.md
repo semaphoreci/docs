@@ -19,6 +19,11 @@ This page is updated on a weekly basis.
 
 - Aws-cli 1.19.69 -> 1.19.74
 
+**(Updated)** Toolbox:
+
+- sem-version fails the job if the switch was unsuccessful
+- sem-version beta introduced for macOS based agents, ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1 versions are available.
+
 To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of May 10, 2021
