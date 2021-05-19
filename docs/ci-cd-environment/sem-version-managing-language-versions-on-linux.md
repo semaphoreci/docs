@@ -11,12 +11,14 @@ The supported programming languages are `elixir`, `erlang`, `go`, `java`, `kubec
 The general form of the `sem-version` utility is:
 
 ``` bash
-sem-version [PROGRAMMING LANGUAGE] [VERSION]
+sem-version [PROGRAMMING LANGUAGE] [VERSION] [-i|--ignore]
 ```
 
 where `[PROGRAMMING LANGUAGE]` is one of `elixir`, `erlang`, `go`, `java`, `kubectl`, 
 `php`, `ruby`, `python`, `scala` and `node`. The value of the `[VERSION]`
-parameter depends on the programming language used.
+parameter depends on the programming language used. The `sem-version` utility will
+fail the job if it cannot execute the requested change unless flag `-i` or `--ignore`
+is specified.
 
 Example of `sem-version` in your pipeline:
 
