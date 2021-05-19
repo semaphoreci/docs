@@ -17,7 +17,7 @@ If you are eligible for the discount, all you need to do is email us at [custome
 Every student currently enrolled at an accredited high school, college, or university, as well as any learn-to-code program or bootcamp, is eligible for a student account.
 
 Aside from regular $10 free credits per month, students will receive additional $120 gift credits each year, for as long as your studies last.
-You will be able to build your projects with 1 [e1-standard-2 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) at your disposal.
+You will be able to build your projects with 1 [e1-standard-2 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/#linux-machine-types) and 1 [a1-standard-4 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/#apple-machine-type) at your disposal.
 
 In order to request a student account, please send us an email to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com) from your school-issued email address. In case you don’t have one, please provide some document in order to verify your status of a student.
 
@@ -28,7 +28,7 @@ We will evaluate your request, and get back to you with an answer as soon as pos
 Individual educators currently teaching programming at accredited high schools, colleges, or universities — as well as any learn-to-code programs or bootcamps — are eligible for a free account.
 
 Aside from regular $10 free credits per month, educators will get a certain amount of credits a year, depending on their status.
-You will have 4 [e1-standard-2 machines](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) at your disposal.
+You will have 4 [e1-standard-2 machines](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) and 1 [a1-standard-4 machine](https://docs.semaphoreci.com/ci-cd-environment/machine-types/#apple-machine-type) at your disposal.
 
 In order to request educator account, please send us an email to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com)  from your .edu email address and/or a document that verifies your status of an educator.
 
