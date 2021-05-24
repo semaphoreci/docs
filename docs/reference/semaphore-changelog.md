@@ -12,6 +12,7 @@ This page is updated on a weekly basis.
 **(Improved) Ubuntu 18.04 image update**  
 
 **(New)** Packages:
+
 - Elixir 1.12.0
 
 **(Updated)** Updated packages:
