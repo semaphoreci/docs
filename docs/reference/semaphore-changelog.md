@@ -8,6 +8,21 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 24, 2021
+**(Improved) Ubuntu 18.04 image update**  
+
+**(New)** Packages:
+
+- Elixir 1.12.0
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.73 -> 1.19.77
+- Bazel 4.0.0 -> 4.1.0
+- Heroku 7.53.1 -> 7.54.0
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 17, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
