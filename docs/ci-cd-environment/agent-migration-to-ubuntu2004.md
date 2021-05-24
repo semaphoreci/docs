@@ -2,7 +2,7 @@
 description: This guide specifies the steps to change Semaphore 2.0 agent OS from Ubuntu 18.04 to Ubuntu 20.04
 ---
 
-# Migration from Ubuntu 18.04 image to Ubuntu 20.04 image 
+# Migration from Ubuntu 18.04 to Ubuntu 20.04 
 
 If you've used Semaphore Ubuntu 18.04 image, this guide will outline the
 key differences and provide you with a direction to migrate to the Ubuntu 20.04 image.
@@ -10,18 +10,19 @@ key differences and provide you with a direction to migrate to the Ubuntu 20.04 
 ### You don't have to migrate
 
 We know how much you rely on Semaphore to do your work and don't want to impose
-migration timeline. The Ubuntu 18.04 image will be available too, there are no current plans to depricate it.
+a migration timeline. The Ubuntu 18.04 image will be available too, there are no current plans to deprecate it.
 
 ### Benefits of using the Ubuntu 20.04 image
 
-Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu linux
-server operating system.
-- **Faster** - This release has enhanced resource usage and includes a newer kernel.
+Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu Linux
+server operating system. There are many good reasons to keep your development environment up to date. These are only some of the benefits of switching to Ubuntu 20.04:
+- **Speed** - This release has enhanced resource usage and includes a newer kernel.
 - **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
-- **Latest language versions** - We have only the newest software versions
-- **Expanded software stack** - We will continue expanding 20.04 sw stack with new packages, while we will not be introducing new ones in 18.04
-- **Containers** - Newes utilities can be installed (podman, skopeo, buildah)
-- **Disk space** - Since we include only newest software versions, free disk space got increased
+- **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04.
+- **Expanded software stack** - We will continue expanding the 20.04 software stack with new packages, while we will not be introducing new ones in 18.04.
+- **Containers** - Newest utilities can be installed (podman, skopeo, buildah).
+- **Disk space** - Since we include only the newest software versions, free disk space got increased.
+
 If you want to read more about Ubuntu 20.04 check out [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-server-20-04).
 
 ### Ubuntu 20.04 image on Semaphore
@@ -32,20 +33,21 @@ For the exact list please consult [Ubuntu 20.04](ubuntu-20.04-image.md)
 
 ### Ubuntu 20.04 image rollout on Semaphore
 
-The new image will be released gradually. In the first step it will be available for the 
-`e1-standard-2` agent type only, then `e1-standard-4` and lastly `e1-standard-8` 
-agent types will follow. Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to be up to date 
-regarding the available agent types.
+The new image will be released gradually. In the first step, it will be available for the `e1-standard-2` agent type only. We will introduce `e1-standard-4` in the near future and then lastly the `e1-standard-8` agent type. 
+
+Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to be up to date with the available agent types.
 
 ### Using the Ubuntu 20.04 image
 
 As a first step please check your software version requirements in the software availability matrix below.
 If the available software stack matches your requirements, changing the image type is as simple
-as changing in you semaphore.yml file the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804`.
+as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804`.
 
-***Software stack availabiliti matrix***
+**Note: As stated in the previous section - the `ubuntu2004` image will only work on `e1-standard-2` agents for now.**
 
-| Sotware | Ubuntu 18.04 image | Ubuntu 20.04 image |
+***Software stack availability matrix***
+
+| Software | Ubuntu 18.04 image | Ubuntu 20.04 image |
 | :--- | :---: | :---: |
 | AWS CLI | :heavy_check_mark: | :heavy_check_mark: |
 | Azure CLI | :heavy_check_mark: | :heavy_check_mark: |
@@ -99,6 +101,3 @@ as changing in you semaphore.yml file the `os_image:` line to use `ubuntu2004` i
 | Ruby 3.0.x | :heavy_check_mark: | :heavy_check_mark: |
 | Scala  | :heavy_check_mark: | :heavy_check_mark: |
 | Terraform | :heavy_check_mark: | :heavy_check_mark: | 
-
-
-
