@@ -20,6 +20,8 @@ This page is updated on a weekly basis.
 - Bazel 4.0.0 -> 4.1.0
 - Heroku 7.53.1 -> 7.54.0
 
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 17, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
