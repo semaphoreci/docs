@@ -5,6 +5,8 @@ description: Used for changing the version of a programming language - elixir, e
 The `sem-version` utility in Linux based virtual machines is used for changing
 the version of a programming language.
 
+!!! warning "The `sem-version` utility does not work in a [Docker based build environment](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/)."
+
 The supported programming languages are `elixir`, `erlang`, `go`, `java`, `kubectl`, 
 `php`, `ruby`, `python`, `scala` and `node`.
 
