@@ -50,6 +50,7 @@ as changing in you semaphore.yml file the `os_image:` line to use `ubuntu2004` i
 | AWS CLI | :heavy_check_mark: | :heavy_check_mark: |
 | Azure CLI | :heavy_check_mark: | :heavy_check_mark: |
 | Bazel | :heavy_check_mark: | :heavy_check_mark: |
+| Buildah | :x: | :heavy_check_mark: |
 | Gcc | :heavy_check_mark: | :heavy_check_mark: |
 | Google Chrome | :heavy_check_mark: | :heavy_check_mark: | 
 | ChromeDriver | :heavy_check_mark: | :heavy_check_mark: |
@@ -82,6 +83,7 @@ as changing in you semaphore.yml file the `os_image:` line to use `ubuntu2004` i
 | PHP 7.3.x | :heavy_check_mark: | :x: |
 | PHP 7.4.x | :heavy_check_mark: | :heavy_check_mark: |
 | PHP 8.0.x | :heavy_check_mark: | :heavy_check_mark: |
+| Podman | :x: | :heavy_check_mark: |
 | Python 2.7| :heavy_check_mark: | :x: | 
 | Python 3.6| :heavy_check_mark: | :x: | 
 | Python 3.7| :heavy_check_mark: | :x: | 
@@ -98,6 +100,7 @@ as changing in you semaphore.yml file the `os_image:` line to use `ubuntu2004` i
 | Ruby 2.7.x | :heavy_check_mark: | :heavy_check_mark: |
 | Ruby 3.0.x | :heavy_check_mark: | :heavy_check_mark: |
 | Scala  | :heavy_check_mark: | :heavy_check_mark: |
+| Skopeo  | :x: | :heavy_check_mark: |
 | Terraform | :heavy_check_mark: | :heavy_check_mark: | 
 
 
