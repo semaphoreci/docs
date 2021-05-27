@@ -46,7 +46,7 @@ You can always edit and update the access permissions of each installed GitHub A
 
 !!! info "Installing the GitHub App on GitHub organization"
     You might not be able to install the GitHub app on the GitHub organizations that you're not the owner of. In such cases following the steps above will only **request** the installation from the organization owner. 
-    The repositories will not be available until installation is approved by the organization owner in GitHub. 
+    The repositories will not be available until the organization owner approves the installation in GitHub. 
     Once you request the installation, the GitHub organization owner will receive the email request for approval from GitHub.
 
 ### Connecting a repository via a personal access token
@@ -54,7 +54,7 @@ If you want to connect the repository via [Semaphore OAuth app](https://github.c
 
 1. You are the collaborator on the repository.
 2. You gave Semaphore OAuth app access to your repositories (public or public & private).
-3. The Semaphore OAuth app is approved for GitHub organization (applies only if the repository is in GitHub organization and not the personal account).
+3. You approved the Semaphore OAuth app GitHub organization (applies only if the repository is in GitHub organization and not the personal account).
 
 Depending on how many conditions above are met, the repository list can either: 
 - Contain all the repositories you have access to.
