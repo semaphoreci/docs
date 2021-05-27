@@ -28,8 +28,8 @@ It is advised that you use GitHub App as the method of connecting your repositor
 ### Connecting a repository via GitHub App
 In order to connect the repository via [Semaphore GitHub App](https://github.com/apps/semaphore-ci-cd) three conditions need to be met:
 1. You are a collaborator on the repository.
-2. The GitHub App is installed on the GitHub organization/account that the repository belongs to.
-3. The GitHub App is given access either to All repositories or the one you want to connect to.
+2. You installed the GitHub App on the GitHub organization/account that the repository belongs to.
+3. You gave the GitHub App access either to all repositories or the one you want to connect to.
 
 If the conditions above are not met, you will see the empty repository list when trying to create the project:
 
