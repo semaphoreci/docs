@@ -251,9 +251,7 @@ The supported map parameters are:
       <td> pipeline_file </td>
       <td>
         Possible values are <b>track</b> and <b>ignore</b>, default is
-        <b>track</b>. Only if track is chosen, the path to the give pipeline file
-        will be automatically added to the paths that are given as a parameters
-        of the change_in function.
+        <b>track</b>. Only if <b>ignore</b> is chosen, changes to the pipeline YAML file won't affect result of the change_in.
       </td>
     </tr>
     <tr>
