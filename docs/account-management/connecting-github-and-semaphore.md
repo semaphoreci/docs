@@ -5,7 +5,7 @@ description: This document provides instructions on how to connect your GitHub a
 # Connecting your GitHub account and Semaphore
 
 ### Signing up on Semaphore with GitHub account
-In order to support single sign-on via GitHub Semaphore uses [OAuth app](https://github.com/settings/connections/applications/328c742132e5407abd7d).
+To support single sign-on via GitHub Semaphore uses [OAuth app](https://github.com/settings/connections/applications/328c742132e5407abd7d).
 
 Semaphore requires read access to your GitHub email address during the sign-up process. 
 
@@ -26,7 +26,7 @@ It is advised that you use GitHub App as the method of connecting your repositor
 - **No OAuth token owner** - GitHub app doesn't rely on the personal access token of the original Semaphore project owner, making the user offboarding easier. 
 
 ### Connecting a repository via GitHub App
-In order to connect the repository via [Semaphore GitHub App](https://github.com/apps/semaphore-ci-cd) three conditions need to be met:
+To connect the repository via [Semaphore GitHub App](https://github.com/apps/semaphore-ci-cd) three conditions need to be met:
 1. You are a collaborator on the repository.
 2. You installed the GitHub App on the GitHub organization/account that the repository belongs to.
 3. You gave the GitHub App access either to all repositories or the one you want to connect to.
@@ -35,7 +35,7 @@ If the conditions above are not met, you will see the empty repository list when
 
 ![GH App - Empty list](.images/ghapp_zero.png)
 
-**In order to give access to more repositories, follow these steps:**
+** To give access to more repositories, follow these steps:**
 
 **Step 1.** Click on the "Give access to more repositories"  
 **Step 2.** Select GitHub account/organization on which you want to install the app  
@@ -62,7 +62,7 @@ Depending on how many conditions above are met, the repository list can either:
 - Contain no repositories and prompting you to give Semaphore OAuth app access:
 ![OAuth permissions](.images/oauth_permissions.png)
 
-**In order to connect your first project, follow these steps:**  
+** To connect your first project, follow these steps:**  
 **Step 1.** Click on the "+ Create new" > "Choose repository".  
 **Step 2.** On the repository list select the "GitHub Personal Token" tab.  
 **Step 3.** Choose either "Public repositories" or "All repositories" to give Semaphore access.  
