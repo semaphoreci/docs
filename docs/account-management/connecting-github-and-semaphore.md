@@ -35,7 +35,7 @@ If the conditions above are not met, you will see the empty repository list when
 
 ![GH App - Empty list](.images/ghapp_zero.png)
 
-**To give access to more repositories:**
+**In order to give access to more repositories, follow these steps:**
 
 **Step 1.** Click on the "Give access to more repositories"  
 **Step 2.** Select GitHub account/organization on which you want to install the app  
@@ -62,7 +62,7 @@ Depending on how many conditions above are met, the repository list can either:
 - Contain no repositories and prompting you to give Semaphore OAuth app access:
 ![OAuth permissions](.images/oauth_permissions.png)
 
-**To connect your first project:**  
+**In order to connect your first project, follow these steps:**  
 **Step 1.** Click on the "+ Create new" > "Choose repository".  
 **Step 2.** On the repository list select the "GitHub Personal Token" tab.  
 **Step 3.** Choose either "Public repositories" or "All repositories" to give Semaphore access.  
