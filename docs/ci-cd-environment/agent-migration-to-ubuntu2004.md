@@ -47,55 +47,55 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 
 | Software | Ubuntu 18.04 image | Ubuntu 20.04 image |
 | :--- | :---: | :---: |
-| AWS CLI | <span>&#10004;</span> | :heavy_check_mark: |
-| Azure CLI | :heavy_check_mark: | :heavy_check_mark: |
-| Bazel | :heavy_check_mark: | :heavy_check_mark: |
-| Gcc | :heavy_check_mark: | :heavy_check_mark: |
-| Google Chrome | :heavy_check_mark: | :heavy_check_mark: | 
-| ChromeDriver | :heavy_check_mark: | :heavy_check_mark: |
-| Closure | :heavy_check_mark: | :heavy_check_mark: |
-| Docker | :heavy_check_mark: | :heavy_check_mark: |
-| Dockercompose | :heavy_check_mark: | :heavy_check_mark: | 
-| DigitalOcean CLI | :heavy_check_mark:  | :heavy_check_mark: |
-| Elixir 1.7.4 | :heavy_check_mark: | :x: |
-| Elixir 1.8.x | :heavy_check_mark: | :x: |
-| Elixir 1.9.4 | :heavy_check_mark: | :x: |
-| Elixir 1.10.x | :heavy_check_mark: | :x: |
-| Elixir 1.11.x | :heavy_check_mark: | :x: |
-| Elixir 1.11.4 | :heavy_check_mark: | :heavy_check_mark: |
-| Elixir 1.12.x | :heavy_check_mark: | :heavy_check_mark: |
-| Erlang 21 | :heavy_check_mark: | :x: |
-| Erlang 22 | :heavy_check_mark: | :x: |
-| Erlang 23 | :heavy_check_mark: | :x: |
-| Erlang 24 | :heavy_check_mark: | :heavy_check_mark: |
-| Firefox | :heavy_check_mark: | :heavy_check_mark: |
-| Google Cloud CLI | :heavy_check_mark: | :heavy_check_mark: |
-| Git | :heavy_check_mark: | :heavy_check_mark: |
-| Go | :heavy_check_mark: | :heavy_check_mark: |
-| Heroku | :heavy_check_mark: | :heavy_check_mark: |
-| Helm | :heavy_check_mark: | :heavy_check_mark: | 
-| Maven | :heavy_check_mark: | :heavy_check_mark: | 
-| NodeJS | :heavy_check_mark: | :heavy_check_mark: |
-| PhantomJS| :heavy_check_mark: | :heavy_check_mark: |
-| PHP 7.1.x | :heavy_check_mark: | :x: |
-| PHP 7.2.x | :heavy_check_mark: | :x: |
-| PHP 7.3.x | :heavy_check_mark: | :x: |
-| PHP 7.4.x | :heavy_check_mark: | :heavy_check_mark: |
-| PHP 8.0.x | :heavy_check_mark: | :heavy_check_mark: |
-| Python 2.7| :heavy_check_mark: | :x: | 
-| Python 3.6| :heavy_check_mark: | :x: | 
-| Python 3.7| :heavy_check_mark: | :x: | 
-| Python 3.8| :heavy_check_mark: | :heavy_check_mark: | 
-| Python 3.9| :heavy_check_mark: | :heavy_check_mark: | 
-| Ruby 1.9.x | :heavy_check_mark: | :x: |
-| Ruby 2.0.x | :heavy_check_mark: | :x: |
-| Ruby 2.1.x | :heavy_check_mark: | :x: |
-| Ruby 2.2.x | :heavy_check_mark: | :x: |
-| Ruby 2.3.x | :heavy_check_mark: | :x: |
-| Ruby 2.4.x | :heavy_check_mark: | :x: |
-| Ruby 2.5.x | :heavy_check_mark: | :x: |
-| Ruby 2.6.x | :heavy_check_mark: | :heavy_check_mark: |
-| Ruby 2.7.x | :heavy_check_mark: | :heavy_check_mark: |
-| Ruby 3.0.x | :heavy_check_mark: | :heavy_check_mark: |
-| Scala  | :heavy_check_mark: | :heavy_check_mark: |
-| Terraform | :heavy_check_mark: | :heavy_check_mark: | 
+| AWS CLI | <span>&#10004;</span> | <span>&#10004;</span> |
+| Azure CLI | <span>&#10004;</span> | <span>&#10004;</span> |
+| Bazel | <span>&#10004;</span> | <span>&#10004;</span> |
+| Gcc | <span>&#10004;</span> | <span>&#10004;</span> |
+| Google Chrome | <span>&#10004;</span> | <span>&#10004;</span> | 
+| ChromeDriver | <span>&#10004;</span> | <span>&#10004;</span> |
+| Closure | <span>&#10004;</span> | <span>&#10004;</span> |
+| Docker | <span>&#10004;</span> | <span>&#10004;</span> |
+| Dockercompose | <span>&#10004;</span> | <span>&#10004;</span> | 
+| DigitalOcean CLI | <span>&#10004;</span>  | <span>&#10004;</span> |
+| Elixir 1.7.4 | <span>&#10004;</span> | <span>&#10007;</span> |
+| Elixir 1.8.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Elixir 1.9.4 | <span>&#10004;</span> | <span>&#10007;</span> |
+| Elixir 1.10.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Elixir 1.11.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Elixir 1.11.4 | <span>&#10004;</span> | <span>&#10004;</span> |
+| Elixir 1.12.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| Erlang 21 | <span>&#10004;</span> | <span>&#10007;</span> |
+| Erlang 22 | <span>&#10004;</span> | <span>&#10007;</span> |
+| Erlang 23 | <span>&#10004;</span> | <span>&#10007;</span> |
+| Erlang 24 | <span>&#10004;</span> | <span>&#10004;</span> |
+| Firefox | <span>&#10004;</span> | <span>&#10004;</span> |
+| Google Cloud CLI | <span>&#10004;</span> | <span>&#10004;</span> |
+| Git | <span>&#10004;</span> | <span>&#10004;</span> |
+| Go | <span>&#10004;</span> | <span>&#10004;</span> |
+| Heroku | <span>&#10004;</span> | <span>&#10004;</span> |
+| Helm | <span>&#10004;</span> | <span>&#10004;</span> | 
+| Maven | <span>&#10004;</span> | <span>&#10004;</span> | 
+| NodeJS | <span>&#10004;</span> | <span>&#10004;</span> |
+| PhantomJS| <span>&#10004;</span> | <span>&#10004;</span> |
+| PHP 7.1.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| PHP 7.2.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| PHP 7.3.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| PHP 7.4.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| PHP 8.0.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| Python 2.7| <span>&#10004;</span> | <span>&#10007;</span> | 
+| Python 3.6| <span>&#10004;</span> | <span>&#10007;</span> | 
+| Python 3.7| <span>&#10004;</span> | <span>&#10007;</span> | 
+| Python 3.8| <span>&#10004;</span> | <span>&#10004;</span> | 
+| Python 3.9| <span>&#10004;</span> | <span>&#10004;</span> | 
+| Ruby 1.9.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.0.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.1.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.2.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.3.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.4.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.5.x | <span>&#10004;</span> | <span>&#10007;</span> |
+| Ruby 2.6.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| Ruby 2.7.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| Ruby 3.0.x | <span>&#10004;</span> | <span>&#10004;</span> |
+| Scala  | <span>&#10004;</span> | <span>&#10004;</span> |
+| Terraform | <span>&#10004;</span> | <span>&#10004;</span> | 
