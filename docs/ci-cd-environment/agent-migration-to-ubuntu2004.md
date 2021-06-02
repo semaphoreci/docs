@@ -47,7 +47,7 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 
 | Software | Ubuntu 18.04 image | Ubuntu 20.04 image |
 | :--- | :---: | :---: |
-| AWS CLI | :heavy_check_mark: | :heavy_check_mark: |
+| AWS CLI | <span>&#10004;</span> | :heavy_check_mark: |
 | Azure CLI | :heavy_check_mark: | :heavy_check_mark: |
 | Bazel | :heavy_check_mark: | :heavy_check_mark: |
 | Gcc | :heavy_check_mark: | :heavy_check_mark: |
