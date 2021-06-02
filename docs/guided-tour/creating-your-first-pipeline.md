@@ -66,13 +66,22 @@ Scrolling down the right pane you’ll find other useful sections:
 
 ## Configuring promotions
 
-A promotion is a way of connecting multiple pipelines to create a complex workflow. You can use promotions to deploy software to staging and production environments. Using promotions, you can create multiple branches for your CI/CD process.
+_Promotions_ are junction blocks in your larger workflow. Promotions are commonly used for deployment builds in different environments such as staging or production. Using promotions, you can create multiple branches for your CI/CD process.
 
 Clicking the **add promotion** button will create a brand new pipeline. By default, promotions must be started manually, but enabling automatic promotion option brings up a box where you can type in autostart conditions. For more details, check the [conditions](https://docs.semaphoreci.com/reference/conditions-reference/) reference page.
 
 ![Adding a promotion](./creating-your-first-pipeline/promotion.png)
 
-Your deployment jobs may need sensitive information to work. For instance, you may need to import SSH keys, usernames, password, or API keys. The safest way of storing sensitive information in Semaphore is with secrets. Secrets are defined globally in your organization and imported in a block by checking them in the **secrets** section. For more details, check the [secrets](https://docs.semaphoreci.com/essentials/using-secrets/) reference page.
+## Secrets
+
+Your deployment jobs may need sensitive information to work. For instance, you may need to import SSH keys, usernames, password, or API keys.
+
+_Secrets_ are used to store and retrieve sensitive data such as API keys,
+which should never be committed to source control. Semaphore securely manages
+sensitive data for use in blocks via encrypted environment variables
+or files.
+
+Secrets are defined globally in your organization and imported in a block by checking them in the **secrets** section. For more details, check the [secrets](https://docs.semaphoreci.com/essentials/using-secrets/) reference page.
 
 ## Next steps
 
