@@ -7,9 +7,9 @@ If you've used Semaphore Ubuntu 18.04 image, this guide will outline the
 key differences and provide you with a direction to migrate to the Ubuntu 20.04 image.
 
 ### You don't have to migrate
-The Ubuntu 18.04 image will continue to be supported and updated. There are no current plans to depricate it.
+The Ubuntu 18.04 image will continue to be supported and updated. There are no current plans to deprecate it.
 
-Please note though that the Ubuntu 18.04 is comming out of LTS in 2023 so it's advised that you try out the Ubuntu 20.04 image and migrate when possible.
+Please note though that Ubuntu 18.04 is coming out of LTS in 2023 so it's advised that you try out the Ubuntu 20.04 image and migrate when possible.
 
 ### Benefits of using the Ubuntu 20.04 image
 Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu Linux
