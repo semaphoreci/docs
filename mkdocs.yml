@@ -99,6 +99,8 @@ nav:
     - Environment variables: ci-cd-environment/environment-variables.md
     - Linux VM:
       - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
+      - Ubuntu 20.04 image: ci-cd-environment/ubuntu-20.04-image.md
+      - Migrating to Ubuntu 20.04: ci-cd-environment/agent-migration-to-ubuntu2004.md
       - "Selecting language versions": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
       - "Starting databases": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
       - Configuring database access: ci-cd-environment/configuring-database-access.md
