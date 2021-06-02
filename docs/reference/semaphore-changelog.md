@@ -8,22 +8,6 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of Jun 02, 2021
-**(Improved) Ubuntu 18.04 image update**  
-
-**(Updated)** Updated packages:
-
-- Aws-cli 1.19.77 -> 1.19.85
-- Azure-cli 2.23.0 -> 2.24.1
-- Chrome 90 -> 91
-- Elixir 1.12.0 compiled with Erlang 24.0
-- Grunt 1.4.2 -> 1.4.3
-- Helm 3.5.4 -> 3.6.0
-- Pypy 7.3.4 -> 7.3.5
-- Pypy3 7.3.4 -> 7.3.5
-
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
-
 ### Week of May 31, 2021
 **(New) Granular repository access through GitHub App**  
 Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) was introduced as a new way of connecting GitHub repositories with Semaphore.  
@@ -52,6 +36,21 @@ Some of the improvements compared to the Ubuntu 18.04 image include:
 To find out more about the differences between the Ubuntu 18.04 and Ubuntu 20.04 image check out our [migration guide](https://docs.semaphoreci.com/ci-cd-environment/agent-migration-to-ubuntu2004/).
 
 You can read more about the image itself on [Ubuntu 20.04 image page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.77 -> 1.19.85
+- Azure-cli 2.23.0 -> 2.24.1
+- Chrome 90 -> 91
+- Elixir 1.12.0 compiled with Erlang 24.0
+- Grunt 1.4.2 -> 1.4.3
+- Helm 3.5.4 -> 3.6.0
+- Pypy 7.3.4 -> 7.3.5
+- Pypy3 7.3.4 -> 7.3.5
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of May 24, 2021
 **(Improved) Ubuntu 18.04 image update**  
