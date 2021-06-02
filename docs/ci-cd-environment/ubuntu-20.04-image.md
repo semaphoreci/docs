@@ -42,8 +42,10 @@ blocks:
             - make test
 ```
 
-The `ubuntu2004` OS image can be used in combination with all Linux machine
-types: `e1-standard-2`, `e1-standard-4`, `e1-standard-8`.
+!!! warning "Available machine types"
+    The `ubuntu2004` image will only work on `e1-standard-2` agents for now. 
+
+    When switching the `os_image` to `ubuntu2004` make sure that the `e1-standard-2` machine type is selected.
 
 ## Toolbox
 
