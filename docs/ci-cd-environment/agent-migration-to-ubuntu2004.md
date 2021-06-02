@@ -8,11 +8,13 @@ key differences and provide you with a direction to migrate to the Ubuntu 20.04 
 
 ### You don't have to migrate
 The Ubuntu 18.04 image will continue to be supported and updated. There are no current plans to depricate it.
+
 Please note though that the Ubuntu 18.04 is comming out of LTS in 2023 so it's advised that you try out the Ubuntu 20.04 image and migrate when possible.
 
 ### Benefits of using the Ubuntu 20.04 image
 Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu Linux
 server operating system. There are many good reasons to keep your development environment up to date. These are only some of the benefits of switching to Ubuntu 20.04:
+
 - **Speed** - This release has enhanced resource usage and includes a newer kernel.
 - **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
 - **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04 by upstream providers.
@@ -36,7 +38,7 @@ As a first step please check your software version requirements in the software 
 If the available software stack matches your requirements, changing the image type is as simple
 as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804`.
 
-!!! warning
+!!! warning "Available machine types"
     As stated in the previous section - the `ubuntu2004` image will only work on `e1-standard-2` agents for now. 
     
     When switching the `os_image` to `ubuntu2004` make sure that the `e1-standard-2` machine type is selected.
