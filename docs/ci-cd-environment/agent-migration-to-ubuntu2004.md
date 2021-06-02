@@ -47,55 +47,55 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 
 | Software | Ubuntu 18.04 image | Ubuntu 20.04 image |
 | :--- | :---: | :---: |
-| AWS CLI | <span>&#10004;</span> | <span>&#10004;</span> |
-| Azure CLI | <span>&#10004;</span> | <span>&#10004;</span> |
-| Bazel | <span>&#10004;</span> | <span>&#10004;</span> |
-| Gcc | <span>&#10004;</span> | <span>&#10004;</span> |
-| Google Chrome | <span>&#10004;</span> | <span>&#10004;</span> | 
-| ChromeDriver | <span>&#10004;</span> | <span>&#10004;</span> |
-| Closure | <span>&#10004;</span> | <span>&#10004;</span> |
-| Docker | <span>&#10004;</span> | <span>&#10004;</span> |
-| Dockercompose | <span>&#10004;</span> | <span>&#10004;</span> | 
-| DigitalOcean CLI | <span>&#10004;</span>  | <span>&#10004;</span> |
-| Elixir 1.7.4 | <span>&#10004;</span> | <span>&#10007;</span> |
-| Elixir 1.8.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Elixir 1.9.4 | <span>&#10004;</span> | <span>&#10007;</span> |
-| Elixir 1.10.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Elixir 1.11.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Elixir 1.11.4 | <span>&#10004;</span> | <span>&#10004;</span> |
-| Elixir 1.12.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| Erlang 21 | <span>&#10004;</span> | <span>&#10007;</span> |
-| Erlang 22 | <span>&#10004;</span> | <span>&#10007;</span> |
-| Erlang 23 | <span>&#10004;</span> | <span>&#10007;</span> |
-| Erlang 24 | <span>&#10004;</span> | <span>&#10004;</span> |
-| Firefox | <span>&#10004;</span> | <span>&#10004;</span> |
-| Google Cloud CLI | <span>&#10004;</span> | <span>&#10004;</span> |
-| Git | <span>&#10004;</span> | <span>&#10004;</span> |
-| Go | <span>&#10004;</span> | <span>&#10004;</span> |
-| Heroku | <span>&#10004;</span> | <span>&#10004;</span> |
-| Helm | <span>&#10004;</span> | <span>&#10004;</span> | 
-| Maven | <span>&#10004;</span> | <span>&#10004;</span> | 
-| NodeJS | <span>&#10004;</span> | <span>&#10004;</span> |
-| PhantomJS| <span>&#10004;</span> | <span>&#10004;</span> |
-| PHP 7.1.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| PHP 7.2.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| PHP 7.3.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| PHP 7.4.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| PHP 8.0.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| Python 2.7| <span>&#10004;</span> | <span>&#10007;</span> | 
-| Python 3.6| <span>&#10004;</span> | <span>&#10007;</span> | 
-| Python 3.7| <span>&#10004;</span> | <span>&#10007;</span> | 
-| Python 3.8| <span>&#10004;</span> | <span>&#10004;</span> | 
-| Python 3.9| <span>&#10004;</span> | <span>&#10004;</span> | 
-| Ruby 1.9.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.0.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.1.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.2.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.3.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.4.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.5.x | <span>&#10004;</span> | <span>&#10007;</span> |
-| Ruby 2.6.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| Ruby 2.7.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| Ruby 3.0.x | <span>&#10004;</span> | <span>&#10004;</span> |
-| Scala  | <span>&#10004;</span> | <span>&#10004;</span> |
-| Terraform | <span>&#10004;</span> | <span>&#10004;</span> | 
+| AWS CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Azure CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Bazel | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Gcc | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Google Chrome | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| ChromeDriver | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Closure | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Docker | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Dockercompose | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| DigitalOcean CLI | <span style="color:green;">&#10004;</span>  | <span style="color:green;">&#10004;</span> |
+| Elixir 1.7.4 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Elixir 1.8.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Elixir 1.9.4 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Elixir 1.10.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Elixir 1.11.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Elixir 1.11.4 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Elixir 1.12.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Erlang 21 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Erlang 22 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Erlang 23 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Erlang 24 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Firefox | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Google Cloud CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Git | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Go | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Heroku | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Helm | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| Maven | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| NodeJS | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| PhantomJS| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| PHP 7.1.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| PHP 7.2.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| PHP 7.3.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| PHP 7.4.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| PHP 8.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Python 2.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
+| Python 3.6| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
+| Python 3.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
+| Python 3.8| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| Python 3.9| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| Ruby 1.9.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.0.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.1.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.2.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.3.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.4.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.5.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
+| Ruby 2.6.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Ruby 2.7.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Ruby 3.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Scala  | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Terraform | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
