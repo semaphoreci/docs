@@ -21,7 +21,6 @@ server operating system. There are many good reasons to keep your development en
 - **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04.
 - **Expanded software stack** - We will continue expanding the 20.04 software stack with new packages, while we will not be introducing new ones in 18.04.
 - **Containers** - Newest utilities can be installed (podman, skopeo, buildah).
-- **Disk space** - Since we include only the newest software versions, free disk space got increased.
 
 If you want to read more about Ubuntu 20.04 check out [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-server-20-04).
 
