@@ -2,7 +2,7 @@
 description: This guide specifies the steps to change Semaphore 2.0 agent OS from Ubuntu 18.04 to Ubuntu 20.04
 ---
 
-# Migration from Ubuntu 18.04 to Ubuntu 20.04 
+# Migrating from Ubuntu 18.04 to Ubuntu 20.04 
 If you've used Semaphore Ubuntu 18.04 image, this guide will outline the
 key differences and provide you with a direction to migrate to the Ubuntu 20.04 image.
 
