@@ -35,7 +35,7 @@ Some of the improvements compared to the Ubuntu 18.04 image include:
 
 To find out more about the differences between the Ubuntu 18.04 and Ubuntu 20.04 image check out our [migration guide](https://docs.semaphoreci.com/ci-cd-environment/agent-migration-to-ubuntu2004/).
 
-You can read more about the image itself on [Ubuntu 20.04 image page](https://docs.semaphoreci.com//ci-cd-environment/ubuntu-20.04-image/).
+You can read more about the image itself on [Ubuntu 20.04 image page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
 
 ### Week of May 24, 2021
 **(Improved) Ubuntu 18.04 image update**  
