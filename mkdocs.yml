@@ -46,7 +46,8 @@ nav:
   - Welcome: index.md
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
-    - Creating your first project: guided-tour/creating-your-first-project.md
+    - Adding a Git repository: guided-tour/adding-a-git-repo.md
+    # - Creating your first project: guided-tour/creating-your-first-project.md
     - Creating your first pipeline: guided-tour/creating-your-first-pipeline.md
     - Concepts: guided-tour/concepts.md
     # - Customizing your pipeline: guided-tour/customizing-your-pipeline.md
@@ -55,7 +56,7 @@ nav:
     # - Caching dependencies: guided-tour/caching-dependencies.md
     # - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
     # - Deploying with promotions: guided-tour/deploying-with-promotions.md
-    - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
+    # - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
     - Workflow triggers: essentials/project-workflow-trigger-options.md

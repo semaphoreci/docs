@@ -1,56 +1,39 @@
 ---
-description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features.
+description: In this guide, we will help you get up and running on Semaphore and introduce you to its key features.
 ---
 
 # Getting Started
 
-Welcome to the guided tour of Semaphore! In this guide we help you get up and
-running with Semaphore and introduce you to its key features. If you're new
-to Semaphore or have limited Semaphore experience, then this is the best place
-to start.
+Welcome to the guided tour of Semaphore 👋
+
+In this guide we help you get up and running with Semaphore and introduce you to its key features.
 
 ## What is Semaphore?
 
-Semaphore is a cloud-based automation service for building, testing and
-deploying software.
+Semaphore is a cloud-based [continuous integration and delivery][cicd] (CI/CD) service for building, testing, and deploying software. With Semaphore, there is no software to install or infrastructure to maintain.
 
-Developers use Semaphore to implement
-[continuous integration (CI)](https://semaphoreci.com/continuous-integration) and
-continuous delivery (CD) pipelines, which help get software from version
-control right to users in a safe and automated way.
-
-Semaphore is built for developer productivity, guided by two principles:
+Semaphore is built for developer productivity, and guided is by two principles:
 
 1. **Speed**: Developers must work in a fast feedback loop,
 so CI/CD processes must be fast.
 2. **Ease of use**: CI/CD tool needs to support developers in everything they
-need to build, at any scale, and shouldn't get in the way.
+need to build, at any scale, without getting in the way.
 
-Configuration files describe to Semaphore the
-[CI/CD pipelines](https://semaphoreci.com/blog/cicd-pipeline) which need to run
-based on Git repositories. Semaphore executes pipelines on every change in
-code. As the configuration changes, Semaphore is able to determine what changed
-and adapt the workflow accordingly.
+Semaphore stores the [CI/CD pipeline][cicd-pipeline] configuration files in the Git repository, right next to your software. By connecting with your Git repository, Semaphore can execute the pipeline every time code changes.
 
 In the background, Semaphore manages the hardware resources needed to run
-CI/CD jobs just-in-time. It also maintains the base software environment in
-which your code runs in secure isolation. With Semaphore, there is no software
-to install or infrastructure to maintain in order to implement continuous
-delivery in your organization.
+CI/CD jobs just-in-time. Semaphore runs all your CI/CD processes in an isolated and secure environment.
 
 ## What sets Semaphore apart?
 
-A combination of features make Semaphore a strong fit for teams that optimize
-for getting things done:
+A combination of features make Semaphore a strong fit for teams wanting to get things done:
 
 - **Pipelines as code**: traditionally associated with tools that require
-costly self-hosting and detailed customization, infinitely configurable CD
-pipelines are now available in an easy to use package.
+costly self-hosting and detailed customization, Semaphore pipelines are easy to use and infinitely configurable.
 - **It's the fastest there is**: Semaphore provides the best out of the box CI/CD
 performance on the market, which means shorter development cycles and faster
-innovation. Moving to Semaphore usually saves hours of precious time per week
-per developer.
-- **There's nothing to maintain**: with no resources to manage, scale and pay
+innovation. Moving to Semaphore usually saves developers hours of precious time per week.
+- **There's nothing to maintain**: with no resources to manage, scale, or pay
 for separately, developers can focus on building products. Semaphore has a
 track record of providing a reliable CI/CD service since 2012.
 - **No vendor lock-in**: Semaphore is committed to supporting all major code
@@ -58,12 +41,9 @@ hosting and cloud providers, leaving you freedom to choose optimal solutions.
 
 ## Next steps
 
-It's time to [create your first project][next] using an example Semaphore
-configuration file. You will be able to see Semaphore in action first before
+It's time to [add a Git repository][next]. You will be able to see Semaphore in action first before
 customizing it for your use case.
 
-[next]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
-
-If you want to find out more about the product and participate in a live Q&A
-session with one of Semaphore's co-founders, you can register for
-Semaphore Class. [More info here](https://semaphoreci.com/resources/semaphore-class/).
+[next]: https://docs.semaphoreci.com/guided-tour/adding-a-git-repo/
+[cicd-pipeline]: https://semaphoreci.com/blog/cicd-pipeline
+[cicd]: https://semaphoreci.com/cicd

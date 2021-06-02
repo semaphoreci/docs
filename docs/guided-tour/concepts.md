@@ -82,10 +82,9 @@ Agents can also use [custom Docker containers][docker-containers] to run your
 jobs. This is an alternative to using Semaphore VMs which gives you complete
 control over your CI/CD environment.
 
-## Next steps
+## That’s it
 
-[Let's learn how to customize your pipeline][next] so that it runs the way
-you want it.
+You have successfully completed the guided tour to Semaphore.
 
 [next]: https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/

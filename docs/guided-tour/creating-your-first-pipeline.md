@@ -8,7 +8,7 @@ A [pipeline](https://semaphoreci.com/blog/cicd-pipeline) is the heart of a conti
 
 ## Choosing an starter workflow
 
-In the previous page you’ve connected a Git repository to Semaphore. Now you’ll learn how to define a pipeline.
+In the [previous page][previous] you’ve connected a Git repository to Semaphore. Now you’ll learn how to define a pipeline.
 
 After adding a new repository, Semaphore will show you a list of starter templates. Choose the one that best adapts to your repository language and structure. If in doubt, pick the “single job” template.
 
@@ -78,4 +78,7 @@ Your deployment jobs may need sensitive information to work. For instance, you m
 
 When you’re done configuring the pipeline, click on the **run the worflow** button on the top-right corner and then **looks good, start**. This will save the pipeline in the repository and immediately start the CI/CD process.
 
-Jump to the next section to learn about Semaphore key concepts.
+Jump to the [next page][next] to learn about Semaphore key concepts.
+
+[previous]: https://docs.semaphoreci.com/guided-tour/adding-a-git-repo/
+[next]: https://docs.semaphoreci.com/guided-tour/concepts/
