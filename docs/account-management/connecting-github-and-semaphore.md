@@ -33,7 +33,7 @@ In order to connect the repository via [Semaphore GitHub App](https://github.com
 
 If the conditions above are not met, you will see the empty repository list when trying to create the project:
 
-![GH App - Empty list](.images/ghapp_zero.png)
+![GH App - Empty list](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/ghapp_zero.png)
 
 **To give access to more repositories:**
 
@@ -60,7 +60,7 @@ Depending on how many conditions above are met, the repository list can either:
 - Contain all the repositories you have access to.
 - Contain only the repositories from your personal account.
 - Contain no repositories and prompting you to give Semaphore OAuth app access:
-![OAuth permissions](.images/oauth_permissions.png)
+![OAuth permissions](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/oauth_permissions.png)
 
 **To connect your first project:**  
 **Step 1.** Click on the "+ Create new" > "Choose repository".  
@@ -78,7 +78,7 @@ Please note that the access can always be fully revoked on the [Semaphore OAuth 
 
 Note that Semaphore usually needs some time to sync with any access rights updates on GitHub. If all the access has been properly given but you still don't see the repository in the list click the **"Sync repos"** button to force a refresh. Your repository should appear after a few seconds and a page refresh. 
 
-![OAuth Refresh](.images/oauth_refresh.png)
+![OAuth Refresh](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/oauth_refresh.png)
 
 For more information on how to troubleshoot connections between Semaphore and GitHub via the OAuth app please check our [GitHub OAuth - connection troubleshooting](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/) guide.
 
@@ -88,13 +88,13 @@ You can easily transfer your old projects connected via personal access token to
 **Step 1.** Open the Semaphore project you want to transfer  
 **Step 2.** Go to project Settings and select Repository settings  
 **Step 3.** If your project is using personal token to connect to repository you will see the following screen:
-![GH App - Transfer project](.images/transfer_no_access.png)
+![GH App - Transfer project](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/transfer_no_access.png)
 
 In this example, the GitHub App does not have access to the repository you want to transfer.
 
 **Step 4.** Click on the GitHub app link and install the app making sure you give access to the repository you want to connect.  
 **Step 5.** Once the GitHub App is installed an access given, go back to project repository settings and click "Switch to GitHub Apps"
-![GH App - Transfer project](.images/transfer_access.png)  
+![GH App - Transfer project](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/transfer_access.png)  
 
 **Step 6.** If your project is switched successfully your Repository Settings page should look like this:
-![GH App - Transfer success](.images/transfer_success.png)
+![GH App - Transfer success](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_connection/transfer_success.png)
