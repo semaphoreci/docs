@@ -118,7 +118,9 @@ for Semaphore to all repositories. They can do that that under [Personal Setting
 3. If you plan to build only public projects, the new owner needs to grant access for 
 Semaphore to public repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account). 
 
-After that, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
+After that, go to _Project Settings -> General_, in the _Project Owner_ section, find the user you want to become the new owner, and click _Change_.
+
+If you come accross any issues, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
 and include the name of the project and the GitHub username of the new owner in your message.
 
 **Note:** After the project ownership is transferred, you need to push a new commit. 
