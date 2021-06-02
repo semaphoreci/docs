@@ -8,6 +8,35 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of May 31, 2021
+**(New) Granular repository access through GitHub App**  
+Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) was introduced as a new way of connecting GitHub repositories with Semaphore.  
+
+Users can now connect Semaphore through the GitHub App instead of the personal access token and choose which repositories they want to give access to. 
+
+Find out more about the difference between GitHub App and personal access token in our [documentation page](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#oauth-app-vs-github-app).
+
+**(New) Change project owner**  
+Users can now change project owner through UI, making the user offboarding easier.  
+
+Project owner update form can be accessed in _Project Settings -> General_.
+
+**(New) Ubuntu 20.04 image**  
+A brand new image based on the Ubuntu 20.04 is now available.  
+Please note that currently this image **can only be used on `e1-standard-2` machines**.
+
+Some of the improvements compared to the Ubuntu 18.04 image include:
+
+- **Speed** - This release has enhanced resource usage and includes a newer kernel.
+- **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
+- **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04 by upstream providers.
+- **Expanded software stack** - 20.04 software stack will continue expanding with new packages, while new ones will not be added in 18.04.
+- **Containers** - Newest utilities can be installed (podman, skopeo, buildah).
+
+To find out more about the differences between the Ubuntu 18.04 and Ubuntu 20.04 image check out our [migration guide](https://docs.semaphoreci.com/ci-cd-environment/agent-migration-to-ubuntu2004/).
+
+You can read more about the image itself on [Ubuntu 20.04 image page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
 ### Week of May 24, 2021
 **(Improved) Ubuntu 18.04 image update**  
 
