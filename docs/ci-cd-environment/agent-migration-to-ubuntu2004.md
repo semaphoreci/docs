@@ -50,6 +50,7 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 | AWS CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Azure CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Bazel | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Buildah | <span style="color:red;">&#10007;</span> | <span style="color:green;">&#10004;</span> |
 | Gcc | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Google Chrome | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
 | ChromeDriver | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
@@ -82,6 +83,7 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 | PHP 7.3.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | PHP 7.4.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | PHP 8.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Podman | <span style="color:red;">&#10007;</span> | <span style="color:green;">&#10004;</span> |
 | Python 2.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
 | Python 3.6| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
 | Python 3.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
@@ -98,4 +100,5 @@ as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` 
 | Ruby 2.7.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Ruby 3.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Scala  | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Skopeo  | <span style="color:red;">&#10007;</span> | <span style="color:green;">&#10004;</span> |
 | Terraform | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
