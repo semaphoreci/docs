@@ -83,6 +83,9 @@ Docker toolset is installed and following versions are available:
 
 - Docker 20.10
 - docker-compose 1.28.2
+- Buildah
+- Podman
+- Skopeo
 
 ### Cloud CLIs
 
