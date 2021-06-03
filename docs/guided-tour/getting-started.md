@@ -19,7 +19,7 @@ so CI/CD processes must be fast.
 2. **Ease of use**: CI/CD tool needs to support developers in everything they
 need to build, at any scale, without getting in the way.
 
-Semaphore stores the [CI/CD pipeline][cicd-pipeline] configuration files in the Git repository, right next to your software. By connecting with your Git repository, Semaphore can execute the pipeline every time code changes.
+Semaphore stores the [CI/CD][cicd] pipeline configuration files in the Git repository, right next to your software. By connecting with your Git repository, Semaphore can execute the pipeline every time code changes.
 
 In the background, Semaphore manages the hardware resources needed to run
 CI/CD jobs just-in-time. Semaphore runs all your CI/CD processes in an isolated and secure environment.
@@ -45,5 +45,5 @@ It's time to [add a Git repository][next]. You will be able to see Semaphore in 
 customizing it for your use case.
 
 [next]: https://docs.semaphoreci.com/guided-tour/adding-a-git-repo/
-[cicd-pipeline]: https://semaphoreci.com/blog/cicd-pipeline
+[cicd-pipeline]: https://semaphoreci.com/continuous-integration
 [cicd]: https://semaphoreci.com/cicd
