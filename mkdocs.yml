@@ -47,7 +47,7 @@ nav:
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
     - Adding a Git repository: guided-tour/adding-a-git-repo.md
-    - Creating your first pipeline: guided-tour/creating-your-first-pipeline.md
+    - Creating your first pipeline: guided-tour/creating-your-first-workflow.md
     - Concepts: guided-tour/concepts.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
