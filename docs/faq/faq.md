@@ -486,6 +486,29 @@ blocks:
 ```
   </p>
 </details>
+### Why does my code contain tags that have already been deleted?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+When using <code>checkout</code> with the 
+<a href="https://docs.semaphoreci.com/reference/toolbox-reference/#the-use-cache-flag">--use-cache parameter</a>
+the code will contain older changes that have not been propagated yet since by
+default this update only happens every 3 days.
+
+  </p>
+  <p>
+Reducing the value of <code>SEMAPHORE_GIT_CACHE_AGE</code> before performing the
+<code>checkout</code> ensures changes are brought into the cache more 
+often and should help mitigate the behavior:
+```bash
+export SEMAPHORE_GIT_CACHE_AGE=43200
+```
+
+The above value is for 12 hours and is a good baseline but depending on 
+your development workflow it might require to be lowered even more.
+  </p>
+</details>
 
 
 
