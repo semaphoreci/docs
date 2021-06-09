@@ -8,6 +8,19 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of June 7, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Packages:
+
+- Elixir 1.12.1
+- 
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.85 -> 1.19.89
+- Azure-cli 2.24.1 -> 2.24.2
+- Chromedriver 90 -> 91
+
+
 ### Week of May 31, 2021
 **(New) Granular repository access through GitHub App**  
 Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) was introduced as a new way of connecting GitHub repositories with Semaphore.  
