@@ -17,8 +17,6 @@ On this page you can:
 - Remove the project
 - Transfer the project to yourself
 
-
-
 **(Improved) Ubuntu 20.04 image update**  
 
 **(Updated)** Updated packages:
