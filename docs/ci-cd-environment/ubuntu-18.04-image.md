@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 90
-- Chrome_driver 90
+- Google Chrome 91
+- Chrome_driver 91
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,7 +80,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 20.10
-- docker-compose 1.28.2
+- docker-compose 1.29.2
 
 ### Cloud CLIs
 
@@ -108,13 +108,13 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 20.3, 21.3, 22.3, 23.1, 23.2, 23.3
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4
+- Erlang: 20.3, 21.3, 22.3, 23.1, 23.2, 23.3, 24.0
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1
 
 Additional libraries:
 
 - rebar: 2.6.4
-- rebar3: 3.12.1
+- rebar3: 3.15.2
 
 ### Go
 
@@ -166,7 +166,7 @@ Installed versions:
 - 7.3.26
 - 7.4.18
 - 8.0.5
-
+- 8.0.7
 The default installed PHP version is `7.2.33`.
 
 #### Additional libraries
@@ -186,8 +186,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.4
-- pypy3: 7.3.4
+- pypy: 7.3.5
+- pypy3: 7.3.5
 - pip: 20.2.4
 - pip3: 19
 - venv: 16.0.0

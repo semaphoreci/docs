@@ -11,7 +11,7 @@ This page is updated on a weekly basis.
 ### Week of Jun 14, 2021
 **(New) Offboarding page**  
 You can now access new offboarding page that will appear when trying to remove the user that is a project owner.  
-On this page you can:
+On this page you can:  
 
 - See the list of all project user is the owner of
 - Remove the project
@@ -19,7 +19,7 @@ On this page you can:
 
 **(Improved) Ubuntu 20.04 image update**  
 
-**(Updated)** Updated packages:
+**(Updated)** Updated packages:  
 
 - Azure cli 2.23.0 -> 2.42.2
 - Aws cli 1.19.79 -> 1.19.94
@@ -37,7 +37,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 **(Improved) Ubuntu 18.04 image update**  
 
-**(Updated)** Updated packages:
+**(Updated)** Updated packages:  
 
 - Kerl 1.8.4 -> 2.1.2
 - Rebar3 3.12.0 > 3.15.2
@@ -49,6 +49,18 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Heroku 7.54.0 -> 7.54.1
 
 To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of June 7, 2021
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Packages:  
+
+- Elixir 1.12.1
+
+**(Updated)** Updated packages:  
+
+- Aws-cli 1.19.85 -> 1.19.89
+- Azure-cli 2.24.1 -> 2.24.2
+- Chromedriver 90 -> 91
 
 ### Week of May 31, 2021
 **(New) Granular repository access through GitHub App**  
