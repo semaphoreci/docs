@@ -9,6 +9,22 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of Jun 14, 2021
+**(Improved) Ubuntu 20.04 image update**  
+
+**(Updated)** Updated packages:
+
+- Azure cli 2.23.0 -> 2.42.2
+- Aws cli 1.19.79 -> 1.19.94
+- Cromedriver 90 -> 91
+- Docker-ce 20.10.3 -> 20.10.7
+- Docker-compose 1.28.2 -> 1.29.2
+- Elixir 1.12.0 -> 1.12.1
+- Google Chrome 90 -> 91
+- Git 2.31.1 -> 2.32.0
+- Helm 3.5.4 -> 3.6.0
+- Heroku 7.54.0 -> 7.54.1
+- Skopeo 1.2.3 -> 1.3.0
+
 **(Improved) Ubuntu 18.04 image update**  
 
 **(Updated)** Updated packages:
