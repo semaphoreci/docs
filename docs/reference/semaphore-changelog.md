@@ -8,6 +8,38 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of Jun 14, 2021
+**(Improved) Ubuntu 20.04 image update**  
+
+**(Updated)** Updated packages:
+
+- Azure cli 2.23.0 -> 2.42.2
+- Aws cli 1.19.79 -> 1.19.94
+- Cromedriver 90 -> 91
+- Docker-ce 20.10.3 -> 20.10.7
+- Docker-compose 1.28.2 -> 1.29.2
+- Elixir 1.12.0 -> 1.12.1
+- Google Chrome 90 -> 91
+- Git 2.31.1 -> 2.32.0
+- Helm 3.5.4 -> 3.6.0
+- Heroku 7.54.0 -> 7.54.1
+- Skopeo 1.2.3 -> 1.3.0
+
+**(Improved) Ubuntu 18.04 image update**  
+
+**(Updated)** Updated packages:
+
+- Kerl 1.8.4 -> 2.1.2
+- Rebar3 3.12.0 > 3.15.2
+- Azure-cli 2.24.1 -> 2.24.2 
+- Aws-cli 1.19.89 -> 1.19.92
+- Docker 20.10.5 -> 20.10.7
+- Docker-compose 1.28.2 -> 1.29.2
+- Git 2.31 -> 2.32
+- Heroku 7.54.0 -> 7.54.1
+
+To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 31, 2021
 **(New) Granular repository access through GitHub App**  
 Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) was introduced as a new way of connecting GitHub repositories with Semaphore.  
