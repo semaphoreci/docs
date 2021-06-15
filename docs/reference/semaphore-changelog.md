@@ -9,6 +9,16 @@ We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
 ### Week of Jun 14, 2021
+**(New) Offboarding page**  
+You can now access new offboarding page that will appear when trying to remove the user that is a project owner.  
+On this page you can:
+
+- See the list of all project user is the owner of
+- Remove the project
+- Transfer the project to yourself
+
+
+
 **(Improved) Ubuntu 20.04 image update**  
 
 **(Updated)** Updated packages:
@@ -24,6 +34,8 @@ This page is updated on a weekly basis.
 - Helm 3.5.4 -> 3.6.0
 - Heroku 7.54.0 -> 7.54.1
 - Skopeo 1.2.3 -> 1.3.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 
 **(Improved) Ubuntu 18.04 image update**  
 
