@@ -61,7 +61,7 @@ you will need to modify or delete `.ruby-version` in order to choose a different
 Ruby version.
 
 You can also change the active Ruby version by calling `sem-version ruby`
-followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the 
+followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the
 desired ruby version can be forced. In this case `.ruby-version` file is not taken into account.
 Here's an example:
 
@@ -80,6 +80,44 @@ blocks:
 
 If the version of Ruby that you need is not currently available in the Linux VM,
 we recommend running your jobs in [a custom Docker image][docker-env].
+
+## Test summary
+
+Add [rspec_junit_formatter ↗](https://github.com/victorolinasc/junit-formatter) to your Gemfile
+
+```ruby
+gem "rspec_junit_formatter"
+```
+
+Run following commands
+
+```shell
+bundle install
+```
+
+Add following to your `.rspec` configuration file
+
+```plain
+--format RspecJunitFormatter
+--out /tmp/junit.xml
+```
+
+OR
+
+Run RSpec with following arguments to generate JUnit XML report
+
+```shell
+bundle exec rspec --format RspecJunitFormatter --out /tmp/junit.xml
+```
+
+Add epilogue block to your test running job in `.semaphore/semaphore.yml`
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish /tmp/junit.xml
+```
 
 ## Dependency caching
 
@@ -272,9 +310,9 @@ jobs:
       - gem install semaphore_test_boosters
       - rspec_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
- 
+
  The similar setup is also used for Cucumber block:
- 
+
 ``` yaml
 jobs:
   - name: Cucumber
