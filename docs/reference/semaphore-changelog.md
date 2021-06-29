@@ -8,6 +8,8 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of Jun 28, 2021
+
 ### Week of Jun 14, 2021
 **(New) Offboarding page**  
 You can now access new offboarding page that will appear when trying to remove the user that is a project owner.  
