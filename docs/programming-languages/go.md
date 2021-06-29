@@ -70,6 +70,38 @@ blocks:
 If the version of Go that you need is not currently available in the Linux VM,
 we recommend running your jobs in [a custom Docker image][docker-env].
 
+## Test summary
+
+Make sure your GOPATH is exported. If not add this to your prologue
+
+```yaml
+prologue:
+  commands:
+    - export GOPATH="/home/semaphore/go"
+    - export PATH="$PATH:$GOPATH/bin"
+```
+
+Install [gotestsum ↗](https://github.com/gotestyourself/gotestsum) globally
+
+```shell
+GO111MODULE=off go get gotest.tools/gotestsum
+```
+
+Run your tests with
+
+```shell
+gotestsum --junitfile /tmp/junit.xml
+```
+
+Add epilogue block to your test running job
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish /tmp/junit.xml
+```
+
 ## Using GOPATH
 
 If you are not using Go 1.11 then you will need to prepare the directory
