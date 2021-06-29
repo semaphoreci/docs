@@ -77,6 +77,7 @@ nav:
     - Status Badges: essentials/status-badges.md
     - Private dependencies: essentials/using-private-dependencies.md
     - Deployment dashboards: essentials/deployment-dashboards.md
+    - Test Summary: essentials/test-summary.md
   - Programming Languages:
     - Android: programming-languages/android.md
     - C: programming-languages/c.md

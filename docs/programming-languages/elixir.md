@@ -69,6 +69,47 @@ blocks:
             - elixir --version
 ```
 
+## Test summary
+
+Add [junit formatter ↗](https://github.com/victorolinasc/junit-formatter) to your `mix.exs`
+
+```elixir
+{:junit_formatter, "~> 3.1", only: [:test]}
+```
+
+Run following commands
+
+```shell
+mix deps.get
+```
+
+Configure the junit_formatter in `config/config.exs`
+
+```elixir
+config :junit_formatter,
+  report_file: "junit.xml",
+  report_dir: "/tmp",
+  print_report_file: true,
+  include_filename?: true,
+  include_file_line?: true
+```
+
+Add formatter to your `test/test_helper.ex`
+
+```elixir
+ExUnit.configure(formatters: [JUnitFormatter, ExUnit.CLIFormatter])
+ExUnit.start()
+```
+
+Add epilogue block to your test running job
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish /tmp/junit.xml
+```
+
 ## Dependency caching
 
 You can use Semaphores `cache` command to store and load the build and
