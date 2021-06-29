@@ -10,6 +10,21 @@ This page is updated on a weekly basis.
 
 ### Week of Jun 28, 2021
 
+**(Improved) Ubuntu 18.04 image update**  
+**(New)** Packages:  
+
+- Java OpenJDK 16.0.1
+
+**(Updated)** Updated packages:  
+
+- Aws-cli 1.19.92 -> 1.19.99
+- Azure-cli 2.24.2 -> 2.25.0
+- Helm 3.6.0 -> 3.6.1
+- Node.js 14.16.1 -> 14.17.1
+- Npm 6.14.12 -> 7.18.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of Jun 14, 2021
 **(New) Offboarding page**  
 You can now access new offboarding page that will appear when trying to remove the user that is a project owner.  
