@@ -132,7 +132,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u292, 11.0.11
+- Java: 8u292, 11.0.11, 16.0.1
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.16.1 (set as default, with alias 14.16)
+- v14.17.1 (set as default, with alias 14.17)
 
 #### Additional tools
 
