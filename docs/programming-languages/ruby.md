@@ -92,7 +92,7 @@ With test summary you can inspect results of your test suites runs. When tests f
 
 In this guide we will focus on `RSpec` test runner. If you use TestUnit you can see look for runners that [supports junit file generation ↗][test-unit-runner]
 
-We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter] to your Gemfile:
+We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter] to your `Gemfile`:
 
 ```Ruby
 gem "rspec_junit_formatter", :group => [:test]
@@ -165,12 +165,6 @@ Your CI configuration should look similiar to this:
         commands:
           - test-results publish /tmp/junit.xml
 ```
-
-This way even failed jobs (due to the failed tests) will publish test results
-
-### Test summary docker
-
-[ WIP ]
 
 ## Dependency caching
 
