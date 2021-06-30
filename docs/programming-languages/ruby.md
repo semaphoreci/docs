@@ -166,12 +166,6 @@ Your CI configuration should look similiar to this:
           - test-results publish /tmp/junit.xml
 ```
 
-This way even failed jobs (due to the failed tests) will publish test results
-
-### Test summary docker
-
-[ WIP ]
-
 ## Dependency caching
 
 You can use Semaphores `cache` command to store and load a gem bundle
