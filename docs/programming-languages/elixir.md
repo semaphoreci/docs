@@ -48,7 +48,7 @@ Semaphore supports all versions of Elixir. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting an Elixir version on Linux
+### Selecting an Elixir version on Linux
 
 Semaphore uses [kiex](https://github.com/taylor/kiex) to manage
 Elixir versions. Any version installable with kiex is supported on
@@ -67,6 +67,47 @@ blocks:
         - name: Tests
           commands:
             - elixir --version
+```
+
+## Test summary
+
+Add [junit formatter ↗](https://github.com/victorolinasc/junit-formatter) to your `mix.exs`
+
+```elixir
+{:junit_formatter, "~> 3.1", only: [:test]}
+```
+
+Run following commands
+
+```shell
+mix deps.get
+```
+
+Configure the junit_formatter in `config/config.exs`
+
+```elixir
+config :junit_formatter,
+  report_file: "junit.xml",
+  report_dir: "/tmp",
+  print_report_file: true,
+  include_filename?: true,
+  include_file_line?: true
+```
+
+Add formatter to your `test/test_helper.ex`
+
+```elixir
+ExUnit.configure(formatters: [JUnitFormatter, ExUnit.CLIFormatter])
+ExUnit.start()
+```
+
+Add epilogue block to your test running job
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish /tmp/junit.xml
 ```
 
 ## Dependency caching
