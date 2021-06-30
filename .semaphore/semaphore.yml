@@ -10,14 +10,27 @@ blocks:
       prologue:
         commands:
           - checkout
+
       jobs:
+        - name: Lint
+          commands:
+            - npm install markdownlint-cli2 markdownlint-cli2-formatter-junit --global
+            - markdownlint-cli2 "**/*.md" "#node_modules"
+            - exit 0
+
         - name: Mkdocs & Nginx
           commands:
+            - export SKIP_TEST_RESULT_PUBLISH=true
             - make configure.gcloud
             - make mkdocs.build
             - make nginx.build
             - make nginx.test
             - make nginx.push
+
+      epilogue:
+        always:
+          commands:
+            - '[[ ! -v SKIP_TEST_RESULT_PUBLISH ]] && test-results publish junit.xml'
       secrets:
         - name: s2prod-gce
 
