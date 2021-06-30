@@ -24,6 +24,9 @@ theme:
   palette:
     primary: 'green'
     accent: 'green'
+  icon:
+    admonition:
+      beta-feature: fontawesome/solid/flask
 extra_css:
   - 'stylesheets/extra.css'
 extra_javascript:
