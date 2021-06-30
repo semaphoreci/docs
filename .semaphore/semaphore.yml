@@ -15,10 +15,12 @@ blocks:
         - name: Lint
           commands:
             - npm install markdownlint-cli2 markdownlint-cli2-formatter-junit --global
+            # Don't fail even if markdown linter detects issues
             - markdownlint-cli2 "**/*.md" "#node_modules" || echo
 
         - name: Mkdocs & Nginx
           commands:
+            # Skip publishing test result summary for this job
             - export SKIP_TEST_RESULT_PUBLISH=true
             - make configure.gcloud
             - make mkdocs.build
@@ -29,6 +31,7 @@ blocks:
       epilogue:
         always:
           commands:
+            # Publish test results only when SKIP_TEST_RESULT_PUBLISH is not set
             - '[[ ! -v SKIP_TEST_RESULT_PUBLISH ]] && test-results publish junit.xml'
       secrets:
         - name: s2prod-gce
