@@ -27,7 +27,6 @@ blocks:
             - ruby -e 'puts "evol".reverse'
 ```
 
-
 ## Ruby on Rails example project
 
 Semaphore provides a tutorial and demo Rails application with a working
@@ -49,7 +48,7 @@ Semaphore supports all versions of Ruby. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting a Ruby version on Linux
+### Selecting a Ruby version on Linux
 
 On Linux, Semaphore uses [rbenv](https://github.com/rbenv/rbenv) to manage the supported
 Ruby versions. Any Ruby version listed in
@@ -92,7 +91,7 @@ With test summary you can inspect results of your test suites runs. When tests f
 
 In this guide we will focus on `RSpec` test runner. If you use TestUnit you can see look for runners that [supports junit file generation ↗][test-unit-runner]
 
-We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter] to your Gemfile:
+We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter] to your `Gemfile`:
 
 ```Ruby
 gem "rspec_junit_formatter", :group => [:test]
@@ -107,21 +106,21 @@ bundle install
 Now we have to make sure that our formatter is properly configured and used by rspec.
 There are two ways we can do this:
 
-- Use `.rspec` configuration file
+- Extend your `.rspec` configuration file
 
 ```dotfile
 --format RspecJunitFormatter
---out /tmp/rspec.xml
+--out rspec.xml
 --format documentation
 ```
 
-- Adjust your run command:
+- Adjust `rspec` command:
 
 ```shell
-bundle exec rspec --format RspecJunitFormatter --out /tmp/junit.xml --format documentation
+bundle exec rspec --format RspecJunitFormatter --out junit.xml --format documentation
 ```
 
-Running your tests with this setup will also generate `/tmp/junit.xml` summary report.
+Running your tests with this setup will also generate `junit.xml` summary report.
 If your setup is based on docker, please refer to [docker based setup][test-summary-docker].
 
 ### Publishing results to Semaphore
@@ -129,7 +128,7 @@ If your setup is based on docker, please refer to [docker based setup][test-summ
 To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]:
 
 ```shell
-test-results publish /tmp/junit.xml
+test-results publish junit.xml
 ```
 
 We advise to include this call in your epilogue:
@@ -138,7 +137,7 @@ We advise to include this call in your epilogue:
 epilogue:
   always:
     commands:
-      - test-results publish /tmp/junit.xml
+      - test-results publish junit.xml
 ```
 
 This way even if your job fails(due to the test failures) results will still be published for inspection.
@@ -158,19 +157,21 @@ Your CI configuration should look similiar to this:
     job:
       name: "Tests"
       commands:
-        - bundle exec rspec --format RspecJunitFormatter --out /tmp/junit.xml --format documentation
+        # Or bundle exec rspec if using .rspec configuration file
+        - bundle exec rspec --format RspecJunitFormatter --out junit.xml --format documentation
 
     epilogue:
       always:
         commands:
-          - test-results publish /tmp/junit.xml
+          - test-results publish junit.xml
 ```
 
-This way even failed jobs (due to the failed tests) will publish test results
+### Demos
 
-### Test summary docker
+You can see how test results are setup in our [demo projects ↗][test-results-demo].
 
-[ WIP ]
+### See also
+
 
 ## Dependency caching
 
@@ -381,3 +382,4 @@ jobs:
 [test-unit-runner]: https://github.com/kenichiice/test-unit-runner-junitxml
 [test-summary-docker]: /programming-languages/ruby/#test-summary-docker
 [test-results-cli]: /reference/test-results-cli-reference/
+[test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/pull/37
