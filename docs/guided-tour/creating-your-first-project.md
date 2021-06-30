@@ -1,142 +1,219 @@
 ---
-description: To build, test and deploy your code on Semaphore 2.0, you'll need to create a project for it to live in. This guide will show you how to do that.
+description: A step-by-step tutorial for getting your first successful CI/CD workflow on Semaphore.
 ---
 
 # Creating Your First Project
 
-To build, test and deploy your code on Semaphore, you'll need to
-create a project for it to live in.
+This is a step-by-step tutorial for getting your first successful CI/CD workflow on
+Semaphore.
 
-## Creating a project in the web interface
+![Final CI/CD workflow on Semaphore](https://via.placeholder.com/800x500?text=Final+Workflow)
 
-Once you're inside an organization that you've created or were invited to,
-you're ready to create a CI/CD project.
+## Prerequisites
 
-Click on the **+ Create new** button in the application header (next to the **Projects** button) and you will be able to choose between 2 options:
+To complete this tutorial, you will need:
 
-### Option 1 - Start a real project 
+- Basic knowledge of Git
+- Basic knowledge of command line
+- A [Semaphore account][semaphore-home]
+- A [GitHub account][github]
 
-If you'd like to hook up your GitHub repository with Semaphore and start a real project, follow the steps described below:
+## Creating a Git repository
 
-1. Click on **Choose Repository**,
-2. Add people to the project,
-3. Choose a starter workflow - you can use one of the templates or customize it on 
-your own.
+Start by creating a new Git repository on GitHub. You may skip this section if you
+plan to use an existing repository.
 
-### Option 2 - Fork & Run
+- Navigate to GitHub and [create a new repository][github-new].
+- Enter the name of your repository, for example `hello-semaphore`, then click **Initialize this repository with: Add a README file**. Finally, click **Create repository**.
 
-If you'd like to try a quick experiment, Fork & Run will copy a working example to your GitHub, connect Semaphore, and trigger the first build. All you need to do is click on the **Fork and Run** button next to the programming language of your choice.
+## Creating a Semaphore project
 
-You are all set!
+1. [Log in to your Semaphore account][semaphore-login].
+2. If you are part of multiple organizations, select the one in which you plan
+   to host the project you are about to create.
+3. In the top navigation, click **Create new**.
+4. In the **Start a real project** section, click **Choose repository**.
+5. Follow on-screen instructions to authorize Semaphore to access a GitHub
+   repository of your choice. In case you need help, consult the detailed [guide
+   to connecting your GitHub account with Semaphore][github-guide].
+   ![](https://via.placeholder.com/800x300?text=Select+Repo)
+6. Wait a few seconds for Semaphore to initialize the project.
+7. The following screen lets you invite other people who have access to the
+   GitHub repository to your Semaphore project. Click **Continue to workflow
+   setup** to proceed.
+8. Use one of the templates to get to the first green build quickly: select
+   **Single job**, then click **Looks good, start**.
+9. You will see your first workflow running and within seconds completing
+   successfully.
 
-## Alternative: creating a project from command line
+![](https://via.placeholder.com/800x500?text=Single+Job+Passed)
 
-You can also create and manage projects using the Semaphore Command Line
-Interface (CLI):
+## Adding a test block to your CI pipeline
 
-1. Visit `https://your-organization.semaphoreci.com/projects/scopes/github` and
-authorize Semaphore to access your public and/or private GitHub repositories.
-2. [Install sem CLI][install-cli] and connect it to your organization.
-3. Run `sem init` in the root of your repository.
-4. `git push` a new commit to run your first workflow.
+Let's customize your pipeline so that it looks more like a continuous
+integration (CI) process for a real project.
 
-`sem init` creates a deploy key and webhook on GitHub, so
-that Semaphore can access your code as it changes. It also creates a pipeline
-definition file `.semaphore/semaphore.yml` in the repository on your computer.
-In case that file already exists, sem will not overwrite it.
+If you open your repository on GitHub, you will notice that there is a new
+branch **setup-semaphore**. Opening that branch will reveal that Semaphore has
+pushed a `semaphore.yml` configuration file inside the `.semaphore` directory.
 
-After you commit `.semaphore/semaphore.yml` and run `git push`, you should see
-the pipeline running in your browser. You can also see all running jobs in your
-terminal via `sem get jobs`.
+Semaphore, like most modern CI/CD tools, creates workflows based on
+YAML configuration file(s). However, you don't need to write YAML by hand.
+Semaphore features a **visual Workflow Builder**, which lets anyone create
+and modify pipelines using a point-and-click interface. You can also always edit
+your configuration by hand in your favorite editor, of course.
 
-## Moving on
+### Adding a block with parallel jobs using Workflow Builder
 
-Congratulations! You've successfully created your first project,
-and initialized it with a working pipeline.
-Take some time to explore the Semaphore web interface, and compare what you
-see with the generated YAML file.
+To extend your pipeline:
 
-[Let's move on to an overview of key Semaphore concepts][next] to learn what
-each part means.
+1. On the workflow page, click **Edit Workflow**.
+2. Inside **Initial pipeline**, click **Add block**.
+3. In the pane on the right-hand side, change **Name of the block** to `Tests`.
+4. Change the name of the first job from `Job #1` to `Unit tests`, and in the
+   **Commands** text area, enter `echo 'running unit tests'`.
+5. Click on the **Add another job** link to add a parallel job. Name it
+   `Integration tests` and enter `echo 'running integration
+   tests'` in the commands text area.
+6. Click **Prologue** and enter `checkout` as a command to run. This is [a
+   built-in script][checkout] which downloads the content of your Git
+   repository. By placing it in prologue, we reuse it as a starting command in
+   both parallel jobs.
+   ![](https://via.placeholder.com/800x500?text=State+of+workflow+builder+as+of+now)
+7. In the top-right corner of your screen, click **Run the workflow**.
+8. In the popup screen, you may expand the diff to view the YAML
+   that Semaphore will append to `.semaphore/semaphore.yml`. Click **Looks good,
+   start**. This will push the changes to the GitHub repository and start a new
+   workflow.
+   ![](https://via.placeholder.com/800x300?text=Commit+popup)
 
-## Troubleshooting
+At this point, you have a multi-stage CI pipeline with parallel jobs:
 
-In case running `sem init` throws an error:
+![](https://via.placeholder.com/800x500?text=+Passed+CI+workflow)
 
-``` txt
-error: http status 422 with message
-"{"message":"POST https://api.github.com/repos/orgname/projectname/keys: 404 - Not Found // See:
-https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key";}"
-received from upstream
-```
+### Understanding the basic building blocks of Semaphore workflows
 
-or
+On each change in your Git repository, Semaphore runs a **workflow**. Your last
+workflow, for example, contains a single pipeline called `Initial pipeline`.
 
-``` txt
-"{"message":"admin permisssions are required on the repository in order to add the project to Semaphore"}"
-```
+But, workflows can be composed of more than one pipeline. Additional pipelines
+can be triggered manually or automatically based on custom conditions. We will
+see an example of that in a minute.
 
-or
+A **pipeline** can contain multiple blocks. For example, your pipeline right now
+contains two blocks: `Block #1` runs first and when it completes the `Tests`
+block runs next.
 
-``` txt
-error: http status 422 with message "{"message":"Repository 'orgname/projectname' not found"}"
-received from upstream
-```
+**Blocks** can contain a single job or many parallel jobs. For example, your
+`Tests` block contains two parallel jobs.
 
-You can do the following:
+!!! info "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
 
-- Check if the user who wants to add a project to Semaphore is a member of the
-  given Semaphore organization, and has Admin-level permissions for the
-  repository on GitHub.
-- Check if the access for Semaphore 2.0 was granted within your GitHub
-  organization. You can do that [here][github-connection].
-- Request the GitHub organization owner to give access to Semaphore. [Here](https://help.github.com/en/articles/requesting-organization-approval-for-oauth-apps) you can find how.
+**Jobs** are basic units of execution. Semaphore runs each job as a sequence of
+commands in a clean, isolated environment that it creates on-demand and destroys
+as soon as its last command is finished. If the exit code of each command is
+`0`, Semaphore records the job as successful (passed).
 
-[next]: https://docs.semaphoreci.com/guided-tour/concepts/
-[install-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
-[github-connection]: https://github.com/settings/connections/applications/328c742132e5407abd7d
+### Viewing logs
 
-## Renaming a project
+In your workflow, click **Unit tests** to view the output log of that job. You
+will see the command `echo 'running unit tests'` that you wrote previously.
+Clicking on it will expand its output.
 
-If you want to rename your project, you can:
+![A job log](https://via.placeholder.com/800x500?text=Job+log)
 
-1. Choose the project whose name you want to change,
-2. Go to **Settings** in the top right corner of the page,
-3. Change the name in the **Name and Description** section and
-4. Click on **Save Changes**.
+You will also notice that Semaphore transparently displays all the commands that
+it performs in order to prepare your job for execution. This enables you to have
+full insight and control over your CI/CD environment.
 
-This can also be performed from the CLI by using [`sem edit` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit-examples).
+## Adding a CD pipeline
 
-## Transferring project ownership
+Semaphore has first-class support for continuous delivery (CD) via
+**promotions** which trigger other pipelines. By combining promotions and
+pipelines, you can:
 
-In order to transfer the project ownership to a different user, the following 
-conditions need to be met:
+- Manage multiple release targets
+- Implement any deployment strategy
+- Perform rollbacks
+- Manage infrastructure
+- Automate any DevOps task with a full log of who did what and when
 
-1. New project owner needs to have Admin permission level for the repository on GitHub,
-2. If you plan to build private projects, the new owner needs to grant access 
-for Semaphore to all repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account).
-3. If you plan to build only public projects, the new owner needs to grant access for 
-Semaphore to public repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account). 
+### Adding an automatic promotion and a deployment pipeline
 
-After that, go to _Project Settings -> General_, in the _Project Owner_ section, find the user you want to become the new owner, and click _Change_.
+Let's extend our workflow by implementing continuous deployment to a
+production environment whenever the CI pipeline on the `main` branch has passed.
 
-If you come accross any issues, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
-and include the name of the project and the GitHub username of the new owner in your message.
+1. From your workflow or job, click **Edit Workflow**.
+2. On the right-hand side following your `Initial Pipeline`, click **Add First
+   Promotion**.
+3. Enter `Production deployment` as the name of your promotion.
+4. Check **Enable automatic promotion**.
+5. As the conditions for automatic promotion, enter `branch = 'main' AND result ='passed'`.
+6. If needed, scroll the left-hand side of your screen to the right, so that
+   you a new pipeline is visible on your screen. By default it will be called
+   `Pipeline 2`. You can always change this later.
+7. Click on `Block #1` and rename the block to `Deploy`.
+8. Rename the job to `Deploy to production`.
+9. Add a command `echo "deploying using key $API_KEY"`.`
+9. Click **Environment variables**, then click **Add env vars**. Define `API_KEY` with value `123`.
+![](https://via.placeholder.com/800x500?text=State+of+workflow+builder+with+promotion+and+env+var)
+10. Click **Run the workflow**.
 
-**Note:** After the project ownership is transferred, you need to push a new commit. 
-Rerunning old builds will no longer work if the ownership of the project is changed.
+When this workflow runs, it will not run your promotion. This is because we are
+still working in the `setup-semaphore` branch, while we configured our
+promotion to run automatically only on the `main` branch.
 
-## Deleting a project
+### Running a promotion manually
 
-In order to delete a project, you can:
+Before merging to main, we can verify our promotion by running it manually:
 
-1. Choose the project you want to delete,
-2. Go to **Settings** in the top right corner of the page,
-3. At the bottom of the page, click on the link in the **Delete project** section,
-4. Leave your feedback,
-5. Enter project name for final confirmation and
-5. Click on **Delete project** button.
+1. On the workflow page, click **Production deployment** then **Start promotion**.
+2. Click on `Pipeline 2` to expand the deployment pipeline. Voilà!
 
-**Please note that this action cannot be reversed.**
+![](https://via.placeholder.com/800x500?text=Final+stage:+passed+CD+workflow)
 
-If you prefer using CLI, you can delete a project by using [`sem delete` command](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-delete-example).
+## Wrapping up
+
+To finish the implementation of your Semaphore project, open a pull request on
+GitHub from the `setup-semaphore` branch.
+
+After you merge, Semaphore will trigger a new workflow on the `main` branch, and
+it will run both the CI and CD pipelines.
+
+Here are a few ideas about what you could do as an exercise:
+
+- Edit any of the Semaphore configuration files by hand. Does pushing the change
+  trigger a new workflow? Is the change reflected in Workflow Builder?
+- Add one more block to the production deployment pipeline which would perform
+  a smoke test.
+- Add another promotion for manually deploying to a staging environment.
+
+## Where to go next
+
+In this tutorial we have covered the very basics of Semaphore. Here are some
+pointers for moving forward as you implement CI/CD pipelines for your projects:
+
+- Explore the default [Linux][linux-env] and [macOS][macos-env] environments,
+  which come with most common open source build tools, languages and databases.
+- Study [example projects][example-projects].
+- Install [Semaphore CLI][cli] so you can easily [debug jobs with
+  SSH][debugging].
+- Use [secrets][secrets] to authenticate with APIs and deploy to cloud environments.
+- Use [cache][cache] to reuse project dependencies.
+- Connect with other Semaphore users and get help on the [community forum][forum].
+
+[semaphore-home]: https://semaphoreci.com
+[github]: https://github.com
+[github-new]: https://github.com/new
+[semaphore-login]: https://id.semaphoreci.com
+[github-guide]: https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/
+[checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
+[plans]: https://docs.semaphoreci.com/account-management/plans/
+[linux-env]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[macos-env]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
+[example-projects]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
+[cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
+[debugging]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
+[secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
+[cache]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
+[forum]: https://discuss.semaphoreci.com/
