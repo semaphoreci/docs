@@ -24,9 +24,6 @@ theme:
   palette:
     primary: 'green'
     accent: 'green'
-  icon:
-    admonition:
-      beta-feature: fontawesome/solid/flask
 extra_css:
   - 'stylesheets/extra.css'
 extra_javascript:
@@ -45,6 +42,8 @@ markdown_extensions:
       guess_lang: false
   - toc:
       permalink: '&#35;'
+  - attr_list
+
 nav:
   - Welcome: index.md
   - Guided Tour:
