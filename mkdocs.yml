@@ -45,6 +45,7 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Guided Tour:
+    - Getting started v2: guided-tour/getting-started-v2.md
     - Getting started: guided-tour/getting-started.md
     - Creating your first project: guided-tour/creating-your-first-project.md
     - Concepts: guided-tour/concepts.md

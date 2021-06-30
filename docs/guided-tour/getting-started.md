@@ -1,29 +1,69 @@
 ---
-description: This tutorial will have you running a CI/CD pipeline on Semaphore in minutes.
+description: In this guide, we will help you get up and running on Semaphore 2.0 and introduce you to its key features.
 ---
 
 # Getting Started
 
-This guide will have you running a successful CI/CD pipeline on Semaphore in
-minutes.
+Welcome to the guided tour of Semaphore! In this guide we help you get up and
+running with Semaphore and introduce you to its key features. If you're new
+to Semaphore or have limited Semaphore experience, then this is the best place
+to start.
 
-## About Semaphore
+## What is Semaphore?
 
 Semaphore is a cloud-based automation service for building, testing and
 deploying software.
 
-Semaphore is **built for developer productivity**, guided by three principles:
+Developers use Semaphore to implement
+[continuous integration (CI)](https://semaphoreci.com/continuous-integration) and
+continuous delivery (CD) pipelines, which help get software from version
+control right to users in a safe and automated way.
 
-1. **Speed**: Developers must work in a fast feedback loop, so CI/CD workflows
-   must be fast.
-3. **Power**: The CI/CD tool needs to be able to run any automated software
-   workflow, at any scale.
-2. **Ease of use**: CI/CD must be easy enough for every developer to use, so
-   that they are in close contact with the operation of their software and its
-   impact on users.
+Semaphore is built for developer productivity, guided by two principles:
 
-The rest of this guide will walk you through the first steps of using Semaphore.
+1. **Speed**: Developers must work in a fast feedback loop,
+so CI/CD processes must be fast.
+2. **Ease of use**: CI/CD tool needs to support developers in everything they
+need to build, at any scale, and shouldn't get in the way.
 
-**[I'm ready to start →][next]**
+Configuration files describe to Semaphore the
+[CI/CD pipelines](https://semaphoreci.com/blog/cicd-pipeline) which need to run
+based on Git repositories. Semaphore executes pipelines on every change in
+code. As the configuration changes, Semaphore is able to determine what changed
+and adapt the workflow accordingly.
+
+In the background, Semaphore manages the hardware resources needed to run
+CI/CD jobs just-in-time. It also maintains the base software environment in
+which your code runs in secure isolation. With Semaphore, there is no software
+to install or infrastructure to maintain in order to implement continuous
+delivery in your organization.
+
+## What sets Semaphore apart?
+
+A combination of features make Semaphore a strong fit for teams that optimize
+for getting things done:
+
+- **Pipelines as code**: traditionally associated with tools that require
+costly self-hosting and detailed customization, infinitely configurable CD
+pipelines are now available in an easy to use package.
+- **It's the fastest there is**: Semaphore provides the best out of the box CI/CD
+performance on the market, which means shorter development cycles and faster
+innovation. Moving to Semaphore usually saves hours of precious time per week
+per developer.
+- **There's nothing to maintain**: with no resources to manage, scale and pay
+for separately, developers can focus on building products. Semaphore has a
+track record of providing a reliable CI/CD service since 2012.
+- **No vendor lock-in**: Semaphore is committed to supporting all major code
+hosting and cloud providers, leaving you freedom to choose optimal solutions.
+
+## Next steps
+
+It's time to [create your first project][next] using an example Semaphore
+configuration file. You will be able to see Semaphore in action first before
+customizing it for your use case.
 
 [next]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+
+If you want to find out more about the product and participate in a live Q&A
+session with one of Semaphore's co-founders, you can register for
+Semaphore Class. [More info here](https://semaphoreci.com/resources/semaphore-class/).
