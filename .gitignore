@@ -2,3 +2,4 @@ docs_secrets.yml
 .DS_Store
 *.swp
 site/**/*
+junit.xml

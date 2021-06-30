@@ -48,7 +48,7 @@ Semaphore supports all versions of Elixir. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting an Elixir version on Linux
+### Selecting an Elixir version on Linux
 
 Semaphore uses [kiex](https://github.com/taylor/kiex) to manage
 Elixir versions. Any version installable with kiex is supported on
