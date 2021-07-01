@@ -11,7 +11,7 @@ Before getting started, you'll need:
 
   - A [Netlify](https://netlify.com) account.
   - A working
-    [Semaphore project](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/)
+    [Semaphore project](../guided-tour/getting-started.md)
     with a CI pipeline that builds the website.
 
 For the initial CI pipeline, you may refer to Semaphore's [open source demo
@@ -37,7 +37,7 @@ blocks:
       # Mount a secret which defines /home/semaphore/.netlify/config.json and
       # /home/semaphore/.netlify/state.json.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
         - name: netlify-authentication
       jobs:
@@ -59,7 +59,7 @@ commands of the job to suit your needs.
 ## Add a promotion to deployment
 
 Add a
-[promotion](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/)
+[promotion](https://docs.semaphoreci.com/essentials/deploying-with-promotions/)
 to your existing `semaphore.yml` file:
 
 ``` yaml
@@ -118,7 +118,7 @@ To obtain your Netlify credentials:
 
 You need to upload two files to Semaphore in order to allow access to
 your Netlify account and site.
-[Secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
+[Secrets](https://docs.semaphoreci.com/essentials/using-secrets/)
 are the best way to store private data such as authentication tokens and
 passwords. You can securely send the files to Semaphore using [sem
 CLI](https://docs.semaphoreci.com/reference/sem-command-line-tool/):

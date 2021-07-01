@@ -4,12 +4,15 @@ description: Environment variables used in Semaphore 2.0 projects can be predefi
 
 # Environment Variables
 
-This document describes the environment variables used in Semaphore 2.0
+This document describes the environment variables used in Semaphore
 projects.
 
 Although some of the presented environment variables are defined on a per
 project or on a per task basis, all the presented environment variables can be
 seen on a per job basis.
+
+If you're looking to set custom environment variables yourself, refer to [this
+guide instead][setting-env-vars].
 
 ## Predefined environment variables
 
@@ -185,7 +188,7 @@ Example value: `false`
 The value of the `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable is `auto-promotion`
 if the pipeline is auto-promoted.
 
-If the pipeline is manually promoted, the value is the GitHub username 
+If the pipeline is manually promoted, the value is the GitHub username
 of the person that promoted the pipeline.
 
 However, if it is an initial pipeline, the value of the environment variable is an empty string.
@@ -380,4 +383,5 @@ This feature adds the following environment variables to every job for a given p
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 
 
-[scheduler]: https://docs.semaphoreci.com/essentials/schedule-a-workflow-run/
+[scheduler]: ../essentials/schedule-a-workflow-run.md
+[setting-env-vars]: ../essentials/environment-variables.md

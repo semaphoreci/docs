@@ -9,12 +9,12 @@ hardware resources available to a virtual machine (VM) instance,
 including the memory size, virtual CPU count, and disk.
 
 This guide describes the available machine types. For instructions about using
-the supported machine types in pipelines see pipeline
+the supported machine types in your pipelines, refer to
 [agent documentation][agent].
 
 ## Linux machine types
 
-Linux machine types can be paired with the [Ubuntu1804 image][ubuntu1804] or [Ubuntu2004 image][ubuntu2004].
+Linux machine types can be paired with the [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -141,8 +141,9 @@ Apple machine types can be paired with the [MacOS Xcode11 image][macos-xcode11] 
 
 `*` - available on request
 
-[agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
-[macos-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
-[macos-xcode12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
+[agent]: ../reference/pipeline-yaml-reference.md#agent
+[ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
+[ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
+[macos-xcode11]: ../ci-cd-environment/macos-xcode-11-image.md
+[macos-xcode12]: ../ci-cd-environment/macos-xcode-12-image.md
+[docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md

@@ -64,12 +64,12 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Install dependencies
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # See https://docs.semaphoreci.com/essentials/environment-variables/
       env_vars:
         - name: NODE_ENV
           value: test

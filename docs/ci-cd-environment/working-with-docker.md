@@ -278,6 +278,63 @@ workflows.
 You can use Docker Compose in your Semaphore jobs as you would on any Linux machine.
 For a detailed example, see _[Using Docker Compose in CI][using-docker-compose]_.
 
+## Using databases and background services
+
+Let's say that your CI build needs Redis and PostgreSQL:
+
+``` yaml
+# .semaphore/semaphore.yml
+
+version: v1.0
+name: Docker Based Builds
+
+agent:
+  machine:
+    type: e1-standard-2
+
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/ruby:2.6'
+
+    - name: db
+      image: 'registry.semaphoreci.com/postgres:9.6'
+      env_vars:
+        - name: POSTGRES_PASSWORD
+          value: keyboard-cat
+
+    - name: cache
+      image: 'registry.semaphoreci.com/redis:5.0'
+
+blocks:
+  - name: "Hello"
+    task:
+      jobs:
+      - name: Hello
+        commands:
+          # install postgres and redis clients
+          - apt-get -y update && apt-get install postgresql-client redis-tools
+
+          # create a database by connecting to 'db' container
+          - PGPASSWORD="keyboard-cat" createdb -U postgres -h db -p 5432 -e hello
+
+          # list key in redis container by connecting to the cache container
+          - redis-cli -h cache KEYS *
+```
+
+In this example, we used the Semaphore hosted [Postgres](/ci-cd-environment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-environment/semaphore-registry-images/#redis)
+images to start your services.
+
+### Using services and test data across blocks
+
+Note that, since all jobs run in isolated environments, the services that you
+start in one job are not automatically available in other jobs.
+The isolation of jobs from each other within their block also means that
+services are not shared across blocks or pipelines.
+
+To use a service or populate test data in all parallel jobs within a block,
+specify that in the task [prologue][prologue]. Repeat the same steps in the
+definition of each block as needed.
+
 ## Installing a newer Docker version
 
 A recent version of Docker toolchain is [preinstalled by default][ubuntu-vm].
@@ -318,10 +375,11 @@ blocks:
 [semaphore-demo-java-spring]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [ecr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-aws-elastic-container-registry-ecr/
 [gcr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-google-container-registry-gcr/
-[using-secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[using-secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
 [ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#docker
 [sem-reference]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
-[using-promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[using-promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [docker-environment]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [using-docker-compose]: https://docs.semaphoreci.com/examples/using-docker-compose-in-ci/
+[prologue]: ../reference/pipeline-yaml-reference.md#prologue

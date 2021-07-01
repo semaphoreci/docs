@@ -72,7 +72,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/article/62-concepts
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
 
   # This block tests the UI service application
@@ -207,8 +207,8 @@ To continue learning about `change_in`, check these resources:
 [monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
 [change-in]: https://docs.semaphoreci.com/reference/conditions-reference/#usage-examples-for-change_in
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-monorepo
-[promotions-guide]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
-[caching-guide]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[promotions-guide]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
+[caching-guide]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
 [pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
@@ -216,5 +216,5 @@ To continue learning about `change_in`, check these resources:
 [elixir-ref]: https://docs.semaphoreci.com/programming-languages/elixir/
 [ruby-ref]: https://docs.semaphoreci.com/programming-languages/ruby/
 [go-ref]: https://docs.semaphoreci.com/programming-languages/go/
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [sinatra]: http://sinatrarb.com/
