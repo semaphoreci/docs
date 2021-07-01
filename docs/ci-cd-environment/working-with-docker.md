@@ -375,10 +375,10 @@ blocks:
 [semaphore-demo-java-spring]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [ecr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-aws-elastic-container-registry-ecr/
 [gcr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-google-container-registry-gcr/
-[using-secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[using-secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
 [ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#docker
 [sem-reference]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
-[using-promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[using-promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [docker-environment]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [using-docker-compose]: https://docs.semaphoreci.com/examples/using-docker-compose-in-ci/

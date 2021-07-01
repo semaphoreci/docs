@@ -122,7 +122,7 @@ The prologue is run before each job in the the block.
 ### Promotion
 
 You can create complex workflows with
-[promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
+[promotions](https://docs.semaphoreci.com/essentials/deploying-with-promotions/).
 A promotion can trigger the start of the next pipeline either manually
 or on user-defined conditions. The
 [auto_promote_on](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote_on)

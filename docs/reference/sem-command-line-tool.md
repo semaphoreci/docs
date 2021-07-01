@@ -1470,7 +1470,6 @@ sem get projects
 
 ## See also
 
-- [Installing sem](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/)
 - [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/)
 - [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)

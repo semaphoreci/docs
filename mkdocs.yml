@@ -139,6 +139,7 @@ nav:
       - Continuous deployment of a static website: examples/continuous-deployment-of-a-static-website.md
       - Pushing Docker images to Google Container Registry (GCR): examples/pushing-docker-images-to-google-container-registry-gcr.md
       - Google Cloud run continuous deployment: examples/google-cloud-run-continuous-deployment.md
+      - Deploy to DigitalOcean Kubernetes: examples/deploy-to-digitalocean.md
       - Netlify continuous deployment: examples/netlify-continuous-deployment.md
       - Deployment to AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
       - HockeyApp iOS app distribution: examples/hockeyapp-ios-app-distribution.md
