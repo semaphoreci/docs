@@ -2,7 +2,7 @@
 description: This tutorial will have you running a CI/CD pipeline on Semaphore in minutes.
 ---
 
-# Getting Started
+# Creating Your First CI/CD Pipeline
 
 This step-by-step tutorial will have you running a successful CI/CD pipeline on
 Semaphore in minutes.
@@ -11,7 +11,7 @@ Semaphore in minutes.
 
 ## About Semaphore
 
-Semaphore is a cloud-based automation service for building, testing and
+Semaphore is a cloud-based automation service for building, testing, and
 deploying software.
 
 Semaphore is **built for developer productivity**, guided by three principles:
@@ -20,7 +20,7 @@ Semaphore is **built for developer productivity**, guided by three principles:
    must be fast.
 3. **Power**: The CI/CD tool needs to be able to run any automated software
    workflow, at any scale.
-2. **Ease of use**: CI/CD must be easy enough for every developer to use, so
+2. **Ease of use**: CI/CD must be easy enough for every developer to use so
    that they are in close contact with the operation of their software and its
    impact on users.
 
@@ -91,12 +91,12 @@ To extend your pipeline:
    `Integration tests` and enter `echo 'running integration
    tests'` in the commands text area.
 6. Click **Prologue** and enter `checkout` as a command to run. This is [a
-   built-in script][checkout] which downloads the content of your Git
-   repository. By placing it in prologue, we reuse it as a starting command in
-   both parallel jobs.
+   built-in script][checkout] that downloads the content of your Git
+   repository. By placing it in the prologue, we reuse it as a starting command
+   in both parallel jobs.
    ![](https://via.placeholder.com/800x500?text=State+of+workflow+builder+as+of+now)
 7. In the top-right corner of your screen, click **Run the workflow**.
-8. In the popup screen, you may expand the diff to view the YAML
+8. In the pop-up screen, you may expand the diff to view the YAML
    that Semaphore will append to `.semaphore/semaphore.yml`. Click **Looks good,
    start**. This will push the changes to the GitHub repository and start a new
    workflow.
@@ -138,7 +138,7 @@ Clicking on it will expand its output.
 ![A job log](https://via.placeholder.com/800x500?text=Job+log)
 
 You will also notice that Semaphore transparently displays all the commands that
-it performs in order to prepare your job for execution. This enables you to have
+it performs to prepare your job for execution. This enables you to have
 full insight and control over your CI/CD environment.
 
 ## Adding a CD pipeline
@@ -165,7 +165,7 @@ production environment whenever the CI pipeline on the `main` branch has passed.
 4. Check **Enable automatic promotion**.
 5. As the conditions for automatic promotion, enter `branch = 'main' AND result ='passed'`.
 6. If needed, scroll the left-hand side of your screen to the right, so that
-   you a new pipeline is visible on your screen. By default it will be called
+   a new pipeline is visible on your screen. By default, it will be called
    `Pipeline 2`. You can always change this later.
 7. Click on `Block #1` and rename the block to `Deploy`.
 8. Rename the job to `Deploy to production`.
@@ -205,11 +205,11 @@ Here are a few ideas about what you could do as an exercise:
 
 ## Where to go next
 
-In this tutorial we have covered the very basics of Semaphore. Here are some
+In this tutorial, we have covered the very basics of Semaphore. Here are some
 pointers for moving forward as you implement CI/CD pipelines for your projects:
 
 - Explore the default [Linux][linux-env] and [macOS][macos-env] environments,
-  which come with most common open source build tools, languages and databases.
+  which come with the most common open source build tools, languages, and databases.
 - Study [example projects][example-projects].
 - Install [Semaphore CLI][cli] so you can easily [debug jobs with
   SSH][debugging].
