@@ -52,7 +52,6 @@ nav:
     - Customizing your pipeline: guided-tour/customizing-your-pipeline.md
     - Customizing the build environment: guided-tour/customizing-the-build-environment.md
     - Using databases and services: guided-tour/using-databases-and-services.md
-    - Caching dependencies: guided-tour/caching-dependencies.md
     - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
