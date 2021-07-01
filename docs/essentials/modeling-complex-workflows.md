@@ -187,4 +187,4 @@ automatically to delivery phases.
 
 Happy building!
 
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/

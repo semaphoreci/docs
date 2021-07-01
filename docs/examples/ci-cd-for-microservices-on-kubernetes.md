@@ -67,7 +67,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Install dependencies
     task:
@@ -145,7 +145,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
         - name: markoa-dockerhub
       jobs:
@@ -209,7 +209,7 @@ blocks:
       # Mount a secret which defines /home/semaphore/.kube/dok8s.yaml.
       # By mounting it, we make file available in the job environment.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
         - name: do-k8s
 
@@ -264,5 +264,5 @@ yourself. Here’s how to build the demo project with your own account:
    push the commit to GitHub, Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-kubernetes
-[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets-guide]: https://docs.semaphoreci.com/essentials/using-secrets/
 [docker-hub-guide]: https://docs.semaphoreci.com/examples/publishing-docker-images-on-dockerhub/

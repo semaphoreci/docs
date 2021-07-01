@@ -227,7 +227,7 @@ change_in('/web-app/', {pipeline_file: 'ignore'})
 [use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
 [promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
 [skip-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
-[promotions-guided]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[promotions-guided]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [conditions-ref]: https://docs.semaphoreci.com/reference/conditions-reference/
 [demo]: https://github.com/semaphoreci-demos/semaphore-demo-monorepo
 [monorepo-example]: https://docs.semaphoreci.com/examples/change-based-execution-for-monorepos

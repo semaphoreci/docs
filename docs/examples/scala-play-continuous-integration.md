@@ -52,14 +52,14 @@ agent:
 # Blocks define the structure of a pipeline and are executed sequentially.
 # Each block has a task that defines one or many parallel jobs. Jobs define
 # the commands to execute.
-# - https://docs.semaphoreci.com/guided-tour/concepts/
+# - https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: "Scala with Play"
     task:
       env_vars:
         # Define an environment variable
         # Needed for use in scripts/test-sbt and scripts/test-gradle
-        # - https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+        # - https://docs.semaphoreci.com/essentials/environment-variables/
         - name: SCALA_VERSION
           value: "2.12.6"
       # Commands in prologue run at the beginning of each parallel job.
@@ -123,5 +123,5 @@ deployment. For more information and practical examples, see:
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-scala-play
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [deployment-tutorials]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment

@@ -72,7 +72,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: "Install Dependencies"
     task:
@@ -158,7 +158,7 @@ blocks:
     task:
       # This block runs browser-based tests.
       # We need to set environment variables.
-      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # See https://docs.semaphoreci.com/essentials/environment-variables/
       env_vars:
         - name: DB_NAME
           value: 'pydjango'
@@ -246,7 +246,7 @@ on Semaphore. The next step is to configure deployment. For further
 information, please check the following tutorials:
 
 -   [Deploying with
-    promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
+    promotions](https://docs.semaphoreci.com/essentials/deploying-with-promotions/).
 -   [Deployment tutorials and example
     projects](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment).
 
@@ -254,10 +254,10 @@ See also
 --------
 
 -   [Semaphore guided
-    tour](https://docs.semaphoreci.com/guided-tour/getting-started/)
+    tour](../guided-tour/getting-started.md)
 -   [Pipelines
     reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 -   [Toolbox
     reference](https://docs.semaphoreci.com/reference/toolbox-reference/)
 -   [Environment variables and
-    secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
+    secrets](../essentials/environment-variables.md)

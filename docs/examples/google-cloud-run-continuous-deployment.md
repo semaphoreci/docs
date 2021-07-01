@@ -351,14 +351,14 @@ For more CI/CD configuration options, see [Semaphore YML reference][reference].
 [semaphore-account]: https://semaphoreci.com
 [google-cloud-account]: https://cloud.google.com
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-cloud-run
-[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[concepts]: https://docs.semaphoreci.com/essentials/concepts/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [cicd-env]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
 [caching]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
 [gcr]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-google-container-registry-gcr/
-[secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
 [sem-cli]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
 [env-vars]: https://docs.semaphoreci.com/ci-cd-environment/environment-variables/
 [debugging]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
