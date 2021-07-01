@@ -45,7 +45,6 @@ markdown_extensions:
 nav:
   - Welcome: index.md
   - Guided Tour:
-    - Getting started v2: guided-tour/getting-started-v2.md
     - Getting started: guided-tour/getting-started.md
     - Concepts: guided-tour/concepts.md
     - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
