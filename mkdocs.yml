@@ -49,7 +49,6 @@ nav:
     - Getting started: guided-tour/getting-started.md
     - Creating your first project: guided-tour/creating-your-first-project.md
     - Concepts: guided-tour/concepts.md
-    - Customizing the build environment: guided-tour/customizing-the-build-environment.md
     - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
