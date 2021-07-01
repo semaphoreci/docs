@@ -7,7 +7,7 @@ description: This tutorial will have you running a CI/CD pipeline on Semaphore i
 This step-by-step tutorial will have you running a successful CI/CD pipeline on
 Semaphore in minutes.
 
-![Final CI/CD workflow on Semaphore](https://via.placeholder.com/800x500?text=Final+Workflow)
+![Final CI/CD workflow on Semaphore](getting-started/final-workflow.png)
 
 ## About Semaphore
 
@@ -51,7 +51,7 @@ plan to use an existing repository.
 5. Follow on-screen instructions to authorize Semaphore to access a GitHub
    repository of your choice. In case you need help, consult the detailed [guide
    to connecting your GitHub account with Semaphore][github-guide].
-   ![](https://via.placeholder.com/800x300?text=Select+Repo)
+   ![](getting-started/select-repo.png)
 6. Wait a few seconds for Semaphore to initialize the project.
 7. The following screen lets you invite other people who have access to the
    GitHub repository to your Semaphore project. Click **Continue to workflow
@@ -61,7 +61,7 @@ plan to use an existing repository.
 9. You will see your first workflow running and within seconds completing
    successfully.
 
-![](https://via.placeholder.com/800x500?text=Single+Job+Passed)
+![](getting-started/single-job-passed.png)
 
 ## Adding a test block to your CI pipeline
 
@@ -94,17 +94,17 @@ To extend your pipeline:
    built-in script][checkout] that downloads the content of your Git
    repository. By placing it in the prologue, we reuse it as a starting command
    in both parallel jobs.
-   ![](https://via.placeholder.com/800x500?text=State+of+workflow+builder+as+of+now)
+   ![](getting-started/state-of-workflow-1.png)
 7. In the top-right corner of your screen, click **Run the workflow**.
 8. In the pop-up screen, you may expand the diff to view the YAML
    that Semaphore will append to `.semaphore/semaphore.yml`. Click **Looks good,
    start**. This will push the changes to the GitHub repository and start a new
    workflow.
-   ![](https://via.placeholder.com/800x300?text=Commit+popup)
+   ![](getting-started/commit-popup.png)
 
 At this point, you have a multi-stage CI pipeline with parallel jobs:
 
-![](https://via.placeholder.com/800x500?text=+Passed+CI+workflow)
+![](getting-started/passed-ci-workflow.png)
 
 ### Understanding the basic building blocks of Semaphore workflows
 
@@ -135,7 +135,7 @@ In your workflow, click **Unit tests** to view the output log of that job. You
 will see the command `echo 'running unit tests'` that you wrote previously.
 Clicking on it will expand its output.
 
-![A job log](https://via.placeholder.com/800x500?text=Job+log)
+![A job log](getting-started/job-log.png)
 
 You will also notice that Semaphore transparently displays all the commands that
 it performs to prepare your job for execution. This enables you to have
@@ -171,7 +171,7 @@ production environment whenever the CI pipeline on the `main` branch has passed.
 8. Rename the job to `Deploy to production`.
 9. Add a command `echo "deploying using key $API_KEY"`.`
 9. Click **Environment variables**, then click **Add env vars**. Define `API_KEY` with value `123`.
-![](https://via.placeholder.com/800x500?text=State+of+workflow+builder+with+promotion+and+env+var)
+![](getting-started/state-of-workflow-2.png)
 10. Click **Run the workflow**.
 
 When this workflow runs, it will not run your promotion. This is because we are
@@ -185,7 +185,7 @@ Before merging to main, we can verify our promotion by running it manually:
 1. On the workflow page, click **Production deployment** then **Start promotion**.
 2. Click on `Pipeline 2` to expand the deployment pipeline. Voilà!
 
-![](https://via.placeholder.com/800x500?text=Final+stage:+passed+CD+workflow)
+![](getting-started/final-state.png)
 
 ## Wrapping up
 
