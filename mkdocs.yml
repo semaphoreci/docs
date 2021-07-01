@@ -47,7 +47,6 @@ nav:
   - Guided Tour:
     - Getting started v2: guided-tour/getting-started-v2.md
     - Getting started: guided-tour/getting-started.md
-    - Creating your first project: guided-tour/creating-your-first-project.md
     - Concepts: guided-tour/concepts.md
     - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
   - Essentials:
@@ -170,4 +169,5 @@ nav:
     - Working with GitHub SSO: account-management/working-with-github-sso.md
   - FAQ:
     - FAQ: faq/faq.md
+    - Managing projects: faq/managing-projects.md
     - Migration guide for Semaphore Classic users: faq/migration-guide-for-semaphore-classic-users.md

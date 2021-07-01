@@ -757,6 +757,39 @@ The previous command creates a new Semaphore 2.0 project that will be called
 Using `--repo-url` with `sem init` is much trickier because you should know
 what you are doing.
 
+#### Troubleshooting
+
+In case running `sem init` returns an error:
+
+``` txt
+error: http status 422 with message
+"{"message":"POST https://api.github.com/repos/orgname/projectname/keys: 404 - Not Found // See:
+https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key";}"
+received from upstream
+```
+
+or
+
+``` txt
+"{"message":"admin permisssions are required on the repository in order to add the project to Semaphore"}"
+```
+
+or
+
+``` txt
+error: http status 422 with message "{"message":"Repository 'orgname/projectname' not found"}"
+received from upstream
+```
+
+You can do the following:
+
+- Check if the user who wants to add a project to Semaphore is a member of the
+  given Semaphore organization, and has Admin-level permissions for the
+  repository on GitHub.
+- Check if the access for Semaphore 2.0 was granted within your GitHub
+  organization. You can do that [on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d).
+- Request the GitHub organization owner to give access to Semaphore. Refer to [GitHub documentation](https://help.github.com/en/articles/requesting-organization-approval-for-oauth-apps) for details.
+
 ### sem edit
 
 You can edit a project by using the `sem edit project` command, followed by the
