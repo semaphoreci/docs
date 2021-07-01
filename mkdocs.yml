@@ -55,7 +55,6 @@ nav:
     - Caching dependencies: guided-tour/caching-dependencies.md
     - Environment variables and secrets: guided-tour/environment-variables-and-secrets.md
     - Deploying with promotions: guided-tour/deploying-with-promotions.md
-    - Migration guide for Semaphore Classic users: guided-tour/migration-guide-for-semaphore-classic-users.md
   - Essentials:
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
     - Workflow triggers: essentials/project-workflow-trigger-options.md
@@ -175,3 +174,4 @@ nav:
     - Working with GitHub SSO: account-management/working-with-github-sso.md
   - FAQ:
     - FAQ: faq/faq.md
+    - Migration guide for Semaphore Classic users: faq/migration-guide-for-semaphore-classic-users.md
