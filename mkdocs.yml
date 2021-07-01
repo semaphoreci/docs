@@ -46,8 +46,8 @@ nav:
   - Welcome: index.md
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
-    - Concepts: guided-tour/concepts.md
   - Essentials:
+    - Concepts: essentials/concepts.md
     - Workflows and Pipelines: essentials/modeling-complex-workflows.md
     - Workflow triggers: essentials/project-workflow-trigger-options.md
     - Workflow scheduler/cron: essentials/schedule-a-workflow-run.md
