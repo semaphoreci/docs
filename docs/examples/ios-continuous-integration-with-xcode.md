@@ -55,7 +55,7 @@ version: v1.0
 # promotions, the pipeline name will help you differentiate between
 # them. For example, you might have a build phase and a delivery phase.
 # For more information on promotions, see:
-# https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+# https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 name: Tallest Towers
 
 # The agent defines the environment in which your CI runs. It is a combination
@@ -72,12 +72,12 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially. Each block
 # has a task that defines one or more parallel jobs. Jobs define commands that
 # should be executed by the pipeline.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Run tests
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # See https://docs.semaphoreci.com/essentials/environment-variables/
       env_vars:
         - name: LANG
           value: en_US.UTF-8
@@ -89,7 +89,7 @@ blocks:
           # Restore dependencies from cache. This command will not fail in
           # case of a cache miss. In case of a cache hit, bundle  install will
           # complete in about a second.
-          # See https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+          # See https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
           - cache restore
           - bundle install --path vendor/bundle
           - cache store
@@ -378,7 +378,7 @@ yourself. Here’s how to build the demo project with your own account:
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [example-project-readme]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/README.md
 [example-semaphore-yml]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/.semaphore/semaphore.yml
-[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
+[concepts]: https://docs.semaphoreci.com/essentials/concepts/
 [checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
 [cache-command]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache
 [fastlane]: https://fastlane.tools/
@@ -386,8 +386,8 @@ yourself. Here’s how to build the demo project with your own account:
 [fastlane-match]: https://docs.fastlane.tools/actions/match/
 [fastlane-plugin]: https://github.com/semaphoreci/fastlane-plugin-semaphore
 [fastlane-snapshot]: https://docs.fastlane.tools/actions/snapshot/
-[encrypted-secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[encrypted-secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [code-signing]: https://docs.semaphoreci.com/examples/code-signing-for-ios-projects/
 [testflight]: https://docs.semaphoreci.com/examples/testflight-ios-app-distribution/
 [hockeyapp]: https://docs.semaphoreci.com/examples/hockeyapp-ios-app-distribution/

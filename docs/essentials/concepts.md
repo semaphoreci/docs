@@ -38,7 +38,8 @@ Each task can configure its own environment,
 including machine type, set its own environment variables and use any
 predefined secret.
 
-We will see how to define blocks, tasks and jobs later in this guide. You can
+For an introduction to creating blocks, tasks and jobs, refer to the [getting
+started guide][getting-started]. You can
 also refer to the [pipeline reference docs](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 for complete information.
 
@@ -82,13 +83,8 @@ Agents can also use [custom Docker containers][docker-containers] to run your
 jobs. This is an alternative to using Semaphore VMs which gives you complete
 control over your CI/CD environment.
 
-## Next steps
-
-[Let's learn how to customize your pipeline][next] so that it runs the way
-you want it.
-
-[next]: https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/
-[machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-[ubuntu]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
+[getting-started]: ../guided-tour/getting-started.md
+[machine-types]: ../ci-cd-environment/machine-types.md
+[ubuntu]: ../ci-cd-environment/ubuntu-18.04-image.md
+[macos]: ../ci-cd-environment/macos-xcode-12-image.md
 [docker-containers]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

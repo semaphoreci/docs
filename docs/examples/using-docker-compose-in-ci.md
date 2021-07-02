@@ -66,7 +66,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
         - name: pyflask-semaphore
       jobs:
@@ -88,7 +88,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
         - name: pyflask-semaphore
       prologue:
@@ -219,7 +219,7 @@ The only thing that you should take care of is using a valid value for the
   - [Pipelines
     reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
   - [Storing sensitive
-    data](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
+    data](https://docs.semaphoreci.com/essentials/using-secrets/)
   - [Working with docker
     images](https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/)
 

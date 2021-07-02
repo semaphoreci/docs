@@ -65,7 +65,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Setup
     task:

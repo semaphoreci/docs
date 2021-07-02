@@ -69,7 +69,7 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Install dependencies
     task:
@@ -214,5 +214,4 @@ Hello World!
     tour](https://docs.semaphoreci.com/guided-tour/getting-started/)
 -   [Pipelines
     reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
--   [Environment variables and secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/)
 -   [JavaScript and Node.js](https://docs.semaphoreci.com/programming-languages/javascript-and-node-js/)

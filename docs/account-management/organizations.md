@@ -21,7 +21,7 @@ Once you sign up, you will be redirected to the **Create an organization** page.
 3. Enter company/organization name which will also create an URL of your organization.
 
 After your organization is created, you’ll need to choose the wanted plan and you are ready to 
-[start with your first project](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/). Happy building!
+[start with your first project][guided-tour]. Happy building!
 
 **Note:** Only one of your organizations can be on a [Free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan) and one on an [Open Source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
 
@@ -36,7 +36,7 @@ In order to crate a new organization when you already have an organization, you 
 4. Choose the wanted plan. Please note that you can have one organization on a [Free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan) 
 and one organization on an [Open Source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
 
-Congrats, you are ready to start [adding projects](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/) to the new organization!
+Congrats, you are ready to start adding projects to the new organization!
 
 ## Adding a user to an organization
 
@@ -149,7 +149,7 @@ the projects, too, please include that in your message.
 
 ## Deleting an organization 
 
-Before you delete the organization, you need to [delete all projects](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#deleting-a-project) in it. 
+Before you delete the organization, you need to [delete all projects][project-mgmt] in it. 
 **Note that once you delete an organization, its content cannot be restored.** 
 Only the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can delete the organization.
 
@@ -173,3 +173,6 @@ In this email, please include your GitHub username.
 - [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)
 - [Billing](https://docs.semaphoreci.com/account-management/billing/)
 - [Plans](https://docs.semaphoreci.com/account-management/plans/)
+
+[guided-tour]: ../guided-tour/getting-started.md
+[project-mgmt]: ../faq/managing-projects.md

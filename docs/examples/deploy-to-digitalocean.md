@@ -160,11 +160,11 @@ your team's activities.
 
 [docker-hub]: https://docs.docker.com/docker-hub/
 [create-personal-token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
-[create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[create-project]: ../guided-tour/getting-started.md
 [use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
 [language-guides]: https://docs.semaphoreci.com/programming-languages/android/
 [promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
-[promotions-intro]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
-[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[promotions-intro]: ../essentials/deploying-with-promotions.md
+[secrets-guide]: ../essentials/using-secrets.md
 [sem-create-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create
 [deployment-dashboards]: https://docs.semaphoreci.com/essentials/deployment-dashboards/

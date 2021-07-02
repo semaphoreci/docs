@@ -198,12 +198,12 @@ options you have available when designing delivery pipelines on Semaphore.
 - [Set up a deployment dashboard][deployment-dashboards] to keep track of
 your team's activities.
 
-[create-project]: https://docs.semaphoreci.com/guided-tour/creating-your-first-project/
+[create-project]: ../guided-tour/getting-started.md
 [use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
 [language-guides]: https://docs.semaphoreci.com/programming-languages/android/
 [promotions-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
-[promotions-intro]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
-[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[promotions-intro]: ../essentials/deploying-with-promotions.md
+[secrets-guide]: ../essentials/environment-variables.md
 [sem-create-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create
 [heroku-keys]: https://devcenter.heroku.com/articles/keys
 [heroku-ssh-git]: https://devcenter.heroku.com/articles/git#ssh-git-transport

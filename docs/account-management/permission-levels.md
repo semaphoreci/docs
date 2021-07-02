@@ -10,13 +10,13 @@ have different permissions based on their role.
 ## Owner
 
 The creator of an organization is its owner. There cannot be multiple owners, but
-it is possible to [transfer the ownership](https://docs.semaphoreci.com/account-management/organizations/#transferring-ownership-of-an-organization).
+it is possible to [transfer the ownership][project-transfer].
 
 The Owner can:
 
 - See all projects;
 - Add projects to the organization if they have Admin access to the repository on GitHub;
-- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
+- [Transfer project ownership][project-transfer];
 - Delete projects if they have Admin access to the repository on Github;
 - Manage people;
 - Manage billing;
@@ -30,7 +30,7 @@ Users with Admin permission level can:
 - See all projects;
 - Add projects to the organization if they have Admin access to the 
 repository on GitHub;
-- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
+- [Transfer project ownership][project-transfer]
 - Delete projects if they have Admin access to the repository on Github;
 - Manage people;
 - Manage billing.
@@ -66,3 +66,5 @@ ownership, please visit [this page](https://docs.semaphoreci.com/account-managem
 - [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
 - [Billing](https://docs.semaphoreci.com/account-management/billing/)
 - [Plans](https://docs.semaphoreci.com/account-management/plans/)
+
+[project-transfer]: ../faq/managing-projects.md#how-to-transfer-project-ownership
