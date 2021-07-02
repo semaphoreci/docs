@@ -4,8 +4,7 @@ description: This tutorial will have you running a CI/CD pipeline on Semaphore i
 
 # Creating Your First CI/CD Pipeline
 
-This step-by-step tutorial will have you running a successful CI/CD pipeline on
-Semaphore in minutes.
+This step-by-step tutorial will have you running a successful continuous integration and delivery (CI/CD) pipeline on Semaphore in minutes.
 
 ![Final CI/CD workflow on Semaphore](getting-started/final-workflow.png)
 
@@ -14,7 +13,7 @@ Semaphore in minutes.
 Semaphore is a cloud-based automation service for building, testing, and
 deploying software.
 
-Semaphore is **built for developer productivity**, guided by three principles:
+Semaphore is **built for developer productivity** and guided by three principles:
 
 1. **Speed**: Developers must work in a fast feedback loop, so CI/CD workflows
    must be fast.
@@ -29,7 +28,7 @@ Semaphore is **built for developer productivity**, guided by three principles:
 To complete this tutorial, you will need:
 
 - Basic knowledge of Git
-- Basic knowledge of command line
+- Basic knowledge of the command line
 - A [Semaphore account][semaphore-home]
 - A [GitHub account][github]
 
@@ -43,7 +42,7 @@ plan to use an existing repository.
 
 ## Creating a Semaphore project
 
-1. [Log in to your Semaphore account][semaphore-login].
+1. Log in to your [Semaphore account][semaphore-login].
 2. If you are part of multiple organizations, select the one in which you plan
    to host the project you are about to create.
 3. In the top navigation, click **Create new**.
@@ -65,18 +64,17 @@ plan to use an existing repository.
 
 ## Adding a test block to your CI pipeline
 
-Let's customize your pipeline so that it looks more like a continuous
-integration (CI) process for a real project.
+Let's customize your pipeline so that it looks more like a continuous integration (CI) process for a real project.
 
 If you open your repository on GitHub, you will notice that there is a new
-branch **setup-semaphore**. Opening that branch will reveal that Semaphore has
+branch: **setup-semaphore**. Opening that branch will reveal that Semaphore has
 pushed a `semaphore.yml` configuration file inside the `.semaphore` directory.
 
 Semaphore, like most modern CI/CD tools, creates workflows based on
-YAML configuration file(s). However, you don't need to write YAML by hand.
+YAML configuration files. However, you don't need to write YAML by hand.
 Semaphore features a **visual Workflow Builder**, which lets anyone create
-and modify pipelines using a point-and-click interface. You can also always edit
-your configuration by hand in your favorite editor, of course.
+and modify pipelines using a point-and-click interface. Of course, you can also always edit
+your configuration by hand in your favorite editor.
 
 ### Adding a block with parallel jobs using Workflow Builder
 
@@ -96,7 +94,7 @@ To extend your pipeline:
    in both parallel jobs.
    ![](getting-started/state-of-workflow-1.png)
 7. In the top-right corner of your screen, click **Run the workflow**.
-8. In the pop-up screen, you may expand the diff to view the YAML
+8. In the pop-up screen, you can view the diff in the YAML
    that Semaphore will append to `.semaphore/semaphore.yml`. Click **Looks good,
    start**. This will push the changes to the GitHub repository and start a new
    workflow.
@@ -210,11 +208,11 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 
 - Explore the default [Linux][linux-env] and [macOS][macos-env] environments,
   which come with the most common open source build tools, languages, and databases.
-- Study [example projects][example-projects].
 - Install [Semaphore CLI][cli] so you can easily [debug jobs with
   SSH][debugging].
 - Use [secrets][secrets] to authenticate with APIs and deploy to cloud environments.
 - Use [cache][cache] to reuse project dependencies.
+- Study [example projects][example-projects].
 - Connect with other Semaphore users and get help on the [community forum][forum].
 
 [semaphore-home]: https://semaphoreci.com
