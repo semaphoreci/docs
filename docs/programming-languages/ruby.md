@@ -82,6 +82,9 @@ we recommend running your jobs in [a custom Docker image][docker-env]{target="_b
 
 ## Test summary
 
+!!! beta "Feature in beta"
+    Beta features are subject to change.
+
 General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
 
 ![Test Summary Tab](ruby/summary-tab.png)
@@ -120,7 +123,6 @@ bundle exec rspec --format RspecJunitFormatter --out junit.xml --format document
 ```
 
 Running your tests with this setup will also generate `junit.xml` summary report.
-If your setup is based on docker, please refer to [docker based setup ↗][test-summary-docker]{target="_blank"}.
 
 ### Publishing results to Semaphore
 
@@ -371,7 +373,6 @@ jobs:
 [ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
 [macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-
 [rspec-junit-formatter]: https://github.com/sj26/rspec_junit_formatter
 [junit-schema]: https://www.ibm.com/docs/en/adfz/developer-for-zos/9.1.1?topic=formats-junit-xml-format
 [test-unit]: https://github.com/test-unit/test-unit

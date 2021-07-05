@@ -162,6 +162,7 @@ nav:
     - Notifications YAML: reference/notifications-yaml-reference.md
     - sem CLI: reference/sem-command-line-tool.md
     - artifact CLI: reference/artifact-cli-reference.md
+    - test results CLI: reference/test-results-cli-reference.md
     - API: reference/api-v1alpha.md
     - Toolbox: reference/toolbox-reference.md
     - Quotas and limits: reference/quotas-and-limits.md

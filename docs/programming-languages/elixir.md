@@ -8,7 +8,6 @@ This guide covers configuring Elixir projects on Semaphore.
 If you’re new to Semaphore please read our
 [Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
-
 ## Hello World
 
 ```yaml
@@ -71,37 +70,64 @@ blocks:
 
 ## Test summary
 
-Add [junit formatter ↗](https://github.com/victorolinasc/junit-formatter) to your `mix.exs`
+!!! beta "Feature in beta"
+    Beta features are subject to change.
 
-```elixir
-{:junit_formatter, "~> 3.1", only: [:test]}
+General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
+
+![Test Summary Tab](elixir/summary-tab.png)
+
+### Generating JUnit XML report
+
+We will start with adding [junit-formatter ↗][junit-formatter]{target="_blank"} to your `mix.exs` dependencies:
+
+```Elixir
+defp deps do
+  [
+    # ...
+    {:junit_formatter, "~> 3.1", only: [:test]}
+  ]
+end
 ```
 
-Run following commands
+Then installing the dependencies:
 
 ```shell
 mix deps.get
 ```
 
-Configure the junit_formatter in `config/config.exs`
+Now we have to make sure that our formatter is properly configured and used by rspec.
+There are two ways we can do this:
 
-```elixir
+- Extend your `config/test.exs` configuration file
+
+```Elixir
 config :junit_formatter,
-  report_file: "junit.xml",
   report_dir: "/tmp",
-  print_report_file: true,
-  include_filename?: true,
+  report_file: "junit.xml", # Save output to "/tmp/junit.xml"
+  print_report_file: true, # Adds information about file location when suite finishes
+  include_filename?: true, # Include filename and file number for more insights
   include_file_line?: true
 ```
 
-Add formatter to your `test/test_helper.ex`
+- Extend your `test/test_helper.exs` configuration file
 
-```elixir
+```Elixir
 ExUnit.configure(formatters: [JUnitFormatter, ExUnit.CLIFormatter])
 ExUnit.start()
 ```
 
-Add epilogue block to your test running job
+Running your tests with this setup will also generate `junit.xml` summary report.
+
+### Publishing results to Semaphore
+
+To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+
+```shell
+test-results publish /tmp/junit.xml
+```
+
+We advise to include this call in your epilogue:
 
 ```yaml
 epilogue:
@@ -109,6 +135,33 @@ epilogue:
     commands:
       - test-results publish /tmp/junit.xml
 ```
+
+This way even if your job fails(due to the test failures) results will still be published for inspection.
+
+### Example configuration
+
+Your CI configuration should look similiar to this:
+
+```yaml
+- name: Tests
+  task:
+    prologue:
+      commands:
+        - checkout
+        - mix deps.get
+    jobs:
+      - name: Elixir Tests
+        commands:
+          - mix test
+    epilogue:
+      always:
+        commands:
+          - test-results publish /tmp/junit.xml
+```
+
+### Demos
+
+You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
 
 ## Dependency caching
 
@@ -194,7 +247,10 @@ blocks:
           commands:
             - mix test
 ```
+
 [ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [tutorial]: https://docs.semaphoreci.com/examples/elixir-phoenix-continuous-integration/
-[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
+[test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
+[junit-formatter]: https://github.com/victorolinasc/junit-formatter
+[test-results-cli]: /reference/test-results-cli-reference/

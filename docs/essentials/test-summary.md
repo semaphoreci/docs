@@ -25,7 +25,7 @@ See Test Results CLI [documentation page&nbsp;↗][test-results-cli]{target="_bl
 
 ## How to use it?
 
-Firstly you have to generate JUnit report. Most test runners have configurable JUnit formatters that can be used for that.
+Firstly you have to generate a JUnit report. Most test runners have configurable JUnit formatters that can be used for that.
 
 - RSpec - [rspec_junit_formatter&nbsp;↗](https://github.com/sj26/rspec_junit_formatter){target="_blank"}
 - Elixir - [junit-formatter&nbsp;↗](https://github.com/victorolinasc/junit-formatter){target="_blank"}
@@ -73,7 +73,7 @@ blocks:
             - '[[ -v PUBLISH_TEST_RESULTS ]] && test-results publish junit.xml'
 ```
 
-If you're looking for stack specific configuration [check here](/essentials/test-summary/#framework-configuration){target="_blank"}.
+If you're looking for stack specific configuration [check here](/essentials/test-summary/#framework-configuration).
 
 ### Interface
 
@@ -91,20 +91,16 @@ By default, skipped and passed tests are not being displayed.
 
 ## Advanced configuration
 
-### Merging multiple test results
-
-See [merging test results using CLI&nbsp;↗](/reference/test-results-cli-reference/#merging-test-results){target="_blank"}.
-
-### Docker guideline
-
-[ TODO ]
+- [merging test results using CLI&nbsp;↗](/reference/test-results-cli-reference/#merging-test-results){target="_blank"}.
+- [working with docker&nbsp;↗](/reference/test-results-cli-reference/#working-with-docker){target="_blank"}.
 
 ## Framework configuration
 
-Currently following stacks are fully supported. More will be added in the future.
+Currently, the following stacks are fully supported. More will be added in the future.
 
 - [Ruby / RSpec&nbsp;↗][ruby-test-summary]{target="_blank"}
 - [Go / gotestsum&nbsp;↗][go-test-summary]{target="_blank"}
+- [Elixir / ExUnit&nbsp;↗][elixir-test-summary]{target="_blank"}
 
 [ruby-test-summary]: /programming-languages/ruby/#test-summary
 [go-test-summary]: /programming-languages/go/#test-summary
