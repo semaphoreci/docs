@@ -47,7 +47,7 @@ Semaphore supports all versions of Go. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting a Go version on Linux
+### Selecting a Go version on Linux
 
 The [Linux VM][ubuntu1804] provides multiple versions of Go.
 You can switch between them using the [`sem-version` tool][sem-version].
@@ -72,6 +72,9 @@ we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Test summary
 
+!!! beta "Feature in beta"
+    Beta features are subject to change.
+
 General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
 
 ![Test Summary Tab](go/summary-tab.png)
@@ -94,8 +97,6 @@ gotestsum --junitfile junit.xml ./...
 ```
 
 Running your tests with this setup will also generate `junit.xml` summary report.
-
-If your setup is based on docker, please refer to [docker based setup ↗][test-summary-docker]{target="_blank"}.
 
 ### Publishing results to Semaphore
 
@@ -242,7 +243,6 @@ blocks:
 [go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
-
 [gotestsum]: https://github.com/gotestyourself/gotestsum
 [test-results-cli]: /reference/test-results-cli-reference/
 [test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-go
