@@ -27,7 +27,6 @@ blocks:
             - ruby -e 'puts "evol".reverse'
 ```
 
-
 ## Ruby on Rails example project
 
 Semaphore provides a tutorial and demo Rails application with a working
@@ -49,7 +48,7 @@ Semaphore supports all versions of Ruby. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting a Ruby version on Linux
+### Selecting a Ruby version on Linux
 
 On Linux, Semaphore uses [rbenv](https://github.com/rbenv/rbenv) to manage the supported
 Ruby versions. Any Ruby version listed in
@@ -61,7 +60,7 @@ you will need to modify or delete `.ruby-version` in order to choose a different
 Ruby version.
 
 You can also change the active Ruby version by calling `sem-version ruby`
-followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the 
+followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the
 desired ruby version can be forced. In this case `.ruby-version` file is not taken into account.
 Here's an example:
 
@@ -79,7 +78,98 @@ blocks:
 ```
 
 If the version of Ruby that you need is not currently available in the Linux VM,
-we recommend running your jobs in [a custom Docker image][docker-env].
+we recommend running your jobs in [a custom Docker image][docker-env]{target="_blank"}.
+
+## Test summary
+
+!!! beta "Feature in beta"
+    Beta features are subject to change.
+
+General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
+
+![Test Summary Tab](ruby/summary-tab.png)
+
+### Generating JUnit XML report
+
+In this guide we will focus on `RSpec` test runner. If you use TestUnit you can see look for runners that [supports junit file generation ↗][test-unit-runner]{target="_blank"}
+
+We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter]{target="_blank"} to your `Gemfile`:
+
+```Ruby
+gem "rspec_junit_formatter", :group => [:test]
+```
+
+Then installing the dependencies:
+
+```shell
+bundle install
+```
+
+Now we have to make sure that our formatter is properly configured and used by rspec.
+There are two ways we can do this:
+
+- Extend your `.rspec` configuration file
+
+```dotfile
+--format RspecJunitFormatter
+--out rspec.xml
+--format documentation
+```
+
+- Adjust `rspec` command:
+
+```shell
+bundle exec rspec --format RspecJunitFormatter --out junit.xml --format documentation
+```
+
+Running your tests with this setup will also generate `junit.xml` summary report.
+
+### Publishing results to Semaphore
+
+To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+
+```shell
+test-results publish junit.xml
+```
+
+We advise to include this call in your epilogue:
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish junit.xml
+```
+
+This way even if your job fails(due to the test failures) results will still be published for inspection.
+
+### Example configuration
+
+Your CI configuration should look similiar to this:
+
+```yaml
+- name: Tests
+  task:
+    prologue:
+      commands:
+        - checkout
+        - bundle install
+
+    job:
+      name: "Tests"
+      commands:
+        # Or bundle exec rspec if using .rspec configuration file
+        - bundle exec rspec --format RspecJunitFormatter --out junit.xml --format documentation
+
+    epilogue:
+      always:
+        commands:
+          - test-results publish junit.xml
+```
+
+### Demos
+
+You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
 
 ## Dependency caching
 
@@ -248,16 +338,6 @@ drivers work out of the box.
 Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on preinstalled browsers and testing tools on Semaphore.
 
-[rails-tutorial]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
-[rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
-[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
-[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
-[rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
-[rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
-[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
-[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
-[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-
 ## Running RSpec and Cucumber in parallel
 
 To run Cucumber or RSpec suites in parallel across multiple jobs you can use `semaphore_test_boosters` gem.
@@ -272,9 +352,9 @@ jobs:
       - gem install semaphore_test_boosters
       - rspec_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
- 
+
  The similar setup is also used for Cucumber block:
- 
+
 ``` yaml
 jobs:
   - name: Cucumber
@@ -283,3 +363,20 @@ jobs:
       - gem install semaphore_test_boosters
       - cucumber_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
+
+[rails-tutorial]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
+[rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
+[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
+[sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
+[rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
+[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
+[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
+[docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
+[rspec-junit-formatter]: https://github.com/sj26/rspec_junit_formatter
+[junit-schema]: https://www.ibm.com/docs/en/adfz/developer-for-zos/9.1.1?topic=formats-junit-xml-format
+[test-unit]: https://github.com/test-unit/test-unit
+[test-unit-runner]: https://github.com/kenichiice/test-unit-runner-junitxml
+[test-summary-docker]: /programming-languages/ruby/#test-summary-docker
+[test-results-cli]: /reference/test-results-cli-reference/
+[test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
