@@ -4,7 +4,7 @@ description: This tutorial will have you running a CI/CD pipeline on Semaphore i
 
 # Creating Your First CI/CD Pipeline
 
-This step-by-step tutorial will have you running a successful continuous integration and delivery (CI/CD) pipeline on Semaphore in minutes.
+This step-by-step tutorial will have you running a successful CI/CD pipeline on Semaphore in minutes.
 
 ![Final CI/CD workflow on Semaphore](getting-started/final-workflow.png)
 
@@ -183,7 +183,7 @@ Before merging to main, we can verify our promotion by running it manually:
 1. On the workflow page, click **Production deployment** then **Start promotion**.
 2. Click on `Pipeline 2` to expand the deployment pipeline. Voilà!
 
-![](getting-started/final-state.png)
+![](getting-started/final-workflow.png)
 
 ## Wrapping up
 
@@ -193,7 +193,7 @@ GitHub from the `setup-semaphore` branch.
 After you merge, Semaphore will trigger a new workflow on the `main` branch, and
 it will run both the CI and CD pipelines.
 
-Here are a few ideas about what you could do as an exercise:
+Here are a few ideas about what you could do next as an exercise:
 
 - Edit any of the Semaphore configuration files by hand. Does pushing the change
   trigger a new workflow? Is the change reflected in Workflow Builder?
