@@ -38,7 +38,7 @@ can still run simple builds easily. You can also run multi-stage builds, each
 stage with its' own configuration.
 
 Servers on Semaphore Classic are superseded by
-[promotions](https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/).
+[promotions](https://docs.semaphoreci.com/essentials/deploying-with-promotions/).
 Promotions connect different pipelines together, with optional conditions.
 For example, you could set up an auto-promotion on master branch that triggers
 deployment to production and runs smoke tests, and a manual promotion for any
@@ -50,9 +50,9 @@ You'll primarily interact with Semaphore 2.0 as you do your other development
 tools and platforms, through command line.
 
 In most cases, you'll migrate your projects from Semaphore Classic by copying
-your build and deploy commands to [YAML files](https://docs.semaphoreci.com/guided-tour/customizing-your-pipeline/)
+your build and deploy commands to YAML files
 and moving your environment variables and configuration files to
-[secrets](https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/).
+[secrets](../essentials/environment-variables.md).
 
 As you explore the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/),
 you'll discover how you can do much more in Semaphore 2.0. Things like running
@@ -81,7 +81,7 @@ pipelines. Specifically this does not happen automatically:
   to start them;
 
 - Dependencies are not cached by default: see
-  [caching guide](https://docs.semaphoreci.com/guided-tour/caching-dependencies/)
+  [caching guide](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/)
   and examples in the Programming Languages category.
 
 S2 job logs provide much more information about your CI/CD environment in an
@@ -90,6 +90,6 @@ takes Semaphore to start your job and all the details of environment
 preparation.
 
 For a full introduction to Semaphore 2.0, we recommend that you read through the
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/).
+[Guided tour](../guided-tour/getting-started.md).
 
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

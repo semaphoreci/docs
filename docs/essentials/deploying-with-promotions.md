@@ -5,11 +5,11 @@ description: Deployment and delivery is managed with promotions, which may be pe
 # Deploying With Promotions
 
 Each Semaphore project starts with the default pipeline specified in
-`.semaphore/semaphore.yml`. Real world pipelines tend to branch out
+`.semaphore/semaphore.yml`. Real-world pipelines tend to branch out
 when certain conditions are met. Examples may be deploying to production on
 master builds or deploying to a pre-production environment on topic branches.
 
-On Semaphore 2.0, deployment and delivery is managed with _promotions_, which
+On Semaphore, deployment and delivery is managed with _promotions_, which
 may be performed automatically or manually and may optionally depend on
 user-defined conditions.
 
@@ -57,7 +57,7 @@ blocks:
             - echo 'Deploying to production!'
 ```
 
-In the Semaphore 2.0 web interface, you will see a Production Deploy button.
+In the Semaphore web interface, you will see a Production Deploy button.
 You can promote the Production Deploy target from the UI at any point, even
 while the pipeline that owns that target is still running.
 
@@ -202,22 +202,9 @@ For more information, consult the [change_in][change-in-ref] reference page.
 Promotions are powerful tools to build up complex multi-pipeline
 workflows. Refer to the [promotions reference][reference] for complete
 information.
-## Next steps
 
-This chapter concludes the guided tour of Semaphore. Hopefully you're now able
-to see what Semaphore can do and how it could help improve your development
-workflow.
-
-As a next step, we recommend that you put this new knowledge to use by setting
-up CI/CD pipelines for some of your existing projects. Use links in this guide
-and the rest of the documentation to find answers to the questions that you
-have along the way.
-
-Happy building!
-
-[auto-promotions]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote
-[pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
-[reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions
-[next]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
-[monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
-[change-in-ref]: https://docs.semaphoreci.com/reference/conditions-reference/#change_in
+[auto-promotions]: ../reference/pipeline-yaml-reference.md#auto_promote
+[pipeline-reference]: ../reference/pipeline-yaml-reference.md
+[reference]: ../reference/pipeline-yaml-reference.md#promotions
+[monorepo-workflows]: ../essentials/building-monorepo-projects.md
+[change-in-ref]: ../reference/conditions-reference.md#change_in

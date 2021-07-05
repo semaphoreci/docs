@@ -254,4 +254,4 @@ To see how an iOS project can be configured on Semaphore, see the [`semaphore-de
 [fastlane-produce]: https://docs.fastlane.tools/actions/produce/
 [using-private-deps]: https://docs.semaphoreci.com/essentials/using-private-dependencies/
 [sem]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
-[secrets-intro]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets-intro]: https://docs.semaphoreci.com/essentials/using-secrets/

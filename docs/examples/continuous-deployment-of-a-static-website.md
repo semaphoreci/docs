@@ -146,10 +146,10 @@ See _[Netlify Continuous Deployment][netlify-guide]_ guide.
 - [Cache reference][cache-ref]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-static-website
-[promotions-guide]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
-[caching-guide]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[promotions-guide]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
+[caching-guide]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
 [nodejs]: https://docs.semaphoreci.com/programming-languages/javascript-and-node-js/
-[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets-guide]: https://docs.semaphoreci.com/essentials/using-secrets/
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
 [pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [cache-ref]: https://docs.semaphoreci.com/reference/toolbox-reference/#cache

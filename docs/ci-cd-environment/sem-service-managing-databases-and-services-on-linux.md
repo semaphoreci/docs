@@ -10,6 +10,9 @@ listen on 0.0.0.0 and their default port. The 0.0.0.0 IP address includes all
 available network interfaces. Essentially, you will be using services as if
 they were natively installed in the Operating System.
 
+If you're looking to use databases in Docker-based environment, see [Working with
+Docker][working-with-docker] guide.
+
 The general form of a `sem-service` command is as follows:
 
 ``` bash
@@ -108,3 +111,5 @@ blocks:
           - sem-service start memcached
           - sem-service status memcached
 ```
+
+[working-with-docker]: ../ci-cd-environment/working-with-docker.md

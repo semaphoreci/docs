@@ -120,4 +120,4 @@ blocks:
 [macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#java
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
-[caching]: https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+[caching]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
