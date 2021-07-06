@@ -8,6 +8,29 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of July 05, 2021
+
+**(New) Test Summary (beta)**  
+From now on you can configure your test results output to render in a new Summary tab on the job page, provided that it's in _JUnit XML format_. This feature is in **beta** and currently, Ruby/Rspec, Elixir/ExUinit, and Go/gotestsum are fully supported.
+
+Take the advantage of this new feature now and:  
+
+- Quickly identify the failing tests without searching through logs.
+- Easily review the test execution time and identify slow-performing tests.
+- Sort and filter the output of your tests however you see fit.
+- Search through the big test suits to find what you're looking for.
+
+To learn more on how to configure test summary check our [docummentation page](https://docs.semaphoreci.com/essentials/test-summary/).
+
+**(New) Parameterized promotions (beta)**  
+With parameterized promotions, you can re-use a single promotion pipeline and use environment variables to achieve different results based on the variable values. 
+
+- Define the parameter name and description in YAML or Workflow Builder.
+- Assign parameter values when manually promoting. 
+- Use parameter values in promoted pipeline name, secret name, pipeline queue, or as an environment variable.
+
+This feature is in **private beta**, if you would like to try it out please [reach out to us](mailto:feedback@semaphoreci.com?subject=Parameterized%20promotions%20-%20beta%20request&body=I%20would%20like%20to%20join%20the%20private%20beta%20for%20parameterized%20promotions%20feature...).
+
 ### Week of Jun 28, 2021
 
 **(Improved) Ubuntu 18.04 image update**  
