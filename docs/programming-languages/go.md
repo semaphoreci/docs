@@ -47,7 +47,7 @@ Semaphore supports all versions of Go. You have the following options:
 Follow the links above for details on currently available language versions and
 additional tools.
 
-#### Selecting a Go version on Linux
+### Selecting a Go version on Linux
 
 The [Linux VM][ubuntu1804] provides multiple versions of Go.
 You can switch between them using the [`sem-version` tool][sem-version].
@@ -69,6 +69,82 @@ blocks:
 
 If the version of Go that you need is not currently available in the Linux VM,
 we recommend running your jobs in [a custom Docker image][docker-env].
+
+## Test summary
+
+!!! beta "Feature in beta"
+    Beta features are subject to change.
+
+General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
+
+![Test Summary Tab](go/summary-tab.png)
+
+### Generating JUnit XML report
+
+In this guide we will focus on [gotestsum ↗][gotestsum]{target="_blank"} test runner.
+This runner has out-of-the-box support for generaing JUnit XML files, and works without additional configuration.
+
+To install [gotestsum ↗][gotestsum]{target="_blank"} run
+
+```shell
+go get gotest.tools/gotestsum
+```
+
+Now we need to adjust our command that runs the tests
+
+```shell
+gotestsum --junitfile junit.xml ./...
+```
+
+Running your tests with this setup will also generate `junit.xml` summary report.
+
+### Publishing results to Semaphore
+
+To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+
+```shell
+test-results publish junit.xml
+```
+
+We advise to include this call in your epilogue:
+
+```yaml
+epilogue:
+  always:
+    commands:
+      - test-results publish junit.xml
+```
+
+This way even if your job fails(due to the test failures) results will still be published for inspection.
+
+### Example configuration
+
+Your CI configuration should look similiar to this:
+
+```yaml
+- name: Tests
+  task:
+    prologue:
+      commands:
+        - checkout
+        - sem-version go 1.16
+        - go get ./...
+
+    job:
+      name: "Tests"
+      commands:
+        # Or bundle exec rspec if using .rspec configuration file
+        - gotestsum --junitfile junit.xml ./...
+
+    epilogue:
+      always:
+        commands:
+          - test-results publish junit.xml
+```
+
+### Demos
+
+You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
 
 ## Using GOPATH
 
@@ -167,3 +243,6 @@ blocks:
 [go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[gotestsum]: https://github.com/gotestyourself/gotestsum
+[test-results-cli]: /reference/test-results-cli-reference/
+[test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-go
