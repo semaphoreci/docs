@@ -92,20 +92,22 @@ the section below.
 
 ## Removing a user who has created projects in your organization
 
-If you need to remove a user who has added projects to your organization, please 
-reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com) and we will transfer the ownership 
-of those projects to another user in the organization. Please include GitHub 
-username of the user you'd like to remove and GitHub username of the new project 
-owner in the email.
-
-**Note:** The new project owner needs to ensure that the following conditions are met before 
-the project ownership transfer:
+In order to transfer the project ownership to a different user, the following 
+conditions need to be met:
 
 1. New project owner needs to have Admin permission level for the repository on GitHub,
 2. If you plan to build private projects, the new owner needs to grant access 
 for Semaphore to all repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account).
 3. If you plan to build only public projects, the new owner needs to grant access for 
 Semaphore to public repositories. They can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account). 
+
+After that, go to _Project Settings -> General_, in the _Project Owner_ section, find the user you want to become the new owner, and click _Change_.
+
+If you come accross any issues, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
+and include the name of the project and the GitHub username of the new owner in your message.
+
+**Note:** After the project ownership is transferred, you need to push a new commit. 
+Rerunning old builds will no longer work if the ownership of the project is changed.
 
 ## Changing the name and the URL of an organization
 
