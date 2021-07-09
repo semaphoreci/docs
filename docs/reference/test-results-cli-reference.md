@@ -66,9 +66,8 @@ This will combine all `.xml` files into one report and then publish it to your a
 
 ## Working with docker
 
-If you are running your test suites from docker container you have you might run into problems with publishing generated XML reports.
-By default those files will be generated only on container, so host (Semaphore Agent) will not have access to those files.
-In order to make it work you have to use [docker bind mounts&nbsp;↗][docker-bind-mounts]:
+When you run your test suites from docker container, generated JUnit XML files will be available only in container by default.
+In order to make host aware of these files, you can use [docker bind mounts&nbsp;↗][docker-bind-mounts]:
 
 ```yaml
 # .semaphore/semaphore.yaml
