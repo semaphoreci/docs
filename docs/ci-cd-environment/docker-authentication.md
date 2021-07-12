@@ -7,10 +7,8 @@ As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docke
 
 Exceeding the explained rate limits will disrupt your Semaphore workflows. You can find the recommended steps to avoid it below.  
 
-## Will this affect you
+## Does this affect you
 Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address. This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the DockerHub rate limit**.
-
-We want to help you reduce the impact of the Docker Hub rate limit so feel free to reach out to our support team with any questions that you might have.  
 
 ## What are we doing to help  
 For your convenience, we have created the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/) which contains some of the most frequently used Docker images. You can pull these images in your Semaphore environment without any restrictions or limitations.  
