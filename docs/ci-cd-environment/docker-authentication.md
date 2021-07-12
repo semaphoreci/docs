@@ -3,20 +3,12 @@ description: This guide explains Docker Hub rate limits and how to pull public D
 ---
 
 # Docker Hub authentication
-As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub will introduce [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on image pulls.  
-
-Following rate limits will apply:
-
-- **100 pulls per 6 hours** for anonymous public image pulls
-- **200 pulls per 6 hours** for authenticated users on the free Docker Hub plan
-- **Unlimited pull rate** for the authenticated users with Pro and Team Docker Hub accounts.  
+As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub introduced [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on image pulls.  
 
 Exceeding the explained rate limits will disrupt your Semaphore workflows. You can find the recommended steps to avoid it below.  
 
-## Will this affect you
-Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address. This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the new DockerHub rate limit**.
-
-We want to help you reduce the impact of the Docker Hub rate limit introduction so feel free to reach out to our support team with any questions that you might have.  
+## Does this affect you
+Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address. This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the DockerHub rate limit**.
 
 ## What are we doing to help  
 For your convenience, we have created the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/) which contains some of the most frequently used Docker images. You can pull these images in your Semaphore environment without any restrictions or limitations.  
