@@ -10,7 +10,7 @@ Exceeding the explained rate limits will disrupt your Semaphore workflows. You c
 ## Does this affect you
 Semaphore runs jobs from a shared pool of IPs and anonymous public image pulls are counted based on the IP address. This means that if you are pulling images from a public Docker Hub repository as an anonymous user, **your Semaphore jobs will be affected by the DockerHub rate limit**.
 
-## What are we doing to help  
+## How can we help
 For your convenience, we have created the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/) which contains some of the most frequently used Docker images. You can pull these images in your Semaphore environment without any restrictions or limitations.  
 
 If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
