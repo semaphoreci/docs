@@ -5,12 +5,6 @@ description: This guide explains Docker Hub rate limits and how to pull public D
 # Docker Hub authentication
 As announced in the [Docker blog post](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/), on November 1<sup>st</sup> 2020, Docker Hub introduced [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on image pulls.  
 
-Following rate limits apply:
-
-- **100 pulls per 6 hours** for anonymous public image pulls
-- **200 pulls per 6 hours** for authenticated users on the free Docker Hub plan
-- **Unlimited pull rate** for the authenticated users with Pro and Team Docker Hub accounts.  
-
 Exceeding the explained rate limits will disrupt your Semaphore workflows. You can find the recommended steps to avoid it below.  
 
 ## Will this affect you
