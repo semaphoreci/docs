@@ -1,15 +1,27 @@
 ---
-description: This guide shows you how to set up a Semaphore 2.0 dashboard showing deployment activity across selected projects.
+description: How to set up a custom Semaphore dashboard showing deployments across selected projects.
 ---
 
 # Deployment Dashboards
 
-This guide shows you how to set up a dashboard showing deployment activity
-across selected projects.
-Before starting, [create a new Semaphore project][create-project]
-along with one or more [delivery pipelines][promotions-guide].
+Dashboards allow you to create custom Semaphore screens that show deployment
+activity across multiple projects.
 
-Start by creating a blank dashboard using the [sem CLI][sem-ref]:
+For example, you can define a dashboard that shows which versions of all your
+applications have been deployed in staging and production environments.
+
+![Deployment dashboard Semaphore](deployment-dashboards/deployment-dashboard-example.png)
+
+## Prerequisites
+
+To create and manage dashboards you need to have:
+
+- One or more Semaphore projects, preferrably with separate [deployment pipelines][promotions].
+- [Semaphore CLI][sem-cli] installed on your computer.
+
+## Creating a dashboard
+
+Start by creating a blank dashboard in your terminal:
 
 ``` bash
 $ sem create dashboard demo-deployment
@@ -19,10 +31,10 @@ Dashboard 'demo-deployment' created.
 Open the dashboard configuration:
 
 ``` bash
-sem edit dashboard demo-deployment
+$ sem edit dashboard demo-deployment
 ```
 
-At this point you have the dashboard definition open in your default editor.
+At this point you have a blank dashboard definition open in your default editor.
 It looks something like this:
 
 ``` yaml
@@ -38,12 +50,15 @@ spec:
   widgets: []
 ```
 
-Recall that deployment is typically a separate pipeline which gets triggered
-by a promotion. Because of that, to make the dashboard display deployment
-activities, we need to use the
-[pipelines list type of a dashboard][pipelines-dashboard].
+## Adding widgets to a dashboard
 
-The minimal configuration would be as follows:
+Dashboard widgets show information from a pipeline in a project.
+
+Recall that on Semaphore we model deployment using [promotions][promotions] that
+trigger separate pipelines. So a typical deployment dashboard would define
+widgets based on these deployment pipelines.
+
+A minimal configuration would be as follows:
 
 ``` yaml
 spec:
@@ -51,28 +66,47 @@ spec:
   - name: Deploys to production
     type: list_pipelines
     filters:
+      project_id: 8781bf53-d0d9-4836-8379-32d3e02b9d3c
       pipeline_file: .semaphore/production-deployment.yml
-      project_id: 5e99069f-0be6-4b60-85a1-4cbcfc5f339a
 ```
 
-With the configuration above, dashboard will display all activities in the
-`.semaphore/production-deployment.yml` pipeline on any branch.
+Because a dashboard can show widgets from multiple projects, you need to
+reference a `project_id`. To find the ID of your project, run `sem get projects`,
+then `sem get project <projectname>`:
 
-To find the ID of your project, execute `sem get projects`, then
-`sem get project <projectname>`.
+```
+$ sem get projects
+NAME                              REPOSITORY
+haskell-demo                      git@github.com:markoa/haskell-demo.git
+gatsby-blog                       git@github.com:markoa/gatsby-blog.git
+(...)
+
+$ sem get project gatsby-blog
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: gatsby-blog
+  id: 8781bf53-d0d9-4836-8379-32d3e02b9d3c
+  description: ""
+(...)
+```
+
+Finally, specify the path to the target pipeline configuration file.
 
 That's it! Once you save the file and exit your editor, sem will automatically
-update the dashboard definition. When you open Semaphore, you will find
-the link to your dashboard in the sidebar on the left-hand side.
+update the dashboard definition.
 
-## See also
+## Viewing a dashboard in the web interface
+
+In the Semaphore web interface, you will find the link to your dashboard in the
+top-level **Projects** menu, **Dashboards** list.
+
+## Additional options
 
 A dashboard can apply additional conditions and display data from more than one
 source. For more information, consult the
-[dashboard reference documentation][dashboard-ref].
+[dashboard YAML reference documentation][dashboard-ref].
 
-[create-project]: ../guided-tour/getting-started.md
-[promotions-guide]: ../essentials/deploying-with-promotions.md
-[sem-ref]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
-[pipelines-dashboard]: https://docs.semaphoreci.com/reference/dashboards-yaml-reference/#pipelines-list
-[dashboard-ref]: https://docs.semaphoreci.com/reference/dashboards-yaml-reference/
+[sem-cli]: ../reference/sem-command-line-tool.md
+[promotions]: ../essentials/deploying-with-promotions.md
+[dashboard-ref]: ../reference/dashboards-yaml-reference.md
