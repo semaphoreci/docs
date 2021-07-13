@@ -65,7 +65,7 @@ blocks:
             # Restore dependencies from cache. This command will not fail in
             # case of a cache miss. In case of a cache hit, npm install will
             # run very fast.
-            # For more info on caching, see https://docs.semaphoreci.com/guided-tour/caching-dependencies/
+            # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore
             - npm install
 

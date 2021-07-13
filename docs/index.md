@@ -14,12 +14,12 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
 
     <div class="welcome-blocks-wrapper">
         <div class="welcome-block">
-            <h2 id="newtosemaphore20">New to Semaphore 2.0?</h2>
-            <p class="welcome-block-description">Learn the basic concepts</p>
+            <h2 id="newtosemaphore20">New to Semaphore?</h2>
+            <p class="welcome-block-description">Start here</p>
 
             <ul>
-                <li><a href="/guided-tour/creating-your-first-project/">Creating your first project</a></li>
-                <li><a href="/guided-tour/concepts/">Semaphore concepts</a></li>
+                <li><a href="/guided-tour/guided-tour/">Create your first CI/CD pipeline</a></li>
+                <li><a href="/essentials/concepts/">Semaphore concepts</a></li>
                 <li><a href="/essentials/modeling-complex-workflows/">Modeling complex workflows</a></li>
                 <li><a href="/essentials/debugging-with-ssh-access/">Debugging with SSH</a></li>
                 <li><a href="/ci-cd-environment/choosing-between-a-vm-and-docker-based-environment/">Choosing between a VM and Docker-based environment</a></li>
@@ -31,8 +31,8 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
             <p class="welcome-block-description">What others are searching</p>
 
             <ul>
-                <li><a href="/guided-tour/using-databases-and-services/">Using Databases and Services</a></li>
-                <li><a href="/essentials/caching-dependencies-and-directories/">Caching Dependencies and Directories</a></li>
+                <li><a href="/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">Using databases and services</a></li>
+                <li><a href="/essentials/caching-dependencies-and-directories/">Caching dependencies></li>
                 <li><a href="/essentials/artifacts/">Artifacts</a></li>
                 <li><a href="/reference/pipeline-yaml-reference/">Pipeline YAML Reference</a></li>
                 <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
@@ -43,15 +43,13 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
 
     <div class="welcome-blocks-wrapper">
         <div class="welcome-block">
-            <h2 id="semaphore20features">Semaphore 2.0 features</h2>
-            <p class="welcome-block-description">Latest in product</p>
+            <h2 id="semaphore20features">New features</h2>
+            <p class="welcome-block-description">The latest in product</p>
 
             <ul>
-                <li><a href="essentials/artifacts/">Artifacts</a></li>
-                <li><a href="essentials/auto-cancel-previous-pipelines-on-a-new-push/">Auto-cancel previous pipelines on a new push</a></li>
-                <li><a href="essentials/fail-fast-stop-running-tests-on-the-first-failure/">Fail-Fast: Stop running tests on the first failure</a></li>
-                <li><a href="essentials/building-monorepo-projects/">Building Monorepo Projects</a></li>
-                <li><a href="essentials/status-badges/">Status Badges</a></li>
+                <li><a href="essentials/building-monorepo-projects/">Monorepo workflows</a></li>
+                <li><a href="/ci-cd-environment/ubuntu-20.04-image/">Ubuntu 20.04 image</a></li>
+                <li><a href="/account-management/connecting-github-and-semaphore/">GitHub App</a></li>
             </ul>
         </div>
 

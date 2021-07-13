@@ -57,13 +57,13 @@ agent:
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
 # commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
 
   - name: "Build"
     task:
       # Set environment variables that your project requires.
-      # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # See https://docs.semaphoreci.com/essentials/environment-variables/
       env_vars:
         - name: MAVEN_OPTS
           value: "-Dmaven.repo.local=.m2"
@@ -191,7 +191,7 @@ blocks:
       # Mount a secret which defines DOCKER_USERNAME and DOCKER_PASSWORD
       # environment variables.
       # For info on creating secrets, see:
-      # https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+      # https://docs.semaphoreci.com/essentials/using-secrets/
       secrets:
       - name: docker-hub
 
@@ -238,4 +238,4 @@ yourself. Here’s how to build the demo project with your own account:
 5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[secrets-guide]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets-guide]: https://docs.semaphoreci.com/essentials/using-secrets/

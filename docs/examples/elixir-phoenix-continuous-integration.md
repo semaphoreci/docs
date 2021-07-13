@@ -64,7 +64,7 @@ agent:
 # Blocks make up the structure of a pipeline and are executed sequentially.
 # Each block has a task that defines one or many parallel jobs. Jobs define
 # the commands to execute.
-# See https://docs.semaphoreci.com/guided-tour/concepts/
+# See https://docs.semaphoreci.com/essentials/concepts/
 blocks:
   - name: Set up
     task:
@@ -134,7 +134,7 @@ blocks:
       jobs:
       - name: ex_unit
         # Define an environment variable
-        # See https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+        # See https://docs.semaphoreci.com/essentials/environment-variables/
         env_vars:
         - name: DATABASE_URL
           value: "ecto://postgres:@0.0.0.0:5432/sema_test"
@@ -186,9 +186,9 @@ deployment. For more information and practical examples, see:
 - [Deployment tutorials and example projects][deployment-tutorials]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
-[concepts]: https://docs.semaphoreci.com/guided-tour/concepts/
+[concepts]: https://docs.semaphoreci.com/essentials/concepts/
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
-[promotions]: https://docs.semaphoreci.com/guided-tour/deploying-with-promotions/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [deployment-tutorials]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment

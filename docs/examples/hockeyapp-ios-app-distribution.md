@@ -92,4 +92,4 @@ working Fastlane and Semaphore configuration for your convenience.
 [code-signing]: https://docs.semaphoreci.com/examples/code-signing-for-ios-projects/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [appcenter-docs]: https://github.com/Microsoft/fastlane-plugin-appcenter/
-[secrets]: https://docs.semaphoreci.com/guided-tour/environment-variables-and-secrets/
+[secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
