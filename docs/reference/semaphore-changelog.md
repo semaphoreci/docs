@@ -11,6 +11,7 @@ This page is updated on a weekly basis.
 ### Week of July 12, 2021
 
 **(Improved) Ubuntu 18.04 image update**
+
 **(New)** Packages:
 
 - Elixir 1.12.2
