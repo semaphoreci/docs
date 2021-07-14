@@ -109,7 +109,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 20.3, 21.3, 22.3, 23.1, 23.2, 23.3, 24.0
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2
 
 Additional libraries:
 
@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.17.1 (set as default, with alias 14.17)
+- v14.17.3 (set as default, with alias 14.17)
 
 #### Additional tools
 
@@ -162,12 +162,13 @@ Installed versions:
 
 - 7.0.33
 - 7.1.33
-- 7.2.33
-- 7.3.26
-- 7.4.18
+- 7.2.34
+- 7.3.29
+- 7.4.21
 - 8.0.5
 - 8.0.7
-The default installed PHP version is `7.2.33`.
+- 8.0.8
+The default installed PHP version is `7.2.34`.
 
 #### Additional libraries
 
@@ -205,9 +206,9 @@ Available versions:
 - 2.3.0 to 2.3.8
 - 2.4.0 to 2.4.10
 - 2.5.0 to 2.5.9
-- 2.6.0 to 2.6.7
-- 2.7.0 to 2.7.3
-- 3.0.0 to 3.0.1
+- 2.6.0 to 2.6.8
+- 2.7.0 to 2.7.4
+- 3.0.0 to 3.0.2
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager

@@ -8,6 +8,26 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of July 12, 2021
+
+**(Improved) Ubuntu 18.04 image update**
+**(New)** Packages:
+
+- Elixir 1.12.2
+- Ruby 2.6.8, 2.7.4 and 3.0.2
+- PHP 7.3.28, 7.3.29, 7.4.21 and 8.0.8
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.99 -> 1.19.109
+- Azure-cli 2.25.0 -> 2.26.0
+- Helm 3.6.1 -> 3.6.2
+- Node.js 14.17.1 -> 14.17.3
+- Npm 7.18.1 -> 7.19.1
+- Heroku 7.54.1 -> 7.56.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of July 05, 2021
 
 **(New) Test Summary (beta)**  
