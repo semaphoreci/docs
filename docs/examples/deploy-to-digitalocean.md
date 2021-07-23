@@ -159,7 +159,7 @@ options you have available when designing delivery pipelines on Semaphore.
 your team's activities.
 
 [docker-hub]: https://docs.docker.com/docker-hub/
-[create-personal-token]: https://www.digitalocean.com/docs/api/create-personal-access-token/
+[create-personal-token]: https://docs.digitalocean.com/reference/api/create-personal-access-token/
 [create-project]: ../guided-tour/getting-started.md
 [use-cases]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/
 [language-guides]: https://docs.semaphoreci.com/programming-languages/android/
