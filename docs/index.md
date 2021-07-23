@@ -18,7 +18,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
             <p class="welcome-block-description">Start here</p>
 
             <ul>
-                <li><a href="/guided-tour/guided-tour/">Create your first CI/CD pipeline</a></li>
+                <li><a href="/guided-tour/getting-started/">Create your first CI/CD pipeline</a></li>
                 <li><a href="/essentials/concepts/">Semaphore concepts</a></li>
                 <li><a href="/essentials/modeling-complex-workflows/">Modeling complex workflows</a></li>
                 <li><a href="/essentials/debugging-with-ssh-access/">Debugging with SSH</a></li>
