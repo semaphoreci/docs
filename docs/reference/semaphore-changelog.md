@@ -8,6 +8,9 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of July 26, 2021
+
+
 ### Week of July 12, 2021
 
 **(Improved) Ubuntu 18.04 image update**
@@ -84,7 +87,7 @@ On this page you can:
 
 - Azure cli 2.23.0 -> 2.42.2
 - Aws cli 1.19.79 -> 1.19.94
-- Cromedriver 90 -> 91
+- Chromedriver 90 -> 91
 - Docker-ce 20.10.3 -> 20.10.7
 - Docker-compose 1.28.2 -> 1.29.2
 - Elixir 1.12.0 -> 1.12.1
