@@ -10,6 +10,21 @@ This page is updated on a weekly basis.
 
 ### Week of July 26, 2021
 
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.109 -> 1.19.112
+- Azure-cli 2.26.0 -> 2.26.1
+- Helm 3.6.2 -> 3.6.3
+- Heroku 7.56.0 -> 7.56.1
+- Npm 7.19.1 -> 7.20.1
+- Gem 3.1.4 -> 3.2.23
+- Bundler 2.1.4 -> 2.2.23
+- Google Chrome 91 -> 92
+- ChromeDriver 91 -> 92
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of July 12, 2021
 
