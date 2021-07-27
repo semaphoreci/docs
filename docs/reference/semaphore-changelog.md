@@ -8,6 +8,24 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of July 26, 2021
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.109 -> 1.19.112
+- Azure-cli 2.26.0 -> 2.26.1
+- Helm 3.6.2 -> 3.6.3
+- Heroku 7.56.0 -> 7.56.1
+- Npm 7.19.1 -> 7.20.1
+- Gem 3.1.4 -> 3.2.23
+- Bundler 2.1.4 -> 2.2.23
+- Google Chrome 91 -> 92
+- ChromeDriver 91 -> 92
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of July 12, 2021
 
 **(Improved) Ubuntu 18.04 image update**
@@ -84,7 +102,7 @@ On this page you can:
 
 - Azure cli 2.23.0 -> 2.42.2
 - Aws cli 1.19.79 -> 1.19.94
-- Cromedriver 90 -> 91
+- Chromedriver 90 -> 91
 - Docker-ce 20.10.3 -> 20.10.7
 - Docker-compose 1.28.2 -> 1.29.2
 - Elixir 1.12.0 -> 1.12.1
