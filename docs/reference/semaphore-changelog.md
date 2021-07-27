@@ -10,6 +10,15 @@ This page is updated on a weekly basis.
 
 ### Week of July 26, 2021
 
+**(Improved) Test Summary UX improvements**
+
+- Auto-expand errors if there are less than the given threshold (4).
+- Auto-select test results with failures (instead of the first one in the list).
+- Fix ligatures being displayed in test output.
+- More generic test result sample files.
+
+To learn how to set up Test Summary check [our docummentation page](https://docs.semaphoreci.com/essentials/test-summary/).
+
 **(Improved) Ubuntu 18.04 image update**
 
 **(Updated)** Updated packages:
