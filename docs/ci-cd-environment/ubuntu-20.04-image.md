@@ -68,8 +68,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 88
-- Chrome_driver 88
+- Google Chrome 92
+- Chrome_driver 92
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -82,7 +82,7 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 20.10
-- docker-compose 1.28.2
+- docker-compose 1.29.2
 - Buildah
 - Podman
 - Skopeo
@@ -111,8 +111,8 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 23.2
-- Elixir: 1.11.3
+- Erlang: 23.3, 24
+- Elixir: 1.11.4, 1.12.2
 
 Additional libraries:
 
@@ -141,7 +141,7 @@ Versions:
 #### Additional build tools
 
 - Maven: 3.6.3
-- Gradle: 6.8
+- Gradle: 7.0
 
 ### JavaScript via Node.js
 
@@ -179,18 +179,18 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.3
-- pypy3: 7.3.3
-- pip: 21.0
+- pypy: 7.3.5
+- pypy3: 7.3.5
+- pip: 21.2
 - venv: 16.0.0
 
 ### Ruby
 
 Available versions:
 
-- 2.6.0 to 2.6.6
-- 2.7.0 to 2.7.2
-- 3.0.0
+- 2.6.0 to 2.6.8
+- 2.7.0 to 2.7.4
+- 3.0.0 to 3.0.2
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
