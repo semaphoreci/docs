@@ -19,6 +19,24 @@ This page is updated on a weekly basis.
 
 To learn how to set up Test Summary check [our docummentation page](https://docs.semaphoreci.com/essentials/test-summary/).
 
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.94 -> 1.20.06
+- Azure-cli 2.25.0 -> 2.26.1
+- Buildah 1.21.0 -> 1.21.3
+- Chrome 91 -> 92
+- ChromeDriver 91 -> 92
+- Helm 3.6.0 -> 3.6.3
+- Heroku 7.54.1 -> 7.56.1
+- Pip 21.1.2 -> 21.2.1
+- Podman 3.1.2 -> 3.2.3
+- Sbt 1.3.10 -> 1.5.5
+- Terraform 0.15.0 -> 0.15.5
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+
 **(Improved) Ubuntu 18.04 image update**
 
 **(Updated)** Updated packages:
