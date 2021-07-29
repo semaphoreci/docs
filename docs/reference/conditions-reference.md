@@ -156,10 +156,10 @@ identified with one of the `operators` from above are executed with those values
 \* PCRE = Perl Compatible Regular Expression
 
 !!! warning "Keyword usage"
-    Both `result` and `result_reason` keywords can only be used in [auto_promote][auto_promote] conditions 
+    Both `result` and `result_reason` keywords can only be used in [auto_promote][auto_promote] conditions
     since they are evaluated after the pipeline execution is done and its result is known.
-    All other when conditions are evaluated during pipeline initialization at which point 
-    the pipeline execution result is unknown. 
+    All other when conditions are evaluated during pipeline initialization at which point
+    the pipeline execution result is unknown.
 
 
 ## Functions
@@ -258,9 +258,10 @@ The supported map parameters are:
       <td> pipeline_file </td>
       <td>
         Possible values are <b>track</b> and <b>ignore</b>, default is
-        <b>track</b>. Only if track is chosen, the path to the give pipeline file
-        will be automatically added to the paths that are given as a parameters
-        of the change_in function.
+        <b>track</b>. Any change to the pipeline YAML file will cause change_in
+        to be evaluated as <b>true</b> with the default <b>track</b> value.
+        To avoid this, you should use the <b>ignore</b> as the value for the
+        <b>pipeline_file</b> parameter.
       </td>
     </tr>
     <tr>
