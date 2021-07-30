@@ -4,7 +4,7 @@ description: Semaphore supports setting environment variables on per-job and per
 
 # Setting Environment Variables
 
-Semaphore supports setting environment variables on a
+Semaphore supports setting environment variables on a [global_job_config][global_job_config],
 [per-block][envvars-perblock] and [per-job][envvars-perjob] level.
 
 If you're looking for a list of environment variables which Semaphore sets in
@@ -48,3 +48,4 @@ blocks:
 [envvars-perblock]: ../reference/pipeline-yaml-reference.md#env_vars
 [envvars-perjob]: ../reference/pipeline-yaml-reference.md#env_vars-in-jobs
 [semaphore-env-vars]: ../ci-cd-environment/environment-variables.md
+[global_job_config]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#global_job_config
