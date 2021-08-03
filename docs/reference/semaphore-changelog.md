@@ -39,6 +39,9 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 **(Improved) Ubuntu 18.04 image update**
 
+- Default Erlang version changed to 24.0
+- Default Elixir version changed to 1.12.2
+
 **(Updated)** Updated packages:
 
 - Aws-cli 1.19.109 -> 1.19.112
