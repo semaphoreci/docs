@@ -102,10 +102,8 @@ promotions:
   # Automatically deploy to production on successful builds on the master branch:
   - name: Deploy to production
     pipeline_file: deploy-production.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
 ```
 
 
