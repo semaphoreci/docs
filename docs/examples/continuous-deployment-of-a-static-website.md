@@ -76,10 +76,8 @@ blocks:
 promotions:
   - name: Production deploy
     pipeline_file: production-deploy.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
 ```
 
 ## Deployment to AWS S3
