@@ -81,8 +81,8 @@ blocks:
 promotions:
   - name: Dockerize
     pipeline_file: docker-build.yml
-    auto_promote_on:
-      - result: passed
+    auto_promote:
+      when: "result = 'passed'"
 ```
 
 If all tests pass, we build a Docker container and push it to a registry as a
@@ -116,10 +116,8 @@ promotions:
 
   - name: Deploy to production
     pipeline_file: deploy-production.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
 ```
 
 The staging and production deployment pipelines are configured in the same way,
@@ -230,8 +228,8 @@ This is a job for a separate pipeline which we link with a [promotion][promotion
 promotions:
   - name: Dockerize
     pipeline_file: docker-build.yml
-    auto_promote_on:
-      - result: passed
+    auto_promote:
+      when: "result = 'passed'"
 ```
 
 ### Docker build
@@ -307,10 +305,8 @@ true:
 ```yaml
   - name: Deploy to production
     pipeline_file: deploy-production.yml
-    auto_promote_on:
-      - result: passed
-        branch:
-          - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
 ```
 
 The deployment pipelines repeat the steps to mount a secret containing
