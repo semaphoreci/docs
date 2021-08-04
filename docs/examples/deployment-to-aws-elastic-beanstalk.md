@@ -37,8 +37,8 @@ blocks:
 promotions:
   - name: EB deploy
     pipeline_file: eb-deployment.yml
-    auto_promote_on:
-      - result: passed
+    auto_promote:
+      when: "result = 'passed'"
 ```
 
 ### Define the deployment pipeline

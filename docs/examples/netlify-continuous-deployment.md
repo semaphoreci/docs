@@ -65,10 +65,8 @@ to your existing `semaphore.yml` file:
 ``` yaml
 - name: Netlify Production deploy
   pipeline_file: production-deploy-netlify.yml
-  auto_promote_on:
-    - result: passed
-      branch:
-        - master
+    auto_promote:
+      when: "result = 'passed' and branch = 'master'"
 ```
 
 This will start the deployment on every successful revision on the
