@@ -8,6 +8,25 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of August 10, 2021
+
+**(Improved) Ubuntu 18.04 image update**
+
+- **(Deprecated)** Since Python 2.7 reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the start of September 2021.
+
+**(New)** Packages:
+
+- PHP 7.4.22 and 8.0.9
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.26.1 -> 2.27.0
+- Docker 20.10.7 -> 20.10.8
+- NodeJS 14.17.3 -> 14.17.4
+- Npm 7.20.1 -> 7.20.5
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of July 26, 2021
 
 **(Improved) Test Summary UX improvements**
