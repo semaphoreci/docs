@@ -12,8 +12,7 @@ This page is updated on a weekly basis.
 
 **(Improved) Ubuntu 18.04 image update**
 
-**Announcement:**
-- Since Python 2.7 reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be deprecated from the Bionic image at the start of September 2021.
+- **(Deprecated)** Since Python 2.7 reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the start of September 2021.
 
 **(New)** Packages:
 
