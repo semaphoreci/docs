@@ -10,6 +10,18 @@ This page is updated on a weekly basis.
 
 ### Week of August 9, 2021
 
+
+**(Improved) macOS Xcode 12 image update**  
+**(Updated)** **Big Sur** version 11.4 updated to 11.5.1
+
+Updated packages:
+ 
+- Fastlane 2.182.0 -> 2.191.0
+- Xcode 12.5 -> 12.5.1
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+
 **(Improved) Ubuntu 18.04 image update**
 
 - **(Deprecated)** Since Python 2.7 reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the start of September 2021.
