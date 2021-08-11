@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.17.3 (set as default, with alias 14.17)
+- v14.17.4 (set as default, with alias 14.17)
 
 #### Additional tools
 
@@ -165,9 +165,11 @@ Installed versions:
 - 7.2.34
 - 7.3.29
 - 7.4.21
+- 7.4.22
 - 8.0.5
 - 8.0.7
 - 8.0.8
+- 8.0.9
 The default installed PHP version is `7.2.34`.
 
 #### Additional libraries
