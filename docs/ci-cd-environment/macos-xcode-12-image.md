@@ -4,7 +4,7 @@ description: The macos-xcode12 is a customized image based on MacOS 11.3.1 optim
 
 # macOS Big Sur Xcode 12 Image
 
-The `macos-xcode12` is a customized image based on [MacOS 11.3.1][bigsur-release-notes]
+The `macos-xcode12` is a customized image based on [MacOS 11.5.1][bigsur-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -41,9 +41,9 @@ machine type `a1-standard-4`.
 
 ## System
 
-- ProductVersion: 11.3.1
-- BuildVersion: 20E241
-- Kernel Version: Darwin 20.5.0
+- ProductVersion: 11.5.1
+- BuildVersion: 20G80
+- Kernel Version: Darwin 20.6.0
 
 ## Version control
 
@@ -75,8 +75,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.172.0)
-- cocoapods (1.10.1)
+- fastlane (2.191.0)
+- cocoapods (1.10.2)
 
 ## Languages
 
@@ -92,7 +92,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.22.4
+- Yarn: 1.22.11
 
 ### Python
 
@@ -115,7 +115,7 @@ Installed versions:
 
 ## Flutter
 
-- 2.0.6
+- 2.2.3
 
 ## Xcode
 
@@ -124,9 +124,9 @@ Installed versions:
 - 12.2
 - 12.3
 - 12.4
-- 12.5
+- 12.5.1
 
-The default installed Xcode version is `12.5`.
+The default installed Xcode version is `12.5.1`.
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 12.3`
 
