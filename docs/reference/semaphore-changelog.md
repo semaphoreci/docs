@@ -16,8 +16,10 @@ This page is updated on a weekly basis.
 
 Updated packages:
  
+- Cocoapods 1.10.1 -> 1.10.2
 - Fastlane 2.182.0 -> 2.191.0
 - Xcode 12.5 -> 12.5.1
+- Yarn 1.22.4 -> 1.22.11
 
 To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
