@@ -8,8 +8,26 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
-### Week of August 9, 2021
+### Week of August 23, 2021
 
+**(Improved) Ubuntu 18.04 image update**
+
+- Default PHP version changed to 7.4.22
+- Removed Erlang 20.3
+- Removed Elixir 1.7.4
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.27.0 - > 2.27.2
+- NodeJS 14.17.4 -> 14.17.5
+- Npm 7.20.5 -> 7.21.0
+- Heroku 7.56.1 -> 7.57.0
+- Git 2.32 -> 2.33
+- Bazel 4.1.0 - > 4.2.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of August 9, 2021
 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** **Big Sur** version 11.4 updated to 11.5.1
