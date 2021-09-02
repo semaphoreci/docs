@@ -4,13 +4,13 @@ description: This guide gives a brief overview of self hosted agents and how the
 
 # Overview
 
-Semaphore allows you to run your jobs in an environment which is controlled by your team. That is achieved through the use of self hosted agents. In addition to that, compared to the hosted platform, self hosted agents offer more control over hardware, operating system versions and installed software, since you can run the agents anywhere you want: physical or virtual machines, containers or in the cloud.
+Semaphore allows you to run your jobs in an environment which is controlled by your team. That is achieved through the use of self hosted agents. In addition to that, compared to the hosted platform, self hosted agents offer more control over hardware, operating system versions and the available software, since you can run the agents anywhere you want: physical or virtual machines, containers or in the cloud.
 
 ## Agent communication with Semaphore
 
 All communication between the agent and Semaphore is unidirectional, from the agent to Semaphore, secured via HTTPS TLS 1.3.
 
-When booting, the agent will attempt to register with the Semaphore 2.0 API. If it succeeds, it will enter sync mode, sending periodic requests to Semaphore's API to tell it what it is doing and be told what to do next. If it fails to register, the agent won't start and won't receive any jobs. If it fails to sync, it also won't receive any more jobs and will eventually shutdown.
+When booting, the agent attempts to register with the Semaphore 2.0 API. If it succeeds, it enters sync mode, sending periodic requests to Semaphore's API to tell it what it is doing and be told what to do next. If it fails to register, the agent does not start and does not receive any jobs. If it fails to sync, it also does not receive any more jobs and will eventually shutdown.
 
 ## Tokens used for communication
 

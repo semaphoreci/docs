@@ -9,7 +9,7 @@ The agent can be configured in two ways:
 - command line arguments
 - configuration file, using the `--config-file /path/to/config.yaml` parameter
 
-You can also use both ways at the same, but be aware that command line arguments take precedence over the configuration file. These are the configuration parameters available:
+Both ways can be used at the same, but command line arguments take precedence over the configuration file.
 
 ## Available configuration parameters
 
@@ -26,11 +26,11 @@ You can also use both ways at the same, but be aware that command line arguments
 
 ### `endpoint`
 
-The Semaphore 2.0 endpoint the agent will use to register and sync. It is formed by your Semaphore 2.0 organization name, e.g., `<your-organization-name>.semaphoreci.com`.
+The Semaphore 2.0 endpoint the agent uses to register and sync. It is formed by your Semaphore 2.0 organization name, e.g., `<your-organization-name>.semaphoreci.com`.
 
 ### `token`
 
-The agent type registration token you grab when creating an agent type in Semaphore 2.0 UI. If the token specified is not correct, the agent will not be able to register with Semaphore`s API and therefore won't start up.
+The agent type registration token you grab when creating an agent type in Semaphore 2.0 UI. If the token specified is not correct, the agent does not start.
 
 ### `env-vars`
 
@@ -43,7 +43,7 @@ agent start \
   --env-vars VAR1=A,VAR2=B
 ```
 
-When using the configuration file, it expects an array of strings using the same format above:
+When using the configuration file, the agent expects an array of strings using the same format above:
 
 ```yaml
 # config.yaml
@@ -82,14 +82,14 @@ This is another way of exposing secrets to your jobs from the agent, instead of 
 
 ### `fail-on-missing-files`
 
-By default, if files given to `--files` are not found in the host, they won't be injected into the docker container, but the job will proceed to be executed. If you want to fail the job instead, set `fail-on-missing-files` to true.
+By default, if files given to `--files` are not found in the host, they are not injected into the docker container, and the job will proceed to be executed. If you want to fail the job instead, set `fail-on-missing-files` to true.
 
 ### `disconnect-after-job`
 
-By default, the agent will not disconnect from Semaphore 2.0 and shutdown after completing a job. However, if you want to do that instead, set `disconnect-after-job` to true.
+By default, the agent does not disconnect from Semaphore and shuts down after completing a job. If you want to do that instead, set `disconnect-after-job` to true.
 
 ### `shutdown-hook-path`
 
-By default, nothing fancy will be executed when the agent shuts down. This parameter accepts a path to bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
+By default, nothing fancy is executed when the agent shuts down. This parameter accepts a path to a bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
 
 It can also be useful when used in conjunction with `disconnect-after-job` in order to rotate the agents and make sure you get a clean one for every job you run.

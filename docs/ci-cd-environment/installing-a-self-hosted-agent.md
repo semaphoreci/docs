@@ -29,13 +29,13 @@ Install the agent:
 sudo ./install.sh
 ```
 
-The script will ask for your Semaphore organization, the agent type registration token and the Linux user to use to run the service. After that, it creates and starts the systemd service.
+The script asks for your Semaphore organization, the agent type registration token and the Linux user to use to run the service. After that, it creates and starts the systemd service.
 
-It will also create a `config.yaml` file in the installation directory for you to manage the [agent configuration][agent-configuration]. Note that any changes in the configuration file require a restart of the systemd service.
+It also creates a `config.yaml` file in the installation directory for you to manage the [agent configuration][agent-configuration]. Note that any changes in the configuration file require a restart of the systemd service.
 
 ## Installing the agent on MacOS
 
-Install the agent using Homebrew. If you don't want to use Homebrew, you can download the agent directly in the [Releases page][releases-page].
+Install the agent using Homebrew. If you don't want to use Homebrew, the agent can be downloaded directly from the [Releases page][releases-page].
 
 ```
 brew install semaphoreci/tap/agent
