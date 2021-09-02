@@ -7,9 +7,11 @@ description: This guide describes how to configure a self hosted agent and the v
 The agent can be configured in two ways:
 
 - command line arguments
-- configuration file, using `agent start --config-file /path/to/config.yaml` parameter
+- configuration file, using the `--config-file /path/to/config.yaml` parameter
 
 You can also use both ways at the same, but be aware that command line arguments take precedence over the configuration file. These are the configuration parameters available:
+
+## Available configuration parameters
 
 | Parameter name          | Required | Default      |
 |-------------------------|----------|--------------|
@@ -22,15 +24,15 @@ You can also use both ways at the same, but be aware that command line arguments
 | `shutdown-hook-path`    | No       | Empty string |
 | `--config-file`         | No       | Empty string |
 
-## `endpoint`
+### `endpoint`
 
 The Semaphore 2.0 endpoint the agent will use to register and sync. It is formed by your Semaphore 2.0 organization name, e.g., `<your-organization-name>.semaphoreci.com`.
 
-## `token`
+### `token`
 
 The agent type registration token you grab when creating an agent type in Semaphore 2.0 UI. If the token specified is not correct, the agent will not be able to register with Semaphore`s API and therefore won't start up.
 
-## `env-vars`
+### `env-vars`
 
 Environment variables to expose to the jobs. When using the command line argument `--env-vars`, the agent expects a comma-separated list of `VAR=VALUE` environment variables:
 
@@ -52,13 +54,11 @@ env-vars:
   - VAR2=B
 ```
 
-This is way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
+This is a way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
 
-## `files`
+### `files`
 
-Files to inject into the docker container running the job, when using docker containers
-
-When using the command line argument `--files`, the agent expects a comma-separated list of `/some/host/file=/some/container/file`:
+Files to inject into the docker container running the job, when using docker containers. When using the command line argument `--files`, the agent expects a comma-separated list of `/some/host/file=/some/container/file`:
 
 ```
 agent start \
@@ -78,17 +78,17 @@ files:
   - /tmp/host/file2:/tmp/container/file2
 ```
 
-This is way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
+This is another way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
 
-## `fail-on-missing-files`
+### `fail-on-missing-files`
 
 By default, if files given to `--files` are not found in the host, they won't be injected into the docker container, but the job will proceed to be executed. If you want to fail the job instead, set `fail-on-missing-files` to true.
 
-## `disconnect-after-job`
+### `disconnect-after-job`
 
 By default, the agent will not disconnect from Semaphore 2.0 and shutdown after completing a job. However, if you want to do that instead, set `disconnect-after-job` to true.
 
-## `shutdown-hook-path`
+### `shutdown-hook-path`
 
 By default, nothing fancy will be executed when the agent shuts down. This parameter accepts a path to bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
 
