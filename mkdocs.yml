@@ -114,6 +114,11 @@ nav:
     - Android:
       - Docker images: ci-cd-environment/android-images.md
       - Flutter example: ci-cd-environment/flutter.md
+    - Self hosted agents:
+      - Overview: ci-cd-environment/self-hosted-agents-overview.md
+      - Creating a self hosted agent type: ci-cd-environment/creating-a-self-hosted-agent-type.md
+      - Installing a self hosted agent: ci-cd-environment/installing-a-self-hosted-agent.md
+      - Configuring a self hosted agent: ci-cd-environment/configuring-a-self-hosted-agent.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
