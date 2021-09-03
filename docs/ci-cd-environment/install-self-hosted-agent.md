@@ -1,8 +1,8 @@
 ---
-description: This guide describes how to install a self hosted agent on various different operating systems and architectures.
+description: This guide describes how to install a self-hosted agent on various different operating systems and architectures.
 ---
 
-# Installing a self hosted agent
+# Installing a self-hosted agent
 
 The agent is open source and can be found at [https://github.com/semaphoreci/agent](https://github.com/semaphoreci/agent).
 

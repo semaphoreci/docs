@@ -141,9 +141,9 @@ Apple machine types can be paired with the [MacOS Xcode11 image][macos-xcode11] 
 
 `*` - available on request
 
-## Self hosted agent types
+## Self-hosted agent types
 
-Semaphore also allows you to run jobs in your own infrastructure, using [self hosted agents][self-hosted].
+Semaphore also allows you to run jobs in your own infrastructure, using [self-hosted agents][self-hosted].
 
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md

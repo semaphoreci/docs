@@ -1,16 +1,16 @@
 ---
-description: This guide gives a brief overview of self hosted agents and how they work.
+description: This guide gives a brief overview of self-hosted agents and how they work.
 ---
 
 # Overview
 
-Semaphore allows you to run your jobs in an environment which is controlled by your team. That is achieved through the use of self hosted agents. In addition to that, compared to the hosted platform, self hosted agents offer more control over hardware, operating system versions and the available software, since you can run the agents anywhere you want: physical or virtual machines, containers or in the cloud.
+Semaphore allows you to run your jobs in an environment which is controlled by your team. That is achieved through the use of self-hosted agents. In addition to that, compared to the hosted platform, self-hosted agents offer more control over hardware, operating system versions and the available software, since you can run the agents anywhere you want: physical or virtual machines, containers or in the cloud.
 
 ## Agent communication with Semaphore
 
 All communication between the agent and Semaphore is unidirectional, from the agent to Semaphore, secured via HTTPS TLS 1.3.
 
-When booting, the agent attempts to register with the Semaphore 2.0 API. If it succeeds, it enters sync mode, sending periodic requests to Semaphore's API to tell it what it is doing and be told what to do next. If it fails to register, the agent does not start and does not receive any jobs. If it fails to sync, it also does not receive any more jobs and will eventually shutdown.
+When booting, the agent attempts to register with the Semaphore API. If it succeeds, it enters sync mode, sending periodic requests to Semaphore's API to tell it what it is doing and be told what to do next. If it fails to register, the agent does not start and does not receive any jobs. If it fails to sync, it also does not receive any more jobs and will eventually shutdown.
 
 ## Tokens used for communication
 
@@ -22,7 +22,7 @@ Three different types of tokens are used by the agent to communicate with Semaph
 
 ## Available toolbox features
 
-The Semaphore Toolbox offers a set of tools to navigate language versions, databases, cache, artifacts and checking out your code. Some of these features are tied to our hosted system, and will not be available on self hosted agents.
+The Semaphore Toolbox offers a set of tools to navigate language versions, databases, cache, artifacts and checking out your code. Some of these features are tied to our hosted system, and will not be available on self-hosted agents.
 
 | Feature                                     | Available | Notes                                  |
 |---------------------------------------------|-----------|----------------------------------------|

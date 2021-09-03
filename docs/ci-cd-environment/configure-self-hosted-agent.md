@@ -1,15 +1,15 @@
 ---
-description: This guide describes how to configure a self hosted agent and the various different configuration options.
+description: This guide describes how to configure a self-hosted agent and the various different configuration options.
 ---
 
-# Configuring a Self Hosted Agent
+# Configuring a self-hosted agent
 
 The agent can be configured in two ways:
 
 - command line arguments
 - configuration file, using the `--config-file /path/to/config.yaml` parameter
 
-Both ways can be used at the same, but command line arguments take precedence over the configuration file.
+Both ways can be used at the same time, but command line arguments take precedence over the configuration file.
 
 ## Available configuration parameters
 
@@ -26,11 +26,11 @@ Both ways can be used at the same, but command line arguments take precedence ov
 
 ### `endpoint`
 
-The Semaphore 2.0 endpoint the agent uses to register and sync. It is formed by your Semaphore 2.0 organization name, e.g., `<your-organization-name>.semaphoreci.com`.
+The Semaphore endpoint the agent uses to register and sync. It is formed by your Semaphore organization name, e.g., `<your-organization-name>.semaphoreci.com`.
 
 ### `token`
 
-The agent type registration token you grab when creating an agent type in Semaphore 2.0 UI. If the token specified is not correct, the agent does not start.
+The agent type registration token you grab when creating an agent type in Semaphore UI. If the token specified is not correct, the agent does not start.
 
 ### `env-vars`
 
