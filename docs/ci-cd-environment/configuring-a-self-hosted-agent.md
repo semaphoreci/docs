@@ -93,3 +93,19 @@ By default, the agent does not disconnect from Semaphore and shuts down after co
 By default, nothing fancy is executed when the agent shuts down. This parameter accepts a path to a bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
 
 It can also be useful when used in conjunction with `disconnect-after-job` in order to rotate the agents and make sure you get a clean one for every job you run.
+
+For example, if you want to turn off the machine once the agent shuts down, you could use this:
+
+```yaml
+# config.yaml
+endpoint: "..."
+token: "..."
+shutdown-hook-path: "/opt/semaphore/agent/hooks/shutdown.sh"
+```
+
+```sh
+# /opt/semaphore/agent/hooks/shutdown.sh
+sudo poweroff -f
+```
+
+If the path specified does not exist, an error will be logged and the agent will disconnect as usual.
