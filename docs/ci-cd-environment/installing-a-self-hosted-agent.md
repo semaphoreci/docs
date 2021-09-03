@@ -33,6 +33,38 @@ The script asks for your Semaphore organization, the agent type registration tok
 
 It also creates a `config.yaml` file in the installation directory for you to manage the [agent configuration][agent-configuration]. Note that any changes in the configuration file require a restart of the systemd service.
 
+## Installing the agent on generic Linux
+
+Prepare your machine:
+
+```
+sudo mkdir -p /opt/semaphore/agent
+sudo chown $USER:$USER /opt/semaphore/agent/
+cd /opt/semaphore/agent
+```
+
+Download the agent:
+
+```
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.0.11/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+tar -xf agent.tar.gz
+```
+
+Create the configuration file:
+
+```
+cat > config.yaml <<EOF
+endpoint: "[your-organization-name].semaphoreci.com"
+token: "[token]"
+EOF
+```
+
+Run the agent:
+
+```
+agent start --config-file config.yaml
+```
+
 ## Installing the agent on MacOS
 
 Install the agent using Homebrew. If you don't want to use Homebrew, the agent can be downloaded directly from the [Releases page][releases-page].
