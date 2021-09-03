@@ -8,6 +8,25 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of September 6, 2021
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.3.30, 7.4.23 (default version), 8.0.10
+
+**(Updated)** Updated packages:
+
+- Bazel 4.2.0 - > 4.2.1
+- NodeJS 14.17.5 -> 14.17.6
+- Npm 7.21.0 -> 7.21.1
+- Google Chrome 92 -> 93
+- ChromeDriver 92 -> 93
+- Heroku 7.57.0 -> 7.59.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of August 23, 2021
 
 **(Improved) Ubuntu 18.04 image update**
