@@ -15,14 +15,14 @@ Before running and using self hosted agents in your pipelines, you need to regis
 
 ## Using a self hosted agent type in your pipelines
 
-In order to use a self hosted agent type in your pipelines, the machine type on the agent definition of your pipeline needs to be updated:
+To use a self-hosted agent type in your pipelines, the machine type on the agent definition of your pipeline needs to be updated. For example, if you named your self-hosted machine type **s1-linux-small**, use this configuration:
 
 ```diff
 agent:
   machine:
 -   os_image: ubuntu1804
 -   type: e1-standard-2
-+   type: s1-<your-self-hosted-agent-type-name>
++   type: s1-linux-small
 ```
 
 And that's it. Now jobs using that agent type will run in the agents you registered for that type.
