@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 92
-- ChromeDriver 92
+- Google Chrome 93
+- ChromeDriver 93
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.17.5 (set as default, with alias 14.17)
+- v14.17.6 (set as default, with alias 14.17)
 
 #### Additional tools
 
@@ -166,11 +166,13 @@ Installed versions:
 - 7.3.29
 - 7.4.21
 - 7.4.22
+- 7.4.23
 - 8.0.5
 - 8.0.7
 - 8.0.8
 - 8.0.9
-The default installed PHP version is `7.4.22`.
+- 8.0.10
+The default installed PHP version is `7.4.23`.
 
 #### Additional libraries
 
