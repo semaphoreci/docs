@@ -24,6 +24,7 @@ This page is updated on a weekly basis.
 - Google Chrome 92 -> 93
 - ChromeDriver 92 -> 93
 - Heroku 7.57.0 -> 7.59.0
+- Kernel 4 -> 5
 
 To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
