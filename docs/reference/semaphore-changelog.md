@@ -10,6 +10,29 @@ This page is updated on a weekly basis.
 
 ### Week of September 6, 2021
 
+**IMPORTANT: (Deprecated) MacOS Xcode 11**  
+
+[Macos Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
+We advise all users to switch to [macOS Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.20.06 -> 1.20.37
+- Azure-cli 2.26.1 -> 2.28.0
+- Bazel 4.1.0 -> 4.2.1
+- Chromedriver 92 -> 93
+- GoogleChrome 92 -> 93
+- Elixir 1.12.1 -> 1.12.3
+- Git 2.32.0 -> 2.33.0
+- Heroku 7.56.1 -> 7.59.0
+- Pip 21.2.1 -> 21.2.4
+- Terraform 0.15.5 -> 1.0.6
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+
 **(Improved) Ubuntu 18.04 image update**
 
 **(New)** Packages:
