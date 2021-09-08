@@ -10,6 +10,12 @@ This page is updated on a weekly basis.
 
 ### Week of September 6, 2021
 
+**IMPORTANT: (Deprecated) MacOS Xcode 11**  
+
+[Macos Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
+We advise all users to switch to [macOS Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(Updated)** Updated packages:
@@ -24,6 +30,8 @@ This page is updated on a weekly basis.
 - Heroku 7.56.1 -> 7.59.0
 - Pip 21.2.1 -> 21.2.4
 - Terraform 0.15.5 -> 1.0.6
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 
 **(Improved) Ubuntu 18.04 image update**
 
