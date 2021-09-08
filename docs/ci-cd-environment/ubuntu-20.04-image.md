@@ -68,8 +68,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 92
-- Chrome_driver 92
+- Google Chrome 
+- Chrome_driver 
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -112,7 +112,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 23.3, 24
-- Elixir: 1.11.4, 1.12.2
+- Elixir: 1.11.4, 1.12.3
 
 Additional libraries:
 
