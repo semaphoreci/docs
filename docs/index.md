@@ -32,7 +32,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
 
             <ul>
                 <li><a href="/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">Using databases and services</a></li>
-                <li><a href="/essentials/caching-dependencies-and-directories/">Caching dependencies></li>
+                <li><a href="/essentials/caching-dependencies-and-directories/">Caching dependencies</a></li>
                 <li><a href="/essentials/artifacts/">Artifacts</a></li>
                 <li><a href="/reference/pipeline-yaml-reference/">Pipeline YAML Reference</a></li>
                 <li><a href="/reference/quotas-and-limits/">Quotas and Limits</a></li>
