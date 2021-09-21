@@ -8,6 +8,39 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of September 20, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.4.22, 7.4.23 (default version), 8.0.10
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.20.37 -> 1.21.44
+- Helm 3.6.3 -> 3.7.0
+- Ruby 2.6.8 -> 2.7.4 (default)
+- Gem 3.0.3 -> 3.1.6
+- Bundler 1.17.2 -> 2.2.23
+- Podman 3.2.3 -> 3.3.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.12.3 (default)
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.27.2 - > 2.28.0
+- Helm 3.6.3 -> 3.7.0
+- Npm 7.22.0 -> 7.24.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of September 6, 2021
 
 **IMPORTANT: (Deprecated) MacOS Xcode 11**  
