@@ -163,7 +163,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.12`.
+The default installed PHP version is `7.4.23`.
 
 #### Additional libraries
 
