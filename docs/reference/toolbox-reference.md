@@ -179,8 +179,8 @@ three Semaphore environment variables:
 - `SEMAPHORE_GIT_SHA`: This environment variable holds the SHA key for the HEAD
   reference that is used when executing `git reset -q --hard`.
   
-- `SEMAPHORE_GIT_DEPTH`: stores the shallow clone depth level.
-    By default, this value is `50`
+- `SEMAPHORE_GIT_DEPTH`: This environment variable holds the shallow clone depth
+    level. By default, this value is `50`.
 
 All these environment variables are automatically defined by Semaphore.
 
