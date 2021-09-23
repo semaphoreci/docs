@@ -10,6 +10,14 @@ This page is updated on a weekly basis.
 
 ### Week of September 20, 2021
 
+**(Improved) Semaphore registry**
+
+- Android:30-flutter image got updated, it contains flutter version 2.2.3 and 2.5.1(default)
+
+**(Improved) Toolbox update**
+- Toolbox/sem-version can switch between the preinstalled flutter versions 2.5.1(default) and 2.2.3
+  when usin semaphore's android:30-flutter image. Syntax: `sem-version flutter [2.2.3|2.5.1]`
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(New)** Packages:
