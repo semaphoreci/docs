@@ -340,13 +340,6 @@ name of the Pull Request.
 
 Example values: `Update Readme.md`
 
-#### SEMAPHORE\_GIT\_DEPTH
-
-The value of the `SEMAPHORE_GIT_DEPTH` environment variable holds the 
-depth of the shallow clone from the `checkout` command.
-
-Example values: `50`
-
 ### Cache related
 
 The following environment variables are related to the `cache` utility. You can
