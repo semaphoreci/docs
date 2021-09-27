@@ -1,11 +1,8 @@
 ---
-description: This guide shows you how to optimize your Semaphore 2.0 workflow for monorepo projects.
+description: Learn how to collect XML tests results from your Semaphore 2.0 pipelines.
 ---
 
-# Test Summary
-
-!!! beta "Feature in beta"
-    Beta features are subject to change.
+# Tests
 
 Working with tests in your projects should be efficient and easy. The bigger your project
 becomes, the harder it is to track all the failures in your workflows. Firstly
