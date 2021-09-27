@@ -18,8 +18,12 @@ td {
 }
 
 header {
-    background: #00a569 !important;
-    box-shadow: none !important;
+    /* background: #00a569 !important; */
+    /* box-shadow: none !important; */
+    background: white !important;
+    color: black !important;
+
+    background-image: url(//wpblog.semaphoreci.com/wp-content/themes/semaphoreci/img/semaphore-logo.jpg);
 }
 
 @media only screen and (max-width: 76.1875em) {
@@ -34,11 +38,15 @@ header {
 
 .md-tabs {
     font-weight: 500 !important;
-    color: #2c7d54 !important;
+    color: #667679 !important;
+}
+
+.md-tabs__item {
 }
 
 .md-tabs__link {
     opacity: 1 !important;
+    padding: 1em;
 }
 
 .md-tabs__link:hover {
@@ -47,18 +55,28 @@ header {
 
 .md-tabs__link--active,
 .md-tabs__link.md-tabs__link--active:hover {
-    color: #283233 !important;
-    font-weight: 500;
-    background: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-top: 12px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+    color: black;
+    font-weight: 900;
+
+    border-bottom: 3px solid black;
+
+    /* color: #283233 !important; */
+    /* font-weight: 500; */
+    /* background: white; */
+    /* padding: 4px 10px; */
+    /* border-radius: 4px; */
+    /* margin-top: 12px; */
+    /* box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); */
+}
+
+.md-nav[data-md-level="2"] {
+    border-left: 2px solid black;
+    margin-bottom: 1.5em;
 }
 
 @media only screen and (min-width: 76.25em) {
     .md-tabs {
-        background-color: #c8e6c9 !important;
+        background-color: transparent !important;
     }
 
     .md-sidebar--secondary {

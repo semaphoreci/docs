@@ -49,31 +49,41 @@ nav:
   - Guided Tour:
     - Getting started: guided-tour/getting-started.md
   - Essentials:
-    - Concepts: essentials/concepts.md
-    - Workflows and Pipelines: essentials/modeling-complex-workflows.md
-    - Workflow triggers: essentials/project-workflow-trigger-options.md
-    - Workflow scheduler/cron: essentials/schedule-a-workflow-run.md
-    - "Fail-fast": essentials/fail-fast-stop-running-tests-on-the-first-failure.md
-    - Deploying with promotions: essentials/deploying-with-promotions.md
-    - Pipeline queues: essentials/pipeline-queues.md
-    - Auto-cancel: essentials/auto-cancel-previous-pipelines-on-a-new-push.md
-    - Skipping commits: essentials/skip-building-some-commits-with-ci-skip.md
+    - "Key Concepts":
+      - Overview: essentials/concepts.md
+      - Pipelines: essentials/modeling-complex-workflows.md
+      - Triggers: essentials/project-workflow-trigger-options.md
+      - Schedulers/Cron: essentials/schedule-a-workflow-run.md
+      - Tests: essentials/test-summary.md
+      - Artifacts: essentials/artifacts.md
+      - Secrets: essentials/using-secrets.md
+      - Environment variables: essentials/environment-variables.md
+
+    - Optimization:
+      - Caching: essentials/caching-dependencies-and-directories.md
+      - Skipping commits: essentials/skip-building-some-commits-with-ci-skip.md
+      - "Fail-fast": essentials/fail-fast-stop-running-tests-on-the-first-failure.md
+      - Auto-cancel: essentials/auto-cancel-previous-pipelines-on-a-new-push.md
+      - Prioritizing jobs: essentials/prioritization.md
+
+    - Deployment:
+      - Deploying with promotions: essentials/deploying-with-promotions.md
+      - Pipeline queues: essentials/pipeline-queues.md
+      - Tag-triggered deployment: essentials/tag-triggered-deployment.md
+      - Deployment dashboards: essentials/deployment-dashboards.md
+
+    - Notifications:
+      - Slack notifications: essentials/slack-notifications.md
+      - Webhook notifications: essentials/webhook-notifications.md
+      - GitHub status checks: essentials/configuring-github-status-checks.md
+      - Status Badges: essentials/status-badges.md
+
+
     - Monorepo workflows: essentials/building-monorepo-projects.md
-    - Tag-triggered deployment: essentials/tag-triggered-deployment.md
     - Job matrix: essentials/build-matrix.md
-    - Prioritizing jobs: essentials/prioritization.md
     - Debugging with SSH: essentials/debugging-with-ssh-access.md
-    - Caching: essentials/caching-dependencies-and-directories.md
-    - Artifacts: essentials/artifacts.md
-    - Setting environment variables: essentials/environment-variables.md
-    - Secrets: essentials/using-secrets.md
-    - Slack notifications: essentials/slack-notifications.md
-    - Webhook notifications: essentials/webhook-notifications.md
-    - GitHub status checks: essentials/configuring-github-status-checks.md
-    - Status Badges: essentials/status-badges.md
+
     - Private dependencies: essentials/using-private-dependencies.md
-    - Deployment dashboards: essentials/deployment-dashboards.md
-    - Test Summary: essentials/test-summary.md
   - Programming Languages:
     - Android: programming-languages/android.md
     - C: programming-languages/c.md
