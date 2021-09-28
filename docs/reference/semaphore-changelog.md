@@ -8,6 +8,19 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of September 27, 2021
+
+**(Improved) macOS Xcode 12 image update**  
+
+Updated packages:
+ 
+- Cocoapods 1.10.2 -> 1.11.2
+- Fastlane 2.191.0 -> 2.195.0
+- Flutter 2.0.6 -> 2.5.1
+- Ruby 2.5.1 -> 2.6.8
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
 ### Week of September 20, 2021
 
 **(Improved) Semaphore registry**

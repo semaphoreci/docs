@@ -75,8 +75,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.191.0)
-- cocoapods (1.10.2)
+- fastlane (2.195.0)
+- cocoapods (1.11.2)
 
 ## Languages
 
@@ -88,7 +88,7 @@ Following gems are pre-installed:
 
 Installed version:
 
-- v13.12.0
+- v16.6.1
 
 #### Additional tools
 
@@ -110,12 +110,12 @@ Supporting libraries:
 
 Installed versions:
 
-- 2.3.7 (system)
-- 2.5.1
+- 2.5.1 (system)
+- 2.6.8
 
 ## Flutter
 
-- 2.2.3
+- 2.5.1
 
 ## Xcode
 
