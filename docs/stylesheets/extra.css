@@ -56,6 +56,12 @@ header {
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
+.md-nav[data-md-level="2"] {
+    margin-left: 2px;
+    border-left: 2px solid black;
+    margin-bottom: 1.5em;
+}
+
 @media only screen and (min-width: 76.25em) {
     .md-tabs {
         background-color: #c8e6c9 !important;
