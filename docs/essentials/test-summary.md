@@ -1,21 +1,22 @@
 ---
-description: This guide shows you how to optimize your Semaphore 2.0 workflow for monorepo projects.
+description: This document
 ---
 
-# Test Summary
+# Tests
 
-!!! beta "Feature in beta"
-    Beta features are subject to change.
+Semaphore collects XML test reports and uses them to provide insight into your
+pipelines.
 
-Working with tests in your projects should be efficient and easy. The bigger your project
-becomes, the harder it is to track all the failures in your workflows. Firstly
-you have to navigate to specific job and then search through the logs for failure messages:
+Test reports provide an effective and consistent way to view the tests results
+executed using different test frameworks, in order to measure pipeline quality,
+review traceability, troubleshoot failures and drive failure ownership. In
+addition, it provides many advanced reporting capabilities explored in the
+following sections.
 
-![Job Logs](img/test-summary/job-logs.png)
+Published test results can be viewed in the **Tests** tab for every executed
+workflow or individual job.
 
-Job summary provides you with a dashboard where you can track your suites and quickly find failing specs.
-
-![Test Summary Tab](img/test-summary/summary-tab.png)
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/test-summary/tests-tab.png" alt="Tests Tab on Workflow Page">
 
 ## How does it work?
 
