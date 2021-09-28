@@ -340,6 +340,64 @@ name of the Pull Request.
 
 Example values: `Update Readme.md`
 
+### Environment Variables injected into after_pipeline jobs
+
+#### SEMAPHORE\_PIPELINE\_RESULT
+
+The value of the `SEMAPHORE_PIPELINE_RESULT` contains the result of the pipeline.
+
+Values: `failed`, `passed`, `canceled`, `stopped`.
+
+#### SEMAPHORE\_PIPELINE\_RESULT\_REASON
+
+The value of the `SEMAPHORE_PIPELINE_RESULT_REASON` contains the reason for
+the pipeline result.
+
+Values: `test`, `malformed`, `stuck`, `internal`, `user`, `strategy`, `timeout`.
+
+#### SEMAPHORE\_PIPELINE\_TOTAL\_DURATION
+
+The value of the `SEMAPHORE_PIPELINE_TOTAL_DURATION` contains the duration of
+the pipeline including queuing time.
+
+The value is expressed in seconds.
+
+#### SEMAPHORE\_PIPELINE\_INIT\_DURATION
+
+The value of the `SEMAPHORE_PIPELINE_INIT_DURATION` contains the duration of
+the pipeline initialization.
+
+The value is expressed in seconds.
+
+#### SEMAPHORE\_PIPELINE\_QUEUEING\_DURATION
+
+The value of the `SEMAPHORE_PIPELINE_QUEUEING_DURATION` contains the time
+the pipeline spent in the queue.
+
+The value is expressed in seconds.
+
+#### SEMAPHORE\_PIPELINE\_RUNNING\_DURATION
+
+The value of the `SEMAPHORE_PIPELINE_RUNNING_DURATION` contains the pipeline
+execution time while the jobs were running.
+
+The value is expressed in seconds.
+
+#### SEMAPHORE\_PIPELINE\_CREATED\_AT
+
+The value of the `SEMAPHORE_PIPELINE_CREATED_AT` is the UNIX epoch timestamp when
+the pipeline was created.
+
+#### SEMAPHORE\_PIPELINE\_STARTED\_AT
+
+The value of the `SEMAPHORE_PIPELINE_STARTED_AT` is the UNIX epoch timestamp when
+the pipeline started running jobs.
+
+#### SEMAPHORE\_PIPELINE\_DONE\_AT
+
+The value of the `SEMAPHORE_PIPELINE_DONE_AT` is the UNIX epoch timestamp when
+when the pipeline was finished.
+
 ### Cache related
 
 The following environment variables are related to the `cache` utility. You can
