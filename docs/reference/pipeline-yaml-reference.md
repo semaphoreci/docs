@@ -1589,7 +1589,7 @@ See [which environment variables][after-pipeline-env-vars] are injected into aft
 
 ### Global jobs config is not applied to after_pipeline jobs
 
-Global job config is not applied to after pipeline tasks. This includes secrets,
+Global job config is not applied to after pipeline jobs. This includes secrets,
 prologue and epilogue commands that are defined in the global job configuration
 stanza.
 
