@@ -342,6 +342,9 @@ Example values: `Update Readme.md`
 
 ### Environment Variables injected into after_pipeline jobs
 
+The following environment variables are injected only in
+[after pipeline jobs][after-pipeline-ref]{target="_blank"}.
+
 #### SEMAPHORE\_PIPELINE\_RESULT
 
 The value of the `SEMAPHORE_PIPELINE_RESULT` contains the result of the pipeline.
@@ -443,3 +446,4 @@ This feature adds the following environment variables to every job for a given p
 
 [scheduler]: ../essentials/schedule-a-workflow-run.md
 [setting-env-vars]: ../essentials/environment-variables.md
+[after-pipeline-ref]: /reference/pipeline-yaml-reference/#after_pipeline
