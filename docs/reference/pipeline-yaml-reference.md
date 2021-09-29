@@ -1555,7 +1555,7 @@ execute when the pipeline is finished. The `after_pipeline` property is most
 commonly used for sending notifications, collecting test results, and submitting
 metrics.
 
-For example, to submit pipeline duration metrics and publish test results, you
+For example, to submit pipeline duration metrics and to publish test results, you
 would define the after pipeline with the following YAML snippet:
 
 ``` yaml
@@ -1572,7 +1572,8 @@ after_pipeline:
 ```
 
 Jobs in the after_pipeline task are always executed regardless of the result
-of the pipeline. This includes passed, failed, stopped and canceled results.
+of the pipeline. Meaning that the after pipeline jobs are executed on passed,
+failed, stopped, and canceled pipeline.
 
 ### Environment variables available in the after_pipeline jobs
 
