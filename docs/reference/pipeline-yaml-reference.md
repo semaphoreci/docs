@@ -1564,7 +1564,8 @@ after_pipeline:
     jobs:
       - name: Submit Metrics
         commands:
-          - echo "ci.duration:$SEMAPHORE_PIPELINE_TOTAL_DURATION|ms" | nc -w 3 -u statsd.example.com
+          - "export DURATION_IN_MS=$((SEMAPHORE_PIPELINE_TOTAL_DURATION * 1000))"
+          - echo "ci.duration:${DURATION_IN_MS}|ms" | nc -w 3 -u statsd.example.com
 
       - name: Publish Tests
         commands:
