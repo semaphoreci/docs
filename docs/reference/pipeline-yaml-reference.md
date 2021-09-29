@@ -133,8 +133,8 @@ agent:
           value: keyboard-cat
 ```
 !!! info "Semaphore convenience images redirection"
-	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
-    
+	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).
+
 Each container entry must define the `name` and `image` property. The name of
 the container is used when linking the containers together, and for defining
 hostnames in the first container.
@@ -157,7 +157,7 @@ Other optional parameters of each container definition can be divided into two g
     - `secrets` - Secrets which hold the data the should be injected into the container. They are defined in the same way as in [task definition][secrets-in-task]. *Note*: currently, only environment variables defined in a secret will be injected into container, the files within the secret will be ignored.
 
 !!! warning "Docker Hub rate limits"
-    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, all pulls have to be authenticated. 
+    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, all pulls have to be authenticated.
     If you are pulling any images from Docker Hub public repository please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/) guide.
 
 ### A Preface example
@@ -188,8 +188,8 @@ The `execution_time_limit` property can be used at the `pipeline`, `block`
 or `job` scope. In the latter two cases you can use the propery for multiple
 blocks or jobs.
 
-*Note*: In the `pipeline` and `block` scopes `execution_time_limit`  will 
-sum the  runtime of all underlying elements, this also includes the time 
+*Note*: In the `pipeline` and `block` scopes `execution_time_limit`  will
+sum the  runtime of all underlying elements, this also includes the time
 jobs are waiting for quota. Please keep this in mind when using the property.
 
 The `execution_time_limit` property can hold two other properties, which are
@@ -1548,6 +1548,49 @@ blocks:
 In this case the name of the file that was saved in a `secret` is `file.txt`
 and is located at the home directory of the VM.
 
+## after_pipeline
+
+The `after_pipeline` property is used for defining a set of jobs that will
+execute when the pipeline is finished. The `after_pipeline` property is most
+commonly used for sending notifications, collecting test results, and submitting
+metrics.
+
+For example, to submit pipeline duration metrics and publish test results, you
+would define the after pipeline with the following YAML snippet:
+
+``` yaml
+after_pipeline:
+  task:
+    jobs:
+      - name: Submit Metrics
+        commands:
+          - echo "ci.duration:$SEMAPHORE_PIPELINE_TOTAL_DURATION|ms" | nc -w 3 -u statsd.example.com
+
+      - name: Publish Tests
+        commands:
+          - test-results gen-pipeline-report
+```
+
+Jobs in the after_pipeline task are always executed regardless of the result
+of the pipeline. This includes passed, failed, stopped and canceled results.
+
+### Environment variables available in the after_pipeline jobs
+
+All `SEMAPHORE_*` environment variables that are injected into regular pipeline
+jobs, are also injected into after pipelines jobs.
+
+Additionally, in the after pipeline jobs, Semaphore injects environment
+variables that are describing the state, result and duration of the executed
+pipeline.
+
+See [which environment variables][after-pipeline-env-vars] are injected into after pipeline jobs.
+
+### Global jobs config is not applied to after_pipeline jobs
+
+Global job config is not applied to after pipeline tasks. This includes secrets,
+prologue and epilogue commands that are defined in the global job configuration
+stanza.
+
 ## promotions
 
 The `promotions` property is used for *promoting* (manually or automatically
@@ -1770,7 +1813,7 @@ syntax, which is, in this case, any string that starts with `v1.`.
 
 As for the `Documentation` promotion, it will be auto-promoted when initiated from
 the `master` branch and there is at least one changed file in the `docs` folder
-(relative to the root of the repository). Check the 
+(relative to the root of the repository). Check the
 [change_in reference][change-in-ref] for additional usage details.
 
 The content of `p1.yml` is as follows:
@@ -2167,3 +2210,4 @@ YAML parser, which is not a Semaphore 2.0 feature but the way YAML files work.
 [default-queue-config]: https://docs.semaphoreci.com/essentials/pipeline-queues#default-behaviour
 [monorepo-workflows]: https://docs.semaphoreci.com/essentials/building-monorepo-projects/
 [change-in-ref]: https://docs.semaphoreci.com/reference/conditions-reference/#change_in
+[after-pipeline-env-vars]: /ci-cd-environment/environment-variables/#environment-variables-injected-into-after_pipeline-jobs
