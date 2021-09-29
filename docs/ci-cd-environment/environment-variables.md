@@ -363,43 +363,49 @@ Values: `test`, `malformed`, `stuck`, `internal`, `user`, `strategy`, `timeout`.
 The value of the `SEMAPHORE_PIPELINE_TOTAL_DURATION` contains the duration of
 the pipeline including queuing time.
 
-The value is expressed in seconds.
+The value is expressed in seconds. Example value: `10`.
 
 #### SEMAPHORE\_PIPELINE\_INIT\_DURATION
 
 The value of the `SEMAPHORE_PIPELINE_INIT_DURATION` contains the duration of
 the pipeline initialization.
 
-The value is expressed in seconds.
+The value is expressed in seconds. Example value: `1`.
 
 #### SEMAPHORE\_PIPELINE\_QUEUEING\_DURATION
 
 The value of the `SEMAPHORE_PIPELINE_QUEUEING_DURATION` contains the time
 the pipeline spent in the queue.
 
-The value is expressed in seconds.
+The value is expressed in seconds. Example value: `1`.
 
 #### SEMAPHORE\_PIPELINE\_RUNNING\_DURATION
 
 The value of the `SEMAPHORE_PIPELINE_RUNNING_DURATION` contains the pipeline
 execution time while the jobs were running.
 
-The value is expressed in seconds.
+The value is expressed in seconds. Example value: `12`.
 
 #### SEMAPHORE\_PIPELINE\_CREATED\_AT
 
 The value of the `SEMAPHORE_PIPELINE_CREATED_AT` is the UNIX epoch timestamp when
 the pipeline was created.
 
+Example value: `1632943641`.
+
 #### SEMAPHORE\_PIPELINE\_STARTED\_AT
 
 The value of the `SEMAPHORE_PIPELINE_STARTED_AT` is the UNIX epoch timestamp when
 the pipeline started running jobs.
 
+Example value: `1632943642`.
+
 #### SEMAPHORE\_PIPELINE\_DONE\_AT
 
 The value of the `SEMAPHORE_PIPELINE_DONE_AT` is the UNIX epoch timestamp when
 when the pipeline was finished.
+
+Example value: `1632943650`.
 
 ### Cache related
 
