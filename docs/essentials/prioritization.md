@@ -23,6 +23,7 @@ The priorities are assigned to jobs automatically in the following way:
 - the priority is `60` for all jobs in `the initial pipelines on the master branch`
 - the priority is `55` for all jobs in `the promotions on other branches, tags or pull requests`
 - the priority is `50` for all jobs in `the initial pipelines on other branches, tags or pull requests`
+- the priority is `45` for all jobs in `after_pipeline` jobs
 - the lowest default priority of `40` is assigned to jobs in `the workflows initiated by scheduler`
 
 ## Configure job priority
