@@ -59,7 +59,7 @@ global_job_config:
   epilogue:
     always:
       commands:
-         - [[ -f report.xml ]] && test-results publish report.xml
+         - '[[ -f report.xml ]] && test-results publish report.xml'
 ```
 
 The `test-results` tool is part of [Semaphore's Toolbox][toolbox]{target="_blank"}
