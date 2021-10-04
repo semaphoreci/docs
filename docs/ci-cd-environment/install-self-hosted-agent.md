@@ -4,7 +4,12 @@ description: This guide describes how to install a self-hosted agent on various 
 
 # Installing a self-hosted agent
 
-The agent is open source and can be found at [https://github.com/semaphoreci/agent](https://github.com/semaphoreci/agent).
+The agent is open source and can be found at [https://github.com/semaphoreci/agent](https://github.com/semaphoreci/agent). The host requirements are:
+
+- bash
+- git
+- docker - [manageable without sudo][docker without sudo]
+- docker-compose
 
 ## Installing the agent on Ubuntu/Debian
 
@@ -109,3 +114,4 @@ agent start --endpoint semaphore.semaphoreci.com --token [token]
 
 [agent-configuration]: ./configure-self-hosted-agent.md
 [releases-page]: https://github.com/semaphoreci/agent/releases
+[docker without sudo]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
