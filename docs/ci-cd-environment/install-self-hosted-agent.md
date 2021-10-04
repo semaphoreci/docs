@@ -98,7 +98,7 @@ Note: If you don't want to use Homebrew, the agent can be downloaded directly fr
 <b>2. Download and install the toolbox:</b>
 
 ```
-curl -L "https://github.com/semaphoreci/toolbox/releases/latest/download/self-hosted-linux.tar" -o toolbox.tar
+curl -L "https://github.com/semaphoreci/toolbox/releases/latest/download/self-hosted-darwin.tar" -o toolbox.tar
 tar -xf toolbox.tar
 mv toolbox ~/.toolbox
 bash ~/.toolbox/install-toolbox
