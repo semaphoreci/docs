@@ -36,7 +36,7 @@ blocks:
             - make test
 ```
 
-The `macos-xcode12` OS image can only be used in combination with an Apple
+The `macos-xcode13` OS image can only be used in combination with an Apple
 machine type `a1-standard-4`.
 
 ## System
