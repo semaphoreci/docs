@@ -34,7 +34,7 @@ tar -xf agent.tar.gz
 sudo ./install.sh
 ```
 
-The script asks for your Semaphore organization, the agent type registration token and the Linux user to use to run the service and does the following:
+The script asks for your Semaphore organization, the [agent type registration token][agent tokens] and the Linux user used to run the service and does the following:
 
 - downloads and installs the Semaphore toolbox
 - creates a systemd service for the agent
@@ -113,5 +113,6 @@ agent start --endpoint semaphore.semaphoreci.com --token [token]
 ```
 
 [agent-configuration]: ./configure-self-hosted-agent.md
+[agent tokens]: ./self-hosted-agents-overview.md#tokens-used-for-communication
 [releases-page]: https://github.com/semaphoreci/agent/releases
 [docker without sudo]: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user

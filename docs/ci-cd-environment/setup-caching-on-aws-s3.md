@@ -4,11 +4,11 @@ description: This guide describes how to setup the cache CLI to work with an AWS
 
 # Setting up caching with AWS S3
 
-In order to use S3 as a storage backend, the cache CLI needs access to your AWS account. More specifically, it needs access only to perform a few actions on one S3 bucket in your AWS account.
+In order to use S3 as a storage backend, the cache CLI needs access only to perform a few actions on an S3 bucket in your AWS account.
 
 ## Create AWS resources.
 
-The instructions that follow assumes you already have the AWS CLI properly installed and configured in your personal machine. If you’re not sure how to configure that, you can follow [this tutorial from AWS][setup aws cli]. You can also create the AWS resources described in this guide through the AWS console.
+The instructions that follow assume you already have the AWS CLI properly installed and configured in your personal machine. If you’re not sure how to configure that, you can follow [this tutorial from AWS][setup aws cli]. You can also create the AWS resources described in this guide through the AWS console.
 
 The bucket name used here will be `semaphore-cache` and the AWS region used wil be `us-east-1`, but make sure you adjust the commands to match your bucket name and region of choice.
 
