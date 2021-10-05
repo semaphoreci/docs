@@ -86,7 +86,7 @@ might also help.
 
 After the URL change, please double check [the deploy key health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health) and [webhook health](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-webhook-health) of your project.
 
-## Known issues after a connection between GitHub and Semaphore 2.0 is lost
+## File '.semaphore/semaphore.yml' is not available
 
 You might see the following error message when trying to run workflows on Semaphore:
 
