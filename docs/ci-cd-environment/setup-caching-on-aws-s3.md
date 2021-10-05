@@ -10,11 +10,11 @@ In order to use S3 as a storage backend, the cache CLI needs access only to perf
 
 The instructions that follow assume you already have the AWS CLI properly installed and configured in your personal machine. If you’re not sure how to configure that, you can follow [this tutorial from AWS][setup aws cli]. You can also create the AWS resources described in this guide through the AWS console.
 
-The bucket name used here will be `semaphore-cache` and the AWS region used wil be `us-east-1`, but make sure you adjust the commands to match your bucket name and region of choice.
+The bucket name we use in this example will be `semaphore-cache` and the AWS region will be `us-east-1`. Make sure you adjust the commands to match your bucket name and region of choice.
 
 <b>1. Create your AWS S3 bucket and block public access to it:</b>
 
-This is the bucket that cache CLI will use to store/retrieve archives.
+This is the bucket that the cache CLI will use to store and retrieve archives.
 
 ```
 aws s3api create-bucket \
