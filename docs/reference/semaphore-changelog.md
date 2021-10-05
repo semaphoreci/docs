@@ -8,6 +8,14 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of October 4, 2021
+
+**(Improved) macOS Xcode 13 image**
+
+A new agent-type has been released for the macOS platform with Xcode 13 preinstalled.
+To learn more about this, check our [macOS Xcode 13 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/).
+
+
 ### Week of September 27, 2021
 
 **(Improved) macOS Xcode 12 image update**  
