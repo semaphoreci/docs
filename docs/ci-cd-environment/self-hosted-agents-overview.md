@@ -24,13 +24,15 @@ Three different types of tokens are used by the agent to communicate with Semaph
 
 The Semaphore Toolbox offers a set of tools to navigate language versions, databases, cache, artifacts and checking out your code. Some of these features are tied to our hosted system, and will not be available on self-hosted agents.
 
-| Feature                                     | Available | Notes                                  |
-|---------------------------------------------|-----------|----------------------------------------|
-| Changing language versions with sem-version | No        |                                        |
-| Managing databases with sem-service         | No        |                                        |
-| Accessing the cache                         | No        | This will be available at a later date |
-| Artifact storage                            | Yes       |                                        |
-| Publishing test results                     | Yes       |                                        |
-| Checking out code with checkout command     | No        |                                        |
+| Feature                                     | Available | Notes                                           |
+|---------------------------------------------|-----------|-------------------------------------------------|
+| Accessing the cache                         | Yes       | Using [S3 as a storage backend][cache with s3]. |
+| Artifact storage                            | Yes       |                                                 |
+| Publishing test results                     | Yes       |                                                 |
+| Checking out code with checkout command     | Yes       |                                                 |
+| Changing language versions with sem-version | No        |                                                 |
+| Managing databases with sem-service         | No        |                                                 |
 
 Debug sessions and the ability to attach to running jobs will also not be available, since Semaphore has no access to machines that are running in your infrastructure.
+
+[cache with s3]: ./setup-caching-on-aws-s3.md
