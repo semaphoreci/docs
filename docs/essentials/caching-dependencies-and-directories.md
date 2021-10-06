@@ -13,10 +13,14 @@ them only when the dependency list changes.
 - Propagate a file from one block to the next.
 
 The cache is created on a per-project basis and available in every pipeline job.
-All cache keys are scoped per-project. The total cache size is 9.6GB.
+All cache keys are scoped per-project.
 
 The `cache` tool uses key-path pairs for managing cached archives. An archive
-can be a single file or a directory. Each archive automatically expires in 30 days.
+can be a single file or a directory.
+
+When running jobs in Semaphore's hosted environment, the total cache size is 9.6GB and each
+archive automatically expires in 30 days. When running jobs in a self-hosted environment,
+you have full control over the cache size and archives expiration.
 
 ## Basic usage
 
@@ -213,21 +217,30 @@ Examples:
 $ checksum package.json 3dc6f33834092c93d26b71f9a35e4bb3
 ```
 
-### Requirements
+## SFTP backend
 
-The `cache` tool depends on the following environment variables
-which are automatically set in every job environment:
+This is the default backend for jobs running in Semaphore's hosted environment, and the
+following environment variables are required and automatically set in every hosted job:
 
-- `SEMAPHORE_CACHE_URL`: stores the IP address and
-    the port number of the cache server (`x.y.z.w:29920`).
-- `SEMAPHORE_CACHE_USERNAME`: stores the username
-    that will be used for connecting to the cache server
-  (`5b956eef90cb4c91ab14bd2726bf261b`).
-- `SEMAPHORE_CACHE_PRIVATE_KEY_PATH`: stores the path to the
-    SSH key that will be used for connecting to the cache server
-  (`/home/semaphore/.ssh/semaphore_cache_key`).
+| Environment variable               | Description |
+|------------------------------------|-------------|
+| `SEMAPHORE_CACHE_BACKEND`          | Controls the storage backend used by the cache CLI. For the hosted environment, it is set to `sftp`. |
+| `SEMAPHORE_CACHE_URL`              | The IP address and the port number of the cache sftp server (`x.y.z.w:29920`). |
+| `SEMAPHORE_CACHE_USERNAME`         | The username that will be used for connecting to the cache sftp server (`5b956eef90cb4c91ab14bd2726bf261b`). |
+| `SEMAPHORE_CACHE_PRIVATE_KEY_PATH` | The path to the SSH key that will be used for connecting to the cache sftp server (`/home/semaphore/.ssh/semaphore_cache_key`). |
 
-Additionally, `cache` uses `tar` to archive the specified directory or file.
+For jobs in a self-hosted environment, these environment variables are not automatically set on every job.
+
+## AWS S3 backend
+
+The following environment variables are required for the `s3` storage backend to work:
+
+| Environment variable               | Description |
+|------------------------------------|-------------|
+| `SEMAPHORE_CACHE_BACKEND`          | To use the S3 storage backend, this should be set to `s3`. |
+| `SEMAPHORE_CACHE_S3_BUCKET`        | The S3 bucket name |
+
+Additionally, the `cache` CLI also needs your `~/.aws` folder properly configured with the appropriate credentials to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set that up.
 
 ## Troubleshooting
 
@@ -288,3 +301,4 @@ by executing `cache clear` or `cache delete <key>`.
 
 [debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
 [prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[aws s3 setup]: ../../ci-cd-environment/setup-caching-on-aws-s3
