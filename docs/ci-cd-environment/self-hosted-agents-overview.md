@@ -2,7 +2,7 @@
 description: This guide gives a brief overview of self-hosted agents and how they work.
 ---
 
-# Overview
+# Self-hosted agents overview
 
 Semaphore allows you to run your jobs in an environment which is controlled by your team. That is achieved through the use of self-hosted agents. In addition to that, compared to the hosted platform, self-hosted agents offer more control over hardware, operating system versions and the available software, since you can run the agents anywhere you want: physical or virtual machines, containers or in the cloud.
 
@@ -35,4 +35,4 @@ The Semaphore Toolbox offers a set of tools to navigate language versions, datab
 
 Debug sessions and the ability to attach to running jobs will also not be available, since Semaphore has no access to machines that are running in your infrastructure.
 
-[cache with s3]: ./setup-caching-on-aws-s3.md
+[cache with s3]: ./set-up-caching-on-aws-s3.md

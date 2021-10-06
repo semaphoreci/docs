@@ -18,9 +18,9 @@ All cache keys are scoped per-project.
 The `cache` tool uses key-path pairs for managing cached archives. An archive
 can be a single file or a directory.
 
-When using the [sftp storage backend](#sftp-backend), the total cache size is 9.6GB and each
-archive automatically expires in 30 days. When using the [s3 storage backend](#s3-backend),
-the cache size and archive expiration are totally up to you.
+When running jobs in Semaphore's hosted environment, the total cache size is 9.6GB and each
+archive automatically expires in 30 days. When running jobs in a self-hosted environment,
+you have full control over the cache size and archives expiration.
 
 ## Basic usage
 
@@ -217,9 +217,9 @@ Examples:
 $ checksum package.json 3dc6f33834092c93d26b71f9a35e4bb3
 ```
 
-### sftp backend
+## SFTP backend
 
-This is the default backend for jobs running in the hosted environment, and the
+This is the default backend for jobs running in Semaphore's hosted environment, and the
 following environment variables are required and automatically set in every hosted job:
 
 | Environment variable               | Description |
@@ -231,7 +231,7 @@ following environment variables are required and automatically set in every host
 
 For jobs in a self-hosted environment, these environment variables are not automatically set on every job.
 
-### s3 backend
+## AWS S3 backend
 
 The following environment variables are required for the `s3` storage backend to work:
 

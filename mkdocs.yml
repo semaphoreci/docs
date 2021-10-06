@@ -126,7 +126,7 @@ nav:
       - Using self-hosted agent types: ci-cd-environment/self-hosted-agent-types.md
       - Installing a self-hosted agent: ci-cd-environment/install-self-hosted-agent.md
       - Configuring a self-hosted agent: ci-cd-environment/configure-self-hosted-agent.md
-      - Setting up caching with AWS S3: ci-cd-environment/setup-caching-on-aws-s3.md
+      - Setting up caching with AWS S3: ci-cd-environment/set-up-caching-on-aws-s3.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - Continuous Integration:
