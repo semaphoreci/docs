@@ -118,7 +118,7 @@ can't be empty.
 Remember that push to a default branch, will trigger a `workflow` even if `branches`
 is not selected here.
 
-List of values for `run_on`: `branches`, `tags`, `pull-requests`, `forked-pull-requests`
+List of values for `run_on`: `branches`, `tags`, `pull_requests`, `forked_pull_requests`
 
 For more information about workflow triggers, visit the
 [Project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/).
