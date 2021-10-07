@@ -15,6 +15,42 @@ This page is updated on a weekly basis.
 A new agent-type has been released for the macOS platform with Xcode 13 preinstalled.
 To learn more about this, check our [macOS Xcode 13 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/).
 
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.4.24 (default version), 8.0.11
+- Erlang 24.1 (default)
+
+**(Updated)** Updated packages:
+
+- NodeJS 14.16.1 -> 14.18.0
+- Yarn 1.22.5 -> 1.22.15
+- Npm 6.14.12 -> 6.14.15
+- Google Chrome 93 -> 94
+- ChromeDriver 93 -> 94
+- Aws-cli 1.20.52 -> 1.20.56
+- Git-lfs 2.13.3 -> 3.0.1
+- Kerl 2.1.0 -> 2.1.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Php 7.3.31, 7.4.24 (default), 8.0.11
+- Erlang 24.1 (default)
+
+**(Updated)** Updated packages:
+
+- NodeJS 14.17.6 -> 14.18.0
+- Yarn 1.22.5 -> 1.22.15
+- Npm 7.24.0 -> 7.24.2
+- Google Chrome 93 -> 94
+- ChromeDriver 93 -> 94
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of September 27, 2021
 

@@ -111,7 +111,7 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 23.3, 24
+- Erlang: 23.3, 24.1
 - Elixir: 1.11.4, 1.12.3
 
 Additional libraries:
@@ -150,10 +150,11 @@ You can install any version you need with `nvm install [version]`.
 Installed version:
 
 - v10.15.3 (set as default)
+- v14.18.0
 
 #### Additional tools
 
-- Yarn: 1.22.5
+- Yarn: 1.22.15
 
 ### PHP
 
@@ -163,7 +164,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.23`.
+The default installed PHP version is `7.4.24`.
 
 #### Additional libraries
 
