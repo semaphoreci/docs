@@ -88,11 +88,11 @@ Following gems are pre-installed:
 
 Installed version:
 
-- v16.6.1
+- v16.10.0
 
 #### Additional tools
 
-- Yarn: 1.22.11
+- Yarn: 1.22.15
 
 ### Python
 
@@ -115,13 +115,12 @@ Installed versions:
 
 ## Flutter
 
-- 2.5.1
+- 2.5.2
 
 ## Xcode
 
 Installed versions:
 
-- 12.2
 - 12.3
 - 12.4
 - 12.5.1
@@ -129,18 +128,6 @@ Installed versions:
 The default installed Xcode version is `12.5.1`.
 
 To switch between versions use `xcversion select <version>` e.g `xcversion select 12.3`
-
-
-Xcode 12.2 has the following SDKs preinstalled:
-
-- iphoneos14.2
-- iphonesimulator14.2
-- driverkit.macosx20.0
-- macosx11.0
-- appletvos14.2
-- appletvsimulator14.2
-- watchos7.1
-- watchsimulator7.1
 
 Xcode 12.3 has the following SDKs preinstalled:
 
@@ -164,7 +151,7 @@ Xcode 12.4 has the following SDKs preinstalled:
 - watchos7.2
 - watchsimulator7.2
 
-Xcode 12.5 has the following SDKs preinstalled:
+Xcode 12.5.1 has the following SDKs preinstalled:
 
 - iphoneos14.5
 - iphonesimulator14.5
