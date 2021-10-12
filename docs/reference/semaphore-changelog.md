@@ -10,6 +10,23 @@ This page is updated on a weekly basis.
 
 ### Week of October 4, 2021
 
+**(Improved) macOS Xcode 12 image update**  
+
+**(New)** Packages:
+- Xcode 12.5.1
+
+Updated packages:
+ 
+- Flutter 2.5.1 -> 2.5.2
+- Node 16.6.1 -> 16.10.0
+
+Removed from the image:
+
+- Xcode 12.2
+- Xcode 12.5.0
+
+To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+
 **(Improved) macOS Xcode 13 image**
 
 A new agent-type has been released for the macOS platform with Xcode 13 preinstalled.
