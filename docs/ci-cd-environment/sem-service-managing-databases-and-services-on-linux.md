@@ -71,7 +71,6 @@ sem-service start cassandra
 sem-service start cassandra 3.11.8
 sem-service start rethinkdb
 sem-service start rethinkdb 2.4
-
 ```
 
 Services are not automatically shared across jobs in a task. To do that, start services
