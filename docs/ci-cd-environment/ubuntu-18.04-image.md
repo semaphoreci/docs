@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.18.0 (set as default, with alias 14.18)
+- v14.18.1 (set as default, with alias 14.18)
 
 #### Additional tools
 
@@ -195,7 +195,7 @@ Supporting libraries:
 
 - pypy: 7.3.5
 - pypy3: 7.3.5
-- pip: 20.2.4
+- pip: 21.3
 - pip3: 19
 - venv: 16.0.0
 
