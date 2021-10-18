@@ -34,12 +34,15 @@ via ```--db=dbname```.
 If no `version` value is given, a default value will be used according to the following list:
 
 - mysql: The default value is `5.6`
-- postgres: The default value is `10.6`
-- redis: The default value is `4`
+- postgres: The default value is `9.6`
+- postgis: The default value is `9.6-2.5`
+- redis: The default value is `4.0`
 - memcached: The default value is `1.5`
 - mongodb: The default value is `4.1`
-- elasticsearch: The default value is `6.5.1`
-- rabbitmq: The default is `3.8.2`
+- elasticsearch: The default value is `6.5`
+- rabbitmq: The default is `3.8`
+- cassandra: The default is `3.11`
+- rethinkdb: The default is `2.3`
 
 `sem-service` pulls images from Semaphore Container Registry. 
 You can find the list of available versions on our [Semaphore Container Registry images](/ci-cd-environment/semaphore-registry-images/#supported-sem-service-images) page.
@@ -53,6 +56,8 @@ sem-service start redis 5
 sem-service status postgres
 sem-service start postgres 11
 sem-service start postgres 11 --username=some_user_name --password=some_password --db=some_db_name
+sem-service start postgis
+sem-service start postgis 11-3.0
 sem-service start mysql 8.0 --username=some_user_name --password=some_password --db=some_db_name
 sem-service status mysql
 sem-service start memcached
@@ -62,6 +67,10 @@ sem-service start mongodb
 sem-service start mongodb 3.2
 sem-service start rabbitmq
 sem-service start rabbitmq 3.6
+sem-service start cassandra
+sem-service start cassandra 3.11.8
+sem-service start rethinkdb
+sem-service start rethinkdb 2.4
 ```
 
 Services are not automatically shared across jobs in a task. To do that, start services
