@@ -8,6 +8,34 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of October 18, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.28.0 -> 2.29.0
+- Aws-cli 1.20.56 -> 1.20.62
+- Docker 20.10.8 - 20.10.9
+- Helm 3.7.0 -> 3.7.1
+- NodeJS 14.18.0 -> 14.18.1
+- Pip 21.2.4 -> 21.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.28.0 -> 2.29.0
+- Docker 20.10.8 - 20.10.9
+- Helm 3.7.0 -> 3.7.1
+- NodeJS 14.18.0 -> 14.18.1
+- Npm 7.24.2 -> 8.1.0
+- Lftp 4.8.1 -> 4.9.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 4, 2021
 
 **(Improved) macOS Xcode 12 image update**  

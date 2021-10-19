@@ -146,7 +146,7 @@ You can install any version you need with `nvm install [version]`.
 Installed version:
 
 - v10.15.3 (set as default)
-- v14.18.0
+- v14.18.1
 
 #### Additional tools
 
@@ -178,7 +178,7 @@ Supporting libraries:
 
 - pypy: 7.3.5
 - pypy3: 7.3.5
-- pip: 21.2
+- pip: 21.3
 - venv: 16.0.0
 
 ### Ruby
