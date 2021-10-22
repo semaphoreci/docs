@@ -42,6 +42,94 @@ or
 
 **Note**: Heroku announced that SSH authentication method will be deprecated since November 30, 2021.
 
+## Heroku deployment through HTTP authentication
+[http-method]: #Heroku-deployment-through-HTTP-authentication
+In this example we're going to configure Heroku deployment using HTTP Git transport.
+
+### Create and Store API token
+
+The Heroku HTTP Git endpoint only accepts API-key based HTTP Basic authentication. For that, Heroku stores API tokens in the standard Unix file `~/.netrc` (`$HOME\_netrc` on Windows) so that other tools such as Git can access the Heroku API with little or no extra work.
+
+Therefore, the first step is to create the API token which Semaphore will use to access Heroku.
+
+Running heroku login (or any other heroku command that requires authentication) creates or updates your `~/.netrc` file:
+
+``` bash
+$ heroku login
+ heroku: Press any key to open up the browser to login or q to exit
+ ›   Warning: If browser does not open, visit
+ ›   https://cli-auth.heroku.com/auth/browser/***
+ heroku: Waiting for login...
+ Logging in... done
+ Logged in as me@example.com
+
+$ cat ~/.netrc
+ machine api.heroku.com
+   login me@example.com
+   password c4cd94da15ea0544802c2cfd5ec4ead324327430
+ machine git.heroku.com
+   login me@example.com
+   password c4cd94da15ea0544802c2cfd5ec4ead324327430
+```
+
+### Inject API token
+Next, we need to make the `.netrc` file available on Semaphore. Use the [sem create secret command][sem-create-ref] to inject the file.
+
+`sem create secret heroku-HTTP -f ~/.netrc:~/.netrc`
+
+You can verify the existence of your new secret:
+
+``` bash
+$ sem get secrets
+NAME             AGE
+heroku-HTTP      30s
+```
+
+### Define the Deployment pipelines
+
+Finally let's define what happens in our `heroku.yml` pipeline:
+
+``` yaml
+# .semaphore/heroku.yml
+version: v1.0
+name: Heroku deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Deploy
+    task:
+      secrets:
+        - name: demoapp-heroku
+      env_vars:
+        - name: HEROKU_REMOTE
+          value: https://git.heroku.com/semaphore-demoapp.git
+        - name: HEROKU_APP_NAME
+          value: heroku-app-name
+      jobs:
+      - name: Push code
+        commands:
+          - checkout --use-cache
+          - heroku git:remote -a $HEROKU_APP_NAME
+          - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
+```
+**Note**: change the value of `HEROKU_REMOTE` and `HEROKU_APP_NAME` to match your application's
+details as registered on Heroku.
+
+**Note**: For deploying to Heroku, it is required that you use `checkout` with
+the `--use-cache` option in order to avoid the shallow clone of your GitHub
+repository.
+
+
+### Verify it works
+
+Push a new commit on any branch and open Semaphore to watch a new workflow run.
+If all goes well you'll see the "Promote" button next to your initial pipeline.
+Click on it to launch deployment, and open the "Push code" job to observe its'
+output.
+
 ## Heroku deployment through SSH authentication
 [ssh-method]: #heroku-deployment-through-ssh-authentication
 
@@ -189,95 +277,6 @@ an interactive confirmation step which would block our job.
 - We need to manually add our private SSH key to local SSH agent.
 - Using force-push ensures we can deploy any amended Git branch without issues.
 [//]: # (- We want to [always use SSH Git transport][heroku-ssh-git].)
-
-### Verify it works
-
-Push a new commit on any branch and open Semaphore to watch a new workflow run.
-If all goes well you'll see the "Promote" button next to your initial pipeline.
-Click on it to launch deployment, and open the "Push code" job to observe its'
-output.
-
-
-## Heroku deployment through HTTP authentication
-[http-method]: #Heroku-deployment-through-HTTP-authentication
-In this example we're going to configure Heroku deployment using HTTP Git transport.
-
-### Create and Store API token
-
-The Heroku HTTP Git endpoint only accepts API-key based HTTP Basic authentication. For that, Heroku stores API tokens in the standard Unix file `~/.netrc` (`$HOME\_netrc` on Windows) so that other tools such as Git can access the Heroku API with little or no extra work.
-
-Therefore, the first step is to create the API token which Semaphore will use to access Heroku.
-
-Running heroku login (or any other heroku command that requires authentication) creates or updates your `~/.netrc` file:
-
-``` bash
-$ heroku login
- heroku: Press any key to open up the browser to login or q to exit
- ›   Warning: If browser does not open, visit
- ›   https://cli-auth.heroku.com/auth/browser/***
- heroku: Waiting for login...
- Logging in... done
- Logged in as me@example.com
-
-$ cat ~/.netrc
- machine api.heroku.com
-   login me@example.com
-   password c4cd94da15ea0544802c2cfd5ec4ead324327430
- machine git.heroku.com
-   login me@example.com
-   password c4cd94da15ea0544802c2cfd5ec4ead324327430
-```
-
-### Inject API token
-Next, we need to make the `.netrc` file available on Semaphore. Use the [sem create secret command][sem-create-ref] to inject the file.
-
-`sem create secret heroku-HTTP -f ~/.netrc:~/.netrc`
-
-You can verify the existence of your new secret:
-
-``` bash
-$ sem get secrets
-NAME             AGE
-heroku-HTTP     30s
-```
-
-### Define the Deployment pipelines
-
-Finally let's define what happens in our `heroku.yml` pipeline:
-
-``` yaml
-# .semaphore/heroku.yml
-version: v1.0
-name: Heroku deployment
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
-
-blocks:
-  - name: Deploy
-    task:
-      secrets:
-        - name: demoapp-heroku
-      env_vars:
-        - name: HEROKU_REMOTE
-          value: https://git.heroku.com/semaphore-demoapp.git
-        - name: HEROKU_APP_NAME
-          value: heroku-app-name
-      jobs:
-      - name: Push code
-        commands:
-          - checkout --use-cache
-          - heroku git:remote -a $HEROKU_APP_NAME
-          - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
-```
-**Note**: change the value of `HEROKU_REMOTE` and `HEROKU_APP_NAME` to match your application's
-details as registered on Heroku.
-
-**Note**: For deploying to Heroku, it is required that you use `checkout` with
-the `--use-cache` option in order to avoid the shallow clone of your GitHub
-repository.
-
 
 ### Verify it works
 
