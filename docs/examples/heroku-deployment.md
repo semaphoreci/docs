@@ -28,7 +28,7 @@ promotions:
     pipeline_file: heroku.yml
 ```
 
-This defines a simple deployment pipeline which can be triggered manually
+This defines a simple deployment pipeline that can be triggered manually
 on every revision on every branch. You can generally define as many pipelines
 for a project as you need using a variety of options and conditions.
 For designing custom delivery pipelines, consult the
@@ -44,15 +44,15 @@ or
 
 ## Heroku deployment through HTTP authentication
 [http-method]: #Heroku-deployment-through-HTTP-authentication
-In this example we're going to configure Heroku deployment using HTTP Git transport.
+In this example, we're going to configure Heroku deployment using HTTP Git transport.
 
 ### Create and Store API token
 
 The Heroku HTTP Git endpoint only accepts API-key based HTTP Basic authentication. For that, Heroku stores API tokens in the standard Unix file `~/.netrc` (`$HOME\_netrc` on Windows) so that other tools such as Git can access the Heroku API with little or no extra work.
 
-Therefore, the first step is to create the API token which Semaphore will use to access Heroku.
+Therefore, the first step is to locally create the API token which Semaphore will use to access Heroku.
 
-Running heroku login (or any other heroku command that requires authentication) creates or updates your `~/.netrc` file:
+Running `heroku login` (or any other heroku command that requires authentication) creates or updates your `~/.netrc` file:
 
 ``` bash
 $ heroku login
@@ -75,19 +75,19 @@ $ cat ~/.netrc
 ### Inject API token
 Next, we need to make the `.netrc` file available on Semaphore. Use the [sem create secret command][sem-create-ref] to inject the file.
 
-`sem create secret heroku-HTTP -f ~/.netrc:~/.netrc`
+`sem create secret heroku-http -f ~/.netrc:~/.netrc`
 
 You can verify the existence of your new secret:
 
 ``` bash
 $ sem get secrets
 NAME             AGE
-heroku-HTTP      30s
+heroku-http      30s
 ```
 
 ### Define the Deployment pipelines
 
-Finally let's define what happens in our `heroku.yml` pipeline:
+Finally, let's define what happens in our `heroku.yml` pipeline:
 
 ``` yaml
 # .semaphore/heroku.yml
@@ -102,10 +102,8 @@ blocks:
   - name: Deploy
     task:
       secrets:
-        - name: demoapp-heroku
+        - name: heroku-http
       env_vars:
-        - name: HEROKU_REMOTE
-          value: https://git.heroku.com/semaphore-demoapp.git
         - name: HEROKU_APP_NAME
           value: heroku-app-name
       jobs:
@@ -115,7 +113,7 @@ blocks:
           - heroku git:remote -a $HEROKU_APP_NAME
           - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
 ```
-**Note**: change the value of `HEROKU_REMOTE` and `HEROKU_APP_NAME` to match your application's
+**Note**: change the value of `HEROKU_APP_NAME` to match your application's
 details as registered on Heroku.
 
 **Note**: For deploying to Heroku, it is required that you use `checkout` with
@@ -133,7 +131,7 @@ output.
 ## Heroku deployment through SSH authentication
 [ssh-method]: #heroku-deployment-through-ssh-authentication
 
-In this example we're going to configure Heroku deployment using SSH Git transport.
+In this example, we're going to configure Heroku deployment using SSH Git transport.
 
 ### Create a deploy key
 
@@ -164,7 +162,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Next we need to make the private key `id_rsa_semaphore_heroku` available on
+Next, we need to make the private key `id_rsa_semaphore_heroku` available on
 Semaphore, and add the corresponding public key `id_rsa_semaphore_heroku.pub`
 to Heroku.
 
@@ -205,7 +203,7 @@ data:
 ```
 
 The content of secrets is base64-encoded, and we see that our file will be
-mounted in Semaphore jobs on desired path. All good.
+mounted in Semaphore jobs on the desired path. All good.
 
 ### Add your public key to Heroku
 
@@ -224,7 +222,7 @@ section of your Account Settings. For more information consult
 
 ### Define the deployment pipeline
 
-Finally let's define what happens in our `heroku.yml` pipeline:
+Finally, let's define what happens in our `heroku.yml` pipeline:
 
 ``` yaml
 # .semaphore/heroku.yml
@@ -273,10 +271,9 @@ repository.
 - By mounting the `demoapp-heroku` secret we make the private SSH key available
 inside the pipeline block.
 - Using `ssh-keyscan` we specify that heroku.com is a trusted domain and bypass
-an interactive confirmation step which would block our job.
+an interactive confirmation step that would block our job.
 - We need to manually add our private SSH key to local SSH agent.
 - Using force-push ensures we can deploy any amended Git branch without issues.
-[//]: # (- We want to [always use SSH Git transport][heroku-ssh-git].)
 
 ### Verify it works
 
