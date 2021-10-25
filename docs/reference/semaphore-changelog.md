@@ -8,6 +8,21 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of October 25, 2021
+
+**(Improved) macOS Xcode 13 image update**
+
+**(New)** Packages:
+- Xcode 13.1
+- PostgreSQL 14
+
+**(Updated)** Updated packages:
+
+- Big Sur 11.5.1 -> 11.6
+- Fastlane 2.195.0 -> 2.197.0
+- Flutter 2.5.1 -> 2.5.3
+
+
 ### Week of October 18, 2021
 
 **(Improved) Ubuntu 20.04 image update**
