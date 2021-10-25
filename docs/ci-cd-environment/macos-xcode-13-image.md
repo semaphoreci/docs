@@ -1,10 +1,10 @@
 ---
-description: The macos-xcode13 is a customized image based on MacOS 11.5.1 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
+description: The macos-xcode13 is a customized image based on MacOS 11.6 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
 ---
 
 # macOS Big Sur Xcode 13 Image
 
-The `macos-xcode13` is a customized image based on [MacOS 11.5.1][bigsur-release-notes]
+The `macos-xcode13` is a customized image based on [MacOS 11.5][bigsur-release-notes]
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -41,8 +41,8 @@ machine type `a1-standard-4`.
 
 ## System
 
-- ProductVersion: 11.5.1
-- BuildVersion: 20G80
+- ProductVersion: 11.6
+- BuildVersion: 20G165
 - Kernel Version: Darwin 20.6.0
 
 ## Version control
@@ -75,7 +75,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.195.0)
+- fastlane (2.196.0)
 - cocoapods (1.11.2)
 
 ## Languages
@@ -88,11 +88,11 @@ Following gems are pre-installed:
 
 Installed version:
 
-- v16.6.1
+- v17.0.1
 
 #### Additional tools
 
-- Yarn: 1.22.11
+- Yarn: 1.22.17
 
 ### Python
 
@@ -115,23 +115,24 @@ Installed versions:
 
 ## Flutter
 
-- 2.5.2
+- 2.5.3
 
 ## Xcode
 
 Installed versions:
 
 - 13
+- 13.1
 
-The default installed Xcode version is `13`.
+The default installed Xcode version is `13.1`.
 
 
-Xcode 13 has the following SDKs preinstalled:
+Xcode 13.1 has the following SDKs preinstalled:
 
 - iphoneos 15
 - iphonesimulator 15
-- driverkit.macos 20.4
-- macos 11.3
+- driverkit.macos 21.0.1
+- macos 12
 - appletvos 15
 - appletvsimulator 15
 - watchos 8
@@ -145,7 +146,7 @@ Xcode 13 has the following SDKs preinstalled:
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[bigsur-release-notes]: https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_3-release-notes
+[bigsur-release-notes]: https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_5-release-notes
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
