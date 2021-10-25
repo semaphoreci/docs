@@ -21,6 +21,8 @@ This page is updated on a weekly basis.
 - Big Sur 11.5.1 -> 11.6
 - Fastlane 2.195.0 -> 2.197.0
 - Flutter 2.5.1 -> 2.5.3
+- Node v16.6.1 -> v17.0.1
+- Yarn  1.22.11 -> 1.22.17
 
 
 ### Week of October 18, 2021
