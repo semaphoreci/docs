@@ -139,7 +139,7 @@ Apple machine types can be paired with the [MacOS Xcode11 image][macos-xcode11] 
 </tbody>
 </table>
 
-`*` - available on request
+`*` - available on [enterprise plan](https://semaphoreci.com/pricing) only.
 
 ## Self-hosted agent types
 
