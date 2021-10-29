@@ -161,7 +161,7 @@ order to try to reuse as many of the existing layers of the
 - docker push "$DOCKER_USERNAME"/go_hw:"$SEMAPHORE_GIT_BRANCH"
 ```
 
-The aforementioned commands tags an existing Docker image and pushes it to the
+The aforementioned commands tag an existing Docker image and push it to the
 Docker registry in a way that can be found and reused as a cache Docker image.
 
 ``` yaml
