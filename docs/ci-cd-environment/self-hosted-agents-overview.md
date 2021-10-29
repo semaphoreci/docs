@@ -2,8 +2,8 @@
 description: This guide gives a brief overview of self-hosted agents and how they work.
 ---
 
-!!! warning "Self-hosted agents availability"
-    Self-hosted agents is not a generally available feature yet. If you have interest in it and want to try it out, please [contact support](mailto:support@semaphoreci.com).
+!!! beta "Self-hosted agents - closed beta"
+    Self-hosted agents are now in closed beta! If you would like to join beta and try this feature out, please [share your use case](https://semaphoreci.com/contact) with our team and we will add you to the waiting list and contact you after confirming that the feature suits your requirements. 
 
 # Self-hosted agents overview
 
