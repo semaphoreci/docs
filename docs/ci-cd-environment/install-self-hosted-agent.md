@@ -4,6 +4,9 @@ description: This guide describes how to install a self-hosted agent on various 
 
 # Installing a self-hosted agent
 
+!!! beta "Self-hosted agents - closed beta"
+    Self-hosted agents are now in closed beta! If you would like to join beta and try this feature out, please [share your use case](https://semaphoreci.com/contact) with our team and we will add you to the waiting list and contact you after confirming that the feature suits your requirements. 
+
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it in your machine, you need to make sure the following requirements are also available in it:
 
 - bash
