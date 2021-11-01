@@ -8,7 +8,7 @@ This document details YAML grammar used for describing the
 pipelines of Semaphore 2.0 projects.
 
 The core properties of a Semaphore pipeline configuration file are
-`blocks`, which appear only once at the beginning of a YAML file, `tasks`,
+`blocks`, which appear only once at the beginning of a YAML file, `task`,
 which can appear multiple times, `jobs`, which can also be repeated, and
 `promotions` that are optional and can appear only once.
 
@@ -544,7 +544,7 @@ as `true`, and the rest of the properties from the same array item are used
 to configure the queue for the given pipeline.
 
 This means that the `order of the items` in the array is important and that
-items should be ordered so the those with the most specific conditions are defined
+items should be ordered so that those with the most specific conditions are defined
 first, followed by those with more generalized conditions (e.g. items with conditions such as
 `branch = 'develop'` should be ordered before those with `branch != 'master'`).
 
@@ -1571,7 +1571,7 @@ failed, stopped, and canceled pipelines.
 ### Environment variables available in `after_pipeline` jobs
 
 All `SEMAPHORE_*` environment variables that are injected into regular pipeline
-jobs, are also injected into `after_pipelines` jobs.
+jobs, are also injected into `after_pipeline` jobs.
 
 Additionally, Semaphore injects environment variables that describe the state, result, and duration of the executed
 pipeline into `after_pipeline` jobs.
