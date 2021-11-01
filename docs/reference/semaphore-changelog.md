@@ -8,6 +8,52 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 01, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.4.25 (default version), 8.0.12
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.29.0 -> 2.29.2
+- Aws-cli 1.20.62 -> 1.21.7
+- Google Chrome 94 -> 95
+- ChromeDriver: 94 -> 95
+- Docker 20.10.9 -> 20.10.10
+- Git-lfs 3.0.1 -> 3.0.2
+- pypy 7.3.5 -> 7.3.6
+- pypy3  7.3.5 -> 7.3.7
+- Nodejs 14.18.1 -> 16.13.0 (default)
+- Npm 6.14.15 -> 8.1.0
+- Heroku 7.59.0 -> 7.59.1
+- Java OpenJDK 13.0.1 -> 17.0.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.3.32, 7.4.25 (default version), 8.0.12
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.29.0 -> 2.29.2
+- Google Chrome 94 -> 95
+- ChromeDriver: 94 -> 95
+- Docker 20.10.9 -> 20.10.10
+- Git-lfs 3.0.1 -> 3.0.2
+- pypy 7.3.5 -> 7.3.6
+- pypy3  7.3.5 -> 7.3.7
+- Nodejs 14.18.1 -> 16.13.0 (default)
+- Heroku 7.59.0 -> 7.59.1
+- Java OpenJDK 16.0.1 -> 17.0.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 25, 2021
 
 **(Improved) macOS Xcode 13 image update**
