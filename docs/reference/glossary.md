@@ -49,47 +49,54 @@ in go you can run tests with `go test` or with `gotestsum`, and alternative runn
 A mechanism in test runners to filter and run test cases based on files, tags,
 etc...
 
-#### Test result
-
-The result of a single test case with one of the following outcomes:
-
-- Passed - The test passed the assertions in the test case
-- Failed - The test failed the assertions in the test case
-- Error - The test case failed to execute. Assertion was not tested.
-- Timeout - The test case failed to execute in preset interval. Assertion was not tested.
-- Skipped - The test case was skipped, and has no result.
-
 #### Test results
 
-The result of a test suite.
+The results of test execution.
+
+A single test case can have the following result:
+
+| Result   | Description                                                                   |
+|----------|-------------------------------------------------------------------------------|
+| Passed   | The test passed the assertions in the test case.                              |
+| Failed   | The test failed the assertions in the test case.                              |
+| Error    | The test case failed to execute. Assertions was not tested.                   |
+| Timeout  | The test case failed to execute in preset interval. Assertion was not tested. |
+| Skipped  | The test case was skipped, and has no result.
+
+Test results (plural) refers to the aggregate result of all executed test cases
+in a test suite. It can be one of the following:
+
+| Result   | Description                                                                                         |
+|----------|-----------------------------------------------------------------------------------------------------|
+| Failed   | At least one test case has the outcome failed, error, or timeout.                                   |
+| Passed   | No test case has the outcome failed, error, or timeout. Acceptable outcomes are passed and skipped. |
 
 #### Test output formatter
 
-The formatter used for outputting test results. Common formatter are:
+The formatter used for formatting test results. Common formatters are:
 
-- "dot" output
-- "documentation" output
-- "junit" output
+- "dot" format
+- "documentation" format
+- "junit" format
 
-The formatters are usually built-in the test runner, and usually test runners
-can be extended with additional formatters.
-
-#### XML test result
-
-Test results output that follows the JUnit XML specification.
+Test runners come with several built-in formatters, and usually they can be
+extended with additional formatters via plugging.
 
 #### Test results CLI
 
-A tool from the Semaphore toolbox used to generate and publish test reports.
+A CLI tool included in the [Semaphore Toolbox][toolbox] used to generate and
+publish test reports.
+
+Learn more about this CLI tool on the
+[Test Results CLI reference][test-results-cli-ref] documentation page.
 
 #### Test report
 
-A report generated based on test results. The report is available on
-the Workflow Page and Job Page under the Tests tab.
+A report generated and published with the test-results CLI tool.
+Published reports are available on the workflow page and job page under the
+Tests tab.
 
-A single report is usually based on one test suite.
+The Tests tab contains multiple test reports, usually one for each test suite.
 
-#### Test reports
-
-Multiple test reports available on the Workflow Page or the Job Page.
-For example: "RSpec" report, "Cucumber" report.
+[toolbox]: /reference/toolbox-reference/
+[test-results-cli-ref]: /reference/test-results-cli-reference/
