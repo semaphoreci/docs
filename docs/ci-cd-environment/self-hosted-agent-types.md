@@ -3,6 +3,8 @@ description: This guide describes how to create and use a self-hosted agent type
 ---
 
 # Using self-hosted agent types
+!!! beta "Self-hosted agents - closed beta"
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
 
 Before running and using self-hosted agents in your pipelines, you need to register a new agent type in your organization.
 
