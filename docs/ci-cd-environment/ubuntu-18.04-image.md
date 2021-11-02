@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 94
-- ChromeDriver 94
+- Google Chrome 95
+- ChromeDriver 95
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -132,7 +132,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u292, 11.0.11, 16.0.1
+- Java: 8u292, 11.0.11, 17.0.1
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -149,7 +149,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v14.18.1 (set as default, with alias 14.18)
+- v16.13.0 (set as default, with alias 16.13)
 
 #### Additional tools
 
@@ -160,21 +160,14 @@ Installed version:
 PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
 Installed versions:
 
-- 7.0.33
-- 7.1.33
-- 7.2.34
-- 7.3.31
-- 7.4.21
-- 7.4.22
-- 7.4.23
-- 7.4.24
-- 8.0.5
-- 8.0.7
-- 8.0.8
-- 8.0.9
-- 8.0.10
-- 8.0.11
-The default installed PHP version is `7.4.24`.
+- 7.0.x
+- 7.1.x
+- 7.2.x
+- 7.3.x
+- 7.4.x
+- 8.0.x
+
+The default installed PHP version is `7.4.25`.
 
 #### Additional libraries
 
@@ -193,8 +186,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.5
-- pypy3: 7.3.5
+- pypy: 7.3.6
+- pypy3: 7.3.7
 - pip: 21.3
 - pip3: 19
 - venv: 16.0.0

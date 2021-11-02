@@ -129,7 +129,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 11, 13
+- Java: 11, 17
 - Scala: 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -145,8 +145,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v10.15.3 (set as default)
-- v14.18.1
+- v16.13.0 (set as default)
 
 #### Additional tools
 
@@ -160,7 +159,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.24`.
+The default installed PHP version is `7.4.25`.
 
 #### Additional libraries
 
@@ -176,8 +175,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.5
-- pypy3: 7.3.5
+- pypy: 7.3.6
+- pypy3: 7.3.7
 - pip: 21.3
 - venv: 16.0.0
 
