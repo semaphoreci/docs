@@ -3,6 +3,8 @@ description: This guide describes how to set up the cache CLI to work with an AW
 ---
 
 # Setting up caching with AWS S3
+!!! beta "Self-hosted agents - closed beta"
+    Self-hosted agents are now in closed beta! If you would like to join beta and try this feature out, please [share your use case](https://semaphoreci.com/contact) with our team and we will add you to the waiting list and contact you after confirming that the feature suits your requirements. 
 
 When running the Semaphore agent in a self-hosted environment, the cache storage available in hosted jobs will not be available. However, we can use an AWS S3 bucket to store our cache dependencies instead. In order to do so, the cache CLI needs access only to perform a few actions on an S3 bucket in your AWS account.
 
