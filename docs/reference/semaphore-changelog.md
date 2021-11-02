@@ -10,6 +10,10 @@ This page is updated on a weekly basis.
 
 ### Week of November 01, 2021
 
+**(Updated)** Ruby Gems:
+
+- [Fastlane plugin gem](https://github.com/semaphoreci/fastlane-plugin-semaphore) version 0.3.2 was released ([changelog](https://github.com/semaphoreci/fastlane-plugin-semaphore/releases/tag/v0.3.2))
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(New)** Packages:
