@@ -178,6 +178,7 @@ nav:
     - Toolbox: reference/toolbox-reference.md
     - Quotas and limits: reference/quotas-and-limits.md
     - Semaphore Changelog: reference/semaphore-changelog.md
+    - Glossary: reference/glossary.md
   - Account Management:
     - Organizations: account-management/organizations.md
     - Billing: account-management/billing.md
