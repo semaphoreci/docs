@@ -4,7 +4,7 @@ description: This guide describes how to configure a self-hosted agent and the v
 
 # Configuring a self-hosted agent
 !!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are now in closed beta! If you would like to join beta and try this feature out, please [share your use case](https://semaphoreci.com/contact) with our team and we will add you to the waiting list and contact you after confirming that the feature suits your requirements. 
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us](https://semaphoreci.com/contact) and share your use case. Our team will get back to you as soon as possible.
 
 The agent can be configured in two ways:
 
