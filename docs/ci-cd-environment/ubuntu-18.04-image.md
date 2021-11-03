@@ -217,7 +217,7 @@ tools and databases preinstalled.
 
 If the dependency you need is not present in the list above, you can install it
 with the Ubuntu package manager
-or using an alternative method such as compiling it from the source, or 
+or using an alternative method such as compiling it from the source, or
 manually downloading binaries.
 
 To install dependecies using the package manager (apt-get) you can use the
@@ -236,5 +236,5 @@ sudo apt-get install -y [your-dependency]
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
-[sem-version]: hhttps://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
