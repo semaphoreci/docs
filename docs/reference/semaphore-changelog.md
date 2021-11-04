@@ -27,6 +27,7 @@ This page is updated on a weekly basis.
 - Google Chrome 94 -> 95
 - ChromeDriver: 94 -> 95
 - Docker 20.10.9 -> 20.10.10
+- Erlang 24.1.2 -> 24.1.3
 - Git-lfs 3.0.1 -> 3.0.2
 - pypy 7.3.5 -> 7.3.6
 - pypy3  7.3.5 -> 7.3.7
@@ -49,6 +50,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Google Chrome 94 -> 95
 - ChromeDriver: 94 -> 95
 - Docker 20.10.9 -> 20.10.10
+- Erlang 24.1.2 -> 24.1.3
 - Git-lfs 3.0.1 -> 3.0.2
 - pypy 7.3.5 -> 7.3.6
 - pypy3  7.3.5 -> 7.3.7
