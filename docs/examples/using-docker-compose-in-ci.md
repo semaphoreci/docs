@@ -209,7 +209,7 @@ blocks:
           - docker-compose -v
 ```
 
-The only thing that you have to be careful about it having a valid value for the
+One thing that you have to be careful about here is having a valid value for the
 `DOCKER_COMPOSE_VERSION` environment variable.
 
 ## See also
