@@ -1,5 +1,5 @@
 ---
-Description: this tutorial teach you how to run a basic CI/CD pipeline on Semaphore.
+Description: this tutorial teaches you how to run a basic CI/CD pipeline on Semaphore.
 ---
 
 # Creating Your First CI/CD Pipeline
