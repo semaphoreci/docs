@@ -1,10 +1,10 @@
 ---
-description: Semaphore 2.0 lets you easily run Docker Compose to build and test multi-container applications. This page shows you how it can be done.
+Description: Semaphore 2.0 lets you easily run Docker Compose to build and test multi-container applications. This page shows you how it can be done.
 ---
 
 # Using Docker Compose in CI
 
-Semaphore lets you easily run Docker Compose to build and test multi-container
+Semaphore makes it easy to run Docker Compose to build and test multi-container
 applications.
 
 
@@ -38,13 +38,13 @@ Compose:
   - [Demo Docker Compose-based project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-flask)
 
 The demo consists of a simple task manager composed of two containers:
-the web application built with Python Flask and a MongoDB database.
+a web application built with Python Flask and a MongoDB database.
 
 ### Overview of the pipeline
 
 The pipeline performs the following tasks:
 
-- Build a Docker image with the app and dependencies.
+- Build a Docker image with an app and dependencies.
 - Tag the image and push it to Docker Hub.
 - Start the app and database containers.
 - Run tests on the live app.
@@ -113,7 +113,7 @@ The CI pipeline consists of two blocks:
 
 ### Agent
 
-Building with docker tends to be a resource intensive process. Consider
+Building with docker tends to be a resource-intensive process. Consider
 using a more powerful [machine
 type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for the
 pipelines that create images. The `e1-standard-4` machine is a good,
@@ -144,10 +144,10 @@ is executed before every job in the block:
 2.  Log in to Docker Hub.
 3.  [Pull](https://docs.docker.com/engine/reference/commandline/pull/)
     the app image from the registry.
-4.  Start the application in background: 
+4.  Start the application in the background: 
     [docker-compose up -d](https://docs.docker.com/compose/reference/up/).
     
-Docker Compose takes care of dependencies, environment and networking.
+Docker Compose takes care of dependencies, environment, and networking.
 
 Tests are split in two parallel jobs:
 
@@ -156,7 +156,7 @@ Tests are split in two parallel jobs:
 
 ### Run the demo yourself
 
-The best way to get familiarized with Semaphore is to run the project
+The best way to become familiar with Semaphore is to run a project
 yourself:
 
 1.  Create a [Docker Hub](https://hub.docker.com) account.
@@ -209,7 +209,7 @@ blocks:
           - docker-compose -v
 ```
 
-The only thing that you should take care of is using a valid value for the
+The only thing that you have to be careful about it having a valid value for the
 `DOCKER_COMPOSE_VERSION` environment variable.
 
 ## See also
