@@ -1,10 +1,10 @@
 ---
-description: This tutorial will have you running a CI/CD pipeline on Semaphore in minutes.
+Description: this tutorial teach you how to run a basic CI/CD pipeline on Semaphore.
 ---
 
 # Creating Your First CI/CD Pipeline
 
-This step-by-step tutorial will have you running a successful CI/CD pipeline on Semaphore in minutes.
+This step-by-step tutorial will have you running a successful CI/CD pipeline on Semaphore in minutes. Let's get started!
 
 ![Final CI/CD workflow on Semaphore](getting-started/final-workflow.png)
 
@@ -15,12 +15,12 @@ deploying software.
 
 Semaphore is **built for developer productivity** and guided by three principles:
 
-1. **Speed**: Developers must work in a fast feedback loop, so CI/CD workflows
+1. **Speed**: Developers work in a fast feedback loop, so CI/CD workflows
    must be fast.
 3. **Power**: The CI/CD tool needs to be able to run any automated software
    workflow, at any scale.
-2. **Ease of use**: CI/CD must be easy enough for every developer to use so
-   that they are in close contact with the operation of their software and its
+2. **Ease of use**: CI/CD must be easy enough for any developer to use so
+   that they remain in close contact with the operation of their software and its
    impact on users.
 
 ## Prerequisites
@@ -45,19 +45,19 @@ plan to use an existing repository.
 1. Log in to your [Semaphore account][semaphore-login].
 2. If you are part of multiple organizations, select the one in which you plan
    to host the project you are about to create.
-3. In the top navigation, click **Create new**.
+3. In the navigation panel, click **Create new**.
 4. In the **Start a real project** section, click **Choose repository**.
-5. Follow on-screen instructions to authorize Semaphore to access a GitHub
+5. Follow the on-screen instructions to authorize Semaphore to access a GitHub
    repository of your choice. In case you need help, consult the detailed [guide
    to connecting your GitHub account with Semaphore][github-guide].
    ![](getting-started/select-repo.png)
 6. Wait a few seconds for Semaphore to initialize the project.
-7. The following screen lets you invite other people who have access to the
+7. The next screen allows you to invite other people who have access to the
    GitHub repository to your Semaphore project. Click **Continue to workflow
    setup** to proceed.
 8. Use one of the templates to get to the first green build quickly: select
    **Single job**, then click **Looks good, start**.
-9. You will see your first workflow running and within seconds completing
+9. You will see your first workflow running and within seconds it should finish
    successfully.
 
 ![](getting-started/single-job-passed.png)
@@ -67,8 +67,8 @@ plan to use an existing repository.
 Let's customize your pipeline so that it looks more like a continuous integration (CI) process for a real project.
 
 If you open your repository on GitHub, you will notice that there is a new
-branch: **setup-semaphore**. Opening that branch will reveal that Semaphore has
-pushed a `semaphore.yml` configuration file inside the `.semaphore` directory.
+branch: **setup-semaphore**. Opening this branch will reveal that Semaphore has
+pushed a `semaphore.yml` configuration file into the `.semaphore` directory.
 
 Semaphore, like most modern CI/CD tools, creates workflows based on
 YAML configuration files. However, you don't need to write YAML by hand.
@@ -87,7 +87,7 @@ To extend your pipeline:
    **Commands** text area, enter `echo 'running unit tests'`.
 5. Click on the **Add another job** link to add a parallel job. Name it
    `Integration tests` and enter `echo 'running integration
-   tests'` in the commands text area.
+   tests'` into the commands text area.
 6. Click **Prologue** and enter `checkout` as a command to run. This is [a
    built-in script][checkout] that downloads the content of your Git
    repository. By placing it in the prologue, we reuse it as a starting command
@@ -106,30 +106,30 @@ At this point, you have a multi-stage CI pipeline with parallel jobs:
 
 ### Understanding the basic building blocks of Semaphore workflows
 
-On each change in your Git repository, Semaphore runs a **workflow**. Your last
+Semaphore runs a **workflow** on each change in your Git repository. Your last
 workflow, for example, contains a single pipeline called `Initial pipeline`.
 
-But, workflows can be composed of more than one pipeline. Additional pipelines
+However, workflows can be composed of more than one pipeline. Additional pipelines
 can be triggered manually or automatically based on custom conditions. We will
 see an example of that in a minute.
 
-A **pipeline** can contain multiple blocks. For example, your pipeline right now
-contains two blocks: `Block #1` runs first and when it completes the `Tests`
-block runs next.
+A **pipeline** can contain multiple blocks. For example, your current pipeline
+contains two blocks: `Block #1` runs first and the `Tests`
+block runs when it completes.
 
 **Blocks** can contain a single job or many parallel jobs. For example, your
 `Tests` block contains two parallel jobs.
 
-!!! info "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
+!!! Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
-as soon as its last command is finished. If the exit code of each command is
+as soon as the last command is finished. If the exit code of each command is
 `0`, Semaphore records the job as successful (passed).
 
 ### Viewing logs
 
-In your workflow, click **Unit tests** to view the output log of that job. You
+In your workflow, you can click **Unit tests** to view the output log of this job. You
 will see the command `echo 'running unit tests'` that you wrote previously.
 Clicking on it will expand its output.
 
@@ -142,7 +142,7 @@ full insight and control over your CI/CD environment.
 ## Adding a CD pipeline
 
 Semaphore has first-class support for continuous delivery (CD) via
-**promotions** which trigger other pipelines. By combining promotions and
+**promotions**, which trigger other pipelines. By combining promotions and
 pipelines, you can:
 
 - Manage multiple release targets
@@ -154,16 +154,15 @@ pipelines, you can:
 ### Adding an automatic promotion and a deployment pipeline
 
 Let's extend our workflow by implementing continuous deployment to a
-production environment whenever the CI pipeline on the `main` branch has passed.
+production environment when the CI pipeline on the `main` branch has passed.
 
 1. From your workflow or job, click **Edit Workflow**.
 2. On the right-hand side following your `Initial Pipeline`, click **Add First
    Promotion**.
 3. Enter `Production deployment` as the name of your promotion.
 4. Check **Enable automatic promotion**.
-5. As the conditions for automatic promotion, enter `branch = 'main' AND result ='passed'`.
-6. If needed, scroll the left-hand side of your screen to the right, so that
-   a new pipeline is visible on your screen. By default, it will be called
+5. As conditions for automatic promotion, enter `branch = 'main' AND result ='passed'`.
+6. If needed, scroll to the right, so that a new pipeline is visible on your screen. By default, it will be called
    `Pipeline 2`. You can always change this later.
 7. Click on `Block #1` and rename the block to `Deploy`.
 8. Rename the job to `Deploy to production`.
@@ -181,7 +180,7 @@ promotion to run automatically only on the `main` branch.
 Before merging to main, we can verify our promotion by running it manually:
 
 1. On the workflow page, click **Production deployment** then **Start promotion**.
-2. Click on `Pipeline 2` to expand the deployment pipeline. Voilà!
+2. Click on `Pipeline 2` to expand the deployment pipeline. Et voilà!
 
 ![](getting-started/final-workflow.png)
 
@@ -193,17 +192,17 @@ GitHub from the `setup-semaphore` branch.
 After you merge, Semaphore will trigger a new workflow on the `main` branch, and
 it will run both the CI and CD pipelines.
 
-Here are a few ideas about what you could do next as an exercise:
+To practice what you just learned further, here are a few ideas that you could do as an exercise:
 
 - Edit any of the Semaphore configuration files by hand. Does pushing the change
-  trigger a new workflow? Is the change reflected in Workflow Builder?
-- Add one more block to the production deployment pipeline which would perform
+  trigger a new workflow? Is the change reflected in the Workflow Builder?
+- Add one more block to the production deployment pipeline that would perform
   a smoke test.
 - Add another promotion for manually deploying to a staging environment.
 
 ## Where to go next
 
-In this tutorial, we have covered the very basics of Semaphore. Here are some
+In this tutorial, we covered the very basics of Semaphore. Here are some
 pointers for moving forward as you implement CI/CD pipelines for your projects:
 
 - Explore the default [Linux][linux-env] and [macOS][macos-env] environments,
