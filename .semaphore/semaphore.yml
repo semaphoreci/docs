@@ -34,7 +34,7 @@ blocks:
             # Publish test results only when SKIP_TEST_RESULT_PUBLISH is not set
             - '[[ ! -v SKIP_TEST_RESULT_PUBLISH ]] && test-results publish junit.xml'
       secrets:
-        - name: s2prod-gce
+        - name: container-registry-writer
 
 promotions:
   - name: Staging
