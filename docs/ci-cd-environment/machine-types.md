@@ -1,20 +1,19 @@
 ---
-description: This guide lists and describes the available Linux and Apple machine types available in Semaphore 2.0.
+Description: this guide lists and describes the Linux and Apple machine types that are compatible with Semaphore 2.0.
 ---
 
 # Machine Types
 
 A **machine type** specifies a particular collection of virtualized
 hardware resources available to a virtual machine (VM) instance,
-including the memory size, virtual CPU count, and disk.
+including memory size, virtual CPU count, and disk.
 
-This guide describes the available machine types. For instructions about using
-the supported machine types in your pipelines, refer to
-[agent documentation][agent].
+This guide describes the machine types that are compatible with Semaphore 2.0. For instructions for using
+the supported machine types in your pipelines, refer to our [agent documentation][agent].
 
 ## Linux machine types
 
-Linux machine types can be paired with the [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
+Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -82,13 +81,13 @@ Linux machine types can be paired with the [Ubuntu 18.04 image][ubuntu1804], [Ub
 Implementation of `e1` series of machine types:
 
 1. Virtual CPU is implemented as a single hardware hyper-thread on a
-   3.4GHz, Max Turbo 4.0GHz Intel® Core™ i7.
+   3.4GHz Max Turbo 4.0GHz Intel® Core™ i7.
 2. Memory is implemented as DDR4 RAM.
 3. Disk is implemented as RAM drive backed by DDR4 RAM.
 
 ## Apple machine type
 
-Apple machine types can be paired with the [MacOS Xcode11 image][macos-xcode11] or [MacO Xcode12 image][macos-xcode12].
+Apple machine types can be paired with [MacOS Xcode11 image][macos-xcode11] or [MacO Xcode12 image][macos-xcode12].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -139,11 +138,11 @@ Apple machine types can be paired with the [MacOS Xcode11 image][macos-xcode11] 
 </tbody>
 </table>
 
-`*` - available on [enterprise plan](https://semaphoreci.com/pricing) only.
+`*` - only available on our [enterprise plan](https://semaphoreci.com/pricing).
 
 ## Self-hosted agent types
 
-Semaphore also allows you to run jobs in your own infrastructure, using [self-hosted agents][self-hosted].
+Semaphore also allows you to run jobs on your own infrastructure, using [self-hosted agents][self-hosted].
 
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
