@@ -1,5 +1,5 @@
 ---
-Description: this guide lists and describes the Linux and Apple machine types that are compatible with Semaphore 2.0.
+Description: This guide lists and describes the Linux and Apple machine types that are compatible with Semaphore 2.0.
 ---
 
 # Machine Types
