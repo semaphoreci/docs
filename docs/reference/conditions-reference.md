@@ -1,29 +1,29 @@
 ---
-description: The Conditions DSL is a universal way of specifying conditional execution of CI/CD commands in Semaphore 2.0.
+Description: The Conditions DSL is a universal way of specifying conditional execution of CI/CD commands in Semaphore 2.0.
 ---
 
 # Conditions Reference
 
-The Conditions DSL is a universal way of specifying conditional execution of
-CI/CD commands in Semaphore.
+Using Conditions DSL, you can specify conditional execution of
+CI/CD commands in Semaphore 2.0.
 
-Using Conditions you can perform a full or regular expression matches and
+Using Conditions, you can perform a full or regular expression matches and
 combine them with boolean operations. For example:
 ```
 branch = 'master' OR tag =~ '^v1\.'
 ```
 
-Currently you can use Conditions DSL to configure following features:
+Currently, you can use the Conditions DSL to configure the following features:
 
 - [Auto-cancel previous pipelines on a new push][auto_cancel]
-- [Auto-promote next pipeline in the workflow][auto_promote]
+- [Auto-promote the next pipeline in the workflow][auto_promote]
 - [Fail-fast - Stop everything as soon as a failure is detected][fail_fast]
 - [Skip block execution][skip]
-- [Conditionally run block][run]
+- [Conditionally run a block][run]
 
 ## Formal language definition
 
-Formal language definition in [extended Backus-Naur Form (EBNF)][ebnf] notation:
+Formal language definition in [extended Backus-Naur Form (EBNF)][ebnf] notation is shown below:
 
 ``` txt
 expression = expression bool_operator term
@@ -80,9 +80,9 @@ map_key = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]*: regex, e.g. first-name_
 identifier = ? string that matches [a-zA-Z][a-zA-Z0-9_\-]* regex, e.g. foo-bar_1 ?
 ```
 
-Each `keyword` in passed expression is replaced with actual value of that
-attribute for current pipeline when expression is evaluated, and then operations
-identified with one of the `operators` from above are executed with those values.
+Each `keyword` in a passed expression is replaced with the actual value of that
+attribute for the current pipeline when the expression is evaluated, after which operations
+identified by one of the above `operators` are executed with the given values.
 
 <table style="background-color: rgb(255, 255, 255);">
   <thead>
@@ -94,26 +94,26 @@ identified with one of the `operators` from above are executed with those values
   <tbody>
     <tr>
       <td>branch</td>
-      <td>Name of the Git branch from which originated the pipeline that is
-      being executed.</td>
+      <td>Name of the Git branch from which the pipeline that is
+      being executed originated.</td>
     </tr>
     <tr>
       <td>tag</td>
-      <td>Name of the Git tag from which originated the pipeline that is being
-      executed.</td>
+      <td>Name of the Git tag from which the pipeline that is being
+      executed originated.</td>
     </tr>
     <tr>
       <td>pull_request</td>
-      <td>The number of GitHub pull request from which originated the pipeline
-      that is being executed.</td>
+      <td>The number of GitHub pull request from which the pipeline
+      that is being executed originated.</td>
     </tr>
     <tr>
       <td>result</td>
-      <td> Execution result of a pipeline. Possible values are: passed, stopped, canceled and failed.</td>
+      <td> Execution result of a pipeline. Possible values are: passed, stopped, canceled, and failed.</td>
     </tr>
     <tr>
       <td>result_reason</td>
-      <td> The reason for given result of execution. Possible values are: test, malformed, stuck, internal, user, strategy and timeout.</td>
+      <td> The reason for given result of execution. Possible values are: test, malformed, stuck, internal, user, strategy, and timeout.</td>
     </tr>
   </tbody>
 </table>
@@ -128,27 +128,27 @@ identified with one of the `operators` from above are executed with those values
   <tbody>
     <tr>
       <td>=</td>
-      <td>True if keyword value and given string are equal</td>
+      <td>True if the keyword value and given string are equal</td>
     </tr>
     <tr>
       <td>!=</td>
-      <td>True if keyword value and given string are not equal</td>
+      <td>True if the keyword value and given string are not equal</td>
     </tr>
     <tr>
       <td>=~</td>
-      <td>True if keyword value and given PCRE* string match</td>
+      <td>True if the keyword value and given PCRE* string match</td>
     </tr>
     <tr>
       <td>!~</td>
-      <td>True if keyword value and given PCRE* string do not match</td>
+      <td>True if the keyword value and given PCRE* string do not match</td>
     </tr>
     <tr>
       <td>and</td>
-      <td>True if expressions on both sides are true</td>
+      <td>True if the expressions on both sides are true</td>
     </tr>
     <tr>
       <td>or</td>
-      <td>True if at least one of two expressions is true</td>
+      <td>True if at least one of the two expressions is true</td>
     </tr>
   </tbody>
 </table>
@@ -156,22 +156,22 @@ identified with one of the `operators` from above are executed with those values
 \* PCRE = Perl Compatible Regular Expression
 
 !!! warning "Keyword usage"
-    Both `result` and `result_reason` keywords can only be used in [auto_promote][auto_promote] conditions
-    since they are evaluated after the pipeline execution is done and its result is known.
-    All other when conditions are evaluated during pipeline initialization at which point
-    the pipeline execution result is unknown.
+    Both the `result` and `result_reason` keywords can only be used in [auto_promote][auto_promote] conditions,
+    since they are evaluated after pipeline execution is finished and the result is known.
+    All other when conditions are evaluated during pipeline initialization, when
+    the pipeline execution result is still unknown.
 
 
 ## Functions
 
-The functions allow you to perform more complex checks that are not just direct
+Functions allow you to perform more complex checks that are not just direct
 boolean or regex matches.
 
 ### change_in
 
 The `change_in` function accepts one path or list of paths within the repository
-as a first parameter. It checks if any of those paths matches or contains one
-of the files that were changed in a particular range of commits.
+as a first parameter. It checks if any path matches or contains one
+of the files that was changed in a particular range of commits.
 
 ``` txt
 change_in(<file-pattern>, [configuration])
@@ -187,11 +187,11 @@ change_in(<file-pattern>, [configuration])
    - A glob pattern
      example: "/lib/**/*.js" matches every JS file in the lib directory
 
-   - A list of multiple file patterns
+   - A list of multiple file patterns.
      example: "['/lib', '/app', '/config/**/*.rb']" matches every file in the
      lib, app directories, and every Ruby file in the config directory
 
-[configuration] - Optional, map containing the values for configurable parameters.
+[configuration] - Optional; a map containing the values for configurable parameters.
                   All parameters and their default values are stated below.
                   e.g. {on_tags: false, default_branch: 'master-new'}
 ```
@@ -202,32 +202,32 @@ branch or some other branch, or if it is a tag or a pull request.
 
 The default behavior is the following:
 
-- On `master` branch the examined commit range is all the commits within the push
+- On the `master` branch, the examined commit range consists of all the commits within the push
 that initiated the workflow.
 The same range is available in a job environment as an environment variable called
 `SEMAPHORE_GIT_COMMIT_RANGE`.
-The changes that are compared to the paths given as parameters in this case are
-equivalent to the result of `git diff <sha 1>^ <sha N>` command where `sha 1` is
-the first commit of the push and the `sha N` is the last.
+In this case, the changes that are compared to the paths given as parameters are
+equivalent to the result of the `git diff <sha 1>^ <sha N>` command, where `sha 1` is
+the first commit of the push and `sha N` is the last.
 
-- On `other (non-master)` branches the examined commit range is wider and all
+- On `other (non-master)` branches, the examined commit range is wider and all
 the commits between the head of the current branch and the common ancestor for
 that branch and the master branch are taken into account.
-The changes collected from this range are equivalent to the result of `git diff
+The changes collected from this range are equivalent to the result of the `git diff
 master...<current branch>` command and are later compared to the paths passed as
 parameters.
 
-- For `pull requests` the commit range of interest is from the head of the
-current branch until the commit that is the common ancestor for it and the branch
+- For `pull requests`, the commit range of interest is from the head of the
+current branch to the commit that is the common ancestor for it and the branch
 that is the target of the pull request.
-The changes gathered in this way are equivalent to the result of  `git diff
+The changes gathered in this way are equivalent to the result of the `git diff
 <pull request target branch>...<current branch>` command and are later compared
-with given paths.
+to the selected paths.
 
-- For `tags` the change_in always returns true if not configured otherwise.
+- For `tags`, `change_in` always returns true if not configured otherwise.
 
 The behavior of `change_in` is configurable via a map of parameters that can be
-given as a second parameter, as was stated above.
+given as a second parameter, as stated above.
 
 The supported map parameters are:
 
@@ -242,25 +242,25 @@ The supported map parameters are:
     <tr>
       <td> on_tags </td>
       <td>
-        The value of change_in function in workflows initiated by tags.
-        Default value is <b>true</b>.
+        The value of the change_in function in workflows initiated by tags.
+        The default value is <b>true</b>.
       </td>
     </tr>
     <tr>
       <td> default_branch </td>
       <td>
         The default value is <b>master</b>. If changed to another branch,
-        change_in will behave on that branch as it behaves by default on the
-        master, and all other branches will be compared to it instead of to master.
+        change_in will act on that branch as it does by default on the
+        master, and all other branches will be compared to it instead of to the master.
       </td>
     </tr>
     <tr>
       <td> pipeline_file </td>
       <td>
-        Possible values are <b>track</b> and <b>ignore</b>, default is
+        Possible values are <b>track</b> and <b>ignore</b>, and default is
         <b>track</b>. Any change to the pipeline YAML file will cause change_in
-        to be evaluated as <b>true</b> with the default <b>track</b> value.
-        To avoid this, you should use the <b>ignore</b> as the value for the
+        to be evaluated as <b>true</b>, with the default <b>track</b> value.
+        To avoid this, you should use <b>ignore</b> as the value for the
         <b>pipeline_file</b> parameter.
       </td>
     </tr>
@@ -268,32 +268,32 @@ The supported map parameters are:
       <td> branch_range </td>
       <td>
         Configures the commit range that is examined on all branches except the
-        default one. The default value is
+        default. The default value is
         <b>$SEMAPHORE_MERGE_BASE...$SEMAPHORE_GIT_SHA </b>, where
-        <b>$SEMAPHORE_MERGE_BASE</b> is default branch in workflows initiated
-        from branches or targeted branch in workflows initiated from a pull
+        <b>$SEMAPHORE_MERGE_BASE</b> is the default branch in workflows initiated
+        from branches or a single targeted branch of a pull
         request, and the <b>$SEMAPHORE_GIT_SHA</b> is the sha of the commit
-        for which the workflow was initiated. You can use here this predefined
-        values or any literal values to create ranges in double-dot or
-        triple-dot syntax as described
+        for which the workflow was initiated. Here, you can use any predefined or
+        literal values to create ranges in double-dot or
+        triple-dot syntax, as described
         <a href="https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection">
-        here </a> in <b>Commit ranges</b> section.
+        here </a> in the <b>Commit ranges</b> section.
       </td>
     </tr>
     <tr>
       <td> default_range </td>
       <td>
         Configures the commit range that is examined on the default branch. The
-        default value is <b>$SEMAPHORE_GIT_COMMIT_RANGE</b> which behavior is
+        default value is <b>$SEMAPHORE_GIT_COMMIT_RANGE</b>, which is
         described above. It accepts any commit range specified in double-dot or
-        triple-dot syntax and same predefined values are available as stated
-        above in the description of <b>branch_range</b> property.
+        triple-dot syntax, and the same predefined values are available as stated
+        above in the description of the <b>branch_range</b> property.
       </td>
     </tr>
     <tr>
       <td> exclude </td>
       <td>
-        List of file patterns to exclude from the change-in pattern match.
+        A list of file patterns to exclude from the change-in pattern match.
         For example, `change_in('/', {exclude: ['/docs']})` will evaluate to true
         for any change in the repository, except if the change happens in the
         "docs" directory.
@@ -345,10 +345,10 @@ blocks:
       when: "change_in('/web-app/', {default_branch: 'main'})"
 ```
 
-### Exclude changes in the pipeline file
+### Excluding changes in the pipeline file
 
 **Note:** If you change the pipeline file, Semaphore will consider `change_in` as true.
-The following illustrates how to disable this behaviour.
+The following illustrates how to disable this behaviour:
 
 ```yaml
 blocks:
@@ -377,7 +377,7 @@ blocks:
       when: "branch =~ '.*'"
 ```
 
-### When branch is master
+### When a branch is master
 
 ``` yaml
 blocks:
@@ -386,7 +386,7 @@ blocks:
       when: "branch = 'master'"
 ```
 
-### When branch starts with “df/”
+### When a branch starts with “df/”
 
 ``` yaml
 blocks:
@@ -395,7 +395,7 @@ blocks:
       when: "branch =~ '^df/'"
 ```
 
-### When branch is staging or master
+### When a branch is staging or master
 
 ``` yaml
 blocks:
@@ -413,7 +413,7 @@ blocks:
       when: "tag =~ '.*'"
 ```
 
-### When tag start with “v1.”
+### When a tag start with “v1.”
 
 ``` yaml
 blocks:
@@ -422,7 +422,7 @@ blocks:
       when: "tag =~ '^v1\.'"
 ```
 
-### When branch is master or if it is a tag
+### When a branch is master or a tag
 
 ``` yaml
 blocks:
@@ -431,7 +431,7 @@ blocks:
       when: "branch = 'master' OR tag =~ '.*'"
 ```
 
-### When branch does not start with "dev/"
+### When a branch does not start with "dev/"
 
 ``` yaml
 blocks:
