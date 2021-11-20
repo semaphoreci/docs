@@ -4,7 +4,7 @@ Description: The Conditions DSL is a universal way of specifying conditional exe
 
 # Conditions Reference
 
-Using Conditions DSL, you can specify conditional execution of
+With Conditions DSL, you can specify conditional execution of
 CI/CD commands in Semaphore 2.0.
 
 Using Conditions, you can perform a full or regular expression matches and
