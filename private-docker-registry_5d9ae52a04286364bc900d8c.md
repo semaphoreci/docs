@@ -1,5 +1,5 @@
 __Note__: *Semaphore private Docker Registry is available on [request](mailto:support@semaphoreci.com?subject=Beta Request: private Docker Registry).
-Using the Docker Registry during the beta period is free.
+Using the jnkDocker Registry during the beta period is free.
 Once the feature is in the general additional charges will apply based on
 the usage.*
 
