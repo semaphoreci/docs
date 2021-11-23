@@ -1,11 +1,11 @@
 ---
-description: Semaphore 2.0 cache tool helps optimize CI/CD runtime by reusing files that your project depends on but are not part of version control.
+Description: The Semaphore 2.0 cache tool helps optimize CI/CD runtime by reusing files that your project depends on, but are not part of version control.
 ---
 
 # Caching
 
-Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
-project depends on but are not part of version control. You should typically
+The Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
+project depends on, but are not part of version control. You should typically
 use caching to:
 
 - Reuse your project's dependencies, so that Semaphore fetches and installs
@@ -20,25 +20,25 @@ can be a single file or a directory.
 
 When running jobs in Semaphore's hosted environment, the total cache size is 9.6GB and each
 archive automatically expires in 30 days. When running jobs in a self-hosted environment,
-you have full control over the cache size and archives expiration.
+you have full control over the cache size and archive expiration.
 
 ## Basic usage
 
-Semaphore caching script will try to recognize your project structure and automatically store or restore dependencies in to or from default paths.
-Semaphore cache works for the following languages and dependency managers:
+The Semaphore caching script will try to recognize your project structure and automatically store or restore dependencies into or from default paths.
+The Semaphore cache works for the following languages and dependency managers:
 
 * **Ruby** (bundler) - default cache path: `vendor/bundle`, requires `Gemfile.lock` to be present in the repository.
 * **Node.js** (npm, yarn) - default cache path: `node_modules` if `package-lock.json` is present or `node_modules` and `/$HOME/.cache/yarn` if `yarn.lock` exists in the repository.
 * **Python** (pip) - default cache path: `.pip_cache` if `requirements.txt` is present.
 * **PHP** (composer) - default cache path: `vendor`, requires `composer.lock` to be present in the repository.
-* **Elixir** (mix) - default cache path: `deps` and `_build` if `mix.lock` is present.
-* **Java** (maven) - default cache path: `.m2` and `target` if `pom.xml` is present.
-* **nvm** default cache path: `$HOME/.nvm` if `.nvmrc` is present in the repository.
-* **golang** default cache path: `$HOME/go/pkg/mod` if `go.sum` is present in the repository.
+* **Elixir** (mix) - default cache path: `deps` or `_build` if `mix.lock` is present.
+* **Java** (maven) - default cache path: `.m2` or `target` if `pom.xml` is present.
+* **nvm** - default cache path: `$HOME/.nvm` if `.nvmrc` is present in the repository.
+* **golang** - default cache path: `$HOME/go/pkg/mod` if `go.sum` is present in the repository.
 
 ### cache store
 
-The `cache store` command that has zero arguments will lookup default paths
+A `cache store` command that has zero arguments will look up default paths
 used to store dependencies and cache them.
 
 Example YAML:
@@ -71,7 +71,7 @@ will look like this:
 
 ``` bash
 $ cache store
-==> Detecting project structure and storing it into the cache.
+==> Detecting project structure and storing it in the cache.
 
 * Detected Gemfile.lock.
 * Using default cache path 'vendor/bundle'.
@@ -87,14 +87,14 @@ Upload complete.
 
 ### cache restore
 
-The `cache restore` command that has zero arguments would lookup cachable elements
-and try to fetch them from the repository.
+A `cache restore` command that has zero arguments looks up cachable elements
+and tries to fetch them from the repository.
 
 Example output:
 
 ``` bash
 $ cache restore
-==> Detecting project structure and storing it into the cache.
+==> Detecting project structure and storing it in the cache.
 
 * Detected Gemfile.lock.
 * Fetching 'vendor/bundle' directory with cache keys 'gems-your-branch-33a6002a37f59b6f1841636085a22fbc,gems-master-,gems-your-branch-'.
@@ -109,7 +109,7 @@ Restored: node_modules/
 
 ## Advanced Usage
 
-If a third party project, such as Bundler, changes the location where they store dependencies or your project the dependence location is different the default specified in [Basic Usage](#basic-usage), you might need to specify the key's path manually instead of using a caching shortcut.
+If a third party project, such as Bundler, changes the location where they store dependencies or your project, then dependency location is different than the default specified in [Basic Usage](#basic-usage); you might need to specify the key's path manually instead of using a caching shortcut.
 
 ### cache store key path
 
@@ -124,11 +124,11 @@ cache store gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock) vendor/
 The `cache store` command archives a file or directory specified by `path` and
 associates it with a given `key`.
 
-As `cache store` uses `tar`, it automatically removes any leading `/` from the
+Because `cache store` uses `tar`, it automatically removes the preceding `/` from the
 given `path` value.
 Any further changes of `path` after the store command completes will not
 be automatically propagated to the cache. The command always passes, i.e. exits
-with return code 0.
+with a return code of 0.
 
 In case of insufficient disk space, `cache store` frees disk space by deleting
 the oldest keys.
@@ -151,9 +151,9 @@ In case of a cache hit, the archive is retrieved and available at its original
 path in the job environment.
 Each archive is restored in the current path from where the function is called.
 
-In case of a cache miss, the comma-separated fallback takes over and command
+In case of a cache miss, the comma-separated fallback takes over and the command
 looks up the next key.
-If no archives are restored command exits with 0.
+If no archives are restored, the command exits with 0.
 
 ### cache has_key key
 
@@ -165,8 +165,8 @@ cache has_key gems-$SEMAPHORE_GIT_BRANCH
 cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 ```
 
-Checks if an archive with provided key exists in the cache.
-Command passes if a key is found in the cache, otherwise, it fails.
+This command checks if an archive with the provided key exists in the cache.
+The command passes if a key is found in the cache, otherwise, it fails.
 
 ### cache list
 
@@ -202,7 +202,7 @@ cache clear
 Removes all cached archives for the project.
 The command always passes.
 
-Note that in all commands of `cache`, only `cache has_key` command can fail
+Note that in all commands of `cache`, only the `cache has_key` command can fail
 (exit with non-zero status).
 
 ### checksum
@@ -225,9 +225,9 @@ following environment variables are required and automatically set in every host
 | Environment variable               | Description |
 |------------------------------------|-------------|
 | `SEMAPHORE_CACHE_BACKEND`          | Controls the storage backend used by the cache CLI. For the hosted environment, it is set to `sftp`. |
-| `SEMAPHORE_CACHE_URL`              | The IP address and the port number of the cache sftp server (`x.y.z.w:29920`). |
-| `SEMAPHORE_CACHE_USERNAME`         | The username that will be used for connecting to the cache sftp server (`5b956eef90cb4c91ab14bd2726bf261b`). |
-| `SEMAPHORE_CACHE_PRIVATE_KEY_PATH` | The path to the SSH key that will be used for connecting to the cache sftp server (`/home/semaphore/.ssh/semaphore_cache_key`). |
+| `SEMAPHORE_CACHE_URL`              | The IP address and port number of the cache sftp server (`x.y.z.w:29920`). |
+| `SEMAPHORE_CACHE_USERNAME`         | The username that will be used to connect to the cache sftp server (`5b956eef90cb4c91ab14bd2726bf261b`). |
+| `SEMAPHORE_CACHE_PRIVATE_KEY_PATH` | The path to the SSH key that will be used to connect to the cache sftp server (`/home/semaphore/.ssh/semaphore_cache_key`). |
 
 For jobs in a self-hosted environment, these environment variables are not automatically set on every job.
 
@@ -238,13 +238,13 @@ The following environment variables are required for the `s3` storage backend to
 | Environment variable               | Description |
 |------------------------------------|-------------|
 | `SEMAPHORE_CACHE_BACKEND`          | To use the S3 storage backend, this should be set to `s3`. |
-| `SEMAPHORE_CACHE_S3_BUCKET`        | The S3 bucket name |
+| `SEMAPHORE_CACHE_S3_BUCKET`        | The S3 bucket name. |
 
-Additionally, the `cache` CLI also needs your `~/.aws` folder properly configured with the appropriate credentials to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set that up.
+Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly configured with the appropriate credentials, in order to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set this up.
 
 ## Troubleshooting
 
-### `cache restore` restores an archive with the corrupted archive message
+### `cache restore` restores an archive with a corrupted archive message
 
 If the `cache restore` output log includes lines similar to the following:
 
@@ -261,10 +261,10 @@ Restored: vendor/bundle
 You can make sure that only one job is creating an archive under the specific cache key.
 
 Cache archives usually get corrupted when `cache store` is added to the [prologue command sequence][prologue commands],
-resulting with its execution for all jobs in the related block.
+resulting in its execution for all jobs in the related block.
 
 To address the issue, structure Semaphore yml so that `cache store` for an archive
-is executed in one job and `cache restore` in the succeeding jobs.
+is executed in one job and `cache restore` in the successive jobs.
 
 Example YML:
 
@@ -298,6 +298,7 @@ blocks:
 
 __Note:__ Launch a [debugging session][debug session] to clear corrupted archives for your project
 by executing `cache clear` or `cache delete <key>`.
+
 
 [debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
 [prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
