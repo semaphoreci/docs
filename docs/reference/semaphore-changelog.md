@@ -1657,7 +1657,7 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
 
 - New feature: Artifacts. Persistent storage of final CI/CD deliverables,
   intermediary assets and files for debugging. Now in public beta.
-    - [Learn more about use cases](hhttps://docs.semaphoreci.com/essentials/artifacts/) and
+    - [Learn more about use cases](https://docs.semaphoreci.com/essentials/artifacts/) and
   [how to use the artifacts CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/).
 
 ### Week of September 9, 2019
