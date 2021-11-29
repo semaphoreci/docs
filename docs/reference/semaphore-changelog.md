@@ -8,6 +8,37 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 15, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Erlang 22.3.4.23
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.29.2 -> 2.30.0
+- Aws-cli 1.21.7 -> 1.22.5
+- Google Chrome 95 -> 96
+- ChromeDriver 95 -> 96
+- Erlang 23.3.4.8 -> 23.3.4.9, 24.1.3 -> 24.1.5 (default)
+
+Default Elixir version changed from 1.11.4 to 1.12.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.29.2 -> 2.30.0
+- Google Chrome 95 -> 96
+- ChromeDriver 95 -> 96
+- Erlang 22.3.4.22 -> 22.3.4.23, 23.3.4.8 -> 23.3.4.9, 24.1.3 -> 24.1.5 (default)
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 01, 2021
 
 **(Updated)** Ruby Gems:
@@ -27,6 +58,7 @@ This page is updated on a weekly basis.
 - Google Chrome 94 -> 95
 - ChromeDriver: 94 -> 95
 - Docker 20.10.9 -> 20.10.10
+- Erlang 24.1.2 -> 24.1.3
 - Git-lfs 3.0.1 -> 3.0.2
 - pypy 7.3.5 -> 7.3.6
 - pypy3  7.3.5 -> 7.3.7
@@ -49,6 +81,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Google Chrome 94 -> 95
 - ChromeDriver: 94 -> 95
 - Docker 20.10.9 -> 20.10.10
+- Erlang 24.1.2 -> 24.1.3
 - Git-lfs 3.0.1 -> 3.0.2
 - pypy 7.3.5 -> 7.3.6
 - pypy3  7.3.5 -> 7.3.7
