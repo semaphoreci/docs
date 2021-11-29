@@ -8,6 +8,51 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of November 29, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.4.26 (default), 8.0.13
+- Ruby 2.6.9, 2.7.5 (default), 3.0.3
+- Github-cli 2.2.0
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.5 - > 1.22.13
+- Erlang 24.1.5 -> 24.1.7
+- Docker 20.10.10 -> 20.10.11
+- Git 2.33 -> 2.34
+- Gradle 7.1.1 -> 7.3
+- Heroku 7.59.1 -> 7.59.2
+- Gem 3.2.23 -> 3.2.32
+- Bundler 2.2.23 -> 2.2.32
+- Lftp 4.8.2 -> 4.9.2
+- Podman 3.3.1 -> 3.4.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- PHP 7.3.33, 7.4.26 (default), 8.0.13
+- Ruby 2.6.9, 2.7.5 (default), 3.0.3 
+- Github-cli 2.2.0
+
+**(Updated)** Updated packages:
+
+- Erlang 24.1.5 -> 24.1.7
+- Docker 20.10.10 -> 20.10.11
+- Git 2.33 -> 2.34
+- Gradle 7.1.1 -> 7.3
+- Heroku 7.59.1 -> 7.59.2
+- Gem 3.2.23 -> 3.2.32
+- Bundler 2.2.23 -> 2.2.32
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 15, 2021
 
 **(Improved) Ubuntu 20.04 image update**
@@ -22,7 +67,9 @@ This page is updated on a weekly basis.
 - Aws-cli 1.21.7 -> 1.22.5
 - Google Chrome 95 -> 96
 - ChromeDriver 95 -> 96
-- Erlang 23.3.4.8 -> 23.3.4.9, 24.1.3 -> 24.1.5 (default)
+- Erlang 
+  - 23.3.4.8 -> 23.3.4.9 
+  - 24.1.3 -> 24.1.5 (default)
 
 Default Elixir version changed from 1.11.4 to 1.12.3
 
@@ -35,7 +82,10 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Azure-cli 2.29.2 -> 2.30.0
 - Google Chrome 95 -> 96
 - ChromeDriver 95 -> 96
-- Erlang 22.3.4.22 -> 22.3.4.23, 23.3.4.8 -> 23.3.4.9, 24.1.3 -> 24.1.5 (default)
+- Erlang 
+  - 22.3.4.22 -> 22.3.4.23 
+  - 23.3.4.8 -> 23.3.4.9 
+  - 24.1.3 -> 24.1.5 (default)
 
 To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
