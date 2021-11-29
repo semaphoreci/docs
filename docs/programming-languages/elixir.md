@@ -161,7 +161,7 @@ Your CI configuration should look similiar to this:
 
 ### Demos
 
-You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
+You can see how test results are setup in one of our [demo projects ↗][demo-project]{target="_blank"}.
 
 ## Dependency caching
 
@@ -251,6 +251,6 @@ blocks:
 [ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [tutorial]: https://docs.semaphoreci.com/examples/elixir-phoenix-continuous-integration/
-[test-results-demo]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
+[demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
 [junit-formatter]: https://github.com/victorolinasc/junit-formatter
 [test-results-cli]: /reference/test-results-cli-reference/
