@@ -217,7 +217,7 @@ tools and databases preinstalled.
 
 If the dependency you need is not present in the list above, you can install it
 with the Ubuntu package manager
-or using an alternative method such as compiling it from the source, or 
+or using an alternative method such as compiling it from the source, or
 manually downloading binaries.
 
 To install dependecies using the package manager (apt-get) you can use the

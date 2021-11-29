@@ -1,5 +1,5 @@
 ---
-description: sem, the Semaphore Command Line Interface (CLI), makes it easy to create and manage your Semaphore projects and resources directly from the terminal. 
+description: sem, the Semaphore Command Line Interface (CLI), makes it easy to create and manage your Semaphore projects and resources directly from the terminal.
 ---
 
 # sem CLI Reference
@@ -508,7 +508,7 @@ The list of commands for working with `jobs` includes the `sem attach`,
 `sem logs`, `sem port-forward` and `sem debug` commands. You can also
 use `sem create -f` to create a one-off job that is not part of a pipeline.
 
-Additionally, you can use the the `sem get` command for getting a list of all
+Additionally, you can use the `sem get` command for getting a list of all
 jobs or getting a description for a particular job.
 
 The `sem get jobs` command returns the list of all running jobs.

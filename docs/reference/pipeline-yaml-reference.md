@@ -185,7 +185,7 @@ want your jobs to be executed endlessly, and you need to be able to set a time
 limit for the entire pipeline as well as for individual blocks and jobs.
 
 The `execution_time_limit` property can be used at the `pipeline`, `block`,
-or `job` scope. In the latter two cases, you can use the propery for multiple
+or `job` scope. In the latter two cases, you can use the property for multiple
 blocks or jobs.
 
 *Note*: At the `pipeline` and `block` scopes, `execution_time_limit`  will
