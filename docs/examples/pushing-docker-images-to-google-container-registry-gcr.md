@@ -1,21 +1,23 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to push Docker Images to Google Container Registry (GCR). Pushing images to your GCR is straightforward.
+Description: This guide shows you how to use Semaphore 2.0 to push Docker Images to Google Container Registry (GCR). 
 ---
 
 # Pushing Docker Images to Google Container Registry (GCR)
 
+Pushing images to your GCR is straightforward.
+
 Semaphore includes the `gcloud` command for authenticating to the
 various Google Container Registry endpoints. You'll need to create a
-service account with access to Cloud Storage with an authentication key
+service account with access to Cloud Storage and an authentication key
 to set this up. Download the service account's authentication key to
-your computer. Assume it's in `key.json`. The `key.json` is used to
-authenticate to the service account which is used to authenticate to
+your computer. You can find it in `key.json`. `key.json` is used to
+authenticate to the service account, which is used to authenticate
 the registries.
 
-## Create the Secret
+## Creating a Secret
 
 Assuming that your Google Cloud credentials are stored on your computer in
-`/home/<username>/.secrets/gcp.json` use the following command to create a
+`/home/<username>/.secrets/gcp.json`, you can use the following command to create a
 secret on Semaphore:
 
 ``` bash
@@ -25,7 +27,7 @@ sem create secret GCP \
 
 Now add the secret to your pipeline and authenticate.
 
-## Configure the Pipeline
+## Configuring the Pipeline
 
 ``` yaml
 .semaphore/semaphore.yml
