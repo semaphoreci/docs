@@ -178,7 +178,7 @@ blocks:
             - echo $SEMAPHORE_PIPELINE_ID
 ```
 
-## `execution\_time\_limit`
+## `execution_time_limit`
 
 The concept behind the `execution_time_limit` property is simple: you do not
 want your jobs to be executed endlessly, and you need to be able to set a time
@@ -205,7 +205,7 @@ value of the `execution_time_limit` property is **1 hour**. Additionally, if
 a pipeline has only local `execution_time_limit` properties, the global value
 of `execution_time_limit` will still be **1 hour**.
 
-### An example of the `single execution\_time\_limit` property
+### An example of the `single execution_time_limit` property
 
 The following pipeline YAML file uses the `execution_time_limit` property
 in a `pipeline`:
@@ -238,7 +238,7 @@ blocks:
           - echo "Building executable"
 ```
 
-### An example with the `execution\_time\_limit` property in a `block`
+### An example with the `execution_time_limit` property in a `block`
 
 The following pipeline YAML file uses two `execution_time_limit` properties in
 a `block`:
@@ -273,7 +273,7 @@ blocks:
           - echo "Building executable"
 ```
 
-### An example with the `execution\_time\_limit` property in a `job`
+### An example with the `execution_time_limit` property in a `job`
 
 The following pipeline YAML file uses the `execution_time_limit` property in
 a `job`:
@@ -304,7 +304,7 @@ blocks:
           - make test
 ```
 
-### An example with multiple `execution\_time\_limit` properties
+### An example with multiple `execution_time_limit` properties
 
 The following pipeline YAML file uses a combination of an `execution_time_limit`
 property with a `pipeline` scope and a single `execution_time_limit` property
@@ -636,7 +636,7 @@ blocks:
           - echo Running unit test
 ```
 
-## `global\_job\_config`
+## `global_job_config`
 
 The `global_job_config` property enables you to choose a set of configurations
 that is shared across the whole pipeline and define it in one place instead of
@@ -669,7 +669,7 @@ of priorities, and their conditions defined on the job level.
 This allows for job-specific priorities to be evaluated first, and only if none
 of them match will the global vlaues be evaluated and used.
 
-### An example of using the `global\_job\_config` property
+### An example of using the `global_job_config` property
 
 ``` yaml
 version: "v1.0"
