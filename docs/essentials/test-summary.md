@@ -34,7 +34,7 @@ can find popular test runners and their formatters.
 | JavaScript | Karma        | [karma-junit-reporter](https://www.npmjs.com/package/karma-junit-reporter){target="_blank"}                           | &mdash;
 | JavaScript | ESLint       | [built-in](https://eslint.org/docs/user-guide/formatters/#junit){target="_blank"}                                     | &mdash;
 | JavaScript | Jest         | [jest-junit](https://www.npmjs.com/package/jest-junit){target="_blank"}                                               | &mdash;
-| Ruby       | RSpec        | [rspec_junit_formatter](https://github.com/sj26/rspec_junit_formatter){target="_blank"}                            | [Exporting XML reports with RSpec][test-results-example-rspec]{target="_blank"}
+| Ruby       | RSpec        | [rspec_junit_formatter](https://github.com/victorolinasc/junit-formatter){target="_blank"}                            | [Exporting XML reports with RSpec][test-results-example-rspec]{target="_blank"}
 | Ruby       | Cucumber     | [built-in](https://relishapp.com/cucumber/cucumber/docs/formatters/junit-output-formatter){target="_blank"}           | &mdash;
 | Elixir     | ExUnit       | [junit-formatter](https://github.com/victorolinasc/junit-formatter){target="_blank"}                                  | [Exporting XML reports from ExUnit][test-results-example-exunit]{target="_blank"}
 | Go         | GoTestSum    | [built-in](https://github.com/gotestyourself/gotestsum#junit-xml-output){target="_blank"}                             | [Exporting XML reports with GoTestSum][test-results-example-go]{target="_blank"}
