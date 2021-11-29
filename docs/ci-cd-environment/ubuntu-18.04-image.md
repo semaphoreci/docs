@@ -66,8 +66,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 95
-- ChromeDriver 95
+- Google Chrome 96
+- ChromeDriver 96
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -108,8 +108,8 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3
+- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1 (default)
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3 (default)
 
 Additional libraries:
 
@@ -217,7 +217,7 @@ tools and databases preinstalled.
 
 If the dependency you need is not present in the list above, you can install it
 with the Ubuntu package manager
-or using an alternative method such as compiling it from the source, or 
+or using an alternative method such as compiling it from the source, or
 manually downloading binaries.
 
 To install dependecies using the package manager (apt-get) you can use the
@@ -236,5 +236,5 @@ sudo apt-get install -y [your-dependency]
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
-[sem-version]: hhttps://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/

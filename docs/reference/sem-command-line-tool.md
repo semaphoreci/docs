@@ -1,5 +1,5 @@
 ---
-Description: sem, the Semaphore Command Line Interface (CLI), makes it easy to create and manage your Semaphore projects and resources directly from the terminal. 
+description: sem, the Semaphore Command Line Interface (CLI), makes it easy to create and manage your Semaphore projects and resources directly from the terminal.
 ---
 
 # sem CLI Reference
