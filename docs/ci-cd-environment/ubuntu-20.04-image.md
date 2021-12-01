@@ -57,6 +57,7 @@ Following version control tools are pre-installed:
 
 - Git (2.x)
 - Git LFS (Git Large File Storage)
+- GitHub CLI (2.x)
 - Mercurial (4.5.x)
 - Svn (1.9.x)
 
@@ -137,7 +138,7 @@ Versions:
 #### Additional build tools
 
 - Maven: 3.6.3
-- Gradle: 7.0
+- Gradle: 7.3
 
 ### JavaScript via Node.js
 
@@ -159,7 +160,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.25`.
+The default installed PHP version is `7.4.26`.
 
 #### Additional libraries
 
@@ -184,9 +185,9 @@ Supporting libraries:
 
 Available versions:
 
-- 2.6.0 to 2.6.8
-- 2.7.0 to 2.7.4
-- 3.0.0 to 3.0.2
+- 2.6.0 to 2.6.9
+- 2.7.0 to 2.7.5
+- 3.0.0 to 3.0.3
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
