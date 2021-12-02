@@ -1,5 +1,5 @@
 ---
-description: Environment variables used in Semaphore 2.0 projects can be predefined, git repository related, cache related or private docker registry related.
+Description: Environment variables used in Semaphore 2.0 projects can be pre-defined, git repository-related, cache-related, or private docker registry-related.
 ---
 
 # Environment Variables
@@ -7,18 +7,16 @@ description: Environment variables used in Semaphore 2.0 projects can be predefi
 This document describes the environment variables used in Semaphore
 projects.
 
-Although some of the presented environment variables are defined on a per
-project or on a per task basis, all the presented environment variables can be
-seen on a per job basis.
+Although some of the presented environment variables are defined on a per-project or on a per-task basis, all the presented environment variables can be defined on a per-job basis.
 
 If you're looking to set custom environment variables yourself, refer to [this
 guide instead][setting-env-vars].
 
-## Predefined environment variables
+## Pre-defined environment variables
 
 Semaphore defines and uses its own environment variables.
 
-### Semaphore related
+### Semaphore-related
 
 This group of environment variables includes the environment variables that
 are related to Semaphore 2.0 and hold information that is specific to Semaphore
@@ -42,7 +40,7 @@ Example value: `true`
 #### SEMAPHORE\_PROJECT\_NAME
 
 The value of the `SEMAPHORE_PROJECT_NAME` environment variable holds the name
-of the project a job belongs to.
+of the project that a job belongs to.
 
 Example value: `Documentation Project`
 
@@ -56,7 +54,7 @@ Example value: `0dd982e8-32f5-4037-983e-4de01ac7fb1e`
 #### SEMAPHORE\_ORGANIZATION\_URL
 
 The value of the `SEMAPHORE_ORGANIZATION_URL` environment variable holds the url
-of organization that owns the project on Semaphore.
+of the organization that owns a given project on Semaphore.
 
 Example value: `https://example.semaphoreci.com`
 
@@ -70,7 +68,7 @@ Example value: `Push image to Docker`
 #### SEMAPHORE\_JOB\_ID
 
 The `SEMAPHORE_JOB_ID` environment variable holds the Job ID of the job that is
-being executed. It is the same value as is displayed in the output of the
+being executed. It is the same value that is displayed in the output of the
 `sem get jobs` or the `sem get jobs --all` commands and is assigned by
 Semaphore 2.0.
 
@@ -79,50 +77,50 @@ Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 #### SEMAPHORE\_JOB\_RESULT
 
 The value of the `SEMAPHORE_JOB_RESULT` environment variable holds the result
-of a job. The list of values includes `none`, `passed`, `failed` and `stopped`.
+of a job. The list of values includes `none`, `passed`, `failed`, and `stopped`.
 
 Example value: `passed`
 
 #### SEMAPHORE\_WORKFLOW\_ID
 
 The value of the `SEMAPHORE_WORKFLOW_ID` environment variable is the workflow
-ID that is used during the execution of the active job.
+ID that is used during the execution of an active job.
 
 The `SEMAPHORE_WORKFLOW_ID` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
-all promoted and auto promoted pipelines.
+all promoted and auto-promoted pipelines.
 
 #### SEMAPHORE\_WORKFLOW\_NUMBER
 
 The value of the `SEMAPHORE_WORKFLOW_NUMBER` environment variable represents the
-current count of workflows on each distinct branch, tag or pull request.
-The first workflow in each of those gets the `1` for the value of
-`SEMAPHORE_WORKFLOW_NUMBER` and on each subsequent push or workflow rerun this
+current count of workflows in each distinct branch, tag, or pull request.
+The first workflow in each gets `1` for the value of
+`SEMAPHORE_WORKFLOW_NUMBER`; each time a push or workflow is rerun, this
 value is increased by one.
 
 The `SEMAPHORE_WORKFLOW_NUMBER` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
-all promoted and auto promoted pipelines of the same workflow.
+all promoted and auto-promoted pipelines belonging to the same workflow.
 
 Example value: `42`
 
 #### SEMAPHORE\_WORKFLOW\_RERUN
 
-The value of the `SEMAPHORE_WORKFLOW_RERUN` environment variable  is `true` if
-workflow is a rerun of a previously created workflow, otherwise, it is `false`.
+The value of the `SEMAPHORE_WORKFLOW_RERUN` environment variable is `true` if
+the workflow is a rerun of a previously-created workflow, otherwise it is `false`.
 
 The `SEMAPHORE_WORKFLOW_RERUN` environment variable remains the same during
 a pipeline run and is available in all the blocks of a pipeline as well as in
-all promoted and auto promoted pipelines of the same workflow.
+all promoted and auto-promoted pipelines of the same workflow.
 
 Example value: `false`
 
 #### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_HOOK
 
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable is
-`true` if workflow run was triggered via hook from the git repository.
+`true` if the workflow run was triggered via a hook from the git repository.
 
-It has the value `false` in workflows which were triggered via
+It has the value `false` in workflows which were triggered via the
 [cron scheduler][scheduler] feature or through Semaphore's API.
 
 The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable remains the same
@@ -134,28 +132,28 @@ Example value: `true`
 #### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_SCHEDULE
 
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable
-is `true` if workflow run was triggered via [cron scheduler][scheduler] feature.
+is `true` if the workflow run was triggered via the [cron scheduler][scheduler] feature.
 
-It has the value `false` in workflows which were triggered via hook from the git
+It has the value `false` in workflows which were triggered via a hook from the git
 repository or through Semaphore's API.
 
 The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable remains the same
 during a pipeline run and is available in all the blocks of a pipeline as well
-as in all promoted and auto-promoted pipelines of the same workflow.
+as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
 
 #### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_API
 
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable
-is `true` if workflow run was triggered through Semaphore's API.
+is `true` if the workflow run was triggered through Semaphore's API.
 
-It has the value `false` in workflows which were triggered via hook from the git
-repository or via [cron scheduler][scheduler] feature.
+It has a `false` value in workflows which were triggered via a hook from the git
+repository or via the [cron scheduler][scheduler] feature.
 
 The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable remains the same
 during a pipeline run and is available in all the blocks of a pipeline as well
-as in all promoted and auto-promoted pipelines of the same workflow.
+as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
 
@@ -166,17 +164,17 @@ ID that is used for the execution of the active job.
 
 The `SEMAPHORE_PIPELINE_ID` environment variable remains the same throughout
 all the blocks of a pipeline, which makes it the perfect candidate for sharing
-data inside the same pipeline.
+data inside a pipeline.
 
 Example value: `ea3e6bba-d19a-45d7-86a0-e78a2301b616`
 
 #### SEMAPHORE\_PIPELINE\_PROMOTION
 
 The value of the `SEMAPHORE_PIPELINE_PROMOTION` environment variable is `true`
-if the pipeline is started via the promotion of some other pipeline.
+if the pipeline was started by a promotion belonging to another pipeline.
 
-It has the value `false` only in the initial pipeline which is created when
-workflow is created.
+It has a `false` value only in the initial pipeline that was created when
+the workflow was created.
 
 The `SEMAPHORE_PIPELINE_PROMOTION` environment variable remains the same
 throughout all the blocks of a pipeline.
@@ -185,10 +183,10 @@ Example value: `false`
 
 #### SEMAPHORE\_PIPELINE\_PROMOTED\_BY
 
-The value of the `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable is `auto-promotion`
+The value of the `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable is `auto-promotion`,
 if the pipeline is auto-promoted.
 
-If the pipeline is manually promoted, the value is the GitHub username
+If the pipeline is manually-promoted, the value is the GitHub username
 of the person that promoted the pipeline.
 
 However, if it is an initial pipeline, the value of the environment variable is an empty string.
@@ -198,7 +196,7 @@ Example value: `auto-promotion`
 #### SEMAPHORE\_PIPELINE\_RERUN
 
 The value of the `SEMAPHORE_PIPELINE_RERUN` environment variable is `true` if
-the pipeline is a rerun of a previously failed pipeline, otherwise, it is `false`.
+the pipeline is a rerun of a failed pipeline, otherwise it is `false`.
 
 *Note*: Pipeline reruns are in the alpha phase of development and only available
 through CLI.
@@ -225,16 +223,15 @@ Example value: `ubuntu1804`
 #### SEMAPHORE\_AGENT\_MACHINE\_ENVIRONMENT\_TYPE
 
 The value of the `SEMAPHORE_AGENT_MACHINE_ENVIRONMENT_TYPE` environment variable
-specifies the type of environment in which the job is being executed,
-inside the `container` or inside the `VM`.
+specifies the type of environment in which the job is being executed:
+inside a `container` or a `VM`.
 
 Example value: `container`
 
 ### Git repository related
 
 This group of environment variables includes environment variables that are
-used by Semaphore 2.0 and are related to GitHub and the GitHub repository that
-is used in the current Semaphore 2.0 project.
+used by Semaphore 2.0, which are related to GitHub and the GitHub repository used in the current Semaphore 2.0 project.
 
 #### SEMAPHORE\_GIT\_SHA
 
@@ -253,9 +250,9 @@ Example value: `http://git@github.com:semaphoreci/toolbox.git`
 #### SEMAPHORE\_GIT\_BRANCH
 
 The value of the `SEMAPHORE_GIT_BRANCH` environment variable is the name of
-the GitHub branch that is used in the current job.
+the GitHub branch used in the current job.
 
-In builds triggered by a Pull Request the value of the `SEMAPHORE_GIT_BRANCH`
+In builds triggered by a Pull Request, the value of the `SEMAPHORE_GIT_BRANCH`
 is the name of the GitHub branch targeted by the Pull Request.
 
 Example value: `development`
@@ -263,7 +260,7 @@ Example value: `development`
 #### SEMAPHORE\_GIT\_DIR
 
 The value of the `SEMAPHORE_GIT_DIR` environment variable is the name of the
-directory that contains the files of the GitHub repository of the current
+directory that contains the files of the GitHub repository linked to the current
 Semaphore 2.0 project.
 
 Example value: `foo`
@@ -271,7 +268,7 @@ Example value: `foo`
 #### SEMAPHORE\_GIT\_REPO\_SLUG
 
 The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the
-name (in form: owner_name/repo_name) of the GitHub repository of the current
+name (owner_name/repo_name) of the GitHub repository of the current
 Semaphore 2.0 project.
 
 Example value: `semaphoreci/docs`
@@ -281,19 +278,19 @@ Example value: `semaphoreci/docs`
 The value of the `SEMAPHORE_GIT_REF_TYPE` environment variable indicates
 the git reference type.
 
-Example value: `branch`, `tag`, `pull-request`
+Example value: `branch`, `tag`, or `pull-request`
 
 #### SEMAPHORE\_GIT\_REF
 
 The value of the `SEMAPHORE_GIT_REF` environment variable holds the name of
-git reference to commit that the pipeline is using.
+git reference to the commit that the pipeline is using.
 
 Example value: `refs/heads/master`
 
 #### SEMAPHORE\_GIT\_COMMIT\_RANGE
 
 The value of the `SEMAPHORE_GIT_COMMIT_RANGE` environment variable holds
-the range of commits that were included in the push or pull request.
+the range of commits that were included in a push or pull request.
 
 This is empty for builds triggered by the initial commit of a new branch or tag.
 
@@ -302,7 +299,7 @@ Example value: `5c84719708b9b649b9ef3b56af214f38cee6acde...92d87d5c0dd2dbb7a68ec
 #### SEMAPHORE\_GIT\_TAG\_NAME
 
 The value of the `SEMAPHORE_GIT_TAG_NAME` environment variable is the name of
-the GitHub tag that is used in the current job.
+the GitHub tag used in the current job.
 
 Example value: `v1.0.0`
 
@@ -314,7 +311,7 @@ the GitHub branch from which the Pull Request originated.
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
 The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the
-name (in form: owner_name/repo_name) of the GitHub repository from which
+name (owner_name/repo_name) of the GitHub repository from which
 the Pull Request originated.
 
 Example value: `renderedtext/docs`
@@ -347,62 +344,69 @@ The following environment variables are injected only in
 
 #### SEMAPHORE\_PIPELINE\_RESULT
 
-The value of the `SEMAPHORE_PIPELINE_RESULT` contains the result of the pipeline.
+The value of `SEMAPHORE_PIPELINE_RESULT` contains the result of the pipeline.
 
-Values: `failed`, `passed`, `canceled`, `stopped`.
+Values: `failed`, `passed`, `canceled`, and `stopped`.
 
 #### SEMAPHORE\_PIPELINE\_RESULT\_REASON
 
-The value of the `SEMAPHORE_PIPELINE_RESULT_REASON` contains the reason for
+The value of `SEMAPHORE_PIPELINE_RESULT_REASON` contains the reason for
 the pipeline result.
 
-Values: `test`, `malformed`, `stuck`, `internal`, `user`, `strategy`, `timeout`.
+Values: `test`, `malformed`, `stuck`, `internal`, `user`, `strategy`, and `timeout`.
 
 #### SEMAPHORE\_PIPELINE\_TOTAL\_DURATION
 
-The value of the `SEMAPHORE_PIPELINE_TOTAL_DURATION` contains the duration of
+The value of `SEMAPHORE_PIPELINE_TOTAL_DURATION` contains the duration of
 the pipeline including queuing time.
 
-The value is expressed in seconds. Example value: `10`.
+The value is expressed in seconds. 
+
+Example value: `10`.
 
 #### SEMAPHORE\_PIPELINE\_INIT\_DURATION
 
-The value of the `SEMAPHORE_PIPELINE_INIT_DURATION` contains the duration of
-the pipeline initialization.
+The value of `SEMAPHORE_PIPELINE_INIT_DURATION` contains the duration of pipeline initialization.
 
-The value is expressed in seconds. Example value: `1`.
+The value is expressed in seconds. 
+
+Example value: `1`.
 
 #### SEMAPHORE\_PIPELINE\_QUEUEING\_DURATION
 
-The value of the `SEMAPHORE_PIPELINE_QUEUEING_DURATION` contains the time
+The value of `SEMAPHORE_PIPELINE_QUEUEING_DURATION` contains the time that
 the pipeline spent in the queue.
 
-The value is expressed in seconds. Example value: `1`.
+The value is expressed in seconds. 
+
+Example value: `1`.
 
 #### SEMAPHORE\_PIPELINE\_RUNNING\_DURATION
 
-The value of the `SEMAPHORE_PIPELINE_RUNNING_DURATION` contains the pipeline
-execution time while the jobs were running.
+The value of `SEMAPHORE_PIPELINE_RUNNING_DURATION` contains the pipeline
+execution time while jobs were running.
 
-The value is expressed in seconds. Example value: `12`.
+The value is expressed in seconds. 
+
+Example value: `12`.
 
 #### SEMAPHORE\_PIPELINE\_CREATED\_AT
 
-The value of the `SEMAPHORE_PIPELINE_CREATED_AT` is the UNIX epoch timestamp when
+The value of `SEMAPHORE_PIPELINE_CREATED_AT` is the UNIX epoch timestamp when
 the pipeline was created.
 
 Example value: `1632943641`.
 
 #### SEMAPHORE\_PIPELINE\_STARTED\_AT
 
-The value of the `SEMAPHORE_PIPELINE_STARTED_AT` is the UNIX epoch timestamp when
+The value of `SEMAPHORE_PIPELINE_STARTED_AT` is the UNIX epoch timestamp when
 the pipeline started running jobs.
 
 Example value: `1632943642`.
 
 #### SEMAPHORE\_PIPELINE\_DONE\_AT
 
-The value of the `SEMAPHORE_PIPELINE_DONE_AT` is the UNIX epoch timestamp when
+The value of `SEMAPHORE_PIPELINE_DONE_AT` is the UNIX epoch timestamp when
 when the pipeline was finished.
 
 Example value: `1632943650`.
@@ -410,13 +414,13 @@ Example value: `1632943650`.
 ### Cache related
 
 The following environment variables are related to the `cache` utility. You can
-find more information about the `cache` utility at
-[Toolbox reference](https://docs.semaphoreci.com/reference/toolbox-reference/).
+find more information about the `cache` utility in the
+[Toolbox reference documentation](https://docs.semaphoreci.com/reference/toolbox-reference/).
 
 #### SEMAPHORE\_CACHE\_USERNAME
 
 The value of the `SEMAPHORE_CACHE_USERNAME` environment variable is the
-username that will be used for connecting to the cache server.
+username used for connecting to the cache server.
 
 Example value: `0614ef08af7a408d8aae45b029ba3bb8`
 
@@ -434,11 +438,11 @@ path to the file that contains the SSH key to the cache server.
 
 Example value: `/home/semaphore/.ssh/semaphore_cache_key`
 
-### Private Docker Registry related variables
+### Private Docker Registry-related variables
 
 Private Docker registry is a beta feature that is available on a request.
 
-This feature adds the following environment variables to every job for a given project:
+This feature adds the following environment variables to every job of a given project:
 
 - `SEMAPHORE_REGISTRY_USERNAME` - Semaphore private Docker Registry username
 - `SEMAPHORE_REGISTRY_PASSWORD` - Semaphore private Docker Registry password
