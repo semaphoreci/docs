@@ -120,7 +120,7 @@ Example value: `false`
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable is
 `true` if the workflow run was triggered via a hook from the git repository.
 
-It has the value `false` in workflows which were triggered via the
+It has a `false` value in workflows which were triggered via the
 [cron scheduler][scheduler] feature or through Semaphore's API.
 
 The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_HOOK` environment variable remains the same
@@ -134,7 +134,7 @@ Example value: `true`
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable
 is `true` if the workflow run was triggered via the [cron scheduler][scheduler] feature.
 
-It has the value `false` in workflows which were triggered via a hook from the git
+It has a `false` value in workflows which were triggered via a hook from the git
 repository or through Semaphore's API.
 
 The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_SCHEDULE` environment variable remains the same
