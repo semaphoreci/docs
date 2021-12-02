@@ -12,7 +12,7 @@ use caching to:
 them only when the dependency list changes.
 - Propagate a file from one block to the next.
 
-The cache is created on a per-project basis and available in every pipeline job.
+The cache is created on a per-project basis and is available in every pipeline job.
 All cache keys are scoped per-project.
 
 The `cache` tool uses key-path pairs for managing cached archives. An archive
