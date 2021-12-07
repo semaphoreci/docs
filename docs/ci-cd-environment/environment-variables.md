@@ -7,7 +7,7 @@ Description: Environment variables used in Semaphore 2.0 projects can be pre-def
 This document describes the environment variables used in Semaphore
 projects.
 
-Although some of the presented environment variables are defined on a per-project or on a per-task basis, all the presented environment variables can be defined on a per-job basis.
+Although some of the presented environment variables can be defined on a per-project or on a per-task basis, all the presented environment variables can be viewed on a per-job basis.
 
 If you're looking to set custom environment variables yourself, refer to [this
 guide instead][setting-env-vars].
