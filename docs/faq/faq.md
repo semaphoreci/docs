@@ -1,12 +1,12 @@
 ---
-description: Frequently asked questions are the common situations we stumble upon regularly, across all parts of Semaphore 2.0.
+Description: The following questions regard common issues that Semaphore users encounter.
 ---
 
 # FAQ: Frequently asked questions
 
-<p>Issues we stumble upon regularly, across all parts of Semaphore 2.0</p>
+<p>Issues we stumble upon regularly, in all areas of Semaphore 2.0</p>
 
-### How to solve "Fail: Could not parse object" during bundle install?
+### How can I solve "Fail: Could not parse object" during bundle install?
 
 <details>
   <summary>Click for details</summary>
@@ -19,7 +19,7 @@ Fetching gem metadata from http://rubygems.org/..
 Updating git://github.com/some/gem.git
 fatal: Could not parse object 'a84dd3407eaf064064cca9650c354cb163384467'.
 Git error: command <code>git reset --hard a84dd3407eaf064064cca9650c354cb163384467</code> in directory /home/runner/somehash/vendor/bundle/ruby/1.9.1/bundler/gems/gem-a84dd3407eaf has failed.
-If this error persists you could try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
+If this error persists you should try removing the cache directory '/home/runner/somehash/vendor/bundle/ruby/1.9.1/cache/bundler/git/gem-cbe2ee16ed53098079007f06cd77ed0890d0d752'
 ```
 
 This problem occurs when there have been changes like
@@ -28,7 +28,7 @@ You can solve it by following these steps:
 </p>
 <p>
 
-- Comment that gem line in the Gemfile
+- Comment the gem line in the Gemfile
 <br>- Run <code>bundle install</code>
 <br>- Uncomment the gem line in the Gemfile
 <br>- Run <code>bundle install</code> again
@@ -39,7 +39,7 @@ The Gemfile.lock will now reference a valid git revision.
   </p>
 </details>
 
-### How to change the timezone?
+### How can I change timezone?
 
 <details>
   <summary>Click for details</summary>
@@ -59,7 +59,7 @@ sudo ln -sf /usr/share/zoneinfo/Europe/Belgrade /etc/localtime
   </p>
 </details>
 
-### How to build a project with git submodules?
+### How can I build a project with git submodules?
 
 <details>
   <summary>Click for details</summary>
@@ -75,24 +75,23 @@ git submodule update
 git submodule deinit --force .
 ```
 Make sure that Semaphore has permissions to clone your submodules repository.
-In our <a href="https://docs.semaphoreci.com/essentials/using-private-dependencies/">private dependencies</a> page you can find more
-information about setting permissions for private repositories.
+You can find more information about setting permissions for private repositories on our <a href="https://docs.semaphoreci.com/essentials/using-private-dependencies/">private dependencies</a> page.
   </p>
 </details>
 
-### How to use a self-signed certificate with private Docker registry?
+### How can I use a self-signed certificate with a private Docker registry?
 
 <details>
   <summary>Click for details</summary>
   <p>
 
 If you have a private Docker registry that uses a self-signed SSL certificate
-and pulling the Docker images does not work. The solution is to:
+and pulling the Docker images does not work, the solution is to:
 </p>
 <p>
   
 - Add a self-signed certificate as a <a href="https://docs.semaphoreci.com/essentials/using-secrets/">secret</a> on Semaphore
-<br>- Save it under the name of domain.crt
+<br>- Save it under the name domain.crt
 <br>- Add the following command to your pipeline:
 ```bash
 sudo mv $SEMAPHORE_GIT_DIR/domain.crt /etc/docker/certs.d/myregistrydomain.com:5000/ca.crt
@@ -100,7 +99,7 @@ sudo mv $SEMAPHORE_GIT_DIR/domain.crt /etc/docker/certs.d/myregistrydomain.com:5
 </p>  
 <p>
   
-This will allow the connection to a private remote registry using the self-signed certificate.
+This will allow a connection to a private remote registry using the self-signed certificate.
   </p>
 </details>
 
@@ -110,20 +109,19 @@ This will allow the connection to a private remote registry using the self-signe
   <summary>Click for details</summary>
   <p>
 
-It's possible to use <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">sem attach</a> to an ongoing SSH session but you'd need to attach to the job ID of the SSH session.
-To get the job ID you can use <code>sem get jobs</code> to get the list of all running jobs.
+It's possible to use <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">sem attach</a> to an ongoing SSH session, but you need to attach to the job ID of the SSH session.
+To get the job ID, you can use <code>sem get jobs</code> to get a list of all running jobs.
  </p>
 </details>
 
-### How to change the Postgres locale?
+### How can I change the Postgres locale?
 
 <details>
   <summary>Click for details</summary>
   <p>
     
-Semaphore uses <code>sem-service</code> to provide different versions of databases. The <code>sem-service</code> tool uses Docker containers
-instead of traditional Linux services. 
-So, the traditional way of changing locales no longer works since it does not affect containers.
+Semaphore uses <code>sem-service</code> to provide different versions of databases. The <code>sem-service</code> tool uses Docker containers instead of traditional Linux services. 
+So, the traditional way of changing locales no longer works, as it does not affect containers.
 <br>
 <br>The following recipe provides an altered version of the container to <code>sem-service</code>. 
 The database should be available as before, without modifying your application in any way:
@@ -140,7 +138,7 @@ ENV LANG pt_BR.UTF-8
 ```
 docker build - -t postgres:[lang] < Dockerfile
 ```
-3. Start the newly created image:
+3. Start the newly-created image:
 ```
 docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v /var/run/postgresql:/var/run/postgresql postgres:[lang]
 ```
@@ -153,61 +151,60 @@ docker run --rm --net host -d -e POSTGRES_PASSWORD=semaphore --name postgres -v 
   <summary>Click for details</summary>
   <p>
     
- You can disable Semaphore as a required status check through the <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> in your GitHub account.
+You can disable Semaphore as a required status check on the <a href="https://docs.github.com/en/github/administering-a-repository/enabling-required-status-checks">repository settings page</a> of your GitHub account.
   
   </p>  
 </details>
 
-### How to troubleshoot a stalling job?
+### How can I troubleshoot a stalling job?
 
 <details>
   <summary>Click for details</summary>
   <p>
 
 The most common reason for stalled builds is a process that refuses to shut down properly.
-Either a debug statement or a cleanup procedure in the catch procedure. 
+This is most likely a debug statement or a cleanup procedure in the catch procedure. 
 Reproducing this can be hard sometimes. These are the steps we recommend:
 </p>
-1. Start a build on a branch and let it get stale.
-<br>2. <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">Attach</a> to a running job: <code>sem attach [job-id]</code>.
+1. Start a build on a branch and let it become stale.
+<br>2. <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-attach">Attach</a> the following to a running job: <code>sem attach [job-id]</code>.
 <br>3. Now, you should be in the instance of the job's virtual machine.
 <p>
   
 In the running instance, you can:
 </p>
 <p>
-- List the running processes with <code>ps aux</code> or <code>top</code>. Is there any suspicious process running?
+- List the running processes with <code>ps aux</code> or <code>top</code>. Are there any suspicious processes running?
 <br>- Run a <code>strace</code> on the running process: <code>sudo strace -p <process-id></code> 
   to see the last kernel instruction that it is waiting for. 
-For example, <code>select(1, ...</code> can mean the process is waiting for user's input.
-<br>- Look into the system metrics at <code>/tmp/system-metrics</code>. This tracks memory and disk usage. 
-Lack of disk space or free memory can introduce unwanted stalling into jobs.
-<br>- Look into the Agent logs at <code>/tmp/agent_logs</code>. The logs could indicate waiting for some conditions.
-<br>- Look into the Job logs at <code>/tmp/job_logs.json</code>. The logs could also indicate waiting for some conditions.
+For example, <code>select(1, ...</code> can mean that the process is waiting for user input.
+<br>- Check the system metrics at <code>/tmp/system-metrics</code>. This tracks memory and disk usage. 
+Lack of disk space or free memory can result in stalling.
+<br>- Check the Agent logs at <code>/tmp/agent_logs</code>. The logs could indicate that an agent is waiting for certain conditions.
+<br>- Check the Job logs at <code>/tmp/job_logs.json</code>. The logs could indicate that a job is waiting for certain conditions.
 <br>- Check the syslog as it can be also a valuable source of information: <code>tail /var/log/syslog</code>. It can indicate 'Out of memory' conditions.
 </p>
 <p>
-While this issue is ongoing, you might consider using a shorter <code>execution_time_limit</code> in your pipelines. 
-This will prevent stale builds to run for a full hour, and fail sooner.
+While an issue is ongoing, you might consider using a shorter <code>execution_time_limit</code> in your pipelines. 
+This will prevent stale builds from running for a full hour.
 
   </p>  
 </details>
 
-### Why is my test suite failing if all the tests pass?
+### Why is my test suite failing if all the tests passed?
 
 <details>
   <summary>Click for details</summary>
   <p>
     
- This usually happens because code coverage tools, for instance <a href="https://github.com/simplecov-ruby/simplecov">simplecov</a>, can be set to fail the test
- suite if a <a href="https://github.com/simplecov-ruby/simplecov#minimum-coverage">minimum coverage is not achieved</a>.
+ This usually happens because of code coverage tools, e.g. <a href="https://github.com/simplecov-ruby/simplecov">simplecov</a>, which can be set to fail the test suite if a <a href="https://github.com/simplecov-ruby/simplecov#minimum-coverage">minimum coverage level is not achieved</a>.
  <br>
- Besides the above, some dependencies can configure an <a href="https://relishapp.com/rspec/rspec-core/v/2-99/docs/command-line/exit-status#exit-with-rspec's-exit-code-when-an-at-exit-hook-is-added-upstream">at_exit hook</a> and will change the final exit code of the suite.
+ Furthermore, some dependencies can configure an <a href="https://relishapp.com/rspec/rspec-core/v/2-99/docs/command-line/exit-status#exit-with-rspec's-exit-code-when-an-at-exit-hook-is-added-upstream">at_exit hook</a> that will change the final exit code of the suite.
   
   </p>  
 </details>
 
-### How to solve the "fatal: expected flush after ref listing" error?
+### How can I avoid a "fatal: expected flush after ref listing" error?
 
 <details>
   <summary>Click for details</summary>
@@ -218,12 +215,12 @@ If a commands fails with this:
 error: RPC failed; curl 18 transfer closed with outstanding read data remaining
 fatal: expected flush after ref listing
 ```
-It means the communication between Semaphore and Github was interrupted. 
-As a workaround, you may add <code>retry</code> to the failed command:
+It means that communication between Semaphore and Github was interrupted. 
+As a workaround, you can add <code>retry</code> to the failed command:
 ```bash
 retry -t 5 <command>
 ```
-You may find more information about the <code>retry</code> tool <a href="https://docs.semaphoreci.com/reference/toolbox-reference/#retry">here</a>. 
+You can find more information about the <code>retry</code> tool <a href="https://docs.semaphoreci.com/reference/toolbox-reference/#retry">here</a>. 
     </p>
 </details>
 
@@ -233,23 +230,20 @@ You may find more information about the <code>retry</code> tool <a href="https:/
   <summary>Click for details</summary>
   <p>
 
-The main reason for this behavior is differences in the stacks. As a first step, ensure the same versions of languages, services, tools and frameworks
-such as Selenium, browser drivers, Capybara, Cypress are used both locally and in the CI environment.
-To achieve this make use of <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">sem-service</a>
-, <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/">sem-version</a> and also the operating systems' package manager.
+The main reason for this behavior is differences in the stacks. As a first step, ensure that the same versions of languages, services, tools, and frameworks such as Selenium, browser drivers, Capybara, Cypress are used both locally and in the CI environment.
+To achieve this, use <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">sem-service</a>, <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/">sem-version</a>, and the operating systems' package manager.
 Environment variables can also lead to unexpected behaviors, for instance, Semaphore 2.0 will set <code>CI=true</code> by default.
 
   </p>
 
 <p>
-If you are using Docker containers when performing the tests, in some cases it's possible that while the command itself runs instantly
-the process will not be completely started, leading to certain endpoints not being available. Using <code>sleep 10</code> or a larger value
-can help in this scenario.
-Cypress has the <a href="https://docs.cypress.io/guides/continuous-integration/introduction.html#Boot-your-server">wait-on module</a> that provides a similar functionality.
+If you are using Docker containers when performing tests, it's possible that, while the command itself runs instantly,
+the process will not be completely started, leading to certain endpoints not being available. Using a minimum <code>sleep 10</code> can help in this scenario.
+Cypress has a <a href="https://docs.cypress.io/guides/continuous-integration/introduction.html#Boot-your-server">wait-on module</a> that provides similar functionality.
 
 </p>
-Finally, when tests have different outcomes between reruns using the same commit or in an <a href="https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/">SSH session</a>
-then this is a case of flaky tests. The following articles should help in this regard:
+Finally, when tests have different outcomes between reruns, using the same commit or in an <a href="https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/">SSH session</a>,
+then this is a case of flaky tests. The following articles should be of help:
 <br>
 <a href="https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests">https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests</a>
 <br>
@@ -264,10 +258,10 @@ then this is a case of flaky tests. The following articles should help in this r
 <details>
   <summary>Click for details</summary>
     <p>
-You can divide a command in several lines by writing the line in the folded 
+You can divide a command into several lines by writing them in the folded 
 style <code>></code> and by stripping the line break in the yaml file
-<code>-</code>. To do this, we can start the command with line containing only
-<code>>-</code> and write the command in more lines below it:
+<code>-</code>. To do this, we can start the command with a line containing only
+<code>>-</code> and write the command in multiple lines below it:
 ```bash
 commands:
   - >-
@@ -280,39 +274,39 @@ commands:
     </p>
     <p>
 Block Style Indicator: The block style indicates how new lines inside the block 
-should behave. If you want to keep them as new lines, use the literal style, 
-indicated by a pipe <code>|</code>. If instead you want them to be replaced by 
-spaces, use the folded style, indicated by a right angle bracket <code>></code>.
+should behave. If you want to keep each line as a new line, use the literal style, 
+indicated by a pipe <code>|</code>. If you want them to be replaced by 
+spaces instead, use the folded style, indicated by a right angle bracket <code>></code>.
     </p>
     <p>
 Block Chomping Indicator: The chomping indicator controls what should happen 
 with new lines at the end of the string. The default, clip, puts a single new 
 line at the end of the string. To remove all new lines, strip them by putting a 
 minus sign <code>-</code> after the style indicator. Both clip and strip ignore how many new 
-lines are actually at the end of the block; to keep them all put a plus sign <code>+</code>
+lines are actually at the end of the block; to keep them all, put a plus sign <code>+</code>
 after the style indicator.
     </p>
 
 </details>
 
-### Why my jobs don't start?
+### Why won't my jobs start?
 
  <details>
  <summary>Click for details</summary>
   <p>
 
 You might be hitting the quota limitation. Check your organization's quota
-in the <code>Activity Monitor</code> by clicking on the initial of your organization 
-in the top right corner of the page. More information about quota and how to ask for 
+in the <code>Activity Monitor</code> by clicking on your organization's initials 
+in the top right corner of the page. Find more information about the quota and how to ask for 
 an increase <a href="https://docs.semaphoreci.com/reference/quotas-and-limits/">here</a>.
 
-You may also run <code>sem get jobs</code> to display all running jobs
-so you may confirm how much quota is being used.
-More information about <code>sem get</code> <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-get-examples">here</a>.
+You can also run <code>sem get jobs</code> to display all running jobs
+to confirm how much of the quota is being used.
+More information about <code>sem get</code> can be found <a href="https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-get-examples">here</a>.
   </p>
 </details>
 
-### Why does my job break after changing the shell configuration?
+### Why did my job break after changing the shell configuration?
 
 <details>
   <summary>Click for details</summary>
@@ -341,7 +335,7 @@ source ~/my_script
   <summary>Click for details</summary>
   <p>
 
-When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing several times into a branch won't create parallel workflows, instead, Semaphore assigns the new workflows to the queue and run one workflow at a time. However, it's possible to push commits to different branches and they will be run in parallel.
+When pushing several commits into the same branch, Semaphore won't run parallel workflows. This means that pushing multiple times into a branch won't create parallel workflows, rather Semaphore will assign the new workflows into the queue and run them one at a time. However, it's possible to push commits to different branches and they will be run in parallel.
 </p>
 <p>
   
@@ -349,14 +343,14 @@ The only way to push several commits to a single branch and not wait for the wor
 </p>
 </details>
 
-### How to redeliver webhooks from Github to Semaphore?
+### How can I redeliver webhooks from Github to Semaphore?
 
 <details>
   <summary>Click for details</summary>
   <p>
 
-Even if this is not a common problem, it might happen that Semaphore does not receive a webhook from Github.
-This results in a workflow not being triggered. You can redeliver the webhook and this should trigger the workflow.
+This is not the most common problem, but occasionally Semaphore does not receive a webhook from Github for some reason.
+This results in a workflow not being triggered. You can redeliver the webhook, however, and this should trigger the workflow.
 These are the steps to redeliver webhooks from Github:
 </p>
 <p>
@@ -365,12 +359,12 @@ These are the steps to redeliver webhooks from Github:
 <br>2. Click <code>Settings</code>
 <br>3. Click <code>Webhooks</code>
 <br>4. Click <code>Edit</code> for the webhook you want to redeliver
-<br>5. Scroll down to <code>Recent Deliveries</code> and search for the failed one
+<br>5. Scroll down to <code>Recent Deliveries</code> and search for the one that failed
 <br>6. Click the <code>...</code> symbol, then click <code>Redeliver</code>
 </p>
 </details>
 
-### Why does my workflow stop without explanation?
+### Why did my workflow stop without explanation?
 
 <details>
   <summary>Click for details</summary>
@@ -380,7 +374,7 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
 <br>
 <br>The <i>running</i> strategy stops all pipelines in the queue as soon as a new one appears.
 <br>
-<br>The <i>queued</i> strategy will only cancel pipelines that are waiting in the queue and have not yet started to run.
+<br>The <i>queued</i> strategy will only cancel pipelines that are waiting in the queue and have not yet started.
 </p>
 </details>
 
@@ -390,7 +384,7 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
   <summary>Click for details</summary>
   <p>
 
-The recommended way is by using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, for instance <a href="https://knapsackpro.com/">Knapsack</a>, both free and pro versions.
+We recommend using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, e.g. <a href="https://knapsackpro.com/">Knapsack</a> (both free and pro versions).
   </p>
   <p>
 Knapsack Rspec example:
@@ -420,15 +414,15 @@ jobs:
   </p>
 </details>
 
-### Why workflows don't trigger on pull requests?
+### Why aren't workflows triggering on pull requests?
 
 <details>
   <summary>Click for details</summary>
   <p>
 Make sure to <a href="https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#build-pull-requests">enable pull requests</a> in the project <code>Settings</code>.
 </p><p>
-If the configuration is correct, check if the pull request can be merged, or if there are conflicts.<br>
-Semaphore uses the merge commit to run the workflows and there is no merge commit if there is a conflict on the pull request.<br>
+If the configuration is correct, check if the pull request can be merged or if there are conflicts.<br>
+Semaphore uses the merge commit to run the workflows, so there will be no merge commit if there is a conflict in the pull request.<br>
   </p>
 </details>
 
@@ -437,14 +431,13 @@ Semaphore uses the merge commit to run the workflows and there is no merge commi
 <details>
   <summary>Click for details</summary>
   <p>
-In certain scenarios it's advantageous to use different machine types for certain jobs in a pipeline. 
-For instance, some operations require less resources and it would be wasteful to use a bigger machine 
-or a test suite has to run in multiple environments.
+In certain scenarios, it's advantageous to use different machine types for different jobs in a pipeline. 
+For instance, some operations require fewer resources and it would be wasteful to use a bigger machine 
+or a test suite that has to run in multiple environments.
   </p>
   <p>
-Semaphore 2.0 provides the <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task">agent in task feature</a> that allows
-mixing and matching of various machine types and even 
-<a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#using-a-docker-container-as-your-pipelines-cicd-environment">Docker based CI/CD</a>:
+Semaphore 2.0 provides the <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task">agent in task feature</a> that allows mixing and matching of various machine types and even 
+<a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#using-a-docker-container-as-your-pipelines-cicd-environment">Docker-based CI/CD</a>:
 <br>
 ```yml
 version: v1.0
@@ -493,20 +486,19 @@ blocks:
   <p>
 When using <code>checkout</code> with the 
 <a href="https://docs.semaphoreci.com/reference/toolbox-reference/#the-use-cache-flag">--use-cache parameter</a>
-the code will contain older changes that have not been propagated yet since by
-default this update only happens every 3 days.
+the code will contain older changes that have not yet been propagated, because this particular update only happens every 3 days by default.
 
   </p>
   <p>
 Reducing the value of <code>SEMAPHORE_GIT_CACHE_AGE</code> before performing the
-<code>checkout</code> ensures changes are brought into the cache more 
-often and should help mitigate the behavior:
+<code>checkout</code> ensures that changes are brought into the cache more 
+often and should help mitigate this behavior:
 ```bash
 export SEMAPHORE_GIT_CACHE_AGE=43200
 ```
 
-The above value is for 12 hours and is a good baseline but depending on 
-your development workflow it might require to be lowered even more.
+The previous value is for 12 hours and is a good baseline but, depending on 
+your development workflow, it might need to be lowered more.
   </p>
 </details>
 
@@ -519,24 +511,24 @@ your development workflow it might require to be lowered even more.
   <p>
 
 If you’ve added a new credit card to the subscription, but the old one is still being charged,
-it means that the new credit card wasn't marked for usage. Here’s how to do that:
+it means that the new credit card wasn't properly marked for usage. Here’s how to do that:
 </p>
 <p>
   
-1. Click on the initial of your organization in the top right corner of the page, 
+1. Click on the initials of your organization in the top right corner of the page, 
 <br>2. In the dropdown menu, choose <code>Plans & Billing</code>,
-<br>3. Next to the Payment details, click on <code>Credit card info</code>,
-<br>4. Go to <code>Subscription</code> tab
+<br>3. Next to Payment details, click on <code>Credit card info</code>,
+<br>4. Go to the <code>Subscription</code> tab
 <br>5. Click on <code>Manage</code>
 <br>6. Go to <code>Update Payment Method</code>
-<br>7. Click on the <code>Use this</code> button next to the credit card you'd like to use
+<br>7. Click the <code>Use this</code> button next to the credit card you'd like to use
 </p>
 <p>
 After that, you can also remove the old credit card if you don't need it anymore.
 </p>
 </details>
 
-### Why can't I remove the old credit card after adding a new one?
+### Why can't I remove my old credit card after adding a new one?
 
 <details>
   <summary>Click for details</summary>
@@ -550,7 +542,7 @@ In order to mark the new credit card for usage, you can:
 1. Click on the initial of your organization in the top right corner of the page, 
 <br>2. In the dropdown menu, choose <code>Plans & Billing</code>
 <br>3. Next to the Payment details, click on <code>Credit card info</code>,
-<br>4. Go to <code>Subscription</code> tab
+<br>4. Go to the <code>Subscription</code> tab
 <br>5. Click on <code>Manage</code> 
 <br>6. Go to <code>Update Payment Method</code> 
 <br>7. Click on the <code>Use this</code> button next to the credit card you'd like to use
@@ -567,8 +559,8 @@ After that, you’ll be able to remove the old credit card.
   <summary>Click for details</summary>
   <p>
 
-In order to be able to do that, the access for Semaphore 2.0 needs to be granted within your GitHub organization.
-You can grant the access <a href="https://github.com/settings/applications">here</a>. If it has already been granted, there should be a green checkmark next to the name of your organization.
+In order to be able to do that, Semaphore 2.0 needs to be granted access within your GitHub organization.
+You can grant access <a href="https://github.com/settings/applications">here</a>. If it has already been granted, there should be a green checkmark next to the name of your organization.
 </p>
 <p>
 If not, you should either grant access or request it from the organization's owner.
