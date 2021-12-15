@@ -8,6 +8,48 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 13, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.13.0 (default)
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.30.0 -> 2.31.0
+- Aws-cli 1.22.13 -> 1.22.24
+- Docker 20.10.11 -> 20.10.12
+- Bazel 4.2.1 -> 4.2.2
+- Helm 3.7.1 -> 3.7.2
+- Github-cli 2.2.0 -> 2.3.0
+- Pip 20.2.4 -> 21.3.1
+- Nodejs 16.13.0 -> 16.13.1
+- Npm 8.1.0 -> 8.1.2
+- Phpbrew 1.25.3 -> 1.27.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.13.0 (default)
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.30.0 -> 2.31.0
+- Docker 20.10.11 -> 20.10.12
+- Bazel 4.2.1 -> 4.2.2
+- Helm 3.7.1 -> 3.7.2
+- Github-cli 2.2.0 -> 2.3.0
+- Pip 20.2.4 -> 20.3.4
+- Nodejs 16.13.0 -> 16.13.1
+- Npm 8.1.0 -> 8.1.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 29, 2021
 
 **(Improved) Ubuntu 20.04 image update**
