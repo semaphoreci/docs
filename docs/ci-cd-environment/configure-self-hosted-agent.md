@@ -15,16 +15,17 @@ Both ways can be used at the same time, but command line arguments take preceden
 
 ## Available configuration parameters
 
-| Parameter name          | Required | Default      |
-|-------------------------|----------|--------------|
-| `endpoint`              | Yes      | Empty string |
-| `token`                 | Yes      | Empty string |
-| `env-vars`              | No       | Empty array  |
-| `files`                 | No       | Empty array  |
-| `fail-on-missing-files` | No       | False        |
-| `disconnect-after-job`  | No       | false        |
-| `shutdown-hook-path`    | No       | Empty string |
-| `--config-file`         | No       | Empty string |
+| Parameter name                  | Required | Default      |
+|---------------------------------|----------|--------------|
+| `endpoint`                      | Yes      | Empty string |
+| `token`                         | Yes      | Empty string |
+| `env-vars`                      | No       | Empty array  |
+| `files`                         | No       | Empty array  |
+| `fail-on-missing-files`         | No       | False        |
+| `disconnect-after-job`          | No       | false        |
+| `disconnect-after-idle-timeout` | No       | 0            |
+| `shutdown-hook-path`            | No       | Empty string |
+| `config-file`                   | No       | Empty string |
 
 ### `endpoint`
 
@@ -90,11 +91,15 @@ By default, if files given to `--files` are not found in the host, they are not 
 
 By default, the agent does not disconnect from Semaphore and shuts down after completing a job. If you want to do that instead, set `disconnect-after-job` to true.
 
+### `disconnect-after-idle-timeout`
+
+By default, the agent does not disconnect after some period of idleness. If you want to do that instead, set `disconnect-after-idle-timeout` to the number of idle seconds after which you want the agent to shutdown.
+
 ### `shutdown-hook-path`
 
 By default, nothing fancy is executed when the agent shuts down. This parameter accepts a path to a bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
 
-It can also be useful when used in conjunction with `disconnect-after-job` in order to rotate the agents and make sure you get a clean one for every job you run.
+It can also be useful when used in conjunction with `disconnect-after-job` or `disconnect-after-idle-timeout` in order to rotate the agents and make sure you get a clean one for every job you run.
 
 For example, if you want to turn off the machine once the agent shuts down, you could use this:
 
@@ -111,3 +116,9 @@ sudo poweroff -f
 ```
 
 If the path specified does not exist, an error will be logged and the agent will disconnect as usual.
+
+Furthermore, the shutdown script will have the following environment variables available:
+
+| Environment variable              | Description |
+|-----------------------------------|-------------|
+| `SEMAPHORE_AGENT_SHUTDOWN_REASON` | The reason why the agent is shutting down. Possible values are: `IDLE`, `JOB_FINISHED`, `UNABLE_TO_SYNC`, `REQUESTED` and `INTERRUPTED` |
