@@ -1,17 +1,17 @@
 ---
-description: This guide demonstrates how to deploy with git-deploy and covers the necessary steps to set up git-deploy on Semaphore 2.0.
+Description: This guide demonstrates how to deploy with git-deploy and covers the necessary steps to set up git-deploy on Semaphore 2.0.
 ---
 
 # Deploying with Git Deploy
 
-This guide demonstrates how to deploy with [git-deploy][git-deploy]. 
+This guide demonstrates how to deploy with [git-deploy][git-deploy] and Semaphore 2.0. 
 
-We will cover these steps to set up git-deploy on Semaphore:
+We will cover the following steps to set up git-deploy on Semaphore:
 
 1. Create a Git Deploy key that allows pushing to your production Git server. 
-2. Store the Git Deploy key in a [Secret](https://docs.semaphoreci.com/essentials/using-secrets/) on Semaphore.
-3. Create a deployment pipeline, and attach the Git Deploy key secret.
-4. Run a deployment from Semaphore, and ship your code to production.
+2. Store the Git Deploy key in a [secret](https://docs.semaphoreci.com/essentials/using-secrets/) on Semaphore.
+3. Create a deployment pipeline and attach the Git Deploy key secret.
+4. Run a deployment from Semaphore and ship your code to production.
 
 For this guide you will need:
 
@@ -19,9 +19,9 @@ For this guide you will need:
 You can use one of the documented [use cases][use-cases] or [language guides][language-guides] as a starting point.
 - Basic familiarity with Git and SSH.
 
-## Generate a deploy key
+## Generating a deploy key
 
-Generate a new SSH key with no passphrase that Semaphore will use to authenticate:
+Generate a new SSH key with no passphrase that Semaphore will use to authenticate, as shown below:
 
 ``` bash
 $ ssh-keygen -t rsa -b 4096 -C "semaphore@example.com"
@@ -49,9 +49,9 @@ The key's randomart image is:
 Next, make the private key `id_rsa_git_deploy` available on Semaphore. 
 Also, add the corresponding public key `id_rsa_git_deploy.pub` to your server.
 
-## Store the private SSH key in a Semaphore secret
+## Storing the private SSH key in a Semaphore secret
 
-[Create a new Semaphore secret][secrets-guide] using the [sem CLI][sem-create-ref]:
+[Create a new Semaphore secret][secrets-guide] using [sem CLI][sem-create-ref], as shown below:
 
 ```bash
 sem create secret demo-git-deploy \
@@ -59,14 +59,14 @@ sem create secret demo-git-deploy \
 Secret 'demo-git-deploy' created.
 ```
 
-You can verify the existence of your new secret:
+You can verify the existence of your new secret, as shown below:
 ```bash
 sem get secrets
 NAME             AGE
 demo-git-deploy   1m
 ```
 
-You can also verify the content of your secret:
+You can also verify the content of your secret, as shown below:
 
 ```bash
 admin $ sem get secret demo-git-deploy
@@ -83,16 +83,16 @@ data:
   - path: /home/semaphore/.ssh/id_rsa_git_deploy
     content: LS0tLS1CRUdJTiBPUEVOU1N...
 ```
-The content of secrets is base64-encoded. You can see the file will be
-mounted in Semaphore jobs on the specified path.
+The content of secrets is base64-encoded. The file will be
+mounted in Semaphore jobs in the specified path.
 
-## Add the public key to your server
+## Adding the public key to your server
 
 Copy the content of the public key `id_rsa_git_deploy.pub` to your server's user `~/.authorized_keys` file.
 
-## Define the deployment pipeline
+## Defining the deployment pipeline
 
-The last step will be to define our `git-deploy.yml` pipeline:
+The last step is to define our `git-deploy.yml` pipeline, as shown below:
 ```yaml
 # .semaphore/git-deploy.yml
 version: v1.0
@@ -126,17 +126,18 @@ blocks:
           - git push -f production $SEMAPHORE_GIT_BRANCH:master
 ```
 
-### Run your first git-deploy production deployment
+### Running your first git-deploy production deployment
 
-Push a new commit on any branch and open Semaphore to watch a new workflow run. 
+Push a new commit on any branch and open Semaphore to watch the new workflow run. 
 You should see the `Promote` button next to your initial pipeline. 
-Click on the button to launch the deployment, and open the `Push code` job to observe the output.
+Click on the button to launch the deployment and open the `Push code` job to observe the output.
 
 ## Next steps
 
-Congratulations! You have automated deployment of your application using Git Deploy. Here’s some recommended reading:
+Congratulations! You have automated the deployment of your application using Git Deploy. 
 
-- [Explore the promotions reference][promotions-ref] to learn more about what options you have available when designing delivery pipelines on Semaphore.
+Here’s some more recommended reading:
+- [Explore the promotions reference][promotions-ref] to learn more about which options you have available when designing delivery pipelines on Semaphore.
 - [Set up a deployment dashboard][deployment-dashboards] to keep track of your team's activities.
 
 [git-deploy]: https://github.com/mislav/git-deploy
