@@ -1,15 +1,15 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to push Docker Images to AWS Elastic Container Registry (ECR). Pushing images to your AWS ECR is straightforward.
+Description: This guide shows you how to use Semaphore 2.0 to push Docker Images to AWS Elastic Container Registry (ECR). 
 ---
 
-# Pushing Docker Images to AWS Elastic Container Registry (ECR)
+# Pushing Docker images to AWS Elastic Container Registry (ECR)
 
-Pushing images to your AWS ECR is straight forward. Your workflow
+Pushing images to your AWS ECR is straightforward. Your workflow
 simply needs to call the appropriate `aws` command to login to the
-Docker registry. Then `docker push` works as expected. First, create a
+Docker registry, after which `docker push` works as expected. First, create a
 secret to configure AWS access key environment variables.
 
-## Creating the Secret
+## Creating the secret
 
 ``` bash
 sem create secret AWS \
@@ -17,12 +17,12 @@ sem create secret AWS \
   -e AWS_SECRET_ACCESS_KEY=<your-aws-access-key>
 ```
 
-Now add the secret to your pipeline and authenticate
+Next, add the secret to your pipeline and authenticate.
 
 ## Configuring the Pipeline
 
 This example authenticates in the `prologue`. This is not
-strictly required, it's just an example of covering all jobs in
+strictly required, it's just an example of covering all aspects of
 authentication.
 
 ``` yaml
