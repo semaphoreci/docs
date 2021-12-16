@@ -1,12 +1,12 @@
 ---
-description: This page contains tutorials and open source repositories that show you practical examples of CI/CD pipelines.
+Description: This page contains tutorials and open source repositories that show you practical examples of CI/CD pipelines.
 ---
 
 # Tutorials and Example Projects
 
 Semaphore provides tutorials and open source repositories that show you
-practical examples of CI/CD pipelines. You can read and use them to learn what's
-possible and jump-start your own projects.
+practical examples of CI/CD pipelines. You can use them to learn what's
+possible, so you can jump-start your own projects.
 
 ### Continuous Integration
 
@@ -170,9 +170,8 @@ possible and jump-start your own projects.
 </table>
 <!-- markdownlint-disable -->
 
-Semaphore will publish more guides and examples that are not currently listed
-on this page. You can [subscribe to the newsletter][newsletter] or [follow
-@semaphoreci][twitter] on Twitter to be notified when that happens.
+You can [subscribe to our newsletter][newsletter] or [follow
+@semaphoreci][twitter] on Twitter to keep up with the latest news.
 
 [newsletter]: https://semaphoreci.us5.list-manage.com/subscribe?u=72b30480e518914855ca55a85&id=d442447559
 [twitter]: https://twitter.com/semaphoreci

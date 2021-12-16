@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to optimize your Semaphore 2.0 workflow for monorepo projects.
+Description: This guide shows you how to optimize your Semaphore 2.0 workflow for monorepo projects.
 ---
 
 # Monorepo Workflows
@@ -8,9 +8,9 @@ A [monorepo](https://semaphoreci.com/blog/what-is-monorepo) (short for
 monolithic repository) is a software development strategy where code for
 many applications, which may or may not be mutually dependent, is stored
 in the same version-controlled repository. This guide shows you how to
-optimize your Semaphore workflow for monorepo projects.
+optimize your Semaphore workflows for monorepo projects.
 
-Some advantages of a monorepo approach are:
+Some advantages of the monorepo approach are:
 
 - Ease of code reuse — it is easy to abstract shared behavior into common libraries.
 - Simplified dependency management — third-party dependencies are easily shared.
@@ -25,9 +25,9 @@ an [example project][monorepo-example] for you to try.
 
 Let's say you have a simple monorepo project that consists of:
 
-- A web application located inside `/web-app/` directory.
-- An iOS client application located inside `/ios/` directory.
-- A separate docs web page located inside `/docs/` directory.
+- A web application located in the `/web-app/` directory.
+- An iOS client application located in the `/ios/` directory.
+- A separate docs web page located in the `/docs/` directory.
 
 We can set up a Semaphore pipeline that builds and tests each one of these
 components.
@@ -103,25 +103,25 @@ integration tests once both web application and iOS client tests pass.
 
 ## Change-based block execution
 
-You can set the criteria for running the jobs within a block in the
+You can set the criteria for running jobs within a block in the
 *Skip/Run conditions* section. The [run property][run-ref] is evaluated on
 each workflow to decide if the block should be run or skipped.
 
 ![Skip/Run
 conditions](img/building-monorepo-projects/skip-run-condition.png)
 
-When combined with `change_in` function, which checks whether there were
-recent changes on a given path, allows us to only run tests for those
+When combined with the `change_in` function, which checks whether there were
+recent changes on a given path, it allows us to only run tests for those
 parts of the project that are currently being worked on.
 
-In the example below, this means that if we are working only on the iOS
+In the example below, this means that if we are only working on the iOS
 client app within the `/ios/` directory of the repository, the only blocks
-that will be executed are the `Test iOS client` and `Integration tests`.
+that will be executed are `Test iOS client` and `Integration tests`.
 Everything else will be skipped.
 
 ![change_in examples](img/building-monorepo-projects/skip-run-blocks.png)
 
-This can significantly reduce the time and cost while still providing you
+This can significantly reduce time and cost while still providing you
 with required feedback for the changes introduced into the monorepo.
 
 The `change_in` function checks for changed files in recent commits. The
@@ -129,16 +129,16 @@ commit range analyzed depends on whether you're working on `master/main`
 or on a branch/pull request. For more details and ways in which this can
 be modified please check the [reference][change-in-ref].
 
-## Set up the automatic deployments for a monorepo project
+## Set up automatic deployments for a monorepo project
 
 Here we will assume that you already have three pipelines for:
 
 - Deploying the web app.
 - Releasing the iOS client.
-- Publishing the documentation pages.
+- Publishing documentation pages.
 
 You can find examples for various kinds of deployments in the [use
-cases][use-cases] section of our docs. We will focus on auto-promoting the
+cases][use-cases] section of our documentation. We will focus on auto-promoting the
 right pipelines using change detection. To achieve this, we need to
 introduce [promotion][promotions-ref] conditions.
 
@@ -147,7 +147,7 @@ introduce [promotion][promotions-ref] conditions.
 Ticking **Enable automatic promotion** brings up the conditions field.
 Semaphore supports using `change_in` in this field. You can combine it
 with the `branch` and `result` properties to start a pipeline on a given
-branch. For example, for the web app:
+branch. E.g. for the web app:
 
 ![Promotion for Web
 app](img/building-monorepo-projects/promotion-web.png)
@@ -183,7 +183,7 @@ promotions:
 ```
 
 Each part of the system will be automatically deployed when the tests pass on
-the master branch, only if the push that initiated workflow contains changes in
+the master branch, but only if the push that initiated workflow contains changes in
 the locations monitored by the `change_in` function.
 
 ## Additional examples of monorepo configuration
@@ -206,7 +206,7 @@ change_in('../Gemfile.lock')
 change_in('/web-app/', {default_branch: 'main'})
 ```
 
-### Exclude changes in the pipeline file
+### Excluding changes in the pipeline file
 
 **Note:** If you change the pipeline file, Semaphore will consider `change_in`
 as true. The following illustrates how to disable this behaviour.
