@@ -1,10 +1,10 @@
 ---
-description: This page describes all the resources that make up the Semaphore 2.0 API version v1alpha. The root of the API is https://{org_name}.semaphoreci.com/api/v1alpha.
+Description: This page describes all the resources that make up the Semaphore 2.0 API version v1alpha. The root of the API is https://{org_name}.semaphoreci.com/api/v1alpha.
 ---
 
 # API
 
-This document describes all the resources that make up the Semaphore 2.0 API version `v1alpha` . If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).
+This document describes all the resources that make up the Semaphore 2.0 API version `v1alpha`. If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).
 
 The root of the API is `https://{org_name}.semaphoreci.com/api/v1alpha`.
 
@@ -16,11 +16,11 @@ Every API request and response satisfies the following constraints:
 - All requests must use HTTPS.
 - All data is sent and received as JSON.
 - Blank fields are included as `null` instead of being omitted.
-- Timestamps are in different formats due to historical circumstances how these public APIs were appearing. In next release of API these will be standardized. Currently there are following formats:
+- Timestamps are in different formats due to the historical circumstances of how these public APIs appeared. In next release of the API, they will be standardized. Currently there are the following formats:
   - Unixtime Epoch time: `"create_time": "1571083003"`
   - Unixtime Epoch time with nanoseconds: `"created_at": {"seconds": 1571063401, "nanos": 559492000}`
-  - Custom format: `YYYY-MM-DD HH:MM:SS.ffffffZ` e.g.`"2019-10-14 12:11:47.824128Z"`
-  - All API requests must set a User-Agent to `SemaphoreCI v2.0 Client`.
+  - Custom format: `YYYY-MM-DD HH:MM:SS.ffffffZ`, e.g.`"2019-10-14 12:11:47.824128Z"`
+  - All API requests must set the User-Agent to `SemaphoreCI v2.0 Client`.
 
 ### Authentication
 
@@ -28,7 +28,7 @@ All API requests require authentication. To authenticate, you need an
 authentication token. You can find your authentication token by visiting your
 [account settings](https://me.semaphoreci.com/account).
 
-Authentication Token must be sent as a HTTP header in all requests:
+Your Authentication Token must be sent as a HTTP header in all requests, as shown below:
 
 ```
 curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/api/v1alpha/{resource_name}"
@@ -36,15 +36,15 @@ curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/a
 
 ### Errors
 
-There are several errors that you can receive as a response to an API request:
+There are several errors that you can receive as a response to an API request.
 
-#### Failing to authenticate
+#### Failure to authenticate
 
 ```
 HTTP/1.1 401 Unauthorized
 ```
 
-#### Requesting non existing resources
+#### Requesting non-existing resources
 
 ```
 HTTP/1.1 404 Not Found
@@ -59,9 +59,9 @@ HTTP/1.1 404 Not Found
 ### Pagination
 
 Every request that that returns more than 30 items will be paginated.
-Form calls with `link` header values instead of constructing your own URLs.
+To avoid this, form calls with `link` header values instead of constructing your own URLs.
 
-The `link` header includes information about pagination:
+The `link` header includes information about pagination, as shown below:
 
 ```
 link: <http://{org_name}.semaphoreci.com/api/v1alpha/?PAGE_PARAMS>; rel="first",
@@ -71,13 +71,13 @@ link: <http://{org_name}.semaphoreci.com/api/v1alpha/?PAGE_PARAMS>; rel="first",
 The possible `rel` values are:
 
 - **next** - The link for the next page of results.
-- **prev** - The link previous page of results.
-- **first** -  The link for the first page of results.
+- **prev** - The link for the previous page of results.
+- **first** - The link for the first page of results.
 
 ### Stability
 
-- Compatible and emergency changes may be made with no advance notice
-- Disruptive changes may not occur, instead a new major version is developed
+- Compatible and emergency changes may be made with no advance notice.
+- Disruptive changes may not occur. In the event that a disruptive change is needed, a new major version will be developed.
 
 #### Types of changes
 
@@ -85,20 +85,20 @@ The possible `rel` values are:
 
 Small in scope and unlikely to break or change semantics of existing methods.
 
-- Adding nested resources, methods and attributes
-- Change of documentation
-- Change of undocumented behavior
+- Adding nested resources, methods, and attributes.
+- Change of documentation.
+- Change of undocumented behavior.
 
 ##### Disruptive change
 
-May have larger impact and effort will be made to provide migration paths as needed.
+May have a larger impact and effort will be made to provide migration paths as needed.
 
-- Change semantics of existing methods
-- Remove resources, methods and attributes
+- Changing semantics of existing methods.
+- Removing resources, methods, and attributes.
 
 ##### Emergency change
 
-- May have larger impact, but are unavoidable due to legal compliance, security vulnerabilities or violation of specification.
+- May have larger impact, but is unavoidable due to legal compliance, security vulnerabilities, or violation of specification.
 
 ### Changelog
 
@@ -106,7 +106,7 @@ No changes.
 
 ## Workflows
 
-### Run Workflow
+### Running a workflow
 
 ```
 POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
@@ -114,11 +114,10 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows
 
 **Params**
 
-- `project_id` (**required**) - ID of a project
-- `reference` (**required**) - GitHub reference for the wanted branch, tag or pull request e.g. *refs/heads/master, refs/tags/v1.0 or refs/pull/123*
-- `commit_sha` (*optional*) - Commit sha of the wanted commit
-- `pipeline_file` (*optional*) - The path within the repository to a YAML file that
-contains the pipeline definition. The default value is *.semaphore/semaphore.yml*
+- `project_id` (**required**) - ID of a project.
+- `reference` (**required**) - GitHub reference for the desired branch, tag, or pull request--e.g. *refs/heads/master*, *refs/tags/v1.0*, or *refs/pull/123*.
+- `commit_sha` (*optional*) - Commit sha of the desired commit.
+- `pipeline_file` (*optional*) - The path within the repository to the YAML file that contains the pipeline definition. The default value is *.semaphore/semaphore.yml*.
 
 **Response**
 
@@ -140,7 +139,7 @@ curl -i -H "Authorization: Token {api_token}" \
      -X POST  "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows"
 ```
 
-### Describe Workflow
+### Describing a workflow
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id
@@ -148,7 +147,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id
 
 **Params**
 
-- `workflow_id` (**required**) - ID of a workflow
+- `workflow_id` (**required**) - ID of a workflow.
 
 **Response**
 
@@ -180,7 +179,7 @@ curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id"
 ```
 
-### List Workflows
+### Listing workflows
 
 ```
 GET https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows?project_id=:project_id
@@ -188,8 +187,8 @@ GET https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows?project_id=
 
 **Params**
 
-- `project_id` (**required**) - ID of a project
-- `branch_name` (*optional*) - Name of branch, used as filter
+- `project_id` (**required**) - ID of a project.
+- `branch_name` (*optional*) - Name of branch (used as a filter).
 
 **Response**
 
@@ -235,7 +234,7 @@ curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows\?project_id\=:project_id"
 ```
 
-### Rerun Workflow
+### Rerunning a workflow
 
 ```
 POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/reschedule?request_token=:request_token
@@ -243,8 +242,8 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/resch
 
 **Params**
 
-- `workflow_id` (**required**) - ID of a workflow that you want to rerun
-- `request_token` (**required**) - Idempotency token, can be any string
+- `workflow_id` (**required**) - ID of the workflow that you want to rerun.
+- `request_token` (**required**) - Idempotency token (can be any string).
 
 **Response**
 
@@ -264,7 +263,7 @@ curl -i -X POST -H "Authorization: Token {api_token}" \
         "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/reschedule\?request_token\=:request_token"
 ```
 
-### Stop Workflow
+### Stopping a workflow
 
 ```
 POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/terminate
@@ -272,7 +271,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/termi
 
 **Params**
 
-- `workflow_id` (**required**) - ID of a workflow that you want to stop
+- `workflow_id` (**required**) - ID of the workflow that you want to stop.
 
 **Response**
 
@@ -289,7 +288,7 @@ curl -i -X POST -H "Authorization: Token {api_token}" \
 
 ## Pipelines
 
-### Describe Pipeline
+### Describing a pipeline
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
@@ -297,8 +296,8 @@ GET {org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
 
 **Params**
 
-- `pipeline_id` (**required**) - ID of a pipeline
-- `detailed` (*optional*) - Default: `false`, include all information about all blocks, and jobs. Much more expensive you are only interested in the status of pipeline, don't set detailed to `true`.
+- `pipeline_id` (**required**) - ID of a pipeline.
+- `detailed` (*optional*) - Default: `false`, which includes all information about all blocks and jobs. This option is much more expensive--if you are only interested in the status of a pipeline, don't set detailed to `true`.
 
 **Response**
 
@@ -337,7 +336,7 @@ HTTP status: 200
 }
 ```
 
-Response with `detailed` param set to `true`:
+A response with the `detailed` param set to `true` is shown below:
 
 ```json
 HTTP status: 200
@@ -446,7 +445,7 @@ curl -i -H "Authorization: Token {api_token}" \
 ```
 
 
-### List Pipelines
+### Listing pipelines
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
@@ -454,10 +453,10 @@ GET {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
 
 **Params**
 
-- `project_id` (**required, optional if** `wf_id` **is present**) - ID of a project
-- `wf_id` (**required, optional if** `project_id` **is present**) - ID of a workflow
-- `branch_name` (*optional*) - name of a branch
-- `yml_file_path` (*optional*) - YML file that contains pipeline definition
+- `project_id` (**required, optional if** `wf_id` **is present**) - ID of a project.
+- `wf_id` (**required, optional if** `project_id` **is present**) - ID of a workflow.
+- `branch_name` (*optional*) - Name of a branch.
+- `yml_file_path` (*optional*) - YML file that contains the pipeline definition.
 
 
 **Response**
@@ -520,7 +519,7 @@ curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/pipelines\?project_id\=:project_id"
 ```
 
-### Stop Pipeline
+### Stopping a pipeline
 
 ```
 PATCH {org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
@@ -528,8 +527,8 @@ PATCH {org_name}.semaphoreci.com/api/v1alpha/pipelines/:pipeline_id
 
 **Params**
 
-- `pipeline_id` (**required**) - ID of a pipeline
-- `terminate_request` (**required**) - Must be set to `true`
+- `pipeline_id` (**required**) - ID of a pipeline.
+- `terminate_request` (**required**) - Must be set to `true`.
 
 **Response**
 
@@ -548,7 +547,7 @@ curl -i -X PATCH  -H "Authorization: Token {api_token}" \
 
 ## Promotions
 
-### List Promotions
+### Listing promotions
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/promotions?pipeline_id=:pipeline_id
@@ -556,7 +555,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/promotions?pipeline_id=:pipeline_id
 
 **Params**
 
-- `pipeline_id` (**required**) - ID of a pipeline
+- `pipeline_id` (**required**) - ID of a pipeline.
 
 **Response**
 
@@ -589,7 +588,7 @@ curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/promotions\?pipeline_id\=:pipeline_id"
 ```
 
-### Trigger Promotion
+### Triggering a promotion
 
 ```
 POST {org_name}.semaphoreci.com/api/v1alpha/promotions
@@ -598,8 +597,8 @@ POST {org_name}.semaphoreci.com/api/v1alpha/promotions
 **Params**
 
 - `pipeline_id` (**required**) - ID of a pipeline
-- `name` (**required**) - Name of promotion, e.g. `Production deployment`
-- `override` (*optional*) - Boolean safeguard flag that needs to be set to `true` if you want to trigger a promotion of a pipeline that has failed or is still running.
+- `name` (**required**) - Name of the promotion, e.g. `Production deployment`
+- `override` (*optional*) - Boolean safeguard flag that needs to be set to `true` if you want to trigger a promotion for a pipeline that has failed or is still running.
 
 **Response**
 
@@ -617,7 +616,7 @@ curl -H "Authorization: Token {api_token}"  \
 
 ## Jobs
 
-### Describe Job
+### Describing a job
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id
@@ -694,7 +693,7 @@ curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id"
 ```
 
-### Stop Job
+### Stopping a job
 
 ```
 POST {org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id/stop
@@ -713,7 +712,7 @@ curl -i -X POST -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/jobs/:job_id/stop"
 ```
 
-### Get Log
+### Getting a log
 
 ```
 GET https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json
