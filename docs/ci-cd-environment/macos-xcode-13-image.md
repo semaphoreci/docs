@@ -75,7 +75,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.196.0)
+- fastlane (2.199.0)
 - cocoapods (1.11.2)
 
 ## Languages
@@ -88,7 +88,7 @@ Following gems are pre-installed:
 
 Installed version:
 
-- v17.0.1
+- v17.2.0
 
 #### Additional tools
 
@@ -115,7 +115,7 @@ Installed versions:
 
 ## Flutter
 
-- 2.5.3
+- 2.8.1
 
 ## Xcode
 
@@ -123,11 +123,12 @@ Installed versions:
 
 - 13
 - 13.1
+- 13.2.1
 
-The default installed Xcode version is `13.1`.
+The default installed Xcode version is `13.2.1`.
 
 
-Xcode 13.1 has the following SDKs preinstalled:
+Xcode 13.2.1 has the following SDKs preinstalled:
 
 - iphoneos 15
 - iphonesimulator 15
