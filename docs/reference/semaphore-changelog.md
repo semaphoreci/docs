@@ -18,7 +18,7 @@ This page is updated on a weekly basis.
 **(Updated)** Updated packages:
 
 - Fastlane 2.197.0 -> 2.199.0
-- Flutter 2.5.1 -> 2.5.3
+- Flutter 2.5.3 -> 2.8.1
 - Node v17.0.1 -> v17.2.0
 - PostgreSQL 14.0 -> 14.1
 
