@@ -109,13 +109,13 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1 (default)
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3, 1.13.0 (default)
+- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2 (default)
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3, 1.13.0, 1.13.1 (default)
 
 Additional libraries:
 
 - rebar: 2.6.4
-- rebar3: 3.15.2
+- rebar3: 3.17.0
 
 ### Go
 
@@ -133,7 +133,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 8u292, 11.0.11, 17.0.1
+- Java: 8u312, 11.0.13, 17.0.1
 - Scala: 2.11.11, 2.12.10
 - Leiningen: 2.9.1 (Clojure)
 - sbt
@@ -154,7 +154,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.22.15
+- Yarn: 1.22.17
 
 ### PHP
 
@@ -168,7 +168,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.26`.
+The default installed PHP version is `7.4.27`.
 
 #### Additional libraries
 
