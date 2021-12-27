@@ -8,6 +8,56 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of December 27, 2021
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Erlang 24.2 (default)
+- Elixir 1.13.1 (default)
+- PHP 
+  - 7.4.27 (default) 
+  - 8.0.14
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.24 -> 1.22.26
+- Github-cli 2.3.0 -> 2.4.0
+- Yarn 1.22.15 -> 1.22.17
+- Java 11.0.11 -> 11.0.13
+- Kerl 2.1.2 -> 2.2.3
+- Rebar 3.14.3 -> 3.17.0
+- Erlang
+  - 22.3.4.23-> 22.3.4.24
+  - 23.3.4.9 -> 23.3.4.10
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 24.2 (default)
+- Elixir 1.13.1 (default)
+- PHP
+  - 7.4.27 (default)
+  - 8.0.14
+
+**(Updated)** Updated packages:
+
+- Github-cli 2.3.0 -> 2.4.0
+- Yarn 1.22.15 -> 1.22.17
+- Java 8u292 -> 8u312
+- Java 11.0.11 -> 11.0.13
+- Kerl 2.1.2 -> 2.2.3 
+- Rebar 3.15.2 -> 3.17.0
+- Erlang
+  - 22.3.4.23-> 22.3.4.24
+  - 23.3.4.9 -> 23.3.4.10
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+
 ### Week of December 20, 2021
 
 **(Improved) macOS Xcode 13 image update**
