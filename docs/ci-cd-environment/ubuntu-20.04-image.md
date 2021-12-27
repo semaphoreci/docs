@@ -188,6 +188,7 @@ Available versions:
 - 2.6.0 to 2.6.9
 - 2.7.0 to 2.7.5
 - 3.0.0 to 3.0.3
+- 3.1.0
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
