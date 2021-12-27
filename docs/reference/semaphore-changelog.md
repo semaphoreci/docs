@@ -16,6 +16,7 @@ This page is updated on a weekly basis.
 
 - Erlang 24.2 (default)
 - Elixir 1.13.1 (default)
+- Ruby 3.1.0
 - PHP 
   - 7.4.27 (default) 
   - 8.0.14
@@ -40,6 +41,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 - Erlang 24.2 (default)
 - Elixir 1.13.1 (default)
+- Ruby 3.1.0
 - PHP
   - 7.4.27 (default)
   - 8.0.14
