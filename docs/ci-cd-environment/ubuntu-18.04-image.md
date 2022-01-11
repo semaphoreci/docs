@@ -67,8 +67,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 96
-- ChromeDriver 96
+- Google Chrome 97
+- ChromeDriver 97
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -150,7 +150,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.13.1 (set as default, with alias 16.13)
+- v16.13.2 (set as default, with alias 16.13)
 
 #### Additional tools
 

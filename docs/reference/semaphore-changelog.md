@@ -8,6 +8,31 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve the product for you.
 This page is updated on a weekly basis.
 
+### Week of January 10, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.31.0 -> 2.32.0
+- Aws-cli 1.22.26 -> 1.22.32
+- Google Chrome 96 -> 97
+- ChromeDriver 96 -> 97
+- NodeJS 16.13.1 -> 16.13.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Azure-cli 2.31.0 -> 2.32.0
+- Google Chrome 96 -> 97
+- ChromeDriver 96 -> 97
+- NodeJS 16.13.1 -> 16.13.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+
 ### Week of December 27, 2021
 
 **(Improved) Ubuntu 20.04 image update**
