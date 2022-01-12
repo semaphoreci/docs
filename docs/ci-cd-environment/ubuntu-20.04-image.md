@@ -146,7 +146,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.13.1 (set as default)
+- v16.13.2 (set as default)
 
 #### Additional tools
 
@@ -160,7 +160,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.26`.
+The default installed PHP version is `7.4.27`.
 
 #### Additional libraries
 
