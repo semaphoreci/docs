@@ -20,8 +20,6 @@ blocks:
 
         - name: Mkdocs & Nginx
           commands:
-            # Skip publishing test result summary for this job
-            - export SKIP_TEST_RESULT_PUBLISH=true
             - make configure.gcloud
             - make mkdocs.build
             - make nginx.build
@@ -31,13 +29,12 @@ blocks:
       epilogue:
         always:
           commands:
-            # Publish test results only when SKIP_TEST_RESULT_PUBLISH is not set
-            - '[[ ! -v SKIP_TEST_RESULT_PUBLISH ]] && test-results publish junit.xml'
+            - '[[ -f junit.xml ]] && test-results publish junit.xml'
       secrets:
         - name: container-registry-writer
 
 promotions:
-  - name: Staging
-    pipeline_file: stg.yml
+  - name: Production
+    pipeline_file: prod.yml
     auto_promote:
-      when: "result = 'passed'"
+      when: "result = 'passed' and branch = 'master'"
