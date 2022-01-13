@@ -3,7 +3,7 @@
 BRANCH=$(shell echo "$(SEMAPHORE_GIT_BRANCH)" | sed 's/[^a-z]//g')
 
 IMAGE_REDIRECT="us.gcr.io/semaphore2-prod/docs-redirect"
-IMAGE_TAG_REDIRECT="start-$(BRANCH)-$(SEMAPHORE_WORKFLOW_ID)-sha-$(SEMAPHORE_GIT_SHA)"
+IMAGE_TAG_REDIRECT="$(BRANCH)-$(SEMAPHORE_WORKFLOW_ID)-sha-$(SEMAPHORE_GIT_SHA)"
 
 server:
 	docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material:4.6.3
