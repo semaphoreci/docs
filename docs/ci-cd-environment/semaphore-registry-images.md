@@ -262,5 +262,3 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 
 
 
-registry.semaphoreci.com/unity/editor: ...
-
