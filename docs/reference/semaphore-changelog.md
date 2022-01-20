@@ -5,7 +5,7 @@ Description: We continuously deploy changes that improve our product. This page 
 # Semaphore Changelog
 
 Thank you for using Semaphore!
-We continuously deploy changes that improve our product for our customers (you!).
+We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
 ### Week of November 29, 2021
@@ -207,7 +207,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 
 **(Improved) macOS Xcode 13 image**
 
-A new agent-type has been released for the macOS platform with Xcode 13 preinstalled.
+A new agent-type has been released for the macOS platform with Xcode 13 pre-installed.
 To learn more about this, check our [macOS Xcode 13 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/).
 
 **(Improved) Ubuntu 20.04 image update**
@@ -234,7 +234,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 **(New)** Packages:
 
-- Php 7.3.31, 7.4.24 (default), 8.0.11
+- PHP 7.3.31, 7.4.24 (default), 8.0.11
 - Erlang 24.1 (default)
 
 **(Updated)** Updated packages:
@@ -264,10 +264,10 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 
 **(Improved) Semaphore registry**
 
-- Android:30-flutter image was updated, it contains flutter version 2.2.3 and 2.5.1(default)
+- Android:30-flutter image was updated, it now contains flutter version 2.2.3 and 2.5.1(default)
 
 **(Improved) Toolbox update**
-- Toolbox/sem-version can switch between the preinstalled flutter versions 2.5.1(default) and 2.2.3
+- Toolbox/sem-version can switch between pre-installed flutter versions 2.5.1(default) and 2.2.3
   when using semaphore's android:30-flutter image. Syntax: `sem-version flutter [2.2.3|2.5.1]`
 
 **(Improved) Ubuntu 20.04 image update**
@@ -305,7 +305,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 **IMPORTANT: (Deprecated) MacOS Xcode 11**  
 
-[Macos Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
+The [macOS Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
 We advise all users to switch to the [macOS Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
 
@@ -380,7 +380,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 
 **(Improved) Ubuntu 18.04 image update**
 
-- **(Deprecated)** Because Python 2.7 reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the start of September 2021.
+- **(Deprecated)** Python 2.7 has reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the beginning of September 2021.
 
 **(New)** Packages:
 
@@ -399,12 +399,12 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 **(Improved) Test Summary UX improvements**
 
-- Auto-expand errors if there are less than the given threshold (4).
+- Auto-expand errors if there are fewer than the given threshold (4).
 - Auto-select test results with failures (instead of the first one on the list).
-- Fix ligatures being displayed in test output.
+- Fixed ligatures that are displayed in test output.
 - More generic test result sample files.
 
-To learn how to set up Test Summary check [our docummentation page](https://docs.semaphoreci.com/essentials/test-summary/).
+To learn how to set up a Test Summary check [our docummentation](https://docs.semaphoreci.com/essentials/test-summary/).
 
 **(Improved) Ubuntu 20.04 image update**
 
@@ -422,7 +422,7 @@ To learn how to set up Test Summary check [our docummentation page](https://docs
 - Sbt 1.3.10 -> 1.5.5
 - Terraform 0.15.0 -> 0.15.5
 
-To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 
 **(Improved) Ubuntu 18.04 image update**
 
@@ -476,7 +476,7 @@ Take the advantage of this new feature now to:
 - Sort and filter the output of your tests however you see fit.
 - Search through big test suits to find what you're looking for.
 
-To learn more on how to configure test summary, check our [docummentation page](https://docs.semaphoreci.com/essentials/test-summary/).
+To learn more about how to configure the Test Summary feature, check our [docummentation](https://docs.semaphoreci.com/essentials/test-summary/).
 
 **(New) Parameterized promotions (beta)**  
 With parameterized promotions, you can re-use a single promotion pipeline and use environment variables to achieve different results based on the variable values. 
@@ -506,12 +506,12 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 ### Week of Jun 14, 2021
 **(New) Offboarding page**  
-You can now access new offboarding page that will appear when trying to remove the project owner.  
+You can now access the new offboarding page that will appear when trying to remove a project's owner.  
 On this page you can:  
 
 - See the list of all projects that a given user is the owner of
-- Remove the project
-- Transfer the project to yourself
+- Remove a project
+- Transfer a project to yourself
 
 **(Improved) Ubuntu 20.04 image update**  
 
@@ -559,33 +559,33 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 - Chromedriver 90 -> 91
 
 ### Week of May 31, 2021
-**(New) Granular repository access through GitHub App**  
-Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) was introduced as a new way of connecting GitHub repositories with Semaphore.  
+**(New) Granular repository access via GitHub App**  
+Semaphore [GitHub App](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#connecting-a-repository-via-github-app) has been introduced as a new way of connecting GitHub repositories with Semaphore.  
 
-Users can now connect Semaphore through the GitHub App instead of via personal access token, and choose which repositories they want to give access to. 
+Users can now connect Semaphore through the GitHub App instead of via personal access token, and choose which repositories they want to grant access to. 
 
-Find out more about the difference between GitHub App and personal access token in our [documentation](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#oauth-app-vs-github-app).
+Find out more about the difference(s) between GitHub App and personal access token in our [documentation](https://docs.semaphoreci.com/account-management/connecting-github-and-semaphore/#oauth-app-vs-github-app).
 
 **(New) Change project owner**  
 Users can now change project owner in the UI, making user offboarding easier.  
 
-Project owner update form can be accessed in _Project Settings -> General_.
+The project owner update form can be accessed in _Project Settings -> General_.
 
 **(New) Ubuntu 20.04 image**  
-A brand new image based on Ubuntu 20.04 is now available.  
+A new image based on Ubuntu 20.04 is now available.  
 Please note that currently this image **can only be used on `e1-standard-2` machines**.
 
-Some of the improvements compared to Ubuntu 18.04 image include:
+Some of the improvements compared to the Ubuntu 18.04 image include:
 
 - **Speed** - This release has enhanced resource usage and includes a newer kernel.
 - **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
 - **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04 by upstream providers.
-- **Expanded software stack** - 20.04 software stack will continue expanding with new packages, while new ones will not be added in 18.04.
-- **Containers** - Newest utilities can be installed (podman, skopeo, buildah).
+- **Expanded software stack** - 20.04 software stack will continue expanding with new packages, while new ones will not be added for 18.04.
+- **Containers** - The newest utilities can be installed (e.g. podman, skopeo, buildah).
 
-To find out more about the differences between the Ubuntu 18.04 and Ubuntu 20.04 image, check out our [migration guide](https://docs.semaphoreci.com/ci-cd-environment/agent-migration-to-ubuntu2004/).
+To find out more about the differences between the Ubuntu 18.04 and Ubuntu 20.04 images, check out our [migration guide](https://docs.semaphoreci.com/ci-cd-environment/agent-migration-to-ubuntu2004/).
 
-You can read more about the image itself on [Ubuntu 20.04 image page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+You can read more about the image itself on the [Ubuntu 20.04 image page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
 
 **(Improved) Ubuntu 18.04 image update**  
 
@@ -633,7 +633,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 **(Updated) Toolbox**
 
 - sem-version fails the job if the switch was unsuccessful
-- sem-version **beta** introduced for macOS based agents, and ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1 versions are also available.
+- sem-version **beta** introduced for macOS-based agents, and ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1 versions are also available.
 
 
 
@@ -657,7 +657,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 - Java 8u282 -> 8u292
 - Java 11u10 -> 11u11
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** MacOS Catalina upgraded to **Big Sur**
@@ -679,7 +679,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 **(Updated)** Updated packages:
  
 - Homebrew 2.4.3 -> 3.1.4
-- Rbenv can install ruby: 2.6.7, 2.7.3, 3.0.1
+- Rbenv can install ruby 2.6.7, 2.7.3, 3.0.1
 
 To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
 
@@ -700,7 +700,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 - Pypy 7.3.3 -> 7.3.4
 - Pypy3 7.3.3 -> 7.3.4
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 
 ### Week of April 12, 2021
@@ -709,7 +709,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 
 - Ruby 2.5.9, 2.6.7, 2.7.3, 3.0.1
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 **(Improved) macOS Xcode 12 image update**  
 **(Updated)** Updated packages:
@@ -733,14 +733,14 @@ A new set of improvements focused on monorepo support were shipped:
 - **Exclude parameter** - A new option in change_in adds the ability to define which folders or files to skip. 
 - **Glob pattern support** - change_in conditions have been further extended to allow the use of wildcards.
 - **Clearer error messages** - Improved error messages for the most common misconfiguration issues.
-- **Improved stability** - All compilation errors arising from edge cases were eliminated, making these features more reliable. 
+- **Improved stability** - All compilation errors arising from edge cases have been eliminated, making these features more reliable. 
 
 You can read more about this feature in this [blog post](https://semaphoreci.com/blog/monorepo-support-available). 
 
-Additional reading material:
+Additional related reading:
 
 - [Example project](https://github.com/semaphoreci-demos/semaphore-demo-monorepo/)
-- [Monorepo docs page](https://docs.semaphoreci.com/essentials/building-monorepo-projects/)
+- [Monorepo docs](https://docs.semaphoreci.com/essentials/building-monorepo-projects/)
 - [change_in docs](https://docs.semaphoreci.com/reference/conditions-reference/#change_in)
 
 
@@ -759,7 +759,7 @@ Additional reading material:
 - Grunt 1.3.2 -> 1.4.1
 - Heroku  -> 7.51.0
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 **(Improved) Toolbox**  
 **(Updated)** Sem-service addons:  
@@ -773,21 +773,21 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 
 **(Updated)** Sem-version updates:  
 
-- Php versions 7.3.x , 7.4.x, 8.0.x had their composer updated to version 2 (composer.json files might need to be updated also)
+- PHP versions 7.3.x , 7.4.x, 8.0.x had their composer updated to version 2 (composer.json files might need to be updated also)
 
-You can find out more about Semaphore toolbox by checking the [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/#toolbox-reference) docs page.
+You can find out more about Semaphore toolbox by checking the [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/#toolbox-reference) documentation.
 
 ### Week of March 22, 2021
 **(Improved) New UI updates**  
 Based on user feedback, the UI was updated to make navigation even more intuitive.  
-Here are some of the changes that were introduced:   
+Here are some of the changes that have been introduced:   
 
 - Top right page menu links have been redesigned as tabs.
 - New breadcrumbs will always be present on the page.
 - Several new visual queues have been introduced to draw attention to active elements. 
 - Updated fonts and icons make it easier to find key information on the page.
 
-If you have any suggestions or further improvements to our UI, we encourage you to send them to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=UI%20Feedback).
+If you have any suggestions for further improvements to our UI, we encourage you to send them to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=UI%20Feedback).
 
 ### Week of March 08, 2021
 **(Improved) Ubuntu 18.04 image update** 
@@ -800,7 +800,7 @@ If you have any suggestions or further improvements to our UI, we encourage you 
 - Google Chrome 88 -> 89
 - Heroku 7.49.1 -> 7.50.0
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of March 01, 2021
 **(Improved) Ubuntu 18.04 image update** 
@@ -814,7 +814,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 - Java 8u275 -> 8u282
 - Java 11.0.9 -> 11.0.10
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of February 22, 2021
 **(Improved) Artifacts CLI fixes and improvements:**
@@ -844,11 +844,11 @@ Check our [Artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-ref
 - Docker-compose 1.27.4 -> 1.28.2
 - Heroku 7.47.7 -> 7.47.12
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of February 1, 2021
 **(Improved) macOS Xcode 12 image update**  
-**(New)** Xcode 12.4 is installed and set as the default version. To switch to any other supported version simply use `xcversion select <version>`.  
+**(New)** Xcode 12.4 has been installed and set as the default version. To switch to any other supported version simply use `xcversion select <version>`.  
 **(Updated)** Updated packages:
  
 - Fastlane 2.170.0 -> 2.172.0
@@ -880,15 +880,15 @@ Docker was reverted to the previous version due to degradation in performance an
 - Git-Lfs 1.13.1 -> 1.13.2
 - Heroku 7.47.6 -> 7.47.7
 - Pip 20.3.3 -> 20.2.4
-- Php 7.3.25 -> 7.3.26
-- Php 7.4.13 -> 7.4.14
-- Php 8.0.0 -> 8.0.1
+- PHP 7.3.25 -> 7.3.26
+- PHP 7.4.13 -> 7.4.14
+- PHP 8.0.0 -> 8.0.1
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 **Minor improvements and fixes:**
 
-- **(Fixed)**  Favicon on the workflow page is now fixed and it reflects the status of the build.  
+- **(Fixed)** The Favicon on the workflow page is now fixed and it reflects the status of the build.  
 - **(Improved)** Artifacts will now open in-browser (depending on mime type)  
 
 ### Week of January 11, 2021
@@ -896,7 +896,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 **(New)** Language versions:  
 
 - Ruby 3.0.0
-- Php 8.0.0
+- PHP 8.0.0
 
 **(New)** Package:
 
@@ -915,12 +915,12 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
 - Pip 20.2 -> 20.3.3
 
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 
 ### Week of December 21, 2020  
 **(Improved) macOS Xcode 12 image update**  
-**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported on the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
+**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported in the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
 **(New)** Xcode 12.3 was added to the image.  
 **(Updated)** Updated packages:
  
@@ -930,8 +930,8 @@ Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12]
 
 **Minor improvements and fixes:**
 
-- **(Fixed)** the issue where email invites were not sent to some collaborators during the project creation phase. 
-- **(Fixed)** the issue where multiple instances of a project are created, when a user clicks multiple times when choosing a repository.
+- **(Fixed)** Fixed the issue where email invites were not sent to some collaborators during the project creation phase. 
+- **(Fixed)** Fixed the issue where multiple instances of a project are created when a user clicks multiple times when choosing a repository.
 
 ### Week of December 14, 2020
 **(Improved) Ubuntu 18.04 image update**  
@@ -939,10 +939,10 @@ Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12]
 
 - Go 1.14.13
 - Go 1.15.6
-- Php 7.3.25
-- Php 7.4.13
+- PHP 7.3.25
+- PHP 7.4.13
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of December 7, 2020
 
@@ -952,7 +952,7 @@ To learn more about this image, check our [ubuntu 18.04 page](https://docs.semap
  
 - Fastalne 2.167.0 ->  2.169.0
 
-To learn more about our image macOS images, check our [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and [macOS Xcode 11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) documentation pages. 
+To learn more about our image macOS images, check our [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and [macOS Xcode 11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) documentation. 
 
 ### Week of November 23, 2020
 
@@ -971,15 +971,15 @@ To learn more about our image macOS images, check our [macOS Xcode 12](https://d
 - Google Chrome 86 -> 87
 - Heroku 7.47.0 -> 7.47.3
 - Java 8u272 -> 8u275
-- Php 7.4.11 -> 7.4.12
+- PHP 7.4.11 -> 7.4.12
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of November 16, 2020
 **(New) Added ability to overwrite branch whitelist rules**  
-On the project page, click on the three dots icon in the top right corner of the workflow list to build a branch that is otherwise blocked by the whitelist rule. 
+On the project page, click on the three dot icon in the top right corner of the workflow list to build a branch that is otherwise blocked by the whitelist rule. 
  
-Read our [Workflow triggers](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#whitelist-branches) page to find out how the branch whitelist works.
+Read our [Workflow triggers](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#whitelist-branches) documentation to find out how the branch whitelist works.
  
 **(Improved) macOS Xcode 11 image update**  
 **(Updated)** Updated packages:  
@@ -994,8 +994,8 @@ To learn more about this image, check our [macOS Xcode 11 page](https://docs.sem
 **(Updated) New UI available to everyone**  
 The new UI is available to all users. Minor performance updates and fixes have been implemented:
  
-- **(Fixed)** the issue with job logs auto-scrolling to top of the failed command output, instead of to the bottom. 
-- **(Fixed)** the issue with manual promotions being triggered based on promotion name.
+- **(Fixed)** fixed the issue with job logs auto-scrolling to top of the failed command output, instead of to the bottom. 
+- **(Fixed)** fixed the issue with manual promotions being triggered based on promotion name.
  
 You can read more about the new UI in this [blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).
 We appreciate your feedback and encourage you to send any suggestions to [our feedback inbox](mailto:feedback@semaphoreci.com?subject=Beta%20Feedback).
@@ -1013,9 +1013,9 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 ### Week of November 2, 2020
 
 **(Updated) UI updates and improvements**  
-The UI was updated to address the most common feedback in the beta phase. Some of the improvements made include:  
+The UI was updated to address the most common feedback in the beta phase. Some of the improvements include:  
 
-- Added the "Projects" menu in the header for easier navigation.
+- Added a "Projects" menu in the header for easier navigation.
 - Added more visual structure to emphasize individual elements.
 - Redesigned workflow items in the workflow list to make branches more prominent.
 - Added a "My starred items" tab on the home page.
@@ -1050,7 +1050,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 - Openjdk 11.0.8 -> 11.0.9
 - PHP 7.3.23 -> 7.3.24
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of October 19, 2020
 **(Updated) New UI - Everyone's latest work page**  
@@ -1068,7 +1068,7 @@ If a user doesn't have access to a project, or the project was deleted, that pro
 - Go 1.15.2 ->1.15.3
 - Heroku 7.44.0 -> 7.46.0
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of October 12, 2020
 
@@ -1100,7 +1100,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 - PHP 7.4.10 -> 7.4.11
 - Pypy 7.3.1 -> 7.3.2
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
 
 **(New) New os_image - macOS Xcode 12**  
 New MacOS image is now available - `macos-xcode12`.  
@@ -1117,14 +1117,14 @@ You can access this feature by clicking on the _New project_ button in the top r
 Find more tutorials and examples [in our documentation](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/).
 
 **(Improved) New UI fixes and upgrades**  
-**(Fixed)** - The issue causing some branches to be missing from search in various locations.  
+**(Fixed)** - Fixed the issue causing some branches to be missing from search in various locations.  
 **(Stability)** - Reduced the number of errors and improved the stability of key pages in the new UI.  
-**(Stability)** - Load time has been improved on several key pages in the new UI.  
+**(Stability)** - Load times have been improved on several key pages in the new UI.  
 
 ### Week of September 21, 2020
 **(New) Ubuntu 18.04 image additions** 
 
-- Added the possibility to change `kubectl` version with the sem-version tool: `sem-version kubectl [version]`
+- Added the ability to change `kubectl` version with the sem-version tool: `sem-version kubectl [version]`
 - Added elixir versions: 1.10.0, 1.10.2, 1.10.3
 
 **(Improved) Ubuntu 18.04 image update**  
@@ -1137,13 +1137,13 @@ Find more tutorials and examples [in our documentation](https://docs.semaphoreci
 - PHP 7.3.21 -> 7.3.22
 - PHP 7.4.9 -> 7.4.10
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of September 7, 2020  
 **(Improved) New UI improvements and fixes**  
 **(New)** Timestamps - in job logs you can now enable timestamps for command output lines.  
 **(Improved)** On the workflow page, it is now clearly specified if the pipeline was stopped by branch deletion.  
-**(Fixed)** Automated scrolling to the selected pipeline was removed in the workflow page.  
+**(Fixed)** Automated scrolling to the selected pipeline was removed from the workflow page.  
 **(Fixed)** Fixed the issue where the `exit_code` of the last executed command in the job log was missing.  
 **(Fixed)** Fixed several performance and stability issues that were causing 500s on multiple pages.  
 
@@ -1174,24 +1174,24 @@ To learn more about this image, check our [macOS Xcode 11 page](https://docs.sem
 - Heroku 7.42.8 -> 7.42.13
 - Yarn 1.22.4 -> 1.22.5
 
-To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of August 31, 2020
 **(Improved) New Semaphore UI public beta release**  
 After a successful private beta, the new Semaphore UI has been rolled out to a larger number of users.  
 The new UI brings several improvements:  
 
-- Easier navigation through better breadcrumbs and a new "Jump to" element.
+- Easier navigation via better breadcrumbs and a new "Jump to" element.
 - Additional information in workflow lists allows you to quickly see the status of deployments.
-- Enhanced Workflow builder - new options like fail-fast and auto-cancel have been added to the Workflow builder.
-- Improved job logs with collapsable command lines and dark theme.
-- Activity Monitor page that provides a handy overview of your running pipelines and quota limits.
+- Enhanced Workflow builder: new options like fail-fast and auto-cancel have been added to the Workflow builder.
+- Improved job logs with collapsable command lines and a dark theme.
+- Activity Monitor page that provides a handy overview of running pipelines and quota limits.
 
-You can read more about new UI in this [blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).  
+You can read more about the new UI in this [blog post](https://semaphoreci.com/blog/refreshed-new-ui-for-a-greater-experience).  
 If you want to try out the new UI, but it hasn't yet rolled out to your organization, please reach out to [our support team](mailto:support@semaphoreci.com).
 
 **(Improved) macOS Xcode11 image update**  
-**(Updated)** Xcode 11.6 installed. To switch version simply use `xcversion select 11.6`  
+**(Updated)** Xcode 11.6 installed. To switch version simply use `xcversion select 11.6`.
 **(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.  
   
 To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
@@ -1213,7 +1213,7 @@ Information on all available enviroment variables can be found in our [documenta
   - PHP 7.4.8 -> 7.4.9
   - Pypy 5.8.0 -> 7.3.1
   
- To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
+ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).  
   
 **(Improved) macOS Xcode11 image update**  
 **(Updated)** Updated packages:  
@@ -1241,7 +1241,7 @@ Pipelines can be configured to run sequentially or in parallel, based on various
 
 For example, you can now configure a pipeline to run in parallel on the same branch or create a single queue across the whole organization for all pipelines that deploy to production.  
 
-To learn how to use this feature, check the [pipeline queues](https://docs.semaphoreci.com/essentials/pipeline-queues/) documentation page.
+To learn how to use this feature, check the [pipeline queues](https://docs.semaphoreci.com/essentials/pipeline-queues/) documentation.
 
 **(Improved) Ubuntu 18.04 image update**  
 
@@ -1254,7 +1254,7 @@ Added ability to change firefox version with the `sem-version` tool: `sem-versio
   - Heroku 7.42.5 -> 7.42.6
   - Google-cloud-sdk downgraded 300 -> 297
   
-  To learn more about this image, check our [ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+  To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of July 27, 2020
 **(Improved) Ubuntu 18.04 image update**  
@@ -1273,17 +1273,17 @@ Added ability to change firefox version with the `sem-version` tool: `sem-versio
   - PHP 7.4.7 -> 7.4.8
   - Chrome_driver 83 > 84
 
-To learn more check our [ubuntu1804 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+To learn more check our [Ubuntu1804 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of July 20, 2020
 **(New) Job prioritization**  
-Job `priority` allows you to manage the order in which queued jobs run when the [quota](https://docs.semaphoreci.com/reference/quotas-and-limits/) of maximum parallel jobs for your organization is reached.  
+Job `priority` allows you to manage the order in which queued jobs run when the maximum [quota](https://docs.semaphoreci.com/reference/quotas-and-limits/) of parallel jobs for your organization is reached.  
 
-For more details on setting job priorities check the [prioritization page](https://docs.semaphoreci.com/essentials/prioritization/) in our documentation.
+For more details on setting job priorities check the [prioritization page](https://docs.semaphoreci.com/essentials/prioritization/) documentation.
 
 **(Improved) GitHub Settings**  
-The option to check the health of GitHub deploy key and webhook have been added in project settings UI.  
-These new settings also allow you to quickly repair connections between the Semaphore project and GitHub repository.
+The option to check the health of GitHub deploy key and webhook has been added in the project settings UI.  
+These new settings also allow you to quickly repair connections between a Semaphore project and connected GitHub repositories.
 
 Read more about troubleshooting connections between Semaphore and GitHub in our [documentation](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health).
 
@@ -1318,11 +1318,11 @@ The following packages were updated:
     - Fastlane 1.50.1
     - Flutter 1.17.5
 - A new convenience Docker image available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
-A detailed list can be found in [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2939).
+A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2939).
 
 ### Week of June 15, 2020
 
-- Updates to macos-xcode11 image:
+- Updates to the macos-xcode11 image:
     - flutter v1.17.3
     - cocoapods 1.9.3
     - nodejs v13.12.0
@@ -1338,14 +1338,14 @@ A detailed list can be found in [Docker images changelog](https://github.com/sem
     - Heroku 7.41.1 -> 7.42.1
     
 ### Week of June 8, 2020
-- macOS Mojave image (macos-mojave-xcode11) has been deprecated. 
+- The macOS Mojave image (macOS-mojave-xcode11) has been deprecated. 
 
 ### Week of June 1, 2020
 
-- Additions to the ubuntu1804 image
+- Additions to the Ubuntu1804 image
     - Erlang 23.0
 
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.59 -> 1.18.68
     - Chromedriver 81 -> 83
     - Google Chrome 81 -> 83
@@ -1361,10 +1361,10 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - Flutter version update to 1.17.1
     - Fastlane gem version update to 2.148.1
 
-- Additions to the ubuntu1804 image:
+- Additions to the Ubuntu1804 image:
     - Doctl 1.43.0
 
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.42 -> 1.18.59
     - Git-lfs 2.10.0 -> 2.11.0
     - Go 1.13.9 -> 1.13.10
@@ -1379,7 +1379,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Fixed: The secrets API was returning HTTP 404 for all Secrets with a colon in their name (example: `a:b:c`).
 - Semaphore will now log you out less often.
-- New: You can now run Pull Requests from outside contributors with [sem-approve](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#approve-forked-pull-requests).
+- New: you can now run Pull Requests from outside contributors with [sem-approve](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/#approve-forked-pull-requests).
 
 ### Week of May 03, 2020
 
@@ -1392,7 +1392,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of April 27, 2020
 - New macOS image available - [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.39 -> 1.18.42
     - Jruby 9.1.17.0 -> 9.2.11.1
     - Heroku 7.39.1 -> 7.39.3
@@ -1403,12 +1403,12 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - `macos-mojave-xcode11` Xcode 11.4.1 installed. To switch version use
     `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
     - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - TCP port 8000 is no longer occupied.
 
 ### Week of April 13, 2020
 
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.32 -> 1.18.39
     - Google Chrome 80 -> 81
     - Chromedriver 80 -> 81
@@ -1430,12 +1430,12 @@ A detailed list can be found in the [Docker images changelog](https://github.com
       - google-chrome
       - firefox
       - microsoft-edge
-- A new convenience Docker image available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
+- A new convenience Docker image is available in Semaphore's [dockerhub](https://hub.docker.com/u/semaphoreci).
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L1345).
 
 ### Week of March 30, 2020
 
-- Updates to the ubuntu1804 image:
+- Updates to the the Ubuntu1804 image:
     - Aws-cli 1.18.21 -> 1.18.28
     - Git        2.25 -> 2.26
     - Heroku   7.39.0 -> 7.39.1
@@ -1444,20 +1444,20 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of March 16, 2020
 
-- Additions to the ubuntu1804 image:
+- Additions to the Ubuntu1804 image:
     - Elixir 1.10.2
     - Go 1.14
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.7 -> 1.18.21
     - Heroku  7.38.2 -> 7.39.0
     - Yarn    1.21.1 -> 1.22.4
 
 ### Week of March 02, 2020
 
-- Additions to the ubuntu1804 image:
+- Additions to the Ubuntu1804 image:
     - Elixir 1.10.1
     - PHP    7.4.3
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli 1.17.17 -> 1.18.7
     - Erlang     22.1 -> 22.2
     - Go      1.12.10 -> 1.12.17
@@ -1478,7 +1478,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - Android Docker images load in 2 seconds or less.
 - Workflow page: clicking on the list of pipeline runs will open and focus on
   that part of the workflow.
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Aws-cli  1.17.9 -> 1.17.17
     - Chrome       79 -> 80
     - Chromedriver 79 -> 80
@@ -1491,7 +1491,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of February 10, 2020
 
 - New: [The alpha version of the Semaphore 2.0 API](https://docs.semaphoreci.com/reference/api-v1alpha/)
-  is now available. The initial release focuses on ability to control workflows.
+  is now available. The initial release focuses on the ability to control workflows.
 - Jobs export `SEMAPHORE_WORKFLOW_TRIGGERED_BY_*` [environment
   variables](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/).
 - With monorepos, when a block is skipped, Semaphore now shows a “skipped” badge.
@@ -1510,15 +1510,15 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of February 3, 2020
 
-- Additions to the ubuntu1804 image:
+- Additions to the Ubuntu1804 image:
     - libmaxminddb0
     - libmaxminddb-dev
-- ubuntu1804 kernel settings changes:
+- Ubuntu1804 kernel settings changes:
     - vm.max_map_count=262144
     - fs.inotify.max_user_instances=524288
     - fs.inotify.max_user_watches=524288
     - fs.inotify.max_queued_events=524288
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Heroku  7.35.1 -> 7.37.0
     - Java8     u232 -> u242
     - Java11  11.0.5 -> 11.0.6
@@ -1539,11 +1539,11 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of January 13, 2020
 
 - New: "Jump to a branch or pull request" quick search modal dialog
-  available on the project page.
-- Additions to ubuntu1804 image:
+  is available on the project page.
+- Additions to the ubuntu1804 image:
     - Python 3.8
     - Snapd
-- Updates to the ubuntu1804 image:
+- Updates to the Ubuntu1804 image:
     - Awc-cli       1.16 -> 1.17.1
     - Firefox esr 68.2.0 -> 68.4.1
     - Geckodriver 0.21.0 -> 0.26.0
@@ -1564,8 +1564,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
       - cocoapods (1.8.4)
 - New convenience Docker images are available in Semaphore's DockerHub Account.
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L528).
-- We have retroactively updated the changelog to mention new features and improvements
-  (scroll down).
+- We have retroactively updated previous entries in the changelog to mention new features and improvements.
 
 ### Week of January 6, 2020
 
@@ -1579,8 +1578,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of December 30, 2019
 
 - Log page improvements: continuously live stream logs on a per-character basis,
-  not just on every new line. Plus a few bugs fixed like when dealing with very
-  large lines and low baud rate.
+  rather than for every new line. Several bugs, e.g. related to dealing with very
+  large lines and low baud rate, have been fixed.
 - Additions to ubuntu1804 image
     - Ruby 2.7.0
 
@@ -1591,7 +1590,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - [A React Native example
   project](https://github.com/semaphoreci-demos/semaphore-demo-react-native) is
   available.
-- Updates to the ubuntu1804 image
+- Updates to the Ubuntu1804 image
     - Git-lfs  2.9.1  -> 2.9.2
     - Yarn     1.19.2 -> 1.21.1
     - Chrome       78 -> 79
@@ -1612,19 +1611,19 @@ A detailed list can be found in the [Docker images changelog](https://github.com
   Each open source organization receives unlimited CI/CD minutes for building
   public repositories, including Linux, Docker, and macOS-based environments.
 - New: [Status badges](https://docs.semaphoreci.com/essentials/status-badges/).
-- Updates to ubuntu1804 image
+- Updates to the Ubuntu1804 image
     - Git-lfs 2.9.0  -> 2.9.1
     - Yarn    1.19.1 -> 1.19.2
-- Additions to ubuntu1804 image
+- Additions to the Ubuntu1804 image
     - Elixir versions 1.9.2, 1.9.3, 1.9.4
 
 ### Week of November 18, 2019
 
 - New: [Monorepo support](https://docs.semaphoreci.com/essentials/building-monorepo-projects/).
-- Updates to the ubuntu1804 image
+- Updates to the Ubuntu1804 image
     - Git      2.23   -> 2.24
     - Heroku   7.33   -> 7.35
-- Additions to the ubuntu1804 image
+- Additions to the Ubuntu1804 image
     - ImageMagick 8:6.9.7.4
 
 ### Week of November 11, 2019
@@ -1640,7 +1639,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
  - [Status badges](https://docs.semaphoreci.com/essentials/status-badges/) are available.
  - Semaphore toolbox:
-   - Fixed issue with cache corruption during parallel uploads.
+   - Fixed an issue with cache corruption during parallel uploads.
  - New [environment variables available in Semaphore
    jobs](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/):
    - `SEMAPHORE_AGENT_MACHINE_TYPE`
@@ -1651,7 +1650,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of October 21, 2019
 
-- Updates to the ubuntu1804 image
+- Updates to the Ubuntu1804 image
     - Pip      19.2   -> 19.3.1
     - Nvm      8.11.3 -> 8.16.2
     - Npm       5.6.0 -> 6.4.1
@@ -1670,7 +1669,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of October 14, 2019
 
-- Updates to the ubuntu1804 image
+- Updates to the Ubuntu1804 image
     - Heroku 7.30.0 -> 7.33.3
     - Elixir 1.8.1  -> 1.8.2
     - Elixir 1.9.0  -> 1.9.1
@@ -1685,7 +1684,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - `macos-mojave-xcode11` Xcode 11.1 installed. To switch version use
     `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
 - You can change which blocks and pipelines send status checks to pull requests
-  on GitHub: [see how here](https://docs.semaphoreci.com/reference/sem-command-line-tool/#changing-github-status-check-notifications).
+  on GitHub. [See how here](https://docs.semaphoreci.com/reference/sem-command-line-tool/#changing-github-status-check-notifications).
 
 ### Week of September 30, 2019
 
@@ -1697,21 +1696,20 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - From now on, outdated versions of the CLI will be rejected from accessing
   your organization. Compatibility of the CLI will be maintained at least up to the
   last 3 minor releases. Only in case of security issues will this
-  compatibility policy be broken.
+  compatibility policy be ignored.
 - Jobs generated with [parallelism](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#parallelism)
   use a new naming scheme: `<job-name> - <index>/<job-count>`.
   Example: `RSpec - 1/4`.
 - We introduced new syntax for configuring [auto-promotions](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_promote)
   which leverages our [Conditions DSL](https://docs.semaphoreci.com/reference/conditions-reference/)
-  to allow you to express conditions for pipeline auto-promotion in a much less
-  complicated way than before.
+  to allow you to express conditions for pipeline auto-promotion in a much simpler way than before.
 
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
     - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
     - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
-    - `macos-mojave` no longer available.
+    - `macos-mojave` is no longer available.
 - Mojave system update:
     - ProductVersion: 10.14.6
     - BuildVersion: 18G95
@@ -1729,13 +1727,13 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - A new version of CLI v0.16.0 has been released.
    - You can change the initial pipeline file of your project.
    - A fix for debug jobs from Pull Request/Tags has been released. This bug
-     caused differences in Environmens Variables between job and debug sessions.
+     caused differences in Environment Variables between job and debug sessions.
 - Visual Workflow Builder is now part of the project setup.
 
 ### Week of September 16, 2019
 
 - New feature: Artifacts. Persistent storage of final CI/CD deliverables,
-  intermediary assets and files for debugging. Now in public beta.
+  intermediary assets, and files for debugging. Now in public beta.
     - [Learn more about use cases](https://docs.semaphoreci.com/essentials/artifacts/) and
   [how to use the artifacts CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/).
 
@@ -1756,7 +1754,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of August 19, 2019
 
 - New feature: the [`parallelism`
-  property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#parallelism)
+  property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#parallelism), used
   to easily generate parallel jobs.
 - Docker-based agents can now [use private container images from any
   registry](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#pulling-private-docker-images-from-generic-docker-registries).
@@ -1780,10 +1778,10 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - New feature: [Global job
   configuration](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#global_job_config).
   Used to define common configuration and apply it across all blocks in a pipeline.
-- You can now whitelist contributors whoh can run
+- You can now whitelist contributors who can run
   Semaphore workflows for your organization when they submit a pull request from a fork.
   You can also whitelist secrets to be exposed. See your project's Settings in
-  web UI.
+  the web UI to do this.
 - Docker-based agents can now use [private container images from Google
   Container
   Registry](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#pulling-private-docker-images-from-google-gcr).
@@ -1805,8 +1803,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - The project page can now show activity from branches, pull requests, and
       tags separately.
 - New feature: [Auto-cancel pipeline
-  strategies](https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/). Stop
-  running a pipelines when there are newer commits in the repo. Use the new
+  strategies](https://docs.semaphoreci.com/essentials/auto-cancel-previous-pipelines-on-a-new-push/). You can stop
+  running a pipelines when there are newer commits in the repo. To do this use the new
   [`auto_cancel`
   property](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#auto_cancel)
   in your pipeline configuration.
@@ -1832,17 +1830,16 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of July 22, 2019
 
-- New feature: model complex workflows with pipeline dependencies. Learn more
-  about what you can do in this
+- New feature: model complex workflows with pipeline dependencies. Learn more in this
   [blog post](https://semaphoreci.com/blog/introducing-cicd-pipeline-dependencies).
 - New feature: [fail-fast on the first
   failure](https://docs.semaphoreci.com/essentials/fail-fast-stop-running-tests-on-the-first-failure/).
   Now you can stop everything in your pipeline as soon as a failure is detected,
   or stops only the jobs and blocks in your pipeline that haven't yet started.
-- A new global sidebar. It uses less screen real estate and you can star
-  projects and dashboards to appear on top of the list. Also, it loads really
+- A new global sidebar that uses less screen real estate, and lets you star
+  projects and dashboards so they appear on top of the list. Also, it loads really
   fast.
-- A new version of CLI v0.14.1 has beed released.
+- A new version of CLI v0.14.1 has been released.
    - You can now configure pull-request related settings by editing the project
    - A fix for the race condition between toolbox installation and debug session
      initialization has been released. This bug manifested as
@@ -1860,7 +1857,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 ### Week of July 1, 2019
 
-- AWS ECR support for Docker-based environment: Host your private Docker images
+- AWS ECR support for Docker-based environments: host your private Docker images
   on AWS and use them to define your
   [custom CI/CD environment](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/)
   on Semaphore.
@@ -1886,10 +1883,10 @@ if you are using protected branches with required status checks.
 ### Week of June 10, 2019
 
 - The workflow page got a fresh new look. It shows the elapsed time
-  of each job, letting you spot inefficiencies easily.
-  It also prepares the ground for some new features we'll announce
+  of each job, letting you easily spot inefficiencies.
+  This is also in preparation for some new features we'll announce
   soon.
-- Reduced the time it takes a task to complete after the last job.
+- Reduced the time it takes for a task to complete after the last job.
 
 ### Week of May 27, 2019
 
@@ -1899,7 +1896,7 @@ if you are using protected branches with required status checks.
 
 - Launched support for skipping blocks based on conditions, e.g. `branch != 'master'`.
   Read more about [skipping blocks](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks)
-  and the introduction of [Conditions domain specific language](https://docs.semaphoreci.com/reference/conditions-reference/)
+  and the introduction of the [Conditions domain specific language](https://docs.semaphoreci.com/reference/conditions-reference/)
   that allows the expression of complex conditional rules in your pipelines.
 
 - Owners and admins can now set [Budget Alerts](https://docs.semaphoreci.com/account-management/billing/#budget-alert).
@@ -1924,7 +1921,7 @@ if you are using protected branches with required status checks.
     Keys are now generated server side.
     - `sem attach` can attach to any running job without the need to inject
     public SSH keys as part of your Pipeline configuration.
-    - Debugging and attaching to jobs works for Docker based CI/CD environments
+    - Debugging and attaching to jobs works for Docker-based CI/CD environments
     - Read the updated documentation rearding [Debugging with SSH Access](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/).
 
 Upgrade to the latest CLI version:
@@ -1936,10 +1933,10 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ### Week of May 13, 2019
 
 - [iOS support is in GA](https://semaphoreci.com/blog/introducing-ios-cicd):
-  Semaphore now supports building, testing and deploying applications for any
+  Semaphore now supports building, testing, and deploying applications for any
   Apple device.
   Get started with this [Xcode tutorial](https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/)
-  and an [example Swift project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode).
+  and [example Swift project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode).
 - macOS platform:
     - Xcode upgraded to 10.2.1
 - New feature: [schedule CI/CD workflows](https://docs.semaphoreci.com/reference/projects-yaml-reference/#schedulers)
@@ -1963,13 +1960,13 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 - New feature: [epilogue now has `on_pass` and `on_fail`
   properties](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property)
   which run commands based on the job's result.
-- sem CLI v0.10.0 released, with an option to [create a secret based on
+- sem CLI v0.10.0 has been released, with an option to [create a secret based on
   environment variables](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create-secret-with-environment-variables-and-files)
   in a single command.
 - Jobs now export `TERM=xterm`. This allows running tools that depend on
   exported `TERM` settings, such as psql.
-- Jobs now export `PAGER=cat`. This prevents some commands from infinitely
-  waiting for user input, such as `git log`.
+- Jobs now export `PAGER=cat`. This prevents some commands from
+  waiting indefinitely for user input, such as `git log`.
 - Job logs are now fully UTF-8 compliant.
 
 
@@ -2023,7 +2020,7 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
     - sbt 0.13.17
 - Introduced [tutorials and example projects](https://docs.semaphoreci.com/examples/tutorials-and-example-projects/),
   a handy page of practical examples of CI/CD pipelines, with links to open
-  source repositories that you can copy.
+  source repositories that you can copy and use.
 
 ### Week of Feb 18, 2019
 
@@ -2032,14 +2029,14 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   you see in the UI.
 - Slack notifications can be [filtered by pipeline result](https://docs.semaphoreci.com/essentials/slack-notifications/#filtering-by-pipeline-result).
 - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-  image introduced, with iOS/macOS support 
+  image introduced, with iOS/macOS support in
   [closed beta](https://semaphoreci.com/product/ios).
 - Syntax highlighting in docs.
 
 ### Week of Feb 11, 2019
 
-- New feature: Add project from UI. The much-loved feature of Semaphore Classic
-  is now available in Semaphore 2.0 as well. Using the command-line interface
+- New feature: Add Project from the UI. This beloved feature of Semaphore Classic
+  is now available in Semaphore 2.0! Using the command-line interface
   remains an option, of course.
 - Platform:
     - Added new APT mirrors for faster apt-get installations in the Ubuntu1804 image.
@@ -2061,16 +2058,16 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 
 ### Week of Jan 7, 2019
 
-- New feature: Billing insights. Organization owners can now see
+- New feature: Billing Insights. Organization owners can now see
   the top spending projects and daily spending charts which contain
   spending per machine type. Data is available for any selected period.
 - Launching a promotion manually now shows a confirmation dialog.
-- Fixed: checkout command doesn't fail on git reference tags.
+- Fixed: checkout command no longer fails on git reference tags.
 
 ### Week of Dec 17, 2018
 
 - New feature: Restart workflow.
-  Available via the “Restart" button on the workflow page,
+  Available via the “Restart" button on the workflow page
   or `sem rebuild workflow <id>` in CLI.
 - [checkout](https://docs.semaphoreci.com/reference/toolbox-reference/#libcheckout)
   runs faster by doing a shallow git clone.
