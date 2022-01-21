@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration pipeline for a Node.js app. It applies to both TypeScript and JavaScript.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration pipeline for a Node.js app. This applies to both TypeScript and JavaScript.
 ---
 
 # Node.js and TypeScript Continuous Integration
@@ -10,7 +10,7 @@ JavaScript.
 
 ## Demo project
 
-Semaphore maintains an example JavaScript project with a CI pipeline for both
+Semaphore maintains an example JavaScript project with a CI pipeline containing both
 client and server side code:
 
 - [Demo JavaScript project on GitHub][demo-project]
@@ -18,7 +18,7 @@ client and server side code:
 The Node.js server is based on the Nest.js framework, while the client is
 implemented in React. Code is written in TypeScript and compiled to JavaScript.
 
-In the repository you will find an annotated Semaphore configuration file
+In the repository you can find an annotated Semaphore configuration file
 `.semaphore/semaphore.yml`.
 
 ## Overview of the CI pipeline
@@ -46,8 +46,8 @@ client code:
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
-# Name your pipeline. In case you connect multiple pipelines with promotions,
-# the name will help you differentiate between, for example, a CI build phase
+# Name your pipeline. In the event that you connect multiple pipelines with promotions,
+# the name will help you differentiate between, for example, CI build phases
 # and delivery phases.
 name: Semaphore JavaScript Example Pipeline
 
@@ -96,13 +96,13 @@ blocks:
             - cd src/client
 
             # Restore dependencies from cache. This command will not fail in
-            # case of a cache miss. In case of a cache hit, npm install will
+            # the event of a cache miss. In the event of a cache hit, npm install will
             # run very fast.
             # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json),client-node-modules-$SEMAPHORE_GIT_BRANCH,client-node-modules-master
             - npm install
 
-            # Store the latest version of node modules in cache to reuse in
+            # Store the latest version of node modules in the cache to reuse in
             # further blocks:
             - cache store client-node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) node_modules
 
