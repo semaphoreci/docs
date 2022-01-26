@@ -1,27 +1,29 @@
 ---
-description: The ubuntu1804 is a customized image based on Ubuntu 18.04 LTS optimized for CI/CD. It comes with a set of preinstalled languages, databases, and utility tools.
+Description: The ubuntu1804 image is a customized image based on Ubuntu 18.04 LTS that has been optimized for CI/CD. It comes with a set of preinstalled languages, databases, and utility tools.
 ---
 
 # Ubuntu 18.04 Image
 
 
-The `ubuntu1804` is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes)
+The `ubuntu1804` image is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) that has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Linux machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
-The `ubuntu1804` is a virtual machine (VM) image. The user in the environment,
-named `semaphore`, has full `sudo` access. The image will be updated bi-weekly, on first and third Monday of every month.
-Updates can be followed on [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/).
+The `ubuntu1804` image is a virtual machine (VM) image. The user in the environment,
+named `semaphore`, has full `sudo` access. 
 
-The `ubuntu1804` VM uses an *APT mirror* that is in the same data center as
+The image will be updated bi-weekly, on the first and third Monday of every month.
+Updates can be followed on the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/).
+
+The `ubuntu1804` image VM uses an *APT mirror* that is in the same data center as
 Semaphore's build cluster, which means that caching packages will have little
 effect.
 
-## Using the ubuntu1804 OS image in your agent configuration
+## Using the ubuntu1804 image in your agent configuration
 
-To use the `ubuntu1804` OS image, define it as the `os_image` of your agent's
+To use the `ubuntu1804` image, define it as the `os_image` of your agent's
 machine.
 
 ``` yaml
@@ -42,13 +44,13 @@ blocks:
             - make test
 ```
 
-The `ubuntu1804` OS image can be used in combination with all Linux machine
-types: `e1-standard-2`, `e1-standard-4`, `e1-standard-8`.
+The `ubuntu1804` image can be used in combination with all Linux machine
+types: `e1-standard-2`, `e1-standard-4`, and `e1-standard-8`.
 
 ## Toolbox
 
-The `ubuntu1804` comes with two utility tools. One for managing background
-services and database, and one for managing language versions.
+The `ubuntu1804` image comes with two utility tools. One for managing background
+services and databases, and one for managing language versions.
 
 - [sem-version: Managing language version on Linux][sem-version]
 - [sem-service: Managing databases and services on Linux][sem-service]
@@ -214,9 +216,9 @@ Available versions:
 ### Installing dependencies with apt package manager
 
 The Semaphore Ubuntu:18.04 image has most of the popular programming languages,
-tools and databases preinstalled.
+tools, and databases preinstalled.
 
-If the dependency you need is not present in the list above, you can install it
+If the dependency you need is not present on the list above, you can install it
 with the Ubuntu package manager
 or using an alternative method such as compiling it from the source, or
 manually downloading binaries.
