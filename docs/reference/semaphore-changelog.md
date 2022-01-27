@@ -8,6 +8,42 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of January 24, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Aws-cli 2.4.13 (used as `aws2`)
+- Elixir 1.13.2 (default)
+- PHP 8.0.15
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.32 -> 1.22.40
+- Bazel 4.2.2 -> 5.0.0
+- Pip 20.3.4 - > 21.3.1
+- Terraform 1.0.6 -> 1.1.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Aws-cli 2.4.13 (used as `aws2`)
+- Elixir 1.13.2 (default)
+- PHP 8.0.15
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.19.112 -> 1.22.40
+- Bazel 4.2.2 -> 5.0.0
+- Pip 20.3.4 - > 21.3.1
+- Terraform 0.15.0 -> 1.1.3
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+
 ### Week of January 10, 2022
 
 **(Improved) Ubuntu 20.04 image update**
