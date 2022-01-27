@@ -1,18 +1,17 @@
 ---
-description: Semaphore CI/CD jobs can run and build Docker images, and can also push images to Docker repositories or other remote storage.
+Description: Semaphore CI/CD jobs can run and build Docker images, and also push images to Docker repositories or other remote storage.
 ---
 
 # Working with Docker
 
-Semaphore CI/CD jobs can run and build Docker images, and can also push images
+Semaphore CI/CD jobs can run and build Docker images, as well as push images
 to Docker repositories or other remote storage.
 
-Docker CLI is [preinstalled][ubuntu-vm] on Semaphore VMs, so you can use Docker
-right away.
+Docker CLI comes [preinstalled][ubuntu-vm] on Semaphore VMs, so you don't have to install it yourself.
 
-ℹ️  *This article describes the process of building, publishing and testing 
+ℹ️  *This article describes the process of building, publishing, and testing 
 Docker containers on Semaphore. If you want to run jobs inside of a Docker image,
-refer to the [Custom CI/CD environment with Docker][docker-environment]
+refer to the [custom CI/CD environment with Docker][docker-environment]
 documentation.*
 
 ## Hello world
@@ -56,15 +55,15 @@ you need to execute `docker run` as follows:
 docker run -d -p 1234:80 nginx:alpine
 ```
 
-The command will download the public `nginx:alpine` image and run it in your
+The previous command will download the public `nginx:alpine` image and run it in your
 Semaphore job.
 
 !!! warning "Docker Hub rate limits"
     Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, all pulls have to be authenticated. 
-    If you are pulling any images from the Docker Hub public repository, please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](/ci-cd-environment/docker-authentication/) guide.
+    If you are pulling any images from the Docker Hub public repository, please make sure you are logged in to avoid any failiures. You can find more information on how to authenticate in our [Docker authentication](/ci-cd-environment/docker-authentication/) documentation.
 
 
-An example Semaphore pipeline file:
+Here is an example Semaphore pipeline file:
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -94,12 +93,12 @@ Docker image with the Nginx web server is working and listening to TCP port
 number 1234, as specified in the `docker run` command.
 
 For more information on using Docker, refer to the
-[Docker user guide](https://docs.docker.com/).
+[Docker user documentation](https://docs.docker.com/).
 
 ## Using a Docker image from a private registry
 
 In order to use a Docker image from a private Docker registry, you will first
-need to log in to that registry. The commands that you need to run are:
+need to log in to that registry. The commands that you need to run for this are shown below:
 
 ``` bash
 echo $DOCKER_PASSWORD | docker login --username "$DOCKER_USERNAME" --password-stdin registry.example.com
@@ -107,10 +106,10 @@ docker pull registry-owner/image-name
 ```
 
 We also need a secure way to store and use account credentials, without storing
-them in version control. A way to do that on Semaphore is by
+them in version control. We can do this in Semaphore by
 [using secrets][using-secrets].
 
-The Semaphore configuration file in this case would look as follows:
+In this case, the Semaphore configuration file would appear as follows:
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -136,8 +135,8 @@ blocks:
       - name: docker-hub
 ```
 
-Define the `docker-hub` secret referenced in the example using the
-[sem CLI][sem-reference]:
+Define the `docker-hub` secret referenced in the example using
+[sem CLI][sem-reference], as shown below:
 
 ``` yaml
 $ sem get secrets docker-hub
@@ -161,14 +160,14 @@ Note that the names of the two environment variables used can be anything
 you want. We recommend always using descriptive names.
 
 You can learn more about working with secrets in Semaphore 2.0 in the
-[guided tour][using-secrets].
+[secrets documentation][using-secrets].
 
 ## Building a Docker image from a Dockerfile
 
 You can use Semaphore to build Docker images directly from a `Dockerfile`
 in your source code repository.
 
-Let's say that you have the following `Dockerfile`:
+For example, let's say that you have the following `Dockerfile`:
 
 ``` Dockerfile
 FROM golang:alpine
@@ -181,16 +180,16 @@ RUN go build -o /files/hello hello.go
 ENTRYPOINT ["/files/hello"]
 ```
 
-This assumes that you have a file named `hello.go` in your Git repository. The
+This example assumes that you have a file named `hello.go` in your Git repository. The
 `Dockerfile` creates a new directory in the Docker image and puts `hello.go` in
-there. Then, it compiles that Go file and the executable file is stored as
+it. Then, it compiles the Go file and the executable file is stored as
 `files/hello`. The `ENTRYPOINT` Docker command will automatically execute
 `files/hello` when the Docker image is run.
 
 Please note that the `Dockerfile` should be committed to Git as it will be
 used by Semaphore 2.0.
 
-After that, the contents of your Semaphore 2.0 pipeline file should look as
+After that, the contents of your Semaphore 2.0 pipeline file should appear as
 follows:
 
 ``` yaml
@@ -213,15 +212,15 @@ blocks:
           - docker run hello:v1
 ```
 
-The name of the image will be `hello:v1` – you can choose any name you want.
+The default name of the image, in this case, will be `hello:v1` – you can, however, rename it as you see fit.
 
 ## Pushing a Docker image to a registry
 
-Once you create a container image, you usually need to push it to a registry.
+Once you create a container image, you need to push it to a registry in most cases.
 For this purpose you will first need to authenticate via `docker login`.
 
-Here's an example Semaphore configuration file in which we push to a private
-registry on Docker Hub. You can use any other container registry as well:
+Here's an example Semaphore configuration file, in which we push to a private
+registry on Docker Hub. You can use this for any other container registry as well:
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -251,19 +250,18 @@ blocks:
 ```
 
 The name of the image will be `"$DOCKER_USERNAME"/hello` and its tag will be
-`v1`. Therefore, in order to `docker pull` that image, you will have to use its
-full name that is `"$DOCKER_USERNAME"/hello:v1`.
+`v1`. Therefore, in order to `docker pull` this image, you will have to use its
+full name: `"$DOCKER_USERNAME"/hello:v1`.
 
 The `docker images` command executed at the end of the job is an example to
-verify that the desired image was downloaded and is available for further
+verify that the desired image has been downloaded and is available for further
 commands.
 
-In the example we are using the `docker-hub` secret as defined in a
-[previous section](#using-a-docker-image-from-a-private-registry) on pulling
+In this example, we are using a `docker-hub` secret as defined in a
+[here](#using-a-docker-image-from-a-private-registry), dealing with pulling
 from a private registry.
 
-Note that you can use promotions to build images only on certain branches,
-for example. Refer to the [guided tour][using-promotions] and the
+Note that you can only use promotions to build images in certain branches. Refer to the [promotions documentation][using-promotions] and the
 [pipeline reference][pipeline-reference] for more information on orchestrating
 workflows.
 
@@ -276,11 +274,11 @@ workflows.
 ## Using Docker Compose
 
 You can use Docker Compose in your Semaphore jobs as you would on any Linux machine.
-For a detailed example, see _[Using Docker Compose in CI][using-docker-compose]_.
+For a detailed example, see [Using Docker Compose in CI][using-docker-compose].
 
 ## Using databases and background services
 
-Let's say that your CI build needs Redis and PostgreSQL:
+For example, let's say that your CI build needs Redis and PostgreSQL:
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -321,25 +319,24 @@ blocks:
           - redis-cli -h cache KEYS *
 ```
 
-In this example, we used the Semaphore hosted [Postgres](/ci-cd-environment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-environment/semaphore-registry-images/#redis)
-images to start your services.
+In this example, we used the Semaphore-hosted [Postgres](/ci-cd-environment/semaphore-registry-images/#postgres) and [Redis](/ci-cd-environment/semaphore-registry-images/#redis)
+images to start the services.
 
 ### Using services and test data across blocks
 
-Note that, since all jobs run in isolated environments, the services that you
-start in one job are not automatically available in other jobs.
-The isolation of jobs from each other within their block also means that
+Note that the services that you start in one job are not automatically available in other jobs, since all jobs run in isolated environments.
+The isolation of jobs from each other within their blocks also means that
 services are not shared across blocks or pipelines.
 
 To use a service or populate test data in all parallel jobs within a block,
-specify that in the task [prologue][prologue]. Repeat the same steps in the
+you have to specify it in the task [prologue][prologue]. Repeat the same steps in the
 definition of each block as needed.
 
 ## Installing a newer Docker version
 
 A recent version of Docker toolchain is [preinstalled by default][ubuntu-vm].
-In case there's a newer version which hasn't yet been added to Semaphore,
-this is an example that you can use to set it up:
+In the event that there's a newer version which hasn't yet been added to Semaphore,
+you can use the example below to set it up:
 
 ``` yaml
 # .semaphore/semaphore.yml

@@ -1,20 +1,20 @@
 ---
-description: Semaphore supports setting environment variables on per-job and per-block level.
+Description: Semaphore supports setting environment variables on the per-job and per-block level, as well as for an entire pipeline.
 ---
 
 # Setting Environment Variables
 
-Semaphore supports setting environment variables for an [individual job][envvars-perjob], for [all jobs in a block][envvars-perblock], and for [all jobs in the pipeline][global_job_config].
+Semaphore supports setting environment variables for an [individual job][envvars-perjob], for [all jobs in a block][envvars-perblock], and for [all jobs in a pipeline][global_job_config].
 
 If you're looking for a list of environment variables which Semaphore sets in
-every job, refer to [CI/CD Environment guide][semaphore-env-vars].
+every job, refer to the [CI/CD Environment guide][semaphore-env-vars].
 
 ## Using Workflow Builder
 
 To set a new environment variable:
 
 1. Open Workflow Builder.
-2. Select a block or job where you would like to export environment variables.
+2. Select a block or job to which you would like to export environment variables.
 3. Click **Environment variables**.
 4. Click **Add env vars**.
 5. Fill in the variable's key and value.
@@ -23,7 +23,7 @@ To set a new environment variable:
 
 ## YAML example
 
-Here's an example which applies one to all jobs in the block:
+Here's an example which applies an environment variable to all jobs in the block:
 
 ``` yaml
 # .semaphore/semaphore.yml
