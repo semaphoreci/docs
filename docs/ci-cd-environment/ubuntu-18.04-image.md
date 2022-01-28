@@ -87,7 +87,8 @@ Docker toolset is installed and following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli
+- aws-cli v1 (used as `aws`)
+- aws-cli v2 (used as `aws2`)
 - azure-cli
 - eb-cli
 - ecs-cli
@@ -112,7 +113,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2 (default)
-- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3, 1.13.0, 1.13.1 (default)
+- Elixir: 1.8.0, 1.8.1, 1.8.2, 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3, 1.13.0, 1.13.1, 1.13.2 (default)
 
 Additional libraries:
 
@@ -144,7 +145,7 @@ Versions:
 
 - Maven: 3.6.3
 - Gradle: 7.3
-- Bazel 4
+- Bazel: 5
 
 ### JavaScript via Node.js
 
@@ -191,7 +192,7 @@ Supporting libraries:
 
 - pypy: 7.3.6
 - pypy3: 7.3.7
-- pip: 20.3
+- pip: 21.3
 - venv: 16.0.0
 
 ### Ruby
