@@ -256,9 +256,9 @@ The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environm
 ### Unity
 | Image | Link |
 |--------|--------|
-| unity/editor:2020.3.25f1-android-0 | `registry.semaphoreci.com/unity/editor:2020.3.25f1-android-0 ` |  
-| unity/editor:ubuntu-2020.3.25f1-webgl-0.15.0 | `registry.semaphoreci.com/unity/editor:ubuntu-2020.3.25f1-webgl-0.15.0 ` |  
-| unity/editor:ubuntu-2020.3.25f1-ios-0.15.0 | `registry.semaphoreci.com/unity/editor:ubuntu-2020.3.25f1-ios-0.15.0` |  
+| unityci/editor:2020.3.25f1-android-0 | `registry.semaphoreci.com/unityci/editor:2020.3.25f1-android-0 ` |  
+| unityci/editor:ubuntu-2020.3.25f1-webgl-0.15.0 | `registry.semaphoreci.com/unityci/editor:ubuntu-2020.3.25f1-webgl-0.15.0 ` |  
+| unityci/editor:ubuntu-2020.3.25f1-ios-0.15.0 | `registry.semaphoreci.com/unityci/editor:ubuntu-2020.3.25f1-ios-0.15.0` |  
 
 
 
