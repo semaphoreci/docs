@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore to set up a pipeline using Terraform with Google Cloud.
+Description: This guide shows you how to use Semaphore to set up a pipeline using Terraform with Google Cloud.
 ---
 
 # Using Terraform with Google Cloud
@@ -14,12 +14,12 @@ You can use one of the documented [use cases][use-cases] or
 [language guides][language-guides] as a starting point.
 - Basic familiarity with Git and SSH.
 
-## Store credentials in secrets
+## Storing credentials in secrets
 
-- Store the Google Cloud credentials
+- Storing Google Cloud credentials
 
 Assuming that your Google Cloud credentials are stored on your computer in
-`/home/<username>/.ssh/gcp.json` use the following command to create a
+`/home/<username>/.ssh/gcp.json`, use the following command to create a
 secret on Semaphore:
 
 ``` bash
@@ -27,7 +27,7 @@ sem create secret gcp \
   -f /home/<username>/.ssh/gcp.json:.ssh/gcp.json
 ```
 
-- Create and store a deploy key
+- Creating and storing a deploy key
 
 ```bash
 $ ssh-keygen -t rsa -b 4096
@@ -53,7 +53,7 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-We need to make the private key `id_rsa_semaphore_terraform` available on
+We need to make the private key `id_rsa_semaphore_terraform` available to
 Semaphore, and add the corresponding public key `id_rsa_semaphore_terraform.pub`
 to the Google Cloud project under `Metadata/SSh keys`
 
@@ -63,7 +63,7 @@ $ sem create secret terraform-key \
 Secret 'terraform-key' created.
 ```
 
-## Define the Terraform configuration file
+## Defining the Terraform configuration file
 
 ```tf
 provider "google" {
@@ -106,7 +106,7 @@ output "ip" {
 }
 ```
 
-## Define the pipeline
+## Defining the pipeline
 
 Finally, let's define what happens in our `semaphore.yml` pipeline:
 
@@ -135,20 +135,20 @@ blocks:
             - terraform show terraform.tfstate
 ```
 
-### Verify it works
+### Verifying that it works
 
 Push a new commit on any branch and open Semaphore to watch a new workflow run.
-If all goes well you'll see a `Passed` green box next to your pipeline indicating
-the workflow finished successfully.
+If all goes well, you'll see a `Passed` green box next to your pipeline indicating
+that the workflow finished successfully.
 
 ### Next steps
 
 Congratulations! You have created a successful pipeline that
-communicates Terraform with Google Cloud.
+communicates with Terraform and Google Cloud.
 Here’s some recommended reading:
 
 - [Explore the promotions reference][promotions-ref] to learn more about what
-options you have available when designing delivery pipelines on Semaphore.
+options are available when designing delivery pipelines on Semaphore.
 - [Set up a deployment dashboard][deployment-dashboards] to keep track of
 your team's activities.
 
