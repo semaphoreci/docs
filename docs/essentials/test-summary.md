@@ -1,5 +1,5 @@
 ---
-description: Semaphore collects XML test reports and uses them to provide insight into your pipelines.
+Description: Semaphore collects XML test reports and uses them to provide insight into your pipelines.
 ---
 
 # Tests
@@ -7,10 +7,10 @@ description: Semaphore collects XML test reports and uses them to provide insigh
 Semaphore collects XML test reports and uses them to provide insight into your
 pipelines.
 
-With test reports, you enable your team to get an effective and consistent view
-of your CI/CD test suite across different test frameworks and stages in a
-CI/CD workflow. You get a clear failure report for each executed pipeline.
-Failures are extracted and highlighted, while the rest of the suite is
+With test reports, you and your team get an effective and consistent view
+of your CI/CD test suite across different test frameworks and stages in
+CI/CD workflows. You also get a clear failure report for each executed pipeline.
+Failures are extracted and highlighted, and the rest of the suite is
 available for analysis.
 
 Published test results are available under the **Tests** tab.
@@ -21,9 +21,9 @@ Published test results are available under the **Tests** tab.
 
 Semaphore supports any test runner that generates JUnit XML reports.
 
-To collect test results in your pipelines, follow these three steps.
+To collect test results for your pipelines, follow these three steps.
 
-### Step 1 &mdash; Export XML results from your test suite
+### Step 1 &mdash - Export XML results from your test suite
 
 Most test runners can export JUnit XML test results. In the following list, you
 can find popular test runners and their formatters.
@@ -44,15 +44,15 @@ can find popular test runners and their formatters.
 | Rust       | Cargo Test   | [junit-report](https://crates.io/crates/junit-report){target="_blank"}                                                | &mdash;
 | Java       | Maven        | [maven-surefire](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit.html){target="_blank"}        | &mdash;
 
-If your test runner is not the above list, you can still collect Tests. Find a
+If your test runner is not the previous list, you can still collect Tests. All you need to do is find a
 test formatter for your test runner that can export JUnit XML results.
 
-### Step 2 &mdash; Publish XML results from your jobs
+### Step 2 &mdash - Publish XML results from your jobs
 
-Given that your test suite is exporting an XML test result named `report.xml`,
-publish it from your jobs with the `test-results` CLI tool.
+Given that your test suite exports an XML test result named `report.xml`,
+you can publish it from your jobs with the `test-results` CLI tool.
 
-Add the following snippet to your pipeline YAML file:
+To do so, add the following snippet to your pipeline YAML file:
 
 ``` yaml
 global_job_config:
@@ -63,13 +63,13 @@ global_job_config:
 ```
 
 The `test-results` tool is part of [Semaphore's Toolbox][toolbox]{target="_blank"}
-and it is available in every Semaphore job.
+and it is available for every Semaphore job.
 
 If you are running tests inside of a Docker container, see
 [how to use test-results CLI with Docker][working-with-docker]{target=_blank}
 to extract and publish the result file.
 
-### Step 3 &mdash; Collect and Merge all XML results in a pipeline
+### Step 3 &mdash - Collect and Merge all XML results for a pipeline
 
 Finally, to collect and merge XML reports from all jobs in a pipeline, add the
 following snippet to your pipeline YAML file:
@@ -83,15 +83,15 @@ after_pipeline:
           - test-results gen-pipeline-report
 ```
 
-## Inspecting executed tests on the Tests dashboard
+## Inspecting executed tests in the Tests dashboard
 
 After each executed pipeline run, your team will get access to a report under
-the **Tests** tab on the Workflow Page. What follows is a list of most common
+the **Tests** tab on the Workflow Page. The following is a list of the most common
 use cases.
 
-### Filter failed tests on the Tests dashboard
+### Filtering failed tests in the Tests dashboard
 
-By default, the Tests dashboards display only the failed tests, as they are the
+By default, the Tests dashboard only displays failed tests, as they are the
 most useful during a typical red-green-refactor cycle.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/test-summary/failed-tests.png" alt="Displaying only failed tests">
@@ -100,22 +100,21 @@ most useful during a typical red-green-refactor cycle.
 
 While developing a new feature, you can introduce unwanted performance
 degradation. If you notice that your test suite has performance problems,
-finding the slowest tests can help you narrow down source of the problem.
+finding the slowest tests can help you narrow down the source.
 
-On the Tests dashboard, select the **Slowest First** option to get a list of
-your slowest tests.
+In the Tests dashboard, select the **Slowest First** option to get a list of
+your tests ordered from slowest to fastest.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/test-summary/slowest-first.png" alt="Displaying the slowest tests first">
 
 ### Find skipped tests
 
-Skipping a test is a common strategy to isolate problematic tests in your test
-suite. This is a good short-term strategy. In the long term however, if the
-number of skipped tests accumulates, your team is risking by shipping untested
-features.
+Skipping a test is a common short-term strategy to isolate problematic tests in your test
+suite. In the long term, however, your team risks shipping features that have not been 
+thoroughly tested if the number of skipped tests grows too large.
 
 Visiting the Tests dashboard can give you a good overview of how many tests are
-skipped in your test suite. Select View, and uncheck **Hide skipped tests**.
+being skipped in your test suite. To view skipped tests, select View and uncheck **Hide skipped tests**.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/test-summary/skipped-tests.png" alt="Displaying skipped tests">
 
