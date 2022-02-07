@@ -8,6 +8,47 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of February 07, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.40 -> 1.22.48
+- Aws-cli 2.4.13 -> 2.4.16
+- Github-cli 2.4.0. -> 2.5.0
+- Git 2.34.1 -> 2.35.1
+- Google Chrome 97 -> 98
+- ChromeDriver 97 -> 98
+- Helm 3.7.2 -> 3.8.0
+- Virtualenv 16.0.0 -> 20.13.0
+- Pip 21.3.1 -> 22.0.3
+- Erlang 
+  - 23.3.4.10 -> 23.3.4.11 
+  - 24.2 -> 24.2.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update*
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.40 -> 1.22.48
+- Aws-cli 2.4.13 -> 2.4.16
+- Github-cli 2.4.0. -> 2.5.0
+- Git 2.34.1 -> 2.35.1
+- Google Chrome 97 -> 98
+- ChromeDriver 97 -> 98
+- Helm 3.7.2 -> 3.8.0
+- Virtualenv 16.0.0 -> 20.13.0
+- Pip (for Python 3.6) 20.3.4 -> 21.3.1
+- Pip (for Python 3.7 and above) 20.3.4 -> 22.0.3
+- Erlang 
+  - 23.3.4.10 -> 23.3.4.11
+  - 24.2 -> 24.2.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+
 ### Week of January 24, 2022
 
 **(Improved) Ubuntu 20.04 image update**
