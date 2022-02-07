@@ -1,11 +1,11 @@
 ---
-description: This guide provides an explanation on how to configure Ruby projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide shows how to configure Ruby projects on Semaphore 2.0. There are also example projects to help you get started.
 ---
 
 # Ruby
 
 This guide will help you get started with a Ruby project on Semaphore.
-If you’re new to Semaphore please read our
+If you’re new to Semaphore, please read our
 [Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
@@ -45,23 +45,23 @@ Semaphore supports all versions of Ruby. You have the following options:
   [your own Docker image][docker-env] with the version of Ruby and other
   packages that you need.
 
-Follow the links above for details on currently available language versions and
+Follow the links above for details on currently-available language versions and
 additional tools.
 
 ### Selecting a Ruby version on Linux
 
-On Linux, Semaphore uses [rbenv](https://github.com/rbenv/rbenv) to manage the supported
-Ruby versions. Any Ruby version listed in
+On Linux, Semaphore uses [rbenv](https://github.com/rbenv/rbenv) to manage supported
+Ruby versions. All Ruby versions listed in the
 [Ubuntu image reference][ubuntu-ruby]
-is supported and can be used on Semaphore jobs. The default version is set by the
+are supported and can be used in Semaphore jobs. The default version is set by the
 `.ruby-version` file in your repository. If the `.ruby-version` file is present,
-then you cannot force any other Ruby version for that directory. In that case
-you will need to modify or delete `.ruby-version` in order to choose a different
+you cannot force any other Ruby version for that directory. In such a case,
+you will need to modify or delete the `.ruby-version` file in order to use a different
 Ruby version.
 
-You can also change the active Ruby version by calling `sem-version ruby`
-followed by the desired Ruby version. Using `sem-version ruby [ruby-version] -f` the
-desired ruby version can be forced. In this case `.ruby-version` file is not taken into account.
+You can also change the active Ruby version by calling `sem-version ruby`,
+followed by the desired Ruby version. By using `sem-version ruby [ruby-version] -f`, the
+desired ruby version can be forced. In this case, the `.ruby-version` file is not taken into account.
 Here's an example:
 
 ``` yaml
@@ -89,50 +89,51 @@ General test summary guidelines are [available here ↗](/essentials/test-summar
 
 ![Test Summary Tab](ruby/summary-tab.png)
 
-### Generating JUnit XML report
+### Generating JUnit XML reports
 
-In this guide we will focus on `RSpec` test runner. If you use TestUnit you can see look for runners that [supports junit file generation ↗][test-unit-runner]{target="_blank"}
+In this guide, we will focus on the `RSpec` test runner. If you use TestUnit, you can find runners that [support junit file generation ↗][test-unit-runner]{target="_blank"}
 
-We will start with adding [rspec_junit_formatter ↗][rspec-junit-formatter]{target="_blank"} to your `Gemfile`:
+We will start by adding [rspec_junit_formatter ↗][rspec-junit-formatter]{target="_blank"} to your `Gemfile`:
 
 ```Ruby
 gem "rspec_junit_formatter", :group => [:test]
 ```
 
-Then installing the dependencies:
+Now, let's install the dependencies:
 
 ```shell
 bundle install
 ```
 
-Now we have to make sure that our formatter is properly configured and used by rspec.
+We have to make sure that our formatter is properly configured for rspec.
 There are two ways we can do this:
 
-- Extend your `.rspec` configuration file
+- By extending the `.rspec` configuration file
 
 ```dotfile
 --format RspecJunitFormatter
 --out rspec.xml
 --format documentation
 ```
+Or
 
-- Adjust `rspec` command:
+- By adjusting the `rspec` command:
 
 ```shell
 bundle exec rspec --format RspecJunitFormatter --out junit.xml --format documentation
 ```
 
-Running your tests with this setup will also generate `junit.xml` summary report.
+Running your tests with this setup will also generate a `junit.xml` summary report.
 
 ### Publishing results to Semaphore
 
-To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+To make Semaphore aware of your test results, you can publish them using the [test results CLI ↗][test-results-cli]{target="_blank"}:
 
 ```shell
 test-results publish junit.xml
 ```
 
-We advise to include this call in your epilogue:
+We advise including the following call in your epilogue:
 
 ```yaml
 epilogue:
@@ -141,7 +142,7 @@ epilogue:
       - test-results publish junit.xml
 ```
 
-This way even if your job fails(due to the test failures) results will still be published for inspection.
+This way, even if your job fails (due to the test failures), the results will still be published and available for inspection.
 
 ### Example configuration
 
@@ -169,12 +170,12 @@ Your CI configuration should look similiar to this:
 
 ### Demos
 
-You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
+You can see how test results are set up in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
 
 ## Dependency caching
 
-You can use Semaphores `cache` command to store and load a gem bundle
-and configuration. In the following configuration example, we install
+You can use Semaphore's `cache` command to store and load gem bundles
+and configurations. In the following configuration example, we will install
 dependencies and warm the cache in the first block, then use the cache
 in subsequent blocks.
 
@@ -212,13 +213,13 @@ blocks:
             - bundle exec rake test
 ```
 
-If you need to clear cache for your project, launch a
+If you need to clear the cache for your project, launch a
 [debug session](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/)
 and execute `cache clear` or `cache delete <key>`.
 
 ## Environment variables
 
-Semaphore doesn't set language specific environment variables like
+Semaphore doesn't set language-specific environment variables like
 `RAILS_ENV` or `RACK_ENV`. You can set these at the task level.
 
 ``` yaml
@@ -242,10 +243,10 @@ to generate a `database/config.yml` manually.
 
 ### 4.1+ - Using DATABASE_URL
 
-Rails will read database configuration from `DATABASE_URL` if set and
-`config/database.yml` is empty. So, start a database with
+Rails will read database configuration from `DATABASE_URL`, if it is set and if
+the `config/database.yml` file is empty. First, we start a database with
 [sem-service][sem-service], set `DATABASE_URL`, and clear the
-existing `config/database.yml`. Here's an example block:
+existing `config/database.yml` file. Here's an example block:
 
 ``` yaml
 blocks:
@@ -271,10 +272,10 @@ blocks:
 ### Older Rails Versions
 
 If your Rails version does not support `DATABASE_URL`, then you can
-use a separate `config/database.yml` for CI.
+use a separate `config/database.yml` file for CI.
 
-Create a `database.yml` in `.semaphore` along side your pipeline
-configurations. The configured `username` and `password` match the
+Create a `database.yml` file in `.semaphore` alongside your pipeline
+configurations. The configured `username` and `password` should match the
 connection info from [sem-service][sem-service].
 
 ``` yaml
@@ -289,7 +290,7 @@ test:
 ```
 
 Next, set `RAILS_ENV` and replace the existing `config/database.yml`
-before running tests.
+file before running tests.
 
 ``` yaml
 blocks:
@@ -312,8 +313,8 @@ blocks:
 ## C-Extensions & system dependencies
 
 Projects may need system packages to install gems like `pg`. Semaphore provides
-full `sudo` access so you may install all required packages. Here's an
-example of installing the `pg` gem.
+full `sudo` access so you can install all required packages. Here's an
+example showing how to install the `pg` gem.
 
 ``` yaml
 blocks:
@@ -333,16 +334,16 @@ blocks:
 
 [Capybara](http://teamcapybara.github.io/capybara) is the recommended
 solution for browser tests in Ruby. The Firefox, Chrome, and Chrome Headless
-drivers work out of the box.
+drivers work out-of-the-box.
 
 Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
-for details on preinstalled browsers and testing tools on Semaphore.
+for details on preinstalled browsers and testing tools in Semaphore.
 
 ## Running RSpec and Cucumber in parallel
 
-To run Cucumber or RSpec suites in parallel across multiple jobs you can use `semaphore_test_boosters` gem.
+To run Cucumber or RSpec suites in parallel across multiple jobs you can use the `semaphore_test_boosters` gem.
 
-To set it up use the following snippet for your RSpec block:
+To set it up, use the following snippet for your RSpec block:
 
 ``` yaml
 jobs:
@@ -353,7 +354,7 @@ jobs:
       - rspec_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
 ```
 
- The similar setup is also used for Cucumber block:
+ A similar setup is also used for the Cucumber block:
 
 ``` yaml
 jobs:

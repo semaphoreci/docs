@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for Go (Golang) projects.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for Go (Golang) projects.
 ---
 
 # Golang Continuous Integration
@@ -9,9 +9,9 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 ## Demo project
 
-Semaphore 2.0 has support for building Go projects using the supported Go
-versions that are listed in the [Ubuntu 18.04 image reference][ubuntu1804].
-The way to select the desired Go version is by using the
+Semaphore 2.0 has support for building Go projects, using the supported Go
+versions that are listed in the [Ubuntu 18.04 image documentation][ubuntu1804].
+You can select the desired Go version using the
 [`sem-version`][sem-version] utility.
 
 Semaphore maintains an example Go project that you can use:
@@ -19,22 +19,22 @@ Semaphore maintains an example Go project that you can use:
 - [Demo Go project on GitHub][demo-project]
 
 The `webServer.go` file included in the GitHub repository is a Go implementation
-of a web server whereas the `webServer_test.go` file includes the Go `test`
-package used for testing the Go project.
+of a web server, whereas the `webServer_test.go` file includes the Go `test`
+package.
 
 ## Overview of the CI/CD pipeline
 
 The Semaphore pipeline performs the following tasks:
 
-- Builds the Go project and stores the executable file in the Semaphore Server
-- Scans the code for style
+- Builds the Go project and stores the executable file on the Semaphore Server
+- Scans the code for stylistic errors
 - Runs Unit and Integration tests
 
-The pipeline looks as follows:
+The pipeline looks like this:
 
 ![Go CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-go/raw/master/public/ci-pipeline.png)
 
-## What the application uses
+## About the application
 
 The application uses:
 
@@ -103,7 +103,7 @@ blocks:
 ## Explaining the sample project
 
 Each `.semaphore/semaphore.yml` file begins with a preamble that defines the
-environment you are going to work with. In this case the preamble is as
+environment you are going to work with. In this case, the preamble is as
 follows:
 
 ``` yaml
@@ -115,11 +115,11 @@ agent:
     os_image: ubuntu1804
 ```
 
-In this preamble we are defining the version of the YAML grammar, the name of
-the pipeline and the agent that is going to be used to run our code.
+In this preamble, we define the version of the YAML grammar, the name of
+the pipeline, and the agent that is going to be used to run our code.
 
-In this case the agent is going to be running
-[Linux (`ubuntu1804`)][ubuntu1804] on a
+In this case, the agent runs
+[Linux (`ubuntu1804`)][ubuntu1804] on an
 [`e1-standard-2` machine type][machine-types].
 
 Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
@@ -149,11 +149,10 @@ The [`sem-version` utility][sem-version] allows us to select and use Go version
 1.12 instead of the default Go version found in the Semaphore VM.
 
 The [`checkout` utility][checkout] is used for checking out the source code from
-the connected GitHub repository.
+a connected GitHub repository.
 
 The [`cache store` command][cache] is used for keeping the compiled binary file
-in Semaphore cache in order to reuse it and not having to build it again in
-upcoming blocks.
+in the Semaphore cache in order to reuse it in upcoming blocks.
 
 The second block is defined as follows:
 
@@ -171,11 +170,11 @@ blocks:
           - gofmt webServer.go | diff --ignore-tab-expansion webServer.go -
 ```
 
-The `gofmt`, which is manually installed, makes sure that the Go code follows
-the Go code standards. The `yes | sudo apt install gccgo-go` command is used
-for its installation.
+`gofmt`, which is manually installed, makes sure that the Go code follows
+Go code standards. The `yes | sudo apt install gccgo-go` command is used
+for installation.
 
-The last block that runs two parallel jobs is defined with the following commands:
+The last block, that runs two parallel jobs, is defined with the following commands:
 
 ``` yaml
 blocks:
@@ -201,7 +200,7 @@ blocks:
           - curl --silent localhost:8001/time | grep "The current time is"
 ```
 
-The first job runs automated tests whereas the second job runs a simple
+The first job runs automated tests, whereas the second job runs a simple
 integration test on the web server.
 
 The [`sem-service` utility][sem-service]
@@ -212,27 +211,27 @@ an HTTP client for connecting to the desired URL of the web server.
 
 ## Run the Go demo project yourself
 
-A good way to start using Semaphore is to take a demo project and run it
-yourself. Here’s how to build the demo project with your own account:
+A good way to start using Semaphore is to take one of our demo projects and run it
+yourself. Here’s how to build the Go demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project] to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
    Follow the instructions to install the `sem` CLI and connect it to your
    organization.
-4. Run `sem init` inside your repository.
+4. Run `sem init` in your repository.
 5. Edit the `.semaphore/semaphore.yml` file and make a commit. When you push a
    commit to GitHub, Semaphore will run the CI pipeline.
 
 ## Managing module dependencies in private repositories on GitHub
 
-You can keep your go modules private and automate their installation with the
+You can keep your Go modules private and automate installation with the
 help of [GitHub tokens](https://github.com/settings/tokens):
 
 1. [Generate a GitHub token](https://github.com/settings/tokens/new).
 2. [Create a secret](https://docs.semaphoreci.com/essentials/using-secrets/#creating-and-managing-secrets) named `my-token` with the environment variable 
-`GITHUB_TOKEN` containing the information obtained above.
-3. After checking out your code configure `git` to use the token:
+`GITHUB_TOKEN`, containing the information obtained above.
+3. After checking out your code, configure `git` to use the token, as shown below:
 
 `git config --global url."https://${GITHUB_TOKEN}:x-oauth-basic@github.com/mycompany".insteadOf "https://github.com/mycompany"`
 
