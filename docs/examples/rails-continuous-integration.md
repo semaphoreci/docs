@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Ruby on Rails web application.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Ruby on Rails web application.
 ---
 
 # Rails Continuous Integration
@@ -9,7 +9,7 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 ## Demo project
 
-Semaphore maintains an example Ruby on Rails project:
+Semaphore maintains an example Ruby on Rails project that you can use:
 
 - [Demo Ruby on Rails project on GitHub][rails-demo-project]
 
@@ -17,27 +17,27 @@ In the repository you will find an annotated Semaphore configuration file
 `.semaphore/semaphore.yml`.
 
 The application uses the latest stable version of Rails, Rubocop, Brakeman,
-RSpec, Capybara, with PostgreSQL as the database.
+RSpec, and Capybara, with PostgreSQL as the database.
 
 ## Overview of the CI pipeline
 
 The demo Rails CI pipeline performs the following tasks:
 
-- Scans the code for style and security issues using Rubocop and Brakeman;
-- Runs unit tests, using RSpec;
-- Runs integration tests.
+- Scans the code for style and security issues using Rubocop and Brakeman
+- Runs unit tests using RSpec
+- Runs integration tests
 
-Mature applications usually have many tests and optimizing their runtime saves
-a lot of valuable time for development. So for demonstration we run
+Mature applications usually have many tests, and optimizing their runtime saves
+a lot of valuable time for development. For this demonstration we will run
 different types of unit tests in parallel jobs.
 
-When code scanning detects errors, it's a good idea to not run any further
-tests and fail the build early. Similarly, in case any unit tests fail,
-it usually signals a fundamental problem in code. In that case we want fast
-feedback, so we configured the pipeline to fail the build before proceeding
-to time consuming integration tests.
+When code scanning detects errors, it's a good idea to stop running
+tests and fail the build early. Similarly, in the event that any unit tests fail,
+it's usually a signal that there is a fundamental problem in the code. In such
+cases we want fast feedback, and should configure the pipeline to fail the build 
+before proceeding to time-consuming integration tests.
 
-For these reasons our pipeline is composed of three blocks of tests:
+For these reasons, our pipeline is composed of three blocks of tests:
 
 ![Rails CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/raw/master/public/ci-pipeline.png)
 
@@ -47,13 +47,13 @@ For these reasons our pipeline is composed of three blocks of tests:
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
-# Name your pipeline. In case you connect multiple pipelines with promotions,
-# the name will help you differentiate between, for example, a CI build phase
+# Name your pipeline. In the event that you are connecting multiple pipelines with promotions,
+# the name will help you differentiate between, for example, CI build phases
 # and delivery phases.
 name: Demo Rails 5 app
 
 # An agent defines the environment in which your code runs.
-# It is a combination of one of available machine types and operating
+# It is a combination of one of the available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 # and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
@@ -74,7 +74,7 @@ blocks:
           commands:
           # Checkout code from Git repository. This step is mandatory if the
           # job is to work with your code.
-          # Optionally you may use --use-cache flag to avoid roundtrip to
+          # Optionally, you may use --use-cache flag to avoid a roundtrip to a
           # remote repository.
           # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
           - checkout
@@ -97,7 +97,7 @@ blocks:
             - cache restore
             # Bundler requires `install` to run even though cache has been
             # restored, but generally this is not the case with other package
-            # managers. Installation will not actually run and command will
+            # managers. Installation will not actually run and the command will
             # finish quickly:
             - sem-version ruby 2.6.0
             - bundle install --deployment --path vendor/bundle
@@ -174,8 +174,8 @@ a blank password. For more information on configuring database access,
 including tips for older versions of Rails, see the
 [Ruby language guide][ruby-guide].
 
-Firefox, Chrome, and Chrome Headless drivers for Capybara work out of the box,
-so you will not need to make any adjustment for browser tests to work on
+Firefox, Chrome, and Chrome Headless drivers for Capybara work out-of-the-box,
+so you will not need to make any adjustments for browser tests to work on
 Semaphore.
 
 ## Run the demo Ruby on Rails project yourself
@@ -186,7 +186,7 @@ yourself. Here’s how to build the demo project with your own account:
 1. [Fork the project on GitHub][rails-demo-project] to your own account.
 2. Clone the repository on your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-   Follow the instructions to install sem CLI, connect it to your
+   Follow the instructions to install sem CLI and connect it to your
    organization.
 4. Run `sem init` inside your repository.
 5. Edit the .semaphore/semaphore.yml file and make a commit. When you push a
