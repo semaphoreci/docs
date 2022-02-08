@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 97
-- ChromeDriver 97
+- Google Chrome 98
+- ChromeDriver 98
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -124,15 +124,14 @@ Additional libraries:
 
 Versions:
 
-- 1.10.8
-- 1.11.13
-- 1.12.17
-- 1.13.15
-- 1.14.9
-- 1.14.13
-- 1.15.2
-- 1.15.6
-- 1.16.3
+- 1.10.x
+- 1.11.x
+- 1.12.x
+- 1.13.x
+- 1.14.x
+- 1.15.x
+- 1.16.x
+- 1.17.x
 
 ### Java and JVM languages
 
@@ -192,8 +191,10 @@ Supporting libraries:
 
 - pypy: 7.3.6
 - pypy3: 7.3.7
-- pip: 21.3
-- venv: 16.0.0
+- pip (for Python 2.7): 20.3.4
+- pip (for Python 3.6): 21.3.1
+- pip (for Python 3.7 and above): 22.0.3
+- venv: 20.13.0
 
 ### Ruby
 
@@ -242,3 +243,4 @@ sudo apt-get install -y [your-dependency]
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+

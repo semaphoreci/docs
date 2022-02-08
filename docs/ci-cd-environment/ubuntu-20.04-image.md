@@ -94,7 +94,9 @@ Docker toolset is installed and following versions are available:
 - doctl
 - gcloud
 - kubectl
+- terraform
 - heroku
+- helm
 
 ### Network utilities
 
@@ -120,14 +122,14 @@ Additional libraries:
 
 Versions:
 
-- 1.10.8
-- 1.11.13
-- 1.12.17
-- 1.13.15
-- 1.14.9
-- 1.14.13
-- 1.15.2
-- 1.15.6
+- 1.10.x
+- 1.11.x
+- 1.12.x
+- 1.13.x
+- 1.14.x
+- 1.15.x
+- 1.16.x
+- 1.17.x
 
 ### Java and JVM languages
 
@@ -180,8 +182,8 @@ Supporting libraries:
 
 - pypy: 7.3.6
 - pypy3: 7.3.7
-- pip: 21.3
-- venv: 16.0.0
+- pip: 22.0.3
+- venv: 20.13.0
 
 ### Ruby
 
