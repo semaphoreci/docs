@@ -1,12 +1,12 @@
 ---
-description: This guide describes how to install a self-hosted agent on various different operating systems and architectures.
+Description: This guide describes how to install a self-hosted agent on various operating systems and architectures.
 ---
 
 # Installing a self-hosted agent
 !!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
 
-The Semaphore agent is open source and can be found [here][agent repo]. Before installing it in your machine, you need to make sure the following requirements are also available in it:
+The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
 - bash
 - git
@@ -38,11 +38,11 @@ tar -xf agent.tar.gz
 sudo ./install.sh
 ```
 
-The script asks for your Semaphore organization name, the [agent type registration token][agent tokens] and the Linux user used to run the service and does the following:
+The script asks for your Semaphore organization name, the [agent type registration token][agent tokens], and the Linux user used to run the service, and does the following:
 
 - downloads and installs the [Semaphore toolbox][toolbox]
 - creates a systemd service for the agent
-- creates an initial `config.yaml` file in the installation directory for you to manage the [agent configuration][agent-configuration]
+- creates an initial `config.yaml` file in the installation directory for you to manage [agent configuration][agent-configuration]
 
 Note that any changes in the agent configuration file require a restart of the systemd service.
 
