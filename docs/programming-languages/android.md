@@ -1,24 +1,24 @@
 ---
-description: This guide will help you get started with an Android project on Semaphore 2.0. Semaphore 2.0 supports both Android and React Native projects.
+Description: This guide will help you get started with an Android project on Semaphore 2.0. Semaphore 2.0 supports both Android and React Native projects.
 ---
 
 # Android
 
 This guide will help you get started with an Android project on Semaphore.
-If you’re new to Semaphore please read our
+If you’re new to Semaphore, please read our
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Overview
 
 Semaphore provides a set of tailored container images that Android developers
-can use as an environment for their projects on Semaphore. These pre-built
+can use as environments for their projects on Semaphore. These pre-built
 images provide Android SDK and other common tools needed to run Android projects
-out of the box. Your task is only to configure CI/CD steps that are specific for
+out-of-the-box. All you need to do is configure the CI/CD steps that are specific for
 your project.
 
 Semaphore supports both Android and React Native projects.  
 
-You can run an Android emulator in Semaphore CI/CD jobs.
+Additionally, you can run an Android emulator in Semaphore CI/CD jobs.
 
 ## Example configuration
 
@@ -62,14 +62,14 @@ blocks:
           commands:
             # Get the latest version of our source code from GitHub:
             - checkout
-            # Restore dependencies from cache. This command will not fail in
-            # case of a cache miss. In case of a cache hit, npm install will
+            # Restore dependencies from the cache. This command will not fail in
+            # the event of a cache miss. In the event of a cache hit, npm install will
             # run very fast.
             # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore
             - npm install
 
-            # Store the latest version of node modules in cache to reuse in
+            # Store the latest version of node modules in the cache for reuse in
             # further blocks:
             - cache store
   - name: Run Android tests
@@ -89,18 +89,18 @@ blocks:
 ```
 
 !!! info "Docker Hub rate limits"
-    Please note that due to the introduction of the [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, for your convenience, any compose style pulls from the `semaphoreci` Docker Hub repository will automatically be redirected to [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
+    Please note that due to the introduction of [rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) on Docker Hub, any compose style pulls from the `semaphoreci` Docker Hub repository will be automatically redirected to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/). This means that you will not have to [authenticate](/ci-cd-environment/docker-authentication/) in order to pull such images.
     
 ## Android image variants
 
-The pre-built Android images are available on [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).
+The pre-built Android images are available on the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).
 
-The source code and Dockerfiles for these images are available in [an open
-source repository
-semaphoreci/docker-images](/ci-cd-environment/semaphore-registry-images/#android).
+The source code and Dockerfiles for these images are available in an open
+source repository:
+[semaphoreci/docker-images](/ci-cd-environment/semaphore-registry-images/#android).
 
 The Semaphore Android images are based on the `ubuntu:16.04` official Docker
-image. Jobs commands are executed by root user.
+image. Jobs commands are executed by the root user.
 
 There are Docker images for each recent version of Android. There are also
 variants with Node.js preinstalled for React Native development.
@@ -111,9 +111,9 @@ variants with Node.js preinstalled for React Native development.
    Node.js (10.x) pre-installed.
 
 For more information on using Docker images to define your Semaphore CI/CD
-environment, see [Custom CI/CD environment with
+environment, see the [Custom CI/CD environment with
 Docker](https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/)
-documentation page.
+documentation.
 
 ## Example projects
 
