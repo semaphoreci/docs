@@ -1,28 +1,28 @@
 ---
-description: The ubuntu2004 is a customized image based on Ubuntu 20.04 LTS optimized for CI/CD. It comes with a set of preinstalled languages, databases, and utility tools.
+Description: The ubuntu2004 image is a customized image based on Ubuntu 20.04 LTS, which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases, and utility tools.
 ---
 
 # Ubuntu 20.04 Image
 
 
-The `ubuntu2004` is a customized image based on [Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes)
+The `ubuntu2004` image is a customized image based on [Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes), which has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Linux machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
-The `ubuntu2004` is a virtual machine (VM) image. The user in the environment,
-named `semaphore`, has full `sudo` access. The image will be updated bi-weekly, on first and third Monday of every month.
-Updates can be followed on [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/).
+The `ubuntu2004` image is a virtual machine (VM) image. The user in the environment,
+named `semaphore`, has full `sudo` access. The image will be updated bi-weekly, on the first and third Mondays of every month.
+Updates can be followed on the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/).
 
-The `ubuntu2004` VM uses an *APT mirror* that is in the same data center as
+The `ubuntu2004` VM uses an *APT mirror* located in the same data center as
 Semaphore's build cluster, which means that caching packages will have little
 effect.
 
-## Using the ubuntu2004 OS image in your agent configuration
+## Using the ubuntu2004 image in your agent configuration
 
-To use the `ubuntu2004` OS image, define it as the `os_image` of your agent's
-machine.
+To use the `ubuntu2004` image, define it as the `os_image` of your agent's
+machine, as shown below:
 
 ``` yaml
 version: 1.0
@@ -45,8 +45,8 @@ blocks:
 
 ## Toolbox
 
-The `ubuntu2004` comes with two utility tools. One for managing background
-services and database, and one for managing language versions.
+The `ubuntu2004` image comes with two utility tools. One for managing background
+services and databases, and one for managing language versions.
 
 - [sem-version: Managing language version on Linux][sem-version]
 - [sem-service: Managing databases and services on Linux][sem-service]
@@ -76,7 +76,7 @@ Refer to the documentation of associated libraries when configuring your project
 
 ### Docker
 
-Docker toolset is installed and following versions are available:
+Docker toolset is installed and the following versions are available:
 
 - Docker 20.10
 - docker-compose 1.29.2
@@ -196,9 +196,8 @@ The Semaphore Ubuntu:20.04 image has most of the popular programming languages,
 tools and databases preinstalled.
 
 If the dependency you need is not present in the list above, you can install it
-with the Ubuntu package manager
-or using an alternative method such as compiling it from the source, or 
-manually downloading binaries.
+with the Ubuntu package manager, or using an alternative method such as 
+compiling it from the source or manually downloading binaries.
 
 To install dependecies using the package manager (apt-get) you can use the
 template command below and add it to your pipeline:
