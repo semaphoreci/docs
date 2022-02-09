@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up deployment to Heroku for an application or microservice written in any language.
+Description: This guide shows you how to use Semaphore 2.0 to set up deployment to Heroku for an application or microservice written in any language.
 ---
 
 
@@ -13,10 +13,10 @@ For this guide you will need:
 - [A working Semaphore project][create-project] with a basic CI pipeline.
 You can use one of the documented [use cases][use-cases] or
 [language guides][language-guides] as a starting point.
-- A created app on Heroku.
+- A pre-existing app on Heroku.
 - Basic familiarity with Git and SSH.
 
-## Connect CI and deployment pipelines with a promotion
+## Connecting CI and deployment pipelines with a promotion
 
 Start by defining a [promotion][promotions-intro] at the end of your
 `semaphore.yml` file:
@@ -29,8 +29,8 @@ promotions:
 ```
 
 This defines a simple deployment pipeline that can be triggered manually
-on every revision on every branch. You can generally define as many pipelines
-for a project as you need using a variety of options and conditions.
+for every revision on every branch. You can define as many pipelines
+as you need for any project, using a variety of options and conditions.
 For designing custom delivery pipelines, consult the
 [promotions reference documentation][promotions-ref].
 
@@ -40,15 +40,15 @@ At this point, one of the following authentication methods can be chosen:
 or
 - [SSH authentication][ssh-method]
 
-**Note**: Heroku announced that SSH authentication method will be deprecated since November 30, 2021.
+**Note**: Heroku announced that SSH authentication method will be deprecated on November 30, 2021.
 
-## Heroku deployment through HTTP authentication
-[http-method]: #Heroku-deployment-through-HTTP-authentication
+## Heroku deployment via HTTP authentication
+[http-method]: #Heroku-deployment-via-HTTP-authentication
 In this example, we're going to configure Heroku deployment using HTTP Git transport.
 
-### Create and Store API token
+### Creating and Storing an API token
 
-The Heroku HTTP Git endpoint only accepts API-key based HTTP Basic authentication. For that, Heroku stores API tokens in the standard Unix file `~/.netrc` (`$HOME\_netrc` on Windows) so that other tools such as Git can access the Heroku API with little or no extra work.
+The Heroku HTTP Git endpoint only accepts API-key based HTTP Basic authentication. For that, Heroku stores API tokens in the standard Unix file `~/.netrc` (`$HOME\_netrc` on Windows), so that other tools such as Git can access the Heroku API with little or no extra work.
 
 Therefore, the first step is to locally create the API token which Semaphore will use to access Heroku.
 
@@ -72,12 +72,12 @@ $ cat ~/.netrc
    password c4cd94da15ea0544802c2cfd5ec4ead324327430
 ```
 
-### Inject API token
-Next, we need to make the `.netrc` file available on Semaphore. Use the [sem create secret command][sem-create-ref] to inject the file.
+### Injecting an API token
+Next, we need to make the `.netrc` file available to Semaphore. Use the [sem create secret command][sem-create-ref] to inject the file.
 
 `sem create secret heroku-http -f ~/.netrc:~/.netrc`
 
-You can verify the existence of your new secret:
+You can verify the existence of your new secret with the command shown below:
 
 ``` bash
 $ sem get secrets
@@ -85,7 +85,7 @@ NAME             AGE
 heroku-http      30s
 ```
 
-### Define the Deployment pipelines
+### Defining the Deployment pipelines
 
 Finally, let's define what happens in our `heroku.yml` pipeline:
 
@@ -116,24 +116,24 @@ blocks:
 **Note**: change the value of `HEROKU_APP_NAME` to match your application's
 details as registered on Heroku.
 
-**Note**: For deploying to Heroku, it is required that you use `checkout` with
-the `--use-cache` option in order to avoid the shallow clone of your GitHub
+**Note**: For deploying to Heroku, you must use `checkout` with
+the `--use-cache` option in order to avoid a shallow clone of your GitHub
 repository.
 
 
-### Verify it works
+### Verifying that it works
 
-Push a new commit on any branch and open Semaphore to watch a new workflow run.
-If all goes well you'll see the "Promote" button next to your initial pipeline.
+Push a new commit on any branch and open Semaphore to watch the new workflow run.
+If all goes well, you'll see the "Promote" button next to your initial pipeline.
 Click on it to launch deployment, and open the "Push code" job to observe its'
 output.
 
-## Heroku deployment through SSH authentication
-[ssh-method]: #heroku-deployment-through-ssh-authentication
+## Heroku deployment via SSH authentication
+[ssh-method]: #heroku-deployment-via-ssh-authentication
 
 In this example, we're going to configure Heroku deployment using SSH Git transport.
 
-### Create a deploy key
+### Creating a deploy key
 
 Create a new SSH key with no passphrase which Semaphore will use to
 authenticate with Heroku:
@@ -162,13 +162,13 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-Next, we need to make the private key `id_rsa_semaphore_heroku` available on
+Next, we need to make the private key `id_rsa_semaphore_heroku` available to
 Semaphore, and add the corresponding public key `id_rsa_semaphore_heroku.pub`
 to Heroku.
 
-### Store private SSH key in a Semaphore secret
+### Storing a private SSH key in a Semaphore secret
 
-[Create a new Semaphore secret][secrets-guide] using the [sem CLI][sem-create-ref]:
+[Create a new Semaphore secret][secrets-guide] using [sem CLI][sem-create-ref]:
 
 ``` bash
 $ sem create secret demoapp-heroku \
@@ -176,7 +176,7 @@ $ sem create secret demoapp-heroku \
 Secret 'demoapp-heroku' created.
 ```
 
-You can verify the existence of your new secret:
+You can verify the existence of your new secret with the command shown below:
 
 ``` bash
 $ sem get secrets
@@ -184,7 +184,7 @@ NAME             AGE
 demoapp-heroku   26s
 ```
 
-You can also verify the content of your secret:
+You can also verify the content of your secret with the command shown below:
 
 ``` bash
 $ sem get secret demoapp-heroku
@@ -202,10 +202,10 @@ data:
     content: LS0tLS1CRUdJTiBPUEV...
 ```
 
-The content of secrets is base64-encoded, and we see that our file will be
-mounted in Semaphore jobs on the desired path. All good.
+The content of secrets is base64-encoded, and we can see that our file will be
+mounted in Semaphore jobs on the desired path. All is as it should be.
 
-### Add your public key to Heroku
+### Adding your public key to Heroku
 
 Add the public SSH key to Heroku using `heroku keys:add`:
 
@@ -216,11 +216,11 @@ $ heroku keys:add
 ❯ /Users/joe/.ssh/id_rsa_semaphore_heroku.pub
 ```
 
-You can do the same through the Heroku user interface, in the "SSH Keys"
-section of your Account Settings. For more information consult
+You can do the same via the Heroku user interface, in the "SSH Keys"
+section of your Account Settings. For more information, consult the
 [Heroku documentation][heroku-keys].
 
-### Define the deployment pipeline
+### Defining the deployment pipeline
 
 Finally, let's define what happens in our `heroku.yml` pipeline:
 
@@ -260,25 +260,25 @@ blocks:
 **Note**: change the value of `HEROKU_APP_NAME` to match your application's
 name as it is registered on Heroku.
 
-**Note**: For deploying to Heroku, it is required that you use `checkout` with
-the `--use-cache` option in order to avoid the shallow clone of your GitHub
+**Note**: For deploying to Heroku, you must use `checkout` with
+the `--use-cache` option in order to avoid a shallow clone of your GitHub
 repository.
 
-**Note**: In order to invoke commands on a remote Heroku application, `HEROKU_API_KEY` environment variable should be set on Semaphore. The API key can be found by logging in to Heroku website and navigating to your `Account Settings`. Clicking on the `Reveal` button next to the API Key textbox will reveal your API key.
+**Note**: In order to invoke commands on a remote Heroku application, the `HEROKU_API_KEY` environment variable should be set on Semaphore. The API key can be found by logging in to the Heroku website and navigating to your `Account Settings`. Clicking on the `Reveal` button next to the API Key textbox will reveal your API key.
 
 #### Comments
 
-- By mounting the `demoapp-heroku` secret we make the private SSH key available
+- Mounting the `demoapp-heroku` secret makes the private SSH key available
 inside the pipeline block.
-- Using `ssh-keyscan` we specify that heroku.com is a trusted domain and bypass
+- Using `ssh-keyscan` specifies that heroku.com is a trusted domain and bypasses
 an interactive confirmation step that would block our job.
-- We need to manually add our private SSH key to local SSH agent.
-- Using force-push ensures we can deploy any amended Git branch without issues.
+- We need to manually add our private SSH key to the local SSH agent.
+- Using force-push ensures that we can deploy any amended Git branch without issues.
 
-### Verify it works
+### Verifying that it works
 
-Push a new commit on any branch and open Semaphore to watch a new workflow run.
-If all goes well you'll see the "Promote" button next to your initial pipeline.
+Push a new commit on any branch and open Semaphore to watch the new workflow run.
+If all goes well, you'll see the "Promote" button next to your initial pipeline.
 Click on it to launch deployment, and open the "Push code" job to observe its'
 output.
 
