@@ -1,17 +1,17 @@
 ---
-description: The sem-service is a utility on Linux based virtual machines for starting, stopping and getting the status of background services.
+Description: sem-service is a utility on Linux-based virtual machines for starting, stopping, and fetching the status of background services.
 ---
 
 # sem-service: Managing Databases and Services on Linux
 
-The `sem-service` is a utility on Linux based virtual machines for starting,
-stopping and getting the status of background services. Started services will
+`sem-service` is a utility on Linux-based virtual machines for starting,
+stopping, and fetching the status of background services. Started services will
 listen on 0.0.0.0 and their default port. The 0.0.0.0 IP address includes all
 available network interfaces. Essentially, you will be using services as if
-they were natively installed in the Operating System.
+they were natively installed on the Operating System.
 
-If you're looking to use databases in Docker-based environment, see [Working with
-Docker][working-with-docker] guide.
+If you're looking to use databases in a Docker-based environment, see [Working with
+Docker][working-with-docker].
 
 The general form of a `sem-service` command is as follows:
 
@@ -21,11 +21,11 @@ sem-service start [mysql | postgres | redis | memcached | mongodb | elasticsearc
 ```
 
 Therefore, each `sem-service` command requires at least two parameters: the
-first one is the task you want to perform and the second parameter is the name
-of the service that will be used for the task. The third parameter is optional
+first is the task you want to perform and the second is the name
+of the service that will be used for the task. A third parameter is optional
 and is the version of the service that you want to start.<br/> For MySQL and PostgreSQL it
-is possible to provide `username` via ```--username=username```, password for the new username
-via ```--password=password``` and database name for which the user will be granted admin access
+is possible to provide a `username` via ```--username=username```, a password for the new username
+via ```--password=password```, and a database name for which the user will be granted admin access
 via ```--db=dbname```.
 
 - The default MySQL username is `root`, the password is blank and the default database name is `test`
@@ -44,7 +44,7 @@ If no `version` value is given, a default value will be used according to the fo
 - cassandra: The default is `3.11`
 - rethinkdb: The default is `2.3`
 
-`sem-service` pulls images from Semaphore Container Registry. 
+`sem-service` pulls images from the Semaphore Container Registry. 
 You can find the list of available versions on our [Semaphore Container Registry images](/ci-cd-environment/semaphore-registry-images/#supported-sem-service-images) page.
 
 The following are valid uses of `sem-service`:
@@ -77,7 +77,7 @@ Services are not automatically shared across jobs in a task. To do that, start s
 within the [prologue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue)
 property of the task and populate data as needed.
 
-Example `sem-service` in your pipelines:
+Here is an example of using `sem-service` in a pipelines:
 
 ``` yaml
 version: v1.0
