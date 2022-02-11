@@ -4,20 +4,24 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 
 # AWS support
 
-Running one-off agents is not the most sofisticated solution for having a highly available fleet of agents at your disposal. Having a dynamically sized pool of agents which automatically resizes itself on high and low load periods is a more interesting solution.
+Running single agents manually is not the most sophisticated solution for having a highly available fleet of agents at your disposal. However, having a dynamically sized pool of agents which automatically resizes itself on high and low load periods is a more interesting solution.
 
-However, that solution is highly dependent on the environment where you are running your agents. The [agent-aws-stack][agent-aws-stack] can help you deploy a fleet of agents in your AWS account.
+Semaphore exposes ways for you to implement that. However, that solution is highly dependent on the environment where you are running your agents.
+
+If you intend to run your agents in AWS, the [agent-aws-stack][agent-aws-stack] can help you deploy a fleet of agents in your AWS account.
 
 ## Features
 
-<img src="https://raw.githubusercontent.com/semaphoreci/docs/aws-support/public/self-hosted-aws-stack.png" width="600"></img>
+- Run self-hosted agents in Linux-based machines
+- [Dynamically increase and decrease](#scaling-based-on-job-demand) the number of agents available based on your job demand
+- Deploy multiple stacks of agents, one for each self-hosted agent type
+- [Access the agent EC2 instances](#agent-instance-access) through SSH or using [AWS Systems Manager Session Manager][aws session manager]
+- Use an S3 bucket to [cache the dependencies](#caching) needed for your jobs
+- Control the size of your agent instances and of your agent pool
 
-- Dynamically scale the number of agents based on job demand
-- Configurable instance and fleet sizes
-- Support for multiple fleets of agents
-- SSH and AWS Systems Manager Session Manager access
-- S3-based caching
-- Linux-based agents support
+## Architecture
+
+<img src="https://raw.githubusercontent.com/semaphoreci/docs/aws-support/public/self-hosted-aws-stack.png" width="100%"></img>
 
 ## Requirements
 
@@ -28,9 +32,7 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 - [Packer](https://www.packer.io/)
 - [Ansible](https://www.ansible.com/)
 
-## Before you start
-
-There are a few required AWS resources you need to create before deploying the stack:
+There are also a few required AWS resources you need to create before deploying the stack:
 
 - The [agent type registration token][registration token] is a sensitive piece of information. Therefore, you need to create an encrypted AWS SSM parameter to hold it. You can check how to create it [here][aws ssm parameter creation].
 - The agent EC2 instances requires an AMI to be used. You can check how to create it [here][ami creation].
