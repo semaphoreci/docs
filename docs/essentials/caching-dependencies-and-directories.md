@@ -6,7 +6,7 @@ Description: The Semaphore 2.0 cache tool helps optimize CI/CD runtime by reusin
 
 The Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
 project depends on, but are not part of version control. You should typically
-use caching to:
+use caching to: TESTING
 
 - Reuse your project's dependencies, so that Semaphore fetches and installs
 them only when the dependency list changes.
