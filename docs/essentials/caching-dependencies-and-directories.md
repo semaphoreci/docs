@@ -39,7 +39,7 @@ The Semaphore cache works for the following languages and dependency managers:
 ### cache store
 
 A `cache store` command that has zero arguments will look up default paths
-used to store dependencies and cache them.
+used to store dependencies and cache them. TESTING
 
 Example YAML:
 
