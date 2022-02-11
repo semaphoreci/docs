@@ -90,7 +90,7 @@ Upload complete.
 A `cache restore` command that has zero arguments looks up cachable elements
 and tries to fetch them from the repository.
 
-Example output:
+Here is an example output:
 
 ``` bash
 $ cache restore
