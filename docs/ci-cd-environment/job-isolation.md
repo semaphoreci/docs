@@ -12,7 +12,7 @@ Even though some use cases might benefit from jobs sharing the same environment,
 
 Using docker containers is the fastest approach available. Creating, starting, stopping and destroying docker containers is a very fast operation, specially if you cache your docker images in the machine running the agent.
 
-There are two different ways docker containers can be used by the agent:
+There are two different ways that Docker containers can be used by the agent:
 
 - the agent itself can run inside a docker container. [disconnect-after-job][disconnect-after-job] can be used to instruct the agent to shutdown after a job is done.
 - You can configure jobs to [use docker images][pipeline yaml], and also the self-hosted agent type of your choice. In this scenario, the agent won't run inside a Docker container. However, the agent will execute the jobs inside the container. This approach doesn't require [shutdown-hook-path][shutdown-hook-path] or [disconnect-after-job][disconnect-after-job].
