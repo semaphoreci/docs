@@ -4,6 +4,9 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 
 # AWS support
 
+!!! beta "Self-hosted agents - closed beta"
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
+
 Even though manually starting and stopping agents might serve your purposes, having a dynamically sized pool of agents which automatically resizes itself on high and low load periods allows you to have a more highly available fleet of agents at your disposal. 
 
 Semaphore exposes ways for you to implement that. However, that solution is highly dependent on the environment where you are running your agents.
@@ -99,7 +102,7 @@ The stack configuration is done through environment variables. All the available
 [aws ssm parameter creation]: https://github.com/renderedtext/agent-aws-stack#create-encrypted-aws-ssm-parameter
 [ami creation]: https://github.com/renderedtext/agent-aws-stack#building-the-ami
 [aws cdk bootstrap]: https://github.com/renderedtext/agent-aws-stack#deploying-the-stack
-[caching]: /reference/caching-dependencies-and-directories
+[caching]: /essentials/caching-dependencies-and-directories
 [aws session manager]: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html
 [using docker containers]: /ci-cd-environment/job-isolation.md
 [cache cli]: /reference/toolbox-reference#cache
