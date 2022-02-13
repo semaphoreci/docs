@@ -74,8 +74,8 @@ When the number of agents running outnumber the number of jobs running, a few ag
 
 Finally, you can control this behavior through a few configuration parameters:
 
-- The default, the idle period after which an agent shuts down is 5 minutes. But you can configure that to what works best for you by using the `SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT` parameter. Setting that parameter to 0 will stop shutting down agents when they are idle, so your stack won't ever scale down.
-- Even if you have a lot of jobs, you might not want your stack to grow infinitely. You can use the `SEMAPHORE_AGENT_ASG_MAX_SIZE` parameter to configure a limit for your auto scaling group. The lambda will respect your configuration and will not increase the number of agents above that limit.
+- By default, the idle period after which an agent shuts down is 5 minutes. But you can configure that to what works best for you by using the `SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT` parameter. Setting that parameter to 0 will stop shutting down agents when they are idle, so your stack won't ever scale down.
+- Even if you have a lot of jobs, you probably do not want your stack to grow infinitely. You can use the `SEMAPHORE_AGENT_ASG_MAX_SIZE` parameter to configure a limit for your auto scaling group. The lambda will respect your configuration and will not increase the number of agents above that limit.
 - You might want some agents to always be running even if no jobs are running. To address that, you can configure a minimum number of agents for your auto scaling group with the `SEMAPHORE_AGENT_ASG_MIN_SIZE` parameter.
 - You might also not want a dynamically sized auto scaling group at all. You can disable this behavior completely and have a statically sized pool of agents by using the `SEMAPHORE_AGENT_USE_DYNAMIC_SCALING` parameter.
 
@@ -87,7 +87,7 @@ This comes with a cost, as rotating EC2 instances may not be a fast operation. I
 
 ## Multiple stacks
 
-Each stack that is deployed spins up agents for one agent type. However, you might need to deploy multiple stacks for multiple agent types. To achieve that, you need to:
+Each stack that is deployed creates and starts agents for one agent type only. However, you might need to deploy multiple stacks for multiple agent types. To achieve that, you need to:
 
 - Set a different `SEMAPHORE_AGENT_STACK_NAME` parameter for each stack.
 - Create one encrypted SSM parameter for each agent type registration token, and set the `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME` appropriately for each one.
