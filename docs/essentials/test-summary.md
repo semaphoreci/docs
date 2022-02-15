@@ -23,7 +23,7 @@ Semaphore supports any test runner that generates JUnit XML reports.
 
 To collect test results for your pipelines, follow these three steps.
 
-### Step 1 &mdash - Export XML results from your test suite
+### Step 1 &mdash; Export XML results from your test suite
 
 Most test runners can export JUnit XML test results. In the following list, you
 can find popular test runners and their formatters.
@@ -47,7 +47,7 @@ can find popular test runners and their formatters.
 If your test runner is not the previous list, you can still collect Tests. All you need to do is find a
 test formatter for your test runner that can export JUnit XML results.
 
-### Step 2 &mdash - Publish XML results from your jobs
+### Step 2 &mdash; Publish XML results from your jobs
 
 Given that your test suite exports an XML test result named `report.xml`,
 you can publish it from your jobs with the `test-results` CLI tool.
@@ -69,7 +69,7 @@ If you are running tests inside of a Docker container, see
 [how to use test-results CLI with Docker][working-with-docker]{target=_blank}
 to extract and publish the result file.
 
-### Step 3 &mdash - Collect and Merge all XML results for a pipeline
+### Step 3 &mdash; Collect and Merge all XML results for a pipeline
 
 Finally, to collect and merge XML reports from all jobs in a pipeline, add the
 following snippet to your pipeline YAML file:
@@ -110,7 +110,7 @@ your tests ordered from slowest to fastest.
 ### Find skipped tests
 
 Skipping a test is a common short-term strategy to isolate problematic tests in your test
-suite. In the long term, however, your team risks shipping features that have not been 
+suite. In the long term, however, your team risks shipping features that have not been
 thoroughly tested if the number of skipped tests grows too large.
 
 Visiting the Tests dashboard can give you a good overview of how many tests are
