@@ -1,5 +1,5 @@
 ---
-description: This guide gives an overview of CI/CD with Semaphore for apps created with Xcode that run on iOS, macOS, watchOS, or tvOS.
+Description: This guide gives an overview of CI/CD with Semaphore for apps created with Xcode that run on iOS, macOS, watchOS, or tvOS.
 ---
 
 # iOS Continuous Integration with Xcode
@@ -7,9 +7,9 @@ description: This guide gives an overview of CI/CD with Semaphore for apps creat
 This guide gives an overview of CI/CD with Semaphore for apps created with
 Xcode that run on iOS, macOS, watchOS, or tvOS.
 
-Semaphore supports building, testing, and deploying Swift, Objective-C and
+Semaphore supports building, testing, and deploying Swift, Objective-C, and
 React Native projects. Projects can be built with
-[Xcode 11][macos-xcode11] running on macOS `a1-standard-4` 
+[Xcode 11][macos-xcode11] running on a macOS `a1-standard-4` 
 or higher [machine type][machine-types].
 
 ## Example project
@@ -28,13 +28,13 @@ This example project includes an annotated Semaphore configuration file,
 
 The Semaphore pipeline is configured to:
 
-- Run all unit and UI tests.
-- Build the app and generate an `ipa` archive.
-- Generate automated App Store screenshots.
-- Upload the archived `ipa` and screenshots as job [artifacts][artifacts].
+- Run all unit and UI tests
+- Build the app and generate an `ipa` archive
+- Generate automated App Store screenshots
+- Upload archived `ipa` and screenshots as job [artifacts][artifacts]
 
-Taking the the `.semaphore/semaphore.yml` from this example project can be a
-good way to get *your* app up and running on with Semaphore.
+Taking the `.semaphore/semaphore.yml` file from this example project can be a
+good way to get *your* app up and running with Semaphore.
 
 ### Related guides:
 
@@ -52,7 +52,7 @@ The following `.semaphore/semaphore.yml` configuration is used in the
 version: v1.0
 
 # Name your pipeline. If you choose to connect multiple pipelines with
-# promotions, the pipeline name will help you differentiate between
+# promotions, the pipeline names will help you differentiate between
 # them. For example, you might have a build phase and a delivery phase.
 # For more information on promotions, see:
 # https://docs.semaphoreci.com/essentials/deploying-with-promotions/
@@ -60,7 +60,7 @@ name: Tallest Towers
 
 # The agent defines the environment in which your CI runs. It is a combination
 # of a machine type and an operating system image. For a project built with
-# Xcode you must use one of the Apple machine types, coupled with a macOS image
+# Xcode, you must use one of the Apple machine types coupled with a macOS image
 # running Xcode 11.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 # https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
@@ -86,8 +86,8 @@ blocks:
           # Download source code from GitHub.
           - checkout
 
-          # Restore dependencies from cache. This command will not fail in
-          # case of a cache miss. In case of a cache hit, bundle  install will
+          # Restore dependencies from the cache. This command will not fail in
+          # the event of a cache miss. In the event of a cache hit, bundle install will
           # complete in about a second.
           # See https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
           - cache restore
@@ -100,7 +100,7 @@ blocks:
             # See https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
             - xcversion select 11.2.1
 
-            # Run tests of iOS and Mac app on a simulator or connected device.
+            # Run tests for iOS and Mac apps on a simulator or connected device.
             # See https://docs.fastlane.tools/actions/scan/
             - bundle exec fastlane test
 
@@ -167,13 +167,13 @@ name: Tallest Towers
 ```
 
 **Note:** If you choose to connect multiple pipelines with
-[promotions][promotions], the pipeline name will help you differentiate between
+[promotions][promotions], the pipeline names will help you differentiate between
 them. For example, you might have a build phase and a delivery phase.
 
 ### Defining the agent
 
 The agent defines the environment in which your CI runs. It is a combination of
-a machine type and an operating system image. For a project built with Xcode you
+a machine type and an operating system image. For a project built with Xcode, you
 must use one of the Apple [machine types][machine-types], coupled with a macOS
 image running [Xcode 11][macos-xcode11].
 
@@ -190,7 +190,7 @@ Blocks are the heart of a pipeline and are executed sequentially.
 Each block has a task that defines one or more parallel jobs. Jobs define
 commands that should be executed by the pipeline.
 
-Blocks, tasks and jobs are Semaphore's [core concepts][concepts].
+Blocks, tasks, and jobs are Semaphore's [core concepts][concepts].
 
 ``` yaml
 blocks:
@@ -250,7 +250,7 @@ information on the exact functionality of `cache` can be found in
 
 ### Selecting an Xcode version
 
-You can find the list of available versions of Xcode on the
+You can find the list of available versions of Xcode in the
 [Xcode 11][macos-xcode11] image references. 
 Select the desired version for your project with `xcversion`.
 
@@ -295,7 +295,7 @@ the rest of the project.
 ```
 
 The [example project README][example-project-readme] also includes a detailed
-walkthrough of configuring the project to use a private git repository with
+walkthrough for configuring the project to use a private git repository with
 encrypted certificates and provisioning profiles.
 
 ### Uploading build artifacts
@@ -311,7 +311,7 @@ it as a job artifact.
           - artifact push job TallestTowers.ipa
 ```
 
-### Automating the generation App Store screenshots
+### Automating the generation of App Store screenshots
 
 The example project is also configured to run [`snapshot`][fastlane-snapshot]
 to automate the generation of a small set of sample App Store screenshots and
@@ -362,10 +362,10 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][example-project] to your own account.
-2. Clone the repository on your local machine.
+2. Clone the repository to your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-4. Create your secret as per instructions above.
-5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+4. Create your secret as per the instructions above.
+5. Edit any file and push to GitHub, and Semaphore will run the CI/CD pipeline.
 
 ## Related guides:
 
