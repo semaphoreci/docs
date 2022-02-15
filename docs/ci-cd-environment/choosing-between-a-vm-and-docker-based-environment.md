@@ -1,16 +1,16 @@
 ---
-description: Semaphore supports two types of environments for running jobs - A Virtual Machine (VM) based environment and a Docker container based environment.
+Description: Semaphore supports two types of environments for running jobs: A Virtual Machine-based environment and a Docker container-based environment.
 ---
 
-# Choosing Between a VM and Docker-based Environment
+# Choosing Between VM and Docker-based Environments
 
-Semaphore supports two types of environments for running jobs. A Virtual Machine
-(VM) based environment and a Docker container based environment.
+Semaphore supports two types of environments for running jobs. A Virtual Machine-based 
+environment and a Docker container-based environment.
 
-- [Virtual Machine based environments](#virtual-machine-based-environments)
+- [Virtual Machine-based environments](#virtual-machine-based-environments)
 - [Docker-based environments](#docker-based-environments)
 
-Both environment types have advantages and disadvantages compared to each other.
+Both environment types have their respective advantages and disadvantages.
 Use the following guides to choose the best environment type for your project.
 
 - [When should you use Virtual Machines for your projects?](#when-should-you-use-virtual-machines-for-your-projects)
@@ -22,16 +22,16 @@ Commonly asked questions include:
 - [Can I use Docker images in Virtual Machines?](#can-i-use-docker-images-in-virtual-machines)
 - [Can I build Docker-in-Docker?](#can-i-build-docker-in-docker)
 
-## Virtual Machine based environments
+## Virtual Machine-based environments
 
-Virtual machines are maintained by engineers at Semaphore. Every two weeks, a
-new release of the platform is released bundled with the latest software
+Semaphore's virtual machines are maintained by our engineers. Every two weeks, a
+new release of the platform is released, bundled with the latest software
 packages.
 
-To use a virtual machine based environment for your jobs, use the following type
+To use a virtual machine-based environment for your jobs, use the following type
 of agent definition in your pipeline YAML file.
 
-**Linux based virtual machines**
+**Linux-based virtual machines**
 
 ``` yaml
 agent:
@@ -40,7 +40,7 @@ agent:
     os_image: ubuntu1804
 ```
 
-**Mac based virtual machines**
+**Mac-based virtual machines**
 
 ``` yaml
 agent:
@@ -49,23 +49,24 @@ agent:
     os_image: macos-xcode12
 ```
 
-Read more about [Machine Types][machine-types] and the
-[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 11][xcode11] and [Mac OS XCode 12][xcode12] virtual machines images.
+We also have helpful documentation about [Machine Types][machine-types] and the
+[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 11][xcode11], and [Mac OS XCode 12][xcode12] virtual machines images.
+Have a look!
 
 ## Docker-based environments
 
-The Docker-based environment is a composable environment that allows the usage
+A Docker-based environment is a composable environment that allows the use
 of one or more Docker containers to construct your test environment on
 Semaphore.
 
 The recommended way of using Docker images is to build and maintain a
-custom-built image with the precise set of software that is necessary for your
+custom-built image with only the software that is necessary for your
 project.
 
 Alternatively, if you are just starting out with Docker-based environments, you
-can use one of Semaphore's images to get started.
+can use one of Semaphore's convenience images.
 
-To use a container based environment, define at least one container in your
+To use a container-based environment, define at least one container in your
 agent definition in your pipeline YAML file.
 
 ``` yaml
@@ -87,32 +88,32 @@ agent:
       image: 'registry.semaphoreci.com/redis:5.0'
 ```
 
-Read more about [docker based environments][docker-based].
+Read more about [docker-based environments][docker-based].
 
 !!! info "Semaphore convenience images redirection"
-	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
+	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images, Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
 
 ## When should you use Virtual Machines for your projects?
 
-- **You want to have an up to date testing environment with the latest software
-  packages.** The Virtual Machines are regularly updated by engineers at
-  Semaphore with the latest software packages.
+- **You want to have an up-to-date testing environment with the latest software
+  packages.** The Virtual Machines are regularly updated with the latest software 
+  packages by engineers at Semaphore.
 
 - **You are building Docker images or spinning up local Kubernetes testing
-  clusters in the CI/CD jobs.** When working with Docker or Kubernetes directly,
+  clusters in CI/CD jobs.** When working with Docker or Kubernetes directly,
   you usually need full control over sockets, network-devices, and subnets.
   Access to these is provided in VMs, but not in containers.
 
 - **You are running or testing nested Virtual Machines**. In these situations,
-  you need full control over the operating system that only virtual machines
+  you need full control over the operating system, which only virtual machines
   provide.
 
 ## When should you use Docker-based environments?
 
 - **You want to have full control over the software installed in your test
   environment**. Rolling software updates offered in the VMs are a great way to
-  keep your test environment up to date, but they can also introduce unwanted
-  issues into your test suite a new release is rolled out. If you build and
+  keep your test environment up-to-date, but they can also introduce unwanted
+  issues into your test suite when a new release is rolled out. If you build and
   maintain your own Docker images, you gain full control over the release cycle
   of your testing environment.
 
@@ -123,9 +124,9 @@ Read more about [docker based environments][docker-based].
 
 - **You need custom software that is not available in the VM images**.
   Semaphore's Virtual Machines are packed with a wide variety of languages and
-  tools, but it is impossible to pack everything. In the virtual machines, you
-  can use `apt-get` to install them, but a more efficient way is to build a
-  docker image that pre-installs everything necessary for your tests.
+  tools, but they don't have everything. In the virtual machines, you
+  can use `apt-get` to install what you need, but a more efficient way is to build a
+  docker image that pre-installs everything that is necessary for your tests.
 
 ## Can I use Docker images in Virtual Machines?
 
@@ -154,15 +155,15 @@ blocks:
 
 ## Can I build Docker-in-Docker?
 
-It is possible to build Docker images in container based environments (the
-Docker socket is mounted and available). Still, it is not the recommended way to
-build Docker images on Semaphore.
+It is possible to build Docker images in container-based environments 
+(Docker socket is mounted and available), but it is not the 
+recommended way to build Docker images on Semaphore.
 
 Docker-in-Docker has a set of issues that you need to be aware of before
 choosing this approach.
 
 Jérôme Petazzoni — the author of the feature that made it possible for Docker to
-run inside a Docker container — wrote a [blog post saying not to do it][blog-docker-in-docker].
+run inside a Docker container — wrote a [blog post about why you shouldn't do it][blog-docker-in-docker].
 The use case he describes matches the use case of a CI Docker container that
 needs to run jobs inside other Docker containers.
 
