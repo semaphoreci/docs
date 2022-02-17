@@ -142,5 +142,39 @@ To access them in the UI, click the "Artifacts" button on the project page.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/project-artifacts.png" alt="Viewing project artifacts">
 
+## Artifact retention policies 
+
+By default, artifacts are persisted and never automatically deleted. If you want to limit the
+lifetime of the artifacts in your project, you can set up artifact retention policies in your 
+project.
+
+For example, if you want to delete every job and workflow artifact after a week, go to your project
+settings and set up retention policies for job and workflow artifacts.
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/simple-retention-policy.png" alt="Simple retention policies">
+
+### Applying different retention policies to different folders
+
+Some artifacts have higher values and we might want to extend their lifetime. 
+
+For example, test screenshots saved on the job level typically lose their value 
+after a couple days, while the test logs can offer a high value for several months.
+
+We can set up a retention policy that matches that matches our previous needs. One
+week for screenshots, and 3 months for test logs. We will also set one months for
+any other file:
+
+To do this, we will use the following configuration for job level artifacts:
+
+```
+/screenshots/**/*.png         1 week
+/logs/**/*.txt              3 months
+/**/*                        1 month
+```
+
+The format of the selector patterns and the available options are further described 
+in the [Artifact Retention Policy Reference][artifact-retention-policy-ref].
+
 [artifact-cli-reference]: https://docs.semaphoreci.com/reference/artifact-cli-reference/
 [epilogue-always]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
+[artifact-retention-policy-ref]
