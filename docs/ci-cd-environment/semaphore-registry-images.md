@@ -1,20 +1,20 @@
 ---  
-description: This page contains a list of docker images available on the Semaphore Container Registry.  
+Description: This page contains a list of docker images available in the Semaphore Container Registry.  
 ---  
   
 # Semaphore Container Registry  
-Semaphore hosts a set of images that are used by `sem-service` as well as a set of convenience images.
-You can use these images inside your Semaphore environment without any restrictions or limits.
+Semaphore hosts a set of images that are used by `sem-service`, as well as a set of convenience images.
+You can use these images in your Semaphore environment without any restrictions or limits.
   
 ### Using an unsupported version  
-In case that you need to use a Docker image that is not covered in this list, please note that Semaphore allows pulls from any Docker repository.  
+In event that you need to use a Docker image that is not covered in this list, please note that Semaphore allows pulls from any Docker repository.  
 
 You can find more information on our [working with Docker](/ci-cd-environment/working-with-docker/) documentation page. 
   
 ## Convenience Docker images  
-Semaphore comes with pre-built convenience Docker images hosted on Semaphore Container Registry.  
+Semaphore comes with pre-built convenience Docker images hosted on the Semaphore Container Registry.  
 
-If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
+If you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images, Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the Semaphore Container Registry.
 
 The source code of the Semaphore Docker images is [hosted on Github](https://github.com/semaphoreci/docker-images).  
   
@@ -167,7 +167,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | android:30-node | `registry.semaphoreci.com/android:30-node` |
 
 ## Supported sem-service images  
-The `sem-service` is [a utility on Linux based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping and getting the status of background services. You can use `sem-service` to pull images from the Semaphore Container Registry. All versions that are supported are listed below.  
+The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping, and getting the status of background services. You can use `sem-service` to pull images from the Semaphore Container Registry. All supported versions are listed below.  
   
 ### Postgres  
 | Image | Link |

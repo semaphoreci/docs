@@ -1,28 +1,28 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Python Django web application. 
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Python Django web application. 
 ---
 
 # Django Continuous Integration
 
 This guide shows you how to use Semaphore to set up a continuous
-integration (CI) pipeline for a Python Django web application. First,
-create a new [Semaphore
+integration (CI) pipeline for a Python Django web application. The first thing 
+you need to do is to create a new [Semaphore
 project](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/).
 
 Demo project
 ------------
 
-Semaphore maintains an example Django project:
+Semaphore maintains an example Django project that you can use to learn:
 
 -   [Demo Python Django project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
 
 The Semaphore annotated configuration file can be found in the
-repository file `.semaphore/semaphore.yml`.
+`.semaphore/semaphore.yml` repository file.
 
-The demo application is a simple task manager. We can create, edit and
-delete tasks. It also features an admin site to manage users, groups and
+The demo application is a simple task manager. We can create, edit, and
+delete tasks. It also features an admin site to manage users, groups, and
 permissions. The project uses the Django framework, unittest and nose
-for unit testing, pylint for code analysis, selenium for browser tests
+for unit testing, pylint for code analysis, selenium for browser tests,
 and MySQL as a database.
 
 Overview of the CI pipeline
@@ -30,22 +30,22 @@ Overview of the CI pipeline
 
 Our Django CI pipeline contains the following tasks:
 
--   Install dependencies.
-    -   Install python packages with `pip`.
--   Code Analysis.
-    -   Run static code analysis with `pylint`.
--   Unit tests.
-    -   Run unit tests for views and models.
--   Browser tests.
-    -   Run browser tests with python selenium webdriver.
--   Security tests.
-    -   Run security tests with Django deployment checklist.
+-   Install dependencies
+    -   Install python packages with `pip`
+-   Code Analysis
+    -   Run static code analysis with `pylint`
+-   Unit tests
+    -   Run unit tests for views and models
+-   Browser tests
+    -   Run browser tests with python selenium webdriver
+-   Security tests
+    -   Run security tests with Django deployment checklist
 
-The example pipeline is comprised of 5 blocks:
+The example pipeline has 5 blocks:
 
 ![Project pipeline](https://github.com/semaphoreci-demos/semaphore-demo-python-django/raw/master/pydjango_ci_integration/pipepline.png "Django CI pipeline")
 
-We want fast feedback through the test pipeline, so we'll fail fast if the linting fails. This prevents running time consuming tests for semantically incorrect code.
+We want prompt feedback from the test pipeline, so we'll fail fast if the linting fails. This prevents losing time on account of semantically incorrect code.
 
 Sample configuration
 --------------------
@@ -54,7 +54,7 @@ Sample configuration
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
-# Name your pipeline. In case you connect multiple pipelines with promotions,
+# Name your pipeline. In the event that you connect multiple pipelines with promotions,
 # the name will help you differentiate between, for example, a CI build phase
 # and delivery phases.
 name: Semaphore Python / Django Example Pipeline
@@ -78,7 +78,7 @@ blocks:
     task:
       # This block installs all the python dependencies,
       # as well as all the required Linux packages.
-      # The prologue section is always executed before each job on
+      # The prologue section is always executed before each job in
       # the block.
       # See https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#prologue
       prologue:
@@ -94,8 +94,8 @@ blocks:
             # Get the latest version of our source code from GitHub:
             # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
             - checkout
-            # Restore dependencies from cache. This command will not fail in
-            # case of a cache miss. In case of a cache hit, pip can use it
+            # Restore dependencies from the cache. This command will not fail in
+            # the event of a cache miss. In the event of a cache hit, pip can use it
             # to speed up the installation.
             # For more info on caching, see https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
             - cache restore
@@ -119,18 +119,18 @@ blocks:
       jobs:
         - name: Pylint
           commands:
-            # list out files that are in directory and working tree
+            # list files that are in the directory and working tree
             # grep -v will exclude the files being considered for pylint
             # grep -E will matches files having .py extension
-            # This command will help to pass required python files to pylint along with pylint_djanog plugin
-            # Pylint with -E option will display only if there is any error
+            # This command will help to pass required python files to pylint along with the pylint_djanog plugin
+            # Pylint with -E option will display only if there is an error
             - git ls-files | grep -v 'migrations' | grep -v 'settings.py' | grep -v 'manage.py' | grep -E '.py$' |
               xargs pylint -E --load-plugins=pylint_django
 
   - name: "Run Unit Tests"
     task:
       # This block runs the unit tests.
-      # Since the test require a database, we start the database here.
+      # Since the test requires a database, we start the database here.
       # Django automatically creates a test database schema.
       prologue:
         commands:
@@ -205,11 +205,11 @@ blocks:
 
 Semaphore provides [python 2 &
 3](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python)
-stable versions, as well as pip, pypy and virtualvenv.
+stable versions, as well as pip, pypy, and virtualvenv.
 
 ### Database access
 
-In Semaphore, databases run in the same environment as the jobs, and can
+In Semaphore, databases run in the same environment as jobs, and can
 be accessed with a blank password. For more information on using
 databases see [databases and
 services](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services)
@@ -219,21 +219,21 @@ and
 ### Browser testing
 
 Semaphore provides [Chrome
-preinstalled](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing)
+preinstalled](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing),
 so no installation steps are required for doing browser tests.
 
 Run the demo yourself
 ---------------------
 
 A great way of getting started with Semaphore is to take a demo project
-and run it by yourself. Here's how to run the demo project with your own
+and run it yourself. Here's how to run the demo project with your own
 account:
 
 1.  [Fork the project on
     GitHub](https://github.com/semaphoreci-demos/semaphore-demo-python-django)
     with your account.
-2.  Clone the repository on your local machine.
-3.  In Semaphore, follow the link on the sidebar to create a new
+2.  Clone the repository to your local machine.
+3.  In Semaphore, follow the link in the sidebar to create a new
     project.
 4.  Edit any file and do a push to GitHub, Semaphore will automatically
     start the CI pipeline.
