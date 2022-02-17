@@ -66,7 +66,7 @@ tab to see artifacts uploaded by this job.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/job-artifacts.png" alt="Viewing job artifacts">
 
-## Workflow Artifacts
+### Workflow Artifacts
 
 The main use-case for workflow artifacts is storing various build and test reports,
 and passing data and executables between jobs in a single workflow.
@@ -80,7 +80,7 @@ artifact push workflow <my_file_or_dir>
 To download files from the workflow artifacts store:
 
 ```
-artifact push workflow <my_file_or_dir>
+artifact pull workflow <my_file_or_dir>
 ```
 
 Here is a full example that shows how to build a release in the first block, and
@@ -117,6 +117,8 @@ tests.
 
 You can view the stored files from a workflow page. Go to the workflow page and 
 click on the "Artifacts" tab to see artifacts uploaded in this workflow.
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/workflow-artifacts.png" alt="Viewing workflow artifacts">
 
 ## Project Artifacts
 
