@@ -172,6 +172,8 @@ To do this, we will use the following configuration for job level artifacts:
 /**/*                        1 month
 ```
 
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/artifact-retention-custom.png" alt="Simple retention policies">
+
 The format of the selector patterns and the available options are further described 
 in the [Artifact Retention Policy Reference][artifact-retention-policy-ref].
 
