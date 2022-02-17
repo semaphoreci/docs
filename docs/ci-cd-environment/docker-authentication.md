@@ -141,7 +141,7 @@ If you have been successfully logged in, then the `auths` field will be updated 
 If you are not logged in, the `auths` field will be empty:
 ```json
 {
-	"auths": {},
+"auths": {},
 ```
 
 ## How do you know if you are hitting the limit?
