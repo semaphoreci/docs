@@ -34,8 +34,6 @@ as you need for any project, using a variety of options and conditions.
 For designing custom delivery pipelines, consult the
 [promotions reference documentation][promotions-ref].
 
-The only method currently available is via [HTTP authentication][http-method], since SSH authentication method was be deprecated on November 30, 2021, by Heroku.
-
 ## Heroku deployment via HTTP authentication
 [http-method]: #Heroku-deployment-via-HTTP-authentication
 In this example, we're going to configure Heroku deployment using HTTP Git transport.
@@ -128,7 +126,7 @@ output.
 
 The `.netrc` file is not a permanent token. It must be updated from time to time.
 
-After the first activation, whenever you experience a job hanging at the authentication, it may happen that the `.netrc` file got expired. In this case, recreating the file and then reinjecting the secret should solve the issue.
+If you encounter a job hanging at the authentication step, it could be due to an expired `.netrc` file. In this case, recreating the file and the secret should solve the issue.
 
 ## Next steps
 
