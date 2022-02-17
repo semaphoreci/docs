@@ -120,20 +120,27 @@ click on the "Artifacts" tab to see artifacts uploaded in this workflow.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/workflow-artifacts.png" alt="Viewing workflow artifacts">
 
-## Project Artifacts
+### Project Artifacts
 
-Project level artifacts are great for storing final deliverables of the
-CI/CD process. To access them in the UI, click the "Project Artifacts"
-button on the project page.
+The main use-case for project artifacts is storing final deliverables of the
+CI/CD process.
 
-To upload project artifacts from any job of any workflow you need to use:
+To upload project artifacts from any job of any workflow use:
 
-`artifact push project myapp-v1.25.tar.gz`
+```
+artifact push project myapp-v1.25.tar.gz
+```
 
 Similarly, if you want to download a file from the project level artifact store,
 use the `pull` command.
 
-`artifact pull project myapp-v1.25.tar.gz`
+```
+artifact pull project myapp-v1.25.tar.gz
+```
+
+To access them in the UI, click the "Artifacts" button on the project page.
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/project-artifacts.png" alt="Viewing project artifacts">
 
 [artifact-cli-reference]: https://docs.semaphoreci.com/reference/artifact-cli-reference/
 [epilogue-always]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
