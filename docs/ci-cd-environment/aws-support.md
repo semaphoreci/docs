@@ -68,6 +68,8 @@ export SEMAPHORE_AGENT_STACK_NAME=YOUR_STACK_NAME
 export SEMAPHORE_ORGANIZATION=YOUR_ORGANIZATION
 ```
 
+[Other environment variables](#configuration) may be configured as well, depending on your needs.
+
 <b>5. Bootstrap the CDK application</b>
 
 The AWS CDK requires a few resources to be around for it to work properly:
@@ -75,8 +77,6 @@ The AWS CDK requires a few resources to be around for it to work properly:
 ```
 npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
 ```
-
-[Other environment variables](#configuration) may be configured as well, depending on your needs.
 
 <b>6. Deploy the stack</b>
 
