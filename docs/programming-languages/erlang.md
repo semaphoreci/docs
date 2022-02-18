@@ -13,7 +13,7 @@ The list of supported Erlang versions is [available here][erlang-versions].
 The [`sem-version` utility][sem-version]
 can help you change between the available Erlang versions.
 
-By default Semaphore Virtual Machine uses Erlang version 21.0. You can change
+By default Semaphore Virtual Machine (VM) uses Erlang version 21.0. You can change
 to Erlang version 20.3 by executing the following command:
 
 ``` yaml
