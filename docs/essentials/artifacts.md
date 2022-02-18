@@ -155,7 +155,7 @@ settings and set up retention policies for job and workflow artifacts.
 
 ### Applying different retention policies to different folders
 
-Some artifacts have higher values and we might want to extend their lifetime. 
+Some artifacts have higher values and you might want to extend their lifetime. 
 
 For example, test screenshots saved on the job level typically lose their value 
 after a couple days, while the test logs can offer a high value for several months.
@@ -177,6 +177,6 @@ To do this, we will use the following configuration for job level artifacts:
 The format of the selector patterns and the available options are further described 
 in the [Artifact Retention Policy Reference][artifact-retention-policy-ref].
 
-[artifact-cli-reference]: https://docs.semaphoreci.com/reference/artifact-cli-reference/
-[epilogue-always]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
-[artifact-retention-policy-ref]
+[artifact-cli-reference]: /reference/artifact-cli-reference/
+[epilogue-always]: /reference/pipeline-yaml-reference/#the-epilogue-property
+[artifact-retention-policy-ref]: /reference/artifact-retention-policies
