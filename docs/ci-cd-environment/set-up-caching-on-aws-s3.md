@@ -29,6 +29,8 @@ aws s3api put-public-access-block \
 BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
 ```
 
+If you are using the [aws-agent-stack][agent aws stack], this is the only thing you need to do. After creating the bucket, set the `SEMAPHORE_AGENT_CACHE_BUCKET_NAME` and you are all set.
+
 **2. Create an AWS IAM policy**
 
 It is always good practice to give services only the permissions they need. The cache CLI only needs access to perform the following AWS S3 actions:
@@ -164,3 +166,4 @@ We're all set. After restarting your agent, you should be able to start using th
 
 [set up aws cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config
 [aws create bucket]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html
+[agent aws stack]: https://github.com/renderedtext/agent-aws-stack
