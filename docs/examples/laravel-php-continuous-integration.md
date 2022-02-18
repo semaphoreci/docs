@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Laravel PHP web application.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Laravel PHP web application.
 ---
 
 # Laravel PHP Continuous Integration
@@ -9,28 +9,28 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 ## Demo project
 
-Semaphore maintains an example Laravel project:
+Semaphore maintains an example Laravel project that you can use to learn:
 
 - [Demo Laravel project on GitHub][demo-project]
 
-In the repository you will find an annotated Semaphore configuration file
+In the repository you will find an annotated Semaphore configuration file:
 `.semaphore/semaphore.yml`.
 
 The application uses the latest stable version of Laravel, Composer, NPM, PHP
 Mess Detector, Code Sniffer, Copy Detector, PHPUnit, Laravel Dusk with
-Chrome, Sensiolabs and PostgreSQL as the database.
+Chrome, Sensiolabs, and PostgreSQL as the database.
 
 ## Overview of the CI pipeline
 
 The demo Laravel PHP CI pipeline performs the following tasks:
 
-- Code analysis by running:
+- Analyses code by running:
   - PHP Mess Detector
   - Code Sniffer
   - Copy Detector
 - Runs PHPUnit unit tests
-- Runs browser tests through Laravel Dusk
-- Runs security Tests through Sensiolabs checker
+- Runs browser tests using Laravel Dusk
+- Runs security tests using Sensiolabs checker
 
 The CI pipeline is composed of a dependency installation block and four blocks
 of tests:
@@ -44,13 +44,13 @@ of tests:
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
-# Name your pipeline. In case you connect multiple pipelines with promotions,
-# the name will help you differentiate between, for example, a CI build phase
+# Name your pipeline. In the event that you connect multiple pipelines with promotions,
+# the names will help you differentiate between them, e.g. a CI build phase
 # and delivery phases.
 name: Semaphore PHP Example Pipeline
 
 # An agent defines the environment in which your code runs.
-# It is a combination of one of available machine types and operating
+# It is a combination of one of the available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 # and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
@@ -73,9 +73,9 @@ blocks:
         - name: composer
           commands:
             # Checkout code from Git repository. This step is mandatory if the
-            # job is to work with your code.
-            # Optionally you may use --use-cache flag to avoid roundtrip to
-            # remote repository.
+            # job has to work with your code.
+            # Optionally, you may use --use-cache flag to avoid roundtrips to
+            # a remote repository.
             # See https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
             - checkout
             # Try and find a cached version of our /vendor dependencies folder.
@@ -86,7 +86,7 @@ blocks:
             - composer install
             # Install node dependencies
             - npm install
-            # Store the /vendor and node_modules folders into cache for later use.
+            # Store the /vendor and node_modules folders in the cache for later use.
             - cache store
             # We are setting up the .env file from our example file which contains Semaphore DB data and proper app URL
             - cp .env.example .env
@@ -110,7 +110,7 @@ blocks:
             - php vendor/bin/phpcs app --report-full --standard=PSR2
         - name: phpcpd
           commands:
-            # Run the PHP Copy Paste Detector from online repository.
+            # Run the PHP Copy Paste Detector from the online repository.
             - curl -L https://phar.phpunit.de/phpcpd.phar -o phpcpd.phar
             - php phpcpd.phar app/ --min-lines=50
 
@@ -121,7 +121,7 @@ blocks:
         commands:
           - checkout
           - cache restore
-          # Run the unit tests from the phpunit binary in vendor folder
+          # Run the unit tests from the phpunit binary in the vendor folder
           - ./vendor/bin/phpunit
 
   - name: "Run Browser tests"
@@ -137,7 +137,7 @@ blocks:
             # Create an application key again.
             - php artisan key:generate
             - php artisan dusk:update --detect
-            # Start Laravel's built-in web server so the web driver used by Dusk can connect.
+            # Start Laravel's built-in web server, so the web driver used by Dusk can connect.
             # We start the server using the .env.dusk.local environment file that uses SQLITE.
             - php artisan serve --env=dusk.local --port=8010 &
             # Run the tests
@@ -149,10 +149,10 @@ blocks:
         - name: sensiolabs
           commands:
             - checkout
-            # We clone the Security Checker repository, and cd into it.
+            # We clone the Security Checker repository and cd into it.
             - git clone https://github.com/sensiolabs/security-checker.git
             - cd security-checker
-            # Install Secuirity Checker dependencies (not to be confused by our project dependencies)
+            # Install Secuirity Checker dependencies (not to be confused with our project dependencies)
             - composer install
             # Finally, run the check
             - php security-checker security:check ../composer.lock
@@ -165,9 +165,9 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project] to your own account.
-2. Clone the repository on your local machine.
+2. Clone the repository to your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-   Follow the instructions to install sem CLI, connect it to your
+   Follow the instructions to install the sem CLI and connect it to your
    organization.
 4. Run `sem init` inside your repository.
 5. Edit the .semaphore/semaphore.yml file and make a commit. When you push a

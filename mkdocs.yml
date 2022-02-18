@@ -127,6 +127,7 @@ nav:
       - Self-hosted agent types: ci-cd-environment/self-hosted-agent-types.md
       - Installation: ci-cd-environment/install-self-hosted-agent.md
       - Configuration: ci-cd-environment/configure-self-hosted-agent.md
+      - Job environment isolation: ci-cd-environment/job-isolation.md
       - AWS support: ci-cd-environment/aws-support.md
       - S3-based caching: ci-cd-environment/set-up-caching-on-aws-s3.md
   - Examples:

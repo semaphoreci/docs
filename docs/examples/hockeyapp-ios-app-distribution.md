@@ -11,21 +11,21 @@ This guide shows how to configure iOS app distribution from
 For an introduction to building iOS apps on Semaphore, see the _[iOS
 tutorial][ios-tutorial]_.
 
-First, make sure to configure your project to use Fastlane, Match and code
+First, make sure to configure your project to use Fastlane, match, and code
 signing by following the _[Code signing for iOS projects][code-signing]_ guide.
 
 To submit your build to HockeyApp, you should install the Fastlane plugin that
-provides the functionality:
+provides the functionality with this code:
 
 ```bash
 $ bundle exec fastlane add_plugin appcenter
 ```
 
-Consult with [AppCenter documentation][appcenter-docs] to learn how to obtain
+Consult the [AppCenter documentation][appcenter-docs] to learn how to obtain an
 API token and other configuration variables.
 
 For Semaphore to have access to AppCenter, you can [create a secret][secrets]
-with environment variables that hold the credentials, and pass them to Fastlane:
+with environment variables that hold the credentials and pass them to Fastlane:
 
 ```bash
 $ sem create secret hockeyapp-env \
@@ -33,7 +33,7 @@ $ sem create secret hockeyapp-env \
     -e APPCENTER_OWNER_NAME="<owner name>"
 ```
 
-Define a Fastlane lane:
+Define a Fastlane lane with this code:
 
 ```ruby
 # fastlane/Fastfile
@@ -52,7 +52,7 @@ end
 ```
 
 Now, to make the AppCenter environment variables available during the CI build,
-modify your Semaphore configuration file and add new block:
+modify your Semaphore configuration file and add a new block like this:
 
 ```yaml
 # .semaphore/semaphore.yml
