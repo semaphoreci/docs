@@ -23,17 +23,18 @@ If you intend to run your agents in AWS, the [agent-aws-stack][agent-aws-stack] 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
 - Node and NPM, for building and deploying the CDK application and managing its dependencies
-- Make, Python 3, Packer and Ansible for AMI creation and provisioning
+- Make, Python 3 and Packer for AMI creation and provisioning
 - [AWS credentials][aws credentials] properly configured
 
 ## Usage
 
-<b>1. Download the CDK application.</b>
+<b>1. Download the CDK application and install dependencies</b>
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.1.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.2.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack
+cd agent-aws-stack-0.1.2
+npm i
 ```
 
 You can also fork and clone the repository.
@@ -46,33 +47,33 @@ make packer.build
 
 This command uses packer to create an AMI with everything the agent needs in your AWS account. The AMI is based on the Ubuntu 20.04 server.
 
-<b>3. Bootstrap the CDK application</b>
+<b>3. Create the encrypted SSM parameter for the agent type registration token</b>
 
-The AWS CDK requires a few resources to be around for it to work properly:
-
-```
-npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
-```
-
-<b>4. Create the encrypted SSM parameter for the agent type registration token</b>
-
-When creating your agent type through the Semaphore UI, you get a [registration token][registration token]. Create an encrypted AWS SSM parameter with it:
+When creating your agent type through the Semaphore UI, you get a [registration token][registration token]. Since this is a sensitive piece of information, create an encrypted AWS SSM parameter with it:
 
 ```
 aws ssm put-parameter \
-  --name YOUR_PARAMETER_NAME \
+  --name YOUR_SSM_PARAMETER_NAME \
   --value "YOUR_AGENT_TYPE_REGISTRATION_TOKEN" \
   --type SecureString \
   --key-id YOUR_KMS_KEY_ID
 ```
 
-<b>5. Set environment variables</b>
+<b>4. Set environment variables</b>
 
 ```
 export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=YOUR_SSM_PARAMETER_NAME
 export SEMAPHORE_AGENT_TOKEN_KMS_KEY=YOUR_KMS_KEY_ID
 export SEMAPHORE_AGENT_STACK_NAME=YOUR_STACK_NAME
 export SEMAPHORE_ORGANIZATION=YOUR_ORGANIZATION
+```
+
+<b>5. Bootstrap the CDK application</b>
+
+The AWS CDK requires a few resources to be around for it to work properly:
+
+```
+npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
 ```
 
 [Other environment variables](#configuration) may be configured as well, depending on your needs.
