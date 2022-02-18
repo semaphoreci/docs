@@ -160,7 +160,7 @@ Some artifacts have higher values and you might want to extend their lifetime.
 For example, test screenshots saved on the job level typically lose their value 
 after a couple days, while the test logs can offer a high value for several months.
 
-We can set up a retention policy that matches that matches our previous needs. One
+We can set up a retention policy that matches our previous needs. One
 week for screenshots, and 3 months for test logs. We will also set one months for
 any other file:
 
