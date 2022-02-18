@@ -91,6 +91,84 @@ spec:
 
 Save the changes and close the editor, and your scheduled workflow runs will be set up.
 
+## Delete the workflow scheduler
+
+If you no longer need to run the specific scheduled workflows you can delete
+that scheduler either through Web UI or the CLI.
+
+### Deleting the scheduler in Web UI
+
+1. Open the project page.
+
+2. Switch to the **Schedulers** tab.
+
+3. Find the wanted scheduler and click on the **Delete** button.
+
+4. Confirm this action in the new message dialog.
+
+### Deleting the scheduler with CLI
+
+*Note*: Be sure to use the [latest version][update-cli] of Semaphore CLI
+
+Use the [sem edit project][cli-edit-project] command to open project YAML
+definition in your preferred editor, it should look similar to this:
+
+```yaml
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: Your project
+  id: abcd-12345
+  description: Description of your project
+spec:
+  visibility: private
+  repository:
+    ...
+  schedulers:
+  - name: nightly-deploys
+    branch: master
+    at: "15 12 * * *"
+    pipeline_file: .semaphore/nightly-deploys.yml
+```
+
+Simply remove the `scheduler` definition of the wanted scheduler from `schedulers`
+list, save the changes, and close the editor.
+
+## Temporary deactivate the workflow scheduler
+
+If you want to stop the scheduler from triggering workflows only temporary, you
+can deactivate it in the Web UI with the following steps:
+
+1. Open the project page.
+
+2. Switch to the **Schedulers** tab.
+
+3. Find the wanted scheduler and click on the **Deactivate** button.
+
+4. Confirm this action in the new message dialog.
+
+This will disable workflow scheduling, but it will allow you to easily
+resume it if needed by clicking on the **Activate** button in the same place.
+
+Additionally, it is also possible to manually run the workflows based on the
+deactivated schedulers.
+
+## Manually run the workflow based on scheduler definition
+
+You can manually trigger the workflow in the Web UI with the following steps:
+
+1. Open the project page.
+
+2. Switch to the **Schedulers** tab.
+
+3. Find the wanted scheduler and click on the **Run Now** button.
+
+4. Confirm this action in the new message dialog.
+
+This will trigger a new workflow based on the configuration from the file configured
+in the scheduler definition. The workflow will use code revision of the latest
+commit from the branch that is configured in the scheduler definition.
+
 ## Limitations
 
 - In order to disperse the load, the workflows will be run at a random second
@@ -111,6 +189,9 @@ This can be problematic in two cases:
 - Scheduled workflow runs will not be started in the first 60 seconds (this
 can span across two differently numbered minutes) after the schedule is created,
 to avoid inconsistencies due to minute precision of Crontab expressions.
+
+- In rare cases when there is an issue with scheduling workflows the Semaphore
+will retry to initiate the workflow every ten seconds for the following 15 minutes.
 
 ## See also
 
