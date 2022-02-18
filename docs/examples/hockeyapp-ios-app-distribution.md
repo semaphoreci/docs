@@ -8,8 +8,8 @@ This guide shows how to configure iOS app distribution from
 [Semaphore][semaphore] to [HockeyApp][hockeyapp] using
 [Fastlane][fastlane].
 
-For an introduction to building iOS apps on Semaphore, see the_ _[iOS
-tutorial]_[ios-tutorial]_.
+For an introduction to building iOS apps on Semaphore, see the _[iOS
+tutorial][ios-tutorial]_.
 
 First, make sure to configure your project to use Fastlane, match, and code
 signing by following the _[Code signing for iOS projects][code-signing]_ guide.
