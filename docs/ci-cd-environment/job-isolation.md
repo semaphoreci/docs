@@ -41,7 +41,8 @@ fi
 
 In order to rotate instances and guarantee a clean environment for every job, we use the [AWS CLI][aws cli] to instruct the [auto scaling][autoscaling] group to terminate that EC2 instance once the agent shuts down. AWS will then replace that same EC2 instance with a new and clean one, and a new agent will start up.
 
-One important thing to keep in mind here is that rotating AWS EC2 instances is not as fast as rotating docker containers. Therefore, to obtain the same level of availability, a pool containing a larger number of agents would need to be used.
+!!! info "EC2 instance rotation"
+    Keep in mind that rotating AWS EC2 instances is not as fast as rotating Docker containers.
 
 [agent-aws-stack]: https://github.com/renderedtext/agent-aws-stack
 [disconnect-after-job]: ../configure-self-hosted-agent#disconnect-after-job
