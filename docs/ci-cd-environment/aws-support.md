@@ -15,37 +15,138 @@ If you intend to run your agents in AWS, the [agent-aws-stack][agent-aws-stack] 
 - [Dynamically increase and decrease](#scaling-based-on-job-demand) the number of agents available based on your job demand
 - Deploy [multiple stacks of agents](#multiple-stacks), one for each self-hosted agent type
 - [Access the agent EC2 instances](#agent-instance-access) through SSH or using [AWS Systems Manager Session Manager][aws session manager]
-- Use an S3 bucket to [cache the dependencies](#caching) needed for your jobs
+- Use an S3 bucket to [cache the dependencies][caching] needed for your jobs
 - Control the size of your agent instances and of your agent pool
-
-## Architecture
-
-<img src="https://raw.githubusercontent.com/semaphoreci/docs/aws-support/public/self-hosted-aws-stack.png" width="100%"></img>
 
 ## Requirements
 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
-- [Node](https://nodejs.org/en/)
-- [NPM](https://www.npmjs.com/)
-- [Packer](https://www.packer.io/)
-- [Ansible](https://www.ansible.com/)
+- Node and NPM, for building and deploying the CDK application and managing its dependencies
+- Make, Python 3, Packer and Ansible for AMI creation and provisioning
 
-There are also a few required AWS resources you need to create before deploying the stack:
+## Usage
 
-- The [agent type registration token][registration token] is a sensitive piece of information. Therefore, you need to create an encrypted AWS SSM parameter to hold it. You can check how to create it [here][aws ssm parameter creation].
-- The agent EC2 instances requires an AMI to be used. You can check how to create it [here][ami creation].
-- The AWS CDK requires a few resources to be in place for it to work properly. You can check how to create them [here][aws cdk bootstrap].
+<b>1. Download the CDK application.</b>
 
-There are a few other optional resources that may be created, but are not required. If these optional resources are not previously created and specified, the stack will follow its default behavior. Make sure you either create these optional resources and pass them to the stack or you are aware that the stack defaults work for your use case.
+```
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.1.tar.gz -o agent-aws-stack.tar.gz
+tar -xf agent-aws-stack.tar.gz
+cd agent-aws-stack
+```
 
-### Caching
+You can also fork and clone the repository.
 
-By default, the [cache CLI][cache cli] will not work in your agent instances. If you need to [cache dependencies][caching] in your jobs, you will need to create an S3 bucket to use as a caching store.
+<b>2. Build your AMI</b>
 
-After creating it, make sure the `SEMAPHORE_AGENT_CACHE_BUCKET_NAME` parameter is set to your bucket's name.
+```
+make packer.build
+```
 
-### Networking
+This command uses packer to create an AMI with everything the agent needs in your AWS account. The AMI is based on the Ubuntu 20.04 server.
+
+<b>3. Bootstrap the CDK application</b>
+
+The AWS CDK requires a few resources to be around for it to work properly:
+
+```
+npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
+```
+
+<b>4. Create the encrypted SSM parameter for the agent type registration token</b>
+
+When creating your agent type through the Semaphore UI, you get a [registration token][registration token]. Create an encrypted AWS SSM parameter with it:
+
+```
+aws ssm put-parameter \
+  --name YOUR_PARAMETER_NAME \
+  --value "YOUR_AGENT_TYPE_REGISTRATION_TOKEN" \
+  --type SecureString \
+  --key-id YOUR_KMS_KEY_ID
+```
+
+<b>5. Set environment variables</b>
+
+```
+export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=YOUR_SSM_PARAMETER_NAME
+export SEMAPHORE_AGENT_TOKEN_KMS_KEY=YOUR_KMS_KEY_ID
+export SEMAPHORE_AGENT_STACK_NAME=YOUR_STACK_NAME
+export SEMAPHORE_ORGANIZATION=YOUR_ORGANIZATION
+```
+
+[Other environment variables](#configuration) may be configured as well, depending on your needs.
+
+<b>6. Deploy the stack</b>
+
+```
+npm run deploy
+```
+
+## In-place updates
+
+When changing the configuration of your stack, you can update it in-place. AWS CDK will use AWS Cloudformation changesets to apply the required changes. Before updating it, you can check what will be different with the `diff` command:
+
+```bash
+npm run diff
+```
+
+To update it, use:
+
+```bash
+npm run deploy
+```
+
+!!! info "In-place updates might require an agent restart"
+    A few configuration parameters are read by the agent instance during its startup process. If you change them, the running agents won't automatically reload it. Therefore, you will need to restart those instances. You can restart all the agents in your stack by disconnecting them all through the Semaphore UI.
+
+## Agent type registration token rotation
+
+After resetting the agent type token through the Semaphore UI, the currently running agents will remain working. However, you will need to update the SSM parameter (`SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME`) with the new token for new agents to work.
+
+## Delete the stack
+
+To delete the stack, use:
+
+```bash
+npm run destroy
+```
+
+Note: make sure `SEMAPHORE_AGENT_STACK_NAME` is pointing to the stack you really want to destroy.
+
+## Configuration
+
+<b>Required</b>
+
+| Parameter name                                  | Description |
+|-------------------------------------------------|-------------|
+| `SEMAPHORE_ORGANIZATION`                        | The name of your Semaphore organization. |
+| `SEMAPHORE_AGENT_STACK_NAME`                    | The name of the stack. This will end up being used as the Cloudformation stack name, and as a prefix to name all the resources of the stack. When deploying multiple stacks for multiple agent types, different stack names are required |
+| `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME`          | The AWS SSM parameter name containing the Semaphore agent [registration token][registration token] |
+
+<b>Optional</b>
+
+| Parameter name                                  | Description |
+|-------------------------------------------------|-------------|
+| `SEMAPHORE_AGENT_INSTANCE_TYPE`                 | Instance type used for the agents. Default is `t2.micro`. |
+| `SEMAPHORE_AGENT_ASG_MIN_SIZE`                  | Minimum size for the auto scaling group. Default is `0`. |
+| `SEMAPHORE_AGENT_ASG_MAX_SIZE`                  | Maximum size for the auto scaling group. Default is `1`. |
+| `SEMAPHORE_AGENT_ASG_DESIRED`                   | Desired capacity for the auto scaling group. Default is `1`. |
+| `SEMAPHORE_AGENT_USE_DYNAMIC_SCALING`           | Whether to use a lambda to dynamically scale the number of agents in the auto scaling group based on the job demand. Default is `true` |
+| `SEMAPHORE_AGENT_SECURITY_GROUP_ID`             | Security group id to use for agent instances. If not specified, a security group will be created with (1) an egress rule allowing all outbound traffic and (2) an ingress rule for SSH, if `SEMAPHORE_AGENT_KEY_NAME` is specified. |
+| `SEMAPHORE_AGENT_KEY_NAME`                      | Key name to access agents through SSH. If not specified, no SSH inbound access is allowed |
+| `SEMAPHORE_AGENT_DISCONNECT_AFTER_JOB`          | If the agent should shutdown or not after completing a job. Default is `true`. |
+| `SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT` | Number of seconds of idleness after which the agent will shutdown. Note: setting this to 0 will disable the scaling down behavior of the stack, since the agents won't shutdown due to idleness. Default is `300`. |
+| `SEMAPHORE_AGENT_CACHE_BUCKET_NAME`             | Existing S3 bucket name to use for caching. If this is not set, [caching][caching] won't work. |
+| `SEMAPHORE_AGENT_TOKEN_KMS_KEY`                 | KMS key id used to encrypt and decrypt `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME`. If nothing is given, the default `alias/aws/ssm` key is assumed. |
+| `SEMAPHORE_AGENT_VPC_ID`                        | The id of an existing VPC to use when launching agent instances. By default, it is blank, and the default VPC on your AWS account will be used. |
+| `SEMAPHORE_AGENT_SUBNETS`                       | Comma-separated list of existing VPC subnet ids where EC2 instances will run. This is required when using `SEMAPHORE_AGENT_VPC_ID`. If `SEMAPHORE_AGENT_SUBNETS` is set, but `SEMAPHORE_AGENT_VPC_ID` is blank, the subnets will be ignored, and the default VPC will be used. Private and public subnets are possible, but isolated subnets cannot be used. |
+| `SEMAPHORE_AGENT_AMI`                           | The AMI used for all the instances. If empty, the stack will use the default AMIs, by looking them up by their name. If the default AMI isn't enough, you can use your own AMIs, but they need to be based off of the stack's default AMI. |
+
+## Architecture
+
+<img src="https://raw.githubusercontent.com/semaphoreci/docs/aws-support/public/self-hosted-aws-stack.png" width="100%"></img>
+
+## Networking
 
 By default, the agents will run in your [default AWS VPC][default AWS VPC]. That means that your agents will have a public and a private IPv4 address assigned to them and will run in a public subnet, having its traffic destined to the internet sent to an [internet gateway][internet gateway].
 
@@ -88,21 +189,12 @@ Each stack that is deployed creates and starts agents for one agent type only. H
 - Set a different `SEMAPHORE_AGENT_STACK_NAME` parameter for each stack.
 - Create one encrypted SSM parameter for each agent type registration token, and set the `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME` appropriately for each one.
 
-## Configuration reference
-
-The stack configuration is done through environment variables. All the available configuration parameters can be found [here][config parameters].
-
 [agent-aws-stack]: https://github.com/renderedtext/agent-aws-stack
 [aws cdk]: https://docs.aws.amazon.com/cdk/v2/guide/home.html
-[registration token]: /ci-cd-environment/self-hosted-agents-overview#tokens-used-for-communication
-[aws ssm parameter creation]: https://github.com/renderedtext/agent-aws-stack#create-encrypted-aws-ssm-parameter
-[ami creation]: https://github.com/renderedtext/agent-aws-stack#building-the-ami
-[aws cdk bootstrap]: https://github.com/renderedtext/agent-aws-stack#deploying-the-stack
+[registration token]: /ci-cd-environment/self-hosted-agents-overview
 [caching]: /essentials/caching-dependencies-and-directories
 [aws session manager]: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html
 [using docker containers]: /ci-cd-environment/job-isolation.md
-[cache cli]: /reference/toolbox-reference#cache
-[config parameters]: https://github.com/renderedtext/agent-aws-stack#configuration
 [default AWS VPC]: https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 [internet gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
 [nat devices]: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html
