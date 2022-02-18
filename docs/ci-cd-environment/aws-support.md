@@ -24,6 +24,7 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 
 - Node and NPM, for building and deploying the CDK application and managing its dependencies
 - Make, Python 3, Packer and Ansible for AMI creation and provisioning
+- [AWS credentials][aws credentials] properly configured
 
 ## Usage
 
@@ -198,3 +199,4 @@ Each stack that is deployed creates and starts agents for one agent type only. H
 [default AWS VPC]: https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 [internet gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
 [nat devices]: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html
+[aws credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
