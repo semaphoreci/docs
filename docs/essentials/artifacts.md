@@ -1,78 +1,94 @@
 ---
-Description: There are three levels of artifact stores - job, workflow, and project. Artifacts are used to persist files that are final deliverables or debugging files.
+Description: Artifacts are used to persist files that are final deliverables or debugging files.
 ---
 
 # Artifacts
 
-__Note__: *Using Artifacts during the beta period is free. Once the artifacts
+<small><i><strong>This is a beta feature.</strong> Using Artifacts during the beta period is free. Once the artifacts
 system is generally available to all users, additional charges will apply based on
-usage.*
+usage.</i></small>
 
-Artifacts are used to persist files that are either final deliverables or
-intermediary/debugging files.
+Semaphore provides a persistant artifact store for all projects. Artifacts are ideal for:
+
+- Collecting debug data from your jobs (ex. screenshots, screencasts, build logs...)
+- Passing data and executables between jobs in single workflow (ex. building the executable in the first job, and passing it to upstream jobs for testing)
+- Long-term storage of final deliverables (ex. storing release v1.0.12 of a CLI application)
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/top.png" alt="Example artifact usage on Semaphore 2.0">
+
+## Types of artifacts
 
 Semaphore has three levels of artifact stores: job, workflow, and project.
 
-Each job and workflow gets its own namespaced artifact store,
-which is handy for storing debugging data or
-build artifacts that need to be promoted through the pipeline.
+Each job and workflow has its own namespaced artifact store, while on the project
+level there is a single artifact store for the whole project.
 
-On the project level there is a single artifact store
-that usually stores the final deliverables of CI/CD pipelines.
+Each artifact type has its primary use case: 
 
-## Job Artifacts
+- Job artifacts are good for collecting debug data
+- Workflow artifacts are good for passing data from one job to another
+- Project level artifacts are good for storing final deliverables.
 
-Each job has an artifact store. You can view the stored files from a job's page.
-To do so, click the "Job Artifacts" button.
-The main use-case for job level artifacts is storing logs,
-screenshots, and other types of files that make debugging easier.
+### Job Artifacts
 
-To upload files to the job level artifacts store, use the built-in artifact CLI.
+The main use-case for job artifacts is storing logs, screenshots, and other types of 
+files that make debugging easier.
 
-`artifact push job <my_file_or_dir>`
+To upload files to the job artifacts store, use the built-in artifact CLI.
 
-If you want to upload artifacts only in the event of failed job, the preferred method is to use
-[epilogue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property) in combination with the `on_fail` condition.
+```
+artifact push job <my_file_or_dir>
+```
+
+Here is a full example that uploads test logs and screenshots produced by your tests.
 
 ``` yaml
 blocks:
  - name: Build app
    task:
       jobs:
-        - name: Job 1
+        - name: Tests
           commands:
             - make test
+
       epilogue:
-        on_fail:
+        always:
           commands:
             - artifact push job logs/test.log
             - artifact push job screenshots
 ```
 
-Because job level debugging artifacts become irrelevant shortly after a job has
-finished, you can set artifacts to expire with the `--expire-in` flag.
+In the above example, we are using [epilogue always][epilogue always] commands to make sure
+that artifacts are uploaded for both passed and failed jobs.
 
-`artifact push job --expire-in 2w logs/test.log`
+You can view the stored files from a job's page. Go to the job page and click on the "Artifacts"
+tab to see artifacts uploaded by this job.
 
-For more details about uploading artifacts, check
-the [artifact CLI documentation][artifact-cli-reference].
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/job-artifacts.png" alt="Viewing job artifacts">
 
-## Workflow Artifacts
+### Workflow Artifacts
 
-Similar to the case with jobs, each workflow also gets its own artifact store.
-To access these, click the "Workflow Artifacts" button.
+The main use-case for workflow artifacts is storing various build and test reports,
+and passing data and executables between jobs in a single workflow.
 
-Workflow artifacts can be used for storing various build and test reports and
-build artifacts. Promoting build artifacts through blocks and pipelines of a
-workflow is another common use-case.
+To upload files to the workflow artifacts store, use the built-in artifact CLI:
 
-The following example illustrates how an executable `app`, available in the
-workflow level artifact store, can be downloaded into the downstream blocks of
-the pipeline. In the same way, artifacts can be downloaded from any other
-pipeline of the same workflow.
+```
+artifact push workflow <my_file_or_dir>
+```
+
+To download files from the workflow artifacts store:
+
+```
+artifact pull workflow <my_file_or_dir>
+```
+
+Here is a full example that shows how to build a release in the first block, and
+use it in the upstream block of the workflow.
 
 ``` yaml
 blocks:
+
  - name: Build app
    task:
       jobs:
@@ -80,6 +96,7 @@ blocks:
           commands:
             - make
             - artifact push workflow app
+
  - name: Test
    task:
       jobs:
@@ -87,29 +104,79 @@ blocks:
           commands:
             - artifact pull workflow app
             - make test
+
         - name: Integration tests
           commands:
             - artifact pull workflow app
             - make integration-tests
-
 ```
 
-For more details about uploading and downloading artifacts see the
-[artifact CLI documentation][artifact-cli-reference].
+In the above example we are building the application in the "Build app" block,
+and then pulling that application in the "Test" block for unit and integration
+tests.
 
-## Project Artifacts
+You can view the stored files from a workflow page. Go to the workflow page and 
+click on the "Artifacts" tab to see artifacts uploaded in this workflow.
 
-Project level artifacts are great for storing final deliverables of the
-CI/CD process. To access them in the UI, click the "Project Artifacts"
-button on the project page.
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/workflow-artifacts.png" alt="Viewing workflow artifacts">
 
-To upload project artifacts from any job of any workflow you need to use:
+### Project Artifacts
 
-`artifact push project myapp-v1.25.tar.gz`
+The main use-case for project artifacts is storing final deliverables of the
+CI/CD process.
+
+To upload project artifacts from any job of any workflow use:
+
+```
+artifact push project myapp-v1.25.tar.gz
+```
 
 Similarly, if you want to download a file from the project level artifact store,
 use the `pull` command.
 
-`artifact pull project myapp-v1.25.tar.gz`
+```
+artifact pull project myapp-v1.25.tar.gz
+```
 
-[artifact-cli-reference]: https://docs.semaphoreci.com/reference/artifact-cli-reference/
+To access them in the UI, click the "Artifacts" button on the project page.
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/project-artifacts.png" alt="Viewing project artifacts">
+
+## Artifact retention policies 
+
+By default, artifacts are persisted and never automatically deleted. If you want to limit the
+lifetime of the artifacts in your project, you can set up artifact retention policies in your 
+project.
+
+For example, if you want to delete every job and workflow artifact after a week, go to your project
+settings and set up retention policies for job and workflow artifacts.
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/simple-retention-policy.png" alt="Simple retention policies">
+
+### Applying different retention policies to different folders
+
+Some artifacts have higher values and you might want to extend their lifetime. 
+
+For example, test screenshots saved on the job level typically lose their value 
+after a couple days, while the test logs can offer a high value for several months.
+
+We can set up a retention policy that matches our previous needs. One
+week for screenshots, and 3 months for test logs. We will also set one month for
+any other file:
+
+To do this, we will use the following configuration for job level artifacts:
+
+```
+/screenshots/**/*.png         1 week
+/logs/**/*.txt              3 months
+/**/*                        1 month
+```
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/artifacts/artifact-retention-custom.png" alt="Simple retention policies">
+
+The format of the selector patterns and the available options are further described 
+in the [Artifact Retention Policy Reference][artifact-retention-policy-ref].
+
+[artifact-cli-reference]: /reference/artifact-cli-reference/
+[epilogue-always]: /reference/pipeline-yaml-reference/#the-epilogue-property
+[artifact-retention-policy-ref]: /reference/artifact-retention-policies
