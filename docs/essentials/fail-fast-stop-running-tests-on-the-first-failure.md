@@ -1,26 +1,25 @@
 ---
-description: The two fail-fast strategies, stop and cancel help you get instant feedback when a job fails. This guide shows you how to achieve that.
+Description: The two fail-fast strategies -- stop and cancel -- help you get instant feedback when a job fails. This guide shows you how they work.
 ---
 
-# Fail-Fast: Stop Running Tests on the First Failure
+# Fail-Fast: Stop running tests on the first failure
 
 On Semaphore, a fail-fast strategy means that you get instant feedback when a
-job fails. All the running jobs of a pipeline are stopped as soon as one of
-the jobs fails. You don't need to wait for all the other jobs to get feedback.
+job fails. All the jobs running in a pipeline can be stopped (and subsequent jobs canceled) when a job fails. You don't need to wait for all the other jobs to complete to get feedback.
 
 There are two fail-fast strategies: *stop* and *cancel*.
 
 The *stop* strategy stops everything in your pipeline as soon as a failure
 is detected.
 
-The *cancel* strategy stops only the jobs and blocks in your pipeline that
-haven't yet started. This option is ideal if you don't want to stop an already
-started test execution.
+The *cancel* strategy only stops the jobs and blocks in your pipeline that
+haven't yet started. This option is ideal if you don't want to stop a
+test that is underway.
 
 ## Stopping all jobs on the first failure
 
-To stop all the jobs in a pipeline on the first failure, set a fail-fast stop
-policy in your pipeline YAML files.
+To stop all the jobs in a pipeline on the first failure, set a fail-fast 'stop'
+strategy in your pipeline YAML files, as shown below:
 
 ``` yaml
 version: v1.0
@@ -47,16 +46,16 @@ blocks:
           - make test PARTITION=2
 ```
 
-If 'Unit Test 1/2' fails in the above pipeline, the 'Unit Test 2/2' is stopped.
+If 'Unit Test 1/2' fails in the above pipeline, 'Unit Test 2/2' is stopped immediately.
 
 ## Stopping all jobs on the first failure on non-master branches
 
-Often the fail-fast strategy is ideal for feature branches during development.
+Often, a fail-fast strategy is ideal for feature branches during development.
 However, it isn't suitable for the master branch of your project, where a full
-report is better suited.
+report would be more useful.
 
-By changing the `when` condition to `branch != 'master'` we can set a policy
-that activates fail-fast only for non-master branches.
+By changing the `when` condition to `branch != 'master'`, we can set a strategy
+that activates fail-fast only for non-master branches, as shown below:
 
 ``` yaml
 version: v1.0
@@ -85,11 +84,9 @@ blocks:
 
 ## Canceling all jobs on the first failure
 
-Sometimes it is not desirable to stop everything in a pipeline. Instead, we
-would like to allow already running jobs and blocks to finish, but prevent new
-ones from starting.
+Sometimes you don't want to stop everything in a pipeline when a job fails. You can allow running jobs and blocks to finish and prevent new ones from starting (if/when a job fails) using the 'cancel' strategy.
 
-For these scenarios, configure the 'cancel' strategy for your pipelines.
+For such scenarios, configure the 'cancel' strategy for your pipelines, as shown below:
 
 ``` yaml
 version: v1.0
@@ -138,9 +135,9 @@ blocks:
 ```
 
 In the above scenario, if linting fails, but the unit tests have already started,
-we will not break them in the middle of the execution.
+they will not be stopped in the middle of execution.
 
-The Security Scan and Integration Tests are canceled.
+The Security Scan and Integration Tests, however, would be canceled.
 
 ## See also
 
