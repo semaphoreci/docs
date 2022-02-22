@@ -65,8 +65,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 
-- Chrome_driver 
+- Google Chrome  98
+- ChromeDriver 98
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -112,7 +112,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 22.3, 23.3, 24.1, 24.2 (default)
-- Elixir: 1.9.0, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.10.0, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.11.0, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.12.0, 1.12.1, 1.12.2, 1.12.3, 1.13.0, 1.13.1, 1.13.2 (default)
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.3 as default)
 
 Additional libraries:
 
@@ -150,7 +150,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.13.2 (set as default)
+- v16.14.0 (set as default, with alias 16.14), includes npm 8.3.1
 
 #### Additional tools
 
@@ -164,7 +164,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.27`.
+The default installed PHP version is `7.4.28`.
 
 #### Additional libraries
 
@@ -180,8 +180,8 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.6
-- pypy3: 7.3.7
+- pypy: 7.3.8
+- pypy3: 7.3.8
 - pip: 22.0.3
 - venv: 20.13.0
 
@@ -192,7 +192,7 @@ Available versions:
 - 2.6.0 to 2.6.9
 - 2.7.0 to 2.7.5
 - 3.0.0 to 3.0.3
-- 3.1.0
+- 3.1.0 to 3.1.1
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
