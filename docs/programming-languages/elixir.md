@@ -5,8 +5,8 @@ description: This guide provides an explanation on how to configure Elixir proje
 # Elixir
 
 This guide covers configuring Elixir projects on Semaphore.
-If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
+If you’re new to Semaphore, please read our
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello World
 
@@ -70,7 +70,7 @@ blocks:
 
 ## Test summary
 
-!!! beta "Feature in beta"
+!!! beta "Feature in beta".
     Beta features are subject to change.
 
 General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
@@ -90,7 +90,7 @@ defp deps do
 end
 ```
 
-Then installing the dependencies:
+Then install the dependencies:
 
 ```shell
 mix deps.get
@@ -117,11 +117,11 @@ ExUnit.configure(formatters: [JUnitFormatter, ExUnit.CLIFormatter])
 ExUnit.start()
 ```
 
-Running your tests with this setup will also generate `junit.xml` summary report.
+Running your tests with this setup will also generate a `junit.xml` summary report.
 
 ### Publishing results to Semaphore
 
-To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+To make Semaphore aware of your test results, you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
 
 ```shell
 test-results publish /tmp/junit.xml
@@ -136,7 +136,7 @@ epilogue:
       - test-results publish /tmp/junit.xml
 ```
 
-This way even if your job fails(due to the test failures) results will still be published for inspection.
+This way even if your job fails (due to the test failures) results will still be published for inspection.
 
 ### Example configuration
 
@@ -161,13 +161,13 @@ Your CI configuration should look similiar to this:
 
 ### Demos
 
-You can see how test results are setup in one of our [demo projects ↗][demo-project]{target="_blank"}.
+You can see how test results are set up in one of our [demo projects ↗][demo-project]{target="_blank"}.
 
 ## Dependency caching
 
-You can use Semaphores `cache` command to store and load the build and
+You can use Semaphore's `cache` command to store and load the build and
 dependency cache. In the following configuration example, we install
-dependencies and warm the cache in the first block, then use the cache
+dependencies and warm the cache in the first block. Then we use the cache
 in subsequent blocks.
 
 ``` yaml
@@ -230,9 +230,9 @@ blocks:
 
 ## System dependencies
 
-Projects may need system packages things like database drivers. You
-have full `sudo` access so you may install required packages. Here's
-an example of installing the Postgres dependencies.
+Projects may need system packages like database drivers. You
+have full `sudo` access so you may install any required packages. Here's
+an example of installing the Postgres dependencies:
 
 ``` yaml
 blocks:
