@@ -29,9 +29,7 @@ artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
 - `[PATH]` - points to the artifact (e.g. file or directory)
 - `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
 
-## [Artifacts Management](#artifacts-management)
-
-### Uploading Artifact
+## Uploading Artifact
 
 To upload an artifact from Semaphore job it is necessary to specify
 the artifact store level and point to a file or directory
@@ -54,7 +52,7 @@ For example, you'd probably want to delete uploaded debugging log in a week or s
 if it is already available in the store. You can use this option to overwrite
 existing file.
 
-### Downloading Artifact
+## Downloading Artifact
 
 Similarly, use `artifact pull` to download an artifact to Semaphore job environment.
 It is necessary to specify artifact store level of the target artifact
@@ -71,7 +69,7 @@ artifact is downloaded in the Semaphore job environment.
 Example: `artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar`
 - `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment.
 
-### Deleting Artifact
+## Deleting Artifact
 
 To remove an artifact from the specific artifact store it is necessary to specify
 the store level and point to a file or directory with the `artifact yank` or `artifact delete` command.
@@ -81,3 +79,40 @@ artifact yank project my-artifact-v3.tar
 ```
 
 [artifacts-use-cases]: https://docs.semaphoreci.com/essentials/artifacts/
+
+## Supported file names
+
+The uploaded files must meet the following requirments:
+
+- File names can contain any sequence of valid Unicode characters, of length 1-1024 bytes when UTF-8 encoded.
+- File names cannot contain Carriage Return or Line Feed characters.
+- File names cannot start with `.well-known/acme-challenge/`.
+- File names cannot contain non URI encodable characters `{`, `}`, `|`, `\`, `^`, `~`, `[`, `]`
+- Files cannot be named `.` or `...`
+
+In case you have a file that is not able to fit the above criteria, the recommended solution 
+is to create a tarball before uploading the files to the artifact store.
+
+For example, if you have the following structure:
+
+```
+example/
+├─ [id].json
+├─ {username}.json
+├─ user|character.json
+├─ README.md
+```
+
+Create a tarbar before pushing to artifacts with:
+
+``` bash
+tar -czvf example.tar.gz ~/example
+artifact push workflow example.tar.gz
+```
+
+Then, when pulling the artifact, extact the content with:
+
+```
+artifact pull workflow example.tar.gz
+tar -xzf example.tar.gz
+```
