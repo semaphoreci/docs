@@ -8,6 +8,58 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of February 21, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.7
+- Elixir 1.13.3 (default)
+- Ruby 3.1.1
+- PHP
+  - 7.4.28 (default)
+  - 8.0.16
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.48 -> 1.22.58
+- Aws-cli 2.4.16 -> 2.4.19
+- Azure-cli 2.32.0 -> 2.33.1
+- Github-cli 2.5.0 > 2.5.1
+- Git-lfs 3.0.2 -> 3.1.2
+- Nodejs 16.13.2 -> 16.14.0
+- Npm 8.1.2 -> 8.3.1
+- Pypy 7.3.6 -> 7.3.8
+- Pypy3 7.3.7 > 7.3.8
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.7
+- Elixir 1.13.3 (default)
+- Ruby 3.1.1 
+- PHP
+  - 7.4.28 (default)
+  - 8.0.16
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.48 -> 1.22.58
+- Aws-cli 2.4.16 -> 2.4.19
+- Azure-cli 2.32.0 -> 2.33.1
+- Github-cli 2.5.0 > 2.5.1
+- Git-lfs 3.0.2 -> 3.1.2
+- Nodejs 16.13.2 -> 16.14.0
+- Npm 8.1.2 -> 8.3.1 
+- Pypy 7.3.6 -> 7.3.8
+- Pypy3 7.3.7 > 7.3.8
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 07, 2022
 
 **(Improved) Ubuntu 20.04 image update**
@@ -29,7 +81,7 @@ This page is updated on a weekly basis.
 
 To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
 
-**(Improved) Ubuntu 18.04 image update*
+**(Improved) Ubuntu 18.04 image update**
 
 **(Updated)** Updated packages:
 
