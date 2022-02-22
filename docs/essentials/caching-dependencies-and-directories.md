@@ -36,7 +36,7 @@ The Semaphore cache works for the following languages and dependency managers:
 * **nvm** - default cache path: `$HOME/.nvm` if `.nvmrc` is present in the repository.
 * **golang** - default cache path: `$HOME/go/pkg/mod` if `go.sum` is present in the repository.
 
-### Cache store
+### cache store
 
 A `cache store` command that has zero arguments will look up default paths
 used to store dependencies and cache them.
@@ -85,7 +85,7 @@ Upload complete.
 
 ```
 
-### Cache restore
+### cache restore
 
 A `cache restore` command that has zero arguments looks up cachable elements
 and tries to pull them from the repository.
@@ -111,7 +111,7 @@ Restored: node_modules/
 
 If a third party project, such as Bundler, changes the location where they store dependencies or your project then dependency location is different than the default specified in [Basic Usage](#basic-usage); you might need to specify the key's path manually instead of using a caching shortcut.
 
-### Cache store key path
+### cache store key path
 
 Here are a few examples of a cache store key path:
 
@@ -155,7 +155,7 @@ In case of a cache miss, the comma-separated fallback takes over and the command
 looks up the next key.
 If no archives are restored, the command exits with 0.
 
-### Cache has_key key
+### cache has_key key
 
 Example:
 
@@ -168,7 +168,7 @@ cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 This command checks if an archive with the provided key exists in the cache.
 The command passes if a key is found in the cache, otherwise it fails.
 
-### Cache list
+### cache list
 
 Example:
 
@@ -178,7 +178,7 @@ cache list
 
 This command lists all cache archives for the project.
 
-### Cache delete key
+### cache delete key
 
 Example:
 
@@ -191,7 +191,7 @@ cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 This will remove an archive with a given key if it is found in the cache.
 The command always passes.
 
-### Cache clear
+### cache clear
 
 Example:
 
@@ -205,7 +205,7 @@ The command always passes.
 Note that in all commands of `cache`, only the `cache has_key` command can fail
 (exit with 0 status).
 
-### Checksum
+### checksum
 
 The `libchecksum` scripts provide the `checksum` command. The `checksum` command is
 useful for tagging artifacts or generating cache keys. It takes a
@@ -219,7 +219,7 @@ $ checksum package.json 3dc6f33834092c93d26b71f9a35e4bb3
 
 ## SFTP backend
 
-This is the default backend for jobs running in Semaphore's hosted environment The
+This is the default backend for jobs running in Semaphore's hosted environment. The
 following environment variables are required and automatically set in every hosted job:
 
 | Environment variable               | Description |
@@ -244,7 +244,7 @@ Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly con
 
 ## Troubleshooting
 
-### `cache restore` will restore an archive with a corrupted archive message
+### `cache restore` restores an archive with a corrupted archive message
 
 If the `cache restore` output log includes lines similar to the following, you can make sure that only one job is creating an archive under the specific cache key:
 
