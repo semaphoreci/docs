@@ -1,15 +1,15 @@
 ---
-description: This guide describes how to configure a self-hosted agent and the various different configuration options.
+Description: This guide describes the various different configuration options for how to configure a self-hosted agent.
 ---
 
 # Configuring a self-hosted agent
 !!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
 
-The agent can be configured in two ways:
+An agent can be configured in two ways:
 
-- command line arguments
-- configuration file, using the `--config-file /path/to/config.yaml` parameter
+- using command line arguments
+- using a configuration file with the `--config-file /path/to/config.yaml` parameter
 
 Both ways can be used at the same time, but command line arguments take precedence over the configuration file.
 
@@ -29,15 +29,15 @@ Both ways can be used at the same time, but command line arguments take preceden
 
 ### `endpoint`
 
-The Semaphore endpoint the agent uses to register and sync. It is formed by your Semaphore organization name, e.g., `<your-organization-name>.semaphoreci.com`.
+The Semaphore endpoint that the agent uses to register and sync is determined by your Semaphore organization name, e.g. `<your-organization-name>.semaphoreci.com`.
 
 ### `token`
 
-The agent type registration token you grab when creating an agent type in Semaphore UI. If the token specified is not correct, the agent does not start.
+You get an agent type registration token when you create an agent type in the Semaphore UI. If the token specified is not correct, the agent will not start.
 
 ### `env-vars`
 
-Environment variables to expose to the jobs. When using the command line argument `--env-vars`, the agent expects a comma-separated list of `VAR=VALUE` environment variables:
+Environment variables are used to expose agents to jobs. When using the command line argument `--env-vars`, the agent expects a comma-separated list of `VAR=VALUE` environment variables:
 
 ```
 agent start \
@@ -46,7 +46,7 @@ agent start \
   --env-vars VAR1=A,VAR2=B
 ```
 
-When using the configuration file, the agent expects an array of strings using the same format above:
+When using the configuration file, the agent expects an array of strings using the same format as shown above:
 
 ```yaml
 # config.yaml
@@ -57,11 +57,11 @@ env-vars:
   - VAR2=B
 ```
 
-This is a way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
+This is a way of exposing secrets to your jobs via an agent, instead of using Semaphore secrets.
 
 ### `files`
 
-Files to inject into the docker container running the job, when using docker containers. When using the command line argument `--files`, the agent expects a comma-separated list of `/some/host/file=/some/container/file`:
+You can inject files into the container running the job when using docker containers. When using the command line argument `--files`, the agent expects a comma-separated list of `/some/host/file=/some/container/file` files:
 
 ```
 agent start \
@@ -70,7 +70,7 @@ agent start \
   --files /tmp/host/file1:/tmp/container/file1,/tmp/host/file2:/tmp/container/file2
 ```
 
-When using the configuration file, it expects an array of strings using the same format above:
+When using the configuration file, it expects an array of strings using the same format as above:
 
 ```yaml
 # config.yaml
@@ -81,27 +81,27 @@ files:
   - /tmp/host/file2:/tmp/container/file2
 ```
 
-This is another way of exposing secrets to your jobs from the agent, instead of using Semaphore secrets.
+This is another way of exposing secrets to your jobs via an agent, instead of using Semaphore secrets.
 
 ### `fail-on-missing-files`
 
-By default, if files given to `--files` are not found in the host, they are not injected into the docker container, and the job will proceed to be executed. If you want to fail the job instead, set `fail-on-missing-files` to true.
+By default, if files given to `--files` are not found in the host, they are not injected into the docker container and the job will be executed as normal. If you want to fail the job instead, set `fail-on-missing-files` to true.
 
 ### `disconnect-after-job`
 
-By default, the agent does not disconnect from Semaphore and shuts down after completing a job. If you want to do that instead, set `disconnect-after-job` to true.
+By default, an agent does not disconnect from Semaphore and shut down after completing a job. If you want to disconnect from Semaphore instead, set `disconnect-after-job` to true.
 
 ### `disconnect-after-idle-timeout`
 
-By default, the agent does not disconnect after some period of idleness. If you want to do that instead, set `disconnect-after-idle-timeout` to the number of idle seconds after which you want the agent to shutdown.
+By default, an agent does not disconnect after a given period of idleness. If you want an agent to disconnect after a set period of idleness, set `disconnect-after-idle-timeout` to the desired amount of time (in seconds).
 
 ### `shutdown-hook-path`
 
-By default, nothing fancy is executed when the agent shuts down. This parameter accepts a path to a bash script in the host to be executed once that happens. It can be useful to perform cleaning up operations (pushing the agent logs to some external storage, shutting down the machine).
+By default, nothing else is executed when the agent shuts down. This parameter accepts a path to a bash script in the host to be executed when an agent shuts down. This can be useful to perform clean-up operations (e.g. pushing the agent's logs to external storage or shutting down the machine).
 
-It can also be useful when used in conjunction with `disconnect-after-job` or `disconnect-after-idle-timeout` in order to rotate the agents and make sure you get a clean one for every job you run.
+It can also be useful when used in conjunction with `disconnect-after-job` or `disconnect-after-idle-timeout` in order to rotate agents and make sure you get a clean one for every job you run.
 
-For example, if you want to turn off the machine once the agent shuts down, you could use this:
+For example, if you want to turn off the machine once the agent shuts down, use the following:
 
 ```yaml
 # config.yaml
