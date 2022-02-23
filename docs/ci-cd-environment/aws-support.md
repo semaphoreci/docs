@@ -31,9 +31,9 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 <b>1. Download the CDK application and install dependencies</b>
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.2.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.3.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.2
+cd agent-aws-stack-0.1.3
 npm i
 ```
 
