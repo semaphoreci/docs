@@ -203,7 +203,7 @@ Using this command will remove all cached archives for the project.
 The command always passes.
 
 Note that in all commands of `cache`, only the `cache has_key` command can fail
-(exit with 0 status).
+(exit with non-zero status).
 
 ### checksum
 
