@@ -6,16 +6,16 @@ Description: The Semaphore 2.0 cache tool helps optimize CI/CD runtime by reusin
 
 The Semaphore `cache` tool helps optimize CI/CD runtime by reusing files that your
 project depends on, but are not part of version control. You should typically
-use caching to:
+use caching to: 
 
-- Reuse your project's dependencies, so that Semaphore fetches and installs
+- Reuse your project's dependencies so that Semaphore fetches and installs
 them only when the dependency list changes.
 - Propagate a file from one block to the next.
 
 The cache is created on a per-project basis and is available in every pipeline job.
-All cache keys are scoped per-project.
+All cache keys are scoped per project.
 
-The `cache` tool uses key-path pairs for managing cached archives. An archive
+The `cache` tool uses key pairs for managing cached archives. An archive
 can be a single file or a directory.
 
 When running jobs in Semaphore's hosted environment, the total cache size is 9.6GB and each
@@ -88,7 +88,7 @@ Upload complete.
 ### cache restore
 
 A `cache restore` command that has zero arguments looks up cachable elements
-and tries to fetch them from the repository.
+and tries to pull them from the repository.
 
 Example output:
 
@@ -107,13 +107,13 @@ HIT: node-mdoules-your-branch-d17b3d82f1356d0c91469804e2fc320a, using key node-m
 Restored: node_modules/
 ```
 
-## Advanced Usage
+## Advanced usage
 
-If a third party project, such as Bundler, changes the location where they store dependencies or your project, then dependency location is different than the default specified in [Basic Usage](#basic-usage); you might need to specify the key's path manually instead of using a caching shortcut.
+If a third party project, such as Bundler, changes the location where they store dependencies or your project then dependency location is different than the default specified in [Basic Usage](#basic-usage); you might need to specify the key's path manually instead of using a caching shortcut.
 
 ### cache store key path
 
-Examples:
+Here are a few examples of a cache store key path:
 
 ``` bash
 cache store our-gems vendor/bundle
@@ -136,9 +136,9 @@ the oldest keys.
 **Note:** `cache store` does not overwrite data for an existing key.
 You need to [delete the key](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#cache-delete-key) first to update the associated information.
 
-### cache restore key[,second-key,...]
+### cache restore key [,second-key,...]
 
-Examples:
+Some examples of cache restore keys are:
 
 ``` bash
 cache restore our-gems
@@ -146,7 +146,7 @@ cache restore gems-$SEMAPHORE_GIT_BRANCH
 cache restore gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock),gems-master
 ```
 
-Restores an archive which *partially matches* any given `key`.
+These will restore an archive which *partially matches* any given `key`.
 In case of a cache hit, the archive is retrieved and available at its original
 path in the job environment.
 Each archive is restored in the current path from where the function is called.
@@ -166,7 +166,7 @@ cache has_key gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 ```
 
 This command checks if an archive with the provided key exists in the cache.
-The command passes if a key is found in the cache, otherwise, it fails.
+The command passes if a key is found in the cache, otherwise it fails.
 
 ### cache list
 
@@ -176,7 +176,7 @@ Example:
 cache list
 ```
 
-Lists all cache archives for the project.
+This command lists all cache archives for the project.
 
 ### cache delete key
 
@@ -188,7 +188,7 @@ cache delete gems-$SEMAPHORE_GIT_BRANCH
 cache delete gems-$SEMAPHORE_GIT_BRANCH-revision-$(checksum Gemfile.lock)
 ```
 
-Removes an archive with a given key if it is found in the cache.
+This will remove an archive with a given key if it is found in the cache.
 The command always passes.
 
 ### cache clear
@@ -199,17 +199,17 @@ Example:
 cache clear
 ```
 
-Removes all cached archives for the project.
+Using this command will remove all cached archives for the project.
 The command always passes.
 
 Note that in all commands of `cache`, only the `cache has_key` command can fail
-(exit with non-zero status).
+(exit with 0 status).
 
 ### checksum
 
-The `libchecksum` scripts provide the `checksum` command. `checksum` is
+The `libchecksum` scripts provide the `checksum` command. The `checksum` command is
 useful for tagging artifacts or generating cache keys. It takes a
-single argument, a file path, and outputs an `md5` hash value.
+single argument - a file path - and outputs an `md5` hash value.
 
 Examples:
 
@@ -219,7 +219,7 @@ $ checksum package.json 3dc6f33834092c93d26b71f9a35e4bb3
 
 ## SFTP backend
 
-This is the default backend for jobs running in Semaphore's hosted environment, and the
+This is the default backend for jobs running in Semaphore's hosted environment. The
 following environment variables are required and automatically set in every hosted job:
 
 | Environment variable               | Description |
@@ -240,13 +240,13 @@ The following environment variables are required for the `s3` storage backend to
 | `SEMAPHORE_CACHE_BACKEND`          | To use the S3 storage backend, this should be set to `s3`. |
 | `SEMAPHORE_CACHE_S3_BUCKET`        | The S3 bucket name. |
 
-Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly configured with the appropriate credentials, in order to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set this up.
+Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly configured with the appropriate credentials in order to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set this up.
 
 ## Troubleshooting
 
 ### `cache restore` restores an archive with a corrupted archive message
 
-If the `cache restore` output log includes lines similar to the following:
+If the `cache restore` output log includes lines similar to the following, you can make sure that only one job is creating an archive under the specific cache key:
 
 ```bash
 $ cache restore gems-$SEMAPHORE_GIT_SHA
@@ -258,13 +258,11 @@ tar: Error is not recoverable: exiting now
 Restored: vendor/bundle
 ```
 
-You can make sure that only one job is creating an archive under the specific cache key.
-
 Cache archives usually get corrupted when `cache store` is added to the [prologue command sequence][prologue commands],
 resulting in its execution for all jobs in the related block.
 
-To address the issue, structure Semaphore yml so that `cache store` for an archive
-is executed in one job and `cache restore` in the successive jobs.
+To address the issue, structure Semaphore yml's so that `cache store` for an archive
+is executed in one job and `cache restore` is in the successive jobs.
 
 Example YML:
 
