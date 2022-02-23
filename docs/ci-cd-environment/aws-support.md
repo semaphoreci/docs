@@ -28,7 +28,7 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 
 ## Usage
 
-<b>1. Download the CDK application and install dependencies</b>
+### 1. Download the CDK application and install dependencies
 
 ```
 curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.3.tar.gz -o agent-aws-stack.tar.gz
@@ -39,7 +39,7 @@ npm i
 
 You can also fork and clone the repository.
 
-<b>2. Build your AMI</b>
+### 2. Build your AMI
 
 ```
 make packer.build
@@ -47,7 +47,7 @@ make packer.build
 
 This command uses packer to create an AMI with everything the agent needs in your AWS account. The AMI is based on the Ubuntu 20.04 server.
 
-<b>3. Create the encrypted SSM parameter for the agent type registration token</b>
+### 3. Create the encrypted SSM parameter for the agent type registration token
 
 When creating your agent type through the Semaphore UI, you get a [registration token][registration token]. Since this is a sensitive piece of information, create an encrypted AWS SSM parameter with it:
 
@@ -59,7 +59,7 @@ aws ssm put-parameter \
   --key-id YOUR_KMS_KEY_ID
 ```
 
-<b>4. Set environment variables</b>
+### 4. Set environment variables
 
 ```
 export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=YOUR_SSM_PARAMETER_NAME
@@ -70,7 +70,7 @@ export SEMAPHORE_ORGANIZATION=YOUR_ORGANIZATION
 
 [Other environment variables](#configuration) may be configured as well, depending on your needs.
 
-<b>5. Bootstrap the CDK application</b>
+### 5. Bootstrap the CDK application
 
 The AWS CDK requires a few resources to be around for it to work properly:
 
@@ -78,7 +78,7 @@ The AWS CDK requires a few resources to be around for it to work properly:
 npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
 ```
 
-<b>6. Deploy the stack</b>
+### 6. Deploy the stack
 
 ```
 npm run deploy
@@ -152,7 +152,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` is pointing to the stack you really
 
 By default, the agents will run in your [default AWS VPC][default AWS VPC]. That means that your agents will have a public and a private IPv4 address assigned to them and will run in a public subnet, having its traffic destined to the internet sent to an [internet gateway][internet gateway].
 
-However, since all the communication between agents and the Semaphore API happens unidirectionally (from the agent), the agent instances don't really need to be publicly accessible through the Internet. They only need outbound access to the internet. Therefore, you can also run your agents in a private subnet with no public IPv4 address assigned, and use [NAT devices][nat devices] to send its outbound traffic to the internet.
+However, since all the communication between agents and the Semaphore API happens unidirectionally (from the agent), the agent instances don't need to be publicly accessible through the Internet. They only need outbound access to the internet. Therefore, you can also run your agents in a private subnet with no public IPv4 address assigned, and use [NAT devices][nat devices] to send its outbound traffic to the internet.
 
 Therefore, you don't need to rely on your default AWS VPC. You can create a custom VPC and subnets that fit your needs and use the `SEMAPHORE_AGENT_VPC_ID` and `SEMAPHORE_AGENT_SUBNETS` parameters to configure the stack to use them.
 
