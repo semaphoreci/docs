@@ -166,16 +166,17 @@ nav:
       - TestFlight iOS app distribution: examples/testflight-ios-app-distribution.md
   - Reference:
     - Pipeline YAML: reference/pipeline-yaml-reference.md
-    - Conditions YAML: reference/conditions-reference.md
+    - Pipeline Initialization: reference/pipeline-initialization.md
+    - When Conditions: reference/conditions-reference.md
     - Secrets YAML: reference/secrets-yaml-reference.md
     - Projects YAML: reference/projects-yaml-reference.md
     - Dashboards YAML: reference/dashboards-yaml-reference.md
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
-    - sem CLI: reference/sem-command-line-tool.md
-    - artifact CLI: reference/artifact-cli-reference.md
-    - test results CLI: reference/test-results-cli-reference.md
-    - Pipeline Initialization: reference/pipeline-initialization.md
+    - Sem CLI: reference/sem-command-line-tool.md
+    - Artifact CLI: reference/artifact-cli-reference.md
+    - Artifact Retention Policy: reference/artifact-retention-policies.md
+    - Test results CLI: reference/test-results-cli-reference.md
     - API: reference/api-v1alpha.md
     - Toolbox: reference/toolbox-reference.md
     - Quotas and limits: reference/quotas-and-limits.md
