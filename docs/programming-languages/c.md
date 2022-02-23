@@ -5,12 +5,13 @@ description: This guide provides an explanation on how to configure C projects o
 # C
 
 This guide covers configuring C projects on Semaphore.
-If you’re new to Semaphore we recommend reading the
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
+If you’re new to Semaphore, we recommend reading the
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 
 ## Hello world
 
+Shown here is your starting point for configuring C:
 ```yaml
 # .semaphore/semaphore.yml
 version: v1.0
@@ -32,8 +33,8 @@ blocks:
 
 ## Supported C versions
 
-Semaphore VM is 64-bit and provides the following versions of the
-GCC compiler:
+Semaphore Virtual Machine (VM) is 64-bit and provides the following versions of the
+gcc compiler:
 
 - gcc 4.8: found as `/usr/bin/gcc-4.8`
 - gcc 5: found as `/usr/bin/gcc-5`
@@ -41,7 +42,7 @@ GCC compiler:
 - gcc 7: found as `/usr/bin/gcc-7`
 - gcc 8: found as `/usr/bin/gcc-8`
 
-The default version of the GCC compiler can be found as follows:
+The default version of the gcc compiler can be found with:
 
 ``` yaml
 $ gcc --version
@@ -64,7 +65,7 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: Change GCC version
+  - name: Change gcc version
     task:
       jobs:
       - name: Select gcc version 6
@@ -93,7 +94,7 @@ access on each Semaphore 2.0 VM, you are free to install all required packages.
 ## A sample C project
 
 The following `.semaphore/semaphore.yml` file compiles and executes a C source
-file using two different versions of GCC in parallel:
+file using two different versions of gcc in parallel:
 
 ``` yaml
 version: v1.0
@@ -135,4 +136,4 @@ int main(int argc, char **argv) {
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
-- [update-alternatives man page](http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html)
+- [Update-alternatives man page](http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html)
