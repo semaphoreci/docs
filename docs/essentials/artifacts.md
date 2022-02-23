@@ -58,7 +58,7 @@ blocks:
             - artifact push job screenshots
 ```
 
-In the above example, we use [epilogue always][epilogue always] commands to ensure that 
+In the above example, we use [epilogue always][epilogue-always] commands to ensure that 
 artifacts are uploaded for both passed and failed jobs.
 
 You can view the stored files from a job's page. Go to the job page and click on the "Artifacts"
