@@ -115,7 +115,7 @@ artifact yank project my-artifact-v3.tar
 
 ## Supported file names
 
-The uploaded files must meet the following requirments:
+The uploaded files must meet the following requirements:
 
 - File names can contain any sequence of valid Unicode characters, of length 1-1024 bytes when UTF-8 encoded.
 - File names cannot contain Carriage Return or Line Feed characters.
@@ -136,14 +136,14 @@ example/
 ├─ README.md
 ```
 
-Create a tarbar before pushing to artifacts with:
+Create a tarball before pushing to artifacts with:
 
 ``` bash
 tar -czvf example.tar.gz ~/example
 artifact push workflow example.tar.gz
 ```
 
-Then, when pulling the artifact, extact the content with:
+Then, when pulling the artifact, extract the content with:
 
 ```
 artifact pull workflow example.tar.gz
