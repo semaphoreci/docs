@@ -4,8 +4,8 @@ description: This guide provides an explanation on how to configure Scala projec
 
 # Scala
 
-This guide covers configuring Scala projects on semaphore.
-If you’re new to semaphore we recommend reading the
+This guide covers configuring Scala projects on Semaphore.
+If you’re new to Semaphore, we recommend reading the
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
@@ -48,7 +48,7 @@ object HW {
 ## Scala Play example project
 
 Semaphore provides a tutorial and demo Play application with a working
-CI pipeline that you can use to get started quickly:
+CI pipeline that you can use to get started quickly. You can find them here:
 
 - [Scala Play Continuous Integration tutorial][tutorial]
 - [Demo project on GitHub][demo-project]
@@ -60,7 +60,7 @@ The supported Scala versions via the [Ubuntu1804 image][ubuntu1804] are:
 - 2.11.11
 - 2.12.6
 
-## Changing Scala version
+## Changing the Scala version
 
 You can choose the Scala version to use with the help of the
 [`sem-version` utility][sem-version]
@@ -72,7 +72,7 @@ sem-version scala 2.11
 ```
 
 In order to go back to Scala 2.12, which is the default version of the
-Semaphore Virtual Machine, you should execute the following command:
+Semaphore Virtual Machine (VM), you should execute the following command:
 
 ``` bash
 sem-version scala 2.12
