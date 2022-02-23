@@ -1,5 +1,5 @@
 ---
-description: Every project on Semaphore 2.0 has access to three levels of the artifact store - project, workflow and job. See this page for more information.
+description: Every project on Semaphore has access to an artifact store. This page describes the Artifact CLI for pushing and pulling artifacts from that store.
 ---
 
 # Artifact CLI Reference
@@ -9,7 +9,7 @@ system is in the general availability, additional charges will apply based on
 the usage.*
 
 Every project on Semaphore has access to three levels of the artifact store:
-**project**, **workflow** and **job**.
+project, workflow and job.
 Based on this level, you can retrieve a specific artifact in the job environment and
 through the web interface. You can read more about suggested use cases
 [here][artifacts-use-cases].
@@ -20,16 +20,35 @@ Currently it is available in Linux and Docker environments on Semaphore.
 
 The general interface of the `artifact` utility is:
 
-```bash
-artifact [COMMAND] [STORE LEVEL] [PATH] [flags]
+``` bash
+artifact [COMMAND] [LEVEL] [PATH] [flags]
+
+ COMMAND - action to be performed for an artifact (push, pull or yank/delete)
+ LEVEL   - artifact store level (one of project, workflow, job)
+ PATH    - points to the artifact (e.g. file or directory)
+ flags   - optional command line flags (e.g. --force, --destination)
 ```
 
-- `[COMMAND]` - action to be performed for an artifact (`push`, `pull` or `yank`/`delete`)
-- `[STORE LEVEL]` - level on which specific artifact is available within the artifact store (`project`, `workflow`, `job`)
-- `[PATH]` - points to the artifact (e.g. file or directory)
-- `[flags]` - optional command line flags (e.g. `--force`, `--destination`)
+Examples:
 
-## Uploading Artifact
+``` bash
+# push a final delivarable to the project leve
+artifact push project app-v1.tar.gz
+
+# push a screenshot to the job level
+artifact push job screenshots/app.png
+
+# push a binary to the workflow level 
+artifact push workflow build/app
+
+# pull a binary from the workflow level 
+artifact pull workflow build/app
+
+# delete a binary from the workflow level 
+artifact yank workflow build/app
+```
+
+## Uploading Artifacts
 
 To upload an artifact from Semaphore job it is necessary to specify
 the artifact store level and point to a file or directory
@@ -41,22 +60,30 @@ artifact push project my-artifact-v3.tar
 
 Available flags:
 
-- `--destination`(`-d`) - Used to adjust artifact name within the artifact store.
-Later, on you can use this name with `artifact pull` to download the artifact
-to a Semaphore job.
-Example: `artifact push project my-artifact.tar --destination releases/my-artifact-v3.tar`
-- `--expire-in`(`-e`) - Used to set the artifact expiration time (Nd, Nw, Nm, Ny).
-For example, you'd probably want to delete uploaded debugging log in a week or so
-(`artifact push job debugging.log --expire-in 1w`).
-- `--force`(`-f`) - By default, every `artifact push` command doesn't upload an artifact
-if it is already available in the store. You can use this option to overwrite
-existing file.
+```
+--destination(-d)
 
-## Downloading Artifact
+  Used to adjust artifact name within the artifact store.
+  Later, on you can use this name with `artifact pull` to download the artifact
+  to a Semaphore job. Example: 
 
-Similarly, use `artifact pull` to download an artifact to Semaphore job environment.
-It is necessary to specify artifact store level of the target artifact
-and point to a file or directory within the store.
+    artifact push project my-artifact.tar --destination releases/my-artifact-v3.tar
+    artifact pull project releases/my-artifact-v3.tar
+
+--force(-f)
+
+  By default, the `artifact push` command doesn't upload an artifact
+  if it is already available in the store. You can use this option to overwrite
+  existing file. Example:
+
+    artifact push project my-artifact.tar --force
+```
+
+## Downloading Artifacts
+
+Similarly, use the `artifact pull` command to download an artifact to the Semaphore 
+job environment. You need to specify the artifact store level of the target artifact
+and to point to a file or directory within the store.
 
 ```sh
 artifact pull project my-artifact-v3.tar
@@ -64,21 +91,27 @@ artifact pull project my-artifact-v3.tar
 
 Available flags:
 
-- `--destination`(`-d`) - This flag can be used to specify a path to which
-artifact is downloaded in the Semaphore job environment.
-Example: `artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar`
-- `--force`(`-f`) - Use this option to overwrite a file or directory within Semaphore job environment.
+```
+--destination(-d)
+
+  This flag can be used to specify a path to which artifact is downloaded 
+  in the Semaphore job environment. Example: 
+
+    artifact pull project releases/my-artifact-v3.tar --destination my-artifact.tar
+
+--force(-f) 
+  
+  Use this option to overwrite a file or directory within Semaphore job environment.
+```
 
 ## Deleting Artifact
 
-To remove an artifact from the specific artifact store it is necessary to specify
-the store level and point to a file or directory with the `artifact yank` or `artifact delete` command.
+To remove an artifact from an artifact store specify the store level 
+and point to a file or directory with the `artifact yank` or `artifact delete` command.
 
-```sh
+``` bash
 artifact yank project my-artifact-v3.tar
 ```
-
-[artifacts-use-cases]: https://docs.semaphoreci.com/essentials/artifacts/
 
 ## Supported file names
 
@@ -116,3 +149,5 @@ Then, when pulling the artifact, extact the content with:
 artifact pull workflow example.tar.gz
 tar -xzf example.tar.gz
 ```
+
+[artifacts-use-cases]: https://docs.semaphoreci.com/essentials/artifacts/
