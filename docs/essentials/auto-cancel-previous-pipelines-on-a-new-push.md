@@ -1,48 +1,44 @@
 ---
-description: The auto-cancel strategy defines the behavior of pipelines when a queue for execution forms. There are two auto-cancel strategies - running and queued.
+Description: The auto-cancel strategy defines the behavior of pipelines when an execution queue forms. There are two auto-cancel strategies - running and queued.
 ---
 
-# Auto-cancel Previous Pipelines on a New Push
+# Auto-cancel previous pipelines on a new push
 
-The *auto-cancel* strategy defines the behavior of pipelines when a queue for
-execution forms.
+The *auto-cancel* strategy defines the behavior of pipelines when an execution queue forms.
 
-By default, all pipelines will enter the First-In-First-Out (FIFO) queue and wait
-for their time for execution.
+By default, all pipelines will enter a First-In-First-Out (FIFO) queue and be executed in turn.
 
 In some cases, this is not the optimal solution, especially if you consider the
-following scenario.
+following scenario:
 
-We all had situations where you push some changes, only to realize that you have
-missed something small, so you push a new revision immediately and then find out
-another mistake...
+We have all had situations where you push new changes, only to realize that you
+missed something small, so you push a new revision immediately and then find
+**another** mistake...
 
-Without *auto-cancel* strategies the only way to get immediate feedback on the
+Without *auto-cancel* strategies, the only way to get immediate feedback on the
 latest revision is to manually stop all pipelines from obsolete commits.
 
-If you set up an auto-cancel strategy this will be done automatically.
-That way you will get faster feedback on revisions that matter while skipping
-all the intermediate ones.
+If you set up an auto-cancel strategy, however, this will be done automatically.
+This means that you will get faster feedback on the revisions that matter.
 
 There are two auto-cancel strategies: *running* and *queued*.
 
 The *running* strategy stops all pipelines in the queue as soon as a new one appears.
 
-The *queued* strategy will only cancel pipelines that are waiting in the queue
-and have not yet started to run.
-This option is ideal if you don't want to stop an already started test execution.
+The *queued* strategy will only cancel pipelines that are waiting in the queue, i.e. pipelines in the queue that are **not running**.
+This option is ideal if you don't want to stop an execution that is underway.
 
 
 ## Auto-cancel queued pipelines on a new push
 
-If your Git commit log would look like this:
+If your Git commit log looks like this:
 
 ``` txt
 - commit C <- queued
 - commit B <- queued
 - commit A <- a workflow / pipeline is currently running for this revision
 ```
-then when you push new commit D with `.semaphore/semaphore.yml` updated in this fashion:
+then when you push new commit 'D' with `.semaphore/semaphore.yml` updated as shown below:
 
 ``` yaml
 version: "v1.0"
@@ -74,14 +70,12 @@ the following will happen:
 - commit A <- pipeline running for this revision
 ```
 
-The pipeline from the newest commit D will arrive on top of the queue by canceling
-all other pipelines previously in the queue that are not yet started to run, which
-are in this case pipelines from commits B and C.
+The pipeline from the newest commit (D) will arrive at the top of the queue, canceling
+all other pipelines that have yet to be run. In this case, pipelines from commits B and C.
 
-The currently running pipeline from commit A will not be affected and will be
+The running pipeline, from commit A, will not be affected and will be
 allowed to finish.
-This will make sure that no execution time is wasted without providing you any
-feedback.
+This will make sure that no execution time is wasted without providing feedback.
 
 ## Auto-cancel both running and queued pipelines on a new push
 
@@ -92,7 +86,7 @@ Let's say your Git commit log looks like this:
 - commit B <- queued
 - commit A <- a workflow / pipeline is currently running for this revision
 ```
-If you push new commit D with `.semaphore/semaphore.yml` updated in this fashion:
+If you push new commit 'D' with `.semaphore/semaphore.yml` updated as shown below:
 
 ``` yaml
 version: "v1.0"
@@ -115,7 +109,7 @@ blocks:
           - echo Testing...
 ```
 
-Then the following will happen:
+the following will happen:
 
 ``` txt
 - commit D <- pipeline running for newest revision
@@ -124,10 +118,10 @@ Then the following will happen:
 - commit A <- pipeline stopped
 ```
 
-The execution of pipeline from commit A will be stopped and pipelines initiated
-from commits B and C that were waiting in the queue will be canceled.
+The execution of the pipeline from commit A will be stopped and the pipelines initiated
+by commits B and C that were waiting in the queue will be canceled.
 
-This will allow pipeline from newest commit D to start executing and provide you
+This will allow pipeline from newest commit (D) to start executing and provide you
 with feedback as soon as possible after a push.
 
 ## Auto-cancel all pipelines on a new push to a non-master branch
@@ -136,7 +130,7 @@ The auto-cancel strategy is ideal for feature branches during development.
 However, it isn't suitable for the master branch of your project, where there are
 potentially further steps in a workflow that should not be missed for any commit.
 
-By changing the `when` condition to `branch != 'master'` we can set a policy
+By changing the `when` condition to `branch != 'master'`, we can set a policy
 that activates auto-canceling only for pipelines from non-master branches.
 
 ``` yaml
