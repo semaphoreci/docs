@@ -502,7 +502,32 @@ your development workflow, it might need to be lowered more.
   </p>
 </details>
 
+### Why is my Heroku deployment timing out?
 
+<details>
+  <summary>Click for details</summary>
+  <p>
+    Deploying to Heroku might timeout at the authentication step. 
+    If this occurs, the <code>.netrc</code> file might have expired.
+  </p>
+  <p> 
+  In this case, we recommend to regenerate the file and recreate the <a href="https://docs.semaphoreci.com/essentials/using-secrets/">secret</a>. 
+  </p>
+  </details>
+  
+### How to comment on Github's pull requests from a workflow?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+    You can use the <a href="https://docs.github.com/en/rest/reference/issues#create-an-issue-comment">Github API</a> to comment on pull requests. 
+    An example is shown below:
+
+```bash
+curl -X POST -H "Authorization: token <OATH_TOKEN>" https://api.github.com/repos/<owner>/<repo-name>/issues/<number>/comments -d '{"body":"body"}'
+```
+  </p>  
+</details>
 
 ### Why are you still charging my old credit card when I added a new default credit card?
 
