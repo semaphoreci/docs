@@ -1,15 +1,15 @@
 ---
-description: See how to assign pipelines to execution queues and run them sequentially or how to run them in parallel to save time.
+Description: This document shows how to assign pipelines to execution queues and run them sequentially or in parallel.
 ---
 
 # Pipeline Queues
 
-Pipeline queues allow you to control which pipelines Semaphore must run
-sequentially and which may run in parallel. For example, you may configure
+Pipeline queues allow you to control which pipelines Semaphore runs
+sequentially and/or in parallel. For example, you can configure
 consecutive pipelines to run in parallel on the main branch, while allowing
 only one deployment to production to be running at any given time.
 
-You can configure this behaviour via [queue][queue-reference] property in the
+You can configure this behaviour via the [queue][queue-reference] property in the
 pipeline's YAML configuration file.
 
 ## Default behaviour
@@ -22,13 +22,13 @@ the same configuration, e.g. multiple pushes or multiple promotions.
 
 You can use queues to prevent parallel runs of
 [deployment pipelines][deploying-with-promotions] that might cause issues in the
-environment you deploy to.
+environment you are deploying to.
 
-If you are deploying projects independently one from another, you can use the
+If you are deploying projects independently one from another, you can use
 separate queues for each project by setting `scope: project` in the queue
 configuration.
 
-In the following example, we are configuring the deployment pipeline to run
+In the following example, we configure the deployment pipeline to run
 sequentially in a queue called `Deployment queue`.
 
 ``` yaml
@@ -52,11 +52,11 @@ blocks:
 ```
 
 In cases where multiple projects are deployed to the same environment (e.g.
-same Kubernetes cluster) you need the deployment pipelines from those projects to
-queue together. To set that up, you should use the queue configurations with the
-equal values for `name` and `scope` set to **organization** in all related projects.
+to the same Kubernetes cluster) you need the deployment pipelines of those projects to
+queue together. To set that up, use queue configurations with equal values 
+for `name` and `scope` set to **organization** in all related projects.
 
-The following example illustrates the queue configuration that can be used in all
+The following example illustrates a queue configuration that can be used for
 projects that need to have a shared deployment queue.
 
 ``` yaml
@@ -84,15 +84,15 @@ blocks:
 In cases where pipeline runs are completely independent one from another, you
 might want to run them in parallel to receive faster feedback.
 
-You can configure this via `processing` property of the queue configuration.
+You can configure this via the `processing` property of the queue configuration.
 
-It is mostly useful for pipelines that are only running tests and when you want
+This is mostly useful for pipelines that are only running tests and when you want
 to have results for each push to GitHub, e.g. on the main branch.
 
-In case you only need the result of the pipeline from the latest push you might
+In the event that you only need the result of the pipeline from the latest push, you might
 want to consider the [auto-cancel][auto-cancel] feature.  
 
-The following is the example of queue configuration that allows parallel pipelines:
+The following is an example of a queue configuration that allows parallel pipelines:
 
 ``` yaml
 version: v1.0
@@ -115,14 +115,13 @@ blocks:
 
 ## Conditional queue configurations
 
-In some cases, it is useful to have different queue behaviours for the same
-pipeline on different branches. Similar to that, you might need only
-tag-triggered pipelines to be assigned to a separate queue and the rest to behave
-regularly.
+In some cases, it is useful to have different queue behaviours for different branches of 
+the same pipeline. Similarly, you might only need to assign tag-triggered pipelines 
+to a separate queue and let the rest to behave normally.
 
-Solution for those and similar cases is to have multiple queue configurations
+The solution for such cases is to have multiple queue configurations
 that are only applicable if certain conditions are met. Semaphore supports this
-option trough [conditional queue configurations][cond-queue-defs-reference].
+option via [conditional queue configurations][cond-queue-defs-reference].
 Here's an example:
 
 ``` yaml
@@ -169,23 +168,23 @@ blocks:
           - make deploy
 ```
 
-In this example, if the pipeline is triggered by a push to the master branch it
-will be assigned to the queue called `Production`. This queue is defined in the
-scope of the organization and it can be shared with other projects.
+In this example, if the pipeline is triggered by a push to the master branch, it
+will be assigned to the queue called `Production`. This queue is defined within the
+scope of the organization and can be shared with other projects.
 
-With that queue configuration, we will achieve that only one production deployment
-is possible at any given time in the whole organization.
+With this queue configuration, only one production deployment
+is possible at any given time for the whole organization.
 
-On the other hand, if the pipeline is triggered by any git tag it will be
-assigned to the queue called `Image build queue` specific to that project.
+If the pipeline is triggered by a git tag, however, it will be
+assigned to the queue called `Image build queue`, which is specific to that project.
 
-That should ensure that images are built and pushed in chronological order.
+This should ensure that images are built and pushed in chronological order.
 
-The third configuration has a "catch-all" condition and it is applied if none of
+The third configuration has a "catch-all" condition that is applied if none of
 the conditions from the previous configurations is true.
 
-That is the case for all pipelines triggered by a push to any non-master branch
-or any pull request so those pipelines will run in parallel.
+This is the case for all pipelines triggered by a push to any non-master branch
+or any pull request, and it means that those pipelines will be run in parallel.
 
 ## See also
 
