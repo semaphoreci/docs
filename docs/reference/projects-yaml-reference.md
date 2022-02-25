@@ -1,39 +1,39 @@
 ---
-description: This document is the YAML grammar reference used for adding and editing Semaphore 2.0 projects using the sem command line utility.
+Description: This is the YAML grammar reference used for adding and editing Semaphore 2.0 projects via the sem command line utility.
 ---
 
 # Projects YAML Reference
 
 This document is the YAML grammar reference used for adding and editing
-Semaphore 2.0 projects using the `sem` command line utility.
+Semaphore 2.0 projects via the `sem` command line utility.
 
 Projects can also be added to Semaphore 2.0 with the `sem init` command. In
-that case, you will not need to create a YAML file on your own. However,
-`sem init` requires a local copy of the GitHub repository, even if that
-repository is not up to date, that does not contain a
-`.semaphore/semaphore.yml` file. Put simply, `sem init` is simpler but less
+such a case, you will not need to create a YAML file. However,
+`sem init` requires a local copy of the GitHub repository (even if that
+repository is not up to date) that does not contain a
+`.semaphore/semaphore.yml` file. Essentially, `sem init` is simpler but less
 flexible than the `sem create` command.
 
 To learn more about the `sem` commands for project manipulation, you can visit the
-[sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
+[sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
 ## Properties
 
 ### apiVersion
 
 The `apiVersion` property defines the version of the YAML grammar that will be
-used for the definition of the YAML file. Different YAML versions might have
+used to define the YAML file. Different YAML versions might have
 different features.
 
-List of value for `apiVersion`: `v1alpha`.
+Here is a list of values for `apiVersion`: `v1alpha`.
 
 ### kind
 
 The value of the `kind` property is a string that specifies the type of the
-YAML file, that is whether it is for creating new projects or new secrets.
-For projects the value of the `kind` property should be `Project`.
+YAML file, i.e. whether it is for creating new projects or new secrets.
+For projects, the value of the `kind` property should be `Project`.
 
-The list of values for `kind`: `Project`.
+Here is a list of values for `kind`: `Project`.
 
 ### metadata
 
@@ -42,15 +42,15 @@ supported property is `name`.
 
 #### name
 
-The `name` property defines the name of the Semaphore 2.0 project as it will
-be displayed in the Semaphore 2.0 user interface and the output of the
+The `name` property defines the name of a Semaphore 2.0 project as it will
+be displayed in the Semaphore 2.0 user interface, and is the output of the
 `sem get project` command.
 
 The value of the `name` property should be unique among all Semaphore 2.0
-projects of the same organization and must only contain [a-z], [A-Z] or [0-9]
-characters, dashes and underscores – space characters are not allowed.
+projects belonging to the same organization and must only contain [a-z], [A-Z] or [0-9]
+characters, dashes, and underscores – spaces are not allowed.
 
-Using the same YAML file with different `name` values, will create
+Using the same YAML file with different `name` values will create
 multiple Semaphore 2.0 projects connected to the same GitHub repository.
 
 ### spec
@@ -60,13 +60,13 @@ optional `schedulers` properties.
 
 #### repository
 
-The `repository` property is used for holding the `url`, `run_on`, and
+The `repository` property is used for holding the `url`, `run_on`, and,
 `forked_pull_requests` properties.
 
 ##### url
 
 The `url` property is a string that specifies the URL of the GitHub repository
-you want to add in Semaphore 2.0. The format of the `url` value should be as
+you want to add to Semaphore 2.0. The format of the `url` value should be as
 follows:
 
 ``` txt
@@ -74,10 +74,10 @@ git@github.com:github_username/github_repository.git
 ```
 
 If the value of `url` is erroneous, you will get various types of error
-messages.
+messages, as detailed below.
 
-First, if the GitHub repository cannot be found, `sem create` will reply with the
-next error message:
+1. If the GitHub repository cannot be found, `sem create` will reply with the
+following error message:
 
 ``` bash
 $ sem create -f goDemo.yaml
@@ -85,7 +85,7 @@ $ sem create -f goDemo.yaml
 error: http status 422 with message "{"message":"repository \"text/goDemo\" not found"}" received from upstream
 ```
 
-Next, if the Semaphore 2.0 project name is already taken, `sem` will reply with
+2. If the Semaphore 2.0 project's name is already taken, `sem` will reply with
 the following error message:
 
 ``` bash
@@ -94,8 +94,8 @@ $ sem create -f goDemo.yaml
 error: http status 422 with message "{"message":"project name \"goDemo2.1\" is already taken"}" received from upstream
 ```
 
-Last, if the `url` value does not have the correct format, `sem` will print
-the next kind of error message:
+3. If the `url` value does not have the correct format, `sem` will print
+the following error message:
 
 ``` bash
 $ sem create -f goDemo.yaml
@@ -107,30 +107,29 @@ error: http status 422 with message "{"message":"repository url must be an SSH u
 
 The `run` property enables you to define if `workflows` should be triggered for this project.
 
-List of values for `run`: `true`, `false`
+Here is a list of values for `run`: `true`, `false`
 
 ##### run_on
 
 The value of the `run_on` property is an array of GitHub events which should trigger
-the building process. When `run` is set to `true` this property is required, and
-can't be empty.
+the building process. When `run` is set to `true`, this property is required.
 
-Remember that push to a default branch, will trigger a `workflow` even if `branches`
+Remember that pushing to a default branch will trigger a `workflow`, even if `branches`
 is not selected here.
 
-List of values for `run_on`: `branches`, `tags`, `pull_requests`, `forked_pull_requests`
+Here is a list of values for `run_on`: `branches`, `tags`, `pull_requests`, and `forked_pull_requests`
 
 For more information about workflow triggers, visit the
-[Project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/).
+[project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/).
 
 ##### forked\_pull\_requests
 
-The `forked_pull_requests` property is used for holding the `allowed_secrets`,
+The `forked_pull_requests` property is used for holding the `allowed_secrets`
 and `allowed_contributors` properties.
 
 ###### allowed\_secrets
 
-The `allowed_secrets` property specifies array of secrets names that are allowed
+The `allowed_secrets` property specifies the array of secrets' names that are allowed
 to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
 no secret will be exported.
 
@@ -155,7 +154,7 @@ the corresponding [GitHub status check](https://docs.semaphoreci.com/essentials/
 The `status` property is used to specify which Semaphore pipeline(s) will
 submit a status check on GitHub pull requests.
 
-A pipeline can create one status check as a result of the whole pipeline.
+A pipeline can create a single status check as a result of the whole pipeline.
 Or each block in a pipeline can create its own status check.
 
 ##### pipeline\_files
@@ -176,26 +175,26 @@ The `path` property specifies a pipeline.
 
 The `level` property specifies the granularity of status checks.
 
-List of values for `level`: `block`, `pipeline`
+Here is a list of values for `level`: `block`, `pipeline`
 
 #### schedulers
 
-The schedulers property can contain a list of schedulers defined on the
+The schedulers property can contain a list of schedulers defined in the
 project.
 
 A scheduler is a way to run a pre-defined pipeline on a project
 at the pre-defined time. All times are interpreted as UTC.
 
-A scheduler has a few properties: `name`, `branch`, `at` and
+A scheduler has several properties: `name`, `branch`, `at`, and
 `pipeline_file`.
 
 ##### name
 
-The `name` property uniquely identifies the scheduler inside an organization.
+The `name` property uniquely identifies each scheduler within an organization.
 
 ##### branch
 
-The `branch` property specifies which currently existing branch will be used in
+The `branch` property specifies which branch will be used for
 running the pipeline.
 
 The chosen branch must have at least one workflow initiated by a push in order
@@ -203,9 +202,9 @@ for the scheduler to be valid.
 
 ##### at
 
-The `at` property defines the schedule at which the pipeline will be ran.
+The `at` property defines the schedule under which the pipeline will be run.
 
-Semaphore expects this property to be the [standard cron syntax](https://en.wikipedia.org/wiki/Cron).
+Semaphore expects this property to be in the [standard cron syntax](https://en.wikipedia.org/wiki/Cron).
 For a simple way to define your cron syntax, visit [crontab.guru](https://crontab.guru/).
 
 ##### pipeline_file
@@ -214,7 +213,7 @@ The `pipeline_file` property contains the relative path to the pipeline
 definition file from the root of the project.
 
 For more information on defining a valid pipeline file, visit the
-[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/).
+[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/) documentation.
 
 ## Examples
 

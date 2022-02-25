@@ -1,38 +1,35 @@
 ---
-description: This page describes how you can create a new regular user as well as a user with administrative privileges on the databases supported by Semaphore 2.0.
+Description: This page describes how you can create regular users and users with administrative privileges on databases supported by Semaphore 2.0.
 ---
 
 # Configuring Database Access
 
-This document describes how you can create a new regular user as well as a user
-with administrative privileges on the databases that are supported by Semaphore
-2.0.
+This document describes how you can create regular users and users with administrative privileges on databases supported by Semaphore 2.0.
 
 ## Postgres
 
-### Create a new Postgres user
+### Creating a new Postgres user
 
-In order to create a new user in Postgres you will need to execute the
+In order to create a new user in Postgres, execute the
 following command:
 
 ``` bash
 psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
 ```
 
-### Create a new Postgres user with administrative privileges
+### Creating a new Postgres user with administrative privileges
 
-In order to create a new user with administrative privileges in Postgres you
-will need to execute the following command:
+In order to create a new user with administrative privileges in Postgres, execute the following command:
 
 ``` bash
 psql -U postgres -h localhost -c "CREATE USER developer WITH PASSWORD 'developer';"
 psql -U postgres -h localhost -c "ALTER USER developer WITH SUPERUSER;"
 ```
 
-### Create Postgres extensions
+### Creating Postgres extensions
 
 You can extend the capabilities of the default Postgres database by
-creating extensions. For example:
+creating extensions, as shown below:
 
 ```bash
 psql -U postgres -h localhost -c "CREATE EXTENSION \"uuid-ossp\""
@@ -40,19 +37,18 @@ psql -U postgres -h localhost -c "CREATE EXTENSION \"uuid-ossp\""
 
 ## MySQL
 
-### Create a new MySQL user
+### Creating a new MySQL user
 
-In order to create a new user in MySQL you will need to execute the
+In order to create a new user in MySQL, execute the
 following command:
 
 ``` bash
 mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';"
 ```
 
-### Create a new MySQL user with administrative privileges
+### Creating a new MySQL user with administrative privileges
 
-In order to create a new user with administrative privileges in MySQL you will
-need to execute the following command:
+In order to create a new user with administrative privileges in MySQL, execute the following command:
 
 ``` bash
 mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON *.* TO 'newuser'@'localhost';"
@@ -60,23 +56,22 @@ mysql -h 127.0.0.1 -P 3306 -u root -e "CREATE USER 'newuser'@'localhost' IDENTIF
 
 ## Redis
 
-The Redis database does not have the ability to define users.
+Redis database does not have the ability to define users.
 
 ## MongoDB
 
-### Create a new MongoDB user
+### Creating a new MongoDB user
 
-In order to create a new user in MongoDB you will need to execute the following
+In order to create a new user in MongoDB, execute the following
 command:
 
 ``` bash
 echo 'db.createUser( {user:"username", pwd:"password", roles:[], mechanisms:["SCRAM-SHA-1"]  } )' | mongo s2
 ```
 
-### Create a new MongoDB user with administrative privileges
+### Creating a new MongoDB user with administrative privileges
 
-In order to create a new user with administrative privileges in MongoDB you
-will need to execute the following command:
+In order to create a new user with administrative privileges in MongoDB, execute the following command:
 
 ``` bash
 echo 'db.createUser({user:"username", pwd:"password", roles:[{role:"userAdminAnyDatabase",db:"admin"}], mechanisms:["SCRAM-SHA-1"]})' | mongo admin
@@ -84,23 +79,22 @@ echo 'db.createUser({user:"username", pwd:"password", roles:[{role:"userAdminAny
 
 ## Memcached
 
-The Memcached database does not have users.
+Memcached database does not have users.
 
 ## Elasticsearch
 
-### Create a new Elasticsearch user
+### Creating a new Elasticsearch user
 
-In order to create a new user in Elasticsearch you will need to execute the
+In order to create a new user in Elasticsearch, execute the
 following command:
 
 ``` bash
 sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p password -r reporting_user
 ```
 
-### Create a new Elasticsearch user with administrative privileges
+### Creating a new Elasticsearch user with administrative privileges
 
-In order to create a new user with administrative privileges in Elasticsearch
-you will need to execute the following command:
+In order to create a new user with administrative privileges in Elasticsearch, execute the following command:
 
 ``` bash
 sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p password -r superuser
@@ -108,7 +102,7 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-users useradd new_user -p passwo
 
 ## A simple project
 
-The following Semaphore 2.0 project illustrates all these commands in action:
+The following Semaphore 2.0 project illustrates all of the aforementioned commands in action:
 
 ``` yaml
 version: v1.0

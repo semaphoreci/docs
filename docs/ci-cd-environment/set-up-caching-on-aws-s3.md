@@ -1,18 +1,18 @@
 ---
-description: This guide describes how to set up the cache CLI to work with an AWS S3 bucket
+Description: This guide describes how to set up the cache CLI to work with an AWS S3 bucket
 ---
 
 # Setting up caching with AWS S3
 !!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents in your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
+    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
 
-When running the Semaphore agent in a self-hosted environment, the cache storage available in hosted jobs will not be available. However, we can use an AWS S3 bucket to store our cache dependencies instead. In order to do so, the cache CLI needs access only to perform a few actions on an S3 bucket in your AWS account.
+When running a Semaphore agent in a self-hosted environment, cache storage in hosted jobs is not available. However, we can use an AWS S3 bucket to store our cache dependencies instead. In order to do so, the cache CLI needs access to perform a few actions on an S3 bucket in your AWS account.
 
-## Create AWS resources
+## Creating AWS resources
 
-The instructions that follow assume you already have the AWS CLI properly installed and configured in your personal machine. If you’re not sure how to configure that, you can follow [this tutorial from AWS][set up aws cli]. You can also create the AWS resources described in this guide through the AWS console.
+The instructions that follow assume you already have the AWS CLI properly installed and configured on your personal machine. If you’re not sure how to configure it, you can follow [this tutorial from AWS][set up aws cli]. You can also create the AWS resources described in this guide using the AWS console.
 
-The bucket name we use in this example will be `semaphore-cache` and the AWS region will be `us-east-1`. Make sure you adjust the commands to match your bucket name and region of choice.
+The bucket name we will use in this example is `semaphore-cache` and the AWS region will be `us-east-1`. Make sure you adjust the commands to match your bucket name and region of choice.
 
 **1. Create your AWS S3 bucket and block public access to it:**
 
@@ -33,14 +33,14 @@ If you are using the [aws-agent-stack][agent aws stack], this is the only thing 
 
 **2. Create an AWS IAM policy**
 
-It is always good practice to give services only the permissions they need. The cache CLI only needs access to perform the following AWS S3 actions:
+It is always good practice to give services only the permissions that they need. The cache CLI only needs access to perform the following AWS S3 actions:
 
 - `s3:PutObject`
 - `s3:GetObject`
 - `s3:ListBucket`
 - `s3:DeleteObject`
 
-One way to grant access to only these actions is through an AWS IAM policy. You can create one with the following commands:
+One way to grant access for only these actions is through an AWS IAM policy. You can create one with the following commands:
 
 ```
 cat > /tmp/semaphore-cache-policy.json <<EOF
@@ -71,7 +71,7 @@ aws iam create-policy \
   --description "Restricts access to some operations on the semaphore-cache S3 bucket"
 ```
 
-The `aws iam create-policy` command will generate an output like this:
+The `aws iam create-policy` command will generate an output like the one shown below:
 
 ```json
 {
@@ -89,18 +89,18 @@ The `aws iam create-policy` command will generate an output like this:
 }
 ```
 
-Make sure you save the `Arn` of the AWS IAM policy. You'll use that value when attaching the AWS IAM policy to the AWS IAM user.
+Make sure you save the `Arn` of the AWS IAM policy. You'll use this value when attaching the AWS IAM policy to the AWS IAM user.
 
 **3. Create the AWS IAM user and its access keys:**
 
-This is the AWS IAM user the cache CLI will use to authorize and get access to your AWS bucket:
+This is the AWS IAM user that the cache CLI will use to authorize and access to your AWS bucket:
 
 ```
 aws iam create-user --user-name semaphore
 aws iam create-access-key --user-name semaphore
 ```
 
-The `aws iam create-access-key` command will generate an output like this:
+The `aws iam create-access-key` command will generate an output like the one shown below:
 
 ```json
 {
@@ -118,7 +118,7 @@ Make sure you save the `SecretAccessKey` and the `AccessKeyId` values. We will n
 
 **4. Attach the AWS IAM policy to the AWS IAM user:**
 
-Let's attach the AWS IAM policy we created on step #2 to the user we created on step #3:
+Let's attach the AWS IAM policy we created in step #2 to the user we created in step #3:
 
 ```
 aws iam attach-user-policy \
@@ -126,11 +126,11 @@ aws iam attach-user-policy \
   --policy-arn "[this is where the policy ARN you saved on step #2 needs to go]"
 ```
 
-## Configure your machine
+## Configuring your machine
 
-Once you have all the AWS resources created, let's jump into the machine running the agent and configure the AWS credentials for the cache CLI to use.
+Once you have all the AWS resources created, let's jump to the machine running the agent and configure the AWS credentials for the cache CLI to use.
 
-**1. Configure the `~/.aws` folder:**
+**1. Configuring the `~/.aws` folder:**
 
 Make sure you use the `SecretAccessKey` and `AccessKeyId` for the proper AWS IAM user. Also, make sure you replace `us-east-1` with your region of choice and `semaphore-cache` with your bucket name.
 
@@ -150,11 +150,11 @@ aws_secret_access_key = AccessKeyId
 EOF
 ```
 
-Note that the `~/.aws` folder should be created in the home directory of the same user running the agent.
+Note that the `~/.aws` folder should be created in the home directory of the user running the agent.
 
-**2. Update the agent configuration:**
+**2. Updating the agent configuration:**
 
-Finally, let's instruct the agent to pass the required environment variables to the cache CLI, by adding them in your agent's `config.yaml`:
+Finally, let's instruct the agent to pass the required environment variables to the cache CLI, by adding them to your agent's `config.yaml`:
 
 ```yaml
 env-vars:

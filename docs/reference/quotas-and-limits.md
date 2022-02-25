@@ -1,20 +1,20 @@
 ---
-description: Semaphore 2.0 enforces usage quotas and limits to protect customers and the platform from unforeseen spikes in usage. This page provides more information on it.
+Description: Semaphore 2.0 enforces usage quotas and limits to protect customers and the platform from unforeseen spikes in traffic. 
 ---
 
 # Quotas and Limits
 
 Semaphore 2.0 enforces usage quotas and limits to protect customers and the
-platform from unforeseen spikes in usage. As your use of Semaphore expands over
-time, your quotas may increase accordingly.
+platform from unforeseen spikes in traffic. As a given customer's use of Semaphore increases, 
+quota typically size increases correspondingly.
 
 ## Quotas for Maximum Parallel Running Jobs in an Organization
 
 Every organization has a set of quotas that define the maximum number of
 parallel running jobs.
 
-Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
-a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)**:
+Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
+a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)** are shown below:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -43,13 +43,13 @@ a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan
 </tbody>
 </table>
 
-If your organization needs are bigger than what is provided with the default
-machine quotas, you can request an increase by sending a request to
+If your organization's needs are greater than what is provided with the default
+machine quotas, you can request an increase by sending a mail to
 <customersuccess@semaphoreci.com> (please include which type of machine you
-prefer) or through the UI (Billing > See detailed insights… > Quota > Request
+prefer) or via the UI (Billing > See detailed insights… > Quota > Request
 upgrade…).
 
-Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)**:
+Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)** are shown below:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -78,7 +78,7 @@ Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment
 </tbody>
 </table>
 
-Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)**:
+Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)** are shown below:
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -109,10 +109,10 @@ Default quotas per [machine type](https://docs.semaphoreci.com/ci-cd-environment
 
 ## Pipeline and Block Execution Time Limit
 
-By default, every pipeline and block is limited to an hour of execution time.
-This mechanism protects your project from undesired expenses in case of jobs
-that are running longer than anticipated. A good example is an accidentally
-committed debug statement that is waiting for user input.
+By default, each pipeline and block has a maximum execution time of **one hour**.
+This mechanism protects your project from undesired expenses in the event that jobs
+run longer than anticipated, e.g. an accidentally-committed debug 
+statement waiting for user input.
 
 This limit is adjustable in the Pipeline YAML.
 
@@ -140,55 +140,53 @@ blocks:
       - sudo apt-get install vim
 ```
 
-For detailed explanation, see the [execution time limit section in the
-Pipeline YAML reference][execution-time-limit-reference].
+For a detailed explanation, see the [execution time limit section in the
+Pipeline YAML reference][execution-time-limit-reference] documentation.
 
-The maximum value of the `execution_time_limit` is 24 hours.
+The maximum value for `execution_time_limit` is 24 hours.
 
-## Limit on the number of pipelines in the queue
+## Limit on the number of pipelines in a queue
 
-Each pipeline is assigned to execution queue before running any jobs to prevent
+Each pipeline is assigned to an execution queue before running any jobs to prevent
 parallel execution of consecutive pushes or deployment promotions.
 
-By default, separate queues are created for each branch, tag or pull request and
+By default, separate queues are created for each branch, tag, or pull request and
 YAML configuration file combination. You can also define your own queues via
-[queue property][yml-reference-queue] in pipeline's YAML configuration.
+[queue property][yml-reference-queue] in a pipeline's YAML configuration.
 
-Semaphore imposes a limit on queue size of **30 active pipelines** at any moment
+Semaphore imposes a limit on each queue of **30 active pipelines** at any given moment,
 to prevent system abuse and performance degradation.
 
 This limit is not adjustable.
 
-If you have a use case where this limit is too constraining, please contact us
-on <support@semaphoreci.com> so we can work on the solution to that problem.
+If you have a use case in which this limit is too constraining, please contact us
+at <support@semaphoreci.com> and we will try to work out a solution.
 
-## Limit on the number of blocks in the pipeline
+## Limit on the number of blocks in a pipeline
 
-Semaphore imposes a limit on the number of blocks defined in one pipeline and
-that limit is  **100 blocks per pipeline**.
+Semaphore limits blocks to **100 per pipeline**.
 
 This limit is not adjustable.
 
-If you have a use case where this limit is too constraining, please contact us
-on <support@semaphoreci.com> so we can work on the solution to that problem.
+If you have a use case in which this limit is too constraining, please contact us
+at <support@semaphoreci.com> and we will try to work out a solution.
 
-## Limit on the number of jobs in the block
+## Limit on the number of jobs in a block
 
-Semaphore imposes a limit on the  number of jobs defined in one block and that
-limit is  **50 jobs per block** .
+Semaphore limits jobs to **50 per block**.
 
 This limit is not adjustable.
 
 If you need more jobs to be executed in parallel, you can split them into
-multiple blocks that are run in parallel. This can be achieved by configuring
+multiple blocks that run in parallel. This can be achieved by configuring
 the [dependency][dependency-reference] property of the blocks.
 
 ## Job Log Size Limit
 
 Semaphore collects up to 16 megabytes of raw log data from every job in a
-pipeline, which in practice roughly equals 100,000 lines of output.
+pipeline, which is roughly 100,000 lines of output.
 
-Logs longer than 16 megabytes are trimmed with the following message on the
+Logs longer than 16 megabytes are trimmed with the following message at the
 bottom:
 
 ``` txt
@@ -197,7 +195,7 @@ Content of the log is bigger than 16MB. Log is trimmed.
 
 This limit is not adjustable.
 
-For collecting longer textual files, or output from long and verbose process,
+For collecting longer textual files, or output from long and verbose processes,
 we recommend using a blob store like AWS S3 or Google Cloud Storage.
 
 [execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
