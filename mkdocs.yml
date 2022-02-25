@@ -195,4 +195,7 @@ nav:
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
-    - Migration guide for Semaphore Classic users: faq/migration-guide-for-semaphore-classic-users.md
+    - Migration guides:
+      - Migration guide for Semaphore Classic users: faq/migration-guide-for-semaphore-classic-users.md
+      - Migrating from GitHub Actions to Semaphore: faq/migrating-from-github-actions-to-semaphore.md
+
