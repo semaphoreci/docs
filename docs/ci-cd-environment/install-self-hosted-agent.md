@@ -38,7 +38,7 @@ tar -xf agent.tar.gz
 sudo ./install.sh
 ```
 
-The script asks for your Semaphore organization name, the [agent type registration token][agent tokens], and the Linux user used to run the service, and does the following:
+The script asks for your Semaphore organization name, the [agent type registration token][agent tokens], the Linux user used to run the service, and does the following:
 
 - downloads and installs the [Semaphore toolbox][toolbox]
 - creates a systemd service for the agent
