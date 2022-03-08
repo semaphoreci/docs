@@ -8,6 +8,38 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of March 07, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Erlang 24.2.1 -> 24.2.2 (default)
+- Aws-cli 1.22.58 -> 1.22.67
+- Aws-cli 2.4.19 -> 2.4.23
+- Azure-cli 2.33.1 -> 2.34.1
+- Gh 2.5.1 -> 2.5.2
+- Terraform 1.1.3 -> 1.1.7
+- Google Chrome 98 -> 99
+- ChromeDriver 98 -> 99
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Erlang 24.2.1 -> 24.2.2 (default)
+- Aws-cli 1.22.58 -> 1.22.67
+- Aws-cli 2.4.19 -> 2.4.23
+- Azure-cli 2.33.1 -> 2.34.1
+- Gh 2.5.1 -> 2.5.2
+- Terraform 1.1.3 -> 1.1.7
+- Google Chrome 98 -> 99
+- ChromeDriver 98 -> 99
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 21, 2022
 
 **(Improved) Ubuntu 20.04 image update**
