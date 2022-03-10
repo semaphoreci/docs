@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to set up pipeline level status checks and block level status checks in Semaphore 2.0.
+Description: This guide shows you how to set up pipeline-level and block-level status checks in Semaphore 2.0.
 ---
 
 # GitHub Status Checks
@@ -7,20 +7,20 @@ description: This guide shows you how to set up pipeline level status checks and
 GitHub status checks are an excellent way to track and control the CI/CD status
 of your projects.
 
-Semaphore by default reports GitHub statuses for your initial
-`.semaphore/semaphore.yml` pipelines. Optionally you can configure status
+By default, Semaphore reports GitHub statuses for your initial
+`.semaphore/semaphore.yml` pipelines. Optionally, you can configure status
 checks for multiple pipelines, or even blocks.
 
 The name of the GitHub status is derived from the name of your pipeline or
 block.
 
-## Configuring pipeline level status checks
+## Configuring pipeline-level status checks
 
 By default, Semaphore reports a GitHub status for your initial
 `.semaphore/semaphore.yml` pipeline.
 
-To change the pipeline for which you want to create a check status, edit your
-projects configuration:
+To change the pipeline for which you want to create a status check, edit your
+project's configuration as shown below:
 
 ``` bash
 sem edit project <project-name>
@@ -48,13 +48,13 @@ spec:
 ```
 
 Adjust the `status` property to modify your GitHub check configuration. In the
-above YAML, the status checks will be sent only for the
+above YAML, status checks will be sent only for the
 `.semaphore/scheduled-runs.yml` pipeline.
 
-## Configuring pipeline level status checks for multiple pipelines
+## Configuring pipeline-level status checks for multiple pipelines
 
 To set up status checks for multiple pipelines in your projects, edit your
-project's configuration:
+project's configuration as shown below:
 
 ``` bash
 sem edit project <project-name>
@@ -85,17 +85,17 @@ spec:
 ```
 
 Adjust the `status` property to modify your GitHub check configuration. In the
-above YAML, the status checks will be sent for both the
+above YAML, status checks will be sent for both the
 `.semaphore/semaphore.yml` and `.semaphore/scheduled-runs.yml` pipelines.
 
-## Configuring block level status checks
+## Configuring block-level status checks
 
 By default, Semaphore creates status checks for your pipelines. However, you
-can adjust this configuration and create status checks for each of your blocks
+can adjust this configuration and create status checks for blocks
 in the pipeline.
 
-To sends blocks level statuses, instead of pipeline level statuses, edit your
-project configuration:
+To sends block-level statuses, instead of pipeline-level statuses, edit your
+project configuration as shown below:
 
 ``` bash
 sem edit project <project-name>
@@ -122,4 +122,4 @@ spec:
 ```
 
 Adjust the `status` > `level` property to send `block` instead of `pipeline`
-level status checks.
+status checks.
