@@ -1,11 +1,11 @@
 ---
-description: This guide provides an explanation on how to configure Python projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide shows you how to configure Python projects on Semaphore 2.0. 
 ---
 
 # Python
 
 This guide will help you get started with a Python project on Semaphore.
-If you’re new to Semaphore please read our
+If you’re new to Semaphore, please take our
 [Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
@@ -42,15 +42,15 @@ Semaphore supports all versions of Python. You have the following options:
 - macOS: Python is available out-of-the-box in the [macOS VM image][macos-python].
 - Docker: use [semaphoreci/python](/ci-cd-environment/semaphore-registry-images/#python) or
   [your own Docker image][docker-env] with the version of Python and other
-  packages that you need.
+  packages that you want.
 
-Follow the links above for details on currently available language versions and
+Follow the links above for details regarding available language versions and
 additional tools.
 
 #### Selecting a Python version on Linux
 
 On Linux, you can use the [`sem-version` tool][sem-version] to switch between
-Python versions. For example:
+Python versions, as shown below:
 
 ```
 sem-version python 3.7
@@ -64,9 +64,8 @@ we recommend running your jobs in [a custom Docker image][docker-env].
 ### Caching Pip Downloads
 
 You can use Semaphore's `cache` command to store and load a pip
-download cache directory. This does not cache the installations, just
-the downloads but it will speed up builds significantly. Here's an
-example:
+download cache directory. This does not cache the installations (only downloads)
+but it will speed up builds significantly. Here's an example:
 
 ``` yaml
 blocks:
@@ -138,13 +137,13 @@ blocks:
            - pipenv run test
 ```
 
-If you need to clear cache for your project, launch a
+If you need to clear the cache for your project, launch a
 [debug session](https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/)
 and execute `cache clear` or `cache delete <key>`.
 
 ## Environment Variables
 
-Semaphore doesn't set project specific environment variables like
+Semaphore doesn't set project-specific environment variables, like
 `TESTING` used in Flask. You can set these at the task level.
 
 ``` yaml
@@ -163,8 +162,8 @@ blocks:
 ## C-Extensions & system dependencies
 
 Projects may need system packages in order to install pips like `postgres`.
-Semaphore provides full `sudo` access so you may install all required packages.
-Here's an example of installing the `postgres` pip:
+Semaphore provides full `sudo` access so you can install all required packages.
+Here's an example of how to install the `postgres` pip:
 
 ``` yaml
 blocks:
