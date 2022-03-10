@@ -10,6 +10,13 @@ This page is updated on a weekly basis.
 
 ### Week of March 07, 2022
 
+**(Deprecated) Artifact CLI --expire-in flag**
+The `--expire-in` flag in the Artifact CLI is deprecated in favor of the newly introduced Artifact Retention Policies.
+
+**(New) Artifact Retention Policy**
+From now on you can configure [retention policies for artifacts](/essentials/artifacts/#artifact-retention-policies)
+in your project. To set them up, go to Project Settings -> Artifacts.
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(Updated)** Updated packages:
