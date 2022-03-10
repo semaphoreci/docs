@@ -1,11 +1,11 @@
 ---
-description: This guide provides an explanation on how to configure PHP projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide explains how to configure PHP projects on Semaphore 2.0. 
 ---
 
 # PHP
 
 This guide covers configuring PHP projects on Semaphore. If you are new to
-Semaphore we recommend reading our
+Semaphore we recommend taking our
 [Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
@@ -29,7 +29,7 @@ blocks:
 
 ## Laravel example
 
-Semaphore provides a tutorial and demo Laravel application with a working
+Semaphore provides a tutorial and a demo Laravel application with a working
 CI pipeline that you can use to get started quickly:
 
 - [Laravel Continuous Integration tutorial][laravel-tutorial]
@@ -42,17 +42,17 @@ Semaphore supports all versions of PHP. You have the following options:
 - Linux: PHP and related tools are available out-of-the-box in the
   [Ubuntu 18.04 VM image][ubuntu-php].
 - Docker: Use [your own Docker image][docker-env] with the version of PHP and other
-  packages that you need.
+  packages that you want.
 
-Follow the links above for details on currently available language versions and
+Follow the links above for details on available language versions and
 additional tools.
 
 #### Selecting a PHP version on Linux
 
 Semaphore uses [phpbrew](https://github.com/phpbrew/phpbrew) to manage
 PHP versions. Any version installable with `phpbrew` is supported on
-Semaphore. Version 7.2 is pre-installed. You can install and switch
-versions using `sem-version`. Here is an exmaple:
+Semaphore. Version 7.2 comes pre-installed. You can install and switch
+versions using `sem-version`, as shown below:
 
 ``` yaml
 blocks:
@@ -66,12 +66,12 @@ blocks:
           commands:
             - php --version
 ```
-We recommend this approach since `sem-version` will use a precompiled
-version if available and fall back to `phpbrew` otherwise. This usually
-leads to a much shorter job setup.
+We recommend this approach as `sem-version` will use a precompiled
+version if available and fall back on `phpbrew` otherwise. This usually
+leads to shorter job setup.
 
 You can still use `phpbrew` directly but it will always compile the
-target version which is a slow process:
+target version, which is a slow process:
 
 ``` yaml
 blocks:
@@ -86,7 +86,7 @@ blocks:
             - php --version
 ```
 
-If the version of PHP that you need is not currently available in the Linux VM,
+If the version of PHP that you want is not available in the Linux VM,
 we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Dependency caching
@@ -131,7 +131,7 @@ blocks:
 
 ## Environment variables
 
-Semaphore does not set specific environment variables like `APP_ENV`. You can
+Semaphore does not set specific environment variables, like `APP_ENV`. You can
 set these at the task level.
 
 ``` yaml
