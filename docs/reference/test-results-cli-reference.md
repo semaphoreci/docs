@@ -4,9 +4,6 @@ description: Every project on Semaphore 2.0 has access to test results compiler.
 
 # Test results CLI Reference
 
-!!! beta "Feature in beta"
-    Beta features are subject to change.
-
 The `test-results` command line interface (CLI), is a tool that helps you compile and
 process JUnit test result XML files for [Test Summary&nbsp;↗][test-summary-essentials]{target="_blank"} pages.
 
