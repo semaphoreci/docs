@@ -1,11 +1,11 @@
 ---
-description: The macos-xcode11 is a customized image based on MacOS 10.15.4 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
+Description: The macos-xcode11 image is a customized image based on MacOS 10.15.4, which has been optimized for CI/CD. It is a virtual machine (VM) image and this guide shows you how to use it.
 ---
 
 # macOS Catalina Xcode 11 Image
 
-The `macos-xcode11` is a customized image based on [MacOS 10.15.4][catalina-release-notes]
-optimized for CI/CD. It comes with a set of preinstalled languages, databases,
+The `macos-xcode11` image is a customized image based on [MacOS 10.15.4][catalina-release-notes],
+which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
@@ -37,7 +37,7 @@ blocks:
 ```
 
 The `macos-xcode11` OS image can only be used in combination with an Apple
-machine type `a1-standard-4`.
+`a1-standard-4` machine type.
 
 ## System
 
@@ -101,7 +101,7 @@ Installed version:
 - 2.7
 - 3.7
 
-Supporting libraries:
+Supported libraries:
 
 - pip: 20.2b1
 - pip3: 20.0.2
@@ -129,7 +129,7 @@ Installed versions:
 
 The default installed Xcode version is `11.4.1`.
 
-To switch between versions use `xcversion select <version>` e.g `xcversion select 11.5`
+To switch between versions use `xcversion select <version>`, e.g. `xcversion select 11.5`
 
 Xcode 11.2.1 has the following SDKs preinstalled:
 
