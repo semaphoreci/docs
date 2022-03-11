@@ -146,7 +146,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 
 ## Architecture
 
-<img src="https://raw.githubusercontent.com/semaphoreci/docs/aws-support/public/self-hosted-aws-stack.png" width="100%"></img>
+<img src="https://raw.githubusercontent.com/semaphoreci/docs/master/public/self-hosted-aws-stack.png" width="100%"></img>
 
 ## Networking
 
