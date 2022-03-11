@@ -1,5 +1,5 @@
 ---
-description: This guide demonstrates how to use Semaphore to set up deployment to Elastic Beanstalk and covers the necessary steps of the process.
+Description: This step-by-step guide demonstrates how to use Semaphore to set up deployment to AWS Elastic Beanstalk.
 ---
 
 # Deployment to AWS Elastic Beanstalk
@@ -8,11 +8,11 @@ This guide shows you how to use Semaphore to set up deployment to Elastic Beanst
 
 For this guide you will need:
 
-- A working Semaphore project with a basic CI pipeline. You can use one of the documented use cases or language guides as a starting point.
+- A working Semaphore project with a basic CI pipeline. You can use one of our documented use cases or language guides as a starting point.
 
 ### Store AWS keys in a Semaphore secret
 
-You need to create a secret which contains `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_DEFAULT_REGION`
+You need to create a secret which contains your `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_DEFAULT_REGION`.
 
 
 ### Pipeline example:
@@ -41,9 +41,9 @@ promotions:
       when: "result = 'passed'"
 ```
 
-### Define the deployment pipeline
+### Defining the deployment pipeline
 
-Finally let's define what happens in our `eb-deployment.yml` pipeline:
+Let's define what happens in our `eb-deployment.yml` pipeline:
 
 ```yaml
 version: v1.0
