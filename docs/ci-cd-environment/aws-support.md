@@ -62,10 +62,10 @@ aws ssm put-parameter \
 ### 4. Setting environment variables
 
 ```
-export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=YOUR_SSM_PARAMETER_NAME
-export SEMAPHORE_AGENT_TOKEN_KMS_KEY=YOUR_KMS_KEY_ID
-export SEMAPHORE_AGENT_STACK_NAME=YOUR_STACK_NAME
-export SEMAPHORE_ORGANIZATION=YOUR_ORGANIZATION
+export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=<your-ssm-parameter-name>
+export SEMAPHORE_AGENT_TOKEN_KMS_KEY=<your-kms-key-id>
+export SEMAPHORE_AGENT_STACK_NAME=<your-stack-name>
+export SEMAPHORE_ENDPOINT=<your-organization>.semaphoreci.com
 ```
 
 [Other environment variables](#configuration) may be configured as well, depending on your needs.
@@ -119,11 +119,11 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 
 <b>Required</b>
 
-| Parameter name                                  | Description |
-|-------------------------------------------------|-------------|
-| `SEMAPHORE_ORGANIZATION`                        | The name of your Semaphore organization. |
-| `SEMAPHORE_AGENT_STACK_NAME`                    | The name of the stack. This will end up being used as the Cloudformation stack name, and as a prefix to name all the resources of the stack. When deploying multiple stacks for multiple agent types, different stack names are required |
-| `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME`          | The AWS SSM parameter name containing the Semaphore agent [registration token][registration token] |
+| Parameter name                                   | Description |
+|--------------------------------------------------|-------------|
+| `SEMAPHORE_ORGANIZATION` or `SEMAPHORE_ENDPOINT` | If `SEMAPHORE_ENDPOINT` is set, the agents will use that endpoint to register and sync for jobs. If `SEMAPHORE_ENDPOINT` is not set, but `SEMAPHORE_ORGANIZATION` is set, it is assumed that the organization is located at `<organization>.semaphoreci.com`, and that will be the endpoint used. |
+| `SEMAPHORE_AGENT_STACK_NAME`                     | The name of the stack. This will end up being used as the Cloudformation stack name, and as a prefix to name all the resources of the stack. When deploying multiple stacks for multiple agent types, different stack names are required |
+| `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME`           | The AWS SSM parameter name containing the Semaphore agent [registration token][registration token] |
 
 <b>Optional</b>
 
