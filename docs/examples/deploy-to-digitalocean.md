@@ -1,28 +1,27 @@
 ---
-description: This guide demonstrates how to deploy to DigitalOcean's Kubernetes and covers the necessary steps to set up the deployment to DigitalOcean on Semaphore 2.0.
+Description: This guide demonstrates how to deploy to DigitalOcean's Kubernetes and covers the necessary steps to set up deployment to DigitalOcean on Semaphore 2.0.
 ---
 
-# Deploy to DigitalOcean
+# Deploying to DigitalOcean
 
 This guide demonstrates how to deploy to DigitalOcean's Kubernetes.
 
-We will cover these steps to set up the deployment to DigitalOcean on Semaphore:
+We will cover the following steps to set up our deployment to DigitalOcean on Semaphore:
 
-1. Create Semaphore secrets to store the credentials. 
-2. Create a deployment pipeline, attaching the Secrets.
-3. Run a deployment from Semaphore, and ship your code to production.
+1. Create Semaphore secrets to store credentials. 
+2. Create a deployment pipeline and attach the Secrets.
+3. Run a deployment from Semaphore and ship your code to production.
 
 For this example you will need:
 
 - [A working Semaphore project][create-project] with a basic CI pipeline. 
 You can use one of the documented [use cases][use-cases] or [language guides][language-guides] as a starting point.
-- A DigitalOcean account and a Personal Access Token. 
-Follow [Create a Personal Access Token][create-personal-token] to set one up for your account.
-- A [Docker Hub][docker-hub] Account
+- A DigitalOcean account and a Personal Access Token. See [Create a Personal Access Token][create-personal-token] to set one up for your account.
+- A [Docker Hub][docker-hub] Account.
 - A Kubernetes Cluster in DigitalOcean.
 - Basic familiarity with Git and SSH.
 
-## Connect CI and deployment pipelines with a promotion
+## Connecting CI and deployment pipelines with a promotion
 
 Start by defining a [promotion][promotions-intro] at the end of your `semaphore.yml` file:
 
@@ -33,13 +32,13 @@ promotions:
     pipeline_file: deploy-k8s.yml
 ```
 
-This defines a simple deployment pipeline which can be triggered manually on every revision on every branch. You can generally define as many pipelines for a project as you need using a variety of options and conditions. For designing custom delivery pipelines, consult the [promotions reference documentation][promotions-ref].
+This defines a simple deployment pipeline which can be triggered manually on every revision on every branch. You can define as many pipelines as you need for a project, using a variety of options and conditions. To learn how to design custom delivery pipelines, consult the [promotions reference documentation][promotions-ref].
 
 ## Storing credentials in secrets
 
-Create three new [Semaphore secrets][secrets-guide] using the [sem CLI][sem-create-ref].
+Create three new [Semaphore secrets][secrets-guide], using the [sem CLI][sem-create-ref].
 
-- Store the Docker Hub credentials.
+- Store the Docker Hub credentials in the first with the following command:
 
 ```bash
 sem create secret dockerhub \
@@ -47,7 +46,7 @@ sem create secret dockerhub \
   -e DOCKER_PASSWORD=<your-dockerhub-password>
 ```  
 
-- Store the DigitalOcean Personal Access Token. 
+- Store the DigitalOcean Personal Access Token in the second with the following command:
 
 
 ```bash
@@ -55,14 +54,14 @@ sem create secret do-access-token \
   -e DO_ACCESS_TOKEN=<your-do-access-token>
 ```
 
-- Store the .env file in the project root.
+- Store the .env file in the project root in the third with the following command:
 
 ```bash
 sem create secret env-production \
   --file /Users/joe/.env:/home/semaphore/env-production
 ```
 
-You can verify the existance of the secrets:
+You can verify the existance of the secrets with the following command:
 
 ```bash
 sem get secrets
@@ -72,7 +71,7 @@ do-access-token  45s
 env-production   59s
 ```
 
-You can also view the content of a secret:
+You can also view the content of a secret with the following command:
 
 ```bash
 sem get secret do-access-token
@@ -90,9 +89,9 @@ data:
   files: []
 ```
 
-## Define the deployment pipeline  
+## Defining the deployment pipeline  
           
-Finally, let's define our `deploy-k8s.yml` pipeline:          
+Finally, let's define our `deploy-k8s.yml` pipeline, as shown below:          
           
 ```yaml
 version: v1.0
@@ -142,16 +141,16 @@ blocks:
           - docker push "${DOCKER_USERNAME}/addressbook:latest"
 ```
 
-## Verify it works
+## Verifying that it works
 
 Push a new commit on any branch and open Semaphore to watch a new workflow run. 
-If all goes well you'll see the `Promote` button next to your initial pipeline. 
+If all goes well, you'll see the `Promote` button next to your initial pipeline. 
 Click on the button to launch the deployment.
 
 ## Next steps
 
 Congratulations! You have automated deployment of your application to DigitalOcean Kubernetes.
-Here’s some recommended reading:
+Here’s some further recommended reading:
 
 - [Explore the promotions reference][promotions-ref] to learn more about what
 options you have available when designing delivery pipelines on Semaphore.
