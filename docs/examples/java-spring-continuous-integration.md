@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Java Spring application.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Java Spring application.
 ---
 
 # Java Spring Continuous Integration
@@ -13,27 +13,27 @@ Semaphore maintains an example Java Spring project:
 
 - [Demo Java Spring project on GitHub][demo-project]
 
-In the repository you will find an annotated Semaphore configuration file
+In the repository, you will find an annotated Semaphore configuration file
 `.semaphore/semaphore.yml`.
 
-The application uses Spring Boot, Maven, JUnit for unit and integration tests,
+The application uses Spring Boot, Maven, and JUnit for unit and integration tests,
 JMeter for performance testing, and Docker for deployment.
 
 ## Overview of the CI/CD pipeline
 
 The Semaphore pipeline performs the following tasks:
 
-1. Build the project
-2. Run unit and integration tests in parallel
-3. Run performance tests
-4. Build Docker image
-5. Push image to a container registry
+1. Builds the project.
+2. Runs unit and integration tests in parallel.
+3. Runs performance tests.
+4. Builds the Docker image.
+5. Pushes image to a container registry.
 
 ![Java Spring CI/CD pipeline](https://github.com/semaphoreci-demos/semaphore-demo-java-spring/raw/master/assets/pipeline-result.png)
 
 ## Sample configuration
 
-The entry pipeline performs build and test steps:
+The entry pipeline performs the build and test steps:
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -146,21 +146,22 @@ promotions:
       - result: passed
 ```
 
-The pipeline ends with a promotion which is triggered automatically if all
+The pipeline ends with a promotion, which is triggered automatically if all
 blocks finished successfully.
 
-### Authenticate with a Docker registry
+### Authenticating with a Docker registry
 
 The Docker build pipeline produces a container image and pushes it to a
 Docker registry. In this case, the registry is Docker Hub, but you can use any
-other. For pipeline to work, you need to authenticate.
+registry. For the pipeline to work, you need to authenticate with your credentials.
 
 Add your container registry credentials to `./docker-hub-secret.yml`, which is
-provided in the repository as a template.  The credentials should remain
+provided in the repository as a template. The credentials should remain
 private, so don't publish them to your Git repository by mistake.
 
-Create [a secret][secrets-guide] on Semaphore so that you can safely export
-`DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables in your pipeline:
+Create a [secret][secrets-guide] on Semaphore so that you can safely export the
+`DOCKER_USERNAME` and `DOCKER_PASSWORD` environment variables to your pipeline,
+as shown below:
 
 ``` bash
 sem create -f docker-hub-secret.yml
@@ -232,10 +233,10 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project] to your own account.
-2. Clone the repository on your local machine.
+2. Clone the repository to your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-4. Create your secret as per instructions above.
-5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+4. Create a secret as per the instructions above.
+5. Edit any file and push to GitHub, and Semaphore will run the CI/CD pipeline.
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
 [secrets-guide]: https://docs.semaphoreci.com/essentials/using-secrets/
