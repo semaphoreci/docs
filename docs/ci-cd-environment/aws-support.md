@@ -22,7 +22,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
-- Node and NPM, for building and deploying the CDK application and managing its dependencies
+- Node v16+ and NPM, for building and deploying the CDK application and managing its dependencies
 - Make, Python 3, and Packer for AMI creation and provisioning
 - Properly-configured [AWS credentials][aws credentials]
 
@@ -42,10 +42,11 @@ You can also fork and clone the repository.
 ### 2. Building your AMI
 
 ```
+make packer.init
 make packer.build
 ```
 
-This command uses packer to create an AMI with everything the agent needs from your AWS account. The AMI is based on the Ubuntu 20.04 server image.
+These commands use packer to create an AMI with everything the agent needs from your AWS account. The AMI is based on the Ubuntu 20.04 server image.
 
 ### 3. Creating an encrypted SSM parameter for the agent type registration token
 
@@ -53,11 +54,13 @@ When creating your agent type using the Semaphore UI, you get a [registration to
 
 ```
 aws ssm put-parameter \
-  --name YOUR_SSM_PARAMETER_NAME \
-  --value "YOUR_AGENT_TYPE_REGISTRATION_TOKEN" \
+  --name <your-ssm-parameter-name> \
+  --value "<your-agent-type-registration-token>" \
   --type SecureString \
-  --key-id YOUR_KMS_KEY_ID
+  --key-id <your-kms-key-id>
 ```
+
+Note: if you want to use the default `aws/ssm` KMS, omit the `--key-id` argument.
 
 ### 4. Setting environment variables
 
@@ -69,6 +72,8 @@ export SEMAPHORE_ENDPOINT=<your-organization>.semaphoreci.com
 ```
 
 [Other environment variables](#configuration) may be configured as well, depending on your needs.
+
+Note: if your key was encrypted using the default `aws/ssm` KMS key, `SEMAPHORE_AGENT_TOKEN_KMS_KEY` does not need to be set.
 
 ### 5. Bootstrapping the CDK application
 
