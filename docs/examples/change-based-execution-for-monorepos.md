@@ -1,28 +1,28 @@
 ---
-description: This guide shows you to how optimize a monorepo CI/CD with change-based block execution.
+Description: This guide shows you to how optimize a monorepo CI/CD with change-based block execution.
 ---
 
-# Changed-Based Execution for Monorepos
+# Changed-based execution for monorepos
 
-This guide shows you how to use change detection to optimize a monorepo continuous integration (CI).
+This guide shows you how to use change detection to optimize monorepo continuous integration (CI).
 
 ## Demo project
 
 A monorepo is a container repository with multiple separate applications or projects. Semaphore
-maintains a reference demo on GitHub:
+maintains a monorepo reference demo on GitHub that you can use to learn:
 
 - [Monorepo project on GitHub][demo-project]
 
-You’ll find a Semaphore configuration file with a sample CI pipeline at `.semaphore/semaphore.yml`
+You’ll find a Semaphore configuration file with a sample CI pipeline at `.semaphore/semaphore.yml`.
 
-The repository contains three individually deployable applications. They can be found under the `/services` folder.
+The repository contains three individually-deployable applications. They can be found under the `/services` folder.
 
-- **Billing**: a billing system written in Go. Uses [mux][mux] to provide an HTTP endpoint on port 8000.
+- **Billing**: a billing system written in Go. It uses [mux][mux] to provide an HTTP endpoint on port 8000.
 - **User**: a user account management application. Written in Ruby, it employs an in-memory database and uses [Sinatra][sinatra] to expose an HTTP endpoint.
-- **UI**: is the Elixir-based Web application component.
+- **UI**: an Elixir-based Web application component.
 
 These applications are meant to work together. After forking and cloning the repository, you can
-start the suite with:
+start the suite with the following command:
 
 ```bash
 $ bash start.sh
@@ -33,11 +33,11 @@ $ bash start.sh
 The pipeline performs the following tasks for the three applications in the monorepo:
 
 - **Lint**: uses a linting tool to detect potential errors in the source code.
-- **Test**: runs unit the application's tests.
+- **Test**: runs the application's unit tests.
 
-To avoid re-running tasks for unchanged code, the pipeline uses the **change detection**, when an
-application has been modified by recent commits, the related block runs. Otherwise, the block is
-skipped.
+To avoid re-running tasks for unchanged code, the pipeline uses **change detection**. 
+This means that when an application has been modified by recent commits, 
+the related block runs; but unchanged blocks are skipped.
 
 The following screenshot shows the workflow resulting from changing a file inside the `/service/ui`
 folder:
@@ -46,9 +46,9 @@ folder:
 
 ## Sample configuration
 
-The demo is using the following configuration. If you're new to Semaphore, we recommend going
-through the [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) and linked
-documentation pages for more information.
+The demo uses the following configuration. If you're new to Semaphore, we recommend going
+through the [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) and 
+related documentation for more information.
 
 ```yaml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
@@ -180,18 +180,18 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project].
-2. Clone the repository on your local machine.
-3. In Semaphore, follow the link in the upper right side to create a new project.
+2. Clone the repository to your local machine.
+3. In Semaphore, follow the link on the upper right side to create a new project.
 4. Select the forked repository.
-5. Modify or create a file inside one application folder and commit the changes to `master`.
+5. Modify or create a file inside an application folder and commit the changes to `master`.
 
 ## Next steps
 
 You can use `change_in` to build smarter pipelines. The change function not only allows you to skip
-or activate blocks, but it can also be used inside [promotions][promotions] to start additional
+or activate blocks, it can also be used within [promotions][promotions] to start additional
 pipelines.
 
-To continue learning about `change_in`, check these resources:
+To learn more about `change_in`, you can also check out these resources:
 - [Monorepo workflows][monorepo-workflows]
 - [Change_in reference][change-in]
 
