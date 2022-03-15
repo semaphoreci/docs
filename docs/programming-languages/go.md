@@ -1,5 +1,5 @@
 ---
-description: This guide provides an explanation on how to configure Golang projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide provides an explanation on how to configure Golang projects on Semaphore 2.0. 
 ---
 
 # Go
@@ -42,9 +42,9 @@ Semaphore supports all versions of Go. You have the following options:
 - Linux: Go is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-go].
 - Docker: use [semaphoreci/golang](/ci-cd-environment/semaphore-registry-images/#golang) or
   [your own Docker image][docker-env] with the version of Go and other
-  packages that you need.
+  packages that you want.
 
-Follow the links above for details on currently available language versions and
+Follow the links above for details on available language versions and
 additional tools.
 
 ### Selecting a Go version on Linux
@@ -52,7 +52,7 @@ additional tools.
 The [Linux VM][ubuntu1804] provides multiple versions of Go.
 You can switch between them using the [`sem-version` tool][sem-version].
 
-For example, in your `semaphore.yml`:
+For example, enter the following in your `semaphore.yml` file:
 
 ``` yaml
 blocks:
@@ -67,7 +67,7 @@ blocks:
             - go version
 ```
 
-If the version of Go that you need is not currently available in the Linux VM,
+If the version of Go that you need is not available in the Linux VM,
 we recommend running your jobs in [a custom Docker image][docker-env].
 
 ## Test summary
@@ -75,38 +75,38 @@ we recommend running your jobs in [a custom Docker image][docker-env].
 !!! beta "Feature in beta"
     Beta features are subject to change.
 
-General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it){target="_blank"}.
+General test summary guidelines are [available here ↗](/essentials/test-summary/#how-to-use-it).
 
 ![Test Summary Tab](go/summary-tab.png)
 
-### Generating JUnit XML report
+### Generating JUnit XML reports
 
-In this guide we will focus on [gotestsum ↗][gotestsum]{target="_blank"} test runner.
+In this guide we will focus on [gotestsum ↗][gotestsum] test runner.
 This runner has out-of-the-box support for generaing JUnit XML files, and works without additional configuration.
 
-To install [gotestsum ↗][gotestsum]{target="_blank"} run
+To install [gotestsum ↗][gotestsum] run:
 
 ```shell
 go get gotest.tools/gotestsum
 ```
 
-Now we need to adjust our command that runs the tests
+Now we need to adjust our command that runs the tests, as shown below:
 
 ```shell
 gotestsum --junitfile junit.xml ./...
 ```
 
-Running your tests with this setup will also generate `junit.xml` summary report.
+Running your tests with this setup will also generate a `junit.xml` summary report.
 
 ### Publishing results to Semaphore
 
-To make Semaphore aware of your test results you can publish them using [test results CLI ↗][test-results-cli]{target="_blank"}:
+To make Semaphore aware of your test results, you can publish them using the [test results CLI ↗][test-results-cli]:
 
 ```shell
 test-results publish junit.xml
 ```
 
-We advise to include this call in your epilogue:
+It is good practice to also include this call in your epilogue:
 
 ```yaml
 epilogue:
@@ -115,7 +115,7 @@ epilogue:
       - test-results publish junit.xml
 ```
 
-This way even if your job fails(due to the test failures) results will still be published for inspection.
+This way even if your job fails (due to the test failures), the results will still be published for inspection.
 
 ### Example configuration
 
@@ -144,12 +144,12 @@ Your CI configuration should look similiar to this:
 
 ### Demos
 
-You can see how test results are setup in one of our [demo projects ↗][test-results-demo]{target="_blank"}.
+You can see how test results are setup in one of our [demo projects ↗][test-results-demo].
 
 ## Using GOPATH
 
 If you are not using Go 1.11 then you will need to prepare the directory
-structure Go tooling expects. This requires creating `$GOPATH/src` and
+structure that Go tooling expects. This requires creating `$GOPATH/src` and
 cloning your code into the correct directory. This is possible by changing some
 environment variables and using the existing Semaphore 2.0 toolbox.
 
@@ -183,9 +183,9 @@ blocks:
 Go projects use multiple approaches to dependency management. If you are using
 `dep` then the strategy is similar to other projects.
 
-After downloading `dep`, you should use the `cache` utility to store and
-restore the directory you put your source code files, which for the purposes
-of this document will be named `vendor`.
+After downloading `dep`, you should use the `cache` utility to store and restore 
+the directory you put your source code files in, which will be named `vendor`
+for the purposes of this guide.
 
 You can download and install `dep` as follows:
 
@@ -216,7 +216,7 @@ blocks:
             - cache store deps-$SEMAPHORE_GIT_BRANCH-$(checksum Gopkg.lock) vendor
 ```
 
-After that you can reuse that cache as follows:
+Finally, you can reuse the cache as follows:
 
 ``` yaml
 blocks:
