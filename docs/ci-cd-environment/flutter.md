@@ -1,6 +1,10 @@
-# Using Semaphore's android image as CI/CD environment
+---
+Description: This guide shows Semaphore 2.0's Flutter Android image.
+---
 
-The example uses our public [demo project](https://github.com/semaphoreci-demos/semaphore-demo-flutter)
+# Using Semaphore's android image as a CI/CD environment
+
+The example uses our public [demo project](https://github.com/semaphoreci-demos/semaphore-demo-flutter):
 
 ```
 version: v1.0
@@ -63,4 +67,4 @@ blocks:
 ```
 
 !!! info "Semaphore convenience images redirection"
-	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
+	Due to the introduction of [Docker Hub rate limits](/ci-cd-environment/docker-authentication/), if you are using a [Docker-based CI/CD environment](/ci-cd-environment/custom-ci-cd-environment-with-docker/) in combination with convenience images, Semaphore will **automatically redirect** any pulls from the `semaphoreci` Docker Hub repository to the [Semaphore Container Registry](/ci-cd-environment/semaphore-registry-images/).	
