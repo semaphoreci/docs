@@ -1,5 +1,5 @@
 ---
-description: How to set up a custom Semaphore dashboard showing deployments across selected projects.
+Description: This guide shows you how to set up a custom Semaphore dashboard showing deployments across selected projects.
 ---
 
 # Deployment Dashboards
@@ -7,35 +7,35 @@ description: How to set up a custom Semaphore dashboard showing deployments acro
 Dashboards allow you to create custom Semaphore screens that show deployment
 activity across multiple projects.
 
-For example, you can define a dashboard that shows which versions of all your
-applications have been deployed in staging and production environments.
+For example, you can define a dashboard that shows which versions of your
+applications have been deployed into staging and production environments.
 
 ![Deployment dashboard Semaphore](deployment-dashboards/deployment-dashboard-example.png)
 
 ## Prerequisites
 
-To create and manage dashboards you need to have:
+To create and manage dashboards, you need to have:
 
 - One or more Semaphore projects, preferrably with separate [deployment pipelines][promotions].
 - [Semaphore CLI][sem-cli] installed on your computer.
 
 ## Creating a dashboard
 
-Start by creating a blank dashboard in your terminal:
+Start by creating a blank dashboard in your terminal, as shown below:
 
 ``` bash
 $ sem create dashboard demo-deployment
 Dashboard 'demo-deployment' created.
 ```
 
-Open the dashboard configuration:
+Open the dashboard configuration, as shown below:
 
 ``` bash
 $ sem edit dashboard demo-deployment
 ```
 
-At this point you have a blank dashboard definition open in your default editor.
-It looks something like this:
+At this point, you should have a blank dashboard definition open in your default editor.
+It should look something like this:
 
 ``` yaml
 apiVersion: v1alpha
@@ -54,7 +54,7 @@ spec:
 
 Dashboard widgets show information from a pipeline in a project.
 
-Recall that on Semaphore we model deployment using [promotions][promotions] that
+Recall that Semaphore models deployment using [promotions][promotions] that
 trigger separate pipelines. So a typical deployment dashboard would define
 widgets based on these deployment pipelines.
 
@@ -72,7 +72,7 @@ spec:
 
 Because a dashboard can show widgets from multiple projects, you need to
 reference a `project_id`. To find the ID of your project, run `sem get projects`,
-then `sem get project <projectname>`:
+then `sem get project <projectname>`, as shown below:
 
 ```
 $ sem get projects
@@ -98,8 +98,8 @@ update the dashboard definition.
 
 ## Viewing a dashboard in the web interface
 
-In the Semaphore web interface, you will find the link to your dashboard in the
-top-level **Projects** menu, **Dashboards** list.
+In the Semaphore web interface, you will find a link to your dashboard on 
+the **Dashboards** list in the top-level **Projects** menu.
 
 ## Additional options
 

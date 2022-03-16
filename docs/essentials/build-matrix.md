@@ -1,18 +1,18 @@
 ---
-description: This guide shows how to set up a job matrix - dynamically created parallel jobs with different environment variables.
+Description: This guide shows how to set up a job matrix: dynamically-created parallel jobs with different environment variables.
 ---
 
 # Job Matrix
 
 This guide shows how to set up a
 [job matrix](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#matrix):
-dynamically created parallel jobs with different environment variables.
+dynamically-created parallel jobs with different environment variables.
 
-To configure a job matrix, you need to set the `matrix` property on
+To configure a job matrix, you need to set the `matrix` property in
 a job definition. `matrix` takes a list of `env_var` and its possible
 `values`.
 
-The job matrix will expand all the possible combinations of variables
+The job matrix will expand to the total possible combinations of variables
 and create a job for each one.
 
 ## Testing against multiple language versions

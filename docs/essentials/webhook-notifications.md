@@ -1,18 +1,18 @@
 ---
-description: Semaphore 2.0 has webhook based notifications that are delivered on the success or failure of a pipeline. This guide shows you how to set them up.
+Description: Semaphore 2.0 has webhook-based notifications that are delivered upon the success or failure of a pipeline. This guide shows you how to set them up.
 ---
 
 # Webhook Notifications
 
-Semaphore has webhook based notifications that are delivered on the success or
-failure of a pipeline. When criteria for notifications are met, Semaphore will
+Semaphore has webhook-based notifications that are delivered upon the success or
+failure of a pipeline. When the criteria for notifications are met, Semaphore will
 send a HTTP POST payload to the webhook's configured URL. You can use them,
-for example, to implement alerts through [Hubot](https://github.com/hubotio/hubot),
+for example, to implement alerts via [Hubot](https://github.com/hubotio/hubot),
 or keep track of your projects on a company dashboard.
 
 ## Setting up webhook notifications for a project
 
-Use your Endpoint URL to set up a notification on Semaphore,
+You can use your Endpoint URL to set up a notification on Semaphore,
 with the following command:
 
 ``` bash
@@ -22,7 +22,7 @@ $ sem create notification [name] \
 ```
 
 For example, if you have a project called `web` and you want to get a webhook
-notification on every finished pipeline on the `master` branch, use the
+notification for every finished pipeline on the `master` branch, use the
 following command:
 
 ``` bash
@@ -34,10 +34,10 @@ $ sem create notification master-pipelines \
 
 ## Setting up webhook notifications for multiple projects
 
-When creating a notification, you can specify multiple projects as a source,
+When creating a notification, you can specify multiple projects as the sources
 of your notifications.
 
-For example, if your team manages three projects named `web`, `cli` and `api`
+For example, if your team manages three projects named `web`, `cli`, and `api`
 and you want to get notified of every finished pipeline on the master branch,
 use the following command:
 
@@ -48,13 +48,13 @@ $ sem create notifications teamA-notifications \
     --webhook-endpoint [webhook-endpoint]
 ```
 
-## Filtering by project, branch and pipeline names
+## Filtering by project, branch, and pipeline names
 
-When creating a notification, you can specify a filter for project, branch and
+When creating a notification, you can specify filters for project, branch, and
 pipeline names.
 
 For example, to send notifications for the `master` and `staging` branches, use
-the following:
+the following command:
 
 ``` bash
 $ sem create notifications example \
@@ -73,8 +73,9 @@ $ sem create notifications example \
 ```
 
 Matching can be specified for project and pipeline files as well. For example,
-if you want to get notified after every pipeline on a project that matches
-`/.*-api$/`, on the master branch, when the `prod.yml` pipeline is executed, use:
+if you want to get notified after every pipeline in a project that matches
+`/.*-api$/` on the master branch when the `prod.yml` pipeline is executed,
+use the following command:
 
 ``` bash
 $ sem create notifications example \
@@ -87,14 +88,14 @@ $ sem create notifications example \
 ## Advanced notification setup
 
 In the previous examples we looked at simple use cases where we used the CLI
-interface to set up a new notification.
+interface to set up new notifications.
 
 For more complex use cases, defining a notification YAML resource offers full
 control over the rules used for dispatching notifications.
 
 ### Filtering by pipeline result
 
-You can specify notifications to be sent only on specific pipeline results.
+You can specify notifications to be sent only upon specific pipeline results.
 
 Available values for the results filter are:
 
@@ -127,7 +128,7 @@ spec:
 
 Note that you can list more than one value under `results`.
 
-You can create a notification using the file above with:
+You can create a notification using the file above with the following command:
 
 ``` bash
 sem create -f notify-on-fail.yml
@@ -135,8 +136,8 @@ sem create -f notify-on-fail.yml
 
 ## Modifying notification settings
 
-Notification settings can be listed, described, edited and deleted in your
-organization by using the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
+Notification settings can be listed, described, edited, and deleted within your
+organization using the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
 - List notifications with: `sem get notifications`
 - Describe a notification with: `sem get notifications [name]`
@@ -144,16 +145,16 @@ organization by using the [sem command line tool](https://docs.semaphoreci.com/r
 - Delete a notification with: `sem delete notification [name]`
 
 See the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
-for further details.
+documentation for further information regarding its use.
 
-## Setting up, editing and deleting webhook notifications through the UI
+## Setting up, editing, and deleting webhook notifications via the UI
 
-In the Configuration part of the sidebar, click on **Notifications** -> **Create New
-Notification**. Add the name of the notification and rules and click on the **Save
+In the Configuration section of the sidebar, click on **Notifications** -> **Create New
+Notification**. Add the name of the notification and its rules, and click on the **Save
 Changes** button.
 
 If you’d like to edit or delete an existing notification, click on the name of
-the notification and at the top right corner, click on **Edit** or **Delete...** button
+the notification, click on **Edit** or **Delete...** button in the top right corner,
 and follow the steps from there.
 
 ## Notification payload
@@ -247,9 +248,9 @@ The payload contains all the information related to a pipeline.
 }
 ```
 
-In this example `revision.pull_request` and `revision.tag` are null because
-payload is related to the pipeline run started from a push to the branch.
-Information about this is kept in `revision.reference_type`.
+In this example, `revision.pull_request` and `revision.tag` are null because
+the payload is related to a pipeline run started via a push to the branch.
+Information about this is kept in the `revision.reference_type` file.
 
 Sample `pull_request` object:
 
