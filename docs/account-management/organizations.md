@@ -62,7 +62,7 @@ If you want to add multiple users to your organization at the same time, you can
 
 1. Click on the initials of your organization in the top right corner of the page
 2. Click on **People** in the dropdown menu
-2. Click on **Not on Semaphore yet**
+2. Click on the **repository collaborators** link
 3. Select members you'd like to add to Semaphore and enter their emails (If you don’t know 
 someone’s email, just leave the field empty. We will still add them to your 
 organization, but we won’t email them an invitation.)
