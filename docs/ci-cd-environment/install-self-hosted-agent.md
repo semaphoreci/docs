@@ -8,10 +8,10 @@ Description: This guide describes how to install a self-hosted agent on various 
 
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
-- bash
 - git
-- docker - [manageable without sudo][docker without sudo]
-- docker-compose
+- bash (Linux/MacOS) or PowerShell (Windows)
+- docker - [manageable without sudo][docker without sudo] (Linux/MacOS)
+- docker-compose (Linux/MacOS)
 
 Please, follow the installation instructions for your operating system of choice below.
 
@@ -28,7 +28,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.0.18/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.1/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -59,7 +59,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.0.18/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.1/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -114,6 +114,30 @@ echo "source ~/.toolbox/toolbox" >> ~/.bash_profile
 
 ```
 agent start --endpoint semaphore.semaphoreci.com --token [token]
+```
+
+## Installing the agent on Windows
+
+**1. Prepare your machine:**
+
+```
+New-Item -ItemType Directory -Path C:\semaphore-agent
+Set-Location C:\semaphore-agent
+```
+
+**2. Download the agent:**
+
+```
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.1/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+tar.exe xvf agent.tar.gz
+```
+
+**3. Install the agent:**
+
+```
+$env:SemaphoreEndpoint = "<your-organization>.semaphoreci.com"
+$env:SemaphoreRegistrationToken = "<your-agent-type-registration-token>"
+.\install.ps1
 ```
 
 [agent-configuration]: ./configure-self-hosted-agent.md
