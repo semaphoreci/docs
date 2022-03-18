@@ -28,27 +28,29 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 
 ## Usage
 
-### 1. Downloading the CDK application and installing dependencies
+### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.4.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.5.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.4
+cd agent-aws-stack-0.1.5
 npm i
 ```
 
 You can also fork and clone the repository.
 
-### 2. Building your AMI
+### 2. Build the AMI
 
 ```
 make packer.init
-make packer.build
+make packer.build AWS_REGION=<your-aws-region>
 ```
 
-These commands use packer to create an AMI with everything the agent needs from your AWS account. The AMI is based on the Ubuntu 20.04 server image.
+These commands use packer to create an AMI with everything the agent needs in your AWS account. The AMI is based on the Ubuntu 20.04 server image.
 
-### 3. Creating an encrypted SSM parameter for the agent type registration token
+Note: if you want to build the AMI in `us-east-1`, you can omit the `AWS_REGION` variable.
+
+### 3. Create an encrypted SSM parameter for the agent type registration token
 
 When creating your agent type using the Semaphore UI, you get a [registration token][registration token]. This is a sensitive piece of information, so you should create an encrypted AWS SSM parameter with it:
 
@@ -62,7 +64,22 @@ aws ssm put-parameter \
 
 Note: if you want to use the default `aws/ssm` KMS, omit the `--key-id` argument.
 
-### 4. Setting environment variables
+### 4. Create the stack configuration
+
+Create a `config.json` file with the following:
+
+```json
+{
+  "SEMAPHORE_AGENT_STACK_NAME": "<your-stack-name>",
+  "SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME": "<your-ssm-parameter-name>",
+  "SEMAPHORE_AGENT_TOKEN_KMS_KEY": "<your-ssm-parameter-name>",
+  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com"
+}
+```
+
+[Other parameters](#configuration) may be configured as well, depending on your needs.
+
+Alternatively, you can also configure the stack using environment variables:
 
 ```
 export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=<your-ssm-parameter-name>
@@ -71,19 +88,30 @@ export SEMAPHORE_AGENT_STACK_NAME=<your-stack-name>
 export SEMAPHORE_ENDPOINT=<your-organization>.semaphoreci.com
 ```
 
-[Other environment variables](#configuration) may be configured as well, depending on your needs.
-
 Note: if your key was encrypted using the default `aws/ssm` KMS key, `SEMAPHORE_AGENT_TOKEN_KMS_KEY` does not need to be set.
 
-### 5. Bootstrapping the CDK application
+### 5. Bootstrap the CDK application
 
 The AWS CDK requires a few resources to be on hand for it to work properly:
+
+```
+SEMAPHORE_AGENT_STACK_CONFIG=config.json \
+  npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
+```
+
+If you are using environment variables to configure the stack, you can omit `SEMAPHORE_AGENT_STACK_CONFIG`:
 
 ```
 npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
 ```
 
-### 6. Deploying the stack
+### 6. Deploy the stack
+
+```
+SEMAPHORE_AGENT_STACK_CONFIG=config.json npm run deploy
+```
+
+If you are using environment variables to configure the stack, you can omit `SEMAPHORE_AGENT_STACK_CONFIG`:
 
 ```
 npm run deploy
@@ -115,6 +143,12 @@ After resetting the agent type token via the Semaphore UI, currently-running age
 To delete the stack, use:
 
 ```bash
+SEMAPHORE_AGENT_STACK_CONFIG=config.json npm run destroy
+```
+
+If you are using environment variables to configure the stack, you can omit `SEMAPHORE_AGENT_STACK_CONFIG`:
+
+```
 npm run destroy
 ```
 
@@ -134,6 +168,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 
 | Parameter name                                  | Description |
 |-------------------------------------------------|-------------|
+| `SEMAPHORE_AGENT_STACK_CONFIG`                  | Path to a JSON file containing the parameters to use. This is an alternative to using environment variables for setting the stack's configuration parameters. |
 | `SEMAPHORE_AGENT_INSTANCE_TYPE`                 | Instance type used for the agents. Default is `t2.micro`. |
 | `SEMAPHORE_AGENT_ASG_MIN_SIZE`                  | Minimum size for the auto-scaling group. Default is `0`. |
 | `SEMAPHORE_AGENT_ASG_MAX_SIZE`                  | Maximum size for the auto-scaling group. Default is `1`. |
