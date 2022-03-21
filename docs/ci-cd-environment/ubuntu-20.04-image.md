@@ -111,7 +111,7 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 22.3, 23.3, 24.1, 24.2 (default)
+- Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default)
 - Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.3 as default)
 
 Additional libraries:
@@ -130,6 +130,7 @@ Versions:
 - 1.15.x
 - 1.16.x
 - 1.17.x
+- 1.18.x
 
 ### Java and JVM languages
 
@@ -150,11 +151,11 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.14.0 (set as default, with alias 16.14), includes npm 8.3.1
+- v16.14.2 (set as default, with alias 16.14), includes npm 8.5.0
 
 #### Additional tools
 
-- Yarn: 1.22.17
+- Yarn: 1.22.18
 
 ### PHP
 
@@ -182,7 +183,7 @@ Supporting libraries:
 
 - pypy: 7.3.8
 - pypy3: 7.3.8
-- pip: 22.0.3
+- pip: 22.0.4
 - venv: 20.13.0
 
 ### Ruby
