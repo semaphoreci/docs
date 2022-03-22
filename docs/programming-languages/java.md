@@ -1,12 +1,12 @@
 ---
-description: This guide provides an explanation on how to configure Java projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide shows how to configure Java projects on Semaphore 2.0, using an example project.
 ---
 
 # Java
 
 This guide will help you get started with a Java project on Semaphore.
 If you’re new to Semaphore please read our
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -45,7 +45,7 @@ Semaphore supports all versions of Java. You have the following options:
 - Docker: Use [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
 
-Follow the links above for details on currently available language versions and
+Follow the links above for details on available language versions and
 additional tools.
 
 #### Selecting a Java version on Linux
@@ -53,20 +53,20 @@ additional tools.
 The [Linux VM][ubuntu1804] provides multiple versions of Java.
 You can switch between them using the [`sem-version` tool][sem-version].
 
-For example, in your `semaphore.yml`:
+For example, by entering the following into your `semaphore.yml` file:
 
 ```
 sem-version java 11
 ```
 
 If the version of Java that you need is not currently available in the Linux VM,
-we recommend running your jobs in [a custom Docker image][docker-env].
+we recommend running your jobs in a [custom Docker image][docker-env].
 
 ## Dependency caching
 
 Here's an example of [caching dependencies][caching] using Maven.
-You may also cache compiled code and tests as well. The exact
-implementation varies depending on your tools.
+You can also cache compiled code and tests as well. The exact
+implementation will vary depending on your tools.
 In the following configuration example, we download dependencies, compile
 code and warm the cache in the first block, then use the cache in
 subsequent blocks.
