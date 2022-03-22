@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore to set up automatic deployment for each new tagged commit in your repository.
+Description: This guide shows you how to use Semaphore to set up automatic deployment for each new tagged commit in your repository.
 ---
 
 # Tag-triggered Deployment
@@ -10,15 +10,15 @@ each new tagged commit in your repository.
 For this guide you will need:
 
 - A working Semaphore project
-- A basic CI pipeline defined in `.semaphore/semaphore.yml` file. You can use one
+- A basic CI pipeline defined in your `.semaphore/semaphore.yml` file. You can use one
 of the documented use cases or language guides as a starting point.
-- A deployment pipeline defined in `.semaphore/deployment.yml` file. You can find
-examples for deployment to AWS, DockerHub, Kubernetes cluster etc. in our
+- A deployment pipeline defined in your `.semaphore/deployment.yml` file. You can find
+examples for deployments to AWS, DockerHub, Kubernetes cluster, etc. in our
 documentation.
 
-## Set up automatic deployment on a new tag
+## Setting up automatic deployment on a new tag
 
-Let say that your CI pipeline looks something like this:
+Let's say that your CI pipeline looks something like this:
 
 ```yaml
 version: v1.0
@@ -38,8 +38,9 @@ blocks:
             - make test
 ```
 
-In order to automatically promote this pipeline to deployment phase defined in
-your deployment pipeline you need to expand it with [promotions][promotions]:
+In order to automatically promote this pipeline to the deployment phase defined in
+your deployment pipeline, you need to expand it with [promotions][promotions], 
+as shown below:
 
 ```yaml
 promotions:
@@ -49,17 +50,17 @@ promotions:
       when: "result = 'passed' and tag =~ '.*'"
 ```
 
-Here we defined the condition in `when` sub-field of `auto_promote` field and if
-it is fulfilled the deployment pipeline will be automatically triggered.
+Here we have defined the condition in the `when` sub-field of the `auto_promote` 
+field and the deployment pipeline will be automatically triggered if it is fulfilled.
 
 The condition in the example above will be fulfilled when tests in the main CI
-pipeline pass and if the whole workflow was triggered for a tag.
+pipeline pass and the whole workflow was triggered for a tag.
 
-You can find out more about ways to express conditions [here][conditions].
+You can learn more about ways to express conditions [here][conditions].
 
-## Full examples for CI and deployment pipeline
+## Full examples for CI and deployment pipelines
 
-Here is the full CI pipeline example with promotions block included:
+Here is the full CI pipeline example with the promotions block included:
 
 ```yaml
 version: v1.0
