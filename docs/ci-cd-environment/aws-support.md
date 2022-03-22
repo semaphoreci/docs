@@ -28,12 +28,14 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 
 ## Usage
 
+In order to follow the steps below, please make sure that your AWS user has the [required permissions](#required-aws-permissions).
+
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.5.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.6.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.5
+cd agent-aws-stack-0.1.6
 npm i
 ```
 
@@ -62,7 +64,20 @@ aws ssm put-parameter \
   --key-id <your-kms-key-id>
 ```
 
-Note: if you want to use the default `aws/ssm` KMS, omit the `--key-id` argument.
+Note: you need `kms:Encrypt` permissions on the KMS key you use here. Alternatively, if you want to use the default `aws/ssm` KMS, omit the `--key-id` argument.
+
+### 4. Create the execution policy that will be used by Cloudformation
+
+When deploying the stack, you can instruct the AWS CDK to use only the permissions it needs to manage all the stack resources. To do that, create an AWS IAM policy with all the required permissions:
+
+```bash
+aws iam create-policy \
+  --policy-name agent-aws-stack-cfn-execution-policy \
+  --policy-document file://$(pwd)/execution-policy.json \
+  --description "Policy used by Cloudformation to deploy the agent-aws-stack CDK application"
+```
+
+After creating the AWS IAM policy, save the ARN.
 
 ### 4. Create the stack configuration
 
@@ -77,9 +92,7 @@ Create a `config.json` file with the following:
 }
 ```
 
-[Other parameters](#configuration) may be configured as well, depending on your needs.
-
-Alternatively, you can also configure the stack using environment variables:
+[Other parameters](#configuration) may be configured as well, depending on your needs. Alternatively, you can also configure the stack using environment variables:
 
 ```
 export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=<your-ssm-parameter-name>
@@ -92,18 +105,22 @@ Note: if your key was encrypted using the default `aws/ssm` KMS key, `SEMAPHORE_
 
 ### 5. Bootstrap the CDK application
 
-The AWS CDK requires a few resources to be on hand for it to work properly:
+Using the ARN of the execution policy created in step 3, bootstrap the CDK application:
 
 ```
 SEMAPHORE_AGENT_STACK_CONFIG=config.json \
-  npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
+  npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION \
+  --cloudformation-execution-policies <arn-of-the-executed-policy-created-previously>
 ```
 
 If you are using environment variables to configure the stack, you can omit `SEMAPHORE_AGENT_STACK_CONFIG`:
 
 ```
-npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION
+npm run bootstrap -- aws://YOUR_AWS_ACCOUNT_ID/YOUR_AWS_REGION \
+  --cloudformation-execution-policies <arn-of-the-executed-policy-created-previously>
 ```
+
+Note: if you don't use `--cloudformation-execution-policies`, the AWS CDK will instruct AWS CloudFormation to deploy your stack using full administrator permissions from the `AdministratorAccess` policy.
 
 ### 6. Deploy the stack
 
@@ -230,6 +247,137 @@ Each stack that is deployed creates and starts agents for one agent type only. H
 
 - Set a different `SEMAPHORE_AGENT_STACK_NAME` parameter for each stack.
 - Create one encrypted SSM parameter for each agent type registration token, and set the `SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME` appropriately for each one.
+
+## AWS permissions
+
+The permissions needed for creating the Semaphore agents in your AWS account are related to a few different operations:
+
+- Building the AWS EC2 AMI with Packer
+- Bootstrapping the AWS CDK application
+- Assuming the AWS CDK application's roles
+
+The following AWS IAM policy document describes all the permissions required:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:DescribeParameters",
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:PutParameter",
+        "ssm:DeleteParameter"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreatePolicy",
+        "iam:CreateRole",
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:GetPolicy",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:PassRole",
+        "iam:DeleteRole",
+        "iam:DeleteRolePolicy",
+        "iam:DeletePolicy",
+        "iam:TagPolicy",
+        "iam:UntagPolicy",
+        "iam:TagRole",
+        "iam:UntagRole"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:CreateBucket",
+        "s3:ListBucket*",
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:DeleteObject*",
+        "s3:DeleteBucket*",
+        "s3:PutBucket*",
+        "s3:PutObject*",
+        "s3:GetEncryptionConfiguration",
+        "s3:PutEncryptionConfiguration"
+      ],
+      "Resource": "arn:aws:s3:::cdk*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ecr:DescribeRepositories",
+        "ecr:CreateRepository",
+        "ecr:DeleteRepository"
+      ],
+      "Resource": "arn:aws:ecr:*:*:repository/cdk*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CopyImage",
+        "ec2:CreateImage",
+        "ec2:CreateKeypair",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateSnapshot",
+        "ec2:CreateTags",
+        "ec2:CreateVolume",
+        "ec2:DeleteKeyPair",
+        "ec2:DeleteSecurityGroup",
+        "ec2:DeleteSnapshot",
+        "ec2:DeleteVolume",
+        "ec2:DeregisterImage",
+        "ec2:DescribeImageAttribute",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeRegions",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeTags",
+        "ec2:DescribeVolumes",
+        "ec2:DetachVolume",
+        "ec2:GetPasswordData",
+        "ec2:ModifyImageAttribute",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:ModifySnapshotAttribute",
+        "ec2:RegisterImage",
+        "ec2:RunInstances",
+        "ec2:StopInstances",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Resource": "arn:aws:iam::*:role/cdk-*"
+    }
+  ]
+}
+```
 
 [agent-aws-stack]: https://github.com/renderedtext/agent-aws-stack
 [aws cdk]: https://docs.aws.amazon.com/cdk/v2/guide/home.html
