@@ -1,12 +1,12 @@
 ---
-description: This guide provides an explanation on how to configure C++ projects on Semaphore 2.0. It provides example projects as well that should help you get started.
+Description: This guide shows how to configure C++ projects on Semaphore 2.0 with an example project.
 ---
 
 # C++
 
 This guide covers configuring C++ projects on Semaphore.
-If you’re new to Semaphore we recommend reading the
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
+If you’re new to Semaphore, we recommend reading the
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
 ## Hello world
 
@@ -33,13 +33,13 @@ blocks:
 
 Semaphore VM is 64-bit and provides the following versions of the g++ compiler:
 
-- g++ 4.8: found as `/usr/bin/g++-4.8`
-- g++ 5: found as `/usr/bin/g++-5`
-- g++ 6: found as `/usr/bin/g++-6`
-- g++ 7: found as `/usr/bin/g++-7`
-- g++ 8: found as `/usr/bin/g++-8`
+- g++ 4.8: found in `/usr/bin/g++-4.8`
+- g++ 5: found in `/usr/bin/g++-5`
+- g++ 6: found in `/usr/bin/g++-6`
+- g++ 7: found in `/usr/bin/g++-7`
+- g++ 8: found in `/usr/bin/g++-8`
 
-The default version of the g++ compiler can be found as follows:
+The default version of the g++ compiler can be found as shown below:
 
 ```
 $ g++ --version
@@ -85,13 +85,13 @@ to store and load any files or C++ libraries that you want to reuse between jobs
 
 ## System dependencies
 
-C++ projects might need packages like database drivers. As you have full `sudo`
-access on each Semaphore 2.0 VM, you are free to install all required packages.
+C++ projects might need packages like database drivers. You have full `sudo`
+access on each Semaphore 2.0 VM, so you can install all required packages.
 
 ## A sample project
 
 The following `.semaphore/semaphore.yml` file compiles and executes a C++ source
-file using two different versions of the g++ compiler, in parallel:
+file using two different versions of the g++ compiler in parallel:
 
 ```yaml
 version: v1.0
