@@ -72,8 +72,8 @@ When deploying the stack, you can instruct the AWS CDK to use only the permissio
 
 ```bash
 aws iam create-policy \
-  --policy-name agent-aws-stack__execution \
-  --policy-document file://<path-to-your-cdk-app-repo>/policy__execution.json \
+  --policy-name agent-aws-stack-cfn-execution-policy \
+  --policy-document file://$(pwd)/execution-policy.json \
   --description "Policy used by Cloudformation to deploy the agent-aws-stack CDK application"
 ```
 
@@ -274,6 +274,7 @@ The following AWS IAM policy document describes all the permissions required:
     {
       "Effect": "Allow",
       "Action": [
+        "ssm:DescribeParameters",
         "ssm:GetParameter",
         "ssm:GetParameters",
         "ssm:PutParameter",
@@ -288,12 +289,14 @@ The following AWS IAM policy document describes all the permissions required:
         "iam:CreateRole",
         "iam:GetRole",
         "iam:GetRolePolicy",
+        "iam:GetPolicy",
         "iam:AttachRolePolicy",
         "iam:DetachRolePolicy",
         "iam:PutRolePolicy",
         "iam:PassRole",
         "iam:DeleteRole",
         "iam:DeleteRolePolicy",
+        "iam:DeletePolicy",
         "iam:TagPolicy",
         "iam:UntagPolicy",
         "iam:TagRole",
