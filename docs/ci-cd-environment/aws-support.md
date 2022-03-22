@@ -388,7 +388,7 @@ The following AWS IAM policy document describes all the permissions required:
 }
 ```
 
-The policy above are needed for the following operations:
+The policy above is needed due to the following operations:
 
 - Building the AWS EC2 AMI with Packer
 - Bootstrapping the AWS CDK application
