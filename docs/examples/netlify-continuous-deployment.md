@@ -1,8 +1,8 @@
 ---
-description: This guide shows you how to configure Semaphore 2.0 to continuously deploy a static website to Netlify.
+Description: This guide shows you how to configure Semaphore 2.0 to continuously deploy a static website to Netlify.
 ---
 
-# Netlify Continuous Deployment
+# Netlify continuous deployment
 
 This guide shows you how to configure Semaphore to continuously deploy a
 static website to Netlify.
@@ -10,15 +10,14 @@ static website to Netlify.
 Before getting started, you'll need:
 
   - A [Netlify](https://netlify.com) account.
-  - A working
-    [Semaphore project](../guided-tour/getting-started.md)
-    with a CI pipeline that builds the website.
+  - A working [Semaphore project](../guided-tour/getting-started.md)
+    with a CI pipeline that will build the website.
 
-For the initial CI pipeline, you may refer to Semaphore's [open source demo
+For the initial CI pipeline, you can refer to Semaphore's [open source demo
 static website project][demo-project], which uses a Node.js framework to generate site
 pages, and the [companion guide][static-website-guide].
 
-## Write a deployment pipeline
+## Writing a deployment pipeline
 
 Create a deployment pipeline as a new file in your `.semaphore` directory:
 
@@ -53,14 +52,13 @@ blocks:
 The pipeline shown above assumes that the website files are generated in
 the `public` directory and
 [cached](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
-with the key: `website-build`. You may need to adjust the last two
+with the following key: `website-build`. You may need to adjust the last two
 commands of the job to suit your needs.
 
-## Add a promotion to deployment
+## Adding a promotion to deployment
 
-Add a
-[promotion](https://docs.semaphoreci.com/essentials/deploying-with-promotions/)
-to your existing `semaphore.yml` file:
+Next, add a [promotion](https://docs.semaphoreci.com/essentials/deploying-with-promotions/)
+to your existing `semaphore.yml` file, as shown below:
 
 ``` yaml
 - name: Netlify Production deploy
@@ -74,18 +72,18 @@ master branch. For more details regarding promotions, consult the
 [reference
 documentation](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#promotions).
 
-## Manage Netlify credentials
+## Managing Netlify credentials
 
 To obtain your Netlify credentials:
 
 1.  Install the [netlify command line
-    interface](https://www.netlify.com/docs/cli/):
+    interface](https://www.netlify.com/docs/cli/) with the following command:
     
     ``` bash
     $ npm install netlify-cli -g
     ```
 
-2.  Log in to your Netlify account:
+2.  Log in to your Netlify account, as shown below:
     
     ``` bash
     $ netlify login
@@ -96,30 +94,31 @@ To obtain your Netlify credentials:
 
 3.  Link your project's directory with the Netlify site. The actual
     command depends on whether you are updating an existing site or
-    creating a new one. If you are:
+    creating a new one: 
     
-- Creating a new site:
+- If you are creating a new site, enter the following command:
     
     ``` bash
     $ cd /your/project/path
     $ netlify init
     ```
 
-- Updating a previously existing site:
+- If you are updating a previously existing site, enter the following command:
     
     ``` bash
     $ cd /your/project/path
     $ netlify link
     ```
 
-### Store credentials on Semaphore
+### Storing credentials on Semaphore
 
 You need to upload two files to Semaphore in order to allow access to
 your Netlify account and site.
 [Secrets](https://docs.semaphoreci.com/essentials/using-secrets/)
 are the best way to store private data such as authentication tokens and
 passwords. You can securely send the files to Semaphore using [sem
-CLI](https://docs.semaphoreci.com/reference/sem-command-line-tool/):
+CLI](https://docs.semaphoreci.com/reference/sem-command-line-tool/), 
+as shown below:
 
 ``` bash
 $ cd /your/project/path
@@ -128,16 +127,16 @@ $ sem create secret netlify-authentication \
     --file ~/.netlify/config.json:/home/semaphore/.netlify/config.json
 ```
 
-To see the secrets stored on Semaphore:
+To see the secrets stored on Semaphore enter the following command:
 
 ``` bash
 $ sem get secrets
 ```
 
-## Launch your first deployment
+## Launching your first deployment
 
 The workflow will start as soon as the changes are pushed to your
-repository:
+repository, as shown below:
 
 ``` bash
 $ git add .semaphore/production-deploy-netlify.yml
