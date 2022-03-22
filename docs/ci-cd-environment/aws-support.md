@@ -54,7 +54,24 @@ Note: if you want to build the AMI in `us-east-1`, you can omit the `AWS_REGION`
 
 ### 3. Create an encrypted SSM parameter for the agent type registration token
 
-When creating your agent type using the Semaphore UI, you get a [registration token][registration token]. This is a sensitive piece of information, so you should create an encrypted AWS SSM parameter with it:
+When creating your agent type using the Semaphore UI, you get a [registration token][registration token]. This is a sensitive piece of information, so you should create an encrypted AWS SSM parameter with it.
+
+You can use the default SSM `aws/ssm` KMS key or a custom KMS key of your choice to encrypt your registration token.
+
+#### Use the default `aws/ssm` KMS key
+
+```
+aws ssm put-parameter \
+  --name <your-ssm-parameter-name> \
+  --value "<your-agent-type-registration-token>" \
+  --type SecureString
+```
+
+#### Use a customer managed KMS key
+
+When using a customer managed KMS key, make sure you have `kms:Encrypt` permissions for that key. If you want to create a new KMS key, you can use the [create-key][kms create key] operation.
+
+After that, create the encrypted SSM parameter using your KMS key with:
 
 ```
 aws ssm put-parameter \
@@ -63,8 +80,6 @@ aws ssm put-parameter \
   --type SecureString \
   --key-id <your-kms-key-id>
 ```
-
-Note: you need `kms:Encrypt` permissions on the KMS key you use here. Alternatively, if you want to use the default `aws/ssm` KMS, omit the `--key-id` argument.
 
 ### 4. Create the execution policy that will be used by Cloudformation
 
@@ -391,3 +406,4 @@ The policy to deploy the CDK application, used by CloudFormation, is a different
 [internet gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
 [nat devices]: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html
 [aws credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+[kms create key]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-key.html
