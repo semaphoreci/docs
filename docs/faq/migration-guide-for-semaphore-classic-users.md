@@ -8,7 +8,7 @@ If you've used Semaphore prior to version to 2.0, this guide will outline the
 key differences and show you how to migrate to the new version.
 
 Even if you're a pro Semaphore user, we recommend that you read through the
-[Guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
+[guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
 hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
@@ -88,7 +88,5 @@ easy-to-use, full-page format. For example, you will see exactly how long it
 takes Semaphore to start your job and all the details of environment
 preparation.
 
-For a full introduction to Semaphore 2.0, we recommend that you read through the
-[Guided tour](../guided-tour/getting-started.md).
 
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
