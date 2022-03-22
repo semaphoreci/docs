@@ -8,6 +8,58 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of March 21, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Erlang 24.3.2 (default as 24.3)
+- PHP 8.0.17
+- Go 1.18
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.67 -> 1.22.77
+- Aws-cli 2.4.23 -> 2.4.27
+- Github-cli 2.5.2 -> 2.6.0
+- Docker 20.10.12 -> 20.10.13
+- Helm 3.8.0 -> 3.8.1
+- Heroku 7.59.2 -> 7.59.4
+- Java 11.0.13 -> 11.0.14
+- Java 17.0.1 -> 17.0.2
+- NodeJS 16.14.0 -> 16.14.2
+- Npm 8.3.1 -> 8.5.0
+- Yarn 1.22.17 -> 1.22.18
+- Pip 22.0.3 -> 22.0.4
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 24.3.2 (default as 24.3)
+- PHP 8.0.17
+- Go 1.18
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.67 -> 1.22.77
+- Aws-cli 2.4.23 -> 2.4.27
+- Github-cli 2.5.2 -> 2.6.0 
+- Docker 20.10.12 -> 20.10.13
+- Helm 3.8.0 -> 3.8.1 
+- Heroku 7.59.2 -> 7.59.4
+- Java 11.0.13 -> 11.0.14
+- Java 17.0.1 -> 17.0.2
+- NodeJS 16.14.0 -> 16.14.2
+- Npm 8.3.1 -> 8.5.0  
+- Yarn 1.22.17 -> 1.22.18
+- Pip 22.0.3 -> 22.0.4
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of March 07, 2022
 
 **(Deprecated) Artifact CLI --expire-in flag**
