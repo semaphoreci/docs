@@ -250,12 +250,6 @@ Each stack that is deployed creates and starts agents for one agent type only. H
 
 ## AWS permissions
 
-The permissions needed for creating the Semaphore agents in your AWS account are related to a few different operations:
-
-- Building the AWS EC2 AMI with Packer
-- Bootstrapping the AWS CDK application
-- Assuming the AWS CDK application's roles
-
 The following AWS IAM policy document describes all the permissions required:
 
 ```json
@@ -378,6 +372,14 @@ The following AWS IAM policy document describes all the permissions required:
   ]
 }
 ```
+
+The policy above are needed for the following operations:
+
+- Building the AWS EC2 AMI with Packer
+- Bootstrapping the AWS CDK application
+- Assuming the AWS CDK application's roles
+
+The policy to deploy the CDK application, used by CloudFormation, is a different set of permissions, defined in the `execution-policy.json` file. That policy should be used when bootstrapping the CDK application with the `--cloudformation-execution-policies` parameter.
 
 [agent-aws-stack]: https://github.com/renderedtext/agent-aws-stack
 [aws cdk]: https://docs.aws.amazon.com/cdk/v2/guide/home.html
