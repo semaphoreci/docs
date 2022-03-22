@@ -28,7 +28,7 @@ The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application writ
 
 ## Usage
 
-In order to follow the steps below, please make sure that your AWS user has the [required permissions](#required-aws-permissions).
+In order to follow the steps below, please make sure that your AWS user has the [required permissions](#aws-permissions).
 
 ### 1. Download the CDK application and installing dependencies
 
