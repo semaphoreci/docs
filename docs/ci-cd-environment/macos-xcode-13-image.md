@@ -1,11 +1,11 @@
 ---
-description: The macos-xcode13 is a customized image based on MacOS 11.6 optimized for CI/CD. It is a virtual machine (VM) image and here is how to use it.
+Description: The macos-xcode13 image is a customized image based on MacOS 11.6, which has been optimized for CI/CD. This guide shows you how to use it.
 ---
 
-# macOS Big Sur Xcode 13 Image
+# macOS Big Sur Xcode 13 image
 
-The `macos-xcode13` is a customized image based on [MacOS 11.5][bigsur-release-notes]
-optimized for CI/CD. It comes with a set of preinstalled languages, databases,
+The `macos-xcode13` image is a customized image based on [MacOS 11.5][bigsur-release-notes],
+which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
 of your pipeline or block.
@@ -36,8 +36,8 @@ blocks:
             - make test
 ```
 
-The `macos-xcode13` OS image can only be used in combination with an Apple
-machine type `a1-standard-4`.
+The `macos-xcode13` OS image can only be used in combination with the Apple 
+`a1-standard-4` machine type.
 
 ## System
 
