@@ -1,45 +1,44 @@
 ---
-description: This guide specifies the steps to change Semaphore 2.0 agent OS from Ubuntu 18.04 to Ubuntu 20.04
+Description: This guide specifies the steps to change your Semaphore 2.0 agent OS from Ubuntu 18.04 to Ubuntu 20.04
 ---
 
 # Migrating from Ubuntu 18.04 to Ubuntu 20.04 
-If you've used Semaphore Ubuntu 18.04 image, this guide will outline the
-key differences and provide you with a direction to migrate to the Ubuntu 20.04 image.
+If you've used the Semaphore Ubuntu 18.04 image, this guide will help you migrate to the Ubuntu 20.04 image.
 
 ### You don't have to migrate
 The Ubuntu 18.04 image will continue to be supported and updated. There are no current plans to deprecate it.
 
-Please note though that Ubuntu 18.04 is coming out of LTS in 2023 so it's advised that you try out the Ubuntu 20.04 image and migrate when possible.
+Please note, however, that Ubuntu 18.04 is coming out of LTS in 2023, so we would advise you migrate to the Ubuntu 20.04 image when possible.
 
 ### Benefits of using the Ubuntu 20.04 image
 Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu Linux
-server operating system. There are many good reasons to keep your development environment up to date. These are only some of the benefits of switching to Ubuntu 20.04:
+server operating system. There are many good reasons to keep your development environment up to date. Here are only some of the benefits of switching to Ubuntu 20.04:
 
-- **Speed** - This release has enhanced resource usage and includes a newer kernel.
+- **Speed** - this release has enhanced resource usage and includes a newer kernel.
 - **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
-- **Latest language versions** - In the future, some packages may not be supported for Ubuntu 18.04 by upstream providers.
-- **Expanded software stack** - 20.04 software stack will continue expanding with new packages, while new ones will not be added in 18.04.
-- **Containers** - Newest utilities can be installed (podman, skopeo, buildah).
+- **Latest language versions** - in the future, some packages may not be supported by upstream providers for Ubuntu 18.04.
+- **Expanded software stack** - the 20.04 software stack will continue expanding with new packages, while new packages will not be added for 18.04.
+- **Containers** - the newest utilities can be installed (podman, skopeo, buildah).
 
-If you want to read more about Ubuntu 20.04 check out [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-server-20-04).
+If you want to read more about Ubuntu 20.04, check out the [Ubuntu Blog](https://ubuntu.com/blog/ubuntu-server-20-04).
 
 ### Ubuntu 20.04 image on Semaphore
 The Ubuntu 20.04 image on Semaphore is the successor of the Ubuntu 18.04 image.
-Its preinstalled stack includes the most recent versions for many languages and frameworks. 
-For the exact list please consult [Ubuntu 20.04](ubuntu-20.04-image.md)
+Its pre-installed stack includes the most recent versions for many languages and frameworks. 
+For the exact list, please consult the [Ubuntu 20.04](ubuntu-20.04-image.md) image documentation.
 
 ### Ubuntu 20.04 image rollout on Semaphore
-The new image will be released gradually. In the first step, it will be available for the `e1-standard-2` agent type only. We will introduce `e1-standard-4` in the near future and then lastly the `e1-standard-8` agent type. 
+The new image will be released gradually. In the first phase, it will be available for the `e1-standard-2` agent type only. We will introduce it for the `e1-standard-4` in the near future, followed by the `e1-standard-8` agent type. 
 
-Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to be up to date with the available agent types.
+Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to stay up to date with available agent types.
 
 ### Using the Ubuntu 20.04 image
-As a first step please check your software version requirements in the software availability matrix below.
+As a first step, please check your software version requirements in the software availability matrix below.
 If the available software stack matches your requirements, changing the image type is as simple
-as changing in your semaphore.yml file the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804`.
+as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in your semaphore.yml file.
 
 !!! warning "Available machine types"
-    As stated in the previous section - the `ubuntu2004` image will only work on `e1-standard-2` agents for now. 
+    As stated in the previous section - the `ubuntu2004` image only works on `e1-standard-2` agents at present. 
     
     When switching the `os_image` to `ubuntu2004` make sure that the `e1-standard-2` machine type is selected.
 

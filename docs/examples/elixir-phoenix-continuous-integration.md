@@ -1,5 +1,5 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for an Elixir Phoenix web application.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for an Elixir Phoenix web application.
 ---
 
 # Elixir Phoenix Continuous Integration
@@ -9,11 +9,11 @@ This guide shows you how to use Semaphore to set up a continuous integration
 
 ## Demo project
 
-Semaphore maintains an example Elixir Phoenix project:
+Semaphore maintains an example Elixir Phoenix project that you can use to get started:
 
 - [Demo Elixir Phoenix project on GitHub][demo-project]
 
-In the repository you will find an annotated Semaphore configuration file
+In the repository, you will find an annotated Semaphore configuration file:
 `.semaphore/semaphore.yml`.
 
 The application uses Mix, Phoenix, ExUnit, Wallaby with headless Chrome, Credo,
@@ -23,13 +23,13 @@ Dialyxir, and PostgreSQL as database.
 
 The demo Elixir Phoenix CI pipeline performs the following tasks:
 
-- Builds the project using Mix
-- Performs static code analysis using credo, format and dialyzer in parallel
+- Builds the project using Mix.
+- Performs static code analysis using credo, format, and dialyzer in parallel
   jobs.
 - Runs ExUnit tests, including integration tests with Wallaby using headless
   Chrome.
 
-When code scanning detects errors, it's a good idea to not run any further tests
+When code scanning detects errors, it's good practice to not run any further tests
 and fail the build early. For fast feedback, we configured the pipeline to fail
 the build before proceeding to automated tests.
 
@@ -39,16 +39,16 @@ The final example pipeline is composed of three [blocks][concepts]:
 
 ## Sample configuration
 
-Project is using the following configuration. If you're new to Semaphore, we
+The project uses the configuration shown below. If you're new to Semaphore, we
 recommend going through the [guided tour][guided-tour] and linked documentation
-pages for more information
+pages before trying out the example project.
 
 ``` yaml
 # Use the latest stable version of Semaphore 2.0 YML syntax:
 version: v1.0
 
 # Name of your pipeline. In this example we connect two pipelines with
-# a promotion, so it helps to differentiate what's the job of each.
+# a promotion, so it helps to differentiate the job of each.
 name: Elixir Phoenix example CI pipeline on Semaphore
 
 # An agent defines the environment in which your code runs.
@@ -78,7 +78,7 @@ blocks:
           - bin/setup_ci_elixir
           - sem-version elixir 1.8.1
 
-          # Restore dependencies from cache, command won't fail if it's
+          # Restore dependencies from the cache, command won't fail if it's
           # missing. More on caching:
           # - https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
           # - https://docs.semaphoreci.com/programming-languages/elixir/
@@ -99,7 +99,7 @@ blocks:
 
   - name: Analyze code
     task:
-      # Commands in prologue run at the beginning of each parallel job.
+      # Commands in a prologue run at the beginning of each parallel job.
       # https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
       prologue:
         commands:
@@ -150,11 +150,12 @@ blocks:
 
 PostgreSQL and MySQL instances run inside each job and can be accessed with
 a blank password. For more information on starting and using databases, see
-[Ubuntu image][ubuntu1804] and [sem-service][sem-service] references.
+the [Ubuntu image][ubuntu1804] and [sem-service][sem-service] reference 
+documentation.
 
 ### Browser testing
 
-To enable headless Chrome support, add the following to your `config/test.exs`:
+To enable headless Chrome support, add the following to your `config/test.exs` file:
 
 ``` elixir
 config :wallaby,
@@ -170,19 +171,18 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project] to your own account.
-2. Clone the repository on your local machine.
+2. Clone the repository to your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-4. Create your secret as per instructions above.
-5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+4. Create a secret as per the instructions above.
+5. Edit any file and push to GitHub, and Semaphore will run the CI/CD pipeline.
 
 ## Next steps
 
 Congratulations! You have set up your first Elixir continuous integration
-project on Semaphore. As the next step you will probably want to configure
+project on Semaphore. Next, you will probably want to configure
 deployment. For more information and practical examples, see:
 
-- [Deploying with promotions][promotions], a general introduction in Semaphore
-  guided tour.
+- [Deploying with promotions][promotions].
 - [Deployment tutorials and example projects][deployment-tutorials]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix

@@ -1,11 +1,11 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for Scala Play web application.
+Description: This guide shows you how to use Semaphore 2.0 to set up a continuous integration (CI) pipeline for a Scala Play web application.
 ---
 
 # Scala Play Continuous Integration
 
 This guide shows you how to use Semaphore to set up a continuous integration
-(CI) pipeline for Scala Play web application.
+(CI) pipeline for a Scala Play web application.
 
 ## Demo project
 
@@ -13,7 +13,7 @@ Semaphore maintains an example Scala Play project:
 
 - [Demo Scala Play project on GitHub][demo-project]
 
-In the repository you will find an annotated Semaphore configuration file
+In the repository, you will find an annotated Semaphore configuration file:
 `.semaphore/semaphore.yml`.
 
 The application uses sbt and Gradle.
@@ -26,9 +26,9 @@ tasks.
 
 ## Sample configuration
 
-Project is using the following configuration. If you're new to Semaphore, we
+The project uses the following configuration. If you're new to Semaphore, we
 recommend going through the [guided tour][guided-tour] and linked documentation
-pages for more information
+pages for more information before you try the project.
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -36,7 +36,7 @@ pages for more information
 version: v1.0
 
 # Name of your pipeline. In this example we connect two pipelines with
-# a promotion, so it helps to differentiate what's the job of each.
+# a promotion, so it helps to differentiate the job of each.
 name: Semaphore example for Scala Play
 
 # An agent defines the environment in which your code runs.
@@ -62,7 +62,7 @@ blocks:
         # - https://docs.semaphoreci.com/essentials/environment-variables/
         - name: SCALA_VERSION
           value: "2.12.6"
-      # Commands in prologue run at the beginning of each parallel job.
+      # Commands in a prologue run at the beginning of each parallel job.
       # - https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
       prologue:
         commands:
@@ -73,7 +73,7 @@ blocks:
           - checkout
           # sem-version expects binary version:
           - sem-version scala 2.12
-          # Restore dependencies from cache, command won't fail if key is
+          # Restore dependencies from the cache, command won't fail if key is
           # missing. More on caching:
           # - https://docs.semaphoreci.com/reference/toolbox-reference/#cache
           - cache restore sbt-$SEMAPHORE_GIT_BRANCH-$(checksum $SEMAPHORE_PROJECT_NAME/build.sbt),sbt-$SEMAPHORE_GIT_BRANCH,sbt-master
@@ -90,7 +90,7 @@ blocks:
             - sem-version java $JAVA_VERSION
             - ./scripts/test-sbt
             - ./scripts/test-gradle
-      # Commands in epilogue run at the end of each parallel job.
+      # Commands in an epilogue run at the end of each parallel job.
       epilogue:
         commands:
         - cd $HOME
@@ -106,19 +106,18 @@ A good way to start using Semaphore is to take a demo project and run it
 yourself. Here’s how to build the demo project with your own account:
 
 1. [Fork the project on GitHub][demo-project] to your own account.
-2. Clone the repository on your local machine.
+2. Clone the repository to your local machine.
 3. In Semaphore, follow the link in the sidebar to create a new project.
-4. Create your secret as per instructions above.
-5. Edit any file and push GitHub, and Semaphore will run the CI/CD pipeline.
+4. Create a secret as per instructions above.
+5. Edit any file and push to GitHub, and Semaphore will run the CI/CD pipeline.
 
 ## Next steps
 
 Congratulations! You have set up your first Scala continuous integration
-project on Semaphore. As the next step you will probably want to configure
+project on Semaphore. Next, you will probably want to configure
 deployment. For more information and practical examples, see:
 
-- [Deploying with promotions][promotions], a general introduction in Semaphore
-  guided tour.
+- [Deploying with promotions][promotions].
 - [Deployment tutorials and example projects][deployment-tutorials]
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-scala-play

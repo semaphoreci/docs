@@ -1,15 +1,16 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to set up continuous integration and deployment to ZEIT Now.
+Description: This guide shows you how to use Semaphore 2.0 to set up continuous integration and deployment to ZEIT Now.
 ---
 
-# Zeit Now Continuous Deployment
+# Zeit Now continuous deployment
 
+ZEIT Now is a cloud service for web services and serverless functions. 
 This guide shows you how to use Semaphore to set up continuous integration and
 deployment to [ZEIT Now](https://zeit.co).
 
 ## Demo project
 
-Semaphore provides a demo project:
+Semaphore provides a demo project that you can use to get started.
 
 - [Demo ZEIT Now project on GitHub](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now)
 
@@ -19,7 +20,7 @@ requests.
 Testing serverless functions can be challenging. To emulate the cloud
 environment in Semaphore, the project uses a combination of
 [Node.js](https://nodejs.org), [Express](http://expressjs.com/),
-[Jest](https://jestjs.io/) and
+[Jest](https://jestjs.io/), and
 [Supertest](https://github.com/visionmedia/supertest).
 
 ## Overview of the pipelines
@@ -28,18 +29,18 @@ The pipeline performs the following tasks:
 
 - Install dependencies.
 - Run unit tests.
-- Continuously deploy the master branch to the production site.
+- Continuously deploys the master branch to the production site.
 
 On manual approval:
 
-- Deploy to the staging site.
+- Deploys to the staging site.
 
 The complete CI/CD workflow looks like this:
 
 ![CI+CD Pipelines for ZEIT Now](https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-zeit-now/master/images/ci-pipeline.png)
 
 
-### Continuous Integration Pipeline (CI)
+### Continuous integration pipeline (CI)
 
 In the repository, the `.semaphore` directory contains the annotated pipeline 
 configuration files.
@@ -47,7 +48,7 @@ configuration files.
 The CI pipeline takes place in 2 blocks:
 
 -   npm install and cache:
-    -   Downloads and installs the Node.js packages.
+    -   Downloads and installs Node.js packages.
     -   Builds the app and saves it to the cache.
 -   npm test:
     -   Runs unit and coverage tests.
@@ -115,7 +116,7 @@ branch out of the CI pipeline:
 -   Deploy to staging: can be manually initiated from a Semaphore workflow 
     on any branch.
 
-### Continuous Deployment Pipeline (CD)
+### Continuous deployment pipeline (CD)
 
 The CD pipeline consists of a block with a single job:
 
@@ -141,50 +142,50 @@ blocks:
 
 ```
 
-ZEIT Now is a cloud service for web services and serverless functions.
-Deployment is performed with the [Now
+Deployment with ZEIT Now is performed with the [Now
 CLI](https://zeit.co/docs/v2/getting-started/installation/#now-cli). No
 configuration file is required as long as the project files are located in
-these special directories:
+the following special directories:
 
 - `public` for static files.
 - `api` or `pages/api` for serverless functions.
 
-In addition, ZEIT Now can automatically build many 
+In addition, ZEIT Now can automatically build using many 
 [popular frameworks](https://zeit.co/docs/v2/build-step/#optimized-frameworks).
 
-Both staging and production pipelines are almost identical. They
-only differ on the app name, which maps to the final deployment URL like this:
+The staging and production pipelines are almost identical. They
+only differ in the app's name, which maps to the final deployment URL 
+as shown below:
 
 - Production: `semaphore-demo-zeit-now.YOUR_USERNAME.now.sh`
 - Staging: `semaphore-demo-zeit-now-staging.YOUR_USERNAME.now.sh`
 
-## Run The Demo Yourself
+## Running the demo yourself
 
 You can get started right away with Semaphore. Running and deploying the
 demo by yourself takes only a few minutes:
 
-### Get a Token
+### Getting a Token
 
 1.  Create a [ZEIT Now](https://zeit.co) account.
 2.  Open your account **Settings**
 3.  Go to the **Tokens** tab.
 4.  Click on the **Create** button.
-5.  Enter a name for the token, something descriptive like:
+5.  Enter a name for the token. It should be something descriptive like:
     semaphore-zeit-now
 6. Copy the generated token and keep it safe.
 
 ![Create Token](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/zeit-create-token.png)
 
-### Create the pipeline on Semaphore
+### Creating the pipeline on Semaphore
 
 Now, add the token to Semaphore:
 
-1.  Create an account for [Semaphore](https://semaphoreci.com).
-2.  On the left navigation bar, under **Configuration** click on
-    **Secrets**.
+1.  Create a [Semaphore](https://semaphoreci.com) account.
+2.  In the left navigation bar, click on
+    **Secrets** under **Configuration**.
 3.  Hit the **Create New Secret** button.
-4.  Create the secret, as shown below. Copy the token obtained earlier.
+4.  Create a secret, as shown below. Copy the token obtained earlier to it.
 
 ![Create Secret](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now/raw/master/images/semaphore-create-secret.png)
 
@@ -193,14 +194,14 @@ To run the project on Semaphore:
 1.  Fork the [Demo
     project](https://github.com/semaphoreci-demos/semaphore-demo-zeit-now)
     on GitHub.
-2.  Clone the repository on your local machine.
+2.  Clone the repository to your local machine.
 3.  In Semaphore, follow the link on the sidebar to create a new
     project.
 4.  Edit any file and do a push to GitHub, Semaphore starts
     automatically.
 
 Once the deployment is complete, the API service should be online. 
-Browse the production URL:
+You can browse the production URL with the following command:
 
 ```bash
 $ curl -w "\n" https://semaphore-demo-zeit-now.YOUR_USERNAME.now.sh/api/hello
