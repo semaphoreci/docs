@@ -1,16 +1,18 @@
 ---
-description: This guide shows you how to use Semaphore 2.0 to publish Docker Images on DockerHub. Pushing images to the official registry is straightforward.
+description: This guide shows you how to use Semaphore 2.0 to publish Docker Images on DockerHub.
 ---
 
 # Publishing Docker Images on DockerHub
 
 Pushing images to the official registry is straightforward. You'll
-need to create a secret for the login username and password. Then,
+need to create a secret for your login username and password. Then,
 call `docker login` with the appropriate environment variables. The
 first step is create a secret for `DOCKER_USERNAME` and
 `DOCKER_PASSWORD` with the `sem` tool.
 
-## Creating The Secret
+## Creating the secret
+
+Use the command shown below to create the new secret:
 
 ``` bash
 sem create secret dockerhub-secrets \
@@ -23,7 +25,7 @@ Now add the secret to your pipeline and authenticate.
 ## Configuring the Pipeline
 
 This simple example authenticates in the `prologue`. This is not
-strictly required, it's just an example of covering all jobs in
+strictly required, it's just an example showing all the steps in
 authentication.
 
 ``` yaml
