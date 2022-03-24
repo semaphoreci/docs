@@ -1,21 +1,21 @@
 ---
-description: This guide shows how to configure iOS app distribution from Semaphore to Apple TestFlight using Fastlane.
+Description: This guide shows how to configure iOS app distribution from Semaphore to Apple TestFlight using Fastlane.
 ---
 
-# TestFlight iOS App Distribution
+# TestFlight iOS app distribution
 
 This guide shows how to configure iOS app distribution from
 [Semaphore][semaphore] to [Apple TestFlight][testflight] using
 [Fastlane][fastlane].
 
-For an introduction to building iOS apps on Semaphore, see the _[iOS
-tutorial][ios-tutorial]_.
+For an introduction to building iOS apps on Semaphore, see the [iOS
+tutorial][ios-tutorial].
 
-First, make sure to configure your project to use Fastlane, Match and code
-signing by following the _[Code signing for iOS projects][code-signing]_ guide.
+First, make sure to configure your project to use Fastlane, Match, and code
+signing as detailed in the [code signing for iOS projects][code-signing] documentation.
 
 To publish to TestFlight, create a separate Fastlane lane where you'll invoke
-the appropriate commands:
+the appropriate commands, as shown below:
 
 ```ruby
 # fastlane/Fastfile
@@ -29,13 +29,14 @@ platform :ios do
 end
 ```
 
-For the whole process to work, make sure you've configured environment variables
+For the whole process to work, you need to configure the environment variables
 required for `match` and `pilot`. Namely, the URL for `match`'s certificate
-repository, the encryption password for it, and Apple ID for logging in to the
+repository, its encryption password, and the Apple ID for logging in to the
 Apple Developer portal and submitting a new build. This is described in detail
-in the _[Code signing for iOS projects][code-signing]_ guide.
+in the [code signing for iOS projects][code-signing] documentation.
 
-In your Semaphore CI/CD configuration, you can now use `bundle exec fatlane build` command in a job:
+In your Semaphore CI/CD configuration, you can now use `bundle exec fastlane build` command in a job,
+as shown below:
 
 ```yaml
 # .semaphore/semaphore.yml
@@ -65,7 +66,7 @@ blocks:
 ```
 
 Semaphore maintains [an example open source iOS project][demo-project] with
-working Fastlane and Semaphore configuration for your convenience.
+a working Fastlane and Semaphore configuration that you can use to get started.
 
 [semaphore]: https://semaphoreci.com
 [testflight]: https://developer.apple.com/testflight/
