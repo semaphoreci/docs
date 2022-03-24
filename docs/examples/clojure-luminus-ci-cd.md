@@ -1,5 +1,5 @@
 ---
-description: In this guide, we will show you how to use Semaphore 2.0 to implement continuous integration and deployment for a Clojure Luminus web application.
+Description: In this guide, we will show you how to use Semaphore 2.0 to implement continuous integration and deployment for a Clojure Luminus web application.
 ---
 
 # Clojure Luminus CI/CD
@@ -7,9 +7,9 @@ description: In this guide, we will show you how to use Semaphore 2.0 to impleme
 In this guide, we will show you how to use Semaphore to implement
 continuous integration and deployment for a Clojure Luminus web application.
 
-## Demo Project
+## Demo project
 
-Semaphore maintains an example Clojure demo:
+Semaphore maintains an example Clojure demo that you can use to get started:
 
   - [semaphore-demo-clojure-luminus](https://github.com/semaphoreci-demos/semaphore-demo-clojure-luminus)
 
@@ -17,26 +17,26 @@ The project is written for the [Luminus](http://www.luminusweb.net/) web
 application framework, and is based on the 
 [guestbook sample app](http://www.luminusweb.net/docs#guestbook_application),
 
-## Overview of the Pipelines
+## Overview of the pipelines
 
-The example project ships with CI and CD pipelines, found in 
+The example project ships with CI and CD pipelines, which are found in 
 the `.semaphore` directory:
 
-  - Continuous Integration
-      - Install dependencies, using a cache for faster builds.
-      - Run the unit tests.
-      - Package the app as a single, standalone jar file.
-  - Continuous Deployment
-      - Prepare files for deployment.
+  - the CI pipeline
+      - installs dependencies using the cache for faster builds
+      - runs unit tests
+      - packages the app as a single standalone jar file
+  - the CD pipeline
+      - prepares files for deployment
 
 ![CI+CD](https://raw.githubusercontent.com/semaphoreci-demos/semaphore-demo-clojure-luminus/master/.semaphore/semaphore-demo-clojure-luminus-cicd.png)
 
 
-### Continuous Integration Pipeline
+### Continuous integration pipeline
 
 If you are new to Semaphore, be sure to read the 
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) 
-and the linked pages for more information.
+and the related pages for more information before starting with the example project.
 
 ``` yaml
 version: v1.0
@@ -99,7 +99,7 @@ promotions:
 Semaphore's
 [Ubuntu 18.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 Virtual Machine comes with [leiningen](https://leiningen.org/)
-preinstalled. `lein` automates Clojure projects and manages
+pre-installed. `lein` automates Clojure projects and manages
 dependencies.
 
 The CI pipeline is made of 3 blocks:
@@ -107,9 +107,9 @@ The CI pipeline is made of 3 blocks:
   - Setup: installs the project dependencies and stores them in the
     [cache](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
     to speed up subsequent jobs.
-  - Tests: runs the luminus 
+  - Tests: runs the Luminus 
     [unit tests](http://www.luminusweb.net/docs/testing.html).
-  - Build: uses [uberjar](https://imagej.net/Uber-JAR) to generate a
+  - Build: uses [Uber-JAR](https://imagej.net/Uber-JAR) to generate a
     standalone package.
 
 In order to reduce build times, each block includes a 
@@ -117,7 +117,7 @@ In order to reduce build times, each block includes a
 that attempts to retrieve dependencies using Semaphore's
 [cache](https://docs.semaphoreci.com/reference/toolbox-reference/#cache)
 utility.
-The prologue is run before each job in the the block.
+The prologue is run before each job in the block.
 
 ### Promotion
 
@@ -129,7 +129,7 @@ or on user-defined conditions. The
 keyword is used to automatically start the deployment pipeline once
 integration has completed successfully.
 
-### Continuous Delivery Pipeline
+### Continuous delivery pipeline
 
 ``` yaml
 version: v1.0
@@ -155,7 +155,7 @@ The CD pipeline has only one block. In truth, it doesn't deploy anywhere,
 but leaves the files set up so developers can quickly
 pick up and continue with the chosen deployment target.
 
-Luminus automatically generates some deployment files for your
+Luminus automatically generates certain deployment files for your
 convenience:
 
   - Dockerfile: for building [Docker](https://www.docker.com/) images.
@@ -166,23 +166,23 @@ convenience:
 For more details, consult the 
 [Luminus deployment manual](http://www.luminusweb.net/docs/deployment.html).
 
-## Run the Demo Yourself
+## Run the demo yourself
 
-No better way of learning about Semaphore than by using it. Here is how
+There is no better way to learn how to use Semaphore than by using it. Here is how
 you can run the demo:
 
 1.  Fork the
     [repository](https://github.com/semaphoreci-demos/semaphore-demo-clojure-luminus)
     on GitHub.
-2.  Clone the repository on your local machine.
-3.  In Semaphore, follow the link on the sidebar to create a new
+2.  Clone the repository to your local machine.
+3.  In Semaphore, follow the link in the sidebar to create a new
     project.
-4.  Edit any file and push a commit to the repository. Semaphore will
+4.  Edit any file and push a commit to the repository, and Semaphore will
     start the pipeline automatically.
 
-## Next Steps
+## Next steps
 
-Excellent work\! You now have integration and delivery pipelines for
+Excellent work! You now have integration and delivery pipelines for
 your Clojure projects. The next step is implementing a deployment scenario. 
 For further information, consult the following tutorials:
 
