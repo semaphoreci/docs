@@ -1,25 +1,26 @@
 ---
-description: Semaphore 2.0 allows building, testing and releasing Swift, Objective-C and React Native applications with customizable CI/CD workflows. 
+Description: Semaphore 2.0 allows you to build, test, and deploy Swift, Objective-C, and React Native applications with customizable CI/CD workflows. 
 ---
 
 # Swift
 
-Semaphore allows building, testing and releasing Swift, Objective-C and
+Semaphore allows the building, testing, and releasing of Swift, Objective-C, and
 React Native applications with customizable CI/CD workflows.
 
 If you’re new to Semaphore, we recommend reading our
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) first.
 
-The macOS Xcode 11 is available with a full complement of useful tools and utilities pre-installed.
-Information on the exact version numbers of macOS, Xcode, fastlane, CocoaPods,
-and all other tools are below:
+The macOS Xcode 11 image is available with a full complement of useful tools and 
+utilities pre-installed. Information regarding the exact version numbers of macOS, 
+Xcode, fastlane, CocoaPods, and all other tools is found below:
 
 * [macOS Xcode 12 Image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/)
 
-# Configuring Continuous Integration
+# Configuring continuous integration
 
-Below is a minimal `semaphore.yml` which starts an
-[Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and runs `xcodebuild`:
+Below is a minimal `semaphore.yml` file, which starts an
+[Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) 
+and runs `xcodebuild`:
 
 ``` yaml
 version: v1.0
@@ -40,8 +41,7 @@ blocks:
 
 ## Example project
 
-Semaphore maintains an [example project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode) built with Swift and
-SwiftUI demonstrating how to set build an app and run tests. A
+Semaphore maintains an [example project](https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode) built with Swift and SwiftUI that demonstrates how to build an app and run tests. A
 [full tutorial showing how to configure an iOS project for CI with Semaphore](https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/)
 is also available.
 
