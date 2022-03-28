@@ -126,7 +126,7 @@ Create a `config.json` file with the following:
   "SEMAPHORE_AGENT_STACK_NAME": "<your-stack-name>",
   "SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME": "<your-ssm-parameter-name>",
   "SEMAPHORE_AGENT_TOKEN_KMS_KEY": "<your-ssm-parameter-name>",
-  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com",
+  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com"
 }
 ```
 
