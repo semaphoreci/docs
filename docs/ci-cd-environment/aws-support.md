@@ -11,7 +11,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 
 ## Features
 
-- Run self-hosted agents in Linux-based machines
+- Run self-hosted agents in Linux and Windows machines
 - [Dynamically increase and decrease](#scaling-based-on-job-demand) the number of agents available based on your job demand
 - Deploy [multiple stacks of agents](#multiple-stacks), one for each self-hosted agent type
 - [Access agent EC2 instances](#agent-instance-access) via SSH or using [AWS Systems Manager Session Manager][aws session manager]
@@ -33,9 +33,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.6.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.7.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.6
+cd agent-aws-stack-0.1.7
 npm i
 ```
 
@@ -43,14 +43,33 @@ You can also fork and clone the repository.
 
 ### 2. Build the AMI
 
+We use packer to create an AMI with everything the agent needs in your AWS account.
+
+#### Build a Linux AMI
+
+The Linux AMI is based on the Ubuntu 20.04 server image. To build it, run the following commands:
+
 ```
 make packer.init
-make packer.build AWS_REGION=<your-aws-region>
+make packer.build
 ```
 
-These commands use packer to create an AMI with everything the agent needs in your AWS account. The AMI is based on the Ubuntu 20.04 server image.
+#### Build a Windows AMI
 
-Note: if you want to build the AMI in `us-east-1`, you can omit the `AWS_REGION` variable.
+The Windows AMI is based on the Microsoft Windows Server 2019 with Containers image, provided by AWS. To build it, run the following commands:
+
+```
+make packer.init
+make packer.build PACKER_OS=windows
+```
+
+#### Build the AMIs in a specific AWS region
+
+By default, the AMI is built in the `us-east` AWS region. If you want to build the AMI in a different AWS region, you can use the `AWS_REGION` variable:
+
+```
+make packer.build AWS_REGION=us-west-1
+```
 
 ### 3. Create an encrypted SSM parameter for the agent type registration token
 
@@ -96,6 +115,10 @@ After creating the AWS IAM policy, save the ARN.
 
 ### 4. Create the stack configuration
 
+The stack accepts a number of [parameters for configuration](#configuration). These parameters can be specified either with a configuration file or using environment variables.
+
+#### Create configuration for Linux agents
+
 Create a `config.json` file with the following:
 
 ```json
@@ -103,11 +126,27 @@ Create a `config.json` file with the following:
   "SEMAPHORE_AGENT_STACK_NAME": "<your-stack-name>",
   "SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME": "<your-ssm-parameter-name>",
   "SEMAPHORE_AGENT_TOKEN_KMS_KEY": "<your-ssm-parameter-name>",
-  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com"
+  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com",
 }
 ```
 
-[Other parameters](#configuration) may be configured as well, depending on your needs. Alternatively, you can also configure the stack using environment variables:
+#### Create configuration for Windows agents
+
+Create a `config.json` file with the following:
+
+```json
+{
+  "SEMAPHORE_AGENT_STACK_NAME": "<your-stack-name>",
+  "SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME": "<your-ssm-parameter-name>",
+  "SEMAPHORE_AGENT_TOKEN_KMS_KEY": "<your-ssm-parameter-name>",
+  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com",
+  "SEMAPHORE_AGENT_OS": "windows"
+}
+```
+
+#### Using environment variables
+
+Alternatively, you can also configure the stack using environment variables:
 
 ```
 export SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME=<your-ssm-parameter-name>
@@ -215,6 +254,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_VPC_ID`                        | The id of an existing VPC to use when launching agent instances. By default, this is blank, and the default VPC on your AWS account will be used. |
 | `SEMAPHORE_AGENT_SUBNETS`                       | Comma-separated list of existing VPC subnet ids where EC2 instances will run. This is required when using `SEMAPHORE_AGENT_VPC_ID`. If `SEMAPHORE_AGENT_SUBNETS` is set, but `SEMAPHORE_AGENT_VPC_ID` is blank, the subnets will be ignored and the default VPC will be used. Private and public subnets are possible, but isolated subnets cannot be used. |
 | `SEMAPHORE_AGENT_AMI`                           | The AMI used for all instances. If empty, the stack will use the default AMIs, looking them up by name. If the default AMI isn't sufficient, you can use your own AMIs, but they need to be based off of the stack's default AMI. |
+| `SEMAPHORE_AGENT_OS`                            | The OS type for agents. Possible values: `ubuntu-focal` and `windows`. |
 
 ## Architecture
 
