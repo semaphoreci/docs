@@ -72,7 +72,7 @@ In Semaphore, all the necessary functionality is already built in the product.
 Semaphore offers a convenient visual Workflow Builder that allows anyone to configure pipelines with a point and click interface. 
 You can also use the declarative YAML configuration for all features.
 
-![Editing your first pipeline](migration-guides/first-pipeline.png)
+![Editing your first pipeline](migration-guides/state-of-workflow.png)
 
 ### Parallelism
 
