@@ -198,4 +198,5 @@ nav:
     - Migration guides:
       - Migration guide for Semaphore Classic users: faq/migration-guide-for-semaphore-classic-users.md
       - Migrating from GitHub Actions to Semaphore: faq/migrating-from-github-actions-to-semaphore.md
+      - Migrating from Jenkins to Semaphore: faq/migrating-from-jenkins-to-semaphore.md
 
