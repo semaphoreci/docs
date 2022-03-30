@@ -13,12 +13,10 @@ Jenkins and Semaphore are very different in terms of operation and maintenance.
 Semaphore is a SaaS product that offers both a cloud and on-premise service. Jenkins can only work on-premise.
 
 Here are a few other things that set Semaphore apart from Jenkins:
-1. **Project setup**. To set up a project in Semaphore, you’ll need to authenticate with a Git provider and select a pipeline. 
-In Jenkins, you’ll need provision machines and manually install Jenkins on them.
-2. **Pipeline configuration**. In Semaphore, you can configure your CI/CD pipeline either by using the visual Workflow Builder or via YAML. 
-Jenkins operates multiple domain-specific languages.
-3. **Maintenance**. In the hosted version of Semaphore, all maintenance is handled on the Semaphore side. 
-In Jenkins, your engineering team will have to maintain the machines and the whole infrastructure.
+
+1. **Project setup**. To set up a project in Semaphore, you’ll need to authenticate with a Git provider and select a pipeline. In Jenkins, you’ll need provision machines and manually install Jenkins on them.
+2. **Pipeline configuration**. In Semaphore, you can configure your CI/CD pipeline either by using the visual Workflow Builder or via YAML. Jenkins operates multiple domain-specific languages.
+3. **Maintenance**. In the hosted version of Semaphore, all maintenance is handled on the Semaphore side. In Jenkins, your engineering team will have to maintain the machines and the whole infrastructure.
 
 Let’s take a closer look at how Jenkins and Semaphore compare in terms of key concepts (pipeline configuration, project setup, etc).
 
