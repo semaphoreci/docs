@@ -76,8 +76,7 @@ You can also use the declarative YAML configuration for all features.
 
 The `parallelism` property in Semaphore allows you to easily generate a set of jobs with the same commands that can be parameterized. 
 You can configure a set of jobs and their run order. This saves your team time on builds, as jobs can run in parallel. 
-Each job runs in an isolated environment. In the hosted version, Semaphore provisions as machine machines as needed to achieve
-the desired level of parallelism.
+Each job runs in an isolated environment. In the hosted version, Semaphore provisions machines as needed to achieve the desired level of parallelism.
 
 Here’s an example of defining parallel jobs in Semaphore:
 
