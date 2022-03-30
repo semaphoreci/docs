@@ -43,7 +43,7 @@ In Semaphore, all configuration files are stored in the `.semaphore/semaphore.ym
 and are easily accessible by other people in the team with the right level of access. 
 
 For sensitive data such as passwords and API keys, Semaphore provides [secrets][secrets], 
-which are configured separately in Semaphore and are not stored in the .yml file.
+which are configured separately in Semaphore and are not stored in the `.yml` file.
 
 ### Project setup
 
