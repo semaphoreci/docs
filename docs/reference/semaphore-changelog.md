@@ -15,6 +15,9 @@ This page is updated on a weekly basis.
 **(New)** Packages:
 - Xcode 13.3
 
+**(Removed)** Packages:
+- Xcode 13.0
+
 **(Updated)** Updated packages:
 
 - Cocoapods 1.11.2 -> 1.11.3
