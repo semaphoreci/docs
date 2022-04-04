@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 99
-- ChromeDriver 99
+- Google Chrome 100
+- ChromeDriver 100
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
