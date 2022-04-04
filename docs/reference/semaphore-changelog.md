@@ -8,6 +8,56 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of April 04, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.8 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.13.0-37-generic -> 5.13.0-39-generic
+- Aws-cli 1.22.77 -> 1.22.86
+- Aws-cli 2.4.27 -> 2.5.1
+- Bazel 5.0.0 -> 5.1.0
+- Google Chrome 99 -> 100
+- ChromeDriver 99 -> 100
+- Containerd.io 1.5.10 -> 1.5.11
+- Docker 20.10.13 -> 20.10.14
+- Erlang 22.3.4.24 -> 22.3.4.25 (as 22.3)
+- Erlang 23.3.4.11 -> 23.3.4.13 (as 23.3)
+- Erlang 24.3.2 -> 24.3.3 (default as 24.3)
+- Github-cli 2.6.0 -> 2.7.0
+- Heroku 7.59.4 -> 7.60.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.8 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-105-generic -> 5.4.0-107-generic
+- Aws-cli 1.22.77 -> 1.22.86
+- Aws-cli 2.4.27 -> 2.5.1
+- Bazel 5.0.0 -> 5.1.0
+- Google Chrome 99 -> 100
+- ChromeDriver 99 -> 100
+- Containerd.io 1.5.10 -> 1.5.11
+- Docker 20.10.13 -> 20.10.14
+- Erlang 22.3.4.24 -> 22.3.4.25 (as 22.3)
+- Erlang 23.3.4.11 -> 23.3.4.13 (as 23.3)
+- Erlang 24.3.2 -> 24.3.3 (default as 24.3)
+- Github-cli 2.6.0 -> 2.7.0
+- Heroku 7.59.4 -> 7.60.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of March 21, 2022
 
 **(Improved) Ubuntu 20.04 image update**
