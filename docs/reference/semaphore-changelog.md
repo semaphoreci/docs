@@ -8,7 +8,7 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
-### Week of March 28, 2022
+### Week of April 4, 2022
 
 **(Improved) macOS Xcode 13 image update**
 
