@@ -112,7 +112,7 @@ There are two ways we can do this:
 
 ```dotfile
 --format RspecJunitFormatter
---out rspec.xml
+--out junit.xml
 --format documentation
 ```
 Or
