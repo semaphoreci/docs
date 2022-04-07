@@ -10,6 +10,23 @@ This page is updated on a weekly basis.
 
 ### Week of April 04, 2022
 
+**(Improved) macOS Xcode 13 image update**
+
+**(New)** Packages:
+- Xcode 13.3
+
+**(Removed)** Packages:
+- Xcode 13.0
+
+**(Updated)** Updated packages:
+
+- Cocoapods 1.11.2 -> 1.11.3
+- Fastlane 2.199.0 -> 2.205.1
+- Flutter 2.8.1 -> 2.10.4
+- Node v17.2.0 -> v17.8.0
+- PostgreSQL 14.1 -> 14.2
+- Ruby 2.6.8 -> 2.6.9
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(New)** Packages:
