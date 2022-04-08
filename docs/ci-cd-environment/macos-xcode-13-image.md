@@ -2,9 +2,9 @@
 Description: The macos-xcode13 image is a customized image based on MacOS 11.6, which has been optimized for CI/CD. This guide shows you how to use it.
 ---
 
-# macOS Big Sur Xcode 13 image
+# macOS Monterey Xcode 13 image
 
-The `macos-xcode13` image is a customized image based on [MacOS 11.5][bigsur-release-notes],
+The `macos-xcode13` image is a customized image based on [MacOS 12.3][monterey-release-notes],
 which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -41,9 +41,9 @@ The `macos-xcode13` OS image can only be used in combination with the Apple
 
 ## System
 
-- ProductVersion: 11.6
-- BuildVersion: 20G165
-- Kernel Version: Darwin 20.6.0
+- ProductVersion: 12.3
+- BuildVersion: 21E230
+- Kernel Version: Darwin 21.4.0
 
 ## Version control
 
@@ -75,8 +75,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.199.0)
-- cocoapods (1.11.2)
+- fastlane (2.205.1)
+- cocoapods (1.11.3)
 
 ## Languages
 
@@ -88,56 +88,54 @@ Following gems are pre-installed:
 
 Installed version:
 
-- v17.2.0
+- v17.8.0
 
 #### Additional tools
 
-- Yarn: 1.22.17
+- Yarn: 1.22.18
 
 ### Python
 
 Installed version:
 
-- 2.7
-- 3.7
+- 3.9.11
 
 Supporting libraries:
 
-- pip: 20.2b1
-- pip3: 20.0.2
+- pip3: 22.0.4
 
 ### Ruby
 
 Installed versions:
 
 - 2.5.1 (system)
-- 2.6.8
+- 2.6.9
 
 ## Flutter
 
-- 2.8.1
+- 2.10.4
 
 ## Xcode
 
 Installed versions:
 
-- 13
 - 13.1
 - 13.2.1
+- 13.3
 
-The default installed Xcode version is `13.2.1`.
+The default installed Xcode version is `13.3`.
 
 
-Xcode 13.2.1 has the following SDKs preinstalled:
+Xcode 13.3 has the following SDKs preinstalled:
 
-- iphoneos 15
-- iphonesimulator 15
+- iphoneos 15.4
+- iphonesimulator 15.4
 - driverkit.macos 21.0.1
 - macos 12
-- appletvos 15
-- appletvsimulator 15
-- watchos 8
-- watchsimulator 8
+- appletvos 15.4
+- appletvsimulator 15.4
+- watchos 8.5
+- watchsimulator 8.5
 
 
 ## See Also
@@ -147,7 +145,7 @@ Xcode 13.2.1 has the following SDKs preinstalled:
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
-[bigsur-release-notes]: https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_5-release-notes
+[monterey-release-notes]: https://developer.apple.com/documentation/macos-release-notes/macos-12_3-release-notes
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [beta-form]: https://semaphoreci.com/product/ios
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
