@@ -143,7 +143,7 @@ to be met:
 After that, we’ll transfer ownership on your behalf.
 
 **Note:** Transferring ownership of an organization doesn't automatically transfer 
-the projects you own in that organization. If you'd like us to transfer the ownership of 
+the projects you own in that organization. If you'd like to transfer the ownership of 
 projects, please refer to the "[How to transfer project ownership](https://docs.semaphoreci.com/faq/managing-projects/#how-to-transfer-project-ownership)" page.
 
 ## Deleting an organization 
