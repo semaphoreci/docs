@@ -59,7 +59,7 @@ agent:
     os_image: ubuntu1804
 ```
 
-*Note*: `agent` can also be defined on a [per `task` basis](#agent-in-task).
+*Note*: `agent` can also be defined on a [per `task` basis](#the-agent-section-in-a-task).
 
 ### `machine`
 
