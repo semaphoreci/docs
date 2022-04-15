@@ -87,7 +87,7 @@ Implementation of `e1` series of machine types:
 
 ## Apple machine type
 
-Apple machine types can be paired with [MacOS Xcode12 image][macos-xcode12] or [MacO Xcode13 image][macos-xcode13].
+Apple machine types can be paired with [MacOS Xcode12 image][macos-xcode12] or [MacOS Xcode13 image][macos-xcode13].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
