@@ -8,6 +8,66 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of April 18, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.13.4 (default)
+- Go 1.17.9 (default)
+- PHP 7.4.29 (default), 8.0.18
+- Ruby 2.6.10, 2.7.6 (default), 3.0.4, 3.1.2
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.86 -> 1.22.96
+- Aws-cli 2.5.1 -> 2.5.5
+- Azure-cli 2.34.1 -> 2.35.0
+- Github-cli 2.7.0 -> 2.8.0
+- Git 2.35.1 -> 2.35.3
+- Bazel 5.1.0 -> 5.1.1
+- Helm 3.8.1 -> 3.8.2
+- Pypy 7.3.8 -> 7.3.9
+- Pypy3 7.3.8 -> 7.3.9
+- Venv 20.13.0 -> 20.14.1
+- Kerl 2.2.3 -> 2.3.0
+- Rebar3 3.17.0 -> 3.18.0
+- Gem 3.2.32 -> 3.3.11
+- Bundler 2.2.32 -> 2.3.11
+- Terraform 1.1.7 -> 1.1.8
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.13.4 (default)
+- Go 1.17.9 (default)
+- PHP 7.4.29 (default), 8.0.18
+- Ruby 2.6.10, 2.7.6 (default), 3.0.4, 3.1.2
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.22.86 -> 1.22.96
+- Aws-cli 2.5.1 -> 2.5.5
+- Azure-cli 2.34.1 -> 2.35.0
+- Github-cli 2.7.0 -> 2.8.0 
+- Git 2.35.1 -> 2.35.3
+- Bazel 5.1.0 -> 5.1.1
+- Helm 3.8.1 -> 3.8.2
+- Pypy 7.3.8 -> 7.3.9 
+- Pypy3 7.3.8 -> 7.3.9
+- Venv 20.13.0 -> 20.14.1
+- Kerl 2.2.3 -> 2.3.0
+- Rebar3 3.17.0 -> 3.18.0
+- Gem 3.2.32 -> 3.3.11
+- Bundler 2.2.32 -> 2.3.11
+- Terraform 1.1.7 -> 1.1.8
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of April 04, 2022
 
 **(Improved) macOS Xcode 13 image update**
