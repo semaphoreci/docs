@@ -112,11 +112,11 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default)
-- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.3 as default)
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default)
 
 Additional libraries:
 
-- rebar3: 3.17.0
+- rebar3: 3.18.0
 
 ### Go
 
@@ -165,7 +165,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.28`.
+The default installed PHP version is `7.4.29`.
 
 #### Additional libraries
 
@@ -181,19 +181,19 @@ Python versions are installed and managed by
 
 Supporting libraries:
 
-- pypy: 7.3.8
-- pypy3: 7.3.8
+- pypy: 7.3.9
+- pypy3: 7.3.9
 - pip: 22.0.4
-- venv: 20.13.0
+- venv: 20.14.1
 
 ### Ruby
 
 Available versions:
 
-- 2.6.0 to 2.6.9
-- 2.7.0 to 2.7.5
-- 3.0.0 to 3.0.3
-- 3.1.0 to 3.1.1
+- 2.6.0 to 2.6.10
+- 2.7.0 to 2.7.6
+- 3.0.0 to 3.0.4
+- 3.1.0 to 3.1.2
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
