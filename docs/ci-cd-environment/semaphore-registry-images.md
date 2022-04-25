@@ -61,6 +61,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | python:3.8-node-browsers | `registry.semaphoreci.com/python:3.8-node-browsers` |  
 | python:3.9 | `registry.semaphoreci.com/python:3.9` |  
 | python:3.9-node-browsers | `registry.semaphoreci.com/python:3.9-node-browsers` |  
+| python:3.10 | `registry.semaphoreci.com/python:3.10` |  
+| python:3.10-node-browsers | `registry.semaphoreci.com/python:3.10-node-browsers` |  
 
 ### PHP
 | Image | Link |
