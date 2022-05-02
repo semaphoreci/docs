@@ -16,8 +16,8 @@ This page is updated on a weekly basis.
 
 - 5.13.0-39-generic -> 5.13.0.40-generic
 - Azure-cli 2.35.0 -> 2.36.0
-- Aws-cli 1.22.96 -> 1.23.3
-- Aws-cli 2.5.5 -> 2.6.0
+- Aws-cli 1.22.96 -> 1.23.4
+- Aws-cli 2.5.5 -> 2.6.1
 - Github-cli 2.8.0 -> 2.9.0
 - Git 2.35.3 -> 2.36.0
 - Git-lfs 3.1.2 -> 3.1.4
