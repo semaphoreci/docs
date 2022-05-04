@@ -8,6 +8,54 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of May 02, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- 5.13.0-39-generic -> 5.13.0.40-generic
+- Azure-cli 2.35.0 -> 2.36.0
+- Aws-cli 1.22.96 -> 1.23.4
+- Aws-cli 2.5.5 -> 2.6.1
+- Github-cli 2.8.0 -> 2.9.0
+- Git 2.35.3 -> 2.36.0
+- Git-lfs 3.1.2 -> 3.1.4
+- Google Chrome 100 -> 101
+- ChromeDriver 100 -> 101
+- Gradle 7.3 -> 7.4.2
+- Java OpenJDK 11.0.14 -> 11.0.15
+- Java OpenJDK 17.0.2 -> 17.0.3
+- NodeJS 16.14.2 -> 16.15.0 
+- Npm 8.5.0 -> 8.5.5
+- Heroku 7.60.1 -> 7.60.2
+- Terraform 1.1.8 -> 1.1.9
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- 5.4.0-107-generic -> 5.4.0-109-generic
+- Azure-cli 2.35.0 -> 2.36.0
+- Aws-cli 1.22.96 -> 1.23.3
+- Aws-cli 2.5.5 -> 2.6.0
+- Github-cli 2.8.0 -> 2.9.0
+- Git 2.35.3 -> 2.36.0
+- Git-lfs 3.1.2 -> 3.1.4
+- Google Chrome 100 -> 101
+- ChromeDriver 100 -> 101
+- Gradle 7.3 -> 7.4.2
+- Java OpenJDK 11.0.14 -> 11.0.15
+- Java OpenJDK 17.0.2 -> 17.0.3
+- NodeJS 16.14.2 -> 16.15.0 
+- Npm 8.5.0 -> 8.5.5
+- Heroku 7.60.1 -> 7.60.2
+- Terraform 1.1.8 -> 1.1.9
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of April 18, 2022
 
 **(Improved) Ubuntu 20.04 image update**
