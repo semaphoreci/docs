@@ -27,20 +27,11 @@ The Ubuntu 20.04 image on Semaphore is the successor of the Ubuntu 18.04 image.
 Its pre-installed stack includes the most recent versions for many languages and frameworks. 
 For the exact list, please consult the [Ubuntu 20.04](ubuntu-20.04-image.md) image documentation.
 
-### Ubuntu 20.04 image rollout on Semaphore
-The new image will be released gradually. In the first phase, it will be available for the `e1-standard-2` agent type only. We will introduce it for the `e1-standard-4` in the near future, followed by the `e1-standard-8` agent type. 
-
-Please follow the [Semaphore Changelog](https://docs.semaphoreci.com/reference/semaphore-changelog/) to stay up to date with available agent types.
-
 ### Using the Ubuntu 20.04 image
 As a first step, please check your software version requirements in the software availability matrix below.
 If the available software stack matches your requirements, changing the image type is as simple
 as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in your semaphore.yml file.
 
-!!! warning "Available machine types"
-    As stated in the previous section - the `ubuntu2004` image only works on `e1-standard-2` agents at present. 
-    
-    When switching the `os_image` to `ubuntu2004` make sure that the `e1-standard-2` machine type is selected.
 
 ***Software stack availability matrix***
 
