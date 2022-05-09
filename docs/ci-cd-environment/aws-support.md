@@ -442,7 +442,7 @@ Agent logs, cloud init logs and systems logs are pushed from the EC2 instance to
 
 - Agent logs are pushed to the `semaphore/agent` log group. In Linux instances, the agent logs are located at `/tmp/agent_log`. In Windows instances, the agent logs are located at `C:\\semaphore-agent\\agent.log`.
 - In Linux instances, the cloud init logs are pushed to the `/semaphore/cloud-init` and `/semaphore/cloud-init/output` log groups. In Windows instances, the cloud init logs are pushed to the `/semaphore/EC2Launch/UserdataExecution` log group.
-- System logs are pushed to the /semaphore/system log group
+- System logs are pushed to the `/semaphore/system` log group
 
 ### Invalid agent type registration token
 
@@ -450,7 +450,7 @@ If an invalid agent type registration token is used, the agent won't be able to 
 
 1. Go to the CloudWatch console
 2. Select Log Groups
-3. Select the semaphore/agent log group
+3. Select the `semaphore/agent` log group
 4. Select the EC2 instance id for the instance running your agent
 5. Verify if the agent is running. If not, verify if you have messages of failed registration requests
 
