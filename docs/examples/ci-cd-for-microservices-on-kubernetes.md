@@ -229,10 +229,10 @@ blocks:
           # envsubst is a tool which will replace $SEMAPHORE_WORKFLOW_ID with
           # its current value. The same variable was used in docker-build.yml
           # pipeline to tag and push a container image.
-          - envsubst < deployment.yml | tee deployment.yml
+          - envsubst < deployment.yml | tee deployment-kubernetes.yml
 
           # Perform declarative deployment:
-          - kubectl apply -f deployment.yml
+          - kubectl apply -f deployment-kubernetes.yml
 
   # If deployment to production succeeded, let's create a new version of
   # our `latest` Docker image.
