@@ -8,6 +8,64 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of May 16, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.10, 1.18.1, 1.18.2 (default)
+- PHP 8.0.19
+- Scala 3.1.2
+
+**(Updated)** Updated packages:
+
+- 5.13.0.40-generic -> 5.13.0-41-generic
+- Aws-cli 1.23.4 -> 1.23.13
+- Aws-cli 2.6.1 -> 2.6.4
+- Docker 20.10.14 -> 20.10.16
+- Kerl 2.3.0 -> 2.4.0
+- Erlang 22.3.4.25 -> 22.3.4.26 (as 22.3)
+- Erlang 23.3.4.13 -> 23.3.4.14 (as 23.3)
+- Erlang 24.3.3 -> 24.3.4 (default as 24.3)
+- Github-cli 2.9.0 -> 2.10.1
+- Git 2.36.0 -> 2.36.1
+- Pip 22.0.4 -> 22.1
+- Scala 2.12.10 -> 2.12.15
+- Sbt 1.5.5 -> 1.6.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.10, 1.18.1, 1.18.2 (default)
+- PHP 8.0.19
+- Scala 3.1.2
+
+**(Updated)** Updated packages:
+
+- 5.4.0-109-generic -> 5.4.0-110-generic
+- Aws-cli 1.23.3 -> 1.23.13
+- Aws-cli 2.6.0 -> 2.6.4
+- Docker 20.10.14 -> 20.10.16
+- Kerl 2.3.0 -> 2.4.0
+- Erlang 22.3.4.25 -> 22.3.4.26 (as 22.3)
+- Erlang 23.3.4.13 -> 23.3.4.14 (as 23.3)
+- Erlang 24.3.3 -> 24.3.4 (default as 24.3)
+- Github-cli 2.9.0 -> 2.10.1
+- Git 2.36.0 -> 2.36.1
+- Pip 22.0.4 -> 22.1
+- Scala 2.12.10 -> 2.12.15
+- Sbt 1.3.10 -> 1.6.2
+
+**(Removed)** packages:
+
+- Scala 2.11.11
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 02, 2022
 
 **(Improved) Ubuntu 20.04 image update**
