@@ -130,12 +130,12 @@ Versions:
 - 1.15.x
 - 1.16.x
 - 1.17.x
-- 1.18.x
+- 1.18.x (1.18.2 as default)
 
 ### Java and JVM languages
 
 - Java: 11, 17
-- Scala: 2.12.10
+- Scala: 2.12.15, 3.1.2
 - Leiningen: 2.9.1 (Clojure)
 - sbt
 
@@ -183,7 +183,7 @@ Supporting libraries:
 
 - pypy: 7.3.9
 - pypy3: 7.3.9
-- pip: 22.0.4
+- pip: 22.1
 - venv: 20.14.1
 
 ### Ruby
