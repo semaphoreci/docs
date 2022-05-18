@@ -113,6 +113,10 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | golang:1.15-node-browsers | `registry.semaphoreci.com/golang:1.15-node-browsers` |  
 | golang:1.16 | `registry.semaphoreci.com/golang:1.16` |  
 | golang:1.16-node-browsers | `registry.semaphoreci.com/golang:1.16-node-browsers` |  
+| golang:1.17 | `registry.semaphoreci.com/golang:1.17` |  
+| golang:1.17-node-browsers | `registry.semaphoreci.com/golang:1.17-node-browsers` |  
+| golang:1.18 | `registry.semaphoreci.com/golang:1.18` |  
+| golang:1.18-node-browsers | `registry.semaphoreci.com/golang:1.18-node-browsers` |  
 
 
 ### Elixir  
