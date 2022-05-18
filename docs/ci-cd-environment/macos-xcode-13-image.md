@@ -113,15 +113,15 @@ Installed versions:
 
 ## Flutter
 
-- 2.10.4
+- 3.0.0
 
 ## Xcode
 
 Installed versions:
 
-- 13.1
 - 13.2.1
 - 13.3
+- 13.4
 
 The default installed Xcode version is `13.3`.
 
