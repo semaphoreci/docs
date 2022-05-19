@@ -85,6 +85,30 @@ $ sem create notifications example \
     --webhook-endpoint [webhook-endpoint] \
 ```
 
+## Securing webhook notifications
+
+You should specify a secret token to sign the notification payload for security
+reasons. Thanks to this, you will be able to verify if incoming webhooks are
+coming from Semaphore.
+
+As the first step, you will need to create a Semaphore Secret that will contain
+env `WEEBHOOK_SECRET` with the value of your secret token.
+
+You can learn more about using secrets in our [Semaphore Secret](https://docs.semaphoreci.com/essentials/using-secrets) documentation.
+
+Later you can use this secret to sign webhooks. To do that, use the following command:
+
+``` bash
+$ sem create notifications example \
+    --webhook-endpoint [webhook-endpoint] \
+    --webhook-secret [semaphore-secret-name]
+```
+
+Semaphore includes the signature in the `X-Semaphore-Signature-256` header
+when the webhook secret is present.
+
+Semaphore uses an HMAC-SHA256 to compute the signature of the request body.
+
 ## Advanced notification setup
 
 In the previous examples we looked at simple use cases where we used the CLI

@@ -154,7 +154,7 @@ Incoming WebHook used.
 
 #### webhook
 
-The `webhook` property holds the `endpoint`, `action`, and `timeout` properties.
+The `webhook` property holds the `endpoint`, `action`, `timeout`, and `secret` properties.
 
 ##### endpoint
 
@@ -176,6 +176,12 @@ The `action` property is optional, and its default value is `POST`.
 The `timeout` property holds the delivery timeout in ms. This value must be from 1 to 1000 (ms).
 
 The `timeout` property is optional, and its default value is `500`.
+
+##### secret
+
+The `secret` property holds the name of Semaphore's Secret which will be used to sign the payload.
+
+The `secret` property is optional, and its default value is empty string, in that case payload won't be signed.
 
 ## An example
 
@@ -217,6 +223,7 @@ spec:
     notify:
       webhook:
         endpoint: https://example.org/postreceiver
+        secret: docs-notification-secret
 status: {}
 ```
 
