@@ -157,7 +157,7 @@ Installed version:
 
 #### Additional tools
 
-- Yarn: 1.22.18
+- Yarn: 1.22.19
 
 ### PHP
 
