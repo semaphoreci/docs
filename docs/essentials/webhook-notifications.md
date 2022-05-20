@@ -92,7 +92,7 @@ reasons. Thanks to this, you will be able to verify if incoming webhooks are
 coming from Semaphore.
 
 As the first step, you will need to create a Semaphore Secret that will contain
-env `WEEBHOOK_SECRET` with the value of your secret token.
+env `WEBHOOK_SECRET` with the value of your secret token.
 
 You can learn more about using secrets in our [Semaphore Secret](https://docs.semaphoreci.com/essentials/using-secrets) documentation.
 
