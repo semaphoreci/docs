@@ -8,6 +8,21 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### May 20, 2022
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Downgraded)** Downgraded packages:
+
+- Aws-cli 1.23.13 -> 1.23.8
+
+**(Updated)** Updated packages:
+
+- Aws-cli 2.6.4 -> 2.7.1
+- Yarn 1.22.18 -> 1.22.19
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 16, 2022
 
 **(Docker) images updated**
