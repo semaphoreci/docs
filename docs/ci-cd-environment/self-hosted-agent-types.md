@@ -15,7 +15,9 @@ Before running and using self-hosted agents in your pipelines, you need to regis
 3. Add a name and click `Looks good. Register`
 4. Your agent type should be created. Follow the instructions to install the agent on your operating system of choice. The instructions are also available [here][installing-agents].
 
-**Note:** only users with the Admin permission level can add a self-hosted agent type
+
+!!! info "Required permissions to add a new self-hosted agent type"
+    Only users with the **Admin** permission level can add a new self-hosted agent type.    
 
 ## Using a self-hosted agent type in your pipelines
 
