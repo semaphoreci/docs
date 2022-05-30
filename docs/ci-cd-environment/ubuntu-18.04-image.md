@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 78.1
 - geckodriver 0.26.0
-- Google Chrome 101
-- ChromeDriver 101
+- Google Chrome 102
+- ChromeDriver 102
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -112,7 +112,7 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2, 24.3 (default)
+- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2, 24.3 (default), 25.0
 - Elixir: 1.8.x, 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default)
 
 Additional libraries:
@@ -194,7 +194,7 @@ Supporting libraries:
 - pypy3: 7.3.9
 - pip (for Python 2.7): 20.3.4
 - pip (for Python 3.6): 21.3.1
-- pip (for Python 3.7 and above): 22.1
+- pip (for Python 3.7 and above): 22.1.1
 - venv: 20.14.1
 
 ### Ruby
