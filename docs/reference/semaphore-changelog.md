@@ -8,6 +8,59 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of May 30, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.0
+
+**(Downgraded)** Downgraded packages:
+
+- Aws-cli 1.23.13 -> 1.23.8
+
+**(Updated)** Updated packages:
+
+- 5.13.0.41-generic -> 5.13.0-44-generic
+- Azure-cli 2.36.0 -> 2.37.0
+- Aws-cli 2.6.4 -> 2.7.3
+- Doctl 1.55.0 -> 1.76.0
+- Github-cli 2.10.1 -> 2.11.3
+- Git-lfs 3.1.4 -> 3.2.0
+- Google Chrome 101 -> 102
+- ChromeDriver 101 -> 102
+- Helm 3.8.2 -> 3.9.0
+- Skopeo 1.3.0 -> 1.5.0
+- Buildah 1.21.3 > 1.22.3
+- Yarn 1.22.18 -> 1.22.19
+- Pip 22.1 -> 22.1.1
+- Terraform 1.1.9 - > 1.2.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.0
+
+**(Updated)** Updated packages:
+
+- 5.4.0-110-generic -> 5.4.0-113-generic
+- Azure-cli 2.36.0 -> 2.37.0
+- Aws-cli 2.6.4 -> 2.7.3
+- Doctl 1.55.0 -> 1.76.0
+- Github-cli 2.10.1 -> 2.11.3
+- Git-lfs 3.1.4 -> 3.2.0
+- Google Chrome 101 -> 102
+- ChromeDriver 101 -> 102
+- Helm 3.8.2 -> 3.9.0
+- Pip 22.1 -> 22.1.1
+- Terraform 1.1.9 - > 1.2.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### May 20, 2022
 
 **(Improved) Ubuntu 18.04 image update**
@@ -46,7 +99,6 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 - Flutter 2.10.5 -> 3.0.0
 - Node  v17.8.0 > v18.0.0
 - PostgreSQL 14.2 -> 14.3
-
 
 **(Improved) Ubuntu 20.04 image update**
 
