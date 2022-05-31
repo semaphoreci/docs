@@ -38,6 +38,8 @@ extra:
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - codehilite:
       guess_lang: false
   - toc:
