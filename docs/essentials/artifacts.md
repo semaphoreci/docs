@@ -4,10 +4,6 @@ Description: Artifacts are used to persist files that are final deliverables or 
 
 # Artifacts
 
-<small><i><strong>This is a beta feature.</strong> Using Artifacts during the beta period is free. Once the artifacts
-system is generally available to all users, additional charges will apply based on
-usage.</i></small>
-
 Semaphore provides a persistent artifact store for all projects. Artifacts are ideal for:
 
 - Collecting debug data from your jobs (ex. screenshots, screencasts, build logs)
