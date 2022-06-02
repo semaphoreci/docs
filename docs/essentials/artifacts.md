@@ -180,7 +180,7 @@ Artifacts are a paid feature and are charged based on the two parameters:
 
     ---
 
-    The amount of data stored in your artifact buckets. This is expressed in GB/month. Where each unit is 1GB of artifacts stored for one full month.
+    The amount of data stored in your artifact buckets. This is expressed in per GB per month. Where each unit is 1GB of artifacts stored for one month.
 
 -   __Traffic__
 
@@ -196,14 +196,14 @@ Based on the plan your organization is on, artifact spending is charged in the f
 - **Paid plan** - Artifact spending will be added to your monthly bill. 
 
 ### Artifact Storage pricing
-Artifact storage is how many GBs of data your Semaphore organization stores in artifacts over time. It is expressed in GB/month. 
+Artifact storage is how many GBs of data your Semaphore organization stores in artifacts over time. It is expressed in per GB per month. 
 
-The price for 1 GB/month of storage is $0.07.
+The price for 1 per GB per month of storage is $0.07.
 
 !!! info ""
-    **Example:** Say you store 20 GB of files as artifacts for 15 days. Semaphore treats this as 1/2 of monthly storage (assuming a 30-day month) so storing 20 GB of data for 15 days amounts to 10 GB/month (20 * 0.5).
+    **Example:** Say you store 20 GB of files as artifacts for 15 days. Semaphore treats this as 1/2 of monthly storage (assuming a 30-day month) so storing 20 GB of data for 15 days amounts to 10 per GB per month (20 * 0.5).
 
-    _$0.07 (per GB/month) * 20 (GB) * 0.5 (15 days, or ½ of 30 day month) = $0.7_
+    _$0.07 (per GB per month) * 20 (GB) * 0.5 (15 days, or ½ of 30 day month) = $0.7_
 
 ### How to optimize Artifact Storage spending
 The best way to control storage spending is to ensure that you are not keeping unnecessary artifacts more than they are needed. 
