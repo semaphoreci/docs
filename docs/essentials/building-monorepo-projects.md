@@ -129,6 +129,13 @@ commit range analyzed depends on whether you're working on `master/main`
 or on a branch/pull request. For more details and ways in which this can
 be modified please check the [reference][change-in-ref].
 
+!!!warning "Pipeline file changes - default behavior"
+    By default, when you change the pipeline file, Semaphore will evaluate 
+    every `change_in` expression as `true`. That means that all blocks having 
+    that expression will be run/skipped. You can avoid that by 
+    [excluding pipeline changes](#excluding-changes-in-the-pipeline-file)
+    from evaluation.
+
 ## Set up automatic deployments for a monorepo project
 
 Here we will assume that you already have three pipelines for:
