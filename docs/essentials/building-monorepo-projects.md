@@ -131,9 +131,10 @@ be modified please check the [reference][change-in-ref].
 
 !!!warning "Pipeline file changes - default behavior"
     By default, when you change the pipeline file, Semaphore will evaluate 
-    every `change_in` expressions as `true`. You can avoid that by 
+    every `change_in` expression as `true`. That means that all blocks having 
+    that expression will be run/skipped. You can avoid that by 
     [excluding pipeline changes](#excluding-changes-in-the-pipeline-file)
-    from evaulation.
+    from evaluation.
 
 ## Set up automatic deployments for a monorepo project
 
