@@ -257,6 +257,18 @@ is the name of the GitHub branch targeted by the Pull Request.
 
 Example value: `development`
 
+#### SEMAPHORE\_GIT\_WORKING\_BRANCH
+
+The value of the `SEMAPHORE_GIT_WORKING_BRANCH` environment variable is the name of
+the repository branch used in the current job.
+
+In builds triggered by a Pull Request, the value of the `SEMAPHORE_GIT_WORKING_BRANCH`
+is the name of the head repository branch.
+
+In builds triggered by a Tag, the variable is missing.
+
+Example value: `development`
+
 #### SEMAPHORE\_GIT\_DIR
 
 The value of the `SEMAPHORE_GIT_DIR` environment variable is the name of the
