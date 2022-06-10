@@ -8,6 +8,57 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of Jun 13, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.11, 1.8.3 (default)
+- PHP 7.4.30 (default)
+- Python 3.10
+
+**(Updated)** Updated packages:
+
+- Kernel 5.13.0.44-generic -> 5.13.0-48-generic
+- Aws-cli 2.7.3 -> 2.7.7
+- Aws-eb-cli 3.14.8 -> 3.20.3
+- Bazel 5.1.1 -> 5.2.0
+- Containerd.io 1.6.4 -> 1.6.6
+- Docker 20.10.16 -> 20.10.17
+- Erlang 24.3.4 -> 24.3.4.1
+- Erlang 25.0 -> 25.0.1
+- Github-cli 2.11.3 -> 2.12.1
+- Nodejs 16.15.0 -> 16.15.1
+- Npm 8.5.5 -> 8.11.0
+- Terraform 1.2.1 -> 1.2.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.11, 1.8.3 (default)
+- PHP 7.4.30 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-113-generic -> - 5.4.0-117-generic
+- Aws-cli 2.7.3 -> 2.7.7
+- Aws-eb-cli 3.14.8 -> 3.19.1
+- Bazel 5.1.1 -> 5.2.0
+- Containerd.io 1.6.4 -> 1.6.6
+- Docker 20.10.16 -> 20.10.17
+- Erlang 24.3.4 -> 24.3.4.1
+- Erlang 25.0 -> 25.0.1
+- Github-cli 2.11.3 -> 2.12.1
+- Nodejs 16.15.0 -> 16.15.1
+- Npm 8.5.5 -> 8.11.0
+- Terraform 1.2.1 -> 1.2.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of May 30, 2022
 
 **(Improved) Ubuntu 20.04 image update**
