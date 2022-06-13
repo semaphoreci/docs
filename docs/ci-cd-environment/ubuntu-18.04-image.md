@@ -132,7 +132,7 @@ Versions:
 - 1.15.x
 - 1.16.x
 - 1.17.x
-- 1.18.x (1.18.2 as default)
+- 1.18.x (1.18.3 as default)
 
 ### Java and JVM languages
 
@@ -153,7 +153,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.15.0 (set as default, with alias 16.15), includes npm 8.5.5
+- v16.15.1 (set as default, with alias 16.15), includes npm 8.11.0
 
 #### Additional tools
 
@@ -171,7 +171,7 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 
-The default installed PHP version is `7.4.29`.
+The default installed PHP version is `7.4.30`.
 
 #### Additional libraries
 
