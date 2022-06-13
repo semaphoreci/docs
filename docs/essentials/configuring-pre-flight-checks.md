@@ -3,8 +3,6 @@ Description: This guide shows you how to set up pre-flight checks run before eac
 ---
 
 !!! warning "This feature is in the private beta stage and a part of the Semaphore Enterprise feature plan."
-    Please contact our Customer Success for more details.
-
 
 # Pre-flight checks
 
@@ -50,7 +48,7 @@ Follow the steps below to configure pre-flight checks for the whole organization
 
     - **Linux Based Virtual Machines** - hosted by Semaphore
     - **Mac Based Virtual Machines** - hosted by Semaphore
-    - **Self Hosted Machines** - hosted by the customer (if applicable)
+    - **Self-Hosted Machines** - hosted by the customer (if applicable)
 
     For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
     of the agent. 
@@ -85,18 +83,48 @@ button, which should be visible if you have pre-flight checks configured.
 
 ### Limiting using secrets in your organization
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-deserunt mollit anim id est laborum.
+In the initialization job, the following information is available as environment variables:
+
+- [the project name](/ci-cd-environment/environment-variables/#semaphore_project_name) for which the pipeline started
+- [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
+- YAML file describing the running pipeline (`SEMAPHORE_YAML_FILE_PATH`)
+
+Based on that, you can define commands in pre-flight checks ensuring that
+a particular pipeline can use certain secrets. You can use this [snippet](https://gist.githubusercontent.com/shiroyasha/49b57770371f4684a8a12bcec0047d7a/raw/b35e51953069dc1b21c62a41b8717aa5fb4bcf88/check-secret)
+as a reference on how to achieve that result. In practice, using it for restricting 
+`deployment-secret` secret for pipeline defined in `.semaphore/deployment.yml`
+in the `example-project` on the `master` branch comes down to the following commands:
+
+```bash
+curl https://gist.githubusercontent.com/shiroyasha/49b57770371f4684a8a12bcec0047d7a/raw/b35e51953069dc1b21c62a41b8717aa5fb4bcf88/check-secret -o check-secret
+
+bash check-secret "deployment-secret" "example-project" ".semaphore/deployment.yml" "master"
+```
+
+You can also combine it with [secrets](/essentials/using-secrets/) or cloned GitOps repository,
+as well as other [Semaphore Environment Variables](/ci-cd-environment/environment-variables)
+to fine-tune the commands to your particular use case. 
 
 ### Limiting triggering promotions in your organization
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-deserunt mollit anim id est laborum.
+In the initialization job, the following information is available as environment variables:
+
+- [GitHub repository](/ci-cd-environment/environment-variables/#semaphore_git_repo_slug) for which the pipeline started
+- [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
+- [boolean flag](/ci-cd-environment/environment-variables/#semaphore_pipeline_promotion) describing if the pipeline is an initial one or a promotion
+- [GitHub username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a person triggering the promotion
+
+Based on that, you can define commands in pre-flight checks ensuring that a person who 
+started a promotion is entitled to do so. As an example, we'll demonstrate how to restrict
+the possibility of promoting to a selected group of users:
+
+```bash
+printf '%s\n' 'user-1' 'user-2' 'user-3' > allowed_users.txt
+user_is_allowed () { grep -Fxq $SEMAPHORE_PIPELINE_PROMOTED_BY allowed_users.txt; }
+is_promotion () { [ $SEMAPHORE_PIPELINE_PROMOTION == "true" ]; }
+if is_promotion && user_is_allowed; then echo "Promotion allowed."; else false; fi
+```
+
+The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
+or cloned repository. It is also possible to extend the functionality
+to restrict promotions from particular repositories branches. 
