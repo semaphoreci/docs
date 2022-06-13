@@ -14,7 +14,7 @@ This page is updated on a weekly basis.
 
 **(New)** Packages:
 
-- Go 1.17.11, 1.8.3 (default)
+- Go 1.17.11, 1.18.3 (default)
 - PHP 7.4.30 (default)
 - Python 3.10
 
@@ -39,7 +39,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 **(New)** Packages:
 
-- Go 1.17.11, 1.8.3 (default)
+- Go 1.17.11, 1.18.3 (default)
 - PHP 7.4.30 (default)
 
 **(Updated)** Updated packages:
