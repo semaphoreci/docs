@@ -300,4 +300,4 @@ by executing `cache clear` or `cache delete <key>`.
 
 [debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
 [prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
-[aws s3 setup]: ../../ci-cd-environment/setup-caching-on-aws-s3
+[aws s3 setup]: ../../ci-cd-environment/set-up-caching-on-aws-s3
