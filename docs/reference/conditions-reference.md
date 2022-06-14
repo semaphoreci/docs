@@ -305,7 +305,7 @@ The supported map parameters are:
 The `change_in` function is ideal for modeling [Monorepo CI/CD][monorepo].
 
 Pipelines that use `change_in` expressions need the full Git history and are
-[evaluated in dedicated Semaphore Jobs](pipeline-initialization).
+[evaluated in dedicated Semaphore Jobs][pipeline-initialization].
 
 ## Usage examples for change_in
 

@@ -315,4 +315,4 @@ blocks:
 [caching]: ../essentials/caching-dependencies-and-directories.md
 [artifacts]: ../essentials/artifacts.md
 [language-versions]: ../ci-cd-environment/sem-version-managing-language-versions-on-linux.md
-[sem-service]: ../ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[sem-service]: ../ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
