@@ -2,7 +2,10 @@
 Description: This guide shows you how to set up pre-flight checks run before each pipeline in Semaphore 2.0.
 ---
 
-!!! warning "This feature is in the private beta stage and a part of the Semaphore Enterprise feature plan."
+!!! warning "This feature is in private beta and a part of the Semaphore Enterprise feature plan."
+    Pre-flight checks are in closed beta. If you would like to try them out, 
+    please [contact us and share your use case](https://semaphoreci.com/contact). 
+    Our team will get back to you as soon as possible.
 
 # Pre-flight checks
 
@@ -122,7 +125,8 @@ the possibility of promoting to a selected group of users:
 printf '%s\n' 'user-1' 'user-2' 'user-3' > allowed_users.txt
 user_is_allowed () { grep -Fxq $SEMAPHORE_PIPELINE_PROMOTED_BY allowed_users.txt; }
 is_promotion () { [ $SEMAPHORE_PIPELINE_PROMOTION == "true" ]; }
-if is_promotion && user_is_allowed; then echo "Promotion allowed."; else false; fi
+
+if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else false; fi; else echo "Initial pipelines are allowed." fi
 ```
 
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
