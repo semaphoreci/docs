@@ -1,5 +1,5 @@
 ---
-Description: Semaphore supports two types of environments for running jobs: A Virtual Machine-based environment and a Docker container-based environment.
+Description: Semaphore supports two types of environments for running jobs. A Virtual Machine-based environment and a Docker container-based environment.
 ---
 
 # Choosing Between VM and Docker-based Environments
