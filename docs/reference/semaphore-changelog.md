@@ -10,6 +10,28 @@ This page is updated on a weekly basis.
 
 ### Week of Jun 13, 2022
 
+**(Docker) images updated**
+
+- Android:30-flutter: flutter 3.0.0 removed, 2.10.5 present, 3.0.1 added
+- Android:31-flutter: flutter 3.0.0 removed, 2.10.5 present, 3.0.1 added
+
+**(Improved) macOS Xcode 13 image update**
+
+**(New)** Packages:
+- Xcode 13.4.1
+
+**(Removed)** Packages:
+- Xcode 13.1
+- Xcode 13.4
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.205.1 -> 2.206.2
+- Flutter 2.10.4 -> 3.0.1
+- Homebrew 3 -> 3.5.1
+- PostgreSQL 14.2 -> 14.3
+
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(New)** Packages:
