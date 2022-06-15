@@ -70,6 +70,7 @@ nav:
       - Prioritizing jobs: essentials/prioritization.md
       - Monorepo workflows: essentials/building-monorepo-projects.md
       - Job matrix: essentials/build-matrix.md
+      - "Pre-flight checks": essentials/configuring-pre-flight-checks.md
 
     - Deployment:
       - Deploying with promotions: essentials/deploying-with-promotions.md
