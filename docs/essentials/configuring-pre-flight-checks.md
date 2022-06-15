@@ -2,7 +2,7 @@
 Description: This guide shows you how to set up pre-flight checks run before each pipeline in Semaphore 2.0.
 ---
 
-!!! warning "This feature is in private beta and a part of the Semaphore Enterprise feature plan."
+!!! warning "This feature is in private beta and part of the Semaphore Enterprise feature plan."
     Pre-flight checks are in closed beta. If you would like to try them out, 
     please [contact us and share your use case](https://semaphoreci.com/contact). 
     Our team will get back to you as soon as possible.
@@ -11,22 +11,22 @@ Description: This guide shows you how to set up pre-flight checks run before eac
 
 Pre-flight checks are user-defined steps executed for each pipeline within the 
 [pipeline initialization job](pipeline-initialization). Their purpose is to provide 
-users with a way to manually define necessary commands before the execution of a whole 
-pipeline, including (but not limited to):
+users with a way to manually define commands before the execution of a pipeline, 
+including (but not limited to):
 
 - adding custom security checks,
 - detailed dependency management,
 - self-configured access control.
 
-This feature comes with great potential and allows to configure pipelines on a lower 
+This feature comes with great potential and allows you to configure pipelines on a lower 
 level. It can also serve as a last-resort check preventing further pipeline processing.
 
 !!! warning "This feature might affect the execution of pipelines in the whole organization" 
-    We expect anyone using this feature to comprehend how our product works. Please be aware 
-    of potential ramifications from ill-defined pre-flight checks, including failure of all
-    your CI/CD pipelines in Semaphore 2.0.
+    We advise caution when using this feature and encourage you to first get familiar with our product. 
+    This feature could potentially affect the pipeline execution process of the entire organization. 
+    Ill-defined pre-flights checks might lead to a complete failure of your CI/CD pipelines.
 
-As a security feature, pre-flight checks can be modified only by people who can:
+As a security measure, pre-flight checks can be modified only by members of the organization who can:
 
 - **manage organization settings** - organization pre-flight checks,
 - **manage project settings** - project pre-flight checks.
@@ -37,7 +37,7 @@ As a security feature, pre-flight checks can be modified only by people who can:
 
 Follow the steps below to configure pre-flight checks for the whole organization:
 
-1. Open the **Settings** from the **Organization menu** in the right part of the page header.
+1. Open the **Settings** from the **Organization menu** in the right side of the page header.
 
 2. Click **Pre-flight checks** on the left side of the settings view.
 
@@ -61,13 +61,13 @@ Follow the steps below to configure pre-flight checks for the whole organization
 
 6. Click **Save changes** button.
 
-To remove pre-flight checks for the whole organization, click the red button
-**Delete pre-flight checks**, which should be visible if you have pre-flight checks
-configured.
+To remove pre-flight checks from the organization, click the red button
+**Delete pre-flight checks**. This button should be visible if you have 
+pre-flight checks configured.
 
 ### Project pre-flight checks
 
-Configuring project pre-flight checks requires you to follow these steps:
+Enabling project pre-flight checks requires you to follow these steps:
 
 1. Open the project page and go to the **Settings** tab.
 
@@ -79,8 +79,8 @@ Configuring project pre-flight checks requires you to follow these steps:
 
 5. Click **Save changes** button.
 
-To remove pre-flight checks for the project, just click **Delete pre-flight checks**
-button, which should be visible if you have pre-flight checks configured.
+To remove pre-flight checks from the project, just click **Delete pre-flight checks**.
+This button should be visible if you have pre-flight checks configured.
 
 ## Examples of pre-flight checks configuration
 
@@ -92,8 +92,8 @@ In the initialization job, the following information is available as environment
 - [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
 - YAML file describing the running pipeline (`SEMAPHORE_YAML_FILE_PATH`)
 
-Based on that, you can define commands in pre-flight checks ensuring that
-a particular pipeline can use certain secrets. You can use this [snippet](https://gist.githubusercontent.com/shiroyasha/49b57770371f4684a8a12bcec0047d7a/raw/b35e51953069dc1b21c62a41b8717aa5fb4bcf88/check-secret)
+Based on that, you can define commands in pre-flight checks to ensure that
+a particular pipeline can use certain secrets. You can use this [snippet](https://raw.githubusercontent.com/renderedtext/snippets/master/check-secret.sh)
 as a reference on how to achieve that result. In practice, using it for restricting 
 `deployment-secret` secret for pipeline defined in `.semaphore/deployment.yml`
 in the `example-project` on the `master` branch comes down to the following commands:
@@ -117,9 +117,9 @@ In the initialization job, the following information is available as environment
 - [boolean flag](/ci-cd-environment/environment-variables/#semaphore_pipeline_promotion) describing if the pipeline is an initial one or a promotion
 - [GitHub username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a person triggering the promotion
 
-Based on that, you can define commands in pre-flight checks ensuring that a person who 
-started a promotion is entitled to do so. As an example, we'll demonstrate how to restrict
-the possibility of promoting to a selected group of users:
+Based on that, you can define commands in pre-flight checks to ensure that the person who 
+started a promotion has a sufficient permission level. As an example, we'll demonstrate 
+how to restrict the possibility of promoting to a selected group of users:
 
 ```bash
 printf '%s\n' 'user-1' 'user-2' 'user-3' > allowed_users.txt
@@ -131,4 +131,4 @@ if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else f
 
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
 or cloned repository. It is also possible to extend the functionality
-to restrict promotions from particular repositories branches. 
+to restrict promotions from specific repositories branches. 
