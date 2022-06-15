@@ -99,7 +99,7 @@ as a reference on how to achieve that result. In practice, using it for restrict
 in the `example-project` on the `master` branch comes down to the following commands:
 
 ```bash
-curl https://gist.githubusercontent.com/shiroyasha/49b57770371f4684a8a12bcec0047d7a/raw/b35e51953069dc1b21c62a41b8717aa5fb4bcf88/check-secret -o check-secret
+curl https://raw.githubusercontent.com/renderedtext/snippets/master/check-secret.sh -o check-secret
 
 bash check-secret "deployment-secret" "example-project" ".semaphore/deployment.yml" "master"
 ```
