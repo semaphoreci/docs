@@ -10,7 +10,7 @@ Description: This guide shows you how to set up pre-flight checks run before eac
 # Pre-flight checks
 
 Pre-flight checks are user-defined steps executed for each pipeline within the 
-[pipeline initialization job](pipeline-initialization). Their purpose is to provide 
+[pipeline initialization job](/reference/pipeline-initialization/). Their purpose is to provide 
 users with a way to manually define commands before the execution of a pipeline, 
 including (but not limited to):
 
