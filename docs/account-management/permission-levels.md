@@ -15,9 +15,9 @@ it is possible to [transfer ownership][project-transfer] of an organization.
 The Owner can:
 
 - See all projects
-- Add projects to the organization if they have Admin access to the corresponding repository on GitHub
+- Add projects to the organization if they have Admin access to the corresponding repository.
 - [Transfer project ownership][project-transfer]
-- Delete projects if they have Admin access to the corresponding repository on Github
+- Delete projects if they have Admin access to the corresponding repository.
 - Manage people
 - Manage billing
 - Transfer ownership of the organization
@@ -29,9 +29,9 @@ Users with the Admin permission level can:
 
 - See all projects
 - Add projects to the organization if they have Admin access to the 
-corresponding repository on GitHub
+corresponding repository
 - [Transfer project ownership][project-transfer]
-- Delete projects if they have Admin access to the corresponding repository on Github;
+- Delete projects if they have Admin access to the corresponding repository;
 - Manage people
 - Manage billing
 
@@ -39,11 +39,10 @@ corresponding repository on GitHub
 
 Users with Member permission level can:
 
-- See all projects they can also see on GitHub
-- Add projects to the organization if they have Admin access to the 
-corresponding repository on GitHub
+- See all projects they can also see on GitHub or Bitbucket
+- Add projects to the organization if they have Admin access to the corresponding repository
 - [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
-- Delete projects if they have Admin access to the corresponding repository on Github
+- Delete projects if they have Admin access to the corresponding repository
 
 ## Changing permission level
 

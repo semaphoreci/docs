@@ -1,9 +1,7 @@
 ---
-Description: This document provides instructions on how to connect your GitHub account to Semaphore 2.0.
+Description: This document provides instructions on how to connect your GitHub account to Semaphore.
 ---
-
 # Connecting your GitHub account and Semaphore
-
 ### Signing up on Semaphore with your GitHub account
 To support single sign-on via GitHub, Semaphore uses [OAuth app](https://github.com/settings/connections/applications/328c742132e5407abd7d).
 
@@ -100,3 +98,102 @@ In this example, the GitHub App does not have access to the repository you want 
 
 6. If your project has been successfully switched, your Repository Settings page should look like this:
 ![GH App - Transfer success](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_images/transfer_success.png).
+
+## Checking the Connection Between GitHub and Semaphore
+
+To check the status of the connection between your Semaphore profile and GitHub, please visit
+the [Semaphore application page on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d).
+
+This web page shows you:
+
+- The account permissions that you have granted to Semaphore
+- The organizations that you are a member of, and the level of access that Semaphore has to these organizations.
+
+If the page is not showing the Semaphore application on GitHub, and you have logged in to Semaphore with the GitHub account that you are using, please check your [account settings](https://me.semaphoreci.com/account/).  
+
+Depending on whether you are using OAuth app or GitHub App to connect your repositories, your GitHub profile connection on this page can be in one of these states: 
+
+- **Not Connected** - Your account is not connected, when you try to log in again, you will need to grant Semaphore access again. 
+- **Email only** - You can log into Semaphore. Repositories can be connected only through GitHub App. 
+- **Public repositories** - You can connect public repositories through OAuth App. 
+- **Connected** - You can connect both private and public repositories through OAuth App. 
+
+If your GitHub account is fully disconnected, log out of Semaphore and try to log in again. You will be prompted to give Semaphore basic GitHub access (read email address). 
+
+**If the [Semaphore application page on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d) is still not showing the Semaphore application please contact Semaphore support.**
+
+
+### Granting additional permissions
+
+When you sign up with your GitHub account, Semaphore only asks for your email. If you want to grant additional permissions, i.e. to let Semaphore access public and/or private repositories that you have access to, please visit the [account settings](https://me.semaphoreci.com/account) page.
+
+To grant Semaphore access to public or private repositories, click on the "Grant public access…" and "Grant private access…" links to go through the authorization process.
+
+### Granting access to an organization's repositories
+
+On the [Semaphore OAuth application page](https://github.com/settings/connections/applications/328c742132e5407abd7d) you can also request that a GitHub organization admin grants Semaphore OAuth app access to its repositories. If you are an admin, you can do this yourself.
+
+### Checking deploy key health
+When a Semaphore project is created a deploy key is generated on GitHub. One deploy key is generated for a GitHub repository per Semaphore project connected to it.  
+
+Can't find a deploy key? There could be several reasons why a deploy key might not be available anymore:  
+
+- It was manually removed from the repository
+- Someone revoked the Semaphore OAuth or GitHub app's GitHub access 
+- If OAuth method was used to connect the repository, the original project creator may no longer has access to the GitHub repository in question
+
+If a deploy key is broken, Semaphore will not be able to interact with code from that repository and the job log might display following error:
+``` yaml
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+```
+To check the status of a deploy key go to project settings on Semaphore and find GitHub settings.  
+
+A green check mark next to "Deploy Key" means that Semaphore found a valid deploy key.  
+If the deploy key is broken, a red "X" icon will be shown instead. 
+
+To regenerate the deploy key, click the "Repair" button next to the red "X" icon. This should delete the broken deploy key if it still exists and generate a new one.  
+
+### Checking webhook health
+Semaphore uses GitHub webhook to detect updates to repositories and trigger builds. If a webhook is deleted on GitHub, Semaphore will not be able to detect updates and will not run builds.  
+
+To check the status of a webhook, go to the project settings on Semaphore and find GitHub settings. A green check mark next to "Webhook" means that Semaphore successfully connected to the GitHub repository. If the webhook is broken, a red "X" icon will be shown instead. 
+
+To regenerate a webhook, click the "Repair" button next to the red "X" icon. This should generate a new webhook and repair the connection between Semaphore and GitHub.  
+
+### Re-connecting a Semaphore project to a renamed/moved GitHub repository
+
+If you:
+
+1. change the location of a repository on GitHub
+2. rename a repository on GitHub
+3. rename your user account on GitHub
+4. rename your organization on GitHub
+
+you have to change the URL of the GitHub repository on Semaphore also. 
+
+To update the URL to the repository:
+1. Go to the "Settings" tab of your project
+2. Select "Repository" tab
+3. Update the repository URL 
+
+You can also do it via sem CLI. Detailed instructions can be found on [the sem CLI doc page](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-edit_1).
+
+[This project YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/#examples) 
+might also be helpful.
+
+After an URL change, please double check your project's [deploy key health](#checking-deploy-key-health) and [webhook health](#checking-webhook-health).
+
+### What to do if the '.semaphore/semaphore.yml' file is not available
+
+You might see the following error message when trying to run workflows on Semaphore:
+
+``` yaml
+semaphore.yml ERROR:
+Error: {"File '.semaphore/semaphore.yml' is not available", "Not Found"}
+```
+
+This means that Semaphore can't fetch the `.semaphore/semaphore.yml` file from the repository. There are two reasons why this might happen:
+
+1. **The file doesn't exist on your repository** - double check to make sure that the Semaphore YAML file actually exists. 
+2. **Repository is disconnected from Semaphore** - Follow the steps [previously described](#checking-the-connection-between-gitHub-and-semaphore).
