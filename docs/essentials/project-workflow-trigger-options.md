@@ -1,23 +1,23 @@
 ---
-Description: You can choose which GitHub events trigger new workflows for your Semaphore 2.0 project by selecting one of the available triggers.
+Description: You can choose which git events trigger new workflows for your Semaphore 2.0 project by selecting one of the available triggers.
 ---
 
 # Workflow Triggers
 
-You can choose which GitHub events trigger new workflows for your Semaphore project.
+You can choose which events trigger new workflows for your Semaphore project.
 
 In your project's settings, you can select one of the following triggers:
 
 - Branches
 - Tags
-- Pull requests
+- Pull requests (not available on Bitbucket projects)
 - Forked pull requests
 
 There is also an option to pause a project.
 
 ## Pausing a project
 
-Projects can be paused. Selecting the "pause" setting for a project will result in Semaphore not creating new workflows for any trigger from GitHub.
+Projects can be paused. Selecting the "pause" setting for a project will result in Semaphore not creating new workflows for any trigger.
 You can, however, still restart a past workflow, run a debug session, and configure a scheduler.
 
 ## Building branches
@@ -73,6 +73,9 @@ In every job from this workflow, Semaphore will export a
 Semaphore uses a MERGE commit to run a workflow. The SHA of the HEAD commit
 of the Pull Request is stored in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
+!!! warning "Not available on Bitbucket projects"
+    Pull request builds will not be available on Bitbucket projects while in beta. 
+
 ## Building pull requests from forks
 
 Semaphore will create a workflow for every push to a pull request
@@ -86,6 +89,9 @@ To distinguish workflows from main and forked repositories, you can compare
 
 Semaphore uses the MERGE commit to run a workflow. The SHA of the HEAD commit
 of the Pull Request is stored in `SEMAPHORE_GIT_PR_SHA` environment variable.
+
+!!! warning "Not available on Bitbucket projects"
+    Forked pull request builds will not be available on Bitbucket projects while in beta. 
 
 ### Exposing secrets in forked pull requests
 

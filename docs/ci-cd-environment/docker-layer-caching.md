@@ -206,7 +206,7 @@ line at the end of it, which makes it a perfect candidate for using the
 Docker image created by using `D1` as a cache.
 
 To ensure a better cache hit, you should choose The `SEMAPHORE_GIT_BRANCH`
-Semaphore 2.0 environment variable as a tag. This way, each GitHub branch will
+Semaphore 2.0 environment variable as a tag. This way, each branch will
 have its own cache and you will avoid cache collision.
 
 ## See Also
