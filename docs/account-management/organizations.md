@@ -44,17 +44,20 @@ In order to add a new user to your organization, you can:
 
 1. Click on the initials of your organization in the top right corner of the page
 2. Click on **People** in the dropdown menu
-2. Enter the GitHub username of the person you want to add in the text box
-3. Click on **Invite**
+3. Go to the "repository collaborators"
+4. Find the user on the list of collaborators and select checkbox next to their name
+5. Click "Add selected"
+
+!!! info ""
+    If you are using GitHub, you can search for the GitHub username of the person you would like to invite. 
+
 
 All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
 by clicking on the **Promote** button next to their username.
 
 Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admins) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
 
-**Note:** If you want someone to have access to a project on Semaphore, 
-you first need to give this person access to the repository on GitHub, 
-and then add them as a member on Semaphore.
+**Note:** If you want someone to have access to a project on Semaphore, you first need to give this person access to the repository, and then add them as a member on Semaphore.
 
 ## Adding multiple users to an organization
 
@@ -63,7 +66,7 @@ If you want to add multiple users to your organization at the same time, you can
 1. Click on the initials of your organization in the top right corner of the page
 2. Click on **People** in the dropdown menu
 2. Click on the **repository collaborators** link
-3. Select members you'd like to add to Semaphore and enter their emails (If you don’t know 
+3. Select all new members you'd like to add to Semaphore and enter their emails (If you don’t know 
 someone’s email, just leave the field empty. We will still add them to your 
 organization, but we won’t email them an invitation.)
 4. Click on the **Add selected** button
@@ -81,27 +84,24 @@ Users can be removed from an organization in the following way:
 2. Click on **People** in the dropdown menu
 3. Click on the **"X"** button next to the username of the user you want to remove
 
-Upon removal, access to all projects in the organization will be revoked. Please 
-note that this won't change permissions on GitHub.
+Upon removal, access to all projects in the organization will be revoked.
 
 Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admins) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
 
-If you want to remove a user who has added projects to your organization, continue reading 
-the section below.
+If you want to remove a user who has added projects to your organization, continue reading the section below.
 
 ## Removing a user who has created projects in your organization
-
 To remove a user that has created projects in your organization, you must transfer ownership of those projects to a different user in the organization. In order to transfer project ownership to a different user, the following 
 conditions need to be met:
 
-1. New project owner needs to have Admin permission level for the repository on GitHub
-2. If you plan to build private projects, the new owner needs to grant Semaphore access to all repositories -- they can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account)
-3. If you plan to build only public projects, the new owner needs to grant Semaphore access to public repositories -- they can do that that under [Personal Settings -> GitHub repository access](https://me.semaphoreci.com/account)
+1. New project owner needs to have Admin permission level for the repository
+2. If you plan to build private projects, the new owner needs to grant Semaphore access to all repositories -- they can do that that under [Personal Settings -> Repository access](https://me.semaphoreci.com/account)
+3. If you plan to build only public projects, the new owner needs to grant Semaphore access to public repositories -- they can do that that under [Personal Settings -> Repository access](https://me.semaphoreci.com/account)
 
 After that, go to _Project Settings -> General_, in the _Project Owner_ section, find the user you want to become the new owner, and click _Change_.
 
-If you come accross any issues, please reach out to [support@semaphoreci.com](mailto:support@semaphoreci.com)
-and include the name of the project and the GitHub username of the new owner in your message.
+If you come accross any issues, please reach out to our support team
+and include the name of the project and the GitHub or Bitbucket username of the new owner in your message.
 
 **Note:** After project ownership has been transferred, you need to push a new commit. 
 Re-running old builds no longer works if ownership of a project has changed.
@@ -136,9 +136,9 @@ to be met:
 - The new owner needs to be a member of the organization
 - The new owner needs to have logged into Semaphore 2.0 at least once
 - The current owner needs to send a confirmation email to [support@semaphoreci.com](mailto:support@semaphoreci.com)
-  from the primary email address associated with the GitHub account used to log into
+  from the primary email address associated with the GitHub or Bitbucket account used to log into
   Semaphore 2.0 -- in this email, please include name of the organization and
-  GitHub username of the new owner
+  Bitbucket username of the new owner
 
 After that, we’ll transfer ownership on your behalf.
 
@@ -164,8 +164,8 @@ In order to delete an organization, you should:
 
 In order to delete your account, please send an email to
 [support@semaphoreci.com](mailto:support@semaphoreci.com) from the primary email
-address associated with the GitHub account used to log in to Semaphore 2.0.
-In this email, please include your GitHub username.
+address associated with the account used to log in to Semaphore 2.0.
+In this email, please include your GitHub or Bitbucket username.
 
 ## See also
 

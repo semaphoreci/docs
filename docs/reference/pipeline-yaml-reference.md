@@ -1604,7 +1604,7 @@ target.
 
 ### `pipeline_file`
 
-The `pipeline_file` property of the `promotions` block is a path to another pipeline YAML file within the GitHub repository of the
+The `pipeline_file` property of the `promotions` block is a path to another pipeline YAML file within the repository of the
 Semaphore project. This property is compulsory.
 
 If the `pipeline_file` value is just a plain filename without any directories,
@@ -1895,7 +1895,7 @@ The list of valid values for `result`: `passed`, `stopped`, `canceled`, and
 #### `branch`
 
 The `branch` property is a list of items. Its items are regular expressions
-that Semaphore 2.0 tries to match against the name of the GitHub branch that
+that Semaphore 2.0 tries to match against the name of the branch that
 is used with the pipeline that is being executed. If any of them is a match,
 then the return value of the `branch` is `true`.
 
@@ -1920,7 +1920,7 @@ The list of valid values for `result_reason` are: `test`, `malformed`, `stuck`,
 - `test`: one or more user tests failed
 - `malformed`: the pipeline YAML file is not correct
 - `stuck`: the pipeline jammed for internal reasons and then aborted
-- `deleted`: the pipeline was terminated because the GitHub branch was deleted
+- `deleted`: the pipeline was terminated because the branch was deleted
     while the pipeline was running
 - `internal`: the pipeline was terminated for internal reasons
 - `user`: the pipeline was stopped on user request
@@ -1994,7 +1994,7 @@ list can be auto-promoted – this depends on the rules of the two items of
 the `auto_promote_on` list. However, the `prod` promotion of the `promotions`
 list has no `auto_promote_on` property so there is no way it can be auto-promoted.
 
-So, if the pipeline finishes with a `passed` result and the GitHub branch name contains the word `master`, then the `p1.yml` pipeline file will be auto-promoted. The same will happen if the the pipeline finishes with a `failed` result. The `result_reason` is `malformed` and the GitHub branch name contains the `v2` sequence of characters followed by at least one more character, because a `.` character in a Perl Compatible Regular Expression means one or more characters.
+So, if the pipeline finishes with a `passed` result and the branch name contains the word `master`, then the `p1.yml` pipeline file will be auto-promoted. The same will happen if the the pipeline finishes with a `failed` result. The `result_reason` is `malformed` and the branch name contains the `v2` sequence of characters followed by at least one more character, because a `.` character in a Perl Compatible Regular Expression means one or more characters.
 
 The contents of `p1.yml` are as follows:
 
