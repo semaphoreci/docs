@@ -43,7 +43,7 @@ To disconnect your Bitbucket account:
 2. Find the "Semaphore 2.0" app on the list. 
 3. Click on the "Revoke" link. 
 
-## Checking the Connection Between Bitbucket and Semaphore
+## Checking the connection between Bitbucket and Semaphore
 
 To check the status of the connection between your Semaphore profile and Bitbucket, please check your [Account settings](https://me.semaphoreci.com/account/).  
 
