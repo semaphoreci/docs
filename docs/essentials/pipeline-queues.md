@@ -87,7 +87,7 @@ might want to run them in parallel to receive faster feedback.
 You can configure this via the `processing` property of the queue configuration.
 
 This is mostly useful for pipelines that are only running tests and when you want
-to have results for each push to GitHub, e.g. on the main branch.
+to have results for each push to the repository, e.g. on the main branch.
 
 In the event that you only need the result of the pipeline from the latest push, you might
 want to consider the [auto-cancel][auto-cancel] feature.  
