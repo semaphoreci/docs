@@ -55,18 +55,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git (2.x)
-- Git LFS (Git Large File Storage)
-- GitHub CLI (2.x)
-- Mercurial (4.5.x)
-- Svn (1.9.x)
+- Git 2.36.1
+- Git LFS (Git Large File Storage) 3.2.0
+- GitHub CLI 2.13.0
+- Mercurial 5.3.1
+- Svn 1.13.0
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 78.1
+- Firefox 52.9, 68.9 (default), 78.1
 - geckodriver 0.26.0
-- Google Chrome 102
-- ChromeDriver 102
+- Google Chrome 103
+- ChromeDriver 103
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -78,31 +78,31 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10
+- Docker 20.10.17
 - docker-compose 1.29.2
-- Buildah
-- Podman
-- Skopeo
+- Buildah 1.22.3
+- Podman 3.4.2
+- Skopeo 1.5.0
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`)
-- aws-cli v2 (used as `aws2`)
-- azure-cli
-- eb-cli
-- ecs-cli
-- doctl
-- gcloud
-- kubectl
-- terraform
-- heroku
-- helm
+- aws-cli v1 (used as `aws`) 1.23.8
+- aws-cli v2 (used as `aws2`) 2.7.10
+- azure-cli 2.37.0
+- eb-cli 3.20.3
+- ecs-cli 1.21.0
+- doctl 1.76.0
+- gcloud 297.0.1
+- kubectl 4.5.4
+- heroku 7.60.2
+- terraform 1.2.3
+- helm 3.9.0
 
 ### Network utilities
 
-- httpie
-- curl
-- rsync
+- httpie 1.0.3
+- curl 7.68.0
+- rsync 3.1.3
 
 ## Languages
 
@@ -134,16 +134,16 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 11, 17
+- Java: 11.0.15 (default), 17.0.3
 - Scala: 2.12.15, 3.1.2
 - Leiningen: 2.9.1 (Clojure)
-- sbt
+- sbt 1.6.2
 
 #### Additional build tools
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 5
+- Bazel: 5.2.0
 
 ### JavaScript via Node.js
 
@@ -164,6 +164,7 @@ Installed versions:
 
 - 7.4.x
 - 8.0.x
+- 8.1.x
 
 The default installed PHP version is `7.4.30`.
 

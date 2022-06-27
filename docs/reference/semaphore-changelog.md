@@ -8,6 +8,52 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of Jun 27, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 8.0.20
+
+**(Updated)** Updated packages:
+
+- Kernel 5.13.0-48-generic -> 5.13.0-51-generic
+- Aws-cli 2.7.7 -> 2.7.10
+- Github-cli 2.12.1 -> 2.13.0
+- Google Chrome 102 -> 103
+- ChromeDriver 102 -> 103
+- Erlang 23.2.7.4 -> 23.2.7.5
+- Erlang 23.3.4.14 -> 23.3.4.15
+- Erlang 24.3.4.1 -> 24.3.4.2
+- Erlang 25.0.1 -> 25.0.2
+- Httpie 0.9.8 -> 1.0.3
+- Terraform 1.2.2 -> 1.2.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- PHP 8.0.20
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-117-generic -> 5.4.0-120-generic
+- Aws-cli 2.7.7 -> 2.7.10
+- Github-cli 2.12.1 -> 2.13.0
+- Google Chrome 102 -> 103
+- ChromeDriver 102 -> 103
+- Erlang 23.2.7.4 -> 23.2.7.5
+- Erlang 23.3.4.14 -> 23.3.4.15
+- Erlang 24.3.4.1 -> 24.3.4.2
+- Erlang 25.0.1 -> 25.0.2
+- Httpie 0.9.8 -> 1.0.3
+- Terraform 1.2.2 -> 1.2.3
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of Jun 13, 2022
 
 **(Docker) images updated**
