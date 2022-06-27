@@ -3,9 +3,6 @@ Description: This guide describes how jobs can be isolated in a self-hosted envi
 ---
 
 # Self-hosted job environment isolation
-!!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
-
 Even though some use cases might benefit from jobs sharing the same environment, a clean environment for each and every job might be needed for others.
 
 ## Using docker containers
