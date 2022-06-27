@@ -176,15 +176,10 @@ of the selected minute. This means that even though some versions of Crontab
 format support seconds in expressions, Semaphore 2.0 will ignore them.
 
 - When the scheduled workflow is triggered, Semaphore 2.0 uses the latest
-webhook received from GitHub for the given branch to determine the exact commit
-for which the workflow should be run.
-This can be problematic in two cases:
+webhook received from GitHub/Bitbucket for the given branch to determine the exact commit
+for which the workflow should be run. 
 
-    1. When a project is new and there have been no pushes to the selected branch since
-    project creation - in this case, the creation of a schedule as described above will
-    fail
-    2. In rare cases when there is an issue with GitHub webhook delivery, you can
-    either redeliver them from GitHub or contact us at support@semaphoreci.com.
+If a project is new and there have been no pushes to the selected branch since project creation - in this case, the creation of a schedule as described above will fail.
 
 - Scheduled workflow runs will not be started in the first 60 seconds (this
 can span across two differently numbered minutes) after the schedule is created,

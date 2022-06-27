@@ -115,7 +115,7 @@ The supported properties in `filters` for a workflows list are as follows:
   using the `sem get project <name>` command.
 
 - **branch** (optional): The `branch` property allows you to filter widget
-  output by branch name (of the GitHub repository) for a Semaphore 2.0
+  output by branch name (of the repository) for a Semaphore 2.0
   project. Note that the value of the `branch` property should be an exact
   match and that there is currently no support for regular expressions in the
   `branch` property.
@@ -158,7 +158,7 @@ The supported properties in `filters` for a pipelines list are the following:
   Semaphore 2.0 project using the `sem get project <name>` command.
 
 - **branch** (optional): The `branch` property allows you to filter widget
-  output by specified branch name of a GitHub repository for the Semaphore
+  output by specified branch name of a repository for the Semaphore
   2.0 project. Note that the value of the `branch` property should be an exact
   match and that there is currently no support for regular expressions in the
   `branch` property.
@@ -167,7 +167,7 @@ The supported properties in `filters` for a pipelines list are the following:
   filter generated output using the filename of a pipeline file that is
   being executed. Please note that the `pipeline_file` value should not be just
   the name of the pipeline file but the full path starting from the root
-  directory of the GitHub repository. Therefore, the filename of the default
+  directory of the repository. Therefore, the filename of the default
   pipeline is `.semaphore/semaphore.yml`.
 
 #### Pipelines example

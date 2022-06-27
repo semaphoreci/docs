@@ -103,7 +103,7 @@ The `projects` property is mandatory.
 
 #### branches
 
-The `branches` property holds a list of strings, which should be the GitHub
+The `branches` property holds a list of strings, which should be the Git
 branch names that you have selected.
 
 The `branches` property is optional.
