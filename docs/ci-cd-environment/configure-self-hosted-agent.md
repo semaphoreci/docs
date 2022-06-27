@@ -3,9 +3,6 @@ Description: This guide describes the various different configuration options fo
 ---
 
 # Configuring a self-hosted agent
-!!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
-
 An agent can be configured in two ways:
 
 - using command line arguments
