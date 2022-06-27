@@ -235,7 +235,7 @@ used by Semaphore 2.0, which are related to Git and the Git repository used in t
 
 #### SEMAPHORE\_GIT\_PROVIDER
 
-The value of the `SEMAPHORE_GIT_PROVIDER` environment variable holds the information which git provider is repository hosted on.
+The value of the `SEMAPHORE_GIT_PROVIDER` environment variable holds the information of which git provider is repository hosted on.
 
 Example values: `bitbucket`, `github`
 
