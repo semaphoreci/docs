@@ -1,14 +1,8 @@
 ---
-Description: This guide shows you how to set up pre-flight checks run before each pipeline in Semaphore 2.0.
+Description: This guide shows you how to set up pre-flight checks run before each pipeline in Semaphore.
 ---
 
-!!! warning "This feature is in private beta and part of the Semaphore Enterprise feature plan."
-    Pre-flight checks are in closed beta. If you would like to try them out, 
-    please [contact us and share your use case](https://semaphoreci.com/contact). 
-    Our team will get back to you as soon as possible.
-
 # Pre-flight checks
-
 Pre-flight checks are user-defined steps executed for each pipeline within the 
 [pipeline initialization job](/reference/pipeline-initialization/). Their purpose is to provide 
 users with a way to manually define commands before the execution of a pipeline, 

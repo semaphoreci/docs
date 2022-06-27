@@ -3,10 +3,6 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 ---
 
 # AWS support
-
-!!! beta "Self-hosted agents - closed beta"
-    Self-hosted agents are in closed beta. If you would like to run Semaphore agents on your infrastructure, please [contact us and share your use case](https://semaphoreci.com/contact). Our team will get back to you as soon as possible.
-
 If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] can help you deploy an auto-scaling fleet of agents on your AWS account.
 
 ## Features
