@@ -1,5 +1,5 @@
 ---
-Description: Environment variables used in Semaphore 2.0 projects can be pre-defined, git repository-related, cache-related, or private docker registry-related.
+Description: Environment variables used in Semaphore projects can be pre-defined, git repository-related, cache-related, or private docker registry-related.
 ---
 
 # Environment Variables
@@ -19,7 +19,7 @@ Semaphore defines and uses its own environment variables.
 ### Semaphore-related
 
 This group of environment variables includes the environment variables that
-are related to Semaphore 2.0 and hold information that is specific to Semaphore
+are related to Semaphore and hold information that is specific to Semaphore
 2.0.
 
 #### CI
@@ -33,7 +33,7 @@ Example value: `true`
 #### SEMAPHORE
 
 The value of the `SEMAPHORE` environment variable says whether the job is
-executed in the Semaphore 2.0 environment or not and is a boolean variable.
+executed in the Semaphore environment or not and is a boolean variable.
 
 Example value: `true`
 
@@ -70,7 +70,7 @@ Example value: `Push image to Docker`
 The `SEMAPHORE_JOB_ID` environment variable holds the Job ID of the job that is
 being executed. It is the same value that is displayed in the output of the
 `sem get jobs` or the `sem get jobs --all` commands and is assigned by
-Semaphore 2.0.
+Semaphore.
 
 Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
@@ -231,7 +231,7 @@ Example value: `container`
 ### Git repository related
 
 This group of environment variables includes environment variables that are
-used by Semaphore 2.0, which are related to Git and the Git repository used in the current Semaphore 2.0 project.
+used by Semaphore, which are related to Git and the Git repository used in the current Semaphore project.
 
 #### SEMAPHORE\_GIT\_PROVIDER
 
@@ -249,7 +249,7 @@ Example values: `5c84719708b9b649b9ef3b56af214f38cee6acde`, `HEAD`
 #### SEMAPHORE\_GIT\_URL
 
 The value of the `SEMAPHORE_GIT_URL` environment variable is the URL of the
- repository used in the current Semaphore 2.0 project.
+ repository used in the current Semaphore project.
 
 Example value: `http://git@github.com:semaphoreci/toolbox.git`
 
@@ -279,7 +279,7 @@ Example value: `development`
 
 The value of the `SEMAPHORE_GIT_DIR` environment variable is the name of the
 directory that contains the files of the repository linked to the current
-Semaphore 2.0 project.
+Semaphore project.
 
 Example value: `foo`
 
@@ -287,7 +287,7 @@ Example value: `foo`
 
 The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the
 name (owner_name/repo_name) of the repository of the current
-Semaphore 2.0 project.
+Semaphore project.
 
 Example value: `semaphoreci/docs`
 

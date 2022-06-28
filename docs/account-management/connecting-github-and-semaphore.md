@@ -49,7 +49,7 @@ You can always edit and update access permissions for each installed GitHub App.
     Once you request the installation, the GitHub organization's owner will receive an email request for approval from GitHub.
 
 ### Connecting a repository via personal access token
-If you want to connect a repository via [the Semaphore OAuth app](https://github.com/settings/connections/applications/328c742132e5407abd7d), the following conditions have to be met:
+If you want to connect a repository via [the Semaphore OAuth App](https://github.com/settings/connections/applications/328c742132e5407abd7d), the following conditions have to be met:
 
 1. You are a collaborator on the repository.
 2. You have given the Semaphore OAuth App access to your repositories (public or public & private).

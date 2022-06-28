@@ -4,7 +4,7 @@ Description: This document provides instructions on how to connect your Bitbucke
 
 # Connecting your Bitbucket account and Semaphore
 
-Semaphore integrates with multiple Git providers. You can connect your Bitbucket account with Semaphore by:
+Semaphore integrates with both GitHub and Bitbucket. You can connect your Bitbucket account with Semaphore by:
 
 - Creating a new Semaphore account with Bitbucket.
 - Connect it to an existing Semaphore account, previously created with another Git provider like GitHub.
