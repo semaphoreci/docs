@@ -1,5 +1,5 @@
 ---
-Description: Semaphore 2.0 organizations can have an unlimited number of users. Users in the organization have different permissions based on their role.
+Description: Semaphore organizations can have an unlimited number of users. Users in the organization have different permissions based on their role.
 ---
 
 # Permission levels
@@ -15,9 +15,9 @@ it is possible to [transfer ownership][project-transfer] of an organization.
 The Owner can:
 
 - See all projects
-- Add projects to the organization if they have Admin access to the corresponding repository on GitHub
-- [Transfer project ownership][project-transfer]
-- Delete projects if they have Admin access to the corresponding repository on Github
+- Add projects to the organization if they have Admin access to the corresponding repository.
+- Transfer project ownership
+- Delete projects if they have Admin access to the corresponding repository.
 - Manage people
 - Manage billing
 - Transfer ownership of the organization
@@ -29,9 +29,9 @@ Users with the Admin permission level can:
 
 - See all projects
 - Add projects to the organization if they have Admin access to the 
-corresponding repository on GitHub
-- [Transfer project ownership][project-transfer]
-- Delete projects if they have Admin access to the corresponding repository on Github;
+corresponding repository
+- Transfer project ownership
+- Delete projects if they have Admin access to the corresponding repository;
 - Manage people
 - Manage billing
 
@@ -39,11 +39,10 @@ corresponding repository on GitHub
 
 Users with Member permission level can:
 
-- See all projects they can also see on GitHub
-- Add projects to the organization if they have Admin access to the 
-corresponding repository on GitHub
-- [Transfer project ownership](https://docs.semaphoreci.com/guided-tour/creating-your-first-project/#transferring-project-ownership)
-- Delete projects if they have Admin access to the corresponding repository on Github
+- See all projects they can also see on GitHub or Bitbucket
+- Add projects to the organization if they have Admin access to the corresponding repository
+- Transfer project ownership
+- Delete projects if they have Admin access to the corresponding repository
 
 ## Changing permission level
 
@@ -65,5 +64,3 @@ Only an Admin or the Owner of the organization can perform these steps.
 - [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
 - [Billing](https://docs.semaphoreci.com/account-management/billing/)
 - [Plans](https://docs.semaphoreci.com/account-management/plans/)
-
-[project-transfer]: ../faq/managing-projects.md#how-to-transfer-project-ownership

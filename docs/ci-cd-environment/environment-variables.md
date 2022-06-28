@@ -1,5 +1,5 @@
 ---
-Description: Environment variables used in Semaphore 2.0 projects can be pre-defined, git repository-related, cache-related, or private docker registry-related.
+Description: Environment variables used in Semaphore projects can be pre-defined, git repository-related, cache-related, or private docker registry-related.
 ---
 
 # Environment Variables
@@ -19,7 +19,7 @@ Semaphore defines and uses its own environment variables.
 ### Semaphore-related
 
 This group of environment variables includes the environment variables that
-are related to Semaphore 2.0 and hold information that is specific to Semaphore
+are related to Semaphore and hold information that is specific to Semaphore
 2.0.
 
 #### CI
@@ -33,7 +33,7 @@ Example value: `true`
 #### SEMAPHORE
 
 The value of the `SEMAPHORE` environment variable says whether the job is
-executed in the Semaphore 2.0 environment or not and is a boolean variable.
+executed in the Semaphore environment or not and is a boolean variable.
 
 Example value: `true`
 
@@ -70,7 +70,7 @@ Example value: `Push image to Docker`
 The `SEMAPHORE_JOB_ID` environment variable holds the Job ID of the job that is
 being executed. It is the same value that is displayed in the output of the
 `sem get jobs` or the `sem get jobs --all` commands and is assigned by
-Semaphore 2.0.
+Semaphore.
 
 Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
@@ -186,7 +186,7 @@ Example value: `false`
 The value of the `SEMAPHORE_PIPELINE_PROMOTED_BY` environment variable is `auto-promotion`,
 if the pipeline is auto-promoted.
 
-If the pipeline is manually-promoted, the value is the GitHub username
+If the pipeline is manually-promoted, the value is the GitHub/Bitbucket username
 of the person that promoted the pipeline.
 
 However, if it is an initial pipeline, the value of the environment variable is an empty string.
@@ -231,7 +231,13 @@ Example value: `container`
 ### Git repository related
 
 This group of environment variables includes environment variables that are
-used by Semaphore 2.0, which are related to GitHub and the GitHub repository used in the current Semaphore 2.0 project.
+used by Semaphore, which are related to Git and the Git repository used in the current Semaphore project.
+
+#### SEMAPHORE\_GIT\_PROVIDER
+
+The value of the `SEMAPHORE_GIT_PROVIDER` environment variable holds the information of which git provider is repository hosted on.
+
+Example values: `bitbucket`, `github`
 
 #### SEMAPHORE\_GIT\_SHA
 
@@ -243,17 +249,17 @@ Example values: `5c84719708b9b649b9ef3b56af214f38cee6acde`, `HEAD`
 #### SEMAPHORE\_GIT\_URL
 
 The value of the `SEMAPHORE_GIT_URL` environment variable is the URL of the
-GitHub repository used in the current Semaphore 2.0 project.
+ repository used in the current Semaphore project.
 
 Example value: `http://git@github.com:semaphoreci/toolbox.git`
 
 #### SEMAPHORE\_GIT\_BRANCH
 
 The value of the `SEMAPHORE_GIT_BRANCH` environment variable is the name of
-the GitHub branch used in the current job.
+the git branch used in the current job.
 
 In builds triggered by a Pull Request, the value of the `SEMAPHORE_GIT_BRANCH`
-is the name of the GitHub branch targeted by the Pull Request.
+is the name of the git branch targeted by the Pull Request.
 
 Example value: `development`
 
@@ -272,16 +278,16 @@ Example value: `development`
 #### SEMAPHORE\_GIT\_DIR
 
 The value of the `SEMAPHORE_GIT_DIR` environment variable is the name of the
-directory that contains the files of the GitHub repository linked to the current
-Semaphore 2.0 project.
+directory that contains the files of the repository linked to the current
+Semaphore project.
 
 Example value: `foo`
 
 #### SEMAPHORE\_GIT\_REPO\_SLUG
 
 The value of the `SEMAPHORE_GIT_REPO_SLUG` environment variable is the
-name (owner_name/repo_name) of the GitHub repository of the current
-Semaphore 2.0 project.
+name (owner_name/repo_name) of the repository of the current
+Semaphore project.
 
 Example value: `semaphoreci/docs`
 
@@ -311,19 +317,19 @@ Example value: `5c84719708b9b649b9ef3b56af214f38cee6acde...92d87d5c0dd2dbb7a68ec
 #### SEMAPHORE\_GIT\_TAG\_NAME
 
 The value of the `SEMAPHORE_GIT_TAG_NAME` environment variable is the name of
-the GitHub tag used in the current job.
+the git tag used in the current job.
 
 Example value: `v1.0.0`
 
 #### SEMAPHORE\_GIT\_PR\_BRANCH
 
 The value of the `SEMAPHORE_GIT_PR_BRANCH` environment variable is the name of
-the GitHub branch from which the Pull Request originated.
+the git branch from which the Pull Request originated.
 
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
 The value of the `SEMAPHORE_GIT_PR_SLUG` environment variable is the
-name (owner_name/repo_name) of the GitHub repository from which
+name (owner_name/repo_name) of the repository from which
 the Pull Request originated.
 
 Example value: `renderedtext/docs`

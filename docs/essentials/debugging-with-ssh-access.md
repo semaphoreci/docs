@@ -37,8 +37,8 @@ longer debug sessions, pass the `duration` flag to the previous command as shown
 sem debug job [job-id] --duration 3h
 ```
 
-By default, a debug session does not include the contents of the GitHub
-repository related to your Semaphore project. Run `checkout` in the debug
+By default, a debug session does not include the contents of 
+the repository related to your Semaphore project. Run `checkout` in the debug
 session to clone your repository.
 
 ### Error: project or job not found

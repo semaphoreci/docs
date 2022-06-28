@@ -135,12 +135,11 @@ Additionally, `cache` uses `tar` to archive specified directories or files.
 
 ## checkout
 
-The GitHub repository used in a Semaphore project is not automatically
+The repository used in a Semaphore project is not automatically
 cloned for reasons of efficiency.
 
 The `libcheckout` script includes the implementation of a single function
-named `checkout()`, which is used for making the entire GitHub
-repository of the running Semaphore project available to the VM used for executing jobs in the pipeline. 
+named `checkout()`, which is used for making the entire repository of the running Semaphore project available to the VM used for executing jobs in the pipeline. 
 The `checkout()` function is called as `checkout` from the command line.
 
 ### Shallow clone
@@ -168,12 +167,12 @@ git fetch --all
 The `checkout()` function of the `libcheckout` script depends on the following
 three Semaphore environment variables:
 
-- `SEMAPHORE_GIT_URL`: This environment variable holds the URL of the GitHub
+- `SEMAPHORE_GIT_URL`: This environment variable holds the URL of the
  repository used in the Semaphore project
  (`git@github.com:mactsouk/S1.git`).
 
 - `SEMAPHORE_GIT_DIR`: This environment variable holds the UNIX path where the
-  GitHub repository will be placed in the VM (`/home/semaphore/S1`).
+ repository will be placed in the VM (`/home/semaphore/S1`).
 
 - `SEMAPHORE_GIT_SHA`: This environment variable holds the SHA key for the HEAD
   reference used when executing `git reset -q --hard`.
@@ -186,17 +185,17 @@ All these environment variables are automatically defined by Semaphore.
 ### The `--use-cache` flag
 
 The `checkout` command supports the `--use-cache` flag. The purpose of this
-flag is to tell `checkout` to get the contents of the GitHub repository from
-the Semaphore Cache server instead of from the GitHub servers, because it is faster.
+flag is to tell `checkout` to get the contents of the repository from
+the Semaphore Cache server instead of from the servers, because it is faster.
 
-If there is no cache entry for the active GitHub repository, the functionality
+If there is no cache entry for the active repository, the functionality
 of the `--use-cache` flag will create one.
 
 When using the `--use-cache` flag, `checkout` supports the following
 environment variables:
 
 - `SEMAPHORE_GIT_CACHE_AGE`: This environment variable specifies how often
- the cache for that GitHub repository will be updated. Its value is always
+ the cache for that repository will be updated. Its value is always
  in seconds and by default it is `259200`, which is 3 days. The value that
  you are going to choose depends on your project and how often it gets
  updated.
@@ -221,7 +220,7 @@ directory in the Operating System of the VM to the directory defined in the
 `SEMAPHORE_GIT_DIR` environment variable.
 
 The following command will tell `checkout` to use the Semaphore Cache server
-to get the contents of the GitHub repository, instead of using GitHub server:
+to get the contents of the repository, instead of using git server:
 
 ``` bash
 checkout --use-cache
@@ -230,7 +229,7 @@ checkout --use-cache
 If you set `SEMAPHORE_GIT_CACHE_KEEP` to `1`, it will keep two copies in
 the Semaphore Cache server: the active one and its antecedent.
 
-If you set `SEMAPHORE_GIT_CACHE_AGE=86400`, the cache for the GitHub
+If you set `SEMAPHORE_GIT_CACHE_AGE=86400`, the cache for the
 repository will be updated after 1 day.
 
 ## checksum

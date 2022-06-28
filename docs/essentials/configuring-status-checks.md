@@ -2,21 +2,21 @@
 Description: This guide shows you how to set up pipeline-level and block-level status checks in Semaphore 2.0.
 ---
 
-# GitHub Status Checks
+# Status Checks
 
-GitHub status checks are an excellent way to track and control the CI/CD status
+GitHub or Bitbucket status checks are an excellent way to track and control the CI/CD status
 of your projects.
 
-By default, Semaphore reports GitHub statuses for your initial
+By default, Semaphore reports these statuses for your initial
 `.semaphore/semaphore.yml` pipelines. Optionally, you can configure status
 checks for multiple pipelines, or even blocks.
 
-The name of the GitHub status is derived from the name of your pipeline or
+The name of the status is derived from the name of your pipeline or
 block.
 
 ## Configuring pipeline-level status checks
 
-By default, Semaphore reports a GitHub status for your initial
+By default, Semaphore reports a status for your initial
 `.semaphore/semaphore.yml` pipeline.
 
 To change the pipeline for which you want to create a status check, edit your
@@ -34,7 +34,7 @@ metadata:
 
 spec:
   repository:
-    url: "git@github.com:renderedtext/example.git"
+    url: "git@{github|bitbucket}.com:renderedtext/example.git"
     run: true
     run_on:
       - branches
@@ -47,7 +47,7 @@ spec:
           level: "pipeline"
 ```
 
-Adjust the `status` property to modify your GitHub check configuration. In the
+Adjust the `status` property to modify your status check configuration. In the
 above YAML, status checks will be sent only for the
 `.semaphore/scheduled-runs.yml` pipeline.
 
@@ -68,7 +68,7 @@ metadata:
 
 spec:
   repository:
-    url: "git@github.com:renderedtext/example.git"
+    url: "git@{github|bitbucket}.com:renderedtext/example.git"
     run: true
     run_on:
       - branches
@@ -84,7 +84,7 @@ spec:
           level: "pipeline"
 ```
 
-Adjust the `status` property to modify your GitHub check configuration. In the
+Adjust the `status` property to modify your status check configuration. In the
 above YAML, status checks will be sent for both the
 `.semaphore/semaphore.yml` and `.semaphore/scheduled-runs.yml` pipelines.
 
@@ -108,7 +108,7 @@ metadata:
   name: example
 spec:
   repository:
-    url: "git@github.com:renderedtext/goDemo.git"
+    url: "git@{github|bitbucket}.com:renderedtext/goDemo.git"
     run: true
     run_on:
       - branches
