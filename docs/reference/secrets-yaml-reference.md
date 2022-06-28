@@ -80,7 +80,7 @@ is used for storing files in `secrets`.
 
 The `path` property holds the name of the file that will be stored – this
 value defines the way the file is going to be referenced and restored in the
-future and should not exist in the GitHub repository.
+future and should not exist in the repository.
 
 #### content
 

@@ -106,10 +106,10 @@ to fine-tune the commands to your particular use case.
 
 In the initialization job, the following information is available as environment variables:
 
-- [GitHub repository](/ci-cd-environment/environment-variables/#semaphore_git_repo_slug) for which the pipeline started
+- [Repository](/ci-cd-environment/environment-variables/#semaphore_git_repo_slug) for which the pipeline started
 - [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
 - [boolean flag](/ci-cd-environment/environment-variables/#semaphore_pipeline_promotion) describing if the pipeline is an initial one or a promotion
-- [GitHub username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a person triggering the promotion
+- [GitHub/Bitbucket username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a person triggering the promotion
 
 Based on that, you can define commands in pre-flight checks to ensure that the person who 
 started a promotion has a sufficient permission level. As an example, we'll demonstrate 

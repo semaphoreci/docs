@@ -78,7 +78,7 @@ The following list briefly describes all `sem` operations:
     network traffic from a job that is running in the VM to your local machine.
 - *help*: the `help` command is used for getting help about `sem` or an
     existing `sem` command.
-- *init*: the `init` command is used for adding an existing GitHub repository
+- *init*: the `init` command is used for adding an existing repository
     to Semaphore 2.0 for the first time and creating a new project.
 - *version*: the `version` command is used for getting the version of the `sem`
     utility.
@@ -122,15 +122,15 @@ a pipeline ends, either successfully or unsuccessfully.
 
 #### Projects
 
-A project is the way Semaphore 2.0 organizes, stores, and processes GitHub
+A project is the way Semaphore 2.0 organizes, stores, and processes
 repositories. As a result, each Semaphore 2.0 project has a direct relationship
-with a single GitHub repository.
+with a single repository.
 
-However, the same GitHub repository can be assigned to multiple Semaphore 2.0
+However, the same repository can be assigned to multiple Semaphore 2.0
 projects under different names. Additionally, the same project name can exist
 within multiple Semaphore 2.0 organizations, and deleting a Semaphore 2.0 project
 from an organization will not automatically delete it from the other
-organizations. Last, the related GitHub repository will
+organizations. Last, the related repository will
 remain intact after deleting a project from Semaphore 2.0.
 
 You can use the same project name in multiple organizations but you cannot
@@ -657,7 +657,7 @@ longer debug sessions, pass the `duration` flag to the previous command:
 sem debug job [job-id] --duration 3h
 ```
 
-A debug session does not include the contents of the GitHub repository related
+A debug session does not include the contents of the repository related
 to your Semaphore 2.0 project. Run `checkout` in the debug session to clone
 your repository.
 
@@ -704,11 +704,10 @@ This group includes the `sem init`, `sem edit`, and `sem debug` commands.
 
 ### sem init
 
-The `sem init` command adds a GitHub repository as a Semaphore 2.0 project to
+The `sem init` command adds a repository as a Semaphore 2.0 project to
 the active organization.
 
-The `sem init` command should be executed from within the root directory of the
-GitHub repository that has been either created locally and pushed to GitHub or
+The `sem init` command should be executed from within the root directory of the repository that has been either created locally and pushed to or
 cloned using the `git clone` command. Although the command can be executed
 without any other command line parameters or arguments, it also supports the
 `--project-name` and `--repo-url` options.
@@ -721,20 +720,19 @@ of a Semaphore 2.0 project.
 #### --repo-url
 
 The `--repo-url` command line option allows you to manually specify the URL of
-a GitHub repository in case `sem init` cannot determine it.
+a repository in case `sem init` cannot determine it.
 
 #### sem init example
 
 As `sem init` can be used without any command line arguments, you can execute
-it as follows from the root directory of a GitHub repository that resides on
+it as follows from the root directory of a repository that resides on
 your local machine:
 
 ``` bash
 sem init
 ```
 
-If a `.semaphore/semaphore.yml` file already exists in the root directory of a
-GitHub repository, `sem init` will keep that `.semaphore/semaphore.yml` file
+If a `.semaphore/semaphore.yml` file already exists in the root directory of a repository, `sem init` will keep that `.semaphore/semaphore.yml` file
 and continue with its operation. If there is no `.semaphore/semaphore.yml` file,
 `sem init` will create one.
 
@@ -773,14 +771,10 @@ error: http status 422 with message "{"message":"Repository 'orgname/projectname
 received from upstream
 ```
 
-you can do the following:
+check the following pages to debug connection to your git provider:
 
-- Check if the user who wants to add a project to Semaphore is a member of the
-  given Semaphore organization, and has Admin-level permissions for the
-  repository on GitHub.
-- Check if the access for Semaphore 2.0 was granted within your GitHub
-  organization. You can do that [on GitHub](https://github.com/settings/connections/applications/328c742132e5407abd7d).
-- Request the GitHub organization owner to give access to Semaphore. Refer to [GitHub documentation](https://help.github.com/en/articles/requesting-organization-approval-for-oauth-apps) for details.
+- [Checking the Connection Between GitHub and Semaphore](/account-management/connecting-github-and-semaphore/#checking-the-connection-between-github-and-semaphore)
+- [Checking the Connection Between Bitbucket and Semaphore](/account-management/connecting-bitbucket-and-semaphore/#checking-the-connection-between-bitbucket-and-semaphore)
 
 ### sem edit
 
@@ -817,8 +811,7 @@ sem debug project [Project NAME]
 Next, you will be automatically connected to the VM of the
 project using SSH. The value of `SEMAPHORE_GIT_BRANCH` will be `master`
 whereas the value of `SEMAPHORE_GIT_SHA` will be `HEAD`, which means that
-you will be using the latest version of the `master` branch available on the
-GitHub repository of the Semaphore 2.0 project.
+you will be using the latest version of the `master` branch available on the repository of the Semaphore 2.0 project.
 
 Projects that are created using the `sem debug project` command support the
 `--duration` parameter for specifying the timeout period of the project.
@@ -907,7 +900,7 @@ spec:
 When you save the changes and leave the editor, they will be applied to
 the project.
 
-### Changing GitHub status check notifications
+### Changing the status check notifications
 
 By default, Semaphore submits pull request status checks for
 the initial pipeline.
@@ -954,7 +947,7 @@ spec:
 
 Status notifications can be set on two levels: `pipeline` or `block`.
 
-`pipeline` level means that only one GitHub status will be created per commit.
+`pipeline` level means that only one status will be created per commit.
 The name of the status is based on name of the pipeline.
 
 `block` level means that Semaphore will create a status for each block in
@@ -1301,8 +1294,7 @@ sem rebuild workflow [WORKFLOW ID]
 ```
 
 Note that `sem rebuild workflow` will perform a full rebuild of the specified
-workflow. A new workflow will be created as if a new commit was pushed to
-GitHub.
+workflow. A new workflow will be created as if a new commit was pushed to the repository.
 
 #### Rebuilding a workflow example
 
