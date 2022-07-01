@@ -18,7 +18,7 @@ To set up an automated semantic release process, you will need:
 - A release pipeline
 - (optional) Configuration parameters for customizing the release process
 
-### Step 1: Create a secret with the Git
+### Step 1: Create a secret with the Git credentials
 
 Create a new secret in your organization that contains the access credentials.
 Go to Organizations Setting > New Secret:
