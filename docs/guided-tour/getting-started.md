@@ -8,6 +8,7 @@ This step-by-step tutorial will have you running a successful CI/CD pipeline on 
 
 ![Final CI/CD workflow on Semaphore](getting-started/final-workflow.png)
 
+
 ## About Semaphore
 
 Semaphore is a cloud-based automation service for building, testing, and
@@ -30,14 +31,14 @@ To complete this tutorial, you will need:
 - Basic knowledge of Git
 - Basic knowledge of the command line
 - A [Semaphore account][semaphore-home]
-- A [GitHub account][github]
+- A [GitHub][github] or [Bitbucket](http://bitbucket.com/) account
 
 ## Creating a Git repository
 
-Start by creating a new Git repository on GitHub. You may skip this section if you
+Start by creating a new Git repository on GitHub or Bitbucket. You may skip this section if you
 plan to use an existing repository.
 
-- Navigate to GitHub and [create a new repository][github-new].
+- Create a new repository on [Github][github-new] or [Bitbucket](https://bitbucket.org/new/)
 - Enter the name of your repository, for example `hello-semaphore`, then click **Initialize this repository with: Add a README file**. Finally, click **Create repository**.
 
 ## Creating a Semaphore project
@@ -47,13 +48,12 @@ plan to use an existing repository.
    to host the project you are about to create.
 3. In the navigation panel, click **Create new**.
 4. In the **Start a real project** section, click **Choose repository**.
-5. Follow the on-screen instructions to authorize Semaphore to access a GitHub
+5. Follow the on-screen instructions to authorize Semaphore to access a Git
    repository of your choice. In case you need help, consult the detailed [guide
-   to connecting your GitHub account with Semaphore][github-guide].
-   ![](getting-started/select-repo.png)
+   to connecting your GitHub][github-guide] or [Bitbucket account](https://docs.semaphoreci.com/account-management/connecting-bitbucket-and-semaphore/) with Semaphore.
+   ![choose a repository github bb](https://user-images.githubusercontent.com/90183605/177295708-b0eb7e36-7e20-46f5-8ef4-8deef73ac584.png)
 6. Wait a few seconds for Semaphore to initialize the project.
-7. The next screen allows you to invite other people who have access to the
-   GitHub repository to your Semaphore project. Click **Continue to workflow
+7. The next screen allows you to invite other people who have access to the repository to your Semaphore project. Click **Continue to workflow
    setup** to proceed.
 8. Use one of the templates to get to the first green build quickly: select
    **Single job**, then click **Looks good, start**.
@@ -66,7 +66,7 @@ plan to use an existing repository.
 
 Let's customize your pipeline so that it looks more like a continuous integration (CI) process for a real project.
 
-If you open your repository on GitHub, you will notice that there is a new
+If you open your repository on GitHub or Bitbucket, you will notice that there is a new
 branch: **setup-semaphore**. Opening this branch will reveal that Semaphore has
 pushed a `semaphore.yml` configuration file into the `.semaphore` directory.
 
@@ -96,7 +96,7 @@ To extend your pipeline:
 7. In the top-right corner of your screen, click **Run the workflow**.
 8. In the pop-up screen, you can view the diff in the YAML
    that Semaphore will append to `.semaphore/semaphore.yml`. Click **Looks good,
-   start**. This will push the changes to the GitHub repository and start a new
+   start**. This will push the changes to the Git repository and start a new
    workflow.
    ![](getting-started/commit-popup.png)
 
@@ -120,7 +120,7 @@ block runs when it completes.
 **Blocks** can contain a single job or many parallel jobs. For example, your
 `Tests` block contains two parallel jobs.
 
-!!! Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
+❗Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
@@ -187,7 +187,7 @@ Before merging to main, we can verify our promotion by running it manually:
 ## Wrapping up
 
 To finish the implementation of your Semaphore project, open a pull request on
-GitHub from the `setup-semaphore` branch.
+GitHub or Bitbucket from the `setup-semaphore` branch.
 
 After you merge, Semaphore will trigger a new workflow on the `main` branch, and
 it will run both the CI and CD pipelines.
@@ -212,7 +212,6 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 - Use [secrets][secrets] to authenticate with APIs and deploy to cloud environments.
 - Use [cache][cache] to reuse project dependencies.
 - Study [example projects][example-projects].
-- Connect with other Semaphore users and get help on the [community forum][forum].
 
 [semaphore-home]: https://semaphoreci.com
 [github]: https://github.com
@@ -228,4 +227,3 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 [debugging]: ../essentials/debugging-with-ssh-access.md
 [secrets]: ../essentials/using-secrets.md
 [cache]: ../essentials/caching-dependencies-and-directories.md
-[forum]: https://discuss.semaphoreci.com/
