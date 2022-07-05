@@ -81,7 +81,7 @@ nav:
     - Notifications:
       - Slack notifications: essentials/slack-notifications.md
       - Webhook notifications: essentials/webhook-notifications.md
-      - GitHub status checks: essentials/configuring-github-status-checks.md
+      - Status checks: essentials/configuring-status-checks.md
       - Status Badges: essentials/status-badges.md
 
   - Programming Languages:
