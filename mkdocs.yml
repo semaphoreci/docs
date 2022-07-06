@@ -194,6 +194,11 @@ nav:
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md
     - Connecting Bitbucket with Semaphore: account-management/connecting-bitbucket-and-semaphore.md
+  - Security:
+    - "Audit logs":
+      - Audit logs: security/audit-logs.md
+      - Audit logs exporting: security/audit-logs-exporting.md
+      - Audit Events reference: security/audit-events-reference.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
