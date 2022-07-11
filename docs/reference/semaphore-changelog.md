@@ -8,6 +8,48 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 11, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Docker-compose 2.6.1
+- PHP 8.0.21, 8.1.8
+
+**(Updated)** Updated packages:
+
+- Kernel 5.13.0-51-generic -> 5.13.0-52-generic
+- Aws-cli 1.23.8 -> 1.25.26
+- Aws-cli 2.7.10 -> 2.7.14
+- Azure-cli 2.37.0 -> 2.38.0
+- Git 2.36.1 -> 2.37.0
+- Nodejs 16.15.1 -> 16.16.0
+- Pip 22.1.1 -> 22.1.2
+- Terraform 1.2.3 -> 1.2.4
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Docker-compose 2.6.1
+- PHP 8.0.21, 8.1.8
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-120-generic -> 5.4.0-121-generic
+- Aws-cli 1.23.8 -> 1.25.26
+- Aws-cli 2.7.10 -> 2.7.14
+- Azure-cli 2.37.0 -> 2.38.0
+- Git 2.36.1 -> 2.37.0
+- Nodejs 16.15.1 -> 16.16.0
+- Pip 22.1.1 -> 22.1.2
+- Terraform 1.2.3 -> 1.2.4
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of Jun 27, 2022
 
 **(Improved) Ubuntu 20.04 image update**
