@@ -59,7 +59,7 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.36.1
+- Git 2.37.0
 - Git LFS (Git Large File Storage) 3.2.0
 - GitHub CLI 2.13.0
 - Mercurial 4.5.3
@@ -83,20 +83,21 @@ Refer to the documentation of associated libraries when configuring your project
 Docker toolset is installed and following versions are available:
 
 - Docker 20.10.17
-- docker-compose 1.29.2
+- Docker-compose 1.29.2 (used as `docker-compose --version`)
+- Docker-compose 2.6.1 (used as `docker compose version`)
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.23.8
-- aws-cli v2 (used as `aws2`) 2.7.10
-- azure-cli 2.37.0
+- aws-cli v1 (used as `aws`) 1.25.26
+- aws-cli v2 (used as `aws2`) 2.7.14
+- azure-cli 2.38.0
 - eb-cli 3.19.1
 - ecs-cli 1.21.0
 - doctl 1.76.0
 - gcloud 297.0.1
 - kubectl 4.5.4
 - heroku 7.60.2
-- terraform 1.2.3
+- terraform 1.2.4
 - helm 3.9.0
 
 ### Network utilities
@@ -153,7 +154,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.15.1 (set as default, with alias 16.15), includes npm 8.11.0
+- v16.16.0 (set as default, with alias 16.16), includes npm 8.11.0
 
 #### Additional tools
 
@@ -195,7 +196,7 @@ Supporting libraries:
 - pypy3: 7.3.9
 - pip (for Python 2.7): 20.3.4
 - pip (for Python 3.6): 21.3.1
-- pip (for Python 3.7 and above): 22.1.1
+- pip (for Python 3.7 and above): 22.1.2
 - venv: 20.14.1
 
 ### Ruby
