@@ -39,6 +39,30 @@ The Gemfile.lock will now reference a valid git revision.
   </p>
 </details>
 
+### I get "Revision: COMMIT_SHA not found .... Exiting" error. What is the cause?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+
+The reason for that error are changes to repository tree structure in git VCS,
+which become effective in remote when your pipeline is still running. 
+It usually happens when you modify or remove commits (for example, with 
+<code>git rebase</code> or <code>git commit --amend</code> commands)
+and then push with <code>--force</code> flag shortly after the previous push.
+
+  </p>
+  <p>
+
+If you want to avoid executing previous pipelines after new pushes, check out how to set up
+<a href="/essentials/auto-cancel-previous-pipelines-on-a-new-push/">auto-cancel strategy</a>.
+If pipeline hasn't started after you pushed changes, you may also want to check out if GitHub 
+delivered <a href="#how-can-i-redeliver-webhooks-from-github-to-semaphore">webhooks</a>
+to Semaphore.
+
+  </p>
+</details>
+
 ### How can I change timezone?
 
 <details>
