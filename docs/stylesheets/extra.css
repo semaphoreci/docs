@@ -1,6 +1,6 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
-    color: #283233 !important;
+    color: #0A101F !important;
     -webkit-font-smoothing: auto !important;
     -moz-osx-font-smoothing: auto !important;
 }
@@ -18,13 +18,13 @@ td {
 }
 
 header {
-    background: #00a569 !important;
+    background: #284FC4 !important;
     box-shadow: none !important;
 }
 
 @media only screen and (max-width: 76.1875em) {
     html .md-nav--primary .md-nav__title--site {
-        background-color: #00a569 !important;
+        background-color: #284FC4 !important;
     }
 
     html .md-nav--primary .md-nav__title--site .md-nav__button {
@@ -34,7 +34,7 @@ header {
 
 .md-tabs {
     font-weight: 500 !important;
-    color: #2c7d54 !important;
+    color: #1650CC !important;
 }
 
 .md-tabs__link {
@@ -42,12 +42,12 @@ header {
 }
 
 .md-tabs__link:hover {
-    color: #283233 !important;
+    color: #0A101F !important;
 }
 
 .md-tabs__link--active,
 .md-tabs__link.md-tabs__link--active:hover {
-    color: #283233 !important;
+    color: #0A101F !important;
     font-weight: 500;
     background: white;
     padding: 4px 10px;
@@ -64,7 +64,7 @@ header {
 
 @media only screen and (min-width: 76.25em) {
     .md-tabs {
-        background-color: #c8e6c9 !important;
+        background-color: #FFFFFF !important;
     }
 
     .md-sidebar--secondary {
@@ -82,7 +82,7 @@ header {
 
 .md-typeset h1, .md-typeset h2 {
     letter-spacing: 0 !important;
-    color: #283233;
+    color: #0A101F;
 }
 
 .md-typeset h1 {
@@ -112,22 +112,22 @@ header {
 }
 
 main .md-typeset a {
-    color: #3f51b5 !important;
+    color: #284FC5 !important;
     text-decoration: underline !important;
 }
 
 .codehilite .nt {
-    color: #3f51b5 !important;
+    color: #284FC5 !important;
 }
 
 .md-nav__link--active,
 .md-nav__link:active {
-    color: #2c7d54 !important;
+    color: #1650CC !important;
     font-weight: 500 !important;
 }
 
 [data-md-color-accent=green] .md-nav__link:focus, [data-md-color-accent=green] .md-nav__link:hover, [data-md-color-accent=green] .md-typeset .footnote li:hover .footnote-backref:hover, [data-md-color-accent=green] .md-typeset .footnote li:target .footnote-backref, [data-md-color-accent=green] .md-typeset .md-clipboard:active:before, [data-md-color-accent=green] .md-typeset .md-clipboard:hover:before, [data-md-color-accent=green] .md-typeset [id] .headerlink:focus, [data-md-color-accent=green] .md-typeset [id]:hover .headerlink:hover, [data-md-color-accent=green] .md-typeset [id]:target .headerlink {
-    color: #2c7d54 !important;
+    color: #1650CC !important;
 }
 
 html body .md-typeset .headerlink {
@@ -172,7 +172,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
     .custom-search__input:hover,
     .custom-search__input+.custom-search__icon,
     .custom-search__icon[type=reset] {
-        color: #283233 !important;
+        color: #0A101F !important;
         background: #fff !important;
     }
 
@@ -210,7 +210,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 .md-typeset details {
     font-size: 16px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-    border-left-color: #00a569;
+    border-left-color: #284FC4;
 }
 
 .md-typeset details > summary {
@@ -220,7 +220,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 }
 
 .md-typeset details > summary:before {
-    color: #00a569;
+    color: #284FC4;
 }
 
 /* Welcome page */
@@ -371,7 +371,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 .custom-search #unibox-suggest-box a {
     font-size: 14px;
     text-decoration: underline;
-    color: #3f51b5 !important;
+    color: #284FC5 !important;
 }
 
 .custom-search #unibox-suggest-box .unibox-selectable:hover a {
@@ -397,7 +397,7 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
 .ss360-suggests a {
     font-size: 16px !important;
-    color: #3f51b5 !important;
+    color: #284FC5 !important;
     text-decoration: underline;
 }
 
@@ -466,4 +466,17 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
 
   -webkit-mask-image: var(--md-admonition-icon--beta);
           mask-image: var(--md-admonition-icon--beta);
+}
+nav.md-tabs.md-tabs--active
+{
+    background-color: #0a1120 !important;
+}
+nav.md-tabs.md-tabs--active .md-tabs__item
+{
+    color: #FFFFFF !important;
+}
+nav.md-tabs.md-tabs--active .md-tabs__link:hover
+{
+    color: #FFFFFF !important;
+    opacity:0.7 !important;
 }
