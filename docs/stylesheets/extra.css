@@ -45,17 +45,6 @@ header {
     color: #0A101F !important;
 }
 
-.md-tabs__link--active,
-.md-tabs__link.md-tabs__link--active:hover {
-    color: #0A101F !important;
-    font-weight: 500;
-    background: white;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-top: 12px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
-}
-
 .md-nav[data-md-level="2"] {
     margin-left: 2px;
     border-left: 2px solid black;
@@ -467,6 +456,18 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
   -webkit-mask-image: var(--md-admonition-icon--beta);
           mask-image: var(--md-admonition-icon--beta);
 }
+
+.md-tabs__link--active,
+.md-tabs__link.md-tabs__link--active:hover {
+    color: #0A101F !important;
+    font-weight: 500;
+    background: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 12px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+}
+
 nav.md-tabs
 {
     background-color: #0a1120 !important;
@@ -479,4 +480,9 @@ nav.md-tabs .md-tabs__link:hover
 {
     color: #FFFFFF !important;
     opacity:0.7 !important;
+}
+
+nav.md-tabs .md-tabs__link.md-tabs__link--active:hover {
+    color: #0A101F !important;
+    opacity: 1 !important;
 }
