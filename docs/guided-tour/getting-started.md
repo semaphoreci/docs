@@ -31,14 +31,14 @@ To complete this tutorial, you will need:
 - Basic knowledge of Git
 - Basic knowledge of the command line
 - A [Semaphore account][semaphore-home]
-- A [GitHub][github] or [Bitbucket](http://bitbucket.com/) account
+- A [GitHub][github] or [Bitbucket][bitbucket] account
 
 ## Creating a Git repository
 
 Start by creating a new Git repository on GitHub or Bitbucket. You may skip this section if you
 plan to use an existing repository.
 
-- Create a new repository on [Github][github-new] or [Bitbucket](https://bitbucket.org/new/)
+- Create a new repository on [Github][github-new] or [Bitbucket][bitbucket]
 - Enter the name of your repository, for example `hello-semaphore`, then click **Initialize this repository with: Add a README file**. Finally, click **Create repository**.
 
 ## Creating a Semaphore project
@@ -50,8 +50,8 @@ plan to use an existing repository.
 4. In the **Start a real project** section, click **Choose repository**.
 5. Follow the on-screen instructions to authorize Semaphore to access a Git
    repository of your choice. In case you need help, consult the detailed [guide
-   to connecting your GitHub][github-guide] or [Bitbucket account](https://docs.semaphoreci.com/account-management/connecting-bitbucket-and-semaphore/) with Semaphore.
-   ![choose a repository github bb](https://user-images.githubusercontent.com/90183605/177295708-b0eb7e36-7e20-46f5-8ef4-8deef73ac584.png)
+   to connecting your GitHub][github-guide] or [Bitbucket account][bitbucket-account] with Semaphore.
+   ![choose a repository github bb](getting-started/bitbucket-repo.png)
 6. Wait a few seconds for Semaphore to initialize the project.
 7. The next screen allows you to invite other people who have access to the repository to your Semaphore project. Click **Continue to workflow
    setup** to proceed.
@@ -120,7 +120,7 @@ block runs when it completes.
 **Blocks** can contain a single job or many parallel jobs. For example, your
 `Tests` block contains two parallel jobs.
 
-❗Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
+!!! Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
@@ -227,3 +227,5 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 [debugging]: ../essentials/debugging-with-ssh-access.md
 [secrets]: ../essentials/using-secrets.md
 [cache]: ../essentials/caching-dependencies-and-directories.md
+[bitbucket]: https://bitbucket.org
+[bitbucket-account]: https://docs.semaphoreci.com/account-management/connecting-bitbucket-and-semaphore/
