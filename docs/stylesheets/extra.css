@@ -467,15 +467,15 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
   -webkit-mask-image: var(--md-admonition-icon--beta);
           mask-image: var(--md-admonition-icon--beta);
 }
-nav.md-tabs.md-tabs--active
+nav.md-tabs
 {
     background-color: #0a1120 !important;
 }
-nav.md-tabs.md-tabs--active .md-tabs__item
+nav.md-tabs .md-tabs__item
 {
     color: #FFFFFF !important;
 }
-nav.md-tabs.md-tabs--active .md-tabs__link:hover
+nav.md-tabs .md-tabs__link:hover
 {
     color: #FFFFFF !important;
     opacity:0.7 !important;
