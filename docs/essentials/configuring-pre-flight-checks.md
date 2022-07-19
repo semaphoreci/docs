@@ -120,7 +120,7 @@ printf '%s\n' 'user-1' 'user-2' 'user-3' > allowed_users.txt
 user_is_allowed () { grep -Fxq $SEMAPHORE_PIPELINE_PROMOTED_BY allowed_users.txt; }
 is_promotion () { [ $SEMAPHORE_PIPELINE_PROMOTION == "true" ]; }
 
-if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else false; fi; else echo "Initial pipelines are allowed." fi
+if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else false; fi; else echo "Initial pipelines are allowed."; fi
 ```
 
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
