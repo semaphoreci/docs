@@ -8,6 +8,62 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 25, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Removed)** Packages:
+
+- Firefox 52.9.0esr
+
+**(New)** Packages:
+
+- Go 1.17.12, 1.18.4 (default)
+- Firefox 102.0.1esr
+
+**(Updated)** Updated packages:
+
+- Kernel 5.13.0-52-generic -> 5.15.0.41-generic
+- Aws-cli 1.25.26 -> 1.25.34
+- Aws-cli 2.7.14 -> 2.7.17
+- Erlang 23.3.4.15 -> 23.3.4.16 
+- Erlang 25.0.2 -> 25.0.3
+- Github-cli 2.13.0 -> 2.14.2
+- Git 2.37.0 -> 2.37.1
+- Helm 3.9.0 -> 3.9.1
+- Scala 3.1.2 -> 3.1.3
+- Sbt 1.6.2 -> 1.7.1
+- Terraform 1.2.4 -> 1.2.5
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Removed)** Packages:
+
+- Firefox 52.9.0esr
+
+**(New)** Packages:
+
+- Go 1.17.12, 1.18.4 (default)
+- Firefox 102.0.1esr
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-121-generic -> 5.4.0-122-generic
+- Aws-cli 1.25.26 -> 1.25.34
+- Aws-cli 2.7.14 -> 2.7.17
+- Erlang 23.3.4.15 -> 23.3.4.16
+- Erlang 25.0.2 -> 25.0.3
+- Github-cli 2.13.0 -> 2.14.2
+- Git 2.37.0 -> 2.37.1
+- Helm 3.9.0 -> 3.9.1
+- Scala 3.1.2 -> 3.1.3
+- Sbt 1.6.2 -> 1.7.1
+- Terraform 1.2.4 -> 1.2.5
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of July 11, 2022
 
 **(Improved) Ubuntu 20.04 image update**
