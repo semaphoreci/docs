@@ -59,15 +59,15 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.37.0
+- Git 2.37.1
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.13.0
+- GitHub CLI 2.14.2
 - Mercurial 4.5.3
 - Svn 1.9.7
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 52.9, 68.9 (default), 78.1
+- Firefox 68.9 (default), 78.1, 102.0.1
 - geckodriver 0.26.0
 - Google Chrome 103
 - ChromeDriver 103
@@ -88,8 +88,8 @@ Docker toolset is installed and following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.26
-- aws-cli v2 (used as `aws2`) 2.7.14
+- aws-cli v1 (used as `aws`) 1.25.34
+- aws-cli v2 (used as `aws2`) 2.7.17
 - azure-cli 2.38.0
 - eb-cli 3.19.1
 - ecs-cli 1.21.0
@@ -97,8 +97,8 @@ Docker toolset is installed and following versions are available:
 - gcloud 297.0.1
 - kubectl 4.5.4
 - heroku 7.60.2
-- terraform 1.2.4
-- helm 3.9.0
+- terraform 1.2.5
+- helm 3.9.1
 
 ### Network utilities
 
@@ -133,14 +133,14 @@ Versions:
 - 1.15.x
 - 1.16.x
 - 1.17.x
-- 1.18.x (1.18.3 as default)
+- 1.18.x (1.18.4 as default)
 
 ### Java and JVM languages
 
 - Java: 8u312, 11.0.15 (default), 17.0.3
-- Scala: 2.12.15, 3.1.2
+- Scala: 2.12.15, 3.1.3
 - Leiningen: 2.9.1 (Clojure)
-- sbt 1.6.2
+- sbt 1.7.1
 
 #### Additional build tools
 
