@@ -26,6 +26,8 @@ This page is updated on a weekly basis.
 - Kernel 5.13.0-52-generic -> 5.15.0.41-generic
 - Aws-cli 1.25.26 -> 1.25.34
 - Aws-cli 2.7.14 -> 2.7.17
+- Erlang 23.3.4.15 -> 23.3.4.16 
+- Erlang 25.0.2 -> 25.0.3
 - Github-cli 2.13.0 -> 2.14.2
 - Git 2.37.0 -> 2.37.1
 - Helm 3.9.0 -> 3.9.1
@@ -51,6 +53,8 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Kernel 5.4.0-121-generic -> 5.4.0-122-generic
 - Aws-cli 1.25.26 -> 1.25.34
 - Aws-cli 2.7.14 -> 2.7.17
+- Erlang 23.3.4.15 -> 23.3.4.16
+- Erlang 25.0.2 -> 25.0.3
 - Github-cli 2.13.0 -> 2.14.2
 - Git 2.37.0 -> 2.37.1
 - Helm 3.9.0 -> 3.9.1
