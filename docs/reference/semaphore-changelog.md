@@ -19,7 +19,7 @@ This page is updated on a weekly basis.
 **(New)** Packages:
 
 - Go 1.17.12, 1.18.4 (default)
-- Firefox 102.0.1esr (aliases: 102, esr-latest)
+- Firefox 102.0.1esr
 
 **(Updated)** Updated packages:
 
@@ -44,7 +44,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 **(New)** Packages:
 
 - Go 1.17.12, 1.18.4 (default)
-- Firefox 102.0.1esr (aliases: 102, esr-latest)
+- Firefox 102.0.1esr
 
 **(Updated)** Updated packages:
 
