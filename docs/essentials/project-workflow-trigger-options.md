@@ -73,9 +73,6 @@ In every job from this workflow, Semaphore will export a
 Semaphore uses a MERGE commit to run a workflow. The SHA of the HEAD commit
 of the Pull Request is stored in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
-!!! warning "Not available on Bitbucket projects"
-    Pull request builds are currrently not be available on Bitbucket projects. 
-
 ## Building pull requests from forks
 
 Semaphore will create a workflow for every push to a pull request
@@ -89,9 +86,6 @@ To distinguish workflows from main and forked repositories, you can compare
 
 Semaphore uses the MERGE commit to run a workflow. The SHA of the HEAD commit
 of the Pull Request is stored in `SEMAPHORE_GIT_PR_SHA` environment variable.
-
-!!! warning "Not available on Bitbucket projects"
-    Forked pull request builds are currently not available on Bitbucket projects. 
 
 ### Exposing secrets in forked pull requests
 
