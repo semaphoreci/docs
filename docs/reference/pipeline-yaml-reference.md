@@ -491,11 +491,18 @@ configurations on the [Pipeline Queues][pipeline-queues] page.
 When using this approach, you can use the `name`, `scope`, and `processing`
 properties as direct sub-properties of the `queue` property.
 
+Either a `name` or `processing` property is required for the queue definitions to 
+be valid.
+The `scope` property can only be configured if the `name` property is set to a
+specific value.
+
 The `name` property should hold the string that uniquely identifies the desired queue
 within the configured scope.
 
-If a `name` is omitted, one will be auto-generated based on the git branch/tag name or
-pull request number and the YAML configuration file name for the given pipeline.
+The `name` can be omitted if you only want to configure the `processing` property.
+In that case, the default `name` will be auto-generated based on the git branch/tag
+name or pull request number and the YAML configuration file name for the given
+pipeline.
 
 The `scope` property can have one of two values: **project** or **organization**.
 
@@ -520,10 +527,6 @@ executed as soon as they are created and there will be no queuing.
 
 If the `processing` property is omitted, its value will be automatically set to
 **serialized**.
-
-Either a `name` or `processing` property is required for queue definitions to be
-valid and the `scope` property can only be configured if the `name` property is also
-configured.
 
 ### conditional queue configurations
 
