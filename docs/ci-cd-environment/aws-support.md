@@ -29,9 +29,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.13.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.15.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.13
+cd agent-aws-stack-0.1.15
 npm i
 ```
 
@@ -251,6 +251,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_SUBNETS`                       | Comma-separated list of existing VPC subnet ids where EC2 instances will run. This is required when using `SEMAPHORE_AGENT_VPC_ID`. If `SEMAPHORE_AGENT_SUBNETS` is set, but `SEMAPHORE_AGENT_VPC_ID` is blank, the subnets will be ignored and the default VPC will be used. Private and public subnets are possible, but isolated subnets cannot be used. |
 | `SEMAPHORE_AGENT_AMI`                           | The AMI used for all instances. If empty, the stack will use the default AMIs, looking them up by name. If the default AMI isn't sufficient, you can use your own AMIs, but they need to be based off of the stack's default AMI. |
 | `SEMAPHORE_AGENT_OS`                            | The OS type for agents. Possible values: `ubuntu-focal` and `windows`. |
+| `SEMAPHORE_AGENT_MANAGED_POLICY_NAMES`          | A comma-separated list of custom IAM policy names to attach to the instance profile role. |
 
 ## Architecture
 
