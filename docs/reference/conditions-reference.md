@@ -440,6 +440,15 @@ blocks:
       when: "branch !~ '^dev/'"
 ```
 
+### On any pull request
+
+``` yaml
+blocks:
+  - name: Unit tests
+    skip:
+      when: "pull_request =~ '.*'"
+```
+
 [ebnf]: https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
 [skip]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#skip-in-blocks
 [run]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#run-in-blocks
