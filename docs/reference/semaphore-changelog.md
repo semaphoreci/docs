@@ -8,6 +8,60 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of August 08, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.13, 1.18.5, 1.19
+- PHP 8.0.22, 8.1.9
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0.41-generic -> 5.15.0.43-generic
+- Aws-cli 1.25.34 -> 1.25.46
+- Aws-cli 2.7.17 -> 2.7.21
+- Azure-cli 2.38.0 -> 2.39.0
+- Github-cli 2.14.2 -> 2.14.3
+- Google Chrome 103 -> 104
+- ChromeDriver 103 -> 104
+- Helm 3.9.1 -> 3.9.2
+- Java OpenJDK 11.0.15 -> 11.0.16
+- Java OpenJDK 17.0.3 -> 17.0.4
+- Heroku 7.60.2 -> 7.62.0
+- Pip 22.1.2 -> 22.2.2
+- Leiningen 2.9.1 -> 2.9.8
+- Terraform 1.2.5 -> 1.2.6
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.17.13, 1.18.5, 1.19
+- PHP 8.0.22, 8.1.9
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.25.34 -> 1.25.46
+- Aws-cli 2.7.17 -> 2.7.21
+- Azure-cli 2.38.0 -> 2.39.0
+- Github-cli 2.14.2 -> 2.14.3
+- Google Chrome 103 -> 104
+- ChromeDriver 103 -> 104
+- Helm 3.9.1 -> 3.9.2
+- Java OpenJDK 11.0.15 -> 11.0.16
+- Java OpenJDK 17.0.3 -> 17.0.4
+- Java OpenJDK 8u312 -> 8u342
+- Heroku 7.60.2 -> 7.62.0
+- Pip 22.1.2 -> 22.2.2
+- Leiningen 2.9.1 -> 2.9.8
+- Terraform 1.2.5 -> 1.2.6
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of July 25, 2022
 
 **(Improved) Ubuntu 20.04 image update**

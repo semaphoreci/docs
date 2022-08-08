@@ -61,7 +61,7 @@ Following version control tools are pre-installed:
 
 - Git 2.37.1
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.14.2
+- GitHub CLI 2.14.3
 - Mercurial 4.5.3
 - Svn 1.9.7
 
@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (default), 78.1, 102.0.1
 - geckodriver 0.26.0
-- Google Chrome 103
-- ChromeDriver 103
+- Google Chrome 104
+- ChromeDriver 104
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -85,20 +85,22 @@ Docker toolset is installed and following versions are available:
 - Docker 20.10.17
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
 - Docker-compose 2.6.1 (used as `docker compose version`)
+- Docker-machine 0.16.2
+- Dockerize 0.6.1
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.34
-- aws-cli v2 (used as `aws2`) 2.7.17
-- azure-cli 2.38.0
+- aws-cli v1 (used as `aws`) 1.25.46
+- aws-cli v2 (used as `aws2`) 2.7.21
+- azure-cli 2.39.0
 - eb-cli 3.19.1
 - ecs-cli 1.21.0
 - doctl 1.76.0
 - gcloud 297.0.1
-- kubectl 4.5.4
-- heroku 7.60.2
-- terraform 1.2.5
-- helm 3.9.1
+- kubectl 1.24.3
+- heroku 7.62.0
+- terraform 1.2.6
+- helm 3.9.2
 
 ### Network utilities
 
@@ -134,12 +136,13 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x (1.18.4 as default)
+- 1.19.x
 
 ### Java and JVM languages
 
-- Java: 8u312, 11.0.15 (default), 17.0.3
+- Java: 8u342, 11.0.16 (default), 17.0.4
 - Scala: 2.12.15, 3.1.3
-- Leiningen: 2.9.1 (Clojure)
+- Leiningen: 2.9.9 (Clojure)
 - sbt 1.7.1
 
 #### Additional build tools
@@ -196,7 +199,7 @@ Supporting libraries:
 - pypy3: 7.3.9
 - pip (for Python 2.7): 20.3.4
 - pip (for Python 3.6): 21.3.1
-- pip (for Python 3.7 and above): 22.1.2
+- pip (for Python 3.7 and above): 22.2.2
 - venv: 20.14.1
 
 ### Ruby
