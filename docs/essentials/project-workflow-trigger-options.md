@@ -29,7 +29,7 @@ In every job from this workflow, Semaphore will export a
 
 ## Whitelisting branches
 
-By default, Semaphore will create a workflow for every branch. You can limit
+By default, Semaphore will create a workflow for a push to a branch. You can limit
 the branches that you want to run by following these steps:
 
 1. Go to your project and click **Settings** in the top right corner.
@@ -70,8 +70,9 @@ When you choose this option Semaphore will create a workflow for every push to a
 In every job from this workflow, Semaphore will export a
 `SEMAPHORE_GIT_REF_TYPE` environment variable with `pull-request` as a value.
 
-Semaphore uses a MERGE commit to run a workflow. The SHA of the HEAD commit
-of the Pull Request is stored in the `SEMAPHORE_GIT_PR_SHA` environment variable.
+!!! info "Semaphore uses the MERGE commit to run a workflow."
+   Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
+   You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
 ## Building pull requests from forks
 
@@ -84,8 +85,9 @@ In every job from this workflow, Semaphore will export a
 To distinguish workflows from main and forked repositories, you can compare
 `SEMAPHORE_GIT_PR_SLUG` and `SEMAPHORE_GIT_REPO_SLUG` environment variables.
 
-Semaphore uses the MERGE commit to run a workflow. The SHA of the HEAD commit
-of the Pull Request is stored in `SEMAPHORE_GIT_PR_SHA` environment variable.
+!!! info "Semaphore uses the MERGE commit to run a workflow."
+   Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
+   You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
 ### Exposing secrets in forked pull requests
 
