@@ -71,8 +71,8 @@ In every job from this workflow, Semaphore will export a
 `SEMAPHORE_GIT_REF_TYPE` environment variable with `pull-request` as a value.
 
 !!! info "Semaphore uses the MERGE commit to run a workflow."
-   Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
-   You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
+    Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
+    You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
 ## Building pull requests from forks
 
@@ -86,8 +86,8 @@ To distinguish workflows from main and forked repositories, you can compare
 `SEMAPHORE_GIT_PR_SLUG` and `SEMAPHORE_GIT_REPO_SLUG` environment variables.
 
 !!! info "Semaphore uses the MERGE commit to run a workflow."
-   Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
-   You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
+    Instead of the HEAD commit pushed to the pull request, Semaphore uses the MERGE commit between the source and the upstream branch.
+    You can find the SHA of the HEAD commit of the Pull Request in the `SEMAPHORE_GIT_PR_SHA` environment variable.
 
 ### Exposing secrets in forked pull requests
 
