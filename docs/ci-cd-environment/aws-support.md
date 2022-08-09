@@ -29,9 +29,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.15.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.16.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.15
+cd agent-aws-stack-0.1.16
 npm i
 ```
 
@@ -252,6 +252,10 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_AMI`                           | The AMI used for all instances. If empty, the stack will use the default AMIs, looking them up by name. If the default AMI isn't sufficient, you can use your own AMIs, but they need to be based off of the stack's default AMI. |
 | `SEMAPHORE_AGENT_OS`                            | The OS type for agents. Possible values: `ubuntu-focal` and `windows`. |
 | `SEMAPHORE_AGENT_MANAGED_POLICY_NAMES`          | A comma-separated list of custom IAM policy names to attach to the instance profile role. |
+| `SEMAPHORE_AGENT_ASG_METRICS`                   | A comma-separated list of ASG metrics to collect. Available metrics can be found [here](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.MetricsCollectionProperty.html). |
+| `SEMAPHORE_AGENT_VOLUME_NAME`                   | The EBS volume's device name to use for a custom volume. If this is not set, the EC2 instances will have an EBS volume based on the AMI's one. |
+| `SEMAPHORE_AGENT_VOLUME_TYPE`                   | The EBS volume's type, when using `SEMAPHORE_AGENT_VOLUME_NAME`. By default, this is `gp2`. |
+| `SEMAPHORE_AGENT_VOLUME_SIZE`                   | The EBS volume's size, in GB, when using `SEMAPHORE_AGENT_VOLUME_NAME`. By default, this is `64`. |
 
 ## Architecture
 
