@@ -1,4 +1,4 @@
-# Releasing Semantic Versions
+# Releasing semantic versions
 
 [Semantic versioning](https://semver.org/) is a formal convention for determining the version number of 
 new software releases. The standard helps software users to understand the severity of changes in each 
