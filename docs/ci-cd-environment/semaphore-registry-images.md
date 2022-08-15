@@ -188,7 +188,8 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | postgres:10 | `registry.semaphoreci.com/postgres:10` |    
 | postgres:11 | `registry.semaphoreci.com/postgres:11` |    
 | postgres:12 | `registry.semaphoreci.com/postgres:12` |    
-| postgres:13 | `registry.semaphoreci.com/postgres:13` |    
+| postgres:13 | `registry.semaphoreci.com/postgres:13` |  
+| postgres:14 | `registry.semaphoreci.com/postgres:14` |  
 
 ### ElasticSearch    
 | Image | Link |
