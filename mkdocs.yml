@@ -178,6 +178,7 @@ nav:
     - Notifications YAML: reference/notifications-yaml-reference.md
     - Sem CLI: reference/sem-command-line-tool.md
     - Artifact CLI: reference/artifact-cli-reference.md
+    - Sem-context CLI: reference/sem-context-reference.md
     - Artifact Retention Policy: reference/artifact-retention-policies.md
     - Test results CLI: reference/test-results-cli-reference.md
     - API: reference/api-v1alpha.md
