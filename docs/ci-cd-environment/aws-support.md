@@ -29,9 +29,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.16.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.18.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.16
+cd agent-aws-stack-0.1.18
 npm i
 ```
 
@@ -375,7 +375,12 @@ The following AWS IAM policy document describes all the permissions required:
       "Action": [
         "ecr:DescribeRepositories",
         "ecr:CreateRepository",
-        "ecr:DeleteRepository"
+        "ecr:DeleteRepository",
+        "ecr:SetRepositoryPolicy",
+        "ecr:GetLifecyclePolicy",
+        "ecr:PutImageTagMutability",
+        "ecr:PutImageScanningConfiguration",
+        "ecr:ListTagsForResource"
       ],
       "Resource": "arn:aws:ecr:*:*:repository/cdk*"
     },
