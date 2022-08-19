@@ -153,6 +153,7 @@ nav:
       - Change-based execution for monorepos: examples/change-based-execution-for-monorepos.md
       - Using Terraform with Google Cloud: examples/using-terraform-with-google-cloud.md
       - Using private dependencies: essentials/using-private-dependencies.md
+      - Releasing semantic versions: essentials/releasing-semantic-versions.md
 
     - Deployment:
       - Zeit Now continuous deployment: examples/zeit-now-continuous-deployment.md
