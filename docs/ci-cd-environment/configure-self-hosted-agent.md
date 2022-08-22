@@ -16,12 +16,15 @@ Both ways can be used at the same time, but command line arguments take preceden
 |---------------------------------|----------|--------------|
 | `endpoint`                      | Yes      | Empty string |
 | `token`                         | Yes      | Empty string |
+| `name`                          | No       | Empty string |
 | `env-vars`                      | No       | Empty array  |
 | `files`                         | No       | Empty array  |
 | `fail-on-missing-files`         | No       | False        |
+| `fail-on-pre-job-hook-error`    | No       | False        |
 | `disconnect-after-job`          | No       | false        |
 | `disconnect-after-idle-timeout` | No       | 0            |
 | `shutdown-hook-path`            | No       | Empty string |
+| `pre-job-hook-path`             | No       | Empty string |
 | `config-file`                   | No       | Empty string |
 
 ### `endpoint`
@@ -31,6 +34,10 @@ The Semaphore endpoint that the agent uses to register and sync is determined by
 ### `token`
 
 You get an agent type registration token when you create an agent type in the Semaphore UI. If the token specified is not correct, the agent will not start.
+
+### `name`
+
+By default, the agent will generate a random name. If you want to set a custom name, you can use this configuration parameter. The name must have between 8 and 64 characters.
 
 ### `env-vars`
 
@@ -84,6 +91,10 @@ This is another way of exposing secrets to your jobs via an agent, instead of us
 
 By default, if files given to `--files` are not found in the host, they are not injected into the docker container and the job will be executed as normal. If you want to fail the job instead, set `fail-on-missing-files` to true.
 
+### `fail-on-pre-job-hook-error`
+
+Controls whether the agent should fail the job if the pre-job hook configured with `--pre-job-hook-path` fails execution. By default, the job won't fail if the pre-job hook fails.
+
 ### `disconnect-after-job`
 
 By default, an agent does not disconnect from Semaphore and shut down after completing a job. If you want to disconnect from Semaphore instead, set `disconnect-after-job` to true.
@@ -91,6 +102,12 @@ By default, an agent does not disconnect from Semaphore and shut down after comp
 ### `disconnect-after-idle-timeout`
 
 By default, an agent does not disconnect after a given period of idleness. If you want an agent to disconnect after a set period of idleness, set `disconnect-after-idle-timeout` to the desired amount of time (in seconds).
+
+### `pre-job-hook-path`
+
+By default, nothing else is executed before the agent starts executing the commands for a job. This parameter allows you to configure a hook to execute before a job starts. It accepts the path to a script (Bash/PowerShell) that will be run right after the job environment is set, but before the job commands start.
+
+Additionally, you can use `fail-on-pre-job-hook-error` to control whether the job should proceed or fail if an error occurs while executing that script.
 
 ### `shutdown-hook-path`
 
