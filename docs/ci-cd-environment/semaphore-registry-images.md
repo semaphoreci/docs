@@ -191,6 +191,19 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | postgres:13 | `registry.semaphoreci.com/postgres:13` |  
 | postgres:14 | `registry.semaphoreci.com/postgres:14` |  
 
+### PostGis
+| Image | Link |
+|--------|--------|
+| postgis:9.6-2.5 | `registry.semaphoreci.com/postgis:9.6-2.5` |    
+| postgis:9.6-3.0 | `registry.semaphoreci.com/postgis:9.6-3.0` |    
+| postgis:10-2.5 | `registry.semaphoreci.com/postgis:10-2.5` |    
+| postgis:11-2.5 | `registry.semaphoreci.com/postgis:11-2.5` |    
+| postgis:11-3.0 | `registry.semaphoreci.com/postgis:11-3.0` |    
+| postgis:12-2.5 | `registry.semaphoreci.com/postgis:12-2.5` |    
+| postgis:12-3.0 | `registry.semaphoreci.com/postgis:12-3.0` |    
+| postgis:13-3.0 | `registry.semaphoreci.com/postgis:13-3.0` |    
+| postgis:14-3.1 | `registry.semaphoreci.com/postgis:14-3.1` |    
+
 ### ElasticSearch    
 | Image | Link |
 |--------|--------|
