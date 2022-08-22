@@ -25,7 +25,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.7/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.9/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -56,7 +56,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.7/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.9/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -88,15 +88,46 @@ agent start --config-file config.yaml
 
 ## Installing the agent on MacOS
 
+**1. Prepare your machine:**
+
+```
+sudo mkdir -p /opt/semaphore/agent
+sudo chown $USER /opt/semaphore/agent/
+cd /opt/semaphore/agent
+```
+
+**2. Download the agent:**
+
+```
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.9/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
+tar -xf agent.tar.gz
+```
+
+**3. Install the agent:**
+
+```
+sudo ./install.sh
+```
+
+The script asks for your Semaphore organization name, the [agent type registration token][agent tokens], the macOS user used to run the agent, and does the following:
+
+- downloads and installs the [Semaphore toolbox][toolbox]
+- creates a launchd daemon for the agent
+- creates an initial `config.yaml` file in the installation directory for you to manage [agent configuration][agent-configuration]
+
+Note that any changes in the agent configuration file require a restart of the launchd daemon.
+
+## Installing the agent on MacOS using Homebrew
+
 **1. Install the agent using Homebrew:**
 
 ```
 brew install semaphoreci/tap/agent
 ```
 
-Note: If you don't want to use Homebrew, the agent can be downloaded directly from the [Releases page][releases-page].
-
 **2. Download and install the [toolbox][toolbox]:**
+
+When installing the agent using Homebrew, the toolbox isn't installed. You need to manually install it:
 
 ```
 curl -L "https://github.com/semaphoreci/toolbox/releases/latest/download/self-hosted-darwin.tar" -o toolbox.tar
@@ -125,7 +156,7 @@ Set-Location C:\semaphore-agent
 **2. Download the agent:**
 
 ```
-Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.7/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.9/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
 tar.exe xvf agent.tar.gz
 ```
 
