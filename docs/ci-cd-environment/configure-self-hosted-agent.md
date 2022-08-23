@@ -112,7 +112,7 @@ By default, the logs for a job are not uploaded as a [job artifact](https://docs
 - **when-trimmed**: job logs will only be uploaded as a job artifact if the logs were trimmed for being above the current [limit of 16MB](https://docs.semaphoreci.com/reference/quotas-and-limits/#job-log-size-limit).
 - **always**: job logs will always be uploaded as a job artifact.
 
-The agent will use the [artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/) to upload the logs to Semaphore. If the artifact CLI is not available in the host where the agent is running, nothing will be uploaded.
+The artifact is uploaded using the path `agent/job_logs.txt`. The agent will use the [artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/) to upload the logs to Semaphore. If the artifact CLI is not available to the agent, nothing will be uploaded.
 
 ### `pre-job-hook-path`
 
