@@ -25,6 +25,7 @@ Both ways can be used at the same time, but command line arguments take preceden
 | `disconnect-after-idle-timeout` | No       | 0            |
 | `shutdown-hook-path`            | No       | Empty string |
 | `pre-job-hook-path`             | No       | Empty string |
+| `upload-job-logs`               | No       | never        |
 | `config-file`                   | No       | Empty string |
 
 ### `endpoint`
@@ -102,6 +103,16 @@ By default, an agent does not disconnect from Semaphore and shut down after comp
 ### `disconnect-after-idle-timeout`
 
 By default, an agent does not disconnect after a given period of idleness. If you want an agent to disconnect after a set period of idleness, set `disconnect-after-idle-timeout` to the desired amount of time (in seconds).
+
+### `upload-job-logs`
+
+By default, the logs for a job are not uploaded as a [job artifact](https://docs.semaphoreci.com/essentials/artifacts/#job-artifacts) after a job finishes. However, you can change that behavior. This parameter accepts three values:
+
+- **never**: the default one, job logs will never be uploaded as a job artifact.
+- **when-trimmed**: job logs will only be uploaded as a job artifact if the logs were trimmed for being above the current [limit of 16MB](https://docs.semaphoreci.com/reference/quotas-and-limits/#job-log-size-limit).
+- **always**: job logs will always be uploaded as a job artifact.
+
+The agent will use the [artifact CLI](https://docs.semaphoreci.com/reference/artifact-cli-reference/) to upload the logs to Semaphore. If the artifact CLI is not available in the host where the agent is running, nothing will be uploaded.
 
 ### `pre-job-hook-path`
 
