@@ -5,6 +5,8 @@ Description: This guide describes how to create and use a self-hosted agent type
 # Using self-hosted agent types
 Before running and using self-hosted agents in your pipelines, you need to register a new agent type in your organization.
 
+**Note:** Self-hosted agents are only available on our [enterprise plan](https://semaphoreci.com/pricing).
+
 ## Creating a self-hosted agent type
 
 1. Go to `<your-organization-name>.semaphoreci.com/self_hosted_agents`
