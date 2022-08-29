@@ -3,6 +3,7 @@ Description: This guide describes how to install a self-hosted agent on various 
 ---
 
 # Installing a self-hosted agent
+
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
 - git
@@ -11,6 +12,9 @@ The Semaphore agent is open source and can be found [here][agent repo]. Before i
 - docker-compose (Linux/MacOS)
 
 Please, follow the installation instructions for your operating system of choice below.
+
+**Note:** Self-hosted agents are only available on our [enterprise plan](https://semaphoreci.com/pricing).
+
 
 ## Installing the agent on Ubuntu/Debian
 

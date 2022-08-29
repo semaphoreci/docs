@@ -5,6 +5,8 @@ Description: This guide gives a brief overview of self-hosted agents and how the
 # Self-hosted agents overview
 Semaphore allows you to run your jobs in an environment which is controlled by your team. This is achieved through the use of self-hosted agents. Additionally, compared to a hosted platform, self-hosted agents offer more control over hardware, operating system versions, and the available software. This is because as you can run the agents anywhere you want: physical or virtual machines, containers, or in the cloud.
 
+**Note:** Self-hosted agents are only available on our [enterprise plan](https://semaphoreci.com/pricing).
+
 ## Agent communication with Semaphore
 
 All communication between the agent and Semaphore is one-way -- from the agent to Semaphore -- and is secured via HTTPS TLS 1.3.
