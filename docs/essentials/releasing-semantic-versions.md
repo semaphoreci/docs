@@ -96,7 +96,9 @@ The above command will trigger a new pipeline on Semaphore and generate a new pa
 ## Using the release information in the continuation of your delivery process
 
 `sem-semantic-release` wraps the semantic release CLI and exports the release information to the rest 
-of your delivery process. It is handy when you want to continue the delivery process once the release 
+of your delivery process using [sem-context put](https://docs.semaphoreci.com/reference/sem-context-reference/#put).
+This information can later be retrieved with [sem-context get](https://docs.semaphoreci.com/reference/sem-context-reference/#get).
+It is handy when you want to continue the delivery process once the release 
 has been created. A common example would be to build a Docker image tagged with the release version, 
 or add an annotation to a Kubernetes deployment manifest.
 
