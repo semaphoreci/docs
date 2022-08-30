@@ -134,7 +134,7 @@ To grant Semaphore access to public or private repositories, click on the **Gran
 On the [Semaphore OAuth application page](https://github.com/settings/connections/applications/328c742132e5407abd7d) you can also request that a GitHub organization admin grants Semaphore OAuth App access to its repositories. If you are an admin, you can do this by yourself.
 
 ### Verifying deploy key health
-Creating a project in Semaphore generates a deploy key. Semaphore generates a deploy key for each Bitbucket repository with a project connected to it.  
+Creating a project in Semaphore generates a deploy key. Semaphore generates a deploy key for each GitHub repository with a project connected to it.  
 
 Can't find a deploy key? There could be several reasons why a deploy key might not be available anymore:  
 
