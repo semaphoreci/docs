@@ -174,7 +174,7 @@ To see more details about the **sem-version** tool, refer to [Selecting language
 
 ### Using databases
 
-Both Github and Semaphore support starting a database via Docker container. 
+Both Github Actions and Semaphore support starting a database via Docker container. 
 Github Actions uses **service containers** while Semaphore incorporates **sem-service** in its toolbox.
 
 Examples from each platform are shown below:
