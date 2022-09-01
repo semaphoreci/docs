@@ -2,12 +2,12 @@
 description: This guide outlines the key differences between Travis CI and Semaphore 2.0 and provides you with a direction to migrate to Semaphore 2.0.
 ---
 
-# Migrating from Jenkins to Semaphore
+# Migrating from Travis CI to Semaphore
 
 In this document, you will find an overview of the main differences between Travis CI and Semaphore, 
 as well as an overview of how to migrate from Travis CI to Semaphore.
 
-## Why migrate from Jenkins to Semaphore?
+## Why migrate from Travis CI to Semaphore?
 
 
 
@@ -184,6 +184,73 @@ services:
   
 To see how to use **sem-service** and all the supported databases and other services, 
 refer to [sem-service: Managing Databases and Services on Linux][sem-service].
+
+### Complete example
+
+<table>
+  <thead>
+    <tr>
+      <th>Travis CI</th>
+      <th>Semaphore</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">
+        <pre lang=yaml>
+language: ruby
+rvm:
+  - 3.1
+cache:
+  - bundler
+  - yarn
+services:
+  - postgresql
+before_install:
+  - nvm install --lts
+before_script:
+  - bundle install --jobs=3 --retry=3
+  - yarn
+  - bundle exec rake db:create
+  - bundle exec rake db:schema:load
+script:
+  - bundle exec rake test
+  - bundle exec rake test:system
+    </pre>
+      </td>
+      <td valign="top">
+        <pre lang=yaml>
+version: v1.0
+name: Example pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Setup
+    task:     
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+          - sem-version ruby 3.1
+          - sem-service start postgres
+          - nvm install --lts
+      jobs:
+        - name: Bundle
+          commands:
+            - bundle install --path vendor/bundle
+            - yarn
+            - bundle exec rake db:create
+            - bundle exec rake db:schema:load
+            - bundle exec rake test
+            - bundle exec rake test:system
+            - cache store
+    </pre>
+      </td>
+    </tr>
+  </tbody>
+  </table>
 
 
 [parametrized-promotions]: ../essentials/deploying-with-promotions.md
