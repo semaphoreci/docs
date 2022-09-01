@@ -8,8 +8,12 @@ In this document, you will find an overview of the main differences between Trav
 as well as an overview of how to migrate from Travis CI to Semaphore.
 
 ## Why migrate from Travis CI to Semaphore?
+Both Semaphore and Travis CI are modern CI/CD tools available in the cloud or on-premise. Here're the main reasons why companies choose Semaphore over Travis CI:
 
-
+1. **Unprecedented speed and reliability.** Building on Semaphore is 2x times faster than on Travis CI.
+2. **Ease of setup and maintenance.** Users can choose whether to build workflows using Semaphore's intuitive Visual Workflow Builder or make use of the YAML configuration.
+3. **Advanced deployment dashboards.** In Semaphore, users can create custom screens that show deployment activity across multiple projects. 
+4. **Easy-to-read test reports.** Semaphore collects XML reports and displays them as convenient [test reports][test-reports]. With the help of these reports, users can clearly see which tests are failing and which ones are the slowest in one's test suite, identify flaky tests and see how much time it takes to run each test.
 
 ## Key concepts
 
@@ -265,3 +269,4 @@ blocks:
 [artifacts]: ../essentials/artifacts.md
 [language-versions]: ../ci-cd-environment/sem-version-managing-language-versions-on-linux.md
 [sem-service]: ../ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
+[test-reports]: ../essentials/test-summary.md
