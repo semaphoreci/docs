@@ -675,6 +675,7 @@ HTTP status: 200
     "state": "FINISHED",
     "agent": {
       "ip": "88.99.26.221",
+      "name": "",
       "ports": [
         {
           "name": "ssh",

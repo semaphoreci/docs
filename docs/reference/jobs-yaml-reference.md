@@ -219,8 +219,8 @@ Here is a list of values for the `result` property: `NONE`, `PASSED`, `FAILED`, 
 
 #### agent status
 
-The `agent` property holds two other properties, named `ip` and `ports`, that
-specify the IP address and the TCP port number used by the agent running the
+The `agent` property holds three other properties, named `ip`, `name` and `ports`, that
+specify the IP address, name and the TCP port number used by the agent running the
 job.
 
 ##### ip
@@ -229,11 +229,21 @@ The value of the `ip` property is the IP address of the Virtual Machine used
 for executing the job. This value is provided by Semaphore 2.0 and should not
 be changed.
 
+For self-hosted jobs, this value is empty.
+
+##### name
+
+The value of the `name` property is the name used by the agent that was assigned to the job.
+For cloud jobs, the value of this property is empty. For self-hosted jobs, the value of this
+property is the [name of the self-hosted agent](https://docs.semaphoreci.com/ci-cd-environment/configure-self-hosted-agent/#name) that was assigned to the job.
+
 ##### ports
 
 The `ports` property holds a `name` and `number` pair. The value of the `name`
 property is the protocol used, which is `ssh`, and the value of the `number`
 property is the TCP port number used for the `ssh` connection.
+
+For self-hosted jobs, this is an empty list.
 
 ## See also
 
