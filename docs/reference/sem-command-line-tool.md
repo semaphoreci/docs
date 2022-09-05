@@ -64,8 +64,8 @@ The following list briefly describes all `sem` operations:
     resources.
 - *edit*: the `edit` command is used for editing existing `projects`, `secrets`,
     `notifications`, and `dashboards` using your configured text editor.
-- *apply*: the `apply` command is used for updating existing `secrets` and
-    `dashborads` using a `secret` or a `dashaboard` YAML file, and requires
+- *apply*: the `apply` command is used for updating existing `projects`, `secrets`,
+    `dashborads` and `notifications` using a corresponding YAML file, and requires
     the use of the `-f` flag.
 - *attach*: the `attach` command is used for attaching to a running `job`.
 - *debug*: the `debug` command is used for debugging `jobs` and `projects`.
@@ -434,9 +434,9 @@ sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
 ### sem apply
 
-The `sem apply` command works for `secrets` and `dashboards` and allows you to
-update the contents of an existing `secret` or `dashboard` using an external
-`secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
+The `sem apply` command works for `projects`, `secrets`, `dashboards` and `notifications` and allows you to
+update the contents of an existing resource using an external
+YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
 
 #### sem apply example
