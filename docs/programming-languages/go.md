@@ -82,7 +82,7 @@ General test summary guidelines are [available here ↗](/essentials/test-summar
 ### Generating JUnit XML reports
 
 In this guide we will focus on [gotestsum ↗][gotestsum] test runner.
-This runner has out-of-the-box support for generaing JUnit XML files, and works without additional configuration.
+This runner has out-of-the-box support for generating JUnit XML files, and works without additional configuration.
 
 To install [gotestsum ↗][gotestsum] run:
 
