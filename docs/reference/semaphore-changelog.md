@@ -23,6 +23,85 @@ This page is updated on a weekly basis.
 - Flutter 3.0.1 -> 3.3.0
 - PostgreSQL 14.3 -> 14.5
 
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.0
+- PHP 8.0.23, 8.1.10
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0.43-generic -> 5.15.0.46-generic
+- Aws-cli 1.25.46 -> 1.25.67
+- Aws-cli 2.7.21 -> 2.7.29
+- Erlang 23.3.4.16 -> 23.3.4.17
+- Erlang 24.3.4.2 -> 24.3.4.4
+- Erlang 25.0.3 -> 25.0.4
+- Bazel 5.2.0 -> 5.3.0
+- Containerd.io 1.6.6 -> 1.6.8
+- Github-cli 2.14.3 -> 2.14.7
+- Git 2.37.1 -> 2.37.3
+- Gcloud 297.0.1 -> 400.0.0
+- Google Chrome 104 -> 105
+- ChromeDriver 104 -> 105
+- Helm 3.9.2 -> 3.9.4
+- Heroku 7.62.0 -> 7.63.0
+- Kubectl 1.24.3 -> 1.25.0
+- Nodejs 16.16.0 -> 16.17.0
+- Npm 8.11.0 -> 8.15.0
+- Terraform 1.2.6 -> 1.2.8
+- Leiningen 2.9.8 -> 2.9.10
+- Firefox 102.0.1esr -> 102.2.0esr
+
+**(Changed)** packages:  
+
+`sem-version firefox` versions available:
+- Firefox 68.9.0esr: `68`, `esr-old`
+- Firefox 78.1.0esr: `78`, `default`, `esr`
+- Firefox 102.2.0esr: `102`, `esr-new`, `esr-latest`
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.0
+- PHP 8.0.23, 8.1.10
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-122-generic -> 5.4.0-125-generic
+- Aws-cli 1.25.46 -> 1.25.67
+- Aws-cli 2.7.21 -> 2.7.29
+- Erlang 23.3.4.16 -> 23.3.4.17
+- Erlang 24.3.4.2 -> 24.3.4.4
+- Erlang 25.0.3 -> 25.0.4
+- Bazel 5.2.0 -> 5.3.0
+- Containerd.io 1.6.6 -> 1.6.8
+- Github-cli 2.14.3 -> 2.14.7
+- Git 2.37.1 -> 2.37.3
+- Gcloud 297.0.1 -> 400.0.0
+- Google Chrome 104 -> 105
+- ChromeDriver 104 -> 105
+- Helm 3.9.2 -> 3.9.4
+- Heroku 7.62.0 -> 7.63.0
+- Kubectl 1.24.3 -> 1.25.0
+- Nodejs 16.16.0 -> 16.17.0
+- Npm 8.11.0 -> 8.15.0
+- Terraform 1.2.6 -> 1.2.8
+- Leiningen 2.9.8 -> 2.9.10
+- Firefox 102.0.1esr -> 102.2.0esr
+
+**(Changed)** packages:
+
+`sem-version firefox` versions available:
+- Firefox 68.9.0esr: `68`, `esr-old`
+- Firefox 78.1.0esr: `78`, `default`, `esr`
+- Firefox 102.2.0esr: `102`, `esr-new`, `esr-latest`
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
 
 ### Week of August 08, 2022
 
