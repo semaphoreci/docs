@@ -8,6 +8,22 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of September 05, 2022
+
+**(Docker) images updated**
+
+- Android:30-flutter: flutter 3.0.1 removed, 3.0.5 and 3.3.0 added (sem-version flutter 3.0.5, sem-version flutter 3.3.0)
+- Android:31-flutter: flutter 3.0.1 removed, 3.0.5 and 3.3.0 added (sem-version flutter 3.0.5, sem-version flutter 3.3.0)
+
+**(Improved) macOS Xcode 13 image update**
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.206.2 -> 2.209.1
+- Flutter 3.0.1 -> 3.3.0
+- PostgreSQL 14.3 -> 14.5
+
+
 ### Week of August 08, 2022
 
 **(Improved) Ubuntu 20.04 image update**
