@@ -72,7 +72,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 **(Updated)** Updated packages:
 
-- Kernel 5.4.0-122-generic -> 5.4.0-124-generic
+- Kernel 5.4.0-122-generic -> 5.4.0-125-generic
 - Aws-cli 1.25.46 -> 1.25.67
 - Aws-cli 2.7.21 -> 2.7.29
 - Erlang 23.3.4.16 -> 23.3.4.17
