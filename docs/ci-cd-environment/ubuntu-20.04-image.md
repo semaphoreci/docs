@@ -91,7 +91,7 @@ Docker toolset is installed and the following versions are available:
 
 - aws-cli v1 (used as `aws`) 1.25.67
 - aws-cli v2 (used as `aws2`) 2.7.29
-- azure-cli 2.39.0
+- azure-cli 2.40.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
 - doctl 1.76.0
