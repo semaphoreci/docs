@@ -55,18 +55,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.37.1
+- Git 2.37.3
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.14.3
+- GitHub CLI 2.14.7
 - Mercurial 5.3.1
 - Svn 1.13.0
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.9 (default), 78.1, 102.0.1
+- Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.2.0 (`102`, `esr-new`, `esr-latest`)
 - geckodriver 0.26.0
-- Google Chrome 104
-- ChromeDriver 104
+- Google Chrome 105
+- ChromeDriver 105
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -89,17 +89,17 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.46
-- aws-cli v2 (used as `aws2`) 2.7.21
+- aws-cli v1 (used as `aws`) 1.25.67
+- aws-cli v2 (used as `aws2`) 2.7.29
 - azure-cli 2.39.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
 - doctl 1.76.0
 - gcloud 297.0.1
-- kubectl 1.24.3
-- heroku 7.62.0
-- terraform 1.2.6
-- helm 3.9.2
+- kubectl 1.25.0
+- heroku 7.64.0
+- terraform 1.2.8
+- helm 3.9.4
 
 ### Network utilities
 
@@ -115,7 +115,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0
-- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default)
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0
 
 Additional libraries:
 
@@ -134,21 +134,21 @@ Versions:
 - 1.15.x
 - 1.16.x
 - 1.17.x
-- 1.18.x (1.18.4 as default)
-- 1.19.x
+- 1.18.x
+- 1.19.x (1.19 as default)
 
 ### Java and JVM languages
 
 - Java: 11.0.15 (default), 17.0.4
 - Scala: 2.12.15, 3.1.3
-- Leiningen: 2.9.8 (Clojure)
+- Leiningen: 2.9.10 (Clojure)
 - sbt 1.7.1
 
 #### Additional build tools
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 5.2.0
+- Bazel: 5.3.0
 
 ### JavaScript via Node.js
 
@@ -156,7 +156,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.16.0 (set as default, with alias 16.16), includes npm 8.11.0
+- v16.17.0 (set as default, with alias 16.17), includes npm 8.15.0
 
 #### Additional tools
 
