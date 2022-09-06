@@ -29,6 +29,7 @@ This page is updated on a weekly basis.
 
 - Elixir 1.14.0
 - PHP 8.0.23, 8.1.10
+- Go 1.18.6, 1.19 (default), 1.19.1
 
 **(Updated)** Updated packages:
 
@@ -69,6 +70,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 
 - Elixir 1.14.0
 - PHP 8.0.23, 8.1.10
+- Go 1.18.6, 1.19 (default), 1.19.1
 
 **(Updated)** Updated packages:
 
