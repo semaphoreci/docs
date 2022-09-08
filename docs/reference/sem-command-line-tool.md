@@ -700,7 +700,7 @@ sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
 
 ## Working with projects
 
-This group includes the `sem init`, `sem edit`, and `sem debug` commands.
+This group includes the `sem init`, `sem get`, `sem edit`, `sem apply`, and `sem debug` commands.
 
 ### sem init
 
@@ -776,6 +776,18 @@ check the following pages to debug connection to your git provider:
 - [Checking the Connection Between GitHub and Semaphore](/account-management/connecting-github-and-semaphore/#checking-the-connection-between-github-and-semaphore)
 - [Checking the Connection Between Bitbucket and Semaphore](/account-management/connecting-bitbucket-and-semaphore/#checking-the-connection-between-bitbucket-and-semaphore)
 
+### sem get
+
+You can list your projects by using the `sem get projects` command and from there you can get
+a specific project YAML file by using `sem get project` followed by the `name` of an existing project.
+
+``` bash
+sem get project [name]
+```
+
+The `sem get project` command will fetch the YAML file of a project which you can store, edit and later
+use with `sem apply -f` command.
+
 ### sem edit
 
 You can edit a project by using the `sem edit project` command followed by the
@@ -791,6 +803,22 @@ text editor.
 
 To learn more about the configuration options for projects, visit the
 [Projects YAML Reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/) page.
+
+### sem apply 
+
+You can apply an existing YAML a project by using the `sem apply -f` command followed by the
+valid file path to a project YAML file that contains the updates.
+
+``` bash
+sem apply -f [file_path]
+```
+
+The `sem apply -f` command will use that file and try to update the project specified.
+
+To learn more about the configuration options for projects, visit the
+[Projects YAML Reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/) page.
+
+
 
 ### sem debug for projects
 
