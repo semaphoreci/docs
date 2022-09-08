@@ -95,6 +95,15 @@ manually stop a debug session execute `sem stop job [job-id]` from your local
 machine. You can find the Job ID of your debug job using the `sem get jobs`
 command.
 
+## Debug sessions for self-hosted jobs
+
+If the job you are trying to debug ran in a [self-hosted agent type](/ci-cd-environment/self-hosted-agent-types/), the Semaphore CLI will not automatically log into the machine where the Semaphore agent is running the debug job. Instead, it will just display the [self-hosted agent name](/ci-cd-environment/configure-self-hosted-agent/#name) running that debug job and wait until the debug session can be stopped.
+
+After logging into the machine running the debug job:
+
+- Make sure you are logged in as the same user the Semaphore agent is using. If you are using the [agent-aws-stack](https://github.com/renderedtext/agent-aws-stack), that user is `semaphore`.
+- In self-hosted environments, the Semaphore agent does not automatically load environment variables exposed to the job through shell profiles, so you need to source the environment variables exposed to the job. The file with all the environment variables is located at `/tmp/.env-*`.
+
 ## See also
 
 - [Sem command line tool reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
