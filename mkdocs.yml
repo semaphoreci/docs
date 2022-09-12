@@ -156,6 +156,9 @@ nav:
       - Releasing semantic versions: essentials/releasing-semantic-versions.md
 
     - Deployment:
+      - AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
+      - Deploying to DigitalOcean: examples/deploy-to-digitalocean.md
+      - Deploying with Git Deploy: examples/deploying_with_git_deploy.md
       - Zeit Now continuous deployment: examples/zeit-now-continuous-deployment.md
       - Publishing Docker images on DockerHub: examples/publishing-docker-images-on-dockerhub.md
       - Pushing Docker images to AWS Elastic Container Registry (ECR): examples/pushing-docker-images-to-aws-elastic-container-registry-ecr.md
