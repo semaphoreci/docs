@@ -457,6 +457,10 @@ GET {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
 - `wf_id` (**required, optional if** `project_id` **is present**) - ID of a workflow.
 - `branch_name` (*optional*) - Name of a branch.
 - `yml_file_path` (*optional*) - YML file that contains the pipeline definition.
+- `created_after` (*optional*) - Only pipelines created after this Unix timestamp will be returned.
+- `created_before` (*optional*) - Only pipelines created before this Unix timestamp will be returned.
+- `done_after` (*optional*) - Only pipelines done after this Unix timestamp will be returned.
+- `done_before` (*optional*) - Only pipelines done before this Unix timestamp will be returned.
 
 
 **Response**
