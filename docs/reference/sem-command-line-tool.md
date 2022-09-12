@@ -64,8 +64,8 @@ The following list briefly describes all `sem` operations:
     resources.
 - *edit*: the `edit` command is used for editing existing `projects`, `secrets`,
     `notifications`, and `dashboards` using your configured text editor.
-- *apply*: the `apply` command is used for updating existing `secrets` and
-    `dashborads` using a `secret` or a `dashaboard` YAML file, and requires
+- *apply*: the `apply` command is used for updating existing `projects`, `secrets`,
+    `dashborads` and `notifications` using a corresponding YAML file, and requires
     the use of the `-f` flag.
 - *attach*: the `attach` command is used for attaching to a running `job`.
 - *debug*: the `debug` command is used for debugging `jobs` and `projects`.
@@ -434,9 +434,9 @@ sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
 ### sem apply
 
-The `sem apply` command works for `secrets` and `dashboards` and allows you to
-update the contents of an existing `secret` or `dashboard` using an external
-`secrets` or `dashboards` YAML file. `sem apply` is used with the `-f` command
+The `sem apply` command works for `projects`, `secrets`, `dashboards` and `notifications` and allows you to
+update the contents of an existing resource using an external
+YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
 
 #### sem apply example
@@ -700,7 +700,7 @@ sem stop pipeline ea3e6bba-d19a-45d7-86a0-e78a2301b616
 
 ## Working with projects
 
-This group includes the `sem init`, `sem edit`, and `sem debug` commands.
+This group includes the `sem init`, `sem get`, `sem edit`, `sem apply`, and `sem debug` commands.
 
 ### sem init
 
@@ -776,6 +776,18 @@ check the following pages to debug connection to your git provider:
 - [Checking the Connection Between GitHub and Semaphore](/account-management/connecting-github-and-semaphore/#checking-the-connection-between-github-and-semaphore)
 - [Checking the Connection Between Bitbucket and Semaphore](/account-management/connecting-bitbucket-and-semaphore/#checking-the-connection-between-bitbucket-and-semaphore)
 
+### sem get
+
+You can list your projects by using the `sem get projects` command and from there you can get
+a specific project YAML file by using `sem get project` followed by the `name` of an existing project.
+
+``` bash
+sem get project [name]
+```
+
+The `sem get project` command will fetch the YAML file of a project which you can store, edit and later
+use with `sem apply -f` command.
+
 ### sem edit
 
 You can edit a project by using the `sem edit project` command followed by the
@@ -791,6 +803,22 @@ text editor.
 
 To learn more about the configuration options for projects, visit the
 [Projects YAML Reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/) page.
+
+### sem apply 
+
+You can apply an existing YAML a project by using the `sem apply -f` command followed by the
+valid file path to a project YAML file that contains the updates.
+
+``` bash
+sem apply -f [file_path]
+```
+
+The `sem apply -f` command will use that file and try to update the project specified.
+
+To learn more about the configuration options for projects, visit the
+[Projects YAML Reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/) page.
+
+
 
 ### sem debug for projects
 
