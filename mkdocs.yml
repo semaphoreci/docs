@@ -204,6 +204,8 @@ nav:
       - Audit logs: security/audit-logs.md
       - Audit logs exporting: security/audit-logs-exporting.md
       - Audit Events reference: security/audit-events-reference.md
+    - "User authorization":
+      - Permissions and roles: security/rbac-authorization.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
