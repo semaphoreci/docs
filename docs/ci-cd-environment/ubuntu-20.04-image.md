@@ -57,7 +57,7 @@ Following version control tools are pre-installed:
 
 - Git 2.37.3
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.14.7
+- GitHub CLI 2.15.0
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -78,9 +78,9 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.17
+- Docker 20.10.18
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.6.1 (used as `docker compose version`)
+- Docker-compose 2.11.0 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 - Buildah 1.22.3
@@ -89,16 +89,16 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.67
-- aws-cli v2 (used as `aws2`) 2.7.29
+- aws-cli v1 (used as `aws`) 1.25.75
+- aws-cli v2 (used as `aws2`) 2.7.32
 - azure-cli 2.40.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
 - doctl 1.76.0
-- gcloud 297.0.1
+- gcloud 402.0.0
 - kubectl 1.25.0
-- heroku 7.64.0
-- terraform 1.2.8
+- heroku 7.64.4
+- terraform 1.2.9
 - helm 3.9.4
 
 ### Network utilities
@@ -135,7 +135,7 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x
-- 1.19.x (1.19 as default)
+- 1.19.x (1.19.1 as default)
 
 ### Java and JVM languages
 

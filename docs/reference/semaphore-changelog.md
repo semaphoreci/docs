@@ -8,6 +8,40 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of September 19, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.25.67 -> 1.25.75
+- Aws-cli 2.7.29 -> 2.7.32
+- Gcloud 297.0.1 -> 402.0.0
+- Github-cli 2.14.7 -> 2.15.0
+- Docker 20.10.17 -> 20.10.18
+- Docker-compose 2.6.1 -> 2.11.0
+- Erlang 24.3.4.4 -> 24.3.4.5
+- Heroku 7.63.0 -> 7.63.4
+- Terraform 1.2.8 -> 1.2.9
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.25.67 -> 1.25.75
+- Aws-cli 2.7.29 -> 2.7.32
+- Gcloud 297.0.1 -> 402.0.0
+- Github-cli 2.14.7 -> 2.15.0
+- Docker 20.10.17 -> 20.10.18
+- Docker-compose 2.6.1 -> 2.11.0
+- Erlang 24.3.4.4 -> 24.3.4.5
+- Heroku 7.63.0 -> 7.63.4
+- Terraform 1.2.8 -> 1.2.9
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of September 05, 2022
 
 **(Docker) images updated**
