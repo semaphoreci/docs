@@ -1118,6 +1118,8 @@ reads the plain text file and creates an equivalent job using a
 the `commands_file` property is replaced before the job is started and the
 machine begins its execution.
 
+_Note_ The location of the `commands_file` file is relative to the pipeline file. For example, if your pipeline file is located in .semaphore/semaphore.yml, the file_with_commands.sh in the above example is assumed to live in .semaphore/file_with_commands.sh.
+
 ### `env_vars` and `jobs`
 
 An `env_vars` block can also be defined within a `jobs` block on a local
