@@ -8,6 +8,29 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+
+### Week of September 26, 2022
+
+**(New) macos-xcode14 image released **
+
+**(Updated)** Updated packages:
+
+- OS build number: 12.6
+- Kernel version: 21.6.0
+- Fastlane: 2.210.0
+- Cocoapods: 1.11.3
+- Nvm : 9.39.1 
+- Java: openjdk17
+- Postgres: 14.5
+- iOS SDK: 16.0
+- macOS SDK: 12.3
+- tvOS SDK: 16.0
+- watchOS SDK: 9.0
+
+To learn more about this image, check our [macOS Xcode 14 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/).
+
+
+
 ### Week of September 19, 2022
 
 **(Improved) Ubuntu 20.04 image update**
