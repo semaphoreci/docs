@@ -121,6 +121,7 @@ nav:
     - "iOS/macOS":
       - macOS Xcode 12 image: ci-cd-environment/macos-xcode-12-image.md
       - macOS Xcode 13 image: ci-cd-environment/macos-xcode-13-image.md
+      - macOS Xcode 14 image: ci-cd-environment/macos-xcode-14-image.md
     - Android:
       - Docker images: ci-cd-environment/android-images.md
       - Flutter example: ci-cd-environment/flutter.md
