@@ -5,8 +5,7 @@ Description: Custom roles for Semaphore platform.
 # Custom Roles
 
 If your organization needs more roles where permissions would be assigned with 
-higher granularity, you can define custom roles that will be visible only 
-within your organization.
+higher granularity, you can define custom roles.
 
 ### Creating a new role
 
