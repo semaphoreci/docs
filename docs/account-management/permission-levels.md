@@ -10,7 +10,7 @@ have different permissions based on their role.
 ## Owner
 
 The creator of an organization is its owner. There cannot be multiple owners, but
-it is possible to [transfer ownership][project-transfer] of an organization.
+it is possible to [transfer ownership](https://docs.semaphoreci.com/account-management/organizations/#transferring-ownership-of-an-organization) of an organization.
 
 The Owner can:
 
