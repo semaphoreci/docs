@@ -8,6 +8,13 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of October 03, 2022
+
+**(Docker) New image**
+
+- Docker images for Android API level 33 released, see [link](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_10-2022#L281) for more information
+
+
 
 ### Week of September 26, 2022
 
