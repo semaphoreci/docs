@@ -339,32 +339,6 @@ drivers work out-of-the-box.
 Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
 for details on preinstalled browsers and testing tools in Semaphore.
 
-## Running RSpec and Cucumber in parallel
-
-To run Cucumber or RSpec suites in parallel across multiple jobs you can use the `semaphore_test_boosters` gem.
-
-To set it up, use the following snippet for your RSpec block:
-
-``` yaml
-jobs:
-  - name: RSpec
-    parallelism: 5 # Number of jobs to run in parallel
-    commands:
-      - gem install semaphore_test_boosters
-      - rspec_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
-```
-
- A similar setup is also used for the Cucumber block:
-
-``` yaml
-jobs:
-  - name: Cucumber
-    parallelism: 5  # Number of jobs to run in parallel
-    commands:
-      - gem install semaphore_test_boosters
-      - cucumber_booster --job $SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT # Use environment variable to run portion of a spec suite
-```
-
 [rails-tutorial]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
 [browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
