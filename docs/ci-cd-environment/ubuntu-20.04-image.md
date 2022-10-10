@@ -55,18 +55,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.37.3
+- Git 2.38.0
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.15.0
+- GitHub CLI 2.17.0
 - Mercurial 5.3.1
 - Svn 1.13.0
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.2.0 (`102`, `esr-new`, `esr-latest`)
+- Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - geckodriver 0.26.0
-- Google Chrome 105
-- ChromeDriver 105
+- Google Chrome 106
+- ChromeDriver 106
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,7 +80,7 @@ Docker toolset is installed and the following versions are available:
 
 - Docker 20.10.18
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.11.0 (used as `docker compose version`)
+- Docker-compose 2.11.2 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 - Buildah 1.22.3
@@ -89,16 +89,17 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.75
-- aws-cli v2 (used as `aws2`) 2.7.32
+- aws-cli v1 (used as `aws`) 1.25.88
+- aws-cli v2 (used as `aws2`) 2.8.1
 - azure-cli 2.40.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
 - doctl 1.76.0
-- gcloud 402.0.0
-- kubectl 1.25.0
-- heroku 7.64.4
-- terraform 1.2.9
+- gcloud 405.0.0
+- gke-gcloud-auth-plugin 405.0.0
+- kubectl 1.25.2
+- heroku 7.64.0
+- terraform 1.3.1
 - helm 3.9.4
 
 ### Network utilities
@@ -114,7 +115,7 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0
+- Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0, 25.1
 - Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0
 
 Additional libraries:
@@ -135,20 +136,20 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x
-- 1.19.x (1.19.1 as default)
+- 1.19.x (1.19.2 as default)
 
 ### Java and JVM languages
 
 - Java: 11.0.15 (default), 17.0.4
 - Scala: 2.12.15, 3.1.3
 - Leiningen: 2.9.10 (Clojure)
-- sbt 1.7.1
+- sbt 1.7.2
 
 #### Additional build tools
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 5.3.0
+- Bazel: 5.3.1
 
 ### JavaScript via Node.js
 
@@ -156,7 +157,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.17.0 (set as default, with alias 16.17), includes npm 8.15.0
+- v16.17.1 (set as default, with alias 16.17), includes npm 8.15.0
 
 #### Additional tools
 
@@ -171,7 +172,7 @@ Installed versions:
 - 8.0.x
 - 8.1.x
 
-The default installed PHP version is `7.4.30`.
+The default installed PHP version is `7.4.32`.
 
 #### Additional libraries
 
