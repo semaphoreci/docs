@@ -8,13 +8,77 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of October 10, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.1.1 (aliased as 25.1)
+- Go 1.18.7, 1.19.2 (default)
+- PHP 7.4.32 (default), 8.0.24, 8.1.11
+- gke-gcloud-auth-plugin 405.0.0
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0.46-generic -> 5.15.0.48-generic
+- Aws-cli 1.25.75 -> 1.25.88
+- Aws-cli 2.7.32 -> 2.8.1
+- Bazel 5.3.0 -> 5.3.1
+- Docker-compose 2.11.0 -> 2.11.2
+- Erlang 23.3.4.17 -> 23.3.4.18
+- Erlang 24.3.4.5 -> 24.3.4.6
+- Firefox 102.2.0esr -> 102.3.0esr
+- Git 2.37.3 -> 2.38.0
+- Github-cli 2.15.0 -> 2.17.0
+- Gcloud 402.0.0 -> 405.0.0
+- Google Chrome 105 -> 106
+- ChromeDriver 105 -> 106
+- Heroku 7.63.4 -> 7.64.0
+- Kubectl 1.25.0 -> 1.25.2
+- Nodejs 16.17.0 -> 16.17.1
+- Sbt 1.7.1 -> 1.7.2
+- Terraform 1.2.9 -> 1.3.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.1.1 (aliased as 25.1)
+- Go 1.18.7, 1.19.2 (default)
+- PHP 7.4.32 (default), 8.0.24, 8.1.11
+- gke-gcloud-auth-plugin 405.0.0
+
+**(Updated)** Updated packages
+
+- Kernel 5.4.0-125-generic -> 5.4.0-126-generic
+- Aws-cli 1.25.75 -> 1.25.88
+- Aws-cli 2.7.32 -> 2.8.1
+- Bazel 5.3.0 -> 5.3.1
+- Docker-compose 2.11.0 -> 2.11.2
+- Erlang 23.3.4.17 -> 23.3.4.18
+- Erlang 24.3.4.5 -> 24.3.4.6
+- Firefox 102.2.0esr -> 102.3.0esr
+- Git 2.37.3 -> 2.38.0
+- Github-cli 2.15.0 -> 2.17.0
+- Gcloud 402.0.0 -> 405.0.0
+- Google Chrome 105 -> 106
+- ChromeDriver 105 -> 106
+- Heroku 7.63.4 -> 7.64.0
+- Kubectl 1.25.0 -> 1.25.2
+- Nodejs 16.17.0 -> 16.17.1
+- Sbt 1.7.1 -> 1.7.2
+- Terraform 1.2.9 -> 1.3.1
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 03, 2022
 
 **(Docker) New image**
 
 - Docker images for Android API level 33 released, see [link](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG_10-2022#L281) for more information
-
-
 
 ### Week of September 26, 2022
 
@@ -35,8 +99,6 @@ This page is updated on a weekly basis.
 - watchOS SDK: 9.0
 
 To learn more about this image, check our [macOS Xcode 14 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/).
-
-
 
 ### Week of September 19, 2022
 
