@@ -408,7 +408,10 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
   <summary>Click for details</summary>
   <p>
 
-We recommend using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, e.g. <a href="https://knapsackpro.com/">Knapsack</a> (both free and pro versions).
+We recommend using <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. This gem spreads tests across parallel jobs based on a configuration file or uniform file distribution (default behavior). Execution time-based distribution is not supported yet. 
+  </p>
+  <p>
+Other options are also supported, e.g. <a href="https://knapsackpro.com/">Knapsack</a> (both free and pro versions).
   </p>
   <p>
 Knapsack Rspec example:

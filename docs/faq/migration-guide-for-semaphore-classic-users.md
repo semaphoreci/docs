@@ -28,8 +28,8 @@ features, as our R&D will be focused on Semaphore 2.0.
 Everything that you've been able to do with Semaphore Classic, you'll be
 able to do with 2.0 — and much more.
 
-The only features of Classic that are not currently present in 2.0 are Boosters
-and Bitbucket support, which will be addressed soon.
+The only features of Classic that are not currently present in 2.0 are Boosters, 
+which will be addressed soon.
 
 ### Pipelines can orchestrate any workflow
 

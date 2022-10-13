@@ -341,7 +341,9 @@ for details on preinstalled browsers and testing tools in Semaphore.
 
 ## Running RSpec and Cucumber in parallel
 
-To run Cucumber or RSpec suites in parallel across multiple jobs you can use the `semaphore_test_boosters` gem.
+To run Cucumber or RSpec suites in parallel across multiple jobs you can use `semaphore_test_boosters` gem. In Semaphore 2.0, this gem spreads tests across 
+parallel jobs based on a configuration file or uniform file distribution (default behavior).
+Execution time-based distribution is not supported yet. 
 
 To set it up, use the following snippet for your RSpec block:
 
