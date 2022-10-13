@@ -548,7 +548,7 @@ your development workflow, it might need to be lowered more.
     An example is shown below:
 
 ```bash
-curl -X POST -H "Authorization: token <OATH_TOKEN>" https://api.github.com/repos/<owner>/<repo-name>/issues/<number>/comments -d '{"body":"body"}'
+curl -X POST -H "Authorization: token <OAUTH_TOKEN>" https://api.github.com/repos/<owner>/<repo-name>/issues/<number>/comments -d '{"body":"body"}'
 ```
   </p>  
 </details>
