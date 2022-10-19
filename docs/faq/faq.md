@@ -2,7 +2,7 @@
 Description: The following questions regard common issues that Semaphore users encounter.
 ---
 
-# FAQ: Frequently asked questions
+# FAQ: Frequently asked questionsssss
 
 <p>Issues we stumble upon regularly, in all areas of Semaphore 2.0</p>
 
