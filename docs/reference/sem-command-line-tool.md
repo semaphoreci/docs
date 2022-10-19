@@ -710,7 +710,7 @@ the active organization.
 The `sem init` command should be executed from within the root directory of the repository that has been either created locally and pushed to or
 cloned using the `git clone` command. Although the command can be executed
 without any other command line parameters or arguments, it also supports the
-`--project-name` and `--repo-url` options.
+`--project-name`, `--repo-url` and `--github-integration` options.
 
 #### --project-name
 
@@ -721,6 +721,14 @@ of a Semaphore 2.0 project.
 
 The `--repo-url` command line option allows you to manually specify the URL of
 a repository in case `sem init` cannot determine it.
+
+#### --github-integration
+
+The `--github-integration` command line option allows you to manually specify
+the GitHub integration type for the project. It supports two values:
+
+- `github_token`: Creates the project using the OAuth integration. This is the default one.
+- `github_app`: Creates the project using the GitHub App integration.
 
 #### sem init example
 
