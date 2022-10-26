@@ -5,31 +5,20 @@ Description: Project Insights are a set of metrics that provide a granular view 
 Project Insights provide metrics about your projects' development performance, speed, and reliability. For example, you can
 see the percentage of passed tests for the last few days in the whole project or your main branch.
 
-You can also set up Insights for your project's deployment branch via Settings on the Project Insights page.
+You can also set up insights for your project's deployment branch via Settings on the Project Insights page.
 
-!!! warning "This feature is still in Technical preview"
-    Project Insights is still in Technical Preview. Details and functionality are subject to change.
+!!! warning "This feature is in Technical preview."
+    Project Insights is in Technical Preview. Details and functionality are subject to change.
 
-
-## Default behavior
-
-By default, Project Insights are enabled for all projects, metrics are held for 30 days and are updated every 24 hours.
-
-### No Data
-If you just set up your project or there are no build runs for the last 30 days, you will see the following message:
- _"Unfortunately, there are no insights available for this project yet."_
-
-<img style="box-shadow: 0 0 5px #ccc" src="/score/img/empty.png" alt="Performance metrics - Empty">
 
 
 ## Configuring Insights
 
-Semaphore automatically collects metrics for your project without needing to set up anything. However, you need to
-set up Insights for your deployment branch.
+Semaphore tracks your CI insights automatically. You only need to set up insights for CD. 
 
-### Setting up Continuous Deployment Insights
+### Setting up Continuous Deployment insights
 
-Follow the steps below to set up CD Insights:
+Follow the steps below to set up CD insights:
 
 1. Click the **Insights** tab on the project page.
 2. Click the **Settings** button on the left side navigation bar of the Insights page.
@@ -40,19 +29,19 @@ Follow the steps below to set up CD Insights:
 
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/settings.png" alt="Project Insights - Settings page">
-After changes are saved, Semaphore will start collecting metrics for your deployment branch.
+After you save changes, Semaphore will start collecting metrics for your deployment branch.
 
 
 ## Metrics
-Semaphore breaks down the metrics by Performance, Frequency, and Reliability. You can switch between them from the panel
+Semaphore breaks down the metrics by Performance, Frequency, and Reliability. You can switch between metrics from the panel
 on the left.
 
 On the dashboard, you can see the summary of how long the pipelines need to run on average (Performance), how frequently
-the builds run (Frequency), and how stable the code is (Reliability).
+your team runs a pipeline (Frequency), and how stable your code is (Reliability).
 
 ### Performance
 Performance metrics provide an overview of the median time (p50) and the standard deviation (std.dev) that it takes the 
-pipelines to run. You can see the data for a selected branch (main or master) and all branches combined.
+pipelines to run. In addition, you can see the data for a selected branch (main or master) and all branches combined.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/perf.png" alt="Performance metrics">
 
@@ -68,7 +57,7 @@ A tooltip with the total number of runs appears when you hover over the chart on
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/ci_freq.png" alt="Performance frequency">
 
-You can see the data from the deployment branch if you have CD Insights set up.
+You can see the data from the deployment branch if you have CD insights set up.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_freq.png" alt="Performance frequency - CD">
 
@@ -77,19 +66,16 @@ You can see the data from the deployment branch if you have CD Insights set up.
 Reliability metrics provide an overview of your project's pipeline run pass rate. You can also see the 
 mean time it takes to recover from a failed pipeline run and when was the last successful run.
 
-When you hover over a day on the chart, a tooltip with the Pass Rate, Number of Builds and Passed builds appears.
+When you hover over a day on the chart, a tooltip gets displayed with the Pass Rate, Number of Builds, and Passed builds.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/ci_rel.png" alt="Performance reliability">
 
-You can see the data from the deployment branch if you have CD Insights set up.
+You can see the data from the deployment branch if you have CD insights set up.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_rel.png" alt="Performance reliability - CD">
 
 
-#### More information
+## Default data retention
 
-You can read more about about Project Insights in the 
-[Project Insights Announcement](https://semaphoreci.com/blog/project-insights).
-
-If you'd like to know more about what DORA is, you can read our [Dora Metrics](https://semaphoreci.com/blog/dora-metrics) 
-article.
+By default, Semaphore enables Project Insights for all projects. 
+Metrics are held for 30 days and are updated every 24 hours.
