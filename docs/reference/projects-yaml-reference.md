@@ -103,19 +103,10 @@ $ sem create -f goDemo.yaml
 error: http status 422 with message "{"message":"repository url must be an SSH url"}" received from upstream
 ```
 
-##### run
-
-The `run` property enables you to define if `workflows` should be triggered for this project.
-
-Here is a list of values for `run`: `true`, `false`
-
 ##### run_on
 
-The value of the `run_on` property is an array of GitHub events which should trigger
-the building process. When `run` is set to `true`, this property is required.
-
-Remember that pushing to a default branch will trigger a `workflow`, even if `branches`
-is not selected here.
+The value of the `run_on` property is an array of repository events which should trigger
+new workflows for your Semaphore project.
 
 Here is a list of values for `run_on`: `branches`, `tags`, `pull_requests`, and `forked_pull_requests`
 
@@ -141,7 +132,7 @@ no secret will be exported.
 
 ##### pipeline\_file
 
-The `pipeline\_file` property is used for setting the initial pipeline file
+The `pipeline_file` property is used for setting the initial pipeline file
 that is executed when a post-commit hook is received by Semaphore.
 
 The default value is `.semaphore/semaphore.yml`.
@@ -159,7 +150,7 @@ Or each block in a pipeline can create its own status check.
 
 ##### pipeline\_files
 
-The `pipeline\_files` property is a list of pipeline files for which Semaphore
+The `pipeline_files` property is a list of pipeline files for which Semaphore
 will submit a status check.
 
 Each value has two properties: `path` and `level`.
@@ -227,7 +218,6 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
-    run: true
     run_on:
       - branches
       - tags
@@ -248,7 +238,6 @@ metadata:
 spec:
   repository:
     url: "git@github.com:renderedtext/goDemo.git"
-    run: true
     run_on:
       - branches
       - tags
