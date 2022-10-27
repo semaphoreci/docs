@@ -214,3 +214,5 @@ nav:
       - Migrating from Jenkins to Semaphore: faq/migrating-from-jenkins-to-semaphore.md
       - Migrating from Travis CI to Semaphore: faq/migrating-from-travis-ci-to-semaphore.md
 
+  - Score:
+      - Insights: score/project-insights.md
