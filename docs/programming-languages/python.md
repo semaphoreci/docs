@@ -129,7 +129,7 @@ blocks:
        commands:
          - sudo pip install pipenv
          - checkout
-         - cache restore cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master
+         - cache restore pipenv-$SEMAPHORE_GIT_BRANCH-$(checksum Pipfile.lock),pipenv-$SEMAPHORE_GIT_BRANCH,pipenv-master
      jobs:
        - name: Everything
          commands:
