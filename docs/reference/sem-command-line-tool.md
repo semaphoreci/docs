@@ -602,7 +602,7 @@ similar to the following output:
 ✻ export SEMAPHORE_JOB_RESULT=passed
 exit status: 0
 Job passed.
-````
+```
 
 ### sem port-forward
 
