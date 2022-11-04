@@ -29,7 +29,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.13/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -60,7 +60,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.13/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -103,7 +103,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.13/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -160,7 +160,7 @@ Set-Location C:\semaphore-agent
 **2. Download the agent:**
 
 ```
-Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.13/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
 tar.exe xvf agent.tar.gz
 ```
 
