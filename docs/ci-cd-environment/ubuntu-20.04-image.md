@@ -223,7 +223,7 @@ sudo apt-get install -y [your-dependency]
 
 #### Disabled repositories
 
-Due to occasional issues with some of the repositories which breaks the pipeline during `apt-get update` command, the following sources lists are moved to `/etc/apt/sources.list.d/disabled`:
+Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
 
 - `git.list`
 - `gradle.list`
@@ -231,7 +231,7 @@ Due to occasional issues with some of the repositories which breaks the pipeline
 - `python.list`
 - `devel_kubic_libcontainers_stable.list`
 
-If you need them before running `apt-get update` command please move them to `/etc/apt/sources.list.d` directory.
+If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
 
 Example:
 
