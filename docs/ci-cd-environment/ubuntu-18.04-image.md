@@ -250,7 +250,7 @@ Due to occasional issues with some of the repositories that break the pipeline d
 - `pypy.list`
 - `python.list`
 
-If you need any of these before running the `apt-get update` command, please move them to `/etc/apt/sources.list.d` directory.
+If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
 
 Example:
 
