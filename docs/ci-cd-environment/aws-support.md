@@ -465,7 +465,7 @@ If an invalid agent type registration token is used, the agent won't be able to 
 [registration token]: /ci-cd-environment/self-hosted-agents-overview
 [caching]: /essentials/caching-dependencies-and-directories
 [aws session manager]: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html
-[using docker containers]: /ci-cd-environment/job-isolation
+[using docker containers]: /ci-cd-environment/job-environment
 [default AWS VPC]: https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 [internet gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
 [nat devices]: https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat.html
