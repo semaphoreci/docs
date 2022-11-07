@@ -242,7 +242,7 @@ sudo apt-get install -y [your-dependency]
 
 #### Disabled repositories
 
-Due to occasional issues with some of the repositories which breaks the pipeline during `apt-get update` command, the following sources lists are moved to `/etc/apt/sources.list.d/disabled`:
+Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
 
 - `ansible.list`
 - `git.list`
@@ -250,7 +250,7 @@ Due to occasional issues with some of the repositories which breaks the pipeline
 - `pypy.list`
 - `python.list`
 
-If you need them before running `apt-get update` command please move them to `/etc/apt/sources.list.d` directory.
+If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
 
 Example:
 
