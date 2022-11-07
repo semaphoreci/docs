@@ -1,11 +1,22 @@
 ---
-Description: This guide describes how jobs can be isolated in a self-hosted environment.
+Description: This guide describes how commands in a job are executed and how jobs can be isolated in a self-hosted environment.
 ---
 
-# Self-hosted job environment isolation
+# Job environment
+
+The commands in a job are executed differently depending on the operating system where the Semaphore agent is running:
+
+- On Linux, a new PTY session is created at the beginning of every job, and all the commands are executed in that session.
+- On Windows, a PTY session is not used and each command is executed in a new PowerShell process with `powershell -NonInteractive -NoProfile`.
+
+!!! info "Alias usage on Windows"
+    On Windows, each command in a job is executed in a new non-interactive PowerShell process without profiles, so the only way to have aliases available to commands is through PowerShell modules.
+
+## Job isolation
+
 Even though some use cases might benefit from jobs sharing the same environment, a clean environment for each and every job might be needed for others.
 
-## Using docker containers
+### Using docker containers
 
 Using docker containers is the fastest approach available. Creating, starting, stopping, and destroying docker containers is a very fast operation, especially if you cache your docker images in the machine running the agent.
 
@@ -16,7 +27,7 @@ There are two different ways that Docker containers can be used by an agent:
 
 **If you need a clean environment for every job, the recommended approach is to use Docker containers.**
 
-## Using cloud instances
+### Using cloud instances
 
 Sometimes, something other than a Docker container might be required. For instance, you may need to run your agents in AWS EC2 instances. In this case, you might need a combination of [shutdown-hook-path][shutdown-hook-path] and [disconnect-after-job][disconnect-after-job] to properly instruct the EC2 instance to terminate after a job is done.
 
@@ -48,3 +59,4 @@ In order to rotate instances and guarantee a clean environment for every job, yo
 [terminate-instance]: https://github.com/renderedtext/agent-aws-stack/blob/master/packer/ansible/roles/agent/files/terminate-instance.sh
 [autoscaling]: https://docs.aws.amazon.com/autoscaling/
 [aws cli]: https://docs.aws.amazon.com/cli/index.html
+[checkout script]: https://github.com/semaphoreci/toolbox/blob/master/Checkout.psm1
