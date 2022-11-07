@@ -1,5 +1,5 @@
 ---
-Description: We continuously deploy changes that improve our product. This page is updated on a weekly basis.
+Description: We continuously deploy changes in order to improve our product. This page is updated on a weekly basis.
 ---
 
 # Semaphore Changelog
