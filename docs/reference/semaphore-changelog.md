@@ -8,6 +8,80 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of November 07, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+- [Disabled repositories](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#disabled-repositories)
+
+**(New)** Packages:
+
+- Elixir 1.14.1
+- Erlang 25.1.2 (aliased as 25.1)
+- Go 1.18.8, 1.19.3 (default)
+- PHP 8.0.25, 8.1.12
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0.48-generic -> 5.15.0.52-generic
+- Aws-cli 1.25.88 -> 1.27.1
+- Aws-cli 2.8.1 -> 2.8.8
+- Azure-cli 2.40.0 -> 2.42.0
+- Bazel 5.3.1 -> 5.3.2
+- Containerd.io 1.6.8 -> 1.6.9
+- Docker 20.10.18 -> 20.10.21
+- Docker-compose 2.11.2 -> 2.12.2
+- Git 2.38.0 -> 2.38.1
+- Github-cli 2.17.0 -> 2.18.1
+- Gcloud 405.0.0 -> 408.0.1
+- Google Chrome 106 -> 107
+- ChromeDriver 106 -> 107
+- Helm 3.9.4 -> 3.10.1
+- Heroku 7.64.0 -> 7.65.0
+- Kubectl 1.25.2 -> 1.25.3
+- Nodejs 16.17.1 -> 18.12.0
+- Npm 8.15.0 -> 8.19.2
+- Sbt 1.7.2 -> 1.7.3
+- Terraform 1.3.1 -> 1.3.3
+- Pip 22.2.2 -> 22.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+- [Disabled repositories](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#disabled-repositories)
+
+**(New)** Packages:
+
+- Elixir 1.14.1
+- Erlang 25.1.2 (aliased as 25.1)
+- Go 1.18.8, 1.19.3 (default)
+- PHP 8.0.25, 8.1.12
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-126-generic -> 5.4.0-131-generic
+- Aws-cli 1.25.88 -> 1.27.1
+- Aws-cli 2.8.1 -> 2.8.8
+- Azure-cli 2.40.0 -> 2.42.0
+- Bazel 5.3.1 -> 5.3.2
+- Containerd.io 1.6.8 -> 1.6.9
+- Docker 20.10.18 -> 20.10.21
+- Docker-compose 2.11.2 -> 2.12.2
+- Git 2.38.0 -> 2.38.1
+- Github-cli 2.17.0 -> 2.18.1
+- Gcloud 405.0.0 -> 408.0.1
+- Google Chrome 106 -> 107
+- ChromeDriver 106 -> 107
+- Helm 3.9.4 -> 3.10.1
+- Heroku 7.64.0 -> 7.65.0 
+- Kubectl 1.25.2 -> 1.25.3
+- Sbt 1.7.2 -> 1.7.3  
+- Terraform 1.3.1 -> 1.3.3
+- Pip 22.2.2 -> 22.3 
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of October 10, 2022
 
 **(Improved) Ubuntu 20.04 image update**
