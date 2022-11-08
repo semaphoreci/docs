@@ -196,4 +196,4 @@ Error: {"File '.semaphore/semaphore.yml' is not available", "Not Found"}
 This means that Semaphore can't fetch the `.semaphore/semaphore.yml` file from the repository. There are two reasons why this might happen:
 
 1. **The file doesn't exist on your repository** - double check to make sure that the Semaphore YAML file actually exists. 
-2. **Repository is disconnected from Semaphore** - Follow the steps [previously described](#verifying-the-connection-between-gitHub-and-semaphore).
+2. **Repository is disconnected from Semaphore** - Follow the steps [previously described](#verifying-the-connection-between-github-and-semaphore).
