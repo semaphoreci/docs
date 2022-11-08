@@ -55,9 +55,9 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.38.0
+- Git 2.38.1
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.17.0
+- GitHub CLI 2.18.1
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -65,8 +65,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - geckodriver 0.26.0
-- Google Chrome 106
-- ChromeDriver 106
+- Google Chrome 107
+- ChromeDriver 107
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -78,9 +78,9 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.18
+- Docker 20.10.21
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.11.2 (used as `docker compose version`)
+- Docker-compose 2.12.2 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 - Buildah 1.22.3
@@ -89,18 +89,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.88
-- aws-cli v2 (used as `aws2`) 2.8.1
-- azure-cli 2.40.0
+- aws-cli v1 (used as `aws`) 1.27.1
+- aws-cli v2 (used as `aws2`) 2.8.8
+- azure-cli 2.42.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
 - doctl 1.76.0
-- gcloud 405.0.0
-- gke-gcloud-auth-plugin 405.0.0
-- kubectl 1.25.2
-- heroku 7.64.0
-- terraform 1.3.1
-- helm 3.9.4
+- gcloud 408.0.1
+- gke-gcloud-auth-plugin 408.0.0
+- kubectl 1.25.3
+- heroku 7.65.0
+- terraform 1.3.3
+- helm 3.10.1
 
 ### Network utilities
 
@@ -116,7 +116,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0, 25.1
-- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0, 1.14.1
 
 Additional libraries:
 
@@ -136,20 +136,20 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x
-- 1.19.x (1.19.2 as default)
+- 1.19.x (1.19.3 as default)
 
 ### Java and JVM languages
 
 - Java: 11.0.15 (default), 17.0.4
 - Scala: 2.12.15, 3.1.3
 - Leiningen: 2.9.10 (Clojure)
-- sbt 1.7.2
+- sbt 1.7.3
 
 #### Additional build tools
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 5.3.1
+- Bazel: 5.3.2
 
 ### JavaScript via Node.js
 
@@ -157,7 +157,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.17.1 (set as default, with alias 16.17), includes npm 8.15.0
+- v18.12.0 (set as default, with alias 18.12), includes npm 8.19.2
 
 #### Additional tools
 
@@ -191,7 +191,7 @@ Supporting libraries:
 
 - pypy: 7.3.9
 - pypy3: 7.3.9
-- pip: 22.2.2
+- pip: 22.3
 - venv: 20.14.1
 
 ### Ruby
@@ -213,12 +213,31 @@ If the dependency you need is not present in the list above, you can install it
 with the Ubuntu package manager, or using an alternative method such as 
 compiling it from the source or manually downloading binaries.
 
-To install dependecies using the package manager (apt-get) you can use the
+To install dependecies using the package manager (`apt-get`) you can use the
 template command below and add it to your pipeline:
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y [your-dependency]
+```
+
+#### Disabled repositories
+
+Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
+
+- `git.list`
+- `gradle.list`
+- `pypy.list`
+- `python.list`
+- `devel_kubic_libcontainers_stable.list`
+
+If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
+
+Example:
+
+```bash
+sudo mv /etc/apt/sources.list.d/disabled/git.list /etc/apt/sources.list.d/
+sudo apt-get update
 ```
 
 ## See Also
