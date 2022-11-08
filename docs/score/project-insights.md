@@ -20,8 +20,8 @@ Semaphore tracks your CI insights automatically. You only need to set up insight
 
 Follow the steps below to set up CD insights:
 
-1. Click the **Insights** tab on the project page.
-2. Click the **Settings** button on the left side navigation bar of the Insights page.
+1. Click on the **Insights** tab on the project page.
+2. Click on the Gear Icon (Settings) on the left side navigation bar of the Insights page.
 3. Provide the required information:
     - Provide the Branch Name
     - Provide the Pipeline File Path
