@@ -7,7 +7,7 @@ Custom Dashboards allow you to create your own view of your project's metrics.
 You can add any metric available on the Insights page to your Dashboard.
 
 !!! warning "This feature is in Technical preview."
-Custom Dashboards is in Technical Preview. Details and functionality are subject to change.
+    Custom Dashboards is in Technical Preview. Details and functionality are subject to change.
 
 ## Creating a Custom Dashboard
 
@@ -39,8 +39,8 @@ To delete a Dashboard, you need to follow the steps below:
 
 ## Adding a metric to a Dashboard
 
-
 To add a metric to a Dashboard, you need to follow the steps below:
+
 1. On the Insights Page, select the Dashboard to which you want to add a metric to track.
 2. If there is no Metric on the Dashboard, click on the **Add First Metric** button in the center of the page.
 3. If there is already a Metric on the Dashboard, click the **Add New Metric** button in the bottom left corner.
@@ -51,11 +51,9 @@ To add a metric to a Dashboard, you need to follow the steps below:
     - Provide the Pipeline File Path.
 5. Click the **Save** button.
 
-<img style="box-shadow: 0 0 5px #ccc" src="/score/img/dashboards/first_metric.png" alt="Adding a metric to a dashboard">
-
-
 After you save, a new Metric chart will appear on the Dashboard.
 It may take up to two days to have data to display.
+
 !!! warning "Note: You need to have pipeline runs on the selected branch and pipeline to the data to be gathered and displayed."
 
 ### Editing a metric name
@@ -64,7 +62,7 @@ To edit a metric name, you need to follow the steps below:
 
 1. Look for the metric you want to rename on the Dashboard.
 2. Click on the **Edit** button in the bottom left corner of the metric.
-3. Change the Metric's name in the **Name** field.
+3. Change the Metrics' name in the **Name** field.
 4. Click the **Save** button.
 
 ### Removing a metric
