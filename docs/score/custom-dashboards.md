@@ -1,9 +1,9 @@
 ---
-Description: Custom Dashboard is where you can create your view of your project's metrics.
+Description: A Custom Dashboard can be created for the purpose of viewing of your project's metrics.
 ---
 # Custom Dashboards
 
-Custom Dashboards allow you to create your own view of your project's metrics.
+Custom Dashboards allow you to create your own visualization of your project's metrics.
 You can add any metric available on the Insights page to your Dashboard.
 
 !!! warning "This feature is in Technical preview."
@@ -17,7 +17,7 @@ To create a Custom Dashboard, you need to follow the steps below:
 2. On the left side navigation bar, under the Custom Dashboards section, click on the **New** button.
 3. A new Dashboard will appear with the name **Dashboard** and a code.
 
-You can now go to the new Dashboard and rename it to a more descriptive name.
+You can now go to the new Dashboard and give it a more descriptive name.
 
 
 ### Renaming a Dashboard
@@ -41,7 +41,7 @@ To delete a Dashboard, you need to follow the steps below:
 
 To add a metric to a Dashboard, you need to follow the steps below:
 
-1. On the Insights Page, select the Dashboard to which you want to add a metric to track.
+1. On the Insights Page, select the Dashboard to which you want to add a metric.
 2. If there is no Metric on the Dashboard, click on the **Add First Metric** button in the center of the page.
 3. If there is already a Metric on the Dashboard, click the **Add New Metric** button in the bottom left corner.
 4. Fill out the form that will appear when you click to add a new metric.
@@ -54,7 +54,7 @@ To add a metric to a Dashboard, you need to follow the steps below:
 After you save, a new Metric chart will appear on the Dashboard.
 It may take up to two days to have data to display.
 
-!!! warning "Note: You need to have pipeline runs on the selected branch and pipeline to the data to be gathered and displayed."
+!!! warning "Note: You need to have run a pipeline on the selected branch for data to be gathered and displayed."
 
 ### Editing a metric name
 
