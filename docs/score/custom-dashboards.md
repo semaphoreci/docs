@@ -1,5 +1,5 @@
 ---
-Description: A Custom Dashboard can be created for the purpose of viewing of your project's metrics.
+Description: A Custom Dashboard can be created for the purpose of viewing your project's metrics.
 ---
 # Custom Dashboards
 
