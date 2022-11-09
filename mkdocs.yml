@@ -205,6 +205,9 @@ nav:
       - Audit logs: security/audit-logs.md
       - Audit logs exporting: security/audit-logs-exporting.md
       - Audit Events reference: security/audit-events-reference.md
+  - Score:
+      - Insights: score/project-insights.md
+      - Custom dashboards: score/custom-dashboards.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
@@ -213,6 +216,3 @@ nav:
       - Migrating from GitHub Actions to Semaphore: faq/migrating-from-github-actions-to-semaphore.md
       - Migrating from Jenkins to Semaphore: faq/migrating-from-jenkins-to-semaphore.md
       - Migrating from Travis CI to Semaphore: faq/migrating-from-travis-ci-to-semaphore.md
-
-  - Score:
-      - Insights: score/project-insights.md

@@ -20,8 +20,8 @@ Semaphore tracks your CI insights automatically. You only need to set up insight
 
 Follow the steps below to set up CD insights:
 
-1. Click the **Insights** tab on the project page.
-2. Click the **Settings** button on the left side navigation bar of the Insights page.
+1. Click on the **Insights** tab on the project page.
+2. Click on the Gear Icon (Settings) on the left side navigation bar of the Insights page.
 3. Provide the required information:
     - Provide the Branch Name
     - Provide the Pipeline File Path
@@ -33,10 +33,10 @@ After you save changes, Semaphore will start collecting metrics for your deploym
 
 
 ## Metrics
-Semaphore breaks down the metrics by Performance, Frequency, and Reliability. You can switch between metrics from the panel
+Semaphore breaks down the metrics by Performance, Frequency, and Reliability. You can switch between metrics in the panel
 on the left.
 
-On the dashboard, you can see the summary of how long the pipelines need to run on average (Performance), how frequently
+On the dashboard, you can see a summary of how long the pipelines need to run on average (Performance), how often
 your team runs a pipeline (Frequency), and how stable your code is (Reliability).
 
 ### Performance
@@ -45,7 +45,7 @@ pipelines to run. In addition, you can see the data for a selected branch (main 
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/perf.png" alt="Performance metrics">
 
-If you have set up the CD Insights, you can also see the data for the deployment branch.
+If you have set up the CD Insights, you can also see data for the deployment branch.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_perf.png" alt="Performance metrics - CD">
 
@@ -53,7 +53,7 @@ If you have set up the CD Insights, you can also see the data for the deployment
 Frequency metrics show the number of executed pipelines per week for your project's main branch and all 
 branches and the total number of runs for all pipelines per day.
 
-A tooltip with the total number of runs appears when you hover over the chart on a specific day.
+A tooltip with the total number of runs appears when you hover over the chart for a specific day.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/ci_freq.png" alt="Performance frequency">
 
@@ -64,7 +64,7 @@ You can see the data from the deployment branch if you have CD insights set up.
 ### Reliability
 
 Reliability metrics provide an overview of your project's pipeline run pass rate. You can also see the 
-mean time it takes to recover from a failed pipeline run and when was the last successful run.
+mean time it takes to recover from a failed pipeline run and when the last successful run was.
 
 When you hover over a day on the chart, a tooltip gets displayed with the Pass Rate, Number of Builds, and Passed builds.
 
