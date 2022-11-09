@@ -54,7 +54,7 @@ To add a metric to a Dashboard, you need to follow the steps below:
 After you save, a new Metric chart will appear on the Dashboard.
 It may take up to two days to have data to display.
 
-!!! warning "Note: You need to have run a pipeline on the selected branch and pipeline to the data to be gathered and displayed."
+!!! warning "Note: You need to have run a pipeline on the selected branch for data to be gathered and displayed."
 
 ### Editing a metric name
 
