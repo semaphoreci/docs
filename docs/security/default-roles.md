@@ -1,7 +1,7 @@
 Default roles are available to all Semaphore users, regardless of the plan they are on.
 
-If you or your organization need more roles with different permissions, there is an option
-to create your own [custom roles](/security/custom-roles).
+If you or your organization need more roles with different permissions, you can
+create your own [custom roles](/security/custom-roles).
 
 ### Organization roles
 <table style="background-color: rgb(255, 255, 255);">
@@ -29,7 +29,7 @@ to create your own [custom roles](/security/custom-roles).
     </ul>
   </td>
   <td>
-    This role is intended for users that need access to some projects, but should not see
+    This role is intended for users that need access to certain projects, but should not see
     any information regarding the organization.
   </td>
 </tr>
@@ -44,6 +44,8 @@ to create your own [custom roles](/security/custom-roles).
     </ul>
   </td>
   <td>
+    This role is intended for developers who are responsible 
+    for maintaining project environments as well as contributing.
   </td>
 </tr>
 <tr>
@@ -52,14 +54,15 @@ to create your own [custom roles](/security/custom-roles).
   </td>
   <td>
     <ul>
-      <li>Can do everything a member can.</li>
+      <li>Can do everything that a member can.</li>
       <li>Can view, manage, and modify everything within the organization 
       (people, secrets, pre-flight checks,
       notifications, etc), except general settings and financial information.</li>
     </ul>
   </td>
   <td>
-    Each of the organization's Admins is also Admin within every project owned by the given organization automatically.
+    This role is intended for developers who are managing projects.
+    Each of the organization's Admins is also automatically an Admin within every project owned by the organization.
   </td>
 </tr>
 <tr>
@@ -75,7 +78,7 @@ to create your own [custom roles](/security/custom-roles).
   <td>
     By default, this role is assigned to the user that creates the organization.
     <br/>
-    Each of the organization's Owners is also Admin within every project owned by the given organization.
+    Each of the organization's Owners is also an Admin within every project owned by the organization.
   </td>
 </tr>
 <tr>
@@ -88,7 +91,7 @@ to create your own [custom roles](/security/custom-roles).
     </ul>
   </td>
   <td>
-    This role cant access any part of the Semaphore except for pages regarding
+    This role is intended for an accountant, and doesn't have access to any part of Semaphore except for pages regarding
     spending and financial information.
   </td>
 </tr>
@@ -121,8 +124,8 @@ to create your own [custom roles](/security/custom-roles).
     </ul>
   </td>
   <td>
-    Intended for someone who should monitor what is being done, but isn't a developer and shouldn't
-    modify anything. Perhaps an Engineering Project Manager.
+    This role is intended for someone who is monitoring projects, but isn't a developer and shouldn't
+    be able to modify anything, e.g. an engineering project manager.
   </td>
 </tr>
 <tr>
@@ -132,16 +135,16 @@ to create your own [custom roles](/security/custom-roles).
   <td>
     <ul>
       <li>Can manually run, modify and stop workflows/jobs.</li>
-      <li>Can view project-level secrets and organization-wide secrets scoped for the given project.</li>
+      <li>Can view project-level secrets and organization-wide secrets scoped for a project.</li>
       <li>Can attach to running jobs or debug jobs and projects.</li>
       <li>Can view schedulers, project insights, and repository info.</li>
       <li>Can manually run schedulers.</li>
-      <li>Can view, modify and delete artifacts for that project.</li>
+      <li>Can view, modify and delete artifacts for a project.</li>
     </ul>
   </td>
   <td>
-    For developers who are currently working on the project, but aren't responsible for maintaining it
-    and setting up/modifying the environment in which the project exists.
+    This role is for developers who are currently working on the project, but aren't responsible for maintaining it
+    or setting up/modifying the project's environment.
   </td>
 </tr>
 <tr>
@@ -151,14 +154,14 @@ to create your own [custom roles](/security/custom-roles).
   <td>
     <ul>
       <li>Can do everything a contributor can.</li>
-      <li>Can view and manage people within the project.</li>
+      <li>Can view and manage people within a project.</li>
       <li>Can view modify and manage project-level secrets, schedulers and, 
       project-level pre-flight checks.</li>
       <li>Can view and manage project settings.</li>
     </ul>
   </td>
   <td>
-    Usually developers who own the project.
+    This role is usually for developers who own a project.
   </td>
 </tr>
 <tr>
