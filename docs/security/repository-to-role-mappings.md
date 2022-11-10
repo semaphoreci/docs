@@ -1,18 +1,19 @@
 ---
-Description: This page describes how access to remote repository grants you access to Semaphore projects.
+Description: This page describes how access to a remote repository grants you access to its corresponding Semaphore project.
 ---
 
 # Repository-to-role mappings
 
-On Semaphore, each project has to stem from a code base on a remote repository, like GitHub
-or Bitbucket. Semaphore keeps track of all accounts that have access to those remote
-repositories (collaborators), and if any of them is associated with a Semaphore account, that
-Semaphore user is given access to the project (if he is a member of the organization which owns it).
+On Semaphore, each project has to stem from a code base in a remote repository, like GitHub
+or Bitbucket. Semaphore keeps track of all accounts that have access to these remote
+repositories (collaborators), and if any of them are associated with a Semaphore account, those
+Semaphore users are automatically given access to the associated project
+(if they are a member of the organization which owns it).
 
 ## Rules for assigning project roles
 
 Depending on user's premissions within the remote repository, a different role
-is assigned to them on the Semaphore project.
+is assigned to them in the Semaphore project.
 
 #### GitHub:
 
