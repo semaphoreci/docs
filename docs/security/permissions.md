@@ -1,17 +1,17 @@
 ---
-Description: Page containing a list of all permissions within the Semaphore.
+Description: List of all permissions within the Semaphore.
 ---
 
 # Permissions
 
-This page lists all permissions within the Semaphore system. It will be 
-of use when creating custom roles and defining what they can do. 
+This page lists all permissions within the Semaphore system. This can be used
+when creating custom roles and defining what they can do. 
 
-As with the roles, permissions are also divided into **organization-level**
+Similar to roles, permissions are also divided into **organization-level**
 and **project-level**.
 
 !!! info "Note"
-    Some permissions are not yet part of Semaphore but will be introduced in the near future. Those are marked with **✕**
+    Some permissions are not yet part of Semaphore but will be introduced in the near future. These are marked with **✕**
 
 
 ## Organization permissions
@@ -20,7 +20,7 @@ and **project-level**.
 #### Organization secrets [↗](/essentials/using-secrets/)
 
 `organization.secrets.view`<br />
-<span style="font-size:smaller;">Following permissions are related to
+<span style="font-size:smaller;">The following permissions are related to
 [secrets management](/essentials/using-secrets/#creating-and-managing-secrets).</span><br />
 `organization.secrets.create`<br />
 `organization.secrets.modify`<br />
@@ -65,9 +65,9 @@ and **project-level**.
 
 #### Dashboards [↗](/essentials/deployment-dashboards/)
 
-<span style="font-size:smaller;">These permissions don't control whether or not you can see deployment pipelines
-defined by the dashboards, but rather if you can access and modify the definition of those
-dashboards using `sem` cli tool like it is shown [here](/essentials/deployment-dashboards/#creating-a-dashboard).</span><br />
+<span style="font-size:smaller;">These permissions don't control whether or not a user can see deployment pipelines
+defined by the dashboards, rather they control whether a user can access and modify the definition of those
+dashboards using the `sem` cli tool, as shown [here](/essentials/deployment-dashboards/#creating-a-dashboard).</span><br />
 `organization.dashboards.view`<br />
 `organization.dashboards.create`<br />
 `organization.dashboards.modify`<br />
@@ -114,10 +114,10 @@ dashboards using `sem` cli tool like it is shown [here](/essentials/deployment-d
 `project.job.rerun`<br />
 `project.job.artifacts.view`<br />
 `project.job.artifacts.delete`
-<span style="font-size:smaller;">(Grants permissions for [job level](/essentials/artifacts/#job-artifacts) artifacts)</span><br />
+<span style="font-size:smaller;">(Grants permissions for the [job level](/essentials/artifacts/#job-artifacts) artifacts)</span><br />
 `project.job.stop`<br />
-<span style="font-size:smaller;">Follwing permissions are needed to
-access jobs via `sem` [cli tool](/reference/sem-command-line-tool/#operations).</span><br />
+<span style="font-size:smaller;">The follwing permissions are needed to
+access jobs via the `sem` [cli tool](/reference/sem-command-line-tool/#operations).</span><br />
 `project.job.port_forwarding`<br />
 `project.job.attach`<br />
 `project.job.debug`<br />
@@ -130,7 +130,7 @@ access jobs via `sem` [cli tool](/reference/sem-command-line-tool/#operations).<
 `project.secrets.modify`<br />
 `project.secrets.delete`<br />
 `project.authorized_org_secrets.list`<br /> <span style="font-size:smaller;">(List of organization level secrets
-that are whitelisted to be used within the given project)</span><br />
+that are whitelisted to be used within a given project)</span><br />
 
 #### Project notifications **✕**
 
@@ -155,7 +155,7 @@ that are whitelisted to be used within the given project)</span><br />
 `project.workflow.rerun`<br />
 `project.workflow.stop`<br />
 `project.workflow.artifacts.view `<br />
-<span style="font-size:smaller;">(Grants permissions for [workflow level](/essentials/artifacts/#workflow-artifacts) artifacts)</span><br />
+<span style="font-size:smaller;">(Grants permissions for the [workflow level](/essentials/artifacts/#workflow-artifacts) artifacts)</span><br />
 `project.workflow.artifacts.delete`<br />
 
 #### Artifacts [↗](/essentials/artifacts/)
@@ -163,7 +163,7 @@ that are whitelisted to be used within the given project)</span><br />
 `project.artifacts.delete`<br />
 `project.artifacts.view`<br />
 `project.artifacts.view_settings`
-<span style="font-size:smaller;">(Grants permissions for [project level](/essentials/artifacts/#project-artifacts) artifacts)</span><br />
+<span style="font-size:smaller;">(Grants permissions for the [project level](/essentials/artifacts/#project-artifacts) artifacts)</span><br />
 `project.artifacts.modify_settings`<br />
 
 #### Project pre-flight checks [↗](essentials/configuring-pre-flight-checks/#project-pre-flight-checks)
