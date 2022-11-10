@@ -87,7 +87,7 @@ Implementation of `e1` series of machine types:
 
 ## Apple machine type
 
-Apple machine types can be paired with [MacOS Xcode12 image][macos-xcode12] or [MacOS Xcode13 image][macos-xcode13].
+Apple machine types can be paired with [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -147,7 +147,7 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
 [ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
-[macos-xcode12]: ../ci-cd-environment/macos-xcode-12-image.md
+[macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
 [macos-xcode13]: ../ci-cd-environment/macos-xcode-13-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
 [self-hosted]: ../ci-cd-environment/self-hosted-agents-overview.md
