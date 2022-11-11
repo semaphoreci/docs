@@ -15,6 +15,10 @@ IMPORTANT: (Deprecated) MacOS Xcode 12
 The macOS Xcode 12 image will be removed at the end of November.
 We advise all users to switch to the macOS Xcode 13 image.
 
+**(Improved) macos-xcode14 image released **
+
+- Xcode 14.1 Beta (14B5024h) -> 14.1 Final (14B47b)
+
 ### Week of November 07, 2022
 
 **(Improved) Ubuntu 20.04 image update**
