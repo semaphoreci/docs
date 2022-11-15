@@ -31,10 +31,10 @@ Every Job on Semaphore gets a uniquely generated OIDC token that is injected int
 in a form of an environment variable named `SEMAPHORE_OIDC_TOKEN`.
 
 The injected environment variable is a [JWT][jwt] token signed by Semaphore and contains the
-following fields:
+following claims:
 
 ```
-| field  | description                                                           | example                                  |
+| claim  | description                                                           | example                                  |
 ----------------------------------------------------------------------------------------------------------------------------|
 | aud    | The intended audience of the token. The full URL to the organization. | https://test-orgnization.semaphoreci.com |
 | branch | The name of the branch which on which job is running.                 | master                                   |
@@ -53,3 +53,19 @@ following fields:
 | tag    | The name of the git tag for which this token was issued.              | v1.0.0                                   |
 | wf_id  | The ID of the workflow for which this token was issued.               | 1be81412-6ab8-4fc0-9d0d-7af33335a6ec     |
 ```
+
+The above `SEMAPHORE_OIDC_TOKEN` is then presented to the cloud provider as an authorization token.
+
+If the cloud provider is configured to accept OIDC tokens, it will receive the token, verify its
+signature by connecting back to `{org}.semaphoreci.com/.well-known/jwts`, and if the token is
+valid, it will respond with a a short-lived token for this specific job that can be used to
+fetch and modify cloud resources.
+
+## Enabling OpenID Connect for your cloud provider
+
+To enable OpenID Connect for your specific cloud provider, see the following guides:
+
+- [Configure OpenID Connect in Amazon Web Services][configure-aws]
+- [Configure OpenID Connect in Google Cloud][configure-gcloud]
+- [Configure OpenID Connect in Microsoft Azure][configure-azure]
+- [Configure OpenID Connect in Hashicorp Vault][configure-vault]
