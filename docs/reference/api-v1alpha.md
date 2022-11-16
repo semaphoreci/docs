@@ -743,3 +743,176 @@ BranchPage.Models.BranchTest
 curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json"
 ```
+
+## Self-hosted agent types
+
+### Listing agent types
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types
+```
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "agent_types": [
+    {
+      "status": {
+        "total_agent_count": 0
+      },
+      "metadata": {
+        "update_time": 1644963451,
+        "name": "s1-aws-small",
+        "create_time": 1632129338
+      }
+    },
+    {
+      "status": {
+        "total_agent_count": 0
+      },
+      "metadata": {
+        "update_time": 1641302626,
+        "name": "s1-aws-large",
+        "create_time": 1638470284
+      }
+    }
+  ]
+}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types"
+```
+
+### Create an agent type
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types
+```
+
+**Params**
+
+- `metadata.name` (**required**) - the name of the agent type to be created.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "metadata": {
+    "update_time": 1668626650,
+    "name": "s1-aws-small",
+    "create_time": 1668626650
+  },
+  "status": {
+    "total_agent_count": 0,
+    "registration_token": "..."
+  }
+}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  --data '{"metadata": {"name": "s1-aws-small"}}' \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types"
+```
+
+### Describe an agent type
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_name
+```
+
+**Params**
+
+- `agent_type_name` (**required**) - the name of the agent type to describe.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "status": {
+    "total_agent_count": 0
+  },
+  "metadata": {
+    "update_time": 1644963451,
+    "name": "s1-aws-small",
+    "create_time": 1632129338
+  }
+}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small"
+```
+
+### Delete an agent type
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_name
+```
+
+**Params**
+
+- `agent_type_name` (**required**) - the name of the agent type to delete.
+
+**Response**
+
+```json
+HTTP status: 200
+{}
+```
+
+**Example**
+
+```
+curl -i -X DELETE \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small"
+```
+
+### Disable agents for an agent type
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_name/disable_all
+```
+
+**Params**
+
+- `agent_type_name` (**required**) - the name of the agent type to disable agents for.
+- `only_idle` (*optional*) - a boolean flag to control whether all agents are disabled or only the idle ones. By default, this is `true`.
+
+**Response**
+
+```json
+HTTP status: 200
+{}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  -d 'only_idle=false' \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small/disable_all"
+```
