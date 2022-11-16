@@ -899,7 +899,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_
 **Params**
 
 - `agent_type_name` (**required**) - the name of the agent type to disable agents for.
-- `only_idle` (*optional*) - a boolean flag to control whether all agents are disabled or only the idle ones. By default, this is `true`.
+- `only_idle` (*optional*) - a boolean flag to control if all agents or only the idle ones are disabled. By default, this is `true`.
 
 **Response**
 
