@@ -8,6 +8,63 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of November 21, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.2
+- PHP 7.4.33
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0.52-generic -> 5.15.0.53-generic
+- Aws-cli 1.27.1 -> 1.27.11
+- Aws-cli 2.8.8 -> 2.8.13
+- Doctl 1.76.0 -> 1.87.0
+- Gcloud 408.0.1 -> 410.0.0
+- Gke-gcloud-auth-plugin 408.0.1 -> 410.0.0
+- Github-cli 2.18.1 -> 2.20.2
+- Helm 3.10.1 -> 3.10.2
+- Kubectl 1.25.3 -> 1.25.4
+- Java OpenJDK 11.0.16 -> 11.0.17
+- Java OpenJDK 17.0.4 -> 17.0.5
+- Pip 22.3 -> 22.3.1
+- Sbt 1.7.3 -> 1.8.0
+- Terraform 1.3.3 -> 1.3.4
+- Heroku 7.65.0 -> 7.66.4
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.2
+- PHP 7.4.33
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-131-generic -> 5.4.0-132-generic
+- Aws-cli 1.27.1 -> 1.27.11
+- Aws-cli 2.8.8 -> 2.8.13
+- Doctl 1.76.0 -> 1.87.0
+- Gcloud 408.0.1 -> 410.0.0
+- Gke-gcloud-auth-plugin 408.0.1 -> 410.0.0
+- Github-cli 2.18.1 -> 2.20.2
+- Helm 3.10.1 -> 3.10.2
+- Kubectl 1.25.3 -> 1.25.4
+- Java OpenJDK 8u342 -> 8u352
+- Java OpenJDK 11.0.16 -> 11.0.17
+- Java OpenJDK 17.0.4 -> 17.0.5
+- Pip 22.3 -> 22.3.1
+- Sbt 1.7.3 -> 1.8.0
+- Terraform 1.3.3 -> 1.3.4
+- Heroku 7.65.0 -> 7.66.4
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 14, 2022
 
 IMPORTANT: (Deprecated) MacOS Xcode 12
