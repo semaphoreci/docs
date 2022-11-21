@@ -57,7 +57,7 @@ Following version control tools are pre-installed:
 
 - Git 2.38.1
 - Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.18.1
+- GitHub CLI 2.20.2
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -89,18 +89,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.27.1
-- aws-cli v2 (used as `aws2`) 2.8.8
+- aws-cli v1 (used as `aws`) 1.27.11
+- aws-cli v2 (used as `aws2`) 2.8.13
 - azure-cli 2.42.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
-- doctl 1.76.0
-- gcloud 408.0.1
-- gke-gcloud-auth-plugin 408.0.0
-- kubectl 1.25.3
-- heroku 7.65.0
-- terraform 1.3.3
-- helm 3.10.1
+- doctl 1.87.0
+- gcloud 410.0.0
+- gke-gcloud-auth-plugin 410.0.0
+- kubectl 1.25.4
+- heroku 7.66.4
+- terraform 1.3.4
+- helm 3.10.2
 
 ### Network utilities
 
@@ -116,7 +116,7 @@ Erlang versions are installed and managed via [kerl](https://github.com/kerl/ker
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
 - Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0, 25.1
-- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0, 1.14.1
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0, 1.14.1, 1.14.2
 
 Additional libraries:
 
@@ -140,10 +140,10 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 11.0.15 (default), 17.0.4
+- Java: 11.0.17 (default), 17.0.5
 - Scala: 2.12.15, 3.1.3
 - Leiningen: 2.9.10 (Clojure)
-- sbt 1.7.3
+- sbt 1.8.0
 
 #### Additional build tools
 
@@ -183,15 +183,15 @@ phpunit: 7.5.20
 Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
-- 3.8
-- 3.9
-- 3.10
+- 3.8.10
+- 3.9.15
+- 3.10.8
 
 Supporting libraries:
 
 - pypy: 7.3.9
 - pypy3: 7.3.9
-- pip: 22.3
+- pip: 22.3.1
 - venv: 20.14.1
 
 ### Ruby
