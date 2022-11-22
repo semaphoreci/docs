@@ -75,6 +75,34 @@ Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu
      45
   </td>
 </tr>
+<tr>
+  <td>
+     e2-standard-2
+  </td>
+  <td>
+     2
+  </td>
+  <td>
+     8
+  </td>
+  <td>
+     50
+  </td>
+</tr>
+<tr>
+  <td>
+     e2-standard-4
+  </td>
+  <td>
+     4
+  </td>
+  <td>
+     16
+  </td>
+  <td>
+     75
+  </td>
+</tr>
 </tbody>
 </table>
 
@@ -84,6 +112,14 @@ Implementation of `e1` series of machine types:
    3.4GHz Max Turbo 4.0GHz Intel® Core™ i7.
 2. Memory is implemented as DDR4 RAM.
 3. Disk is implemented as RAM drive backed by DDR4 RAM.
+
+Implementation of `e2` series of machine types:
+
+1. Virtual CPU is implemented as a single hardware hyper-thread.
+2. Memory is implemented as DDR4 RAM.
+3. Disk is implemented using NvME storage.
+
+
 
 ## Apple machine type
 
