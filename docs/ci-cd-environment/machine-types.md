@@ -103,6 +103,34 @@ Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu
      75
   </td>
 </tr>
+<tr>
+  <td>
+     f1-standard-2
+  </td>
+  <td>
+     2
+  </td>
+  <td>
+     8
+  </td>
+  <td>
+     50
+  </td>
+</tr>
+<tr>
+  <td>
+     f1-standard-4
+  </td>
+  <td>
+     4
+  </td>
+  <td>
+     16
+  </td>
+  <td>
+     75
+  </td>
+</tr>
 </tbody>
 </table>
 
@@ -115,10 +143,17 @@ Implementation of `e1` series of machine types:
 
 Implementation of `e2` series of machine types:
 
-1. Virtual CPU is implemented as a single hardware hyper-thread.
+1. Virtual CPU is implemented as a single hardware hyper-thread on a 
+   3.6GHz Max Turbo 4.2GHz AMD Ryzen 5 3600.
 2. Memory is implemented as DDR4 RAM.
 3. Disk is implemented using NvME storage.
 
+Implementation of `f1` series of machine types:
+
+1. Virtual CPU is implemented as a single hardware hyper-thread on a
+   3.0GHz Max Turbo 4.6GHz Intel® Core™ i5-12500
+3. Memory is implemented as DDR4 RAM.
+4. Disk is implemented using NvME storage.
 
 
 ## Apple machine type
