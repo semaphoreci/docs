@@ -63,8 +63,30 @@ gcloud iam workload-identity-pools providers create-oidc $PROVIDER_ID \
 
 ### Connect the pool with a service account
 
+When connecting to Google Cloud, your pipelines would impersonate a Google Cloud Service Account.
+To set up which service account is accessible via the previously configured Workload Identity pool,
+we need to set up a binding between the workload identity user and the service account.
+
+First, we will construct an external identity URI based on the following pattern:
+
+```
+principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/subject/SUBJECT
+```
+
+In this URI:
+
+- The `PROJECT_NUMBER` is the project number of your Google Cloud project which you can find by running the
+  following command: `gcloud projects describe $(gcloud config get-value core/project) --format=value\(projectNumber\)`.
+- The `POOL_ID` is the ID of the worload identity pool we created in the first step.
+- The `SUBJECT` is the value of the mapping we set up in the second step.
+
+
+
+Read more about [Granting external identities permission to impersonate a service account][gcloud-granting-external]
+in Google Cloud docs.
 
 [gcloud]: https://cloud.google.com/sdk/gcloud
 [gcp-identity-docs]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#oidc_1
 [gcloud-attr-mapping]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#mappings-and-conditions
 [gcloud-condition-mapping]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#mappings-and-conditions
+[gcloud-granting-externl]: https://cloud.google.com/iam/docs/using-workload-identity-federation#impersonate
