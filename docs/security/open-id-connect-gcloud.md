@@ -28,7 +28,7 @@ for further details and alternative approaches for setting up the connection.
 Create a new identity pool by executing the following snippet.
 
 ``` bash
-export POOL_ID="<choose-an-indentity-pool>" // example: semaphoreci-com-identity-pool
+export POOL_ID="<unique-pool-name>" // example: semaphoreci-com-identity-pool
 
 gcloud iam workload-identity-pools create $POOL_ID \
   --location="global" \
@@ -49,11 +49,14 @@ In the following example, you will configure Google Cloud to allow access to the
 identity pool from the `main` branch of the `web` project.
 
 ``` bash
-gcloud iam workload-identity-pools providers create-oidc rtx-semaphore \
+export PROVIDER_ID="<unique-provider-name>" // example: semaphoreci-com-web
+export ISSUER_URI="https://{org-name}.semaphoreci.com" // set this to your full organization path, ex. https://acme.semapohoreci.com
+
+gcloud iam workload-identity-pools providers create-oidc $PROVIDER_ID \
   --location='global' \
-  --workload-identity-pool='rtx-semaphoreci-com' \
-  --issuer-url='https://rtx.sxpreprod.com' \
-  --allowed-audiences='https://rtx.sxpreprod.com' \
+  --workload-identity-pool=$POOL_ID \
+  --issuer-uri="$ISSUER_URI" \
+  --allowed-audiences="$ISSUER_URI" \
   --attribute-mapping='google.subject="semaphore::" + assertion.repo + "::" + assertion.ref' \
   --attribute-condition="'semaphore::web::refs/heads/main' == google.subject"
 ```
