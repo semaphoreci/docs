@@ -67,23 +67,61 @@ When connecting to Google Cloud, your pipelines would impersonate a Google Cloud
 To set up which service account is accessible via the previously configured Workload Identity pool,
 we need to set up a binding between the workload identity user and the service account.
 
-First, we will construct an external identity URI based on the following pattern:
+First, construct the member id based on the following parameters:
 
+``` bash
+# Based on the previous step in this guide. Ajudst based on your needs.
+export SUBJECT="semaphore::web::refs/heads/main"
+
+# Your Google Cloud Project ID.
+export PROJECT_NUMBER=$(gcloud projects describe $(gcloud config get-value core/project) --format=value\(projectNumber\))
+
+# The member ID
+export MEMBER_ID="principal://iam.googleapis.com/projects/$PROJECT_NUMBER/locations/global/workloadIdentityPools/$POOL_ID/subject/$SUBJECT"
 ```
-principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/subject/SUBJECT
+
+Then, bind the workload identity user to a service account.
+
+``` bash
+export SERVICE_ACCOUNT_EMAIL="<>" # ID of the service account who you want to impersonate in the pipelines
+
+gcloud iam service-accounts add-iam-policy-binding $SERVICE_ACCOUNT_EMAIL \
+    --role=roles/iam.workloadIdentityUser \
+    --member="MEMBER_ID"
 ```
-
-In this URI:
-
-- The `PROJECT_NUMBER` is the project number of your Google Cloud project which you can find by running the
-  following command: `gcloud projects describe $(gcloud config get-value core/project) --format=value\(projectNumber\)`.
-- The `POOL_ID` is the ID of the worload identity pool we created in the first step.
-- The `SUBJECT` is the value of the mapping we set up in the second step.
-
-
 
 Read more about [Granting external identities permission to impersonate a service account][gcloud-granting-external]
 in Google Cloud docs.
+
+## Authenticate to Google Cloud from your Semaphore pipelines
+
+Set up the following steps in your Semaphore pipelines in order to authenticate to Google Cloud Platform
+and to obtain short-lived credentials for accessing resources.
+
+``` yaml
+version: v1.0
+name: Example auth with OIDC
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+
+blocks:
+  - name: "Auth to Google Cloud"
+    task:
+      jobs:
+        - name: 'Auth Test Job'
+          commands:
+            - export PROJECT_ID="" # set your google cloud project id
+            - export SERVICE_ACCOUNT_EMAIL="" # set your service account's email
+            - export POOL_URI="projects/$PROJECT_ID/locations/global/workloadIdentityPools/$POOL_ID/providers/$PROVIDER_ID"
+            - export SERVICE_ACCOUNT="https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/$SERVICE_ACCOUNT_EMAIL:generateAccessToken"
+            - echo $SEMAPHORE_OIDC_TOKEN > /tmp/oidc_token
+            - gcloud iam workload-identity-pools create-cred-config $POOL_URI --service-account="$SERVICE_ACCOUNT" --service-account-token-lifetime-seconds=600 --output-file=/home/semaphore/creds.json --credential-source-file=/tmp/oidc_token --credential-source-type="text"
+            - export GOOGLE_APPLICATION_CREDENTIALS=/home/semaphore/creds.json
+            - gcloud auth login --cred-file=/home/semaphore/creds.json
+            - gcloud projects list
+```
 
 [gcloud]: https://cloud.google.com/sdk/gcloud
 [gcp-identity-docs]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#oidc_1
