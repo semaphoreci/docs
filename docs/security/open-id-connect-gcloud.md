@@ -127,4 +127,4 @@ blocks:
 [gcp-identity-docs]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#oidc_1
 [gcloud-attr-mapping]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#mappings-and-conditions
 [gcloud-condition-mapping]: https://cloud.google.com/iam/docs/configuring-workload-identity-federation#mappings-and-conditions
-[gcloud-granting-externl]: https://cloud.google.com/iam/docs/using-workload-identity-federation#impersonate
+[gcloud-granting-external]: https://cloud.google.com/iam/docs/using-workload-identity-federation#impersonate
