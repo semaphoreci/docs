@@ -16,33 +16,48 @@ Pipelines.
 To connect to Amazon Web Services (AWS) from Semaphore using OpenID Connect,
 you will need to perform the following steps:
 
-1. Configure AWS to support OpenID Connect by creating an IAM OIDC identity provider
-   and an IAM role that trusts the provider. See [Creating OpenID Connect (OIDC) identity providers][aws-docs]
+### Step 1 - Configure AWS OIDC Identity Provider
 
-2. In your pipeline configuration, add a new block to authenticate with AWS using OpenID Connect. This block should contain the necessary authentication credentials and should reference the secret you created in the previous step.
-
-Here is an example of how this block might look in your Semaphore pipeline configuration:
-
-  - name: Authenticate with AWS
-    command: |
-      eval "$(aws-iam-authenticator init -i $AWS_IAM_AUTH_PROVIDER -r $AWS_IAM_ROLE_ARN -s $AWS_OIDC_CLIENT_ID -p $AWS_OIDC_CLIENT_SECRET -t $AWS_OIDC_TOKEN_ENDPOINT)"
-
-This example assumes that you have set the following environment variables in your Semaphore project:
-
-    AWS_IAM_ROLE_ARN: the Amazon Resource Name (ARN) of the IAM role that trusts the IAM OIDC identity provider
-    AWS_OIDC_CLIENT_ID: the client ID for your OpenID Connect client
-    AWS_OIDC_CLIENT_SECRET: the client secret for your OpenID Connect client
-    AWS_OIDC_TOKEN_ENDPOINT: the token endpoint for your IAM OIDC identity provider
-
-For detailed instructions on how to perform these steps, please refer to the Semaphore documentation on AWS authentication.
-
-To add the Semaphore OpenID Connect token to IAM, see [AWS Documentation][aws-docs].
+Configure AWS to support OpenID Connect by creating an IAM OIDC identity provider
+by creating an IAM OIDC identity provider and an IAM role that trusts the provider.
+See [Creating OpenID Connect (OIDC) identity providers][aws-docs].
 
 - For the provider, set the full URL to your organization. Example: `https://acme.semaphoreci.com`.
 - For the audience, set the full URL to your organization. Example: `https://acme.semaphoreci.com`.`
 
-Next, configure a role and trust policy by following the documentation in
-[Creating a role for web identity or OpenID connect federation][create-role] AWS documenation.
+### Step 2 - Configuring a role and trust policy
+
+Configuring a role and trust policy that you will use to access resources on AWS.
+Follow the documentation on AWS about [Creating a role for web identity or OIDC][create-role].
+
+Edit the trust policy to restrict which projects and which branches are able to access
+the resources with this role:
+
+``` json
+"Condition": {
+  "StringEquals": {
+    "acme.semaphoreci.com:aud": "https://rtx.semaphoreci.com/",
+    "acme.semaphoreci.com:sub": "org:acme:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/main"
+  }
+}
+```
+
+Adjust the above policy to match the organization, project, and branch that you want to use
+to access the resources.
+
+### Step 3 - Assume the role in a Semaphore pipeline
+
+Finally, in your Semaphore pipelines, assume the above role by adding the following commands:
+
+``` yaml
+commands:
+  - export ROLE_ARN="<>" # the AWS Role ARN you want to assume
+  - export SESSION_NAME="semaphore-job-${SEMAPHORE_JOB_ID}"
+  - export CREDENTIALS=$(aws sts assume-role-with-web-identity --role-arn $ROLE_ARN --role-session-name $SESSION_NAME --web-identity-token $SEMAPHORE_OIDC_TOKEN)
+  - export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.Credentials.AccessKeyId')
+  - export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.Credentials.SessionToken')
+  - export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.Credentials.SecretAccessKey')
+```
 
 [aws-docs]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html#manage-oidc-provider-cli
-[create-role]:
+[create-role]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
