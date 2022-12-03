@@ -7,7 +7,7 @@ Description: Use OpenID Connect within your pipelines to authenticate with Googl
 Open ID Connect allows your pipelines to access resources in Google Cloud Platform (GCP) without
 the need to store long-lived access credentials in secrets.
 
-In this guide you will learn how to configure Google Cloud Workload Identity Provider to trust
+In this guide, you will learn how to configure Google Cloud Workload Identity Provider to trust
 Semaphore OIDC as a federated identity and then to access cloud resources from your Semaphore
 Pipelines.
 
@@ -19,7 +19,7 @@ To configure OIDC identity provider in GCP, you will perform the following actio
 2. Configure the mapping and conditions.
 3. Connect the pool with a Google Cloud service account.
 
-In this guide, we will use the [gcloud][gcloud] command line utility to set up configure the
+In this guide, we will use the [gcloud][gcloud] command line utility to set up and configure the
 connection between GCP and Semaphore. Refer to the [Google Cloud Identity Federation documentation][gcp-identity-docs]
 for further details and alternative approaches for setting up the connection.
 
@@ -38,14 +38,14 @@ gcloud iam workload-identity-pools create $POOL_ID \
 
 ### Configure mappings and conditions
 
-In this step we are going to map fields from the Semaphore OIDC token to Google attributes, and then
+In this step, we are going to map fields from a Semaphore OIDC token to Google attributes, and then
 set up conditions under which the token is able to access the identity pool.
 
-The combination of mappings and conditions is a powerful combination that allows you to set up various
+The combination of mappings and conditions is a powerful technique that allows you to set up various
 levels of access policies. To use the full power of this mechanism, refer to the Google Cloud documentation
-about [attribute mapping][gcloud-attr-mapping] and [condition mapping][gcloud-condition-mapping].
+on [attribute mapping][gcloud-attr-mapping] and [condition mapping][gcloud-condition-mapping].
 
-In the following example, you will configure Google Cloud to allow access to the previously created
+In the following example, you will see how to configure Google Cloud to allow access to a previously-created
 identity pool from the `main` branch of the `web` project.
 
 ``` bash
@@ -63,9 +63,9 @@ gcloud iam workload-identity-pools providers create-oidc $PROVIDER_ID \
 
 ### Connect the pool with a service account
 
-When connecting to Google Cloud, your pipelines would impersonate a Google Cloud Service Account.
-To set up which service account is accessible via the previously configured Workload Identity pool,
-we need to set up a binding between the workload identity user and the service account.
+When connecting to Google Cloud, your pipelines impersonate a Google Cloud Service Account.
+To set up which service account is accessible via the previously-configured Workload Identity pool,
+we need to set up a link between the workload identity user and the service account.
 
 First, construct the member id based on the following parameters:
 
@@ -93,9 +93,9 @@ gcloud iam service-accounts add-iam-policy-binding $SERVICE_ACCOUNT_EMAIL \
 Read more about [Granting external identities permission to impersonate a service account][gcloud-granting-external]
 in Google Cloud docs.
 
-## Authenticate to Google Cloud from your Semaphore pipelines
+## Authenticate with Google Cloud from your Semaphore pipelines
 
-Set up the following steps in your Semaphore pipelines in order to authenticate to Google Cloud Platform
+Set up the following steps in your Semaphore pipelines in order to authenticate with Google Cloud Platform
 and to obtain short-lived credentials for accessing resources.
 
 ``` yaml
