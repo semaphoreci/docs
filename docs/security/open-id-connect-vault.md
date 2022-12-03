@@ -7,7 +7,7 @@ Description: Use OpenID Connect within your pipelines to fetch secrets from Hash
 Open ID Connect allows your pipelines to access secrets in Hashicorp Vault without the need
 to store long-lived access credentials in Semaphore secrets.
 
-In this guide you will learn how to configure Hashicorp Vault to trust Semaphore OIDC as a
+In this guide, you will learn how to configure Hashicorp Vault to trust Semaphore OIDC as a
 federated identity, and how to fetch secrets from your Semaphore pipelines.
 
 ## Adding the identity provider to Hashicorp Vault
@@ -32,7 +32,7 @@ vault write auth/jwt/config bound_issuer="$ORG_URL" oidc_discovery_url="$ORG_URL
 
 ### Step 2 - Configure roles and policies for accessing secrets
 
-Configure a policy that grants access to specific paths that will be access by your Semaphore
+Configure a policy that grants access to specific paths that will be accessed by your Semaphore
 pipelines. For more details, read [Vault's Policies][vault-policy-docs] documentation.
 
 ``` bash
@@ -67,7 +67,7 @@ the [OpenID Connect Overview][oidc-overview] documentation page.
 
 ### Step 3 - Access Vault secrets from your Semaphore pipelines
 
-Finally, in your Semaphore pipelines, assume the above role by and fetch secrets.
+Finally, in your Semaphore pipelines, assume the above role and fetch secrets.
 
 ``` yaml:
 commands:
