@@ -7,7 +7,7 @@ Description: Use OpenID Connect within your pipelines to authenticate with Amazo
 Open ID Connect allows your pipelines to access resources in Amazon Web Services (AWS) without
 the need to store long-lived access credentials in secrets.
 
-In this guide you will learn how to configure Google Cloud Workload Identity Provider to trust
+In this guide, you will learn how to configure Google Cloud Workload Identity Provider to trust
 Semaphore OIDC as a federated identity and then to access cloud resources from your Semaphore
 Pipelines.
 
@@ -19,7 +19,7 @@ you will need to perform the following steps:
 ### Step 1 - Configure AWS OIDC Identity Provider
 
 Configure AWS to support OpenID Connect by creating an IAM OIDC identity provider
-by creating an IAM OIDC identity provider and an IAM role that trusts the provider.
+and an IAM role that trusts the provider.
 See [Creating OpenID Connect (OIDC) identity providers][aws-docs].
 
 - For the provider, set the full URL to your organization. Example: `https://acme.semaphoreci.com`.
