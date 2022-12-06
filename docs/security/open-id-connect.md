@@ -7,6 +7,8 @@ Description: OpenID Connect allows your pipelines to connect directly to cloud p
 OpenID Connect allows you to establish a trust relationship between Semaphore and cloud providers,
 and to access resources directly with short-lived access tokens.
 
+**Note:** OpenID Connect is only available on our [enterprise plan](https://semaphoreci.com/pricing).
+
 ## Overview of OpenID Connect
 
 Semaphore Pipelines are often designed to access cloud providers (e.g. AWS, Google Cloud, HashiCorp Vault)
