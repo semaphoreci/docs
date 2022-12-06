@@ -69,7 +69,7 @@ the [OpenID Connect Overview][oidc-overview] documentation page.
 
 Finally, in your Semaphore pipelines, assume the above role and fetch secrets.
 
-``` yaml:
+``` yaml
 commands:
   - export VAULT_TOKEN=$(vault write -field=token auth/jwt/login role=example-project jwt=$SEMAPHORE_OIDC_TOKEN)
   - vault kv get -field=value secret/data/production/example-secret

@@ -33,54 +33,54 @@ in a form of an environment variable named `SEMAPHORE_OIDC_TOKEN`.
 The injected environment variable is a [JWT][jwt] token signed by Semaphore and contains the
 following claims:
 
-**iss**
+#### iss
 The issuer of the token. The full URL of the organization. Example: `https://test-orgnization.semaphoreci.com`.
 
-**aud**
+#### aud
 The intended audience of the token. The full URL of the organization. Example: `https://test-orgnization.semaphoreci.com`.
 
-**sub**
+#### sub
 The subject of the token. A combination of org, project, repository, and git reference for which this token was issued.
 Template: `org:{org-name}:project:{project-id}:repo:{repo-name}:ref_type:{branch or pr or tag}:ref:{git_reference}`.
 Example: `org:acme:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/main`.
 
-**exp**
+#### exp
 The UNIX timestamp when the token expires. Example: `1660317851`.
 
-**iat**
+#### iat
 The UNIX timestamp when the token was issued. Example: `1660317851`.
 
-**nbf**
+#### nbf
 The UNIX timestamp before which the token is not valid. Example: `1660317851`.
 
-**jti**
+#### jti
 The Unique ID of the JWT token. Example: `2s557dchalv2mv76kk000el1`.
 
-**branch**
+#### branch
 The name of the branch on which job is running. Example: `main`.
 
-**pr**
+#### pr
 The name of the Pull Request for which the token was issued. Example: `PR #12: Update YAML`.
 
-**ref**
+#### ref
 The full git reference for which the token was issued. Example: `refs/heads/main`.
 
-**tag**
+#### tag
 The name of the git tag for which the token was issued. Example: `v1.0.0`.
 
-**repo**
+#### repo
 The name of the repository for which the token was issued. Example: `web`.
 
-**prj_id**
+#### prj_id
 The project ID for which the token was issued. Example: `1e1fcfb5-09c0-487e-b051-2d0b5514c42a`.
 
-**wf_id**
+#### wf_id
 The ID of the workflow for which the token was issued. Example: `1be81412-6ab8-4fc0-9d0d-7af33335a6ec`.
 
-**ppl_id**
+#### ppl_id
 The pipeline ID for which the token was issued. Example: `1e1fcfb5-09c0-487e-b051-2d0b5514c42a`.
 
-**job_id**
+#### job_id
 The ID of the job for which the token was issued. Example: `c117e453-1189-4eaf-b03a-dd6538eb49b2`.
 
 A token with the above claims is exported into jobs as the  `SEMAPHORE_OIDC_TOKEN` environment variable,
@@ -99,6 +99,8 @@ To enable OpenID Connect for your specific cloud provider, see the following gui
 - [Configure OpenID Connect in Google Cloud][configure-gcloud]
 - [Configure OpenID Connect in Hashicorp Vault][configure-vault]
 
-[configure-aws]: ./security/open-id-connect-aws.html
-[configure-gcloud]: ./security/open-id-connect-gcloud.html
-[configure-vault]: ./security/open-id-connect-vault.html
+[secret]: /essentials/using-secrets/
+[jwt]: https://jwt.io/
+[configure-aws]: /security/open-id-connect-aws
+[configure-gcloud]: /security/open-id-connect-gcloud
+[configure-vault]: /security/open-id-connect-vault

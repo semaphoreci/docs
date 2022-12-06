@@ -2,7 +2,7 @@
 Description: Use OpenID Connect within your pipelines to authenticate with Amazon Web Services.
 ---
 
-# Configure OpenID Connect in Google Cloud
+# Configure OpenID Connect in AWS
 
 Open ID Connect allows your pipelines to access resources in Amazon Web Services (AWS) without
 the need to store long-lived access credentials in secrets.
