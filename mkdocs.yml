@@ -205,6 +205,11 @@ nav:
       - Audit logs: security/audit-logs.md
       - Audit logs exporting: security/audit-logs-exporting.md
       - Audit Events reference: security/audit-events-reference.md
+    - "OpenID Connect":
+      - Overview: security/open-id-connect.md
+      - Setup with AWS: security/open-id-connect-aws.md
+      - Setup with GCP: security/open-id-connect-gcloud.md
+      - Setup with Vault: security/open-id-connect-vault.md
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
