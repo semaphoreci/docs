@@ -60,7 +60,7 @@ services and databases, and one for managing language versions.
 Following version control tools are pre-installed:
 
 - Git 2.38.1
-- Git LFS (Git Large File Storage) 3.2.0
+- Git LFS (Git Large File Storage) 3.3.0
 - GitHub CLI 2.20.2
 - Mercurial 4.5.3
 - Svn 1.9.7
@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - geckodriver 0.26.0
-- Google Chrome 107
-- ChromeDriver 107
+- Google Chrome 108
+- ChromeDriver 108
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -84,23 +84,23 @@ Docker toolset is installed and the following versions are available:
 
 - Docker 20.10.21
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.12.2 (used as `docker compose version`)
+- Docker-compose 2.14.0 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.27.11
-- aws-cli v2 (used as `aws2`) 2.8.13
-- azure-cli 2.42.0
+- aws-cli v1 (used as `aws`) 1.27.25
+- aws-cli v2 (used as `aws2`) 2.9.5
+- azure-cli 2.43.0
 - eb-cli 3.19.1
 - ecs-cli 1.21.0
-- doctl 1.87.0
-- gcloud 410.0.0
-- gke-gcloud-auth-plugin 410.0.0
+- doctl 1.88.0
+- gcloud 411.0.0
+- gke-gcloud-auth-plugin 411.0.0
 - kubectl 1.25.4
-- heroku 7.66.4
-- terraform 1.3.4
+- heroku 7.67.1
+- terraform 1.3.6
 - helm 3.10.2
 
 ### Network utilities
@@ -137,7 +137,7 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x 
-- 1.19.x (1.19.3 as default)
+- 1.19.x (1.19.4 as default)
 
 ### Java and JVM languages
 
@@ -176,8 +176,9 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 - 8.1.x
+- 8.2.x
 
-The default installed PHP version is `7.4.32`.
+The default installed PHP version is `7.4.33`.
 
 #### Additional libraries
 
@@ -190,14 +191,14 @@ Python versions are installed and managed by
 
 - 2.7.17
 - 3.6.9
-- 3.7.15
-- 3.8.15
-- 3.9.15
+- 3.7.16
+- 3.8.16
+- 3.9.16
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.9
+- pypy3: 7.3.10
 - pip (for Python 2.7): 20.3.4
 - pip (for Python 3.6): 21.3.1
 - pip (for Python 3.7 and above): 22.3.1
@@ -217,9 +218,9 @@ Available versions:
 - 2.4.0 to 2.4.10
 - 2.5.0 to 2.5.9
 - 2.6.0 to 2.6.10
-- 2.7.0 to 2.7.6
-- 3.0.0 to 3.0.4
-- 3.1.0 to 3.1.2
+- 2.7.0 to 2.7.7
+- 3.0.0 to 3.0.5
+- 3.1.0 to 3.1.3
 - jruby-9.2.11.1
 
 ### Installing dependencies with apt package manager
