@@ -8,6 +8,74 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of December 12, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Go 1.18.9, 1.19.4 (default)
+- PHP 8.0.26, 8.1.13, 8.2.0
+- Ruby 2.7.7 (default), 3.0.5, 3.1.3
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-53-generic -> 5.15.0-56-generic
+- Aws-cli 1.27.11 -> 1.27.25
+- Aws-cli 2.8.13 -> 2.9.5
+- Azure-cli 2.42.0 -> 2.43.0
+- containerd.io 1.6.10 -> 1.6.12
+- Docker-compose 2.12.2 -> 2.14.0
+- Doctl 1.87.0 -> 1.88.0
+- Git-lfs 3.2.0 -> 3.3.0
+- Gcloud 410.0.0-> 411.0.0
+- Gke-gcloud-auth-plugin 410.0.0 -> 411.0.0
+- Google Chrome 107 -> 108
+- ChromeDriver 107 -> 108
+- Python 3.9.15 -> 3.9.16
+- Python 3.10.8 -> 3.10.9
+- Pypy3 7.3.9 -> 7.3.10
+- Heroku 7.66.4 -> 7.67.1
+- Terraform 1.3.4 -> 1.3.6
+- Gem 3.3.11 -> 3.3.26
+- Bundler 2.3.11 -> 2.3.26
+- Nodejs 18.12.0 -> 18.12.1
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.18.9, 1.19.4 (default)
+- PHP 8.0.26, 8.1.13, 8.2.0
+- Ruby 2.7.7 (default), 3.0.5, 3.1.3
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-132-generic -> 5.4.0-135-generic
+- Aws-cli 1.27.11 -> 1.27.25
+- Aws-cli 2.8.13 -> 2.9.5
+- Azure-cli 2.42.0 -> 2.43.0
+- containerd.io 1.6.10 -> 1.6.12
+- Docker-compose 2.12.2 -> 2.14.0
+- Doctl 1.87.0 -> 1.88.0
+- Git-lfs 3.2.0 -> 3.3.0
+- Gcloud 410.0.0-> 411.0.0
+- Gke-gcloud-auth-plugin 410.0.0 -> 411.0.0
+- Google Chrome 107 -> 108
+- ChromeDriver 107 -> 108
+- Python 3.7.15 -> 3.7.16
+- Python 3.8.15 -> 3.8.16
+- Python 3.9.15 -> 3.9.16
+- Pypy3 7.3.9 -> 7.3.10
+- Heroku 7.66.4 -> 7.67.1
+- Terraform 1.3.4 -> 1.3.6
+- Gem 3.3.11 -> 3.3.26
+- Bundler 2.3.11 -> 2.3.26
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of November 21, 2022
 
 **(Improved) Ubuntu 20.04 image update**
