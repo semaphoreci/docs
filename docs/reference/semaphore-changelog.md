@@ -8,6 +8,62 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of December 26, 2022
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Erlang.25.2
+- Ruby 3.2.0
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.27.25 -> 1.27.35
+- Aws-cli 2.9.5 -> 2.9.9
+- Bazel 5.3.2 -> 6.0.0
+- containerd.io 1.6.12 -> 1.6.14
+- Docker 20.10.21 -> 20.10.22
+- Docker-compose 2.14.0 -> 2.14.2
+- Doctl 1.88.0 -> 1.91.0
+- Git 2.38.1 -> 2.39.0
+- Gcloud 411.0.0-> 412.0.0
+- Gke-gcloud-auth-plugin 411.0.0 -> 412.0.0
+- Helm 3.10.2 -> 3.10.3
+- lein 2.9.10 -> 2.10.0
+- kubectl 1.25.4 -> 1.26.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang.25.2
+- Ruby 3.2.0
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.27.25 -> 1.27.35
+- Aws-cli 2.9.5 -> 2.9.9
+- Bazel 5.3.2 -> 6.0.0
+- containerd.io 1.6.12 -> 1.6.14
+- Docker 20.10.21 -> 20.10.22
+- Docker-compose 2.14.0 -> 2.14.2
+- Doctl 1.88.0 -> 1.91.0
+- Git 2.38.1 -> 2.39.0
+- Gcloud 411.0.0-> 412.0.0
+- Gke-gcloud-auth-plugin 411.0.0 -> 412.0.0
+- Helm 3.10.2 -> 3.10.3
+- lein 2.9.10 -> 2.10.0
+- kubectl 1.25.4 -> 1.26.0
+
+**(Changed)** packages:
+
+- Default `gcc` and `g++` changed from version `4.8.5` to `8.4.0`
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of December 12, 2022
 
 **(Improved) Ubuntu 20.04 image update**
