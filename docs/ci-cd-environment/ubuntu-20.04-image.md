@@ -55,7 +55,7 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.38.1
+- Git 2.39.0
 - Git LFS (Git Large File Storage) 3.3.0
 - GitHub CLI 2.20.2
 - Mercurial 5.3.1
@@ -78,9 +78,9 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.21
+- Docker 20.10.22
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.14.0 (used as `docker compose version`)
+- Docker-compose 2.14.2 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 - Buildah 1.22.3
@@ -89,18 +89,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.27.25
-- aws-cli v2 (used as `aws2`) 2.9.5
+- aws-cli v1 (used as `aws`) 1.27.35
+- aws-cli v2 (used as `aws2`) 2.9.9
 - azure-cli 2.43.0
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
-- doctl 1.88.0
-- gcloud 411.0.0
-- gke-gcloud-auth-plugin 411.0.0
-- kubectl 1.25.4
+- doctl 1.91.0
+- gcloud 412.0.0
+- gke-gcloud-auth-plugin 412.0.0
+- kubectl 1.26.0
 - heroku 7.67.1
 - terraform 1.3.6
-- helm 3.10.2
+- helm 3.10.3
 
 ### Network utilities
 
@@ -142,14 +142,14 @@ Versions:
 
 - Java: 11.0.17 (default), 17.0.5
 - Scala: 2.12.15, 3.1.3
-- Leiningen: 2.9.10 (Clojure)
+- Leiningen: 2.10.0 (Clojure)
 - sbt 1.8.0
 
 #### Additional build tools
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 5.3.2
+- Bazel: 6.0.0
 
 ### JavaScript via Node.js
 
