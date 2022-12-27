@@ -162,7 +162,7 @@ In order to delete an organization, you should:
 
 ## Deleting an account
 
-In order to delete your account, please send an email to
+In order to delete your account, please send an email to 
 [support@semaphoreci.com](mailto:support@semaphoreci.com) from the primary email
 address associated with the account used to log in to Semaphore 2.0.
 In this email, please include your GitHub or Bitbucket username.
