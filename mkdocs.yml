@@ -37,6 +37,9 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
   - admonition
   - attr_list
   - md_in_html
