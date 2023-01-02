@@ -108,10 +108,10 @@ error: http status 422 with message "{"message":"repository url must be an SSH u
 The value of the `run_on` property is an array of repository events which should trigger
 new workflows for your Semaphore project.
 
-Here is a list of values for `run_on`: `branches`, `tags`, `pull_requests`, and `forked_pull_requests`
+Here is a list of values for `run_on`: `branches`, `tags`, `pull_requests`, and `forked_pull_requests`.
 
 For more information about workflow triggers, visit the
-[project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/).
+[project workflow tigger options](https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/) documentation page.
 
 ##### forked\_pull\_requests
 
@@ -122,13 +122,13 @@ and `allowed_contributors` properties.
 
 The `allowed_secrets` property specifies the array of secrets' names that are allowed
 to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
-no secret will be exported.
+no secrets will be exported.
 
 ###### allowed\_contributors
 
-The `allowed_secrets` property specifies an array of secrets names that are allowed
+The `allowed_secrets` property specifies an array of secrets (i.e. their names) that are allowed
 to be exported into jobs triggered by `forked-pull-requests`. If the array is empty,
-no secret will be exported.
+no secrets will be exported.
 
 ##### pipeline\_file
 
@@ -166,7 +166,7 @@ The `path` property specifies a pipeline.
 
 The `level` property specifies the granularity of status checks.
 
-Here is a list of values for `level`: `block`, `pipeline`
+Here is a list of values for `level`: `block`, `pipeline`.
 
 #### schedulers
 
@@ -214,7 +214,7 @@ The `pipeline_file` property contains the relative path to the pipeline
 definition file from the root of the project.
 
 For more information on defining a valid pipeline file, visit the
-[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/) documentation.
+[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/) documentation page.
 
 ## Examples
 
