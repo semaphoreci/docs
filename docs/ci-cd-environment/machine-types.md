@@ -138,20 +138,6 @@ The `e2` series machines offer a balance of compute, memory, and cost. It is a g
      75 GB
   </td>
 </tr>
-<tr>
-  <td>
-     e2-standard-8
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     32 GB
-  </td>
-  <td>
-     100 GB
-  </td>
-</tr>
 </tbody>
 </table>
 
@@ -159,7 +145,7 @@ Implementation details:
 
 1. `Virtual CPU` hyperthreaded on a 3.6GHZ [AMD Ryzen 5 3600](https://www.amd.com/en/product/8456).
 2. `Memory` is implemented as DDR4 RAM.
-3. `Disk` is implemented as RAM drive backed by NvME drives.
+3. `Disk` is implemented using NvME storage.
 
 ### F1 Generation
 
@@ -211,20 +197,6 @@ The `f1` series machines are built for compute-intensive jobs. These machines de
      75 GB
   </td>
 </tr>
-<tr>
-  <td>
-     f1-standard-8
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     32 GB
-  </td>
-  <td>
-     100 GB
-  </td>
-</tr>
 </tbody>
 </table>
 
@@ -232,7 +204,7 @@ Implementation details:
 
 1. `Virtual CPU` hyperthreaded on a 4.6GHz 12th generation [Intel i5 125000](https://ark.intel.com/content/www/us/en/ark/products/96144/intel-core-i512500-processor-18m-cache-up-to-4-60-ghz.html).
 2. `Memory` is implemented as DDR4 RAM.
-3. `Disk` is implemented as RAM drive backed by NvME drives.
+3. `Disk` is implemented using NvME storage.
 
 ## Apple machine type
 
