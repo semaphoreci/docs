@@ -1,19 +1,17 @@
 ---
-Description: Deployment and delivery are managed with promotions, which may be performed automatically or manually, depending on user-defined conditions.
+Description: Use parameterized promotions to improve code reusability and to dynamically configure your promotions and deployments.
 ---
 
 # Parameterized Promotions
 
 The **parameterized promotions** feature allows users to pass parameters to promotion
-pipelines. You can do this either through a form in the UI, 
-through Semaphore API, or on auto-promotions by setting up default values.
+pipelines. You can do this either via a form in the UI, 
+via the Semaphore API, or on auto-promotions by setting up default values.
 
-The core advantage of this feature is **code reusability**. Instead of
-having to create many promotion pipelines that have almost identical configurations,
-users can now create a single pipeline and rely on parameters for smaller but critical differences.
+The core advantage of this feature is **code reusability**. It is no longer necessary to create many promotion pipelines with almost identical configurations. Users can now create a single pipeline and rely on parameters for smaller but critical differences.
 
 ## Configuring the promotion parameters
-Let's start with defining which parameters will our promotion support. 
+Let's start with defining the parameters that our promotion will support. 
 
 In your `.yml` file, when defining the promotion you can set up
 as many parameters as you want. 
@@ -24,8 +22,7 @@ Possible options include:
 default_value is not set the promotion won’t start.
 - **default_value** - Can only be set if the parameter is required, it
 is a default value of the parameter.
-- **options** - This can be a list of values, the user can select only one
-value from the list. If left empty, it will be an input box.
+- **options** - Use this to define a list of all possible values and the user will have to select one of them from the dropdown menu. If omitted, the user will be able to input any value via the input box.
 - **description** - This is a description text that gets rendered on
 the promotion UI (when a user selects values)
 - **name** - This is the name of the parameter and the exported
@@ -63,7 +60,6 @@ promotions:
           name: ENVIRONMENT
        
         - required: false
-          options: []
           description: Release name?
           name: RELEASE
 ```
@@ -78,19 +74,25 @@ Promotion parameters can be used in the following way:
 - In the name of the [secret](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets)
 - As an environment variable inside a job
 
+
+- In the **[pipeline name](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#example-of-name-usage)** - this enables you to easily figure out specifics for the promotions in the UI. 
+- In the name of the **[pipeline queue](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue)** - so you can have separate queues for different kinds of promotions, e.g. staging and production deployments. 
+- In the name of the **[secret](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#secrets)** - use only the specific secret you need to improve security. 
+- As an environment variable inside a job
+
 Let's create a deployment pipeline that uses promotion parameter values in all of the mentioned ways: 
 
 ``` yaml
 # .semaphore/deploy.yml
 version: v1.0
-# Use parameter values in pipeline name
+# Use parameter values in the pipeline name
 name: '${{parameters.ENVIRONMENT}} deployment of the release: ${{parameters.RELEASE}}'
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
 queue:
-  # Use parameter values in pipeline queue name
+  # Use parameter values in the pipeline queue name
   name: '${{parameters.ENVIRONMENT}}-queue'
   scope: project
 blocks:
@@ -113,21 +115,21 @@ Now that you have configured both the initial pipeline and the promotion pipelin
 
 Values to the parameters are assigned every time a promotion is triggered. This can be done in the following ways:
 
-- In the UI form if promotion is triggered manually
-- Through the API call 
-- Through `default_value` in combination with `auto_promote`
+- In the UI form if the promotion is triggered manually
+- Via the API call 
+- Via `default_value` in combination with `auto_promote`
 
 ### Setting the values through the UI
-In the Semaphore web interface, you will see a deployment button. 
+If you have a promotion set up you will see a deployment button in the Semaphore web interface. 
 
-When clicked, a UI form will be auto-generated based on the configuration in the initial pipeline, prompting you for parameter values before starting the promotion. 
+When clicked, a UI form will be auto-generated based on the configuration of the initial pipeline. This will prompt you for parameter values before starting the promotion. 
 
-Here's what it looks like for the `.yml` code from our example:
+Here's how it looks like for the `.yml` code from our example:
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/parameterized-promotions/ui-form.png" alt="Tests Tab on Workflow Page">
 
-### Setting the values through the API
-Parameters can also be passed to the promotion pipeline when the promotions are triggered through Semaphore API. 
+### Setting the values via the API
+Parameters can also be passed to the promotion pipeline when the promotions are triggered via the [Semaphore API](https://docs.semaphoreci.com/reference/api-v1alpha/). 
 
 The following is an example of a curl call that includes parameters:
 ```
@@ -170,12 +172,11 @@ promotions:
           default_value: Stage
           description: Where to deploy?
           name: ENVIRONMENT
-       
+          
         - required: true
-          options: []
           description: Release name?
           name: RELEASE
-          default_value: $SEMAPHORE_GIT_PR_NAME
+          default_value: Test release
 ```
 
 In the example above, if auto-promotion is triggered, the value for `$ENVIRONMENT` will be `Stage` and the value for `$RELEASE` will be set to the name of the pull request. 
