@@ -64,6 +64,11 @@ promotions:
           name: RELEASE
 ```
 
+You can also use the in-app Workflow Editor to define the parameters for the promotion like this:
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/parameterized-promotions/wf-editor.png" alt="Parameterized promotions in Workflow Editor">
+
+
 ## Using the parameter values in promoted pipeline
 Now that we have defined our parameters, it is time to define how they are used in the promoted pipeline. 
 
@@ -126,7 +131,7 @@ When clicked, a UI form will be auto-generated based on the configuration of the
 
 Here's how it looks like for the `.yml` code from our example:
 
-<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/parameterized-promotions/ui-form.png" alt="Tests Tab on Workflow Page">
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/parameterized-promotions/ui-form.png" alt="Parameterized Promotions form on the Workflow Page">
 
 ### Setting the values via the API
 Parameters can also be passed to the promotion pipeline when the promotions are triggered via the [Semaphore API](https://docs.semaphoreci.com/reference/api-v1alpha/). 
