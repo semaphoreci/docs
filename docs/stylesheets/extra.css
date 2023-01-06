@@ -486,3 +486,78 @@ nav.md-tabs .md-tabs__link.md-tabs__link--active:hover {
     color: #0A101F !important;
     opacity: 1 !important;
 }
+
+.md-typeset .grid {
+    grid-gap:.4rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+    margin:1em 0
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol) {
+    display:contents
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol)>li,
+   .md-typeset .grid>.card {
+    border:.05rem solid rgba(0,0,0,.07);
+    border-radius:.1rem;
+    display:block;
+    margin:0;
+    padding:.8rem;
+    transition:border .25s,box-shadow .25s
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol)>li:is(:focus-within,
+   :hover),
+   .md-typeset .grid>.card:is(:focus-within,
+   :hover) {
+    border-color:#0000;
+    box-shadow:var(--md-shadow-z2)
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol)>li>hr,
+   .md-typeset .grid>.card>hr {
+    margin-bottom:1em;
+    margin-top:1em
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol)>li>:first-child,
+   .md-typeset .grid>.card>:first-child {
+    margin-top:0
+   }
+   .md-typeset .grid.cards>:is(ul,
+   ol)>li>:last-child,
+   .md-typeset .grid>.card>:last-child {
+    margin-bottom:0
+   }
+   .md-typeset .grid>* {
+    margin-bottom:0;
+    margin-top:0
+   }
+   .md-typeset .grid>:is(.admonition,
+   details) {
+    margin-bottom:0;
+    margin-top:0
+   }
+   .md-typeset .grid>.highlight>*,
+   .md-typeset .grid>.highlighttable,
+   .md-typeset .grid>pre {
+    margin-bottom:0;
+    margin-top:0
+   }
+   .md-typeset .grid>.highlight>pre:only-child,
+   .md-typeset .grid>.highlight>pre>code,
+   .md-typeset .grid>.highlighttable,
+   .md-typeset .grid>.highlighttable>tbody,
+   .md-typeset .grid>.highlighttable>tbody>tr,
+   .md-typeset .grid>.highlighttable>tbody>tr>.code,
+   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight,
+   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight>pre,
+   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight>pre>code {
+    height:100%
+   }
+   .md-typeset .grid>.tabbed-set {
+    margin-bottom:0;
+    margin-top:0
+   }
