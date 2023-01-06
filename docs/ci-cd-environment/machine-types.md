@@ -17,7 +17,7 @@ Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu
 
 ### E1 Generation
 
-The `e1` series machines are our first generation, cost-effective with medium performance they are a good choice for less compute and memory intensive jobs. 
+The `e1` series machines are our first generation, cost-effective with medium performance. They are a good choice for less compute and memory-intensive jobs. 
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -159,13 +159,11 @@ Implementation details:
 
 1. `Virtual CPU` hyperthreaded on a 3.6GHZ [AMD Ryzen 5 3600](https://www.amd.com/en/product/8456).
 2. `Memory` is implemented as DDR4 RAM.
-3. `Disk` is implemented as RAM drive backed by DDR4 RAM.
-
-`e2` machines are currently only available on our [enterprise plan](https://semaphoreci.com/pricing).
+3. `Disk` is implemented as RAM drive backed by NvME drives.
 
 ### F1 Generation
 
-The `f1` series machines are built for compute-intensive jobs, these machines deliver highest performance.. 
+The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -234,9 +232,7 @@ Implementation details:
 
 1. `Virtual CPU` hyperthreaded on a 4.6GHz 12th generation [Intel i5 125000](https://ark.intel.com/content/www/us/en/ark/products/96144/intel-core-i512500-processor-18m-cache-up-to-4-60-ghz.html).
 2. `Memory` is implemented as DDR4 RAM.
-3. `Disk` is implemented as RAM drive backed by DDR4 RAM.
-
-`f1` machines are currently only available on our [enterprise plan](https://semaphoreci.com/pricing).
+3. `Disk` is implemented as RAM drive backed by NvME drives.
 
 ## Apple machine type
 
