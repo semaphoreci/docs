@@ -12,7 +12,7 @@ name: First pipeline example
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-xcode12
+    os_image: macos-xcode13
 blocks:
   - name: Cache deps
     task:
