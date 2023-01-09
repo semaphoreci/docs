@@ -119,7 +119,6 @@ nav:
       - DockerHub authentication: ci-cd-environment/docker-authentication.md
       - Semaphore Container Registry: ci-cd-environment/semaphore-registry-images.md
     - "iOS/macOS":
-      - macOS Xcode 12 image: ci-cd-environment/macos-xcode-12-image.md
       - macOS Xcode 13 image: ci-cd-environment/macos-xcode-13-image.md
       - macOS Xcode 14 image: ci-cd-environment/macos-xcode-14-image.md
     - Android:

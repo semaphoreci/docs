@@ -479,7 +479,7 @@ blocks:
       agent:
         machine:
           type: a1-standard-4
-          os_image: macos-xcode12
+          os_image: macos-xcode13
       jobs:
         - name: 'MacOS test'
           commands:
