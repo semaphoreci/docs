@@ -30,7 +30,7 @@ name: Ubuntu18 Based Pipeline
 
 agent:
   machine:
-    type: e2-standard-2
+    type: e1-standard-2
     os_image: ubuntu2004
 
 blocks:
