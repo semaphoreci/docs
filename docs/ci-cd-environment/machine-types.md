@@ -121,7 +121,7 @@ The `e2` series machines offer a balance of compute, memory, and cost. It is a g
      8 GB
   </td>
   <td>
-     55 GB
+     45 GB
   </td>
 </tr>
 <tr>
@@ -135,7 +135,7 @@ The `e2` series machines offer a balance of compute, memory, and cost. It is a g
      16 GB
   </td>
   <td>
-     75 GB
+     65 GB
   </td>
 </tr>
 </tbody>
@@ -180,7 +180,7 @@ The `f1` series machines are built for compute-intensive jobs. These machines de
      8 GB
   </td>
   <td>
-     55 GB
+     45 GB
   </td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@ The `f1` series machines are built for compute-intensive jobs. These machines de
      16 GB
   </td>
   <td>
-     75 GB
+     65 GB
   </td>
 </tr>
 </tbody>
