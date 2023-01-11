@@ -7,7 +7,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 
 ## Features
 
-- Run self-hosted agents in Linux and Windows machines
+- Run self-hosted agents in Linux, Windows and MacOS machines
 - [Dynamically increase and decrease](#scaling-based-on-job-demand) the number of agents available based on your job demand
 - Deploy [multiple stacks of agents](#multiple-stacks), one for each self-hosted agent type
 - [Access agent EC2 instances](#agent-instance-access) via SSH or using [AWS Systems Manager Session Manager][aws session manager]
@@ -29,9 +29,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.1.28.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.2.2.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.1.28
+cd agent-aws-stack-0.2.2
 npm i
 ```
 
@@ -57,6 +57,20 @@ The Windows AMI is based on the Microsoft Windows Server 2019 with Containers im
 ```
 make packer.init
 make packer.build PACKER_OS=windows
+```
+
+#### Build a MacOS AMI
+
+Make sure you have an available dedicated host first. After that, an AMD or an ARM AMI can be built. To build it, run the following commands:
+
+```bash
+make packer.init
+
+# To build an AMD AMI (EC2 mac1 family)
+make packer.build PACKER_OS=macos AMI_ARCH=x86_64 AMI_INSTANCE_TYPE=mac1.metal
+
+# To build an ARM AMI (EC2 mac2 family)
+make packer.build PACKER_OS=macos AMI_ARCH=arm64 AMI_INSTANCE_TYPE=mac2.metal
 ```
 
 #### Build the AMIs in a specific AWS region
@@ -140,6 +154,34 @@ Create a `config.json` file with the following:
 }
 ```
 
+#### Create configuration for MacOS agents
+
+Create a `config.json` file with the following:
+
+```json
+{
+  "SEMAPHORE_AGENT_STACK_NAME": "<your-stack-name>",
+  "SEMAPHORE_AGENT_TOKEN_PARAMETER_NAME": "<your-ssm-parameter-name>",
+  "SEMAPHORE_AGENT_TOKEN_KMS_KEY": "<your-ssm-parameter-name>",
+  "SEMAPHORE_ENDPOINT": "<your-organization>.semaphoreci.com",
+  "SEMAPHORE_AGENT_OS": "macos",
+  "SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT": "86400",
+  "SEMAPHORE_AGENT_MAC_FAMILY": "mac1",
+  "SEMAPHORE_AGENT_AZS": "us-east-1a,us-east-1b,us-east-1d",
+  "SEMAPHORE_AGENT_LICENSE_CONFIGURATION_ARN": "arn:aws:license-manager:<region>:<accountId>:license-configuration:<your-license-configuration>"
+}
+```
+
+!!! info "Rotation of MacOS instances"
+    MacOS EC2 instances run on top of AWS EC2 dedicated hosts. When an instance is terminated, a new instance might take a long time to start in its place, depending on how many dedicated hosts you have available, and the time it takes for MacOS to be launched into them.
+    
+    See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) for more details.
+
+!!! info "Automatic scaling MacOS instances"
+    AWS EC2 MacOS dedicated hosts need to be allocated for at least 24 hours, so it's recommended to use a `SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT` of at least 24 hours for agents running in MacOS instances. Also due to that restriction, it's important to note that, if `SEMAPHORE_AGENT_USE_DYNAMIC_SCALING` is enabled and the stack scales up to meet a burst of new jobs, the new dedicated hosts created might end up being idle for a long time.
+    
+    See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) for more details.
+
 #### Using environment variables
 
 Alternatively, you can also configure the stack using environment variables:
@@ -221,6 +263,9 @@ npm run destroy
 
 Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to destroy.
 
+!!! info "Deleting a MacOS stack"
+    After destroying the stack, you'll need to manually delete the host resource group after the dedicated hosts attached to it leave the pending state. You'll also need to manually release the dedicated hosts associated with that resource group.
+
 ## Configuration
 
 <b>Required</b>
@@ -251,11 +296,16 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_SUBNETS`                       | Comma-separated list of existing VPC subnet ids where EC2 instances will run. This is required when using `SEMAPHORE_AGENT_VPC_ID`. If `SEMAPHORE_AGENT_SUBNETS` is set, but `SEMAPHORE_AGENT_VPC_ID` is blank, the subnets will be ignored and the default VPC will be used. Private and public subnets are possible, but isolated subnets cannot be used. |
 | `SEMAPHORE_AGENT_AMI`                           | The AMI used for all instances. If empty, the stack will use the default AMIs, looking them up by name. If the default AMI isn't sufficient, you can use your own AMIs, but they need to be based off of the stack's default AMI. |
 | `SEMAPHORE_AGENT_OS`                            | The OS type for agents. Possible values: `ubuntu-focal` and `windows`. |
+| `SEMAPHORE_AGENT_ARCH`                          | The arch type for agents. Possible values: `x86_64` and `arm64`. |
+| `SEMAPHORE_AGENT_AZS`                           | A comma-separated list of availability zones to use for the auto scaling group. |
 | `SEMAPHORE_AGENT_MANAGED_POLICY_NAMES`          | A comma-separated list of custom IAM policy names to attach to the instance profile role. |
 | `SEMAPHORE_AGENT_ASG_METRICS`                   | A comma-separated list of ASG metrics to collect. Available metrics can be found [here](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup.MetricsCollectionProperty.html). |
 | `SEMAPHORE_AGENT_VOLUME_NAME`                   | The EBS volume's device name to use for a custom volume. If this is not set, the EC2 instances will have an EBS volume based on the AMI's one. |
 | `SEMAPHORE_AGENT_VOLUME_TYPE`                   | The EBS volume's type, when using `SEMAPHORE_AGENT_VOLUME_NAME`. By default, this is `gp2`. |
 | `SEMAPHORE_AGENT_VOLUME_SIZE`                   | The EBS volume's size, in GB, when using `SEMAPHORE_AGENT_VOLUME_NAME`. By default, this is `64`. |
+| `SEMAPHORE_AGENT_LICENSE_CONFIGURATION_ARN`     | The license configuration ARN associated with the AMI used by the stack. |
+| `SEMAPHORE_AGENT_MAC_FAMILY`                    | The EC2 Mac instance family to use. Possible values: `mac1` and `mac2`. |
+| `SEMAPHORE_AGENT_MAC_DEDICATED_HOSTS`           | A comma-separated list of dedicated host IDs to include in the host resource group. |
 
 ## Architecture
 
