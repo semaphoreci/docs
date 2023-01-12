@@ -178,17 +178,6 @@ at the pre-defined time. All times are interpreted as UTC.
 
 A scheduler has the following properties:
 
-- `name`: The name of the scheduler. This can be any string that helps you identify the scheduler.
-
-- `branch`: The branch that the scheduler should run on. This is a specific branch name.
-
-- `at`: The time and frequency at which the scheduler should run. This uses a cron-style syntax, which allows you to specify the schedule in a compact and flexible way. For example, 0 * * * * runs the scheduler every hour, and 0 0 * * * runs the scheduler every day at midnight.
-
-- `pipeline_file`: The path to the pipeline configuration file that should be run by the scheduler. This file should define the pipeline and the jobs that should be run as part of the pipeline.
-
-- `status`: The current status of the scheduler. This can be `ACTIVE` if the scheduler is currently enabled, or `INACTIVE` if the scheduler is currently disabled. 
-
-
 ##### name
 
 The `name` property uniquely identifies each scheduler within an organization.
@@ -215,6 +204,10 @@ definition file from the root of the project.
 
 For more information on defining a valid pipeline file, visit the
 [Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/) documentation page.
+
+##### status
+
+The current status of the scheduler. This can be `ACTIVE` if the scheduler is currently enabled, or `INACTIVE` if the scheduler is currently disabled. 
 
 ## Examples
 
