@@ -57,7 +57,7 @@ Following version control tools are pre-installed:
 
 - Git 2.39.0
 - Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.20.2
+- GitHub CLI 2.21.2
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -65,8 +65,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - geckodriver 0.26.0
-- Google Chrome 108
-- ChromeDriver 108
+- Google Chrome 109
+- ChromeDriver 109
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,7 +80,7 @@ Docker toolset is installed and the following versions are available:
 
 - Docker 20.10.22
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.14.2 (used as `docker compose version`)
+- Docker-compose 2.15.1 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 - Buildah 1.22.3
@@ -89,17 +89,17 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.27.35
-- aws-cli v2 (used as `aws2`) 2.9.9
-- azure-cli 2.43.0
+- aws-cli v1 (used as `aws`) 1.27.47
+- aws-cli v2 (used as `aws2`) 2.9.13
+- azure-cli 2.44.1
 - eb-cli 3.20.3
 - ecs-cli 1.21.0
-- doctl 1.91.0
-- gcloud 412.0.0
-- gke-gcloud-auth-plugin 412.0.0
+- doctl 1.92.0
+- gcloud 413.0.0
+- gke-gcloud-auth-plugin 413.0.0
 - kubectl 1.26.0
 - heroku 7.67.1
-- terraform 1.3.6
+- terraform 1.3.7
 - helm 3.10.3
 
 ### Network utilities
@@ -115,7 +115,7 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0, 25.1
+- Erlang: 22.3, 23.3, 24.1, 24.2, 24.3 (default), 25.0, 25.1, 25.2
 - Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0, 1.14.1, 1.14.2
 
 Additional libraries:
@@ -136,14 +136,14 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x
-- 1.19.x (1.19.4 as default)
+- 1.19.x (1.19.5 as default)
 
 ### Java and JVM languages
 
 - Java: 11.0.17 (default), 17.0.5
 - Scala: 2.12.15, 3.1.3
 - Leiningen: 2.10.0 (Clojure)
-- sbt 1.8.0
+- sbt 1.8.2
 
 #### Additional build tools
 
@@ -157,7 +157,7 @@ Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.12.1 (set as default, with alias 18.12), includes npm 8.19.2
+- v18.13.0 (set as default, with alias 18.13), includes npm 8.19.3
 
 #### Additional tools
 
@@ -187,13 +187,14 @@ Python versions are installed and managed by
 - 3.8.10
 - 3.9.16
 - 3.10.9
+- 3.11.1
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.10
+- pypy3: 7.3.11
 - pip: 22.3.1
-- venv: 20.14.1
+- venv: 20.17.1
 
 ### Ruby
 
