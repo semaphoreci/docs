@@ -244,7 +244,8 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | redis:3.2 | `registry.semaphoreci.com/redis:3.2` |    
 | redis:4.0 | `registry.semaphoreci.com/redis:4.0` |    
 | redis:5.0 | `registry.semaphoreci.com/redis:5.0` |    
-| redis:6.0 | `registry.semaphoreci.com/redis:6.0` |    
+| redis:6.2 | `registry.semaphoreci.com/redis:6.2` |
+| redis:7.0 | `registry.semaphoreci.com/redis:7.0` |
 
 ### MySQL    
 | Image | Link |
