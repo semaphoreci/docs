@@ -7,25 +7,25 @@ Description: This guide shows you how to use Semaphore to estimate cloud costs f
 The Infracost CLI tool parses Terraform files and estimates cloud costs. This guide will show you how to:
 
 - Run the Infracost CLI in CI/CD.
-- Comment Git commits with costs changes.
+- Comment Git commits with cost changes.
 - Comment pull requests with cost changes.
 - Fail the CI/CD if costs exceed a custom-defined policy.
 
-For this guide you will need:
+For this guide, you will need the following:
 
 - [A working Semaphore project][create-project] with a basic CI pipeline.
 - At least one [Terraform][terraform] file in your project.
 - An [Infracost][infracost] API key. You must sign up with a free account to obtain it.
-- A GitHub or Bitbucket API key with permision to write comments in the repository.
+- A GitHub or Bitbucket API key with permission to write comments in the repository.
 
 !!! note
 
-    For a more in-depth guide of Infracost check out this post in the Semaphore blog: [Taming Cloud Costs with Infracost][taming-costs]
+    For a more in-depth guide to Infracost, check out this post in the Semaphore blog: [Taming Cloud Costs with Infracost][taming-costs]
 
 
 ## Adding a baseline to the repository
 
-In order to estimate deviations from the expected cost, you must store a baseline file in your repository. The following command will generate `baseline.json` based in all the Terraform files found in your project folder:
+In order to estimate deviations from the expected cost, you must store a baseline file in your repository. The following command will generate `baseline.json` based on all the Terraform files found in your project folder:
 
 ```bash
 $ infracost breakdown --path . --format json --out-file baseline.json
@@ -35,7 +35,7 @@ Now you can push `baseline.json` into your repository.
 
 ## Storing the API keys in secrets
 
-Follow the [Infracost getting started guide][infracost-started] to install the CLI tool on your machine and obtain an API key. Create a [secret] in Semaphore to store it:
+Follow the [Infracost getting started guide][infracost-started] to install the CLI tool on your machine and obtain an API key. Create a [secret][secrets-guide] in Semaphore to store it:
 
 ```bash
 $ sem create secret infracost -e INFRACOST_API_KEY=YOUR_API_KEY
@@ -133,7 +133,7 @@ blocks:
         - name: infracost
         - name: github
       jobs:
-        - name: Cost diff betwen branches
+        - name: Cost diff between branches
           commands:
             - 'curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh'
             - checkout
@@ -175,11 +175,11 @@ blocks:
 
 ## Enforcing policies with CI/CD
 
-Infracost can be used to enforce cost policies a CI/CD-level. When a policy is used, the Infracost CLI will return a non-zero exit status, stopping the pipeline and preventing a deployment that would run over the budget.
+Infracost can be used to enforce cost policies with continuous integration. When a policy is used, the Infracost CLI will return a non-zero exit status, stopping the pipeline and preventing a deployment that would run over the budget.
 
 First, we must create a policy file and push it into the repository. To learn about the policy syntax, read the [cost policies docs][infracost-policies] on Infracost.
 
-The following example sets a maximum budget of $1000 USD per month:
+The following example sets a maximum budget of USD 1000 per month:
 
 ```rego
 # policy.rego
@@ -189,21 +189,21 @@ package infracost
 deny[out] {
 
     # define a variable
-	maxMonthlyCost = 1000.0
+  maxMonthlyCost = 1000.0
 
-	msg := sprintf(
-		"Total monthly cost must be less than $%.2f (actual cost is $%.2f)",
-		[maxMonthlyCost, to_number(input.totalMonthlyCost)],
-	)
+  msg := sprintf(
+    "Total monthly cost must be less than $%.2f (actual cost is $%.2f)",
+    [maxMonthlyCost, to_number(input.totalMonthlyCost)],
+  )
 
-  	out := {
-    	"msg": msg,
-    	"failed": to_number(input.totalMonthlyCost) >= maxMonthlyCost
-  	}
+    out := {
+      "msg": msg,
+      "failed": to_number(input.totalMonthlyCost) >= maxMonthlyCost
+    }
 }
 ```
 
-In order to evaluate the policy file, you must add the `--policy-path POLICY_FILENAME` option to any of the comment commands. For example:
+To evaluate the policy file, you must add the `--policy-path POLICY_FILENAME` option to any of the comment commands. For example:
 
 ```bash
 # calculate difference between commit and baseline
@@ -216,8 +216,8 @@ infracost comment github --path=/tmp/infracost-diff-commit.json --repo=$SEMAPHOR
 ## Tips for using Infracost in your pipeline
 
 - You can use [change-based execution][change-based-execution] with a condition such as `change_in('/**/*.tf') or change_in('/**/*.tfvars')` to run Infracost only when Terraform files change. 
-- You can create a [config file][infracost-config] manage [monorepo workflows][monorepo-workflow] and provide forecasts for usage-based services such as AWS lambda.
-- You can add a [badge][infracost-badge] to your repository with the estimated montly cost.
+- You can create a [config file][infracost-config] to manage [monorepo workflows][monorepo-workflow] and provide utilization forecast for per-usage services such as AWS lambda.
+- You can add a [badge][infracost-badge] to your repository with the estimated monthly cost.
 
 ## Next steps
 
