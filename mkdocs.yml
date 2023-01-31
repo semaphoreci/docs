@@ -154,6 +154,7 @@ nav:
       - Using Terraform with Google Cloud: examples/using-terraform-with-google-cloud.md
       - Using private dependencies: essentials/using-private-dependencies.md
       - Releasing semantic versions: essentials/releasing-semantic-versions.md
+      - Estimating cloud costs with Infracost: examples/estimating-cloud-costs-with-infracost.md
 
     - Deployment:
       - AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
