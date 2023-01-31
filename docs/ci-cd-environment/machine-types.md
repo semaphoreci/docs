@@ -92,6 +92,9 @@ Implementation details:
 
 The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
 
+!!! info "This machine type is only available with the [Enterprise Cloud plan](https://semaphoreci.com/pricing)."
+    You may sign up for the waiting list via [this form](https://docs.google.com/forms/d/e/1FAIpQLSenvjdQf1YghQdzShvfMQZ-_WDezselqBNw7xtSvK_9vFfapA/viewform). 
+
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
 <tr>
@@ -150,6 +153,9 @@ Implementation details:
 ### F1 Generation
 
 The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
+
+!!! info "This machine type is only available with the [Enterprise Cloud plan](https://semaphoreci.com/pricing)."
+    You may sign up for the waiting list via [this form](https://docs.google.com/forms/d/e/1FAIpQLSenvjdQf1YghQdzShvfMQZ-_WDezselqBNw7xtSvK_9vFfapA/viewform). 
 
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
