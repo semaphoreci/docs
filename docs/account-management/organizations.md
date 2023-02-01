@@ -40,41 +40,33 @@ Congratulations, you are ready to start adding projects to your new organization
 
 ## Adding a user to an organization
 
-In order to add a new user to your organization, you can:
+Note the following conditions apply when adding users: 
 
+- All added users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admins) by clicking on the Promote button next to their username.
+- Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admins) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
+
+In order to add a new user to your organization, you can:
 1. Click on the initials of your organization in the top right corner of the page
 2. Click on **People** in the dropdown menu
-3. Go to the "repository collaborators"
-4. Find the user on the list of collaborators and select checkbox next to their name
-5. Click "Add selected"
+3. Click on **Add People** and choose the best option from the ones below
 
-!!! info ""
-    If you are using GitHub, you can search for the GitHub username of the person you would like to invite. 
+### Adding a user to an organization with their GitHub username
 
-
-All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
-by clicking on the **Promote** button next to their username.
-
-Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admins) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
+This option will allow you to add GitHub users to your organization, one user at a time, without sending an email notification. 
+1. Enter the person’s GitHub username inside the first field.
+2. And click on **Invite**. Make sure to refresh the page to see the applied changes. 
 
 **Note:** If you want someone to have access to a project on Semaphore, you first need to give this person access to the repository, and then add them as a member on Semaphore.
 
-## Adding multiple users to an organization
+### Adding a user to an organization from the repository’s collaborators list
 
-If you want to add multiple users to your organization at the same time, you can:
+This option is great for adding multiple users to your organization all at once, and it also gives the choice to send respective invitation emails. Users will need to be added on GitHub first.
 
-1. Click on the initials of your organization in the top right corner of the page
-2. Click on **People** in the dropdown menu
-2. Click on the **repository collaborators** link
-3. Select all new members you'd like to add to Semaphore and enter their emails (If you don’t know 
-someone’s email, just leave the field empty. We will still add them to your 
-organization, but we won’t email them an invitation.)
-4. Click on the **Add selected** button
+1. Select the user(s) from your repository’s collaborator list. 
+2. As an optional step, if you want the new users to receive an invitation email, you can enter their email addresses next to their respective usernames
+3. And click on **Add selected**. Make sure to refresh the page to see the applied changes. 
 
-All invited users have the [Member permission level](https://docs.semaphoreci.com/account-management/permission-levels/#members) by default. You can promote users to [Admins](https://docs.semaphoreci.com/account-management/permission-levels/#admin) 
-by clicking on the **Promote** button next to their username.
-
-Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admins) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
+**Note:** We recommend using the **Refresh** button after adding a new collaborator to your GitHub or Bitbucket repository. It could take some time for your repository to sync with your Semaphore account. 
 
 ## Removing a user from an organization
 
