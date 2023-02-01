@@ -18,7 +18,7 @@ This page is updated on a weekly basis.
 
 - Fastlane 2.209.1 -> 2.211.0
 - Flutter 3.3.0 -> 3.7.0
-
+- NodeJS 16 -> 18
 
 
 ### Week of January 16, 2023
