@@ -74,7 +74,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.210.0)
+- fastlane (2.211.0)
 - cocoapods (1.11.3)
 
 ## Languages
@@ -112,13 +112,15 @@ Installed versions:
 
 ## Flutter
 
-- 3.0.0
+- 3.7.0
 
 ## Xcode
 
 Installed versions:
 
 - 14.0
+- 14.1
+- 14.2
 
 The default installed Xcode version is `14.0`.
 
