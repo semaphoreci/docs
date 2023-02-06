@@ -55,9 +55,9 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.39.0
+- Git 2.39.1
 - Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.21.2
+- GitHub CLI 2.22.1
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -89,18 +89,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.27.47
-- Aws-cli v2 (used as `aws2`) 2.9.13
+- Aws-cli v1 (used as `aws`) 1.27.62
+- Aws-cli v2 (used as `aws2`) 2.9.20
 - Azure-cli 2.44.1
 - Eb-cli 3.20.3
 - Ecs-cli 1.21.0
-- Doctl 1.92.0
-- Gcloud 413.0.0
-- Gke-gcloud-auth-plugin 413.0.0
-- Kubectl 1.26.0
-- Heroku 7.67.1
+- Doctl 1.92.1
+- Gcloud 416.0.0
+- Gke-gcloud-auth-plugin 416.0.0
+- Kubectl 1.26.1
+- Heroku 7.67.2
 - Terraform 1.3.7
-- Helm 3.10.3
+- Helm 3.11.0
 
 ### Network utilities
 
@@ -136,7 +136,8 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x
-- 1.19.x (1.19.5 as default)
+- 1.19.x
+- 1.20.x (1.20 as default)
 
 ### Java and JVM languages
 
@@ -153,7 +154,7 @@ Versions:
 
 ### JavaScript via Node.js
 
-Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
+Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
@@ -193,7 +194,7 @@ Supporting libraries:
 
 - pypy: 7.3.9
 - pypy3: 7.3.11
-- pip: 22.3.1
+- pip: 23.0
 - venv: 20.17.1
 
 ### Ruby
@@ -204,6 +205,7 @@ Available versions:
 - 2.7.0 to 2.7.7
 - 3.0.0 to 3.0.5
 - 3.1.0 to 3.1.3
+- 3.2.0
 - jruby-9.2.11.1
 - jruby-9.3.9.0
 - jruby-9.4.0.0
