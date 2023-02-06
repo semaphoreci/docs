@@ -8,6 +8,66 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of February 06, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Go 1.20 (default)
+- PHP 8.1.15, 8.2.2
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-57-generic -> 5.15.0-58-generic
+- Aws-cli 1.27.47 -> 1.27.62
+- Aws-cli 2.9.13 -> 2.9.20
+- Containerd.io 1.6.15 -> 1.6.16
+- Doctl 1.92.0 -> 1.92.1
+- Erlang 24.3.4.7 -> 24.3.4.8 (aliased as 24.3)
+- Erlang 25.1.2 -> 25.1.2.1 (aliased as 25.1)
+- Erlang 25.2 -> 25.2.2 (aliased as 25.2)
+- Git 2.39.0 -> 2.39.1
+- Github-cli 2.21.2 -> 2.22.1
+- Gcloud 413.0.0 -> 416.0.0
+- Gke-gcloud-auth-plugin 413.0.0 -> 416.0.0
+- Helm 3.10.3 -> 3.11.0
+- Heroku 7.67.1 -> 7.67.2
+- Nvm 0.33.2 -> 0.39.3
+- Kubectl 1.26.0 -> 1.26.1
+- Pip 22.3.1 -> 23.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.20 (default)
+- PHP 8.1.15, 8.2.2
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-136-generic -> 5.4.0-137-generic
+- Aws-cli 1.27.47 -> 1.27.62
+- Aws-cli 2.9.13 -> 2.9.20
+- Containerd.io 1.6.15 -> 1.6.16
+- Doctl 1.92.0 -> 1.92.1
+- Erlang 24.3.4.7 -> 24.3.4.8 (aliased as 24.3)
+- Erlang 25.1.2 -> 25.1.2.1 (aliased as 25.1)
+- Erlang 25.2 -> 25.2.2 (aliased as 25.2)
+- Git 2.39.0 -> 2.39.1
+- Github-cli 2.21.2 -> 2.22.1
+- Gcloud 413.0.0 -> 416.0.0
+- Gke-gcloud-auth-plugin 413.0.0 -> 416.0.0
+- Helm 3.10.3 -> 3.11.0
+- Heroku 7.67.1 -> 7.67.2
+- Nvm 0.33.2 -> 0.39.3
+- Kubectl 1.26.0 -> 1.26.1
+- Pip 22.3.1 -> 23.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of January 30, 2023
 
 **(Improved) macos-xcode14 image update**
