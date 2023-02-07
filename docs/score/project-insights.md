@@ -7,11 +7,6 @@ see the percentage of passed tests for the last few days in the whole project or
 
 You can also set up insights for your project's deployment branch via Settings on the Project Insights page.
 
-!!! warning "This feature is in Technical preview."
-    Project Insights is in Technical Preview. Details and functionality are subject to change.
-
-
-
 ## Configuring Insights
 
 Semaphore tracks your CI insights automatically. You only need to set up insights for CD. 
@@ -23,9 +18,9 @@ Follow the steps below to set up CD insights:
 1. Click on the **Insights** tab on the project page.
 2. Click on the Gear Icon (Settings) on the left side navigation bar of the Insights page.
 3. Provide the required information:
-    - Provide the Branch Name
-    - Provide the Pipeline File Path
-4. Click the **Save** button.
+    - Provide the Branch
+    - Provide the Pipeline Path
+    4. Click on the **Save changes** button.
 
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/settings.png" alt="Project Insights - Settings page">
