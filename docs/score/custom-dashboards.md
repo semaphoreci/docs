@@ -29,7 +29,7 @@ To rename a Dashboard, you need to follow the steps below:
 To delete a Dashboard, you need to follow the steps below:
 
 1. On the Insights Page, select the Dashboard to be deleted.
-2. Click on the **Edit** button right next to the Dashboard name.
+2. Click on the **Edit** button next to the Dashboard's name.
 3. Click on the **Delete** button at the bottom of the tooltip.
 4. Click the **OK** button in the confirmation dialog.
 
@@ -49,7 +49,7 @@ To add a metric to a Dashboard, you need to follow the steps below:
 5. Click **Save**.
 
 After you save, a new Metric chart will appear on the Dashboard.
-It may take up to two days to have data to display.
+It may take up to two days for data to populate the new chart.
 
 !!! warning "Note: You need to have run a pipeline on the selected branch for data to be gathered and displayed."
 
@@ -57,9 +57,9 @@ It may take up to two days to have data to display.
 
 To edit a metric name, you need to follow the steps below:
 
-1. Look for the metric you want to rename on the Dashboard.
-2. Click on the **Edit** button right next to the metric name.
-3. Change the Metrics' name and/or description.
+1. Find the metric you want to rename on the Dashboard.
+2. Click on the **Edit** button next to the metric's name.
+3. Change the Metric's name and/or description.
 4. Click **Save**.
 
 
@@ -68,6 +68,6 @@ To edit a metric name, you need to follow the steps below:
 To remove a metric, you need to follow the steps below:
 
 1. On the Dashboard, look for the metric you want to remove.
-2. Click on the **Edit** button right next to the metric name.
+2. Click on the **Edit** button next to the metric's name.
 3. Click on the **Delete** button at the bottom of the tooltip.
 4. Click the **OK** button in the confirmation dialog.
