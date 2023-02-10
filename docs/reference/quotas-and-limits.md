@@ -196,8 +196,22 @@ Content of the log is bigger than 16MB. Log is trimmed.
 This limit is not adjustable.
 
 For collecting longer textual files, or output from long and verbose processes,
-we recommend using a blob store like AWS S3 or Google Cloud Storage.
+you can upload the logs as a job artifact, by exposing the `SEMAPHORE_AGENT_UPLOAD_JOB_LOGS` environment variable
+in the job YAML:
+
+```diff
+  jobs:
+    - name: 'Job #1'
+      commands:
+        - checkout
++ env_vars:
++   - name: SEMAPHORE_AGENT_UPLOAD_JOB_LOGS
++     value: when-trimmed
+```
+
+The possible values for that environment variable are the same ones in the Semaphore agent [--upload-job-logs][upload-job-logs-parameter] parameter.
 
 [execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
 [yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
 [dependency-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks
+[upload-job-logs-parameter]: https://docs.semaphoreci.com/ci-cd-environment/configure-self-hosted-agent/#upload-job-logs
