@@ -77,12 +77,15 @@ blocks:
 
 ## Creating and managing secrets
 
-When creating secrets, we recommend that you grant it to minimum subset of projects possible. For this purpouse 
-you can use access policies to control which projects can use organization secrets. 
-Organization-level secrets let you share secrets between multiple projects, 
-which reduces the need for creating duplicate secrets. Updating an organization secret in 
-one location also ensures that the change takes effect in all projects that use that secret.
-By default all the projects have access to a secret, you can use project whitelists to restrict access to the secret to a specific subset of projects within your organization.. You choose **Whitelisted** and type project names.
+When creating secrets, it is recommended to grant access to the minimum subset of projects necessary. 
+Access policies can be used to control which projects have access to the organization's secrets. 
+Organization-level secrets enable sharing secrets between multiple projects, reducing duplication. 
+Updating an organization secret in one location ensures that the change is reflected in all projects using it.
+
+By default, all projects have access to secrets, but access can be restricted to a specific subset of projects using a project whitelist. To do this, choose **Whitelisted** and enter the project names.
+
+Organization-level secrets can also have restrictions in terms of availability in interactive sessions such as debug jobs and attaching to jobs that have the secret injected. These restrictions can be set up to prevent debugging or attaching to the project.
+
 
 ### Web UI
 
