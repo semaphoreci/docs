@@ -2,6 +2,9 @@
 Description: Project Insights are a set of metrics that provide a granular view of your project.
 ---
 # Project Insights
+
+!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 Project Insights provide metrics about your projects' development performance, speed, and reliability. For example, you can
 see the percentage of passed tests for the last few days in the whole project or your main branch.
 

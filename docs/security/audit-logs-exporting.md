@@ -4,6 +4,8 @@ Description: This page explains audit logs for Semaphore 2.0 and provides inform
 
 # Audit logs exporting
 
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/startup-plan/)</span>"
+
 Audit logs can be manually downloaded with **Export as CSV** button or logs can be automatically exported every day to AWS S3 or Google Cloud Storage by setting up our logs streaming.
 
 ![Audit logs in settings](audit-logs/export-buttons.png)

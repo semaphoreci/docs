@@ -3,6 +3,9 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 ---
 
 # AWS support
+
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] can help you deploy an auto-scaling fleet of agents on your AWS account.
 
 ## Features
