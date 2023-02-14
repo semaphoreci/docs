@@ -198,6 +198,7 @@ nav:
       - Scaleup plan: account-management/scaleup-plan.md
       - Legacy plans: account-management/legacy-plans.md
       - Add-ons: account-management/add-ons.md
+    - Organizations: account-management/organizations.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md
