@@ -120,7 +120,8 @@ block runs when it completes.
 **Blocks** can contain a single job or many parallel jobs. For example, your
 `Tests` block contains two parallel jobs.
 
-!!! Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
+!!! info ""
+    Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans](/account-management/standard-plan/).
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
