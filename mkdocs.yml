@@ -70,7 +70,6 @@ nav:
       - Prioritizing jobs: essentials/prioritization.md
       - Monorepo workflows: essentials/building-monorepo-projects.md
       - Job matrix: essentials/build-matrix.md
-      - "Pre-flight checks": essentials/configuring-pre-flight-checks.md
 
     - Deployment:
       - Deploying with promotions: essentials/deploying-with-promotions.md
@@ -191,10 +190,15 @@ nav:
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Glossary: reference/glossary.md
   - Account Management:
+    - Plans & Billing:
+      - Billing Overview: account-management/billing-overview.md
+      - Billing FAQ: account-management/billing-faq.md
+      - Free and Open Source: account-management/free-and-open-source-plans.md
+      - Startup plan: account-management/startup-plan.md
+      - Scaleup plan: account-management/scaleup-plan.md
+      - Legacy plans: account-management/legacy-plans.md
+      - Add-ons: account-management/add-ons.md
     - Organizations: account-management/organizations.md
-    - Billing: account-management/billing.md
-    - Plans: account-management/plans.md
-    - Discounts: account-management/discounts.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md
@@ -209,6 +213,7 @@ nav:
       - Setup with AWS: security/open-id-connect-aws.md
       - Setup with GCP: security/open-id-connect-gcloud.md
       - Setup with Vault: security/open-id-connect-vault.md
+    - Pre-flight checks: security/configuring-pre-flight-checks.md
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
