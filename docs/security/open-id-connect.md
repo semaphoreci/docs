@@ -4,7 +4,7 @@ Description: OpenID Connect allows your pipelines to connect directly to cloud p
 
 # OpenID Connect
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/startup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
 OpenID Connect allows you to establish a trust relationship between Semaphore and cloud providers,
 and to access resources directly with short-lived access tokens.

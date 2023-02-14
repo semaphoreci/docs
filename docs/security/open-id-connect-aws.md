@@ -4,7 +4,7 @@ Description: Use OpenID Connect within your pipelines to authenticate with Amazo
 
 # Configure OpenID Connect in AWS
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/startup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
 Open ID Connect allows your pipelines to access resources in Amazon Web Services (AWS) without
 the need to store long-lived access credentials in secrets.

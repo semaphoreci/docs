@@ -1,6 +1,6 @@
 # Audited events reference
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/startup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
 Each audit log entry shows applicable information about an event, such as:
 

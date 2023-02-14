@@ -4,7 +4,7 @@ Description: This page explains audit logs for Semaphore 2.0 and provides inform
 
 # Audit logs
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/startup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
 To support compliance, accountability, and security, Semaphore provides logs of audited events. Audit Log [events][events] are events that affect your organization, projects, users, or any other [resources][resources] in Semaphore.
 Events contain information about when who and what was the performed activity. 
