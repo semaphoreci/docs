@@ -37,6 +37,9 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
   - admonition
   - attr_list
   - md_in_html
@@ -74,6 +77,7 @@ nav:
 
     - Deployment:
       - Deploying with promotions: essentials/deploying-with-promotions.md
+      - Parameterized promotions: essentials/parameterized-promotions.md
       - Pipeline queues: essentials/pipeline-queues.md
       - Tag-triggered deployment: essentials/tag-triggered-deployment.md
       - Deployment dashboards: essentials/deployment-dashboards.md
