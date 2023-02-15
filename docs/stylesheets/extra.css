@@ -1,3 +1,4 @@
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
     color: #0A101F !important;
@@ -164,22 +165,18 @@ div.md-sidebar.md-sidebar--secondary div.md-sidebar__inner > nav > ul > li > nav
         color: #0A101F !important;
         background: #fff !important;
     }
-
     .custom-search__input {
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
         border-radius: 4px !important;
     }
-
     [data-md-toggle=search]:checked~.md-header .custom-search__input {
         box-shadow: none;
         border-radius: 4px 4px 0 0 !important;
     }
-
     .custom-search__input::placeholder {
         color: #97A4A4 !important;
     }
 }
-
 .custom-search__output {
     border-radius: 0 0 4px 4px !important;
 } */
@@ -486,78 +483,51 @@ nav.md-tabs .md-tabs__link.md-tabs__link--active:hover {
     color: #0A101F !important;
     opacity: 1 !important;
 }
+.md-typeset table th{
+    background-color: #0a1120 !important;
+}
+.md-typeset table td{
+    border: 0.05rem solid rgba(0,0,0,0.1);
+}
 
-.md-typeset .grid {
-    grid-gap:.4rem;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
-    margin:1em 0
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol) {
-    display:contents
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol)>li,
-   .md-typeset .grid>.card {
-    border:.05rem solid rgba(0,0,0,.07);
-    border-radius:.1rem;
-    display:block;
+:root {
+    --md-admonition-icon--plans: url('data:image/svg+xml;charset=utf-8,<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 48 48"><path d="m19 20.6 5-2.5 5 2.5V9H19ZM14 34v-4h10v4Zm-5 8q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h30q1.2 0 2.1.9.9.9.9 2.1v30q0 1.2-.9 2.1-.9.9-2.1.9ZM9 9v30V9Zm0 30h30V9h-7v16.45l-8-4-8 4V9H9v30Z"/></svg>')
+  }
+  .md-typeset .admonition.plans,
+  .md-typeset details.plans {
+    border-color: #284FC4;
+    display: inline-table;
     margin:0;
-    padding:.8rem;
-    transition:border .25s,box-shadow .25s
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol)>li:is(:focus-within,
-   :hover),
-   .md-typeset .grid>.card:is(:focus-within,
-   :hover) {
-    border-color:#0000;
-    box-shadow:var(--md-shadow-z2)
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol)>li>hr,
-   .md-typeset .grid>.card>hr {
-    margin-bottom:1em;
-    margin-top:1em
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol)>li>:first-child,
-   .md-typeset .grid>.card>:first-child {
-    margin-top:0
-   }
-   .md-typeset .grid.cards>:is(ul,
-   ol)>li>:last-child,
-   .md-typeset .grid>.card>:last-child {
-    margin-bottom:0
-   }
-   .md-typeset .grid>* {
-    margin-bottom:0;
-    margin-top:0
-   }
-   .md-typeset .grid>:is(.admonition,
-   details) {
-    margin-bottom:0;
-    margin-top:0
-   }
-   .md-typeset .grid>.highlight>*,
-   .md-typeset .grid>.highlighttable,
-   .md-typeset .grid>pre {
-    margin-bottom:0;
-    margin-top:0
-   }
-   .md-typeset .grid>.highlight>pre:only-child,
-   .md-typeset .grid>.highlight>pre>code,
-   .md-typeset .grid>.highlighttable,
-   .md-typeset .grid>.highlighttable>tbody,
-   .md-typeset .grid>.highlighttable>tbody>tr,
-   .md-typeset .grid>.highlighttable>tbody>tr>.code,
-   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight,
-   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight>pre,
-   .md-typeset .grid>.highlighttable>tbody>tr>.code>.highlight>pre>code {
-    height:100%
-   }
-   .md-typeset .grid>.tabbed-set {
-    margin-bottom:0;
-    margin-top:0
-   }
+  }
+  .md-typeset .plans > .admonition-title,
+  .md-typeset .plans > summary {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: rgba(40, 79, 196,0.3);
+  }
+  .md-typeset .plans > .admonition-title::before,
+  .md-typeset .plans > summary::before {
+    background-color: #284FC4;
+    color: #284FC4;
+  
+    -webkit-mask-image: var(--md-admonition-icon--plans);
+            mask-image: var(--md-admonition-icon--plans);
+  }
+  
+ main span.plans-box
+  {
+    background-color: rgb(10, 17, 32);
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+  }
+  main span.plans-box:hover
+  {
+    background-color: rgb(40, 79, 196);
+  }
+
+  main span.plans-box a
+  {
+    color: white !important;
+    text-decoration: none !important;
+  }
+  
