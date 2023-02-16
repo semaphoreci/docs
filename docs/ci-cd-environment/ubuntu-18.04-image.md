@@ -8,7 +8,7 @@ Description: The ubuntu1804 image is a customized image based on Ubuntu 18.04 LT
 The `ubuntu1804` image is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) that has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
-with any [Linux machine type][machine-types] when defining the [agent][agent]
+with any [E1 Generation Linux machine type][e1-machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
 The `ubuntu1804` image is a virtual machine (VM) image. The user in the environment,
@@ -270,6 +270,7 @@ sudo apt-get update
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
+[e1-machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/#e1-generation
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
