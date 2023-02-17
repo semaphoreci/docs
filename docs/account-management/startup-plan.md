@@ -1,12 +1,12 @@
 ---
-Description: This page contains all the details regarding the Semaphore Startup plan, including pricing, machines available, and features that are included in the plan.
+Description: This page contains all the details regarding the Semaphore Startup plan, including pricing, available machines, and the features that are included in the plan.
 ---
 
 # Startup plan
 
-The Startup plan is suitable for a wide range of organizations, whether you're just starting your CI/CD journey or growing your team. This plan offers a flexible solution that accommodates the needs of different organizations.
+The Startup plan is suitable for a wide range of organizations, whether you're just starting your CI/CD journey or growing your team. This plan represents a flexible solution that accommodates the needs of different types of organizations.
 
-With a **$10 subscription fee**, you get access to the necessary resources to get started. This plan operates on a usage-based pricing model, allowing you to easily scale your CI/CD operations without any limitations on machine minutes or team members.
+With a **$10 subscription fee**, you get access to the resources you need to get started. This plan operates on a usage-based pricing model, allowing you to easily scale your CI/CD operations without any limitations on machine minutes or number of team members.
 
 ## Subscription
 
@@ -20,27 +20,27 @@ Any usage within these limits will not incur additional charges. However, you ar
 
 To understand how additional spending is calculated, please visit our [Billing Overview page](/account-management/billing-overview/).
 
-### Seats cost
+### Seat cost
 
-In addition to the 5 free seats provided in the Subscription, any additional seat used will be charged at **$15** per seat.
+In addition to the 5 free seats provided in the Subscription, any additional seat used will be charged at **$15** per seat per month.
 
-You can see in more detail how the seat pricing works in the [Seat billing overview](/account-management/billing-overview/#seats) section.
+You can see how the seat pricing works in more detail in the [Seat billing overview](/account-management/billing-overview/#seats) section.
 
 ### Free credits
 
-Your Startup subscription comes with **$45** of free credits every month. These credits equal to **6,000** minutes (*based on the e1-standard-2 pricing*) of cloud machine time.
+Your Startup subscription comes with **$45** of free credits every month. These credits equal to **6,000** minutes (*based on e1-standard-2 pricing*) of cloud machine time.
 
 The free credits are applied to all additional spending, including machine time, seats, storage, and egress.
 
 Please note that free credits are not transferable and will be reset at the start of each billing period.
 
-## Job Concurrency & Self-Hosted Agents
+## Job concurrency & self-hosted agents
 
 On the Startup plan, you can run **up to 80 jobs** in parallel, regardless of the machine type.
 
 Additionally, you can connect **up to 40** [self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) to your organization.
 
-## Cloud Machine Types
+## Cloud machine types
 
 In addition to the standard *E1 (Linux)* and *A1 (MacOS)* machines, the Startup plan also grants access to our more powerful *E2* and *F1* machine generations.
 
@@ -65,14 +65,14 @@ The Startup plan provides access to advanced features to enhance your CI/CD stra
 
 Get a comprehensive view of your CI/CD performance with the [Project Insights](/score/project-insights/) feature. With Project Insights, you can monitor key metrics such as pipeline speed, deployment frequency, mean time to recovery, and pipeline failure rate.
 
-Custom dashboards can also be created to track the metrics that matter most to your team across the branches.
+Custom dashboards can also be created to track the metrics that matter most to your team.
 
 ### Complex CD workflows
 
 Take your deployment strategy to the next level with the following features:
 
-- **[Parameterized Promotions](/essentials/parameterized-promotions/)**: Use the same deployment pipeline file for different environments by creating a promotion form and passing parameters to your promoted pipeline.
-- **Deployment Targets**: Enjoy greater control over your deployments with the ability to limit which branches can be deployed and view the deployment history for each environment.
+- **[Parameterized Promotions](/essentials/parameterized-promotions/)** - use the same deployment pipeline file for different environments by creating a promotion form and passing parameters to your promoted pipeline
+- **Deployment Targets** - enjoy greater control over your deployments with the ability to limit which branches can be deployed and view the deployment history for each environment
 
 ### Project Secrets
 
@@ -80,7 +80,7 @@ In addition to organization-level secrets, this plan also includes access to pro
 
 ### Add-ons
 
-Optimize your CI/CD experience even further with add-ons such as a dedicated cache server, dedicated container registry, and an Advanced or Premium Support package.
+Optimize your CI/CD experience even further with add-ons such as a dedicated cache server, dedicated container registry, and Advanced or Premium Support packages.
 
 For more information on available add-ons and how to enable them, visit our [add-ons page](/account-management/add-ons/).
 
