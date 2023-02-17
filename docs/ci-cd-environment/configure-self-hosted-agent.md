@@ -3,6 +3,9 @@ Description: This guide describes the various different configuration options fo
 ---
 
 # Configuring a self-hosted agent
+
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 An agent can be configured in two ways:
 
 - using command line arguments
