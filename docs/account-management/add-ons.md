@@ -1,10 +1,10 @@
 ---
-Description: On this page, you can find all the required information regarding available Semaphore add-ons. 
+Description: On this page, you can find all relevant information regarding available Semaphore add-ons. 
 ---
 
 # Add-ons
 
-You can further enhance your CI/CD experience through the purchase of add-ons.
+You can further enhance your CI/CD experience with the purchase of add-ons.
 
 Following add-ons are available to all customers on [Startup](/account-management/startup-plan) and [Scaleup](/account-management/scaleup-plan) plans:
 
@@ -17,7 +17,7 @@ Following add-ons are available to all customers on [Startup](/account-managemen
 
 If you're interested in trying out or enabling any of the available add-ons please reach out to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com).
 
-## Add-ons pricing
+## Add-on pricing
 
 All add-ons have a flat price per month. At the start of each billing period, the cost of any add-on enabled for your organization will be added to your monthly bill.
 
@@ -25,17 +25,17 @@ All add-ons have a flat price per month. At the start of each billing period, th
 
 The Semaphore [Cache](/essentials/caching-dependencies-and-directories/) tool optimizes CI/CD runtime by reusing files that your project depends on but are not part of version control. Each organization has access to the shared cache, which has a maximum total cache size of **9.6 GB**.
 
-If you need to improve cache performance, you can add the **Dedicated Cache Server** add-on. This cache server is located in the same infrastructure as your Semaphore cloud jobs and provides **400 GB** of disk space and **10 Gb/s** network connection.
+If you need to improve cache performance, you can add the **Dedicated Cache Server** add-on. This cache server is located in the same infrastructure as your Semaphore cloud jobs and provides **400 GB** of disk space and a **10 Gb/s** network connection.
 
-A dedicated cache server is charged **$400,00** per month.
+The dedicated cache server add-on costs **$400,00** per month.
 
 ## Dedicated container registry
 
-To speed up Docker-based builds, you can store your Docker images on a **dedicated container registry** with fast network access.
+To speed up Docker-based builds, you can store your Docker images in a **dedicated container registry** with fast network access.
 
-This registry is located in the same infrastructure as your cloud jobs, minimizing upload and download times. It comes with **400 GB** disk space and **10 Gb/s** network connection.
+This registry is located in the same infrastructure as your cloud jobs, minimizing upload and download times. It comes with **400 GB** disk space and a **10 Gb/s** network connection.
 
-Dedicated container registry **$400,00** per month.
+Dedicated container registry costs **$400,00** per month.
 
 ## Advanced and Premium support packages
 
@@ -49,7 +49,7 @@ All paid plans come with a basic account and technical support. However, you can
 - **Priority Live Support** for troubleshooting with 5 x 45-minute calls per year
 - **Developer Training** with 2 x 45-minute calls per quarter
 - **Executive Business Reviews** to understand improvements for better system effectiveness, usage, and product roadmap
-- **New Release / Feature Training** with notifications and walkthroughs via email or in-app or set-up calls
+- **New Release / Feature Training** with notifications and walkthroughs via email, or in-app or set-up calls
 - **Performance monitoring & optimization** to increase your team's velocity with 2 x 45-minute calls per year
 
 ### Service availability per package type
