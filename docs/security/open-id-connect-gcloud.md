@@ -4,6 +4,8 @@ Description: Use OpenID Connect within your pipelines to authenticate with Googl
 
 # Configure OpenID Connect in Google Cloud
 
+!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 Open ID Connect allows your pipelines to access resources in Google Cloud Platform (GCP) without
 the need to store long-lived access credentials in secrets.
 
