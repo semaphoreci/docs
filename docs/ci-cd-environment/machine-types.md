@@ -67,7 +67,7 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine types can be paired with [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
+Apple machine types can be paired with the [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
 
 | Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
 | --------------- | :-----------------------: | :-----------------: | :---------------: |
