@@ -9,7 +9,7 @@ The following paid plans are no longer supported and are no longer available for
 - Standard plan
 - Enterprise Cloud plan
 
-We recommend all existing users on these plans to upgrade to one of the updated plans:
+We recommend that all existing users on these plans to upgrade to one of the updated plans:
 
 - [Startup plan](/account-management/startup-plan/)
 - [Scaleup plan](/account-management/scaleup-plan/)
@@ -25,7 +25,7 @@ This plan has been discontinued and is no longer available for new sign-ups. Org
 - Remain on the Standard plan indefinetely
 - Upgrade to the [Startup plan](/account-management/startup-plan/)
 
-Please note that any **new features or functionality** will only be available on the updated plans. Organizations on the Standard plan will continue to have access to all features they had at the time of sign-up.
+Please note that any **new features or functionality** will only be available on the updated plans. Organizations on the Standard plan will continue to have access to all of the features they had at the time of sign-up.
 
 ### Key differences
 
@@ -43,15 +43,15 @@ Please note that any **new features or functionality** will only be available on
  | Parameterized promotions |                                                         ❌                                                          |                                                                                                                 ✅                                                                                                                  |
  |     Project Secrets      |                                                         ❌                                                          |                                                                                                                 ✅                                                                                                                  |
 
-### How can I upgrade my plan
+### How can I upgrade my plan?
 
-You can switch to Startup from the billing page within the app:
+You can switch to the Startup plan from the billing page within the app, as shown below:
 
 1. Click on the initials of your organization in the top right corner of the page
-2. Choose **Plans & Billing** in the dropdown menu
+2. Choose **Plans & Billing** from the dropdown menu
 3. Select the **Overview** tab on the left side menu
 4. Click on the **Upgrade** button
-5. Follow the steps untill you get the confirmation that your plan is switched.
+5. Follow the steps until you get confirmation that your plan has been switched.
 
 If you have any questions or difficulties please contact our **support team**.
 
@@ -59,6 +59,6 @@ If you have any questions or difficulties please contact our **support team**.
 
 - [Billing Overview](/account-management/billing-overview/)
 - [Billing FAQ](/account-management/billing-faq/)
-- [Free and OpenSource plans](/account-management/free-and-open-source-plans/)
+- [Free and Open Source plans](/account-management/free-and-open-source-plans/)
 - [Startup plan](/account-management/startup-plan/)
 - [Scaleup plan](/account-management/scaleup-plan/)
