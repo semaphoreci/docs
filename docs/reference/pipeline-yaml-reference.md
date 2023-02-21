@@ -1371,7 +1371,8 @@ An `epilogue` block should be used when you want to execute commands after
 a job has finished, either successfully or unsuccessfully.
 
 Please notice that a pipeline *will not fail* if one or more commands in the
-`epilogue` fail to execute for some reason.
+`epilogue` fail to execute for some reason. Also, the epilogue doesn't work
+in stopped or canceled jobs.
 
 There are three types of epilogue commands:
 
