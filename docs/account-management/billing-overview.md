@@ -17,7 +17,7 @@ In addition to subscription cost, your monthly bill is determined by your usage 
 - **Seats** - the cost of additional team members using Semaphore
 - **Add-ons** - additional features or services offered by Semaphore Cloud (e.g. priority support, a dedicated cache server)
 
-You can monitor your monthly spending at any time on the billing page within the app. Please note that spending data may take up to 24 hours to update.
+You can monitor your monthly spending at any time on the Plans & Billing page within the app. Please note that spending data may take up to 24 hours to update.
 
 ### Machine Time
 
@@ -51,7 +51,7 @@ For any usage that exceeds these allotted minutes, there is an additional charge
 Your machine time spending can escalate due to factors like increased usage, parallelism, switching to a more expensive machine type, and a drop in pipeline performance. To optimize your machine time spending, consider the following tips:
 
 - **Limit Unnecessary Builds** - use [auto-cancel](/essentials/auto-cancel-previous-pipelines-on-a-new-push/) and [fail-fast](/fail-fast-stop-running-tests-on-the-first-failure/) features to run only the necessary jobs
-- **Track Performance** - monitor your pipeline performance with the pipeline insights tab and regularly review your spending trends on the billing page
+- **Track Performance** - monitor your pipeline performance with the pipeline insights tab and regularly review your spending trends on the Plans & Billing page
 - **Choose the Right Machine Type** - experiment with different machine types to find the best balance between performance and cost
 
 ### Storage & Egress
