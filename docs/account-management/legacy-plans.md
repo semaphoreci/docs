@@ -45,7 +45,7 @@ Please note that any **new features or functionality** will only be available on
 
 ### How can I upgrade my plan?
 
-You can switch to the Startup plan from the billing page within the app, as shown below:
+You can switch to the Startup plan from the Plans & Billing page within the app, as shown below:
 
 1. Click on the initials of your organization in the top right corner of the page
 2. Choose **Plans & Billing** from the dropdown menu
