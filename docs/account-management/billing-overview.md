@@ -42,7 +42,7 @@ Each cloud machine type has its own **price per minute**, listed in the table be
 [Self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) are only available on certain plans, and each plan is allotted a certain amount of free minutes per month:
 
 - **Startup plan** - 60,000 minutes
-- **Scaleup plan* - 180,000 minutes
+- **Scaleup plan** - 180,000 minutes
 
 For any usage that exceeds these allotted minutes, there is an additional charge of **$0.0005 per minute**.
 
