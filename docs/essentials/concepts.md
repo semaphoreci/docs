@@ -82,6 +82,6 @@ More reading:
 
 [getting-started]: ../guided-tour/getting-started.md
 [machine-types]: ../ci-cd-environment/machine-types.md
-[ubuntu]: ../ci-cd-environment/ubuntu-18.04-image.md
-[macos]: ../ci-cd-environment/macos-xcode-12-image.md
+[ubuntu]: ../ci-cd-environment/ubuntu-20.04-image.md
+[macos]: ../ci-cd-environment/macos-xcode-14-image.md
 [docker-containers]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
