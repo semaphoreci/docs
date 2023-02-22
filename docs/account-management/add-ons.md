@@ -8,7 +8,7 @@ You can further enhance your CI/CD experience with the purchase of add-ons.
 
 The following add-ons are available to all customers on [Startup](/account-management/startup-plan) and [Scaleup](/account-management/scaleup-plan) plans:
 
-- [Dedicated cache server](#add-ons-pricing)
+- [Dedicated cache server](#dedicated-cache-server)
 - [Dedicated container registry](#dedicated-container-registry)
 - [Advanced support package](#advanced-and-premium-support-packages)
 - [Premium support package](#advanced-and-premium-support-packages)
