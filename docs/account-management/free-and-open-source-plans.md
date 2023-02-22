@@ -24,7 +24,7 @@ The following machine types are available on this plan:
 - **MacOS** - *a1-standard-4*
 - **Self-hosted** - *1 agent*
 
-If you want to upgrade from the free plan, you can do so at any time on the billing page within the app by choosing the Startup plan.
+If you want to upgrade from the free plan, you can do so at any time on the Plans & Billing page within the app by choosing the Startup plan.
 
 ## Open Source plan
 
