@@ -6,7 +6,7 @@ Description: On this page, you can find all relevant information regarding avail
 
 You can further enhance your CI/CD experience with the purchase of add-ons.
 
-Following add-ons are available to all customers on [Startup](/account-management/startup-plan) and [Scaleup](/account-management/scaleup-plan) plans:
+The following add-ons are available to all customers on [Startup](/account-management/startup-plan) and [Scaleup](/account-management/scaleup-plan) plans:
 
 - [Dedicated cache server](#add-ons-pricing)
 - [Dedicated container registry](#dedicated-container-registry)
