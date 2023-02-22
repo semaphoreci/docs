@@ -65,7 +65,7 @@ with the VAT number you want to add and we will gladly make it happen.
 You will receive an invoice for your organization at the end of each billing
 period. This invoice will be sent to the email address that was entered when payment info was added.
 
-You can also find your invoices at the bottom of the Billing page within the app.
+You can also find your invoices at the bottom of the Plans & Billing page within the app.
 
 ## What is your refund policy?
 
