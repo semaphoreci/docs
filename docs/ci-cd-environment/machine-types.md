@@ -19,68 +19,11 @@ Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu
 
 The `e1` series machines are our first generation, cost-effective with medium performance. They are a good choice for less compute and memory-intensive jobs. 
 
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-    Machine name
-  </td>
-  <td>
-    Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-    Memory <sup>2</sup>
-  </td>
-  <td>
-    Disk <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-    e1-standard-2
-  </td>
-  <td>
-     2
-  </td>
-  <td>
-     4 GB
-  </td>
-  <td>
-     25 GB
-  </td>
-</tr>
-<tr>
-  <td>
-    e1-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     8 GB
-  </td>
-  <td>
-     35 GB
-  </td>
-</tr>
-<tr>
-  <td>
-     e1-standard-8
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     16 GB
-  </td>
-  <td>
-     45 GB
-  </td>
-</tr>
-</tbody>
-</table>
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| e1-standard-2 |             2             |        4 GB         |       25 GB       |
+| e1-standard-4 |             4             |        8 GB         |       35 GB       |
+| e1-standard-8 |             8             |        16 GB        |       45 GB       |
 
 Implementation details:
 
@@ -90,59 +33,14 @@ Implementation details:
 
 ### E2 Generation
 
+!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
 
-!!! info "This machine type is only available with the [Enterprise Cloud plan](https://semaphoreci.com/pricing)."
-    You may sign up for the waiting list via [this form](https://docs.google.com/forms/d/e/1FAIpQLSenvjdQf1YghQdzShvfMQZ-_WDezselqBNw7xtSvK_9vFfapA/viewform). 
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-    Machine name
-  </td>
-  <td>
-    Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-    Memory <sup>2</sup>
-  </td>
-  <td>
-    Disk <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-    e2-standard-2
-  </td>
-  <td>
-     2
-  </td>
-  <td>
-     8 GB
-  </td>
-  <td>
-     45 GB
-  </td>
-</tr>
-<tr>
-  <td>
-    e2-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     16 GB
-  </td>
-  <td>
-     65 GB
-  </td>
-</tr>
-</tbody>
-</table>
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| e2-standard-2 |             2             |        8 GB         |       45 GB       |
+| e2-standard-4 |             4             |        16 GB        |       65 GB       |
 
 Implementation details:
 
@@ -152,59 +50,14 @@ Implementation details:
 
 ### F1 Generation
 
+!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
 
-!!! info "This machine type is only available with the [Enterprise Cloud plan](https://semaphoreci.com/pricing)."
-    You may sign up for the waiting list via [this form](https://docs.google.com/forms/d/e/1FAIpQLSenvjdQf1YghQdzShvfMQZ-_WDezselqBNw7xtSvK_9vFfapA/viewform). 
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-    Machine name
-  </td>
-  <td>
-    Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-    Memory <sup>2</sup>
-  </td>
-  <td>
-    Disk <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-    f1-standard-2
-  </td>
-  <td>
-     2
-  </td>
-  <td>
-     8 GB
-  </td>
-  <td>
-     45 GB
-  </td>
-</tr>
-<tr>
-  <td>
-    f1-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     16 GB
-  </td>
-  <td>
-     65 GB
-  </td>
-</tr>
-</tbody>
-</table>
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| f1-standard-2 |             2             |        8 GB         |       45 GB       |
+| f1-standard-4 |             4             |        16 GB        |       65 GB       |
 
 Implementation details:
 
@@ -214,58 +67,11 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine types can be paired with [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
+Apple machine types can be paired with the [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
 
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-     Machine name
-  </td>
-  <td>
-     Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-     Memory (GB) <sup>2</sup>
-  </td>
-  <td>
-     Disk (GB) <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-     a1-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     50
-  </td>
-</tr>
-  <tr>
-  <td>
-     a1-standard-8 *
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     16
-  </td>
-  <td>
-     50
-  </td>
-</tr>
-</tbody>
-</table>
-
-`*` - only available on our [enterprise plan](https://semaphoreci.com/pricing).
+| Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| --------------- | :-----------------------: | :-----------------: | :---------------: |
+| a1-standard-4   |             4             |          8          |        50         |
 
 ## Self-hosted agent types
 
