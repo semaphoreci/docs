@@ -4,6 +4,8 @@ Description: This guide describes how commands in a job are executed and how job
 
 # Job environment
 
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+
 The commands in a job are executed differently depending on the operating system where the Semaphore agent is running:
 
 - On Linux, a new PTY session is created at the beginning of every job, and all the commands are executed in that session.
