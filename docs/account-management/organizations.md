@@ -49,7 +49,7 @@ In order to add a new user to your organization, you can:
 
 1. Click on the initials of your organization in the top right corner of the page
 2. Click on **People** in the dropdown menu
-3. Click on **Add People** and choose the best option from those given
+3. Click on **Add People** and choose the best option from the ones listed below:
 
 ### Adding a user to an organization with their GitHub username
 
