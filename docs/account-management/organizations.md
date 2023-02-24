@@ -54,6 +54,7 @@ In order to add a new user to your organization, you can:
 ### Adding a user to an organization with their GitHub username
 
 This option will allow you to add GitHub users to your organization, one user at a time, without sending an email notification. 
+
 1. Enter the person’s GitHub username inside the first field.
 2. And click on **Invite**. Make sure to refresh the page to see the applied changes. 
 
