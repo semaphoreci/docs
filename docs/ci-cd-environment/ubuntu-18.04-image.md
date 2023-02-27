@@ -59,9 +59,9 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.39.1
+- Git 2.39.2
 - Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.22.1
+- GitHub CLI 2.23.0
 - Mercurial 4.5.3
 - Svn 1.9.7
 
@@ -69,8 +69,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - Geckodriver 0.26.0
-- Google Chrome 109
-- ChromeDriver 109
+- Google Chrome 110
+- ChromeDriver 110
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -82,26 +82,26 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.22
+- Docker 23.0.1
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.15.1 (used as `docker compose version`)
+- Docker-compose 2.16.0 (used as `docker compose version`)
 - Docker-machine 0.16.2
 - Dockerize 0.6.1
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.27.62
-- Aws-cli v2 (used as `aws2`) 2.9.20
-- Azure-cli 2.44.1
+- Aws-cli v1 (used as `aws`) 1.27.78
+- Aws-cli v2 (used as `aws2`) 2.10.2
+- Azure-cli 2.45.0
 - Eb-cli 3.19.1
 - Ecs-cli 1.21.0
 - Doctl 1.92.1
-- Gcloud 416.0.0
-- Gke-gcloud-auth-plugin 416.0.0
+- Gcloud 419.0.0
+- Gke-gcloud-auth-plugin 419.0.0
 - Kubectl 1.26.1
-- Heroku 7.67.2
-- Terraform 1.3.7
-- Helm 3.11.0
+- Heroku 7.68.2
+- Terraform 1.3.9
+- Helm 3.11.1
 
 ### Network utilities
 
@@ -202,7 +202,7 @@ Supporting libraries:
 - Pypy3: 7.3.11
 - Pip (for Python 2.7): 20.3.4
 - Pip (for Python 3.6): 21.3.1
-- Pip (for Python 3.7 and above): 23.0
+- Pip (for Python 3.7 and above): 23.0.1
 - Venv: 20.15.1
 
 ### Ruby

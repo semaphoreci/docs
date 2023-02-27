@@ -8,6 +8,74 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of February 27, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Go 1.19.6, 1.20.1 (default)
+- PHP 8.0.28, 8.1.16, 8.2.3
+- Ruby 3.2.1
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-58-generic -> 5.15.0-60-generic
+- Aws-cli 1.27.62 -> 1.27.78
+- Aws-cli 2.9.20 -> 2.10.2
+- Azure-cli 2.44.1 -> 2.45.0
+- Containerd.io 1.6.16 -> 1.6.18
+- Docker 20.10.22 -> 23.0.1
+- Docker-compose 2.15.1 -> 2.16.0
+- Erlang 24.3.4.8 -> 24.3.4.9 (aliased as 24.3)
+- Erlang 25.2.2 -> 25.2.3 (aliased as 25.2)
+- Git 2.39.1 -> 2.39.2
+- Github-cli 2.22.1 -> 2.23.0
+- Gcloud 416.0.0 -> 419.0.0
+- Gke-gcloud-auth-plugin 416.0.0 -> 419.0.0
+- Google Chrome 109 -> 110
+- ChromeDriver 109 -> 110
+- Helm 3.11.0 -> 3.11.1
+- Heroku 7.67.2 -> 7.68.2
+- Pip 23.0 -> 23.0.1
+- Terraform 1.3.7 -> 1.3.9
+- Nodejs 18.13.0 -> 18.14.2
+- Npm 8.19.3 -> 9.5.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.19.6, 1.20.1 (default)
+- PHP 8.0.28, 8.1.16, 8.2.3
+- Ruby 3.2.1
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-137-generic -> 5.4.0-139-generic
+- Aws-cli 1.27.62 -> 1.27.78
+- Aws-cli 2.9.20 -> 2.10.2
+- Azure-cli 2.44.1 -> 2.45.0
+- Containerd.io 1.6.16 -> 1.6.18
+- Docker 20.10.22 -> 23.0.1
+- Docker-compose 2.15.1 -> 2.16.0
+- Erlang 24.3.4.8 -> 24.3.4.9 (aliased as 24.3)
+- Erlang 25.2.2 -> 25.2.3 (aliased as 25.2)
+- Git 2.39.1 -> 2.39.2
+- Github-cli 2.22.1 -> 2.23.0
+- Gcloud 416.0.0 -> 419.0.0
+- Gke-gcloud-auth-plugin 416.0.0 -> 419.0.0
+- Google Chrome 109 -> 110
+- ChromeDriver 109 -> 110
+- Helm 3.11.0 -> 3.11.1
+- Heroku 7.67.2 -> 7.68.2
+- Pip 23.0 -> 23.0.1
+- Terraform 1.3.7 -> 1.3.9
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 06, 2023
 
 **(Improved) Ubuntu 20.04 image update**
@@ -1954,7 +2022,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 
 **(Improved) Ubuntu 18.04 image update**
 
-- **(Deprecated)** Python 2.7 has reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the beginning of September 2021.
+- ~~**(Deprecated)** Python 2.7 has reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the beginning of September 2021.~~
 
 **(New)** Packages:
 
