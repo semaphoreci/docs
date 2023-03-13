@@ -248,12 +248,12 @@ file. Currently there are four types of YAML resource files that can be
 handled by `sem create`: secrets, dashboards, jobs, and project resource files.
 
 However, for `secrets` and `dashboards`, you can use `sem create` to
-create an *empty* `secret` or `dashbord` without the need for a YAML file as
+create an *empty* `secret` or `dashboard` without the need for a YAML file as
 follows:
 
 ``` bash
 sem create secret [name]
-sem create dashbord [name]
+sem create dashboard [name]
 ```
 
 Should you wish to learn more about creating new resources, you can visit the following Semaphore 2.0 documentation reference pages:
