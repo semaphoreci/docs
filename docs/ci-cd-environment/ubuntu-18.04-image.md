@@ -44,7 +44,7 @@ blocks:
             - make test
 ```
 
-The `ubuntu1804` image can be used in combination with all Linux machine
+The `ubuntu1804` image can be used in combination with the following Linux machine
 types: `e1-standard-2`, `e1-standard-4`, and `e1-standard-8`.
 
 ## Toolbox
