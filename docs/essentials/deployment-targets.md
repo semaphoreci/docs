@@ -1,24 +1,24 @@
 ---
-Description: Extend your Continuous Deployment process by access control, configuration management and transparent overview with Deployment Targets.
+Description: Extend your Continuous Deployment process with access control, configuration management and transparent overview with Deployment Targets.
 ---
 
 # Deployment Targets
 
 !!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
-!!! warning "Deployment Targets are in Technical Preview stage. Documentation and feature itself are subject to change."
+!!! warning "Deployment Targets are in the Technical Preview stage. Documentation and the feature itself are subject to change."
 
-**Deployment Targets** allow you to apply strict conditions on the start of ensuant pipelines. 
-Using them, you gain the possibility to choose specific people capable of starting a promoted pipeline 
-or select git references (branches and tags) for which this action is available. 
+**Deployment Targets** allow you to apply strict conditions for who can start individual pipelines and under which conditions. 
+Using them, you have the ability to control who has the ability to start specific promoted pipelines
+or select git references (branches and tags). 
 
-Combining the functionality of [promotions](/essentials/deploying-with-promotions/) and Deployment Targets, you obtain
-the full toolset to configure **secure Continuous Deployment** pipelines, backward compatible with your previous setup.
+Combining the functionality of [promotions](/essentials/deploying-with-promotions/) and Deployment Targets gives you
+a full toolset to configure **secure Continuous Deployment** pipelines. This is backwards compatible with your previous setup.
 
-The core advantage of using Deployment Targets is **multi-faceted access** control, taking many factors into account while
-granting the right to promote. Moreover, they are backed with **a dedicated secret**, unique per each Deployment Target and
-inaccessible outside Deployments. Last but not least, Deployment Targets gives you **a clear overview** of your previous
-deployments, so you instantly know what version was shipped and who did that.
+The core advantage of using Deployment Targets is **multi-faceted** access control, i.e. taking many factors into account while
+granting the right to promote. Moreover, they are backed with a **dedicated secret**, unique per Deployment Target and
+inaccessible to outside Deployments. Last but not least, Deployment Targets give you a **clear overview** of your previous
+deployments, so you can see which version was shipped and by whom.
 
 # Setup and configuration
 
@@ -26,23 +26,23 @@ Configuring Deployment Targets consists of two phases: **Deployment Target setup
 
 ## Deployment Target setup
 
-First and foremost, you need a target that you will bind to promotions. **Deployments** project page is the place where you can browse, create, modify, and remove Deployment Targets.
+First and foremost, you need a target that you will bind to promotions. The **Deployments** project page is where you can browse, create, modify, and remove Deployment Targets.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-zero-state.png" alt="Create button in the zero state">
 
-Click on the **Create new** button. If you cannot see it, please check your access rights. **Only project admins** can modify Deployment Targets. 
+Click on the **Create new** button to create a new Deployment Target. If you cannot see this button, please check your access rights. Only **project admins** can create/modify/delete Deployment Targets. 
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-overview.png" alt="Deployment Target setup wizard overview">
 
-The wizard should easily navigate you through the setup. You can come back to previous sections if you need to change anything. Once you finish the setup, confirm the result by clicking **Create** button.
+The wizard easily navigates you through the setup. You can come back to previous sections if you need to change anything. Once you finish the setup, confirm the result by clicking the **Create** button.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-ready-targets.png" alt="Deployment Target tiles with Edit and Delete buttons">
 
-If you need to modify any of those settings later on, go to the edit form by clicking on the **Edit** button in the top-right corner. You can also permanently remove the target and all the previously recorded deployments by clicking **Delete** button.
+If you need to modify any settings later on, you can do so by clicking on the **Edit** button in the top-right corner. You can also permanently remove targets and all previously recorded deployments using the **Delete** button.
 
 ### Basic information
 
-You should **provide the name** of your Target. Only alphanumeric characters with dashes and underscores are allowed. 
+You must **provide a name** for a new Target. Only alphanumeric characters with dashes and underscores are allowed. 
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-basics.png" alt="Deployments tab in project top menu">
 
@@ -50,42 +50,43 @@ Optionally, you can fill in the description and URL, which will be later used in
 
 ### Credentials
 
-Deployment Targets are a safe space where you can store your credentials, in the same way as [Secrets](/essentials/using-secrets/). Those data may be in the form of:
+Deployment Targets are a secure space where you can store credentials, in the same way as [Secrets](/essentials/using-secrets/). These data may be in the form of:
 
-- **environment variables** - in this case, please fill in a name and value,
-- **files** - you should provide both a file path and an uploaded file.
+- **environment variables** - in this case, please fill in a name and value
+- **files** - you should provide both a file path and an uploaded file
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-credentials.png" alt="Deployments tab in project top menu">
 
-Provided credentials will be accessible only in pipelines started by promotions with the given Deployment Target. 
+Provided credentials will be accessible only in pipelines started by promotions associated with a given Deployment Target. 
 
 ### User access control
 
 !!! plans "Available only on <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
-You can restrict the possibility of promoting with Deployment Target to particular project roles and people. By default, anyone with access to the project can trigger promotions.
+You can restrict the possibility of promoting with Deployment Target to specific project roles and users. By default, anyone with access to the project can trigger promotions.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-user-access.png" alt="Deployments tab in project top menu">
 
-After clicking on the text area, a dropdown presents the list of available options. Start typing to filter for particular roles or users. You can also modify permissions for auto-promotions that will override pipeline YAML configuration.
+After clicking on the text area, a dropdown menu presents the list of available options. In it, you can filter for particular roles or users. You can also modify permissions for auto-promotions that will override pipeline YAML configurations.
+
 ### Git access control
 
-Deployment Targets allow to restrict promotions from particular branches and tags. You can choose between a few options: **all**, **none** or **whitelisted**. You can also restrict deployments from pull requests.
+Deployment Targets allow you to restrict promotions from particular branches and tags. You can choose between several options: **all**, **none**, or **whitelisted**. You can also restrict deployments from pull requests.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-git-access.png" alt="Deployments tab in project top menu">
 
 Whitelisting branches and/or tags may be configured in two ways:
 
-- **Exact match** - branch/tag names are compared as regular strings,
-- **Regex match** - branch/tag names are matched against Perl-compatible regular expressions. More information about the syntax can be found in the [documentation of Erlang _re_ module](https://www.erlang.org/doc/man/re.html).
+- **Exact match** - branch/tag names are compared as regular strings
+- **Regex match** - branch/tag names are matched against Perl-compatible regular expressions. More information about the syntax can be found in the [Erlang _re_ module documentation](https://www.erlang.org/doc/man/re.html)
 
 ## YAML pipeline configuration
 
-Once the deployment target is set up, you need to **attach it to promotions** defined in `.yml` pipeline configuration file. We will explain two ways of doing that: directly modifying text files and through a graphical interface (Workflow Editor). 
+Once the deployment target is set up, you need to **attach it to one or more promotions**, defined in `.yml` pipeline configuration file. There are two ways of doing this: directly modifying text files and using a graphical interface (Workflow Editor). 
 
 ### Configuring Deployment Targets with Workflow Editor
 
-To start editing pipeline YAML, go to Workflow Editor. As you can see, a newly created Deployment Target contains a direct link to it (**Edit Workflow** button):  
+To start editing pipeline YAML, go to the Workflow Editor. As you can see, newly-created Deployment Targets contain direct links to them (**Edit Workflow** button):  
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-ready-targets.png" alt="Deployment Target tiles with Edit Workflow link">
 
@@ -93,14 +94,14 @@ After clicking on the promotion, the right pane displays configuration options:
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/workflow-editor.png" alt="Configuring Deployment Targets with Workflow Editor">
 
-If your organization has access to the feature, you should see the **Deployment target** section where you can select one of the options from a dropdown:
+If your organization has access to the feature, you should see the **Deployment target** section, where you can select from the following options from a dropdown menu:
 
 - **No target** means the promotion does not use Deployment Targets. Regular promotions are available to anyone with access to the project and you can start them from any workflow. Promotions will not use Deployment Target credentials.
-- **Target: _target name_**. Choosing that option binds that target to the promotion. From now on, Deployment Target will secure the promotion by forbidding unauthorized use and providing credentials to the promoted pipeline. 
+- **Target: _target name_**. Choosing this option binds a target to a promotion. From now on, the Deployment Target will secure the promotion by forbidding unauthorized use and providing credentials to the promoted pipeline. 
 
-### Configuring Deployment Targets directly in the `.yml` files
+### Configuring Deployment Targets directly in `.yml` files
 
-Under the hood, binding promotion to a deployment target is described by `deployment_target` attribute of a promotion object in the YAML configuration. This attribute is optional: **no value** is equivalent to _No target_ option described above. Otherwise, you should put the **name of the deployment target**: 
+Under the hood, binding promotion to a deployment target is described by the `deployment_target` attribute of a promotion object in the YAML configuration. This attribute is optional: **no value** is equivalent to the _No target_ option described above. Otherwise, you should enter the **name of the deployment target**, like in the example below: 
 
 ``` yaml
 # .semaphore/semaphore.yml
@@ -132,34 +133,34 @@ promotions:
 ```
 
 !!! warning "Anyone with write access to a repository can change `.yml` pipeline specifications"
-    While storing credentials in the Deployment Target is not mandatory, it effectively blocks from trespassing established promotion settings. Only project admins can modify Deployment Targets. 
+    While storing credentials in a Deployment Target is not mandatory, it effectively blocks anyone without the proper permissions from meddling with established promotion settings. As stated earlier, only project admins can modify Deployment Targets. 
 
-Once you finish binding, commit changes by clicking **Run the workflow** button in the top right corner and start your CI/CD workflow. 
+Once you finish binding, you can commit changes by clicking the **Run the workflow** button in the top right corner and starting your CI/CD workflow. 
 
 
 # Usage 
 
-After a couple of seconds, you should see the workflow page with promotions secured by Deployment Targets. Compared to regular promotions, they have a **lock icon** next to them. Allowed promotions have an open lock and enabled promotion button. On the contrary, a closed lock and disabled button indicate that you cannot start the pipeline.
+After a couple of seconds, you should see the workflow page with promotions secured by Deployment Targets. Compared to regular promotions, they have a **lock icon** next to them. The promotions that are allowed will have an open lock and enabled promotion button. A closed lock and disabled button indicate that you do not have the proper permissions to start the pipeline.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/workflow-page.png" alt="Workflow page with promotions secured by Deployment Targets">
 
-The most common reasons for blocking a promotion are:
+The most common reasons that a promotion appears as blocked are:
 
-- you don’t have the right to deploy to the bound Deployment Target,
-- the workflow was run from a forbidden branch, tag, or pull request,
-- you are not logged in and/or you are viewing a build of a public project.
+- the user doesn’t have the correct permissions to deploy to the bound Deployment Target
+- the workflow was run from a forbidden branch, tag, or pull request
+- you are not logged in and/or you are viewing a build of a public project
 
 However, there are a few, less probable situations when promotions are denied, for example:
 
-- Deployment Target is synchronizing (and it takes longer than usual),
-- Deployment Target has failed to synchronize with Secret storage,
-- Deployment Target used for that workflow has been removed.
+- The Deployment Target is synchronizing (and is taking longer than normal)
+- The Deployment Target has failed to synchronize with Secret storage
+- The Deployment Target used for the workflow has been removed.
 
-Auto-promotions configured in the pipeline `.yml` file and forbidden by Deployment Target will not be shown on the workflow page, although Deployment History will register the attempt. Apart from mentioned differences, promotions with Deployment Targets act the same as the regular ones.
+Auto-promotions configured in the pipeline `.yml` file that are forbidden by the Deployment Target will not be shown on the workflow page, although Deployment History will register attempts to start such promotions. Apart from the mentioned differences, promotions with Deployment Targets behave the same as regular promotions.
 
-Your previous deployments can be tracked from the **Deployments** page. As of now, Deployment Target tiles contain data about the latest deployment (who and when started it, which commit was used, which workflow it belongs to). We plan to provide you with full **Deployment History** very soon.
+Your previous deployments can be tracked from the **Deployments** page. At the time of writing, Deployment Target tiles contain data about the latest deployment (who started it and when, which commit was used, which workflow it belongs to). We plan to provide a full **Deployment History** overview feature very soon.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-ready-targets.png" alt="Deployment Target tiles with Last Deployment information">
 
-You can also [use our Public API (alpha)](reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.
+You can also [use our Public API (alpha)](reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by a Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.
 
