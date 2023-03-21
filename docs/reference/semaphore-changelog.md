@@ -8,6 +8,72 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of March 20, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Erlang 25.3
+- PHP 8.1.17, 8.2.4
+- Go 1.19.7, 1.20.2 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-60-generic -> 5.15.0-67-generic
+- Aws-cli 1.27.78 -> 1.27.93
+- Aws-cli 2.10.2 -> 2.11.3
+- Azure-cli 2.45.0 -> 2.46.0
+- Bazel 6.0.0 -> 6.1.1
+- Git 2.39.2 -> 2.40.0
+- Github-cli 2.23.0 -> 2.24.3
+- Google Chrome 110 -> 111
+- ChromeDriver 110 -> 111
+- Gcloud 419.0.0 -> 422.0.0
+- Gke-gcloud-auth-plugin 419.0.0 -> 422.0.0
+- Doctl 1.92.1 -> 1.93.1
+- Helm 3.11.1 -> 3.11.2
+- Heroku 7.68.2 -> 7.69.1
+- Kubectl 1.26.1 -> 1.26.2
+- Java OpenJDK 11.0.17 -> 11.0.18
+- Java OpenJDK 17.0.5 -> 17.0.6
+- Terraform 1.3.9 -> 1.4.2
+- Nodejs 18.14.2 -> 18.15.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.3
+- PHP 8.1.17, 8.2.4
+- Go 1.19.7, 1.20.2 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-139-generic -> 5.4.0-144-generic
+- Aws-cli 1.27.78 -> 1.27.93
+- Aws-cli 2.10.2 -> 2.11.3
+- Azure-cli 2.45.0 -> 2.46.0
+- Bazel 6.0.0 -> 6.1.1
+- Git 2.39.2 -> 2.40.0
+- Github-cli 2.23.0 -> 2.24.3
+- Google Chrome 110 -> 111
+- ChromeDriver 110 -> 111
+- Gcloud 419.0.0 -> 422.0.0
+- Gke-gcloud-auth-plugin 419.0.0 -> 422.0.0
+- Doctl 1.92.1 -> 1.93.1
+- Helm 3.11.1 -> 3.11.2
+- Heroku 7.68.2 -> 7.69.1
+- Kubectl 1.26.1 -> 1.26.2
+- Java OpenJDK 8u352 -> 8u362
+- Java OpenJDK 11.0.17 -> 11.0.18
+- Java OpenJDK 17.0.5 -> 17.0.6
+- Terraform 1.3.9 -> 1.4.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 27, 2023
 
 **(Improved) Ubuntu 20.04 image update**

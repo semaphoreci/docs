@@ -55,9 +55,9 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.39.2
+- Git 2.40.0
 - Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.23.0
+- GitHub CLI 2.24.3
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -65,8 +65,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.3.0 (`102`, `esr-new`, `esr-latest`)
 - Geckodriver 0.26.0
-- Google Chrome 110
-- ChromeDriver 110
+- Google Chrome 111
+- ChromeDriver 111
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -89,18 +89,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.27.78
-- Aws-cli v2 (used as `aws2`) 2.10.2
-- Azure-cli 2.45.0
+- Aws-cli v1 (used as `aws`) 1.27.93
+- Aws-cli v2 (used as `aws2`) 2.11.3
+- Azure-cli 2.46.0
 - Eb-cli 3.20.3
 - Ecs-cli 1.21.0
-- Doctl 1.92.1
-- Gcloud 419.0.0
-- Gke-gcloud-auth-plugin 419.0.0
-- Kubectl 1.26.1
-- Heroku 7.68.2
-- Terraform 1.3.9
-- Helm 3.11.1
+- Doctl 1.93.1
+- Gcloud 422.0.0
+- Gke-gcloud-auth-plugin 422.0.0
+- Kubectl 1.26.2
+- Heroku 7.69.1
+- Terraform 1.4.2
+- Helm 3.11.2
 
 ### Network utilities
 
@@ -141,7 +141,7 @@ Versions:
 
 ### Java and JVM languages
 
-- Java: 11.0.17 (default), 17.0.5
+- Java: 11.0.18 (default), 17.0.6
 - Scala: 2.12.15, 3.1.3
 - Leiningen: 2.10.0 (Clojure)
 - Sbt 1.8.2
@@ -150,7 +150,7 @@ Versions:
 
 - Maven: 3.6.3
 - Gradle: 7.4.2
-- Bazel: 6.0.0
+- Bazel: 6.1.1
 
 ### JavaScript via Node.js
 
@@ -158,7 +158,7 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.14.2 (set as default, with alias 18.14), includes npm 9.5.0
+- v18.15.0 (set as default, with alias 18.15), includes npm 9.5.0
 
 #### Additional tools
 
