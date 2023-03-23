@@ -222,6 +222,7 @@ nav:
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
+      - Organization Health: score/organization-health.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
