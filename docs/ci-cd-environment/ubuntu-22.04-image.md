@@ -26,7 +26,7 @@ machine, as shown below:
 
 ``` yaml
 version: 1.0
-name: Ubuntu18 Based Pipeline
+name: Ubuntu2204 Based Pipeline
 
 agent:
   machine:
@@ -49,9 +49,8 @@ Please note that the image is only available for our newer generation agent type
 The `ubuntu2204` image comes with two utility tools. One for managing background
 services and databases, and one for managing language versions.
 
-- [sem-version: Managing language version on Linux][sem-version]
 - [sem-service: Managing databases and services on Linux][sem-service]
-
+- [sem-version: Managing language version on Linux][sem-version]
 ## Version control
 
 Following version control tools are pre-installed:
