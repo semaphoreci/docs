@@ -47,6 +47,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
             <p class="welcome-block-description">The latest in the product</p>
 
             <ul>
+                <li><a href="/score/organization-health/">Organization Health</a></li>
                 <li><a href="/score/custom-dashboards/">Custom Dashboards</a></li>
                 <li><a href="/score/project-insights/">Project Insights</a></li>
                 <li><a href="essentials/building-monorepo-projects/">Monorepo workflows</a></li>
