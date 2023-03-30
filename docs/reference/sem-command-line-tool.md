@@ -169,6 +169,11 @@ Each `secret` is associated with a single organization. In other words, a
 `secret` belongs to an organization. In order to use a specific `secret` you
 must be connected to the organization to which it belongs.
 
+Aditionally a `secret` can be associated with a single project. This is 
+called a project level secret. In order to manage project level secrets
+you must provide project name or id of the associated project with 
+`-i` or `-p` flags, or use a different yaml `kind` described [here](reference/secrets-yaml-reference).
+
 ## Working with organizations
 
 This group of `sem` commands for working with organizations contains the
@@ -280,6 +285,12 @@ will be called `my-new-secret`:
 sem create secret my-new-secret
 ```
 
+If you wish to create the same secret on the project level you must provide 
+project name or id with corresponding flag:
+```bash
+sem create secret -p my-project my-new-secret
+```
+
 Last, the following command will create a new and empty `dashboard` that will
 be called `my-dashboard`:
 
@@ -315,6 +326,9 @@ it will be mounted relative to the home directory in this example
 Use the `-e` or `--env` flag to specify one or more environment variables. The
 format of the parameter is `<NAME>=<VALUE>`.
 
+Use the `-p` or `-i` flags to modify the secret scope from organization level 
+to the corresponding project level.
+
 ### sem edit
 
 The `sem edit` command works for `projects`, `secrets`, `notifications` and
@@ -330,6 +344,12 @@ and will automatically run your configured text editor:
 
 ``` bash
 sem edit secret my-secret
+```
+
+If the secret is on the project `my-project` level you can edit it with he following command:
+
+```bash
+sem edit secret -p my-project my-secret
 ```
 
 A YAML representation of the `my-secret` secret should appear on your screen.
@@ -387,6 +407,13 @@ secrets for the current user within the active organization:
 
 ``` bash
 sem get secret
+```
+
+List of names of the project level secrets can be obtained by appending 
+project name flag to the previous command:
+
+```bash
+sem get secret -p my-project
 ```
 
 Each entry is printed on a separate line, which makes the generated output
