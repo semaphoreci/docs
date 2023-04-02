@@ -1,5 +1,5 @@
 ---
-Description: This page shows you how to use secrets to store and access sensitive data such as API keys, passwords, certificates, SSH keys, or other sensitive data.
+Description: This page shows you how to use secrets to store and access sensitive data such as API keys, passwords, certificates, SSH keys, etc.
 ---
 
 # Secrets
@@ -13,38 +13,36 @@ Secrets are organization-level or project-level objects that contain environment
 variables and files. The contents of secrets can be accessed in jobs that are part of
 blocks or pipelines to which they have been connected.
 
-### Organization level secrets access policy
+### Organization-level secrets access policy
 
 Organizations with the [Startup plan](/account-management/startup-plan/) or higher 
 have additional control over the secrets access policy. It is possible to add a project 
-whitelist so the secret is available for only a subset of projects within the organization.
+whitelist so a given secret is available for only a subset of projects within the organization.
 This can be achieved by setting the projects access policy to "Whitelisted" and providing a list 
-of projects that can access the secret.
-Another part of acess policy is restricting access to attach and to debug jobs. If you restrict 
-attach access for a secret, then it will not be possible to attach to a running job using this secret.
-Likewise restricting debug jobs will not allow to start a debug job if the job is using the secret.
+of projects that can access the secret in question.
+Another part of the access policy is the ability to restrict access to attach and to debug jobs. If you restrict 
+attach access for a secret, then only authorized users can attach the secret to a running job.
+Likewise, restricting debug jobs will prevent unauthorized users from starting any debug job that is attached to the secret.
 
-### Project level secrets
-Project level secrets are a feature available to organizations on 
+### Project-level secrets
+Project-level secrets are a feature available to organizations on 
 the [Startup plan](/account-management/startup-plan/) or higher. 
 These secrets are intended to securely store sensitive information, 
 such as API keys, access tokens, and other credentials that are 
 required to authenticate and authorize access to various services.
 
-To access project level secrets, you can navigate to the settings 
+To access project-level secrets, you can navigate to the settings 
 of your project and locate the "secrets" section. 
 Here, you can define a new secret by providing a name and its value, 
 which will be encrypted and securely stored by the platform. 
-Once a project level secret has been defined, it can be used 
+Once a project-level secret has been defined, it can be used 
 in project workflows to provide access to sensitive information.
 
 It's worth noting that if you define a secret with the same name 
 at both the organization and project levels, and use it in a workflow, 
-the project level secret will take precedence over the organization level secret. 
-This means that the workflow will use the project level secret instead of 
-the organization level secret.
+the project-level secret will take precedence over the organization-level secret. 
 
-You can manage your project level secrets in project settings under "secrets" section.
+You can manage your project-level secrets in project settings in the "secrets" section.
 
 ## Using secrets in jobs
 
@@ -110,15 +108,15 @@ blocks:
   ...
 ```
 
-#### Project level secrets
+#### Project-level secrets
 
-Project level secrets are included in jobs same as organization level secrets, just add the secret name
-in the same way and the secret will be in your jobs. It is important to note that when organization level 
-and project level secrets with the same name is used in a job organization level secret is ignored.
+Project-level secrets are included in jobs same as organization-level secrets, just add the secret name
+in the same way and the secret will be in your jobs. It is important to note that if organization-level 
+and project-level secret with the same name are used simultaneously, the project-level secret will take precedence.
 
 ## Creating and managing secrets
 
-When creating secrets, we recommend that you make it available to the smallest subset of projects possible. 
+When creating secrets, we recommend that you make them available to the smallest subset of projects possible. 
 To do this, you can use access policies to control which projects can use which of the organization's secrets. 
 Organization-level secrets let you share secrets between multiple projects, 
 which reduces the need for creating duplicate secrets. Updating an organization secret in 
@@ -128,7 +126,7 @@ the project whitelist when creating a new secret, or editing an existing one.
 To do this, choose **Whitelisted** and enter the project name(s).
 
 ### Web UI
-#### Organization level secrets
+#### Organization-level secrets
 
 1. Open the dashboard of your organization
 
@@ -143,9 +141,9 @@ To do this, choose **Whitelisted** and enter the project name(s).
 
 5. Click **Save Changes**
 
-#### Project level secrets
+#### Project-level secrets
 
-Project level secrets are managed from your project settings.
+Project-level secrets are managed from your project settings.
 
 1. Navigate to your project
 
@@ -165,7 +163,7 @@ Project level secrets are managed from your project settings.
 
 ### CLI
 
-#### Organization level secrets
+#### Organization-level secrets
 The [sem create
 secret](https://docs.semaphoreci.com/reference/sem-command-line-tool/#sem-create)
 command, shown below:
@@ -194,11 +192,11 @@ sem edit secret blue-secret
 
 For more information about managing secrets check the [sem CLI Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
-#### Project level secrets
+#### Project-level secrets
 
-Project level secrets can be managed same as organization secrets but with 
-included `-p [project-name]` or `-i [project-id]` flags that specify the project 
-scope of the secret. Example shown below:
+Project-level secrets can be managed same as organization secrets but with
+`-p [project-name]` or `-i [project-id]` flags that specify the project 
+scope of the secret, as shown below:
 ```
 sem create secret -p <project-name> <secret-name> -e <variable1>=<value1> -e <variable2>=<value2> -f <file_path>:<destination_path>
 ```
