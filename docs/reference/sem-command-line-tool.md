@@ -170,8 +170,8 @@ Each `secret` is associated with a single organization. In other words, a
 must be connected to the organization to which it belongs.
 
 Aditionally a `secret` can be associated with a single project. This is 
-called a project level secret. In order to manage project level secrets
-you must provide project name or id of the associated project with 
+called a project-level secret. In order to manage project-level secrets
+you must provide the project name or id of the associated project with 
 `-i` or `-p` flags, or use a different yaml `kind` described [here](reference/secrets-yaml-reference).
 
 ## Working with organizations
@@ -286,7 +286,7 @@ sem create secret my-new-secret
 ```
 
 If you wish to create the same secret on the project level you must provide 
-project name or id with corresponding flag:
+the project name or id with the corresponding flag:
 ```bash
 sem create secret -p my-project my-new-secret
 ```
@@ -326,8 +326,8 @@ it will be mounted relative to the home directory in this example
 Use the `-e` or `--env` flag to specify one or more environment variables. The
 format of the parameter is `<NAME>=<VALUE>`.
 
-Use the `-p` or `-i` flags to modify the secret scope from organization level 
-to the corresponding project level.
+Use the `-p` or `-i` flags to modify the secret scope from organization-level 
+to the corresponding project-level.
 
 ### sem edit
 
@@ -409,8 +409,8 @@ secrets for the current user within the active organization:
 sem get secret
 ```
 
-List of names of the project level secrets can be obtained by appending 
-project name flag to the previous command:
+List of names of project-level secrets can be obtained by appending 
+the project name flag to the previous command:
 
 ```bash
 sem get secret -p my-project
