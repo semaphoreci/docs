@@ -8,6 +8,70 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of April 10, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Elixir 1.14.4
+- Ruby 2.7.8 (default), 3.0.6, 3.1.4, 3.2.2
+- Go 1.19.8, 1.20.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-67-generic -> 5.15.0-69-generic
+- Aws-cli 1.27.93 -> 1.27.108
+- Aws-cli 2.11.3 -> 2.11.10
+- Azure-cli 2.46.0 -> 2.47.0
+- Containerd.io 1.6.18 -> 1.6.20
+- Docker 23.0.1 -> 23.0.3
+- Docker-compose 2.16.0 -> 2.17.2
+- Erlang 24.3.4.9 -> 24.3.4.10 (aliased as 24.3)
+- Github-cli 2.24.3 -> 2.26.1
+- Google Chrome 111 -> 112
+- ChromeDriver 111 -> 112
+- Gcloud 422.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 422.0.0 -> 425.0.0
+- Gem 3.4.7 -> 3.4.10
+- Bundler 2.4.7 -> 2.4.10
+- Kubectl 1.26.2 -> 1.26.3
+- Terraform 1.4.2 -> 1.4.4
+- Python 3.10.10. -> 3.10.11
+- Python 3.11.2 -> 3.11.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.4
+- Ruby 2.7.8 (default), 3.0.6, 3.1.4, 3.2.2
+- Go 1.19.8, 1.20.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-144-generic -> 5.4.0-146-generic
+- Aws-cli 1.27.93 -> 1.27.108
+- Aws-cli 2.11.3 -> 2.11.10
+- Azure-cli 2.46.0 -> 2.47.0
+- Containerd.io 1.6.18 -> 1.6.20
+- Docker 23.0.1 -> 23.0.3
+- Docker-compose 2.16.0 -> 2.17.2
+- Erlang 24.3.4.9 -> 24.3.4.10 (aliased as 24.3)
+- Github-cli 2.24.3 -> 2.26.1
+- Google Chrome 111 -> 112
+- ChromeDriver 111 -> 112
+- Gcloud 422.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 422.0.0 -> 425.0.0
+- Gem 3.4.7 -> 3.4.10
+- Bundler 2.4.7 -> 2.4.10
+- Kubectl 1.26.2 -> 1.26.3
+- Terraform 1.4.2 -> 1.4.4
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of March 20, 2023
 
 **(Improved) Ubuntu 20.04 image update**
