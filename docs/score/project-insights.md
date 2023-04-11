@@ -12,19 +12,21 @@ You can also set up insights for your project's deployment branch via Settings o
 
 ## Configuring Insights
 
-Semaphore tracks your CI insights automatically. You only need to set up insights for CD. 
+Semaphore does its best to figure out your CI branch and Pipeline. You can tell Semaphore your Branch and Pipeline File in the Insight Settings.
+However, you must fill in those values for Continous Deployment to see the CD metrics.
 
-### Setting up Continuous Deployment insights
+### Setting up Integration and Deployment insights
 
-Follow the steps below to set up CD insights:
+Follow the steps below to set up CI/CD insights:
 
 1. Click on the **Insights** tab on the project page.
 2. Click on the Gear Icon (Settings) on the left side navigation bar of the Insights page.
-3. Provide the required information:
-    - Branch
-    - Pipeline Path
+3. Provide the information:
+    - Branch Name
+    - Pipeline File Path
     4. Click on the **Save changes** button.
 
+!!! warning "Branch Name and Pipeline File Name are mandatory if you set up Continuous Deployment insights. However, for Continuous Integration, both fields are optional."
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/settings.png" alt="Project Insights - Settings page">
 After you save changes, Semaphore will start collecting metrics for your deployment branch.
