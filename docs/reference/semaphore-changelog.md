@@ -10,6 +10,16 @@ This page is updated on a weekly basis.
 
 ### Week of April 10, 2023
 
+**(Improved) macos-xcode14 image update**
+
+**(New)** Packages: Xcode 14.3
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.211.0 -> 2.212.1
+- Flutter 3.7.0 -> 3.7.10
+
+
 **(Improved) Ubuntu 20.04 image update**
 
 **(New)** Packages
