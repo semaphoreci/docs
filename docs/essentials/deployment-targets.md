@@ -38,7 +38,7 @@ The wizard easily navigates you through the setup. You can come back to previous
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-ready-targets.png" alt="Deployment Target tiles with Edit and Delete buttons">
 
-If you need to modify any settings later on, you can do so by clicking on the **Edit** button in the top-right corner. You can also permanently remove targets and all previously recorded deployments using the **Delete** button.
+If you need to modify any settings later on, you can do so by clicking on the **Edit** button in the top-right corner. You can also permanently remove targets and all previously recorded deployments using the **Delete** button. Additionally, you can _deactivate_ and _activate_ your targets (links next to the status box) to block promotions in any case.
 
 ### Basic information
 
@@ -47,6 +47,8 @@ You must **provide a name** for a new Target. Only alphanumeric characters with 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/wizard-basics.png" alt="Deployments tab in project top menu">
 
 Optionally, you can fill in the description and URL, which will be later used in the detailed view.
+
+If you plan to use parameterized promotions with Deployment Targets, you can pass up to three parameters to index your future deployments. You will be able to filter Deployment History by their value. 
 
 ### Credentials
 
@@ -138,7 +140,9 @@ promotions:
 Once you finish binding, you can commit changes by clicking the **Run the workflow** button in the top right corner and starting your CI/CD workflow. 
 
 
-# Usage 
+# Usage
+
+## Running promotions with Deployment Targets
 
 After a couple of seconds, you should see the workflow page with promotions secured by Deployment Targets. Compared to regular promotions, they have a **lock icon** next to them. The promotions that are allowed will have an open lock and enabled promotion button. A closed lock and disabled button indicate that you do not have the proper permissions to start the pipeline.
 
@@ -149,6 +153,7 @@ The most common reasons that a promotion appears as blocked are:
 - the user doesn’t have the correct permissions to deploy to the bound Deployment Target
 - the workflow was run from a forbidden branch, tag, or pull request
 - you are not logged in and/or you are viewing a build of a public project
+- Deployment Target was deactivated
 
 However, there are a few, less probable situations when promotions are denied, for example:
 
@@ -158,9 +163,26 @@ However, there are a few, less probable situations when promotions are denied, f
 
 Auto-promotions configured in the pipeline `.yml` file that are forbidden by the Deployment Target will not be shown on the workflow page, although Deployment History will register attempts to start such promotions. Apart from the mentioned differences, promotions with Deployment Targets behave the same as regular promotions.
 
-Your previous deployments can be tracked from the **Deployments** page. At the time of writing, Deployment Target tiles contain data about the latest deployment (who started it and when, which commit was used, which workflow it belongs to). We plan to provide a full **Deployment History** overview feature very soon.
+## Browsing Deployment History
+
+Deployment Targets allow you to track your previous deployments. In the overview page, Deployment Target tiles contain data about the latest deployment (who and when started it, which commit was used, which workflow it belongs to). You can also **stop a pipeline** from here (if it is in progress) or **rerun a promotion** (if you have rights to do so). 
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-ready-targets.png" alt="Deployment Target tiles with Last Deployment information">
 
-You can also [use our Public API (alpha)](reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by a Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.
+After you click **View full history**, you will see the latest deployments in the reverse-chronological order. 
+With **Deployment History** you can easily find and rerun deployments.
 
+Use _Newer_ and _Older_ buttons to navigate to other pages. If you want to jump to a specific date, click on the right top _Jump to date_ button. 
+
+You can also filter deployments by:
+
+- author (everyone or just you),
+- origin (branch, tag, or pull request),
+- specific branch or tag name,
+- indexed promotion parameters (if configured).
+
+<img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/deployment-targets/deployments-history.png" alt="Deployment Target history view">
+
+## Public API interoperability
+
+You can also [use our Public API (alpha)](reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.
