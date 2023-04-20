@@ -80,6 +80,7 @@ The following list briefly describes all `sem` operations:
     existing `sem` command.
 - *init*: the `init` command is used for adding an existing repository
     to Semaphore 2.0 for the first time and creating a new project.
+- *troubleshoot*: the `troubleshoot` command is used for gathering information about a workflow, pipeline or job. Usually, this is helpful when opening support cases, especially for Semaphore on-premise installations.
 - *version*: the `version` command is used for getting the version of the `sem`
     utility.
 
@@ -1375,7 +1376,7 @@ existing one.
 
 ## Help commands
 
-The last group of `sem` commands includes the `sem help` and `sem version`
+The last group of `sem` commands includes the `sem help`, `sem troubleshoot` and `sem version`
 commands, which are help commands.
 
 ### sem help
@@ -1398,6 +1399,29 @@ sem connect help
 
 In this case, `help` will generate information about the use of the
 `sem connect` command.
+
+### sem troubleshoot
+
+The `sem troubleshoot` command has the following form:
+
+```
+sem troubleshoot [RESOURCE_TYPE] [RESOURCE_ID]
+```
+
+It can be used to gather information about a workflow, pipeline or job. The output of the command is a YAML containing IDs, timestamps, and other information that you can copy and paste in a support case. That helps the support and engineering teams to troubleshoot issues faster.
+
+#### sem troubleshoot example
+
+```bash
+# This returns information about a workflow
+sem troubleshoot workflow 4a7b869d-9cb3-4818-944a-e67c9009a188
+
+# This returns information about a pipeline
+sem troubleshoot pipeline ece6ee2a-f2a0-488c-a1c0-7d26bfdd254a
+
+# This returns information about a job
+sem troubleshoot pipeline 3c70699a-b2bb-411b-a9ae-24b049d19308
+```
 
 ### sem version
 
