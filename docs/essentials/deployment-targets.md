@@ -6,8 +6,6 @@ Description: Extend your Continuous Deployment process with access control, conf
 
 !!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
 
-!!! warning "Deployment Targets are in the Technical Preview stage. Documentation and the feature itself are subject to change."
-
 **Deployment Targets** allow you to apply strict conditions for who can start individual pipelines and under which conditions. 
 Using them, you have the ability to control who has the ability to start specific promoted pipelines
 or select git references (branches and tags). 
