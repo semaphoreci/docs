@@ -59,7 +59,21 @@ When Infracost runs in your CI/CD workflow, it can post comments in commits and 
 
 ### Estimates on GitHub
 
-Use the following snippet to define a job that comments on GitHub the difference in cost between the current commit and the baseline:
+Before you can calculate cost differences in commits or peer reviews, you need to establish a baseline. If you have any usage-based resources such as serverless functions, you need to first create an [usage file][usage-resources].
+
+```bash
+$ infracost breakdown --sync-usage-file --usage-file usage.yml --path .
+```
+
+Now, edit `usage.yml` to add your usage estimates for the moth.
+
+Next, you're ready to create a baseline file. Skip `--usage-file` if you're not using any usage-based cloud resources:
+
+```bash
+$ infracost breakdown --path . --format json --usage-file usage.yml --out-file baseline.json
+```
+
+After checking in all the new files into the repository, edit the pipeline to run the cost analysis. Use the following snippet to define a job that comments on GitHub the difference in cost between the current commit and the baseline:
 
 ```yaml
 version: v1.0
@@ -77,7 +91,7 @@ blocks:
       jobs:
         - name: Comment Git commits
           commands:
-            - 'curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh'
+            - 'curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | INFRACOST_VERSION=v0.10 sh'
             - checkout
             - infracost diff --path . --format json --compare-to baseline.json --out-file /tmp/infracost-diff-commit.json
             - infracost comment github --path=/tmp/infracost-diff-commit.json --repo=$SEMAPHORE_GIT_REPO_SLUG --commit=$SEMAPHORE_GIT_SHA --github-token=$GITHUB_API_KEY --behavior=update
@@ -250,3 +264,4 @@ your team's activities.
 [gh-token]: https://github.com/settings/tokens
 [bb-token]: https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/
 [infracost-started]: https://www.infracost.io/docs/
+[usage-resources]: https://www.infracost.io/docs/features/usage_based_resources/
