@@ -4,8 +4,11 @@ Description: This guide outlines the key differences between Semaphore Classic a
 
 # Migration guide for Semaphore Classic users
 
-If you've used Semaphore prior to version to 2.0, this guide will outline the
-key differences and show you how to migrate to the new version.
+Welcome to the migration guide from Semaphore Classic to Semaphore 2. 
+We’ve crafted this guide based on frequently asked questions we’ve received from already migrated happy customers. 
+So you can have a transition experience as smoothly as possible.
+
+By the end of this document, you’ll understand how to replicate the basic CI/CD functionalities from your Semaphore Classic projects into Semaphore 2. 
 
 Even if you're a pro Semaphore user, we recommend that you read through the
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
@@ -13,23 +16,35 @@ hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
 
-If you have an account on Semaphore Classic, you will need to create a new
-account on Semaphore 2.0.
+Semaphore 2.0 is a superset of Semaphore Classic. Everything that you've been able to do with Semaphore Classic, 
+you'll be able to do with 2.0 — and much more.
 
-### You don't have to migrate
-
-We know how much you rely on Semaphore to do your work and don't want to impose
-an uncomfortable migration timeline. We don't currently have any plans to sunset Semaphore
-Classic, and will continue to support it. However it won't receive any major new
-features, as our R&D will be focused on Semaphore 2.0.
-
-### Semaphore 2.0 is a superset of Semaphore Classic
-
-Everything that you've been able to do with Semaphore Classic, you'll be
-able to do with 2.0 — and much more.
-
-The only features of Classic that are not currently present in 2.0 are Boosters, 
+The only Classic feature that isn't currently present in 2.0 is Boosters, 
 which will be addressed soon.
+
+A key aspect to consider is that you will need to create a Semaphore 2.0 account. 
+Semaphore Classic accounts and organization's historic data won't be migrated over.
+
+Other important elements to consider are as follow:
+
+- Semaphore 2.0 stores the pipeline configuration in a YML file that lives in `.semaphore` in your repository. 
+In contrast, Semaphore Classic stores the pipeline configuration in the UI via the Project Settings.
+- [Newer generation of machines][machine-type] to choose from.
+- More flexible [caching mechanism][caching].
+- Different [billing system][billing] with pay-as-you-go model.
+- Have a better overview of your deployment strategies and secrets storage with [deployment targets][deployment-targets] and [project secrets][project-secrets].
+
+But no worries, in this article we'll dive into these elements individually.
+
+### Billing
+
+Before we continue migrating the projects let's make sure you have created a Semaphore 2.0 account. 
+You can sign up here on [this link][signup].
+
+You can choose between our [new pricing][pricing] or keeping the Semaphore Classic pricing.
+If you're interested in keeping your current pricing, 
+send us a message to support@semaphoreci.com and we’ll take care of it.
+
 
 ### Pipelines can orchestrate any workflow
 
@@ -60,7 +75,7 @@ one-off jobs and attaching to live-running jobs is just one command away.
 ### Pay only for what you use with auto-scaling
 
 In Semaphore Classic, your CI/CD capacity was fixed to a certain number of
-boxes. Semaphore 2.0 adopts the ["pay only for what you use"](https://semaphoreci.com/pricing)
+boxes. Semaphore 2.0 adopts the ["pay only for what you use"][pricing]
 cloud model, in which CI/CD resources scale automatically to support your
 team’s actual needs.
 
@@ -90,3 +105,10 @@ preparation.
 
 
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[machine-type]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+[caching]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
+[billing]: https://docs.semaphoreci.com/account-management/billing-overview/
+[signup]: https://semaphoreci.com/signup
+[pricing]: https://semaphoreci.com/pricing
+[deployment-targets]: https://semaphoreci.com/blog/deployment-targets
+[project-secrets]: https://semaphoreci.com/blog/project-secrets
