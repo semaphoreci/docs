@@ -5,10 +5,12 @@ Description: This guide outlines the key differences between Semaphore Classic a
 # Migration guide for Semaphore Classic users
 
 Welcome to the migration guide from Semaphore Classic to Semaphore 2. 
-We’ve crafted this guide based on frequently asked questions we’ve received from already migrated happy customers. 
-So you can have a transition experience as smoothly as possible.
+We understand that switching to a new platform can be a daunting task, 
+but we’re here to help you every step of the way. In this guide, 
+we’ll walk you through the process of replicating your basic CI/CD functionalities from Semaphore Classic projects into Semaphore 2.
 
-By the end of this document, you’ll understand how to replicate the basic CI/CD functionalities from your Semaphore Classic projects into Semaphore 2. 
+This guide has been crafted based on frequently asked questions we’ve received from already migrated happy customers. 
+We want to ensure that you have a smooth transition experience.
 
 Even if you're a pro Semaphore user, we recommend that you read through the
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
@@ -16,34 +18,30 @@ hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
 
-Semaphore 2.0 is a superset of Semaphore Classic. Everything that you've been able to do with Semaphore Classic, 
-you'll be able to do with 2.0 — and much more.
+Semaphore 2.0 is a superset of Semaphore Classic. 
+Everything that you've been able to do with Semaphore Classic, you'll be able to do with 2.0 — and much more. 
+Semaphore 2.0 offers more flexible features, better performance, and an enhanced user experience.
 
-The only Classic feature that isn't currently present in 2.0 is Boosters, 
-which will be addressed soon.
-
-A key aspect to consider is that you will need to create a Semaphore 2.0 account. 
+It's important to note that Semaphore Classic and Semaphore 2.0 are distinct products. 
+This means that you will need to create a new Semaphore 2.0 account. 
 Semaphore Classic accounts and organization's historic data won't be migrated over.
 
-Other important elements to consider are as follow:
+Here are some key aspects to consider:
 
 - Semaphore 2.0 stores the pipeline configuration in a YML file that lives in `.semaphore` in your repository. 
 In contrast, Semaphore Classic stores the pipeline configuration in the UI via the Project Settings.
-- [Newer generation of machines][machine-type] to choose from.
-- More flexible [caching mechanism][caching].
-- Different [billing system][billing] with pay-as-you-go model.
-- Have a better overview of your deployment strategies and secrets storage with [deployment targets][deployment-targets] and [project secrets][project-secrets].
+- Semaphore 2.0 offers a [newer generation of machines][machine-type] to choose from.
+This means you'll have access to faster build times and better performance.
+- Semaphore 2.0 offers a more flexible [caching mechanism][caching]. 
+This means that you can cache specific directories or files and have more control over how your cache is used.
+- Semaphore 2.0 has a different [billing system][billing] with pay-as-you-go model.
+This means you only pay for what you use, making it more cost-effective for smaller projects. 
+You can choose between our new pricing or keeping the Semaphore Classic pricing. 
+If you're interested in keeping your current pricing, send us a message to support@semaphoreci.com and we’ll take care of it.
+- Semaphore 2.0 offers a better overview of your deployment strategies and secrets storage with [deployment targets][deployment-targets] and [project secrets][project-secrets].
 
-But no worries, in this article we'll dive into these elements individually.
-
-### Billing
-
-Before we continue migrating the projects let's make sure you have created a Semaphore 2.0 account. 
-You can sign up here on [this link][signup].
-
-You can choose between our [new pricing][pricing] or keeping the Semaphore Classic pricing.
-If you're interested in keeping your current pricing, 
-send us a message to support@semaphoreci.com and we’ll take care of it.
+In this article, we'll dive into these elements individually and provide step-by-step instructions 
+on how to migrate your projects from Semaphore Classic to Semaphore 2.0.
 
 
 ### Pipelines can orchestrate any workflow
