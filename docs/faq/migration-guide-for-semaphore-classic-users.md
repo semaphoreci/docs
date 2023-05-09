@@ -4,8 +4,13 @@ Description: This guide outlines the key differences between Semaphore Classic a
 
 # Migration guide for Semaphore Classic users
 
-If you've used Semaphore prior to version to 2.0, this guide will outline the
-key differences and show you how to migrate to the new version.
+Welcome to the migration guide from Semaphore Classic to Semaphore 2. 
+We understand that switching to a new platform can be a daunting task, 
+but we’re here to help you every step of the way. In this guide, 
+we’ll walk you through the process of replicating your basic CI/CD functionalities from Semaphore Classic projects into Semaphore 2.
+
+This guide has been crafted based on frequently asked questions we’ve received from already migrated happy customers. 
+We want to ensure that you have a smooth transition experience.
 
 Even if you're a pro Semaphore user, we recommend that you read through the
 [guided tour](https://docs.semaphoreci.com/guided-tour/getting-started/) for
@@ -13,23 +18,31 @@ hands-on examples.
 
 ### Semaphore Classic and Semaphore 2.0 are distinct products
 
-If you have an account on Semaphore Classic, you will need to create a new
-account on Semaphore 2.0.
+Semaphore 2.0 is a superset of Semaphore Classic. 
+Everything that you've been able to do with Semaphore Classic, you'll be able to do with 2.0 — and much more. 
+Semaphore 2.0 offers more flexible features, better performance, and an enhanced user experience.
 
-### You don't have to migrate
+It's important to note that Semaphore Classic and Semaphore 2.0 are distinct products. 
+This means that you will need to create a new Semaphore 2.0 account. 
+Semaphore Classic accounts and organization's historic data won't be migrated over.
 
-We know how much you rely on Semaphore to do your work and don't want to impose
-an uncomfortable migration timeline. We don't currently have any plans to sunset Semaphore
-Classic, and will continue to support it. However it won't receive any major new
-features, as our R&D will be focused on Semaphore 2.0.
+Here are some key aspects to consider:
 
-### Semaphore 2.0 is a superset of Semaphore Classic
+- Semaphore 2.0 stores the pipeline configuration in a YML file that lives in `.semaphore` in your repository. 
+In contrast, Semaphore Classic stores the pipeline configuration in the UI via the Project Settings.
+- Semaphore 2.0 offers a [newer generation of machines][machine-type] to choose from.
+This means you'll have access to faster build times and better performance.
+- Semaphore 2.0 offers a more flexible [caching mechanism][caching]. 
+This means that you can cache specific directories or files and have more control over how your cache is used.
+- Semaphore 2.0 has a different [billing system][billing] with pay-as-you-go model.
+This means you only pay for what you use, making it more cost-effective for smaller projects. 
+You can choose between our new pricing or keeping the Semaphore Classic pricing. 
+If you're interested in keeping your current pricing, send us a message to support@semaphoreci.com and we’ll take care of it.
+- Semaphore 2.0 offers a better overview of your deployment strategies and secrets storage with [deployment targets][deployment-targets] and [project secrets][project-secrets].
 
-Everything that you've been able to do with Semaphore Classic, you'll be
-able to do with 2.0 — and much more.
+In this article, we'll dive into these elements individually and provide step-by-step instructions 
+on how to migrate your projects from Semaphore Classic to Semaphore 2.0.
 
-The only features of Classic that are not currently present in 2.0 are Boosters, 
-which will be addressed soon.
 
 ### Pipelines can orchestrate any workflow
 
@@ -60,7 +73,7 @@ one-off jobs and attaching to live-running jobs is just one command away.
 ### Pay only for what you use with auto-scaling
 
 In Semaphore Classic, your CI/CD capacity was fixed to a certain number of
-boxes. Semaphore 2.0 adopts the ["pay only for what you use"](https://semaphoreci.com/pricing)
+boxes. Semaphore 2.0 adopts the ["pay only for what you use"][pricing]
 cloud model, in which CI/CD resources scale automatically to support your
 team’s actual needs.
 
@@ -90,3 +103,10 @@ preparation.
 
 
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
+[machine-type]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
+[caching]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
+[billing]: https://docs.semaphoreci.com/account-management/billing-overview/
+[signup]: https://semaphoreci.com/signup
+[pricing]: https://semaphoreci.com/pricing
+[deployment-targets]: https://semaphoreci.com/blog/deployment-targets
+[project-secrets]: https://semaphoreci.com/blog/project-secrets
