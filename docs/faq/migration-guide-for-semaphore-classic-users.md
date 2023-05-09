@@ -43,6 +43,50 @@ If you're interested in keeping your current pricing, send us a message to suppo
 In this article, we'll dive into these elements individually and provide step-by-step instructions 
 on how to migrate your projects from Semaphore Classic to Semaphore 2.0.
 
+### How to select an agent for my job?
+
+In Semaphore Classic, you can select your platform from the Project Settings. 
+In Semaphore 2, you can configure the agent by selecting the OS and machine type in the Visual Builder or directly in your `.semaphore/semaphore.yml` pipeline configuration file using the `machine` attribute:
+
+```yaml
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+```
+
+### How to select a language for my project?
+
+In Classic, you pick the language version you need from the Project Settings. 
+Semaphore 2 uses the `sem-version` tool to facilitate this process since it [supports several languages][sem-version] with different versions. 
+For example, to select Ruby version 3.2.2, you would run `sem-version ruby 3.2.2`.
+
+### How to cache?
+
+Semaphore Classic caches a few directories automatically, but it doesn’t offer an easy way to selectively cache directories or files depending on the language used. 
+Semaphore 2 solves this problem with a more flexible [caching mechanism][caching]. 
+By calling `cache store` for uploads and `cache restore` for downloads in your pipeline configuration file, Semaphore will take care of the rest depending on the language used.
+
+### How to create secrets?
+
+In Semaphore Classic, you could create secrets in your organization's page. 
+In Semaphore 2, it’s possible to create [project and organization-level secrets][secrets] that can contain both environment variables and configuration files. 
+You can access these options from the project or the organization settings.
+
+### How to model my pipeline?
+
+In Semaphore Classic, you could only work with one block that contained one or more jobs running in parallel. 
+Semaphore 2 allows you to model pretty much any pipeline you want. 
+You can create multiple blocks with several jobs and all of this can run sequentially and/or in parallel. 
+Creating rich pipelines has never been easier than with the Visual Builder.
+
+### How to manage my deployment?
+
+In Classic, you typically used deployment servers to control the environment to which you wanted to deploy as well as the deployment credentials and instructions. In Semaphore 2, this and more is supported with [Deployment Targets][deployment-targets] and [Promotions][promotions].
+
+Deployment targets provide multi-faceted access control that is fully configurable from the UI accessible from your project settings.
+
+Promotions are independent pipelines, usually used for deployment, that can be attached to the main pipeline. Here, we combine them with Deployment Targets to have full control over the process and enhance security.
 
 ### Pipelines can orchestrate any workflow
 
@@ -110,3 +154,6 @@ preparation.
 [pricing]: https://semaphoreci.com/pricing
 [deployment-targets]: https://semaphoreci.com/blog/deployment-targets
 [project-secrets]: https://semaphoreci.com/blog/project-secrets
+[sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
+[secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
+[promotions:] https://docs.semaphoreci.com/essentials/deploying-with-promotions/
