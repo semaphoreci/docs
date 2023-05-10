@@ -197,14 +197,8 @@ nav:
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Glossary: reference/glossary.md
   - Account Management:
-    - Plans & Billing:
-      - Billing Overview: account-management/billing-overview.md
-      - Billing FAQ: account-management/billing-faq.md
-      - Free and Open Source: account-management/free-and-open-source-plans.md
-      - Startup plan: account-management/startup-plan.md
-      - Scaleup plan: account-management/scaleup-plan.md
-      - Legacy plans: account-management/legacy-plans.md
-      - Add-ons: account-management/add-ons.md
+    - Billing FAQ: account-management/billing-faq.md
+    - Discounts: account-management/discounts.md
     - Organizations: account-management/organizations.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md

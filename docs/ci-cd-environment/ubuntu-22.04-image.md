@@ -4,7 +4,7 @@ Description: The ubuntu2204 image is a customized image based on Ubuntu 22.04 LT
 
 # Ubuntu 22.04 Image
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 !!! warning "The `ubuntu2204` image is in the Technical Preview stage. Documentation and the image itself are subject to change."
 

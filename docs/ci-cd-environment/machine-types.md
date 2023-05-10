@@ -33,7 +33,7 @@ Implementation details:
 
 ### E2 Generation
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
 
@@ -50,7 +50,7 @@ Implementation details:
 
 ### F1 Generation
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
 

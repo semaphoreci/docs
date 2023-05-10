@@ -15,7 +15,7 @@ blocks or pipelines to which they have been connected.
 
 ### Organization-level secrets access policy
 
-Organizations with the [Startup plan](/account-management/startup-plan/) or higher 
+Organizations with the Startup plan or higher 
 have additional control over the secrets access policy. It is possible to add a project 
 whitelist so a given secret is available for only a subset of projects within the organization.
 This can be achieved by setting the projects access policy to "Whitelisted" and providing a list 
@@ -26,7 +26,7 @@ Likewise, restricting debug jobs will prevent unauthorized users from starting a
 
 ### Project-level secrets
 Project-level secrets are a feature available to organizations on 
-the [Startup plan](/account-management/startup-plan/) or higher. 
+the Startup plan or higher. 
 These secrets are intended to securely store sensitive information, 
 such as API keys, access tokens, and other credentials that are 
 required to authenticate and authorize access to various services.

@@ -4,7 +4,7 @@ Description: Extend your Continuous Deployment process with access control, conf
 
 # Deployment Targets
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 **Deployment Targets** allow you to apply strict conditions for who can start individual pipelines and under which conditions. 
 Using them, you have the ability to control who has the ability to start specific promoted pipelines
@@ -61,7 +61,7 @@ Provided credentials will be accessible only in pipelines started by promotions 
 
 ### User access control
 
-!!! plans "Available only on <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available only on <span class="plans-box">Scaleup</span>"
 
 You can restrict the possibility of promoting with Deployment Target to specific project roles and users. By default, anyone with access to the project can trigger promotions.
 

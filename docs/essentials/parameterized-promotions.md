@@ -4,7 +4,7 @@ Description: Use parameterized promotions to improve code reusability and to dyn
 
 # Parameterized Promotions
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The **parameterized promotions** feature allows users to pass parameters to promotion
 pipelines. You can do this either via a form in the UI,

@@ -4,7 +4,7 @@ Description: This guide describes how to create and use a self-hosted agent type
 
 # Using self-hosted agent types
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 Before running and using self-hosted agents in your pipelines, you need to register a new agent type in your organization.
 

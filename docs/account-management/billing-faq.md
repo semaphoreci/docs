@@ -4,16 +4,6 @@ Description: This page contains the most common questions regarding billing in S
 
 # Billing FAQ
 
-## Can I try out Semaphore without giving my credit card info?
-
-You can try out Semaphore by creating a new **trial** organization. The trial period lasts for 14 days. During the trial period, you can use all features available on the [Startup plan](/account-management/startup-plan/).
-
-Once you add the credit card, your organization will be on a Startup plan.
-
-After your trial expires your pipelines will be blocked until you add your credit card info.
-
-If you need more time for testing out the service or you want to upgrade to the Scaleup plan once the trial ends, please reach out to [customersuccess@semaphoreci.com](mailto:customersuccess@semaphoreci.com).
-
 ## How can I track my spending?
 
 You can get insights about your spending, past invoices, and update your plan on the **Plans & Billing** page within the app.

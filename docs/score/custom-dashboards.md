@@ -3,7 +3,7 @@ Description: A Custom Dashboard can be created for the purpose of viewing your p
 ---
 # Custom Dashboards
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 Custom Dashboards allow you to create your own visualization of your project's metrics.
 You can add any metric available on the Insights page to your Dashboard.

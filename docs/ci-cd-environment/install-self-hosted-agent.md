@@ -4,7 +4,7 @@ Description: This guide describes how to install a self-hosted agent on various 
 
 # Installing a self-hosted agent
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
