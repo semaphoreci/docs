@@ -516,9 +516,11 @@ nav.md-tabs .md-tabs__link.md-tabs__link--active:hover {
  main span.plans-box
   {
     background-color: rgb(10, 17, 32);
-    cursor: pointer;
+    /*cursor: pointer;*/
     padding: 0.2rem;
     border-radius: 0.2rem;
+    color: white !important;
+    text-decoration: none !important;
   }
   main span.plans-box:hover
   {
