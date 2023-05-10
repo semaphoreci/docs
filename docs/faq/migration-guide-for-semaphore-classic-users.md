@@ -23,7 +23,7 @@ Everything that you've been able to do with Semaphore Classic, you'll be able to
 Semaphore 2.0 offers more flexible features, better performance, and an enhanced user experience.
 
 It's important to note that Semaphore Classic and Semaphore 2.0 are distinct products. 
-This means that you will need to create a new Semaphore 2.0 account. 
+This means that you will need to create a [new Semaphore 2.0 account][signup]. 
 Semaphore Classic accounts and organization's historic data won't be migrated over.
 
 Here are some key aspects to consider:
@@ -43,6 +43,12 @@ If you're interested in keeping your current pricing, send us a message to suppo
 In this article, we'll dive into these elements individually and provide step-by-step instructions 
 on how to migrate your projects from Semaphore Classic to Semaphore 2.0.
 
+### How to check out my code?
+
+In Semaphore Classic, your repository is automatically cloned into the job environment when the machine starts. However, in Semaphore 2, you have the option to use the [checkout][checkout] command to clone your repository.
+
+Using `checkout` provides more control over the process and allows you to choose between full or shallow cloning, depending on your needs. Shallow cloning can be useful for large repositories as it only retrieves the latest commit, reducing the time it takes to clone the repository. In addition, `checkout` can be used to pull in external dependencies or submodules needed for your job. Overall, the `checkout` command provides greater flexibility and customization options than the automatic cloning approach used in Semaphore Classic.
+
 ### How to select an agent for my job?
 
 In Semaphore Classic, you can select your platform from the Project Settings. 
@@ -60,6 +66,47 @@ agent:
 In Classic, you pick the language version you need from the Project Settings. 
 Semaphore 2 uses the `sem-version` tool to facilitate this process since it [supports several languages][sem-version] with different versions. 
 For example, to select Ruby version 3.2.2, you would run `sem-version ruby 3.2.2`.
+
+```yaml
+blocks:
+  - name: Setup
+    task:
+      jobs:
+        - name: bundle
+          commands:
+          - checkout
+          # Restore dependencies from cache.
+          - cache restore
+          # Set Ruby version:
+          - sem-version ruby 3.2.2
+```
+
+### Starting Databases and Other Services
+
+In Semaphore Classic, databases and other services like Elasticsearch were automatically started when firing up a machine to run a job.
+However, this led to significant overhead time. 
+In Semaphore 2, services are not automatically started, but instead can be initiated manually using [sem-service][sem-service].
+
+For example, to start Postgres version 13, you would simply run the command `sem-service start postgres 13`. 
+This approach provides greater flexibility and control over which services are started for each job. 
+It also results in faster startup times for the job, since only the necessary services are started.
+
+Semaphore 2's approach to services is also beneficial in terms of cost savings. 
+With Semaphore 2's à la carte pricing model, users can choose which services to start and only pay for the ones that they use, resulting in more efficient resource utilization and cost savings.
+
+```yaml
+  - name: Unit tests
+    task:
+      jobs:
+        commands:
+          - checkout
+          - cache restore
+          # Start Postgres database service.
+          - sem-service start postgres 13
+          - sem-version ruby 3.2.2
+          - bundle install --deployment --path vendor/bundle
+          - bundle exec rake db:setup
+```
 
 ### How to cache?
 
@@ -80,6 +127,8 @@ Semaphore 2 allows you to model pretty much any pipeline you want.
 You can create multiple blocks with several jobs and all of this can run sequentially and/or in parallel. 
 Creating rich pipelines has never been easier than with the Visual Builder.
 
+![Rails CI pipeline](https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails/raw/master/public/ci-pipeline.png)
+
 ### How to manage my deployment?
 
 In Classic, you typically used deployment servers to control the environment to which you wanted to deploy as well as the deployment credentials and instructions. In Semaphore 2, this and more is supported with [Deployment Targets][deployment-targets] and [Promotions][promotions].
@@ -88,62 +137,13 @@ Deployment targets provide multi-faceted access control that is fully configurab
 
 Promotions are independent pipelines, usually used for deployment, that can be attached to the main pipeline. Here, we combine them with Deployment Targets to have full control over the process and enhance security.
 
-### Pipelines can orchestrate any workflow
-
-Semaphore 2.0 gives you unlimited flexibility in automating CI/CD workflows. You
-can still run simple builds easily, and you can also run multi-stage builds, each
-with its own configuration.
-
-Servers on Semaphore Classic have been superseded by
-[promotions](https://docs.semaphoreci.com/essentials/deploying-with-promotions/)
-in Semaphore 2.0. Promotions connect different pipelines together, with optional 
-conditions. For example, you could set up an auto-promotion on the master branch 
-that triggers deployment to production and runs smoke tests, and a manual promotion 
-for any branch which deploys to the staging environment.
-
-### All configuration is in YML and executed in the command line
-
-You'll primarily interact with Semaphore 2.0 as you do with your other development
-tools and platforms, using the command line.
-
-In most cases, you'll migrate your projects from Semaphore Classic by copying
-your build and deploy commands to YAML files and moving your environment variables 
-and configuration files to [secrets](../essentials/environment-variables.md).
-
-As you explore the [sem command line tool](https://docs.semaphoreci.com/reference/sem-command-line-tool/),
-you'll discover how much more you can do in Semaphore 2.0. Things like running
-one-off jobs and attaching to live-running jobs is just one command away.
-
-### Pay only for what you use with auto-scaling
-
-In Semaphore Classic, your CI/CD capacity was fixed to a certain number of
-boxes. Semaphore 2.0 adopts the ["pay only for what you use"][pricing]
-cloud model, in which CI/CD resources scale automatically to support your
-team’s actual needs.
-
-S2 also introduces several machine types with different CPU/memory capacity,
-for use in your pipelines.
-
 ### Less assumptions, more transparency
-
-Because you can use Semaphore 2.0 to automate just about anything with code, it
-doesn't make assumptions about what you might want to do in each stage of your
-pipelines, i.e. this does not happen automatically:
-
-- S2 doesn't check out code: use the [`checkout` command](https://docs.semaphoreci.com/reference/toolbox-reference/#libcheckout).
-
-- Databases and other services are disabled by default: use [`sem-service`
-  tool][sem-service]
-  to start them.
-
-- Dependencies are not cached by default: see the
-  [caching guide](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/)
-  and examples in the Programming Languages category.
 
 S2 job logs provide much more information about your CI/CD environment in an
 easy-to-use, full-page format. For example, you will see exactly how long it
 takes Semaphore to start your job and all the details of environment
 preparation.
+
 
 
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
@@ -156,4 +156,6 @@ preparation.
 [project-secrets]: https://semaphoreci.com/blog/project-secrets
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
-[promotions:] https://docs.semaphoreci.com/essentials/deploying-with-promotions/
+[promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
+[faq]: https://docs.semaphoreci.com/faq/faq/
+[checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout
