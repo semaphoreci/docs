@@ -109,6 +109,10 @@ Docker toolset is installed and the following versions are available:
 - Curl 7.58.0
 - Rsync 3.1.2
 
+## Compilers
+
+- gcc: 4.8, 5, 6, 7, 8 (default)
+
 ## Languages
 
 ### Erlang and Elixir
