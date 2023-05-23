@@ -1420,7 +1420,7 @@ sem troubleshoot workflow 4a7b869d-9cb3-4818-944a-e67c9009a188
 sem troubleshoot pipeline ece6ee2a-f2a0-488c-a1c0-7d26bfdd254a
 
 # This returns information about a job
-sem troubleshoot pipeline 3c70699a-b2bb-411b-a9ae-24b049d19308
+sem troubleshoot job 3c70699a-b2bb-411b-a9ae-24b049d19308
 ```
 
 ### sem version
