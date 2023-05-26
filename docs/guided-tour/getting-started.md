@@ -121,7 +121,7 @@ block runs when it completes.
 `Tests` block contains two parallel jobs.
 
 !!! info ""
-    Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans](/account-management/standard-plan/).
+    Running parallel jobs simultaneously is possible under open source, free trial, or paid plans.
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
@@ -220,7 +220,6 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 [semaphore-login]: https://id.semaphoreci.com
 [github-guide]: ../account-management/connecting-github-and-semaphore.md
 [checkout]: ../reference/toolbox-reference.md#checkout
-[plans]: ../account-management/plans.md
 [linux-env]: ../ci-cd-environment/ubuntu-20.04-image.md
 [macos-env]: ../ci-cd-environment/macos-xcode-14-image.md
 [example-projects]: ../examples/tutorials-and-example-projects.md

@@ -97,7 +97,7 @@ blocks:
         - name: Test
           commands:
             # Select an Xcode version.
-            # See https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
+            # See https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/
             - xcversion select 13.4.1
 
             # Run tests for iOS and Mac apps on a simulator or connected device.
