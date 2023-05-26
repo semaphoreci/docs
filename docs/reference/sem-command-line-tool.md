@@ -173,7 +173,7 @@ must be connected to the organization to which it belongs.
 Aditionally a `secret` can be associated with a single project. This is 
 called a project-level secret. In order to manage project-level secrets
 you must provide the project name or id of the associated project with 
-`-i` or `-p` flags, or use a different yaml `kind` described [here](reference/secrets-yaml-reference).
+`-i` or `-p` flags, or use a different yaml `kind` described [here](/reference/secrets-yaml-reference).
 
 ## Working with organizations
 

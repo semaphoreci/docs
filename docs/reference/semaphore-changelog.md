@@ -1985,7 +1985,7 @@ Removed from the image:
 - Xcode 12.2
 - Xcode 12.5.0
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Improved) macOS Xcode 13 image**
 
@@ -2040,7 +2040,7 @@ Updated packages:
 - Flutter 2.0.6 -> 2.5.1
 - Ruby 2.5.1 -> 2.6.8
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of September 20, 2021
 
@@ -2087,8 +2087,8 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 **IMPORTANT: (Deprecated) MacOS Xcode 11**  
 
-The [macOS Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
-We advise all users to switch to the [macOS Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+The macOS Xcode 11 image will be removed in one month.  
+We advise all users to switch to the macOS Xcode 12 image.
 
 
 **(Improved) Ubuntu 20.04 image update**
@@ -2157,7 +2157,7 @@ Updated packages:
 - Xcode 12.5 -> 12.5.1
 - Yarn 1.22.4 -> 1.22.11
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 
 **(Improved) Ubuntu 18.04 image update**
@@ -2454,7 +2454,7 @@ Updated packages:
 
 **(Removed)** Xcode 12.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of April 26, 2021
 **(Improved) macOS Xcode 12 image update**  
@@ -2463,7 +2463,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 - Homebrew 2.4.3 -> 3.1.4
 - Rbenv can install ruby 2.6.7, 2.7.3, 3.0.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of April 19, 2021
 **(Improved) Ubuntu 18.04 image update**  
@@ -2499,7 +2499,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 - Curl 7.64.1 -> 7.71.1
 - Flutter 1.17 -> 2.0.4
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Updated)** Docker image:  
 New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
@@ -2636,7 +2636,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 - Fastlane 2.170.0 -> 2.172.0
 - Cocoapods 1.10.0 -> 1.10.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Updated)** Docker image:
 New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
@@ -2702,13 +2702,13 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 ### Week of December 21, 2020  
 **(Improved) macOS Xcode 12 image update**  
-**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported in the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
+**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported in the macOS Xcode 12 image.  
 **(New)** Xcode 12.3 was added to the image.  
 **(Updated)** Updated packages:
  
 - Fastlane 2.169.0 ->  2.170.0
 
-Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.
+Note that the default Xcode version was changed to 12.3 for the macOS Xcode 12 image.
 
 **Minor improvements and fixes:**
 
@@ -2734,7 +2734,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
  
 - Fastalne 2.167.0 ->  2.169.0
 
-To learn more about our image macOS images, check our [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and [macOS Xcode 11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) documentation. 
+To learn more about our image macOS images, check our macOS Xcode 12 and macOS Xcode 11 documentation. 
 
 ### Week of November 23, 2020
 
@@ -2770,7 +2770,7 @@ Read our [Workflow triggers](https://docs.semaphoreci.com/essentials/project-wor
 - Fastlane 2.162.0 -> 2.167  
 - Flutter v1.22.1  -> 1.22.4
  
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 ### Week of November 9, 2020
 **(Updated) New UI available to everyone**  
@@ -2790,7 +2790,7 @@ We appreciate your feedback and encourage you to send any suggestions to [our fe
  
 - Cocoapods 1.9.3 -> 1.10.0
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of November 2, 2020
 
@@ -2819,7 +2819,7 @@ You can find the list of supported images in [our documentation](/ci-cd-environm
 - Fastlane 2.162.0 -> 2.166  
 - Flutter v1.22.1  -> 1.22.3
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
@@ -2860,7 +2860,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
   - Fastlane 2.158.0 -> 2.162.0  
   - Flutter v1.20.2 -> v1.22.1  
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of October 5, 2020
 **(Improved) Ubuntu 18.04 image update**  
@@ -2889,7 +2889,7 @@ New MacOS image is now available - `macos-xcode12`.
 The default Xcode version in this image is Xcode 12.0 and will be updated in the future.  
 If you are using `macos-xcode11`, you can switch to the latest image by changing the `os_image` value in your YAML file.  
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(New) Fork&Run example projects**  
 Semaphore provides several different example projects that showcase the basic features of our product.  
@@ -2939,7 +2939,7 @@ If you want to try out the new UI, but it hasn't yet rolled out to your organiza
   - Fastlane 2.149.1 -> 2.158.0  
   - Flutter v1.20.2 -> v1.20.3  
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 **(New) Ubuntu 18.04 image additions** 
 - Added Go 1.15
@@ -2976,7 +2976,7 @@ If you want to try out the new UI, but it hasn't yet rolled out to your organiza
 **(Updated)** Xcode 11.6 installed. To switch version simply use `xcversion select 11.6`.
 **(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.  
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in related enviroment variable**  
@@ -3003,7 +3003,7 @@ Information on all available enviroment variables can be found in our [documenta
   - Fastlane 2.149.1 -> 2.156.1
   - Flutter v1.17.3 -> v1.20.2
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
   
  **Minor improvements and fixes:**  
  - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
@@ -3095,7 +3095,7 @@ For getting started with an Android project on Semaphore please see this [guide]
     - Aws-cli 1.18.77 -> 1.18.90
     - Docker-compose 1.24.1 -> 1.26.0
 
-- The [macos-xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image update.
+- The macos-xcode11 image update.
 The following packages were updated:
     - Fastlane 1.50.1
     - Flutter 1.17.5
@@ -3138,7 +3138,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of May 18, 2020
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2421)
-- Updates to the [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/):
+- Updates to the macOS Catalina Xcode11:
     - Xcode 11.5 installed
     - Flutter version update to 1.17.1
     - Fastlane gem version update to 2.148.1
@@ -3168,12 +3168,12 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - Names of Semaphore Secrets are now restricted to alphanumeric characters, dashes, dots, and `@`.
   Regex: `^[@: -._a-zA-Z0-9]+$`).
 - Updates to the macOS image:
-    - Flutter version updated to 1.17.0, image spec [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - Flutter version updated to 1.17.0, image spec macOS Catalina Xcode11
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2164).
 
 ### Week of April 27, 2020
-- New macOS image available - [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+- New macOS image available - macOS Catalina Xcode11
 - Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.39 -> 1.18.42
     - Jruby 9.1.17.0 -> 9.2.11.1
@@ -3183,7 +3183,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4.1 installed. To switch version use
-    `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.4.1`, image spec macOS Mojave Xcode11
     - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
 - Updates to the Ubuntu1804 image:
     - TCP port 8000 is no longer occupied.
@@ -3206,7 +3206,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4 installed. To switch version use
-    `xcversion select 11.4`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.4`, image spec macOS Mojave Xcode11
     - `macos-mojave-xcode11` Xcode 11.0 removed from the image.
     - installed packages:
       - google-chrome
@@ -3338,7 +3338,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed. To switch version use
-    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.3.1`, image spec macOS Mojave Xcode11
     - installed packages:
       - carthage
     - updated gems:
@@ -3411,8 +3411,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of November 11, 2019
 - macOS image updates:
     - `macos-mojave-xcode11` Xcode 11.2.1 installed. To switch version use
-    `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-    - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.2.1`, image spec macOS Mojave Xcode11
+    - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: macOS Mojave Xcode10
     - packages:
           - fastlane 2.135.2
           - cocoapods 1.8.4
@@ -3464,7 +3464,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.1 installed. To switch version use
-    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.1`, image spec macOS Mojave Xcode11
 - You can change which blocks and pipelines send status checks to pull requests
   on GitHub. [See how here](https://docs.semaphoreci.com/reference/sem-command-line-tool/#changing-github-status-check-notifications).
 
@@ -3489,8 +3489,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
-    - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
-    - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
+    - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, macOS Mojave Xcode10 image spec.
+    - `macos-mojave-xcode11` with Xcode 11.0 installed, macOS Mojave Xcode11 image spec.
     - `macos-mojave` is no longer available.
 - Mojave system update:
     - ProductVersion: 10.14.6
@@ -3572,7 +3572,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
   configure for common language dependencies.
 - macOS platform:
     - Flutter version update to v1.8.3
-    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - New image spec - macOS Mojave
 
 ### Week of July 29, 2019
 
@@ -3596,7 +3596,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - Flutter version updated to v1.7.8+hotfix.4.
     - Fastlane version updated to 2.128.1.
     - Cocoapods version updated to 1.7.5.
-    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - New image spec - macOS Mojave
 - New [environment variables available in Semaphore
   jobs](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/):
     - `SEMAPHORE_GIT_REPO_SLUG`
@@ -3660,7 +3660,7 @@ if you are using protected branches with required status checks.
 
 - macOS platform:
     - Xcode 11 Beta with default simulators preinstalled on Mojave image.
-    - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) updated to 10.14.5.
+    - macOS Mojave updated to 10.14.5.
 
 ### Week of June 10, 2019
 
@@ -3810,9 +3810,7 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   widget shows CLI commands that you can run to perform the same actions that
   you see in the UI.
 - Slack notifications can be [filtered by pipeline result](https://docs.semaphoreci.com/essentials/slack-notifications/#filtering-by-pipeline-result).
-- [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-  image introduced, with iOS/macOS support in
-  [closed beta](https://semaphoreci.com/product/ios).
+- macOS Mojave image introduced, with iOS/macOS support in [closed beta](https://semaphoreci.com/product/ios).
 - Syntax highlighting in docs.
 
 ### Week of Feb 11, 2019
