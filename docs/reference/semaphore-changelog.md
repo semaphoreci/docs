@@ -3067,7 +3067,7 @@ For more details on setting job priorities check the [prioritization page](https
 The option to check the health of GitHub deploy key and webhook has been added in the project settings UI.  
 These new settings also allow you to quickly repair connections between a Semaphore project and connected GitHub repositories.
 
-Read more about troubleshooting connections between Semaphore and GitHub in our [documentation](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health).
+Read more about troubleshooting connections between Semaphore and GitHub in our [documentation](/account-management/connecting-github-and-semaphore/#verifying-deploy-key-health).
 
 **(Improved) Cached Android docker images**  
 From now on, Android docker images for the two latest stable SDK versions will always be cached, meaning that the jobs using these images will now start up even faster.
