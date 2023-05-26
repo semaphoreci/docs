@@ -4,7 +4,7 @@ Description: This guide gives a brief overview of self-hosted agents and how the
 
 # Self-hosted agents overview
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 Semaphore allows you to run your jobs in an environment which is controlled by your team. This is achieved through the use of self-hosted agents. Additionally, compared to a hosted platform, self-hosted agents offer more control over hardware, operating system versions, and the available software. This is benefitial because you can run the agents anywhere you want: physical or virtual machines, containers, or in the cloud.
 
