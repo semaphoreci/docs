@@ -3681,7 +3681,7 @@ if you are using protected branches with required status checks.
   and the introduction of the [Conditions domain specific language](https://docs.semaphoreci.com/reference/conditions-reference/)
   that allows the expression of complex conditional rules in your pipelines.
 
-- Owners and admins can now set [Budget Alerts](https://docs.semaphoreci.com/account-management/billing/#budget-alert).
+- Owners and admins can now set [Budget Alerts](/account-management/billing-faq/#how-can-i-set-up-budget-alerts).
 
 - New Semaphore approved convenience Docker images have been released:
     - [Alpine](https://hub.docker.com/r/semaphoreci/alpine)
