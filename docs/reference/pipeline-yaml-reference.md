@@ -1614,8 +1614,9 @@ target.
 The `pipeline_file` property of the `promotions` block is a path to another pipeline YAML file within the repository of the
 Semaphore project. This property is compulsory.
 
-If the `pipeline_file` value is just a plain filename without any directories,
-then `pipeline_file` will look for it inside the `.semaphore` directory.
+If `pipeline_file` is a relative path, Semaphore will search for the file inside the directory of the current pipeline.
+If `pipeline_file` is an absolute path (starts with `/` character), Semaphore will seek the file starting from the root directory of repository.
+
 Otherwise, it will follow the given path starting from the `.semaphore`
 directory.
 
