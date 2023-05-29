@@ -183,4 +183,4 @@ You can also filter deployments by:
 
 ## Public API interoperability
 
-You can also [use our Public API (alpha)](reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.
+You can also [use our Public API (alpha)](/reference/api-v1alpha/#triggering-a-promotion) to trigger promotions. If promotion is forbidden by Deployment Target, you will receive an HTTP `400 Bad Request` response with a reason as a body.

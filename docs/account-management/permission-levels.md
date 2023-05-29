@@ -62,5 +62,4 @@ Only an Admin or the Owner of the organization can perform these steps.
 ## See also
 
 - [Organizations](https://docs.semaphoreci.com/account-management/organizations/)
-- [Billing](https://docs.semaphoreci.com/account-management/billing/)
-- [Plans](https://docs.semaphoreci.com/account-management/plans/)
+- [Billing FAQ](https://docs.semaphoreci.com/account-management/billing-faq/)

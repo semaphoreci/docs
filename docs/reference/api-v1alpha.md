@@ -603,7 +603,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/promotions
 - `pipeline_id` (**required**) - ID of a pipeline
 - `name` (**required**) - Name of the promotion, e.g. `Production deployment`
 - `override` (*optional*) - Boolean safeguard flag that needs to be set to `true` if you want to trigger a promotion for a pipeline that has failed or is still running.
-- *parameter_name* - (*optional*) - name of the parameter used in the [parameterized promotion](../essentials/parameterized-promotions/#setting-the-values-via-the-api)
+- *parameter_name* - (*optional*) - name of the parameter used in the [parameterized promotion](/essentials/parameterized-promotions/#setting-the-values-via-the-api)
 
 **Response**
 

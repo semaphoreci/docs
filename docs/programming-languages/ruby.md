@@ -374,7 +374,7 @@ jobs:
 [rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
 [rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
-[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/#ruby
+[macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/#ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [rspec-junit-formatter]: https://github.com/sj26/rspec_junit_formatter
 [junit-schema]: https://www.ibm.com/docs/en/adfz/developer-for-zos/9.1.1?topic=formats-junit-xml-format
