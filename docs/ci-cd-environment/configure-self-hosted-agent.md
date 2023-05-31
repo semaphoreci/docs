@@ -28,6 +28,7 @@ Both ways can be used at the same time, but command line arguments take preceden
 | `disconnect-after-idle-timeout` | No       | 0            |
 | `shutdown-hook-path`            | No       | Empty string |
 | `pre-job-hook-path`             | No       | Empty string |
+| `post-job-hook-path`            | No       | Empty string |
 | `upload-job-logs`               | No       | never        |
 | `config-file`                   | No       | Empty string |
 
@@ -122,6 +123,10 @@ The artifact is uploaded using the path `agent/job_logs.txt`. The agent will use
 By default, nothing else is executed before the agent starts executing the commands for a job. This parameter allows you to configure a hook to execute before a job starts. It accepts the path to a script (Bash/PowerShell) that will be run right after the job environment is set, but before the job commands start.
 
 Additionally, you can use `fail-on-pre-job-hook-error` to control whether the job should proceed or fail if an error occurs while executing that script.
+
+### `post-job-hook-path`
+
+This parameter allows you to configure a hook to execute after a job finishes. It accepts the path to a script (Bash/PowerShell) that will be run right after the job's epilogue commands. The hook is executed before terminating the PTY created for the job, so the hook has access to the environment variables exposed in the job.
 
 ### `shutdown-hook-path`
 
