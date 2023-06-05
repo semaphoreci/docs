@@ -8,6 +8,104 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of June 05, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Erlang 26.0
+- Elixir 1.14.5
+- Go 1.19.9, 1.20.4 (default)
+- PHP 8.1.18, 8.1.19, 8.2.5, 8.2.6
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-69-generic -> 5.15.0-73-generic
+- Aws-cli 1.27.108 -> 1.27.142
+- Aws-cli 2.11.10 -> 2.11.23
+- Aws-eb-cli 3.20.3 -> 3.20.6
+- Azure-cli 2.47.0 -> 2.49.0
+- Bazel 6.1.1 -> 6.2.0
+- Containerd.io 1.6.20 -> 1.6.21
+- Docker 23.0.3 -> 24.0.2
+- Docker-compose 2.17.2 -> 2.18.1
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.93.1 -> 1.96.1
+- Erlang 24.3.4.10 -> 24.3.4.11 (aliased as 24.3)
+- Erlang 25.3 -> 25.3.2 (aliased as 25.3)
+- Firefox ESR 102.3.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0
+- Git 2.40.0 -> 2.40.1
+- Github-cli 2.26.1 -> 2.29.0
+- Google Chrome 112 -> 114
+- ChromeDriver 112 -> 114
+- Gcloud 425.0.0 -> 432.0.0
+- Gke-gcloud-auth-plugin 425.0.0 -> 432.0.0
+- Helm 3.11.2 -> 3.12.0
+- Heroku 7.69.1 -> 8.1.6
+- Httpie 1.0.3 -> 3.2.2
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Virtualenv 20.17.1 -> 20.23.0
+- Kerl 2.4.0 -> 2.6.0
+- Kubectl 1.26.3 -> 1.27.2
+- Maven 3.6.3 -> 3.9.2
+- NodeJS 18.15.0 -> 18.16.0
+- Npm 9.5.0 -> 9.5.1
+- Rebar3 3.18.0 -> 3.22.0
+- Pip 23.0.1 -> 23.1.2
+- Sbt 1.8.2 -> 1.8.3
+- Terraform 1.4.4 -> 1.4.6
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 26.0
+- Elixir 1.14.5
+- Go 1.19.9, 1.20.4 (default)
+- PHP 8.1.18, 8.1.19, 8.2.5, 8.2.6
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-146-generic -> 5.4.0-150-generic
+- Aws-cli 1.27.108 -> 1.27.142
+- Aws-cli 2.11.10 -> 2.11.23
+- Azure-cli 2.47.0 -> 2.49.0
+- Bazel 6.1.1 -> 6.2.0
+- Containerd.io 1.6.20 -> 1.6.21
+- Docker 23.0.3 -> 24.0.2
+- Docker-compose 2.17.2 -> 2.18.1
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.93.1 -> 1.96.1
+- Erlang 24.3.4.10 -> 24.3.4.11 (aliased as 24.3)
+- Erlang 25.3 -> 25.3.2 (aliased as 25.3)
+- Firefox ESR 102.3.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0  
+- Git 2.40.0 -> 2.40.1
+- Github-cli 2.26.1 -> 2.29.0
+- Google Chrome 112 -> 114
+- ChromeDriver 112 -> 114
+- Gcloud 425.0.0 -> 432.0.0
+- Gke-gcloud-auth-plugin 425.0.0 -> 432.0.0
+- Helm 3.11.2 -> 3.12.0
+- Heroku 7.69.1 -> 8.1.6
+- Java OpenJDK 8u362 -> 8u372
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Kerl 2.4.0 -> 2.6.0
+- Kubectl 1.26.3 -> 1.27.2
+- Maven 3.6.3 -> 3.9.2
+- Rebar3 3.18.0 -> 3.22.0
+- Pip 23.0.1 -> 23.1.2
+- Sbt 1.8.2 -> 1.8.3
+- Terraform 1.4.4 -> 1.4.6
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of April 10, 2023
 
 **(Improved) macos-xcode14 image update**
