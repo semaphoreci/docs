@@ -917,3 +917,539 @@ curl -i \
   -d 'only_idle=false' \
   "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small/disable_all"
 ```
+
+## Deployment targets
+
+### Listing targets
+
+This API endpoint provides a list of deployment targets linked to a given project.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id
+```
+**Params**
+
+- `project_id` (**required**) - UUID of the project for which deployment targets are to be listed.
+
+**Response**
+
+The response is a JSON object comprising an array of deployment target objects for the specified project ID.
+
+```json
+HTTP status: 200
+
+[
+  {
+    "url": "project_1234.zyx",
+    "updated_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+    "updated_at": "2023-06-07T09:24:04.000000Z",
+    "subject_rules": [
+      {
+        "type": "ANY",
+        "subject_id": ""
+      }
+    ],
+    "state_message": "",
+    "state": "USABLE",
+    "project_id": "a426b4db-1919-483d-926d-06ba1320b209",
+    "organization_id": "7304b7f9-7482-46d4-9b95-3cd5a6ef2e6f",
+    "object_rules": [
+      {
+        "type": "BRANCH",
+        "pattern": "",
+        "match_mode": "ALL"
+      },
+      {
+        "type": "TAG",
+        "pattern": "",
+        "match_mode": "ALL"
+      },
+      {
+        "type": "PR",
+        "pattern": "",
+        "match_mode": "ALL"
+      }
+    ],
+    "name": "DTName123",
+    "last_deployment": null,
+    "id": "e79d3d1c-61cc-4e07-ba32-f86694f5e80d",
+    "description": "DT description",
+    "created_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+    "created_at": "2023-06-01T10:07:36.000000Z",
+    "bookmark_parameter3": "",
+    "bookmark_parameter2": "",
+    "bookmark_parameter1": "",
+    "active": true
+  }
+]
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id"
+```
+
+### Describing a target
+
+This API endpoint retrieves the details about a deployment target specified by its UUID.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id
+```
+
+**Params**
+
+- `target_id` (**required**) - The UUID of the deployment target.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "url": "project_1234.zyx",
+  "updated_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "updated_at": "2023-06-07T09:24:04.000000Z",
+  "subject_rules": [
+    {
+      "type": "ANY",
+      "subject_id": ""
+    }
+  ],
+  "state_message": "",
+  "state": "USABLE",
+  "project_id": "a426b4db-1919-483d-926d-06ba1320b209",
+  "organization_id": "7304b7f9-7482-46d4-9b95-3cd5a6ef2e6f",
+  "object_rules": [
+    {
+      "type": "BRANCH",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "TAG",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "PR",
+      "pattern": "",
+      "match_mode": "ALL"
+    }
+  ],
+  "name": "DTName123",
+  "last_deployment": null,
+  "id": "e79d3d1c-61cc-4e07-ba32-f86694f5e80d",
+  "description": "DT description",
+  "created_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "created_at": "2023-06-01T10:07:36.000000Z",
+  "bookmark_parameter3": "",
+  "bookmark_parameter2": "",
+  "bookmark_parameter1": "",
+  "active": true
+}
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id"
+```
+
+#### Describing by name and project UUID
+
+This API endpoint retrieves a deployment target based on its name and the UUID of the project it is linked to.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id&target_name=:target_name
+```
+
+**Params**
+
+- `project_id` (**required**) - The UUID of the project to which the deployment target is linked.
+- `target_name` (**required**) - The name of the deployment target.
+
+**Response**
+
+```json
+HTTP status: 200
+
+[
+  {
+    "url": "project_1234.zyx",
+    "updated_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+    "updated_at": "2023-06-07T09:24:04.000000Z",
+    "subject_rules": [
+      {
+        "type": "ANY",
+        "subject_id": ""
+      }
+    ],
+    "state_message": "",
+    "state": "USABLE",
+    "project_id": "a426b4db-1919-483d-926d-06ba1320b209",
+    "organization_id": "7304b7f9-7482-46d4-9b95-3cd5a6ef2e6f",
+    "object_rules": [
+      {
+        "type": "BRANCH",
+        "pattern": "",
+        "match_mode": "ALL"
+      },
+      {
+        "type": "TAG",
+        "pattern": "",
+        "match_mode": "ALL"
+      },
+      {
+        "type": "PR",
+        "pattern": "",
+        "match_mode": "ALL"
+      }
+    ],
+    "name": "DTName123",
+    "last_deployment": null,
+    "id": "e79d3d1c-61cc-4e07-ba32-f86694f5e80d",
+    "description": "DT description",
+    "created_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+    "created_at": "2023-06-01T10:07:36.000000Z",
+    "bookmark_parameter3": "",
+    "bookmark_parameter2": "",
+    "bookmark_parameter1": "",
+    "active": true
+  }
+]
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id&target_name=:target_name"
+```
+
+### Creating a target
+
+This API endpoint allows you to create a new deployment target and assign it to a specific project.
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id
+```
+
+**Request Body**
+
+The request body should be a JSON object, encapsulating details about the deployment target to be created. The available fields are as follows:
+
+  - `name` (**required**) - Unique name for the target within the project.
+  - `project_id` (**required**) - UUID of the project.
+  - `unique_token` (**required**) - Idempotency UUID token.
+  - `description` (*optional*) - A description of the target.
+  - `url` (*optional*) - The URL of the target.
+  - `bookmark_parameter1`, `bookmark_parameter2`, `bookmark_parameter3` (*optional*) - Bookmark parameters.
+  - `subject_rules` (*optional*) - A list of subject rules structured as `{"type": RULE_TYPE, "subject_id": ID}`. The `RULE_TYPE` can be one of `"ANY"`, `"USER"`, `"ROLE"`, `"GROUP"`, `"AUTO"` and the `ID` should be the name of the role or group (which must be valid for the project) or UUID of a user. For `USER` type you can use `{"type": "USER", "git_login": GITLOGIN}` where `GITLOGIN` is a user's git handle. The user must be assigned to the project to be used in the rule.
+  - `object_rules` (*optional*) - A list of object rules structured as `{"type": RULE_TYPE, "match_mode": MODE, "pattern": PATTERN}`. The `RULE_TYPE` can be one of `"BRANCH"`, `"TAG"`, `"PR"` and the `MODE` can be `"ALL"`, `"EXACT"`, `"REGEX"`.
+  - `env_vars` (*optional*) - A list of environment variables structured as `{"name": NAME, "value": VALUE}`, where `NAME` is the variable name and `VALUE` is its value.
+  - `files` (*optional*) - A list of files structured as `{"path": PATH, "content": CONTENT}`, where `PATH` is the file path and `CONTENT` is its base64-encoded content.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "url": "www.myurl.zyx",
+  "updated_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "updated_at": "2023-06-08T07:48:27.000000Z",
+  "subject_rules": [
+    {
+      "type": "ANY",
+      "subject_id": ""
+    }
+  ],
+  "state_message": "",
+  "state": "SYNCING",
+  "project_id": "a426b4db-1919-483d-926d-06ba1320b209",
+  "organization_id": "7304b7f9-7482-46d4-9b95-3cd5a6ef2e6f",
+  "object_rules": [
+    {
+      "type": "BRANCH",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "TAG",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "PR",
+      "pattern": "",
+      "match_mode": "ALL"
+    }
+  ],
+  "name": "testTarget",
+  "last_deployment": null,
+  "id": "ed25bfb6-7149-40c6-8334-4eaf11337569",
+  "description": "Target description",
+  "created_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "created_at": "2023-06-08T07:48:27.000000Z",
+  "bookmark_parameter3": "",
+  "bookmark_parameter2": "",
+  "bookmark_parameter1": "my book 1",
+  "active": true
+}
+
+```
+
+**Example request**
+
+```
+curl -i -X POST -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=:project_id" \
+     -H "Content-Type: application/json" \
+     -d '<json object>' 
+```
+```
+curl -XPOST {org_name}.semaphoreci.com/api/v1alpha/deployment_targets?project_id=a426b4db-1919-483d-926d-06ba1320b209 -H "Authorization: Token {api_token}" -H "Content-Type: application/json" --data '{ "name": "testTarget", "description": "Target description", "url": "www.myurl.zyx","bookmark_parameter1": "my book 1", "unique_token": "6063dd03-ecfb-11ed-b539-0045e2f582b7",  "env_vars": [ {"name": "env1","value": "val1" }  ],  "files": [ {"path": "/etc/my.conf","content": "'"$(base64 -w 0 /home/pc/proj/someconf.conf)"'" }  ]}'
+```
+
+
+### Updating a target
+
+This API endpoint allows you to update an existing deployment target.
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id
+```
+
+**Parameters**
+
+  - `target_id` (**required**) - UUID of the deployment target to be updated.
+
+**Request Body**
+
+The request body should be a JSON object, encapsulating details about the deployment target to be updated. The available fields are the same as those for creating a target. The difference here is that all fields are optional.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "url": "www.myurl2.zyx",
+  "updated_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "updated_at": "2023-06-08T08:47:53.000000Z",
+  "subject_rules": [
+    {
+      "type": "ANY",
+      "subject_id": ""
+    }
+  ],
+  "state_message": "",
+  "state": "SYNCING",
+  "project_id": "a426b4db-1919-483d-926d-06ba1320b209",
+  "organization_id": "7304b7f9-7482-46d4-9b95-3cd5a6ef2e6f",
+  "object_rules": [
+    {
+      "type": "BRANCH",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "TAG",
+      "pattern": "",
+      "match_mode": "ALL"
+    },
+    {
+      "type": "PR",
+      "pattern": "",
+      "match_mode": "ALL"
+    }
+  ],
+  "name": "testTargetChanged",
+  "last_deployment": null,
+  "id": "ed25bfb6-7149-40c6-8334-4eaf11337569",
+  "description": "Target description changed",
+  "created_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+  "created_at": "2023-06-08T07:48:27.000000Z",
+  "bookmark_parameter3": "",
+  "bookmark_parameter2": "",
+  "bookmark_parameter1": "my book 1c",
+  "active": true
+}
+```
+
+**Example**
+
+```
+curl -i -X PATCH -H "Authorization: Token {api_token}"  \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id" \
+     -H "Content-Type: application/json" \
+     -d '<json object>'
+```
+```
+curl -X PATCH https://{org_name}.semaphoreci.com/deployment_targets/3a9196d7-f740-4451-b8f2-9d19b10a4520 \
+     -H "Authorization: Token {api_token}" \
+     -d'{"name": "testTargetChanged", "description": "Target description changed", "url": "www.myurl2.zyx","bookmark_parameter1": "my book 1c", "unique_token": "6063dd03-ecfb-11ed-b539-0045e2f582b8",  "env_vars": [ {"name": "env1","value": "val2" }  ],  "files": [ {"path": "/etc/my.conf","content": "'"$(base64 -w 0 /home/pc/proje/updated.conf)"'" }]}' \
+     -H "Content-Type: application/json"
+```
+
+### Deleting a target
+
+This API endpoint allows you to delete a specific deployment target.
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id?unique_token=:unique_token
+```
+
+**Params**
+
+- `target_id` (**required**) - The UUID of the deployment target to be deleted.
+- `unique_token` (**required**) - The idempotency UUID token.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{"target_id":"38572f07-15ec-459e-a122-eefa2bd19230"}
+```
+
+**Example**
+
+```
+curl -i -X DELETE -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id?unique_token=:unique_token"
+```
+
+### Deactivating a target
+
+This API endpoint allows you to deactivate a specific deployment target.
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/deactivate
+```
+
+**Params**
+
+- `target_id` (**required**) - The UUID of the deployment target to be deactivated.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "target_id": "a3db05c5-4345-493d-a038-6b5f2f2ba2b5",
+  "cordoned": true
+}
+```
+
+**Example**
+
+```
+curl -i -X PATCH -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/deactivate"
+```
+
+
+### Activating a target
+
+This API endpoint allows you to reactivate a specific deployment target.
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/activate
+```
+
+- `target_id` (**required**) - The UUID of the deployment target to be activated.
+
+**Response**
+
+```
+HTTP status: 200
+
+{
+  "target_id": "a3db05c5-4345-493d-a038-6b5f2f2ba2b5",
+  "cordoned": false
+}
+```
+
+**Example**
+
+```
+curl -i -X PATCH -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/activate"
+```
+
+### Retrieving deployment history
+
+This endpoint provides the deployment history for a specific deployment target.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history
+```
+
+**Params**
+
+- `target_id` (**required**) - The UUID of the deployment target for which the deployment history is being retrieved.
+- `cursor_type` (*optional*) - Defines the starting point for data retrieval. Possible values: `"FIRST"`, `"AFTER"`, `"BEFORE"`.
+- `cursor_value` (*optional*) - Specific value for the data retrieval cursor to refer to. Works in conjunction with `cursor_type`.
+- `filters` (*optional*) - Filters that you may apply to narrow down the returned history results.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "deployments": [
+    {
+      "triggered_by": "02984c87-efe8-4ea1-bcac-9511a34a3df3",
+      "triggered_at": "2023-05-26T10:35:00.000000Z",
+      "target_name": "Production 2 deploy",
+      "target_id": "410bf56b-b0dc-46d2-b939-87c88a21bb84",
+      "switch_id": "8b751422-1322-4a9c-b3ab-e97c451cfbdc",
+      "state_message": "",
+      "state": "STARTED",
+      "prev_pipeline_id": "f65a5c7a-6d69-4f3e-8251-adcae6c4d6d7",
+      "pipeline_id": "bf4dcb8b-fbf3-4aab-a67f-ffc1f53d6bc8",
+      "id": "4885f77e-30eb-49cb-b351-d5a637d09ed8",
+      "env_vars": [
+        {
+          "value": "Passed message 2 as parameter",
+          "name": "MESSAGE"
+        }
+      ]
+    },
+    {
+      "triggered_by": "Pipeline Done request",
+      "triggered_at": "2023-05-26T10:34:31.000000Z",
+      "target_name": "Production deploy",
+      "target_id": "410bf56b-b0dc-46d2-b939-87c88a21bb84",
+      "switch_id": "8b751422-1322-4a9c-b3ab-e97c451cfbdc",
+      "state_message": "",
+      "state": "STARTED",
+      "prev_pipeline_id": "f65a5c7a-6d69-4f3e-8251-adcae6c4d6d7",
+      "pipeline_id": "f4e1413b-2fac-4ba6-9625-921f66ef1802",
+      "id": "9ef2194e-d13d-432e-8c97-c8fda64c4aa1",
+      "env_vars": [
+        {
+          "value": "Passed message as parameter",
+          "name": "MESSAGE"
+        }
+      ]
+    }
+  ],
+  "cursor_before": 1685096881121173,
+  "cursor_after": 0
+}
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history"
+```
