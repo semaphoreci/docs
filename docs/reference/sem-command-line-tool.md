@@ -63,10 +63,10 @@ The following list briefly describes all `sem` operations:
     type of resource as well as getting analytic information about specific
     resources.
 - *edit*: the `edit` command is used for editing existing `projects`, `secrets`,
-    `notifications`, and `dashboards` using your configured text editor.
+    `notifications`, `dashboards` and `deployment-targets` using your configured text editor.
 - *apply*: the `apply` command is used for updating existing `projects`, `secrets`,
-    `dashborads` and `notifications` using a corresponding YAML file, and requires
-    the use of the `-f` flag.
+    `dashboards`, `notifications` and `deployment-targets` using a corresponding
+    YAML file, and requires the use of the `-f` flag.
 - *attach*: the `attach` command is used for attaching to a running `job`.
 - *debug*: the `debug` command is used for debugging `jobs` and `projects`.
 - *logs*: the `logs` command is used for getting the logs of a `job`.
@@ -86,9 +86,9 @@ The following list briefly describes all `sem` operations:
 
 ### Resource types
 
-You can use `sem` to manipulate seven types of Semaphore resources: dashboards,
-jobs, notifications, projects, pipelines, workflows, and secrets. Most resource
-related operations require either a valid resource name or an ID.
+You can use `sem` to manipulate eight types of Semaphore resources: dashboards,
+jobs, notifications, projects, pipelines, workflows, secrets and deployment targets.
+Most resource related operations require either a valid resource name or an ID.
 
 #### Dashboards
 
@@ -173,7 +173,23 @@ must be connected to the organization to which it belongs.
 Aditionally a `secret` can be associated with a single project. This is 
 called a project-level secret. In order to manage project-level secrets
 you must provide the project name or id of the associated project with 
-`-i` or `-p` flags, or use a different yaml `kind` described [here](reference/secrets-yaml-reference).
+`-i` or `-p` flags, or use a different yaml `kind` described [here](/reference/secrets-yaml-reference).
+
+#### Deployment Targets
+
+The `deployment-targets` serve as stringent control mechanisms, determining who
+can activate individual pipelines and specify the conditions required for
+their initiation. These mechanisms offer elevated control, allowing you to
+manage the execution of particular promoted pipelines or choose git references,
+including branches and tags.
+
+Each `deployment-target` is initially created within a single project. However,
+it can later be linked with numerous [promotions](/essentials/deploying-with-promotions).
+To use `deployment-targets`, ensure your organization has this feature activated.
+
+For more comprehensive information, refer to our in-depth guide on
+[Deployment Targets](/essentials/deployment-targets).
+
 
 ## Working with organizations
 
@@ -251,7 +267,7 @@ This group of `sem` commands includes the five most often used commands: `sem cr
 The `sem create` command is used for creating new resources and can be followed
 by the `-f` flag, which must be followed by a valid path to a proper YAML
 file. Currently there are four types of YAML resource files that can be
-handled by `sem create`: secrets, dashboards, jobs, and project resource files.
+handled by `sem create`: secrets, dashboards, jobs, project resource files and deployment targets.
 
 However, for `secrets` and `dashboards`, you can use `sem create` to
 create an *empty* `secret` or `dashboard` without the need for a YAML file as
@@ -265,8 +281,9 @@ sem create dashboard [name]
 Should you wish to learn more about creating new resources, you can visit the following Semaphore 2.0 documentation reference pages:
 the [Secrets YAML reference](https://docs.semaphoreci.com/reference/secrets-yaml-reference/),
 the [Dashboard YAML reference](https://docs.semaphoreci.com/reference/dashboards-yaml-reference/),
-the [Jobs YAML reference](https://docs.semaphoreci.com/reference/jobs-yaml-reference/)
-and the [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
+the [Jobs YAML reference](https://docs.semaphoreci.com/reference/jobs-yaml-reference/),
+the [Projects YAML reference](https://docs.semaphoreci.com/reference/projects-yaml-reference/)
+and the [Deployment Targets YAML reference](/reference/deployment-targets-yaml-reference).
 
 
 #### sem create examples
@@ -332,8 +349,8 @@ to the corresponding project-level.
 
 ### sem edit
 
-The `sem edit` command works for `projects`, `secrets`, `notifications` and
-`dashboards` and allows you to edit the YAML representation of these resources
+The `sem edit` command works for `projects`, `secrets`, `notifications`,
+`dashboards` and `deployment-targets` and allows you to edit the YAML representation of these resources
 using your configured text editor.
 
 The `sem edit` command does not support the `job` resource type.
@@ -365,6 +382,13 @@ To edit a `project` with the name `my-project`, use the following command:
 
 ``` bash
 sem edit project my-project
+```
+
+To modify a `deployment-target` named `my-dt`, which is associated with the project `my-project`,
+execute the following command:
+
+``` bash
+sem edit deployment-target my-dt -p my-project
 ```
 
 ### sem get
@@ -1374,6 +1398,184 @@ The output of `sem rebuild wf` command is a new Workflow ID and a new pipeline
 ID as the `sem rebuild workflow` command creates a new workflow based on an
 existing one.
 
+## Working with deployment targets
+
+This section offers a guide on how to handle deployment targets using the `sem` utility,
+starting from creating a new deployment target.
+
+### Creating a deployment target
+
+To begin, you'll need to create a deployment target utilizing the `sem` utility.
+
+The simplest way to create a deployment target is by using the `sem create dt` command.
+This command will generate a deployment target with a specified name and link it to
+a particular project:
+
+``` bash
+sem create dt [name] --project-name [project-name]
+```
+
+When creating a new deployment target with the `sem create dt` command, you don't need
+to utilize all the command line options. However, the project must be defined, either
+by supplying the project's ID using `--project-id` (short `-i`) or by providing
+the project's name using `--project-name` (`-p`).
+
+Additional parameters that can be specified include `--desc` (or `-d`) for
+the deployment target's description, `--url` (`-u`) for the URL, `--bookmark` (`-b`)
+to set a maximum of three bookmarks, `--file` (`-f`) to supply files, `--env` (`-e`)
+to allocate environment variables to the deployment target, `--subject-rule` (`-s`)
+for subject rules, and `--object-rule` (`-o`) for object rule assignment.
+
+Files should be provided using the format `-f <local-path>:<mount-path>`. Environment
+variables can be assigned using `-e VAR=VALUE`.
+
+For subject rules, use the format `-s TYPE,SUBJECT-ID`, where `TYPE` can be either `ANY`,
+`ROLE`, or `USER`. The `SUBJECT-ID` is either the name of the role or the UUID of the user.
+
+Object rules should follow the format `-o TYPE,MODE,PATTERN`. Here, `TYPE` can be `BRANCH`,
+`PR`, or `TAG`. `MODE` could be `ALL`, `EXACT`, or `REGEX`, and `PATTERN` represents
+the string used for name matching.
+
+Example:
+``` bash
+sem create dt myDTName -p testProject -d "DT description" -u "myurl321.zyx" -b "book 1" \
+        -b "book 2" -f /home/dev/app/server.conf:/etc/my.conf -e X=123 \
+        -s ROLE,admin -o branch,exact,main
+```
+
+### Listing deployment targets
+
+You can list all the deployment targets within your project with the command
+`sem get dt -p [project-name]` or `sem get dt -i [project-id]`:
+
+``` bash
+sem get dt -p [projectName]
+```
+
+### Describing a deployment target
+
+You can acquire detailed information about a deployment target using the `sem get dt`
+command followed by the target's UUID, or by specifying the deployment target's name
+and project name or project ID.
+
+``` bash
+sem get dt [ID]
+sem get dt [dt-name] -p [project-name]
+sem get dt [dt-name] -i [project-id]
+```
+
+The output will be a YAML file that describes the deployment target. To understand more
+about Deployment Targets YAML syntax, visit the [Deployment Targets YAML reference](/reference/deployment-targets-yaml-reference)
+page.
+
+### Retrieving deployment history
+
+To retrieve deployment history for a specific deployment target you can use the
+`sem get dt` command with `--history` (`-s`) parameter.
+
+``` bash
+sem get dt [ID] --history
+sem get dt [dt-name] -p [project-name] -s
+sem get dt [dt-name] -i [project-id] -s
+```
+
+The output will be list of deployments for the provided deployment target.
+
+### Editing a deployment target
+
+Use the `sem edit dt` command followed by the UUID of the deployment target, or
+the target's name and project name or project ID, to edit a deployment target:
+
+``` bash
+sem edit dt [UUID]
+sem edit dt [dt-name] -p [project-name]
+sem edit dt [dt-name] -i [project-id]
+```
+
+The `sem edit dt` command will open your configured text editor. Ensure that you save
+the changes and close your text editor for the modifications to take effect.
+
+You can also deactivate a deployment target using the `--deactivate` (`-d`) parameter:
+
+``` bash
+sem edit dt [UUID] -d
+sem edit dt [UUID] --deactivate
+sem edit dt [dt-name] -p [project-name] -d
+sem edit dt [dt-name] -i [project-id] --deactivate
+```
+
+You can similarly activate the target, using the `--activate` (`-a`) parameter.
+
+### Deleting a deployment target
+
+To remove a deployment target, use the `sem delete dt` command followed by
+the UUID of the target you wish to delete.
+
+``` bash
+sem delete dt [UUID]
+```
+
+#### Example use cases for deployment targets
+
+This section provides `sem` command examples for handling deployment targets.
+
+You can create a new deployment target named `my-dt` and assign it to a project
+named `my-proj` (provided such a project has been created) as follows:
+
+``` bash
+sem create deployment-target my-dt -p my-proj
+```
+
+To view all deployment targets associated with your `my-proj` project, including
+your newly created target, use the following command:
+
+``` bash
+sem get dt -p my-proj
+
+```
+
+To get further details about your created target, use:
+
+``` bash
+sem get dt my-dt -p my-proj
+```
+
+To edit your target using your configured editor, execute:
+
+``` bash
+sem edit dt my-dt -p my-proj
+```
+
+After saving your changes and closing the editor, the updated deployment target
+can be verified by retrieving it again.
+
+If you assign your deployment target to a promotion and trigger that promotion,
+you can later view the history of the deployments using:
+
+``` bash
+sem get dt my-dt -p my-proj --history
+```
+
+You can deactivate the deployment target using:
+
+``` bash
+sem edit dt my-dt -p my-proj -d
+```
+
+Or reactivate it later with:
+
+``` bash
+sem edit dt my-dt -p my-proj -a
+```
+
+Finally, you can delete the deployment target by replacing the UUID below with
+the UUID of the target you wish to remove:
+
+``` bash
+sem delete dt 0d4d4184-c80a-4cbb-acdd-b75e3a03f795
+```
+
+
 ## Help commands
 
 The last group of `sem` commands includes the `sem help`, `sem troubleshoot` and `sem version`
@@ -1528,6 +1730,7 @@ equivalent:
 - `notifications`, `notification`, `notifs`, and `notif`
 - `pipelines`, `pipeline`, and `ppl`
 - `workflows`, `workflow`, and `wf`
+- `deployment-target`, `deployment-targets`, `dt`, `dts`, `deployment` and `deployments`
 
 As an example, the following three commands are equivalent and will return the
 same output:
@@ -1546,3 +1749,4 @@ sem get projects
 - [Dashboard YAML reference](https://docs.semaphoreci.com/reference/dashboards-yaml-reference/)
 - [Jobs YAML reference](https://docs.semaphoreci.com/reference/jobs-yaml-reference/)
 - [Notifications YAML reference](https://docs.semaphoreci.com/reference/notifications-yaml-reference/)
+- [Deployment Targets YAML reference](/reference/deployment-targets-yaml-reference)
