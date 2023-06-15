@@ -306,7 +306,9 @@ HTTP status: 200
 **Example**
 
 ```
-curl -i -X POST -H "Authorization: Token {api_token}" \
+curl -i -X POST \
+        -H "Authorization: Token {api_token}" \
+        -H "Content-Type: application/json" \
         --data "{\"yaml_definition\": \"$(cat .semaphore/semaphore.yml | sed 's/\"/\\\"/g')\"}" \
         "https://{org_name}.semaphoreci.com/api/v1alpha/yaml"
 ```
