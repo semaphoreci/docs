@@ -286,6 +286,31 @@ curl -i -X POST -H "Authorization: Token {api_token}" \
         "https://{org_name}.semaphoreci.com/api/v1alpha/plumber-workflows/:workflow_id/terminate"
 ```
 
+### Validating a workflow YAML
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/yaml
+```
+
+**Params**
+
+- `yaml_definition` (**required**) - the YAML document for the workflow
+
+**Response**
+
+```
+HTTP status: 200
+{"pipeline_id":"","message":"YAML definition is valid."}
+```
+
+**Example**
+
+```
+curl -i -X POST -H "Authorization: Token {api_token}" \
+        --data "{\"yaml_definition\": \"$(cat .semaphore/semaphore.yml | sed 's/\"/\\\"/g')\"}" \
+        "https://{org_name}.semaphoreci.com/api/v1alpha/yaml"
+```
+
 ## Pipelines
 
 ### Describing a pipeline
