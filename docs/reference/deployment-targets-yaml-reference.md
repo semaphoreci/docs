@@ -28,7 +28,7 @@ Here is a list of valid values for the `apiVersion` property: `v1alpha`.
 ### kind
 
 The `kind` property specifies the purpose of a YAML file. For YAML files
-intended to define deployment targets, the value of the  `kind` property should
+intended to define deployment targets, the value of the `kind` property should
 be `DeploymentTarget`.
 
 Here is a list of valid values for the `kind` property: `DeploymentTarget`.
@@ -137,12 +137,12 @@ value based on your desired promotion workflow and access control needs.
 
 The `subject_id` property is required for `USER` and `ROLE` rule types.
 For `USER`, the `subject_id` contains the UUID of the user. If the rule type is `ROLE`,
-it should be the name of the project role (e.g., `Admin`, `Contributor`).
+it should be the name of the project role (e.g. `Admin`, `Contributor`).
 
 ##### git_login
 
 The `git_login` property is used only for `USER` rule types when specifying a user
-by their git handle (e.g., GitHub login) instead of their UUID.
+by their git handle (e.g. GitHub login) instead of their UUID.
 
 #### object_rules
 
@@ -185,7 +185,7 @@ The properties `bookmark_parameter1`, `bookmark_parameter2`, and `bookmark_param
 string values that represent the names of the promotion parameters. These parameters hold
 values that can be used to filter deployments in the deployment history.
 
-Let's consider an example: suppose you create a parameterized promotion with `environment`
+Let's consider an example: suppose you create a parameterized promotion with an `environment`
 parameter that can take values like `staging` and `production`. If you connect this
 promotion to a deployment target where `bookmark_parameter1` is set to `environment`,
 it enables you to filter the deployment history and display only those promotions where,
@@ -234,7 +234,7 @@ or updating the files property.
 
 The following YAML code provides an example of a deployment target
 as returned by the `sem get dt 0d4d4184-c80a-4cbb-acdd-b75e3a03f795` command
-(using the deployment target UUID) or `sem get dt mytest -i a426b4db-1919-483d-926d-06ba1320b209`
+(using the deployment target UUID) or the `sem get dt mytest -i a426b4db-1919-483d-926d-06ba1320b209`
 command (using the deployment target name and project UUID):
 
 ``` bash
