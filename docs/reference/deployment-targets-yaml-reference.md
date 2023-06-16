@@ -113,12 +113,25 @@ or `git_login` may also be required.
 
 ##### type
 
-The `type` property of a subject rule can have the following values:
-`ANY`, `USER`, `ROLE` or `AUTO`. If `ANY` is used, any user can trigger
-the promotion. If `USER` is used, only specified users (who must be assigned to
-the project) can trigger a promotion. For `ROLE`, only specified user roles defined
-within the project can trigger a promotion. For the `AUTO` type, deployment is
-triggered automatically.
+The `type` property of a subject rule can have one of the following values: `ANY`,
+`USER`, `ROLE`, or `AUTO`. Each value has a specific meaning:
+
+- `ANY`: This rule allows any user to trigger the promotion. There are no
+restrictions on who can initiate the promotion process.
+
+- `USER`: This rule restricts the promotion to specified users who must be assigned
+to the project. Only these users have the authority to trigger a promotion.
+
+- `ROLE`: This rule limits the promotion to specific user roles defined within
+the project. Only users assigned to these roles can trigger a promotion.
+
+- `AUTO`: This rule configures the behavior of auto-promotions for the deployment
+target. If this rule is not present, auto-promotions will not start even if all
+the conditions are met.
+
+Please note that these values determine the authorization requirements for
+triggering promotions based on the subject rule. Choose the appropriate `type`
+value based on your desired promotion workflow and access control needs.
 
 ##### subject_id
 
