@@ -1396,6 +1396,63 @@ The output of `sem rebuild wf` command is a new Workflow ID and a new pipeline
 ID as the `sem rebuild workflow` command creates a new workflow based on an
 existing one.
 
+## Working with self-hosted agents
+
+### Listing agent types
+
+The `sem get agent_types` command returns the list of self-hosted agent types for a Semaphore
+organization.
+
+#### Listing agent types examples
+
+```bash
+sem get agent_types
+sem get agenttypes
+```
+
+### Listing agents
+
+The `sem get agents` command returns the list of self-hosted agents Semaphore organization. By default, it returns all agents for all agent types, but you can use the `--agent-type` flag to filter for agents for a specific agent type.
+
+#### Listing agents examples
+
+```bash
+# Returns all agents in the organization, for all agent types
+sem get agents
+
+# Return agents only for the 's1-my-type' agent type
+sem get agents s1-my-type
+```
+
+### Describing an agent type
+
+Each agent type has its own unique name. Using that unique name you
+can find more information about that particular agent type using the following command:
+
+```bash
+sem get agent_type [AGENT TYPE NAME]
+```
+
+#### Describing an agent type example
+
+```bash
+$ sem get agent_type s1-my-agent-type
+```
+
+### Describing an agent
+
+Each agent has its own unique name. Using that unique name you can find more information about that particular agent using the following command:
+
+```bash
+sem get agent [AGENT NAME]
+```
+
+#### Describing an agent example
+
+```bash
+$ sem get agent tE77rxu2gHy2clIe4tHV
+```
+
 ## Working with deployment targets
 
 This section offers a guide on how to handle deployment targets using the `sem` utility,
