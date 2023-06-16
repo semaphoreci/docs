@@ -1,17 +1,17 @@
 ---
-Description: This page describes all the resources that make up the Semaphore 2.0 API version v1alpha. The root of the API is https://{org_name}.semaphoreci.com/api/v1alpha.
+Description: This page describes all the resources that make up Semaphore 2.0 API version v1alpha. The root of the API can be found here: https://{org_name}.semaphoreci.com/api/v1alpha.
 ---
 
 # API
 
-This document describes all the resources that make up the Semaphore 2.0 API version `v1alpha`. If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).
+This document describes all the resources that make up Semaphore 2.0 API version `v1alpha`. If you have any problems or requests please [contact support](mailto:support@semaphoreci.com).
 
-The root of the API is `https://{org_name}.semaphoreci.com/api/v1alpha`.
+The root of the API can be found here: `https://{org_name}.semaphoreci.com/api/v1alpha`.
 
 ## Overview
 
 ### Constraints
-Every API request and response satisfies the following constraints:
+Every API request and response must satisfy the following constraints:
 
 - All requests must use HTTPS.
 - All data is sent and received as JSON.
@@ -59,9 +59,9 @@ HTTP/1.1 404 Not Found
 ### Pagination
 
 Every request that that returns more than 30 items will be paginated.
-To avoid this, form calls with `link` header values instead of constructing your own URLs.
+To avoid this, you should form calls with `link` header values instead of constructing your own URLs.
 
-The `link` header includes information about pagination, as shown below:
+A `link` header includes information about pagination, as shown below:
 
 ```
 link: <http://{org_name}.semaphoreci.com/api/v1alpha/?PAGE_PARAMS>; rel="first",
@@ -77,7 +77,7 @@ The possible `rel` values are:
 ### Stability
 
 - Compatible and emergency changes may be made with no advance notice.
-- Disruptive changes may not occur. In the event that a disruptive change is needed, a new major version will be developed.
+- Disruptive changes will not occur without advanced notice. In the event that a disruptive change is needed, a new major version will be developed.
 
 #### Types of changes
 
@@ -459,8 +459,8 @@ GET {org_name}.semaphoreci.com/api/v1alpha/pipelines?project_id=:project_id
 - `yml_file_path` (*optional*) - YML file that contains the pipeline definition.
 - `created_after` (*optional*) - Only pipelines created after this Unix timestamp will be returned.
 - `created_before` (*optional*) - Only pipelines created before this Unix timestamp will be returned.
-- `done_after` (*optional*) - Only pipelines done after this Unix timestamp will be returned.
-- `done_before` (*optional*) - Only pipelines done before this Unix timestamp will be returned.
+- `done_after` (*optional*) - Only pipelines finished after this Unix timestamp will be returned.
+- `done_before` (*optional*) - Only pipelines finished before this Unix timestamp will be returned.
 
 
 **Response**
@@ -627,8 +627,8 @@ POST {org_name}.semaphoreci.com/api/v1alpha/promotions
 
 **Params**
 
-- `pipeline_id` (**required**) - ID of a pipeline
-- `name` (**required**) - Name of the promotion, e.g. `Production deployment`
+- `pipeline_id` (**required**) - ID of a pipeline.
+- `name` (**required**) - Name of the promotion, e.g. `Production deployment`.
 - `override` (*optional*) - Boolean safeguard flag that needs to be set to `true` if you want to trigger a promotion for a pipeline that has failed or is still running.
 - *parameter_name* - (*optional*) - name of the parameter used in the [parameterized promotion](../essentials/parameterized-promotions/#setting-the-values-via-the-api)
 
@@ -927,7 +927,7 @@ POST {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_
 **Params**
 
 - `agent_type_name` (**required**) - the name of the agent type to disable agents for.
-- `only_idle` (*optional*) - a boolean flag to control if all agents or only the idle ones are disabled. By default, this is `true`.
+- `only_idle` (*optional*) - a boolean flag that controls whether all agents are disabled or only idle ones. By default, this is set to `true`.
 
 **Response**
 
@@ -956,7 +956,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/agents?agent_type=:agent_type&page_si
 **Params**
 
 - `agent_type` (*optional*) - the name of the agent type to filter for. If not specified, agents for all agent types will be returned.
-- `page_size` (*optional*) - the number of agents to return per page. By default, this is 200. If the current number of agents is above the page size, the response will contain a non-empty `cursor` field.
+- `page_size` (*optional*) - the number of agents to return per page. By default, this is 200. If the current number of agents is more than the page size, the response will contain a non-empty `cursor` field.
 - `cursor` (*optional*) - a cursor used to return agents for the next page.
 
 **Response**
@@ -1282,13 +1282,13 @@ The request body should be a JSON object, encapsulating details about the deploy
   - `unique_token` (**required**) - Idempotency UUID token.
   - `description` (*optional*) - A description of the target.
   - `url` (*optional*) - The URL of the target.
-  - `bookmark_parameter1`, `bookmark_parameter2`, `bookmark_parameter3` (*optional*) - Bookmark parameters - string values that represent the names of the promotion parameters. You can later use values of those parameters to [filter deployments in deployment history](/reference/deployment-targets-yaml-reference/#bookmark_parameter1-bookmark_parameter2-bookmark_parameter3).
-  - `subject_rules` (*optional*) - Configures **who** can trigger a promotion of the given deployment target. It should be a list of elements structured as as `{"type": RULE_TYPE, "subject_id": ID}`. The `RULE_TYPE` can be one of `"ANY"`, `"USER"`, `"ROLE"`, `"AUTO"` and the `ID` should be the name of the role (which must be valid for the project) or UUID of a user. For `USER` type you can use `{"type": "USER", "git_login": GITLOGIN}` where `GITLOGIN` is a user's git handle. The user must be assigned to the project to be used in the rule. The `AUTO` rule configures the behavior of auto-promotions. The auto-promotions will not start even if all the conditions are met if this rule is not present. In the case of `ANY` and `AUTO` rules, there is no need to specify the `subject_id`.
-  - `object_rules` (*optional*) - Configures on **which git references** is a promotion of the given deployment target allowed. It should be a list of elements structured as `{"type": RULE_TYPE, "match_mode": MODE, "pattern": PATTERN}`. The `RULE_TYPE` can be one of `"BRANCH"`, `"TAG"`, `"PR"` and the `MODE` can be `"ALL"`, `"EXACT"`, `"REGEX"`. When using the `PR` rule type, the `match_mode` and `pattern` parameters cannot be utilized. Simply including `PR` in the `object_rules` is sufficient to ensure that any pull request will automatically trigger a promotion.
+  - `bookmark_parameter1`, `bookmark_parameter2`, `bookmark_parameter3` (*optional*) - Bookmark parameters - string values that represent the names of the promotion parameters. You can later use values of these parameters to [filter deployments in deployment history](/reference/deployment-targets-yaml-reference/#bookmark_parameter1-bookmark_parameter2-bookmark_parameter3).
+  - `subject_rules` (*optional*) - Configures **who** can trigger a promotion of the given deployment target. It should be a list of elements structured as `{"type": RULE_TYPE, "subject_id": ID}`. The `RULE_TYPE` can be one of `"ANY"`, `"USER"`, `"ROLE"`, `"AUTO"` and the `ID` should be the name of the role (which must be valid for the project) or the UUID of a user. For the `USER` type you can use `{"type": "USER", "git_login": GITLOGIN}` where `GITLOGIN` is the user's git handle. The user must be assigned to the project to be used in the rule. The `AUTO` rule configures the behavior of auto-promotions. The auto-promotions will not start, even if all the conditions are met, if this rule is not present. In the case of `ANY` and `AUTO` rules, there is no need to specify the `subject_id`.
+  - `object_rules` (*optional*) - Configures **which git references** are allowed for a promotion of the given deployment target. It should be a list of elements structured as `{"type": RULE_TYPE, "match_mode": MODE, "pattern": PATTERN}`. The `RULE_TYPE` can be `"BRANCH"`, `"TAG"`, or `"PR"`, and the `MODE` can be `"ALL"`, `"EXACT"`, or `"REGEX"`. When using the `PR` rule type, the `match_mode` and `pattern` parameters cannot be utilized. Simply including `PR` in the `object_rules` is sufficient to ensure that any pull request will automatically trigger a promotion.
   - `env_vars` (*optional*) - A list of environment variables structured as `{"name": NAME, "value": VALUE}`, where `NAME` is the variable name and `VALUE` is its value.
   - `files` (*optional*) - A list of files structured as `{"path": PATH, "content": CONTENT}`, where `PATH` is the file path and `CONTENT` is its base64-encoded content.
 
-You can find more details about each parameter in [Deployment Targets YAML Reference](/reference/deployment-targets-yaml-reference)
+You can find more details about each parameter in the [Deployment Targets YAML Reference](/reference/deployment-targets-yaml-reference)
 
 **Response**
 
@@ -1494,13 +1494,13 @@ curl -i -X PATCH -H "Authorization: Token {api_token}" \
 
 ### Activating a target
 
-This API endpoint allows you to reactivate a specific deployment target.
+This API endpoint allows you to (re)activate a specific deployment target.
 
 ```
 PATCH {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/activate
 ```
 
-- `target_id` (**required**) - The UUID of the deployment target to be activated.
+- `target_id` (**required**) - The UUID of the deployment target to be (re)activated.
 
 **Response**
 
@@ -1537,7 +1537,7 @@ GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history
 - `git_ref_label` (*optional*) - Filters deployments based on the label of the git reference, such as the name of the branch.
 - `triggered_by` (*optional*) - Filters deployments based on the entity that triggered them. To filter by the user who triggered the deployments, provide the user ID.
 
-The response includes `cursor_before` and `cursor_after` values that allow you to navigate through time by moving backward or forward accordingly. The response contains at most `10` deployments.
+The response includes `cursor_before` and `cursor_after` values that allow you to navigate by moving backward or forward accordingly. The response contains at most `10` deployments.
 
 **Response**
 
