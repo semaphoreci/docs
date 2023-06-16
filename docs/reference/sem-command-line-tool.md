@@ -177,14 +177,12 @@ you must provide the project name or id of the associated project with
 
 #### Deployment Targets
 
-The `deployment-targets` serve as stringent control mechanisms, determining who
-can activate individual pipelines and specify the conditions required for
-their initiation. These mechanisms offer elevated control, allowing you to
-manage the execution of particular promoted pipelines or choose git references,
-including branches and tags.
+The `deployment-targets` serve as stringent control mechanisms, allowing you to
+restrict **who** (person or a role) can trigger a promotion pipeline and on
+**which git reference** (branch, tag, and/or pull request).
 
-Each `deployment-target` is initially created within a single project. However,
-it can later be linked with numerous [promotions](/essentials/deploying-with-promotions).
+Each `deployment-target` is created within a single project and it can be linked
+with numerous [promotions](/essentials/deploying-with-promotions) within that project.
 To use `deployment-targets`, ensure your organization has this feature activated.
 
 For more comprehensive information, refer to our in-depth guide on
@@ -1495,7 +1493,7 @@ sem edit dt [dt-name] -i [project-id]
 The `sem edit dt` command will open your configured text editor. Ensure that you save
 the changes and close your text editor for the modifications to take effect.
 
-You can also deactivate a deployment target using the `--deactivate` (`-d`) parameter:
+You can also deactivate an active deployment target using the `--deactivate` (`-d`) parameter:
 
 ``` bash
 sem edit dt [UUID] -d
@@ -1504,7 +1502,7 @@ sem edit dt [dt-name] -p [project-name] -d
 sem edit dt [dt-name] -i [project-id] --deactivate
 ```
 
-You can similarly activate the target, using the `--activate` (`-a`) parameter.
+You can similarly activate previously deactivated target, using the `--activate` (`-a`) parameter.
 
 ### Deleting a deployment target
 

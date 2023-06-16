@@ -6,8 +6,9 @@ Description: This document provides a comprehensive reference for the YAML gramm
 
 The Deployment Targets YAML reference explains the YAML grammar used for
 configuring deployment targets. These targets enable the enforcement of strict
-conditions for initiating pipelines and control access to specific promoted
-pipelines or git references (branches and tags).
+conditions for triggering pipeline promotions. Those conditions allow you to
+restrict **who** (person or a role) can trigger a promotion and on
+**which git reference** (branch, tag, and/or pull request).
 
 By integrating promotions with Deployment Targets, you can establish secure
 Continuous Deployment pipelines that seamlessly align with your current setup.
@@ -113,14 +114,15 @@ or `git_login` may also be required.
 ##### type
 
 The `type` property of a subject rule can have the following values:
-`ANY`, `USER`, `ROLE`, `GROUP`, or `AUTO`. If `ANY` is used, any user can trigger
+`ANY`, `USER`, `ROLE` or `AUTO`. If `ANY` is used, any user can trigger
 the promotion. If `USER` is used, only specified users (who must be assigned to
 the project) can trigger a promotion. For `ROLE`, only specified user roles defined
-within the project can trigger a promotion.
+within the project can trigger a promotion. For the `AUTO` type, deployment is
+triggered automatically.
 
 ##### subject_id
 
-The `subject_id` property is required for `USER`, `ROLE`, and `GROUP` rule types.
+The `subject_id` property is required for `USER` and `ROLE` rule types.
 For `USER`, the `subject_id` contains the UUID of the user. If the rule type is `ROLE`,
 it should be the name of the project role (e.g., `Admin`, `Contributor`).
 
@@ -142,9 +144,12 @@ or `PR`.
 
 ##### match_mode
 
-The `match_mode` property determines how the pattern matches the name of the git
-reference (branch, tag, or pull request). The `match_mode` can be one of the following:
-`ALL`, `EXACT`, or `REGEX`.
+The `match_mode` property plays a crucial role in determining how the pattern matches
+the name of the git reference, such as a branch or tag. There are three options available
+for match_mode: `ALL`, `EXACT`, or `REGEX`. However, when it comes to object rules of
+type `PR`, there is no requirement to specify the `match_mode`. This is because any
+pull request will automatically trigger the promotion if there is an object rule
+with the `type` set to `PR`.
 
 ##### pattern
 
@@ -163,8 +168,16 @@ or inactive. It should not be modified.
 
 #### bookmark_parameter1, bookmark_parameter2, bookmark_parameter3
 
-The `bookmark_parameter1`, `bookmark_parameter2` and `bookmark_parameter3` properties are
-string values that can be used to index future deployments.
+The properties `bookmark_parameter1`, `bookmark_parameter2`, and `bookmark_parameter3` are
+string values that represent the names of the promotion parameters. These parameters hold
+values that can be used to filter deployments in the deployment history.
+
+Let's consider an example: suppose you create a parameterized promotion with `environment`
+parameter that can take values like `staging` and `production`. If you connect this
+promotion to a deployment target where `bookmark_parameter1` is set to `environment`,
+it enables you to filter the deployment history and display only those promotions where,
+for instance, `staging` was passed as the value for the parameter. This feature allows you
+to conveniently track deployments based on specific parameter values.
 
 ### env_vars
 
@@ -268,4 +281,4 @@ reference documentation.
 
 - [Deployment Targets](/essentials/deployment-targets)
 - [sem command line tool](/reference/sem-command-line-tool#working-with-deployment-targets)
-- [Parametrized Promotions](/essentials/parametrized-promotions)
+- [Parameterized Promotions](/essentials/parameterized-promotions)
