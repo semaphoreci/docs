@@ -1147,11 +1147,13 @@ The request body should be a JSON object, encapsulating details about the deploy
   - `unique_token` (**required**) - Idempotency UUID token.
   - `description` (*optional*) - A description of the target.
   - `url` (*optional*) - The URL of the target.
-  - `bookmark_parameter1`, `bookmark_parameter2`, `bookmark_parameter3` (*optional*) - Bookmark parameters.
-  - `subject_rules` (*optional*) - A list of subject rules structured as `{"type": RULE_TYPE, "subject_id": ID}`. The `RULE_TYPE` can be one of `"ANY"`, `"USER"`, `"ROLE"`, `"GROUP"`, `"AUTO"` and the `ID` should be the name of the role or group (which must be valid for the project) or UUID of a user. For `USER` type you can use `{"type": "USER", "git_login": GITLOGIN}` where `GITLOGIN` is a user's git handle. The user must be assigned to the project to be used in the rule.
-  - `object_rules` (*optional*) - A list of object rules structured as `{"type": RULE_TYPE, "match_mode": MODE, "pattern": PATTERN}`. The `RULE_TYPE` can be one of `"BRANCH"`, `"TAG"`, `"PR"` and the `MODE` can be `"ALL"`, `"EXACT"`, `"REGEX"`.
+  - `bookmark_parameter1`, `bookmark_parameter2`, `bookmark_parameter3` (*optional*) - Bookmark parameters - string values that represent the names of the promotion parameters. You can later use values of those parameters to [filter deployments in deployment history](/reference/deployment-targets-yaml-reference/#bookmark_parameter1-bookmark_parameter2-bookmark_parameter3).
+  - `subject_rules` (*optional*) - A list of subject rules structured as `{"type": RULE_TYPE, "subject_id": ID}`. The `RULE_TYPE` can be one of `"ANY"`, `"USER"`, `"ROLE"`, `"AUTO"` and the `ID` should be the name of the role (which must be valid for the project) or UUID of a user. For `USER` type you can use `{"type": "USER", "git_login": GITLOGIN}` where `GITLOGIN` is a user's git handle. The user must be assigned to the project to be used in the rule. The promotion is automatically triggered for the `"AUTO"` rule, provided it is allowed. In the case of `ANY` and `AUTO` rules, there is no need to specify the `subject_id`.
+  - `object_rules` (*optional*) - A list of object rules structured as `{"type": RULE_TYPE, "match_mode": MODE, "pattern": PATTERN}`. The `RULE_TYPE` can be one of `"BRANCH"`, `"TAG"`, `"PR"` and the `MODE` can be `"ALL"`, `"EXACT"`, `"REGEX"`. When using the `PR` rule type, the `match_mode` and `pattern` parameters cannot be utilized. Simply including `PR` in the `object_rules` is sufficient to ensure that any pull request will automatically trigger a promotion.
   - `env_vars` (*optional*) - A list of environment variables structured as `{"name": NAME, "value": VALUE}`, where `NAME` is the variable name and `VALUE` is its value.
   - `files` (*optional*) - A list of files structured as `{"path": PATH, "content": CONTENT}`, where `PATH` is the file path and `CONTENT` is its base64-encoded content.
+
+You can find more details about each parameter in [Deployment Targets YAML Reference](/reference/deployment-targets-yaml-reference)
 
 **Response**
 
@@ -1394,9 +1396,13 @@ GET {org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history
 **Params**
 
 - `target_id` (**required**) - The UUID of the deployment target for which the deployment history is being retrieved.
-- `cursor_type` (*optional*) - Defines the starting point for data retrieval. Possible values: `"FIRST"`, `"AFTER"`, `"BEFORE"`.
-- `cursor_value` (*optional*) - Specific value for the data retrieval cursor to refer to. Works in conjunction with `cursor_type`.
-- `filters` (*optional*) - Filters that you may apply to narrow down the returned history results.
+- `cursor_type` (*optional*) - Specifies the starting point for data retrieval. Valid values include `"FIRST"`, `"AFTER"`, and `"BEFORE"`. If not specified, `FIRST` is used, which retrieves the latest deployments.
+- `cursor_value` (*optional*) - Represents the timestamp, given in UNIX microseconds, at which the cursor is positioned to retrieve deployment history. If `cursor_type` is set to `AFTER`, it retrieves the oldest deployments triggered after the `cursor_value`. If `cursor_type` is set to `BEFORE`, it retrieves the latest deployments triggered before the `cursor_value`. For the `FIRST` cursor type, this value is not required.
+- `git_ref_type` (*optional*) - Filters deployments based on the git reference that triggered them, such as `branch`, `tag`, or `pr` (for pull requests).
+- `git_ref_label` (*optional*) - Filters deployments based on the label of the git reference, such as the name of the branch.
+- `triggered_by` (*optional*) - Filters deployments based on the entity that triggered them. To filter by the user who triggered the deployments, provide the user ID.
+
+The response includes `cursor_before` and `cursor_after` values that allow you to navigate through time by moving backward or forward accordingly. The response contains at most `10` deployments.
 
 **Response**
 
