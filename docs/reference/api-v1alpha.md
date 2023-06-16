@@ -944,3 +944,110 @@ curl -i \
   -d 'only_idle=false' \
   "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small/disable_all"
 ```
+
+## Self-hosted agents
+
+### Listing agent types
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/agents?agent_type=:agent_type&page_size=:page_size&cursor=:cursor
+```
+
+**Params**
+
+- `agent_type` (*optional*) - the name of the agent type to filter for. If not specified, agents for all agent types will be returned.
+- `page_size` (*optional*) - the number of agents to return per page. By default, this is 200. If the current number of agents is above the page size, the response will contain a non-empty `cursor` field.
+- `cursor` (*optional*) - a cursor used to return agents for the next page.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "agents": [
+    {
+      "status": {
+        "state": "waiting_for_job"
+      },
+      "metadata": {
+        "version": "v2.2.6",
+        "type": "s1-my-type",
+        "pid": 14,
+        "os": "Ubuntu 20.04.6 LTS",
+        "name": "JE1wNRR53A9IORQTMQhb",
+        "ip_address": "XXX.XXX.XXX.XXX",
+        "hostname": "myhost",
+        "connected_at": 1686917254,
+        "arch": "x86"
+      }
+    },
+    {
+      "status": {
+        "state": "waiting_for_job"
+      },
+      "metadata": {
+        "version": "v2.2.6",
+        "type": "s1-my-type",
+        "pid": 14,
+        "os": "Ubuntu 20.04.6 LTS",
+        "name": "tE77rxu2gHy2clIe4tHV",
+        "ip_address": "XXX.XXX.XXX.XXX",
+        "hostname": "myhost",
+        "connected_at": 1686917261,
+        "arch": "x86"
+      }
+    }
+  ],
+  "cursor": ""
+}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/agents"
+```
+
+### Describe an agent
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/agents/:agent_name
+```
+
+**Params**
+
+- `agent_name` (**required**) - the name of the agent to describe.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "status": {
+    "state": "waiting_for_job"
+  },
+  "metadata": {
+    "version": "v2.2.6",
+    "type": "s1-my-type",
+    "pid": 14,
+    "os": "Ubuntu 20.04.6 LTS",
+    "name": "tE77rxu2gHy2clIe4tHV",
+    "ip_address": "XXX.XXX.XXX.XXX",
+    "hostname": "myhost",
+    "connected_at": 1686917261,
+    "arch": "x86"
+  }
+}
+```
+
+**Example**
+
+```
+curl -i \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/agents/{agent_name}"
+```
