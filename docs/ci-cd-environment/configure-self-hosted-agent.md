@@ -20,15 +20,18 @@ Both ways can be used at the same time, but command line arguments take preceden
 | `endpoint`                      | Yes      | Empty string |
 | `token`                         | Yes      | Empty string |
 | `name`                          | No       | Empty string |
+| `name-from-env`                 | No       | Empty string |
 | `env-vars`                      | No       | Empty array  |
 | `files`                         | No       | Empty array  |
 | `fail-on-missing-files`         | No       | False        |
 | `fail-on-pre-job-hook-error`    | No       | False        |
-| `disconnect-after-job`          | No       | false        |
+| `disconnect-after-job`          | No       | False        |
 | `disconnect-after-idle-timeout` | No       | 0            |
 | `shutdown-hook-path`            | No       | Empty string |
 | `pre-job-hook-path`             | No       | Empty string |
 | `post-job-hook-path`            | No       | Empty string |
+| `source-pre-job-hook`           | No       | False        |
+| `interruption-grace-period`     | No       | 0            |
 | `upload-job-logs`               | No       | never        |
 | `config-file`                   | No       | Empty string |
 
@@ -43,6 +46,12 @@ You get an agent type registration token when you create an agent type in the Se
 ### `name`
 
 By default, the agent will generate a random name. If you want to set a custom name, you can use this configuration parameter. The name must have between 8 and 64 characters.
+
+### `name-from-env`
+
+By default, the agent will generate a random name. If you want to set a custom name using an environment variable, you can use this configuration parameter.
+
+Note: the `name` parameter takes precedence over the `name-from-env` one, so if you set both, `name` will be used.
 
 ### `env-vars`
 
@@ -124,6 +133,10 @@ By default, nothing else is executed before the agent starts executing the comma
 
 Additionally, you can use `fail-on-pre-job-hook-error` to control whether the job should proceed or fail if an error occurs while executing that script.
 
+### `source-pre-job-hook`
+
+By default, the agent executes the pre-job hook in a new shell session, e.g., `bash <pre-job-hook-path>`. However, in some cases, it is useful to make environment changes made during the pre-job hook execution visible to following job commands. The `source-pre-job-hook` allows that. It instructs the agent to use `source <pre-job-hook-path>` instead.
+
 ### `post-job-hook-path`
 
 This parameter allows you to configure a hook to execute after a job finishes. It accepts the path to a script (Bash/PowerShell) that will be run right after the job's epilogue commands. The hook is executed before terminating the PTY created for the job, so the hook has access to the environment variables exposed in the job.
@@ -155,3 +168,7 @@ Furthermore, the shutdown script will have the following environment variables a
 | Environment variable              | Description |
 |-----------------------------------|-------------|
 | `SEMAPHORE_AGENT_SHUTDOWN_REASON` | The reason why the agent is shutting down. Possible values are: `IDLE`, `JOB_FINISHED`, `UNABLE_TO_SYNC`, `REQUESTED` and `INTERRUPTED` |
+
+### `interruption-grace-period`
+
+By default, if the agent receives an interruption while execution a job, it will immediately stop the job, and shut down. This configuration parameter allows you to specify a number of seconds for the agent to wait before stopping the job, after receiving an interruption signal.
