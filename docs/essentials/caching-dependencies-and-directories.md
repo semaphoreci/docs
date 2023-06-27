@@ -264,6 +264,17 @@ The following environment variables are required for the `s3` storage backend to
 
 Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly configured with the appropriate credentials in order to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set this up.
 
+## GCS backend
+
+The following environment variables are required for the `gcs` storage backend to work:
+
+| Environment variable               | Description |
+|------------------------------------|-------------|
+| `SEMAPHORE_CACHE_BACKEND`          | To use the GCS storage backend, this should be set to `gcs`. |
+| `SEMAPHORE_CACHE_GCS_BUCKET`       | The GCS bucket name. |
+
+Additionally, the `cache` CLI also needs your ADC credentials to be properly configured in order to access your GCS bucket. You can read more about ADC credentials [here][adc creds].
+
 ## Troubleshooting
 
 ### `cache restore` restores an archive with a corrupted archive message
@@ -323,3 +334,4 @@ by executing `cache clear` or `cache delete <key>`.
 [debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
 [prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [aws s3 setup]: ../../ci-cd-environment/set-up-caching-on-aws-s3
+[adc creds]: https://cloud.google.com/docs/authentication/application-default-credentials

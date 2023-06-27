@@ -32,9 +32,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.2.8.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.2.10.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.2.8
+cd agent-aws-stack-0.2.10
 npm i
 ```
 
@@ -309,6 +309,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_LICENSE_CONFIGURATION_ARN`     | The license configuration ARN associated with the AMI used by the stack. |
 | `SEMAPHORE_AGENT_MAC_FAMILY`                    | The EC2 Mac instance family to use. Possible values: `mac1` and `mac2`. |
 | `SEMAPHORE_AGENT_MAC_DEDICATED_HOSTS`           | A comma-separated list of dedicated host IDs to include in the host resource group. |
+| `SEMAPHORE_AGENT_TAGS`                          | A comma-separated list of key-value pairs of tags to be added to all resources created for the stack. For example: `Name:Something,Category:SomethingElse`. |
 
 ## Architecture
 
