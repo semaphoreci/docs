@@ -25,11 +25,11 @@ Click on the "Create App Integration" button to start the wizard for setting up 
 
 In the sign-in method section choose SAML 2.0 and click Next.
 
-![Create SAML integration](resources/image3.png)
+![Create SAML integration](resources/image3.png) ON MAC
 
 Choose a name for this integration, for example, 'Semaphore'. Click Next.
 
-![Configure SAML](resources/image4.png)
+![Configure SAML](resources/image4.png) ON MAC
 
 On the configure SAML screen, fill in three fields:
 
@@ -52,9 +52,9 @@ After this step, you should have a new App Integration on Okta, ready to be conn
 
 Log in to your Semaphore instance with an Owner or Admin account, and go to the organization settings page.
 
-![Semaphore settings page](resources/image6.png) CHANGE THIS SCREENSHOT
+![Semaphore settings page](resources/image6.png) ON MAC
 
-![Semaphore Okta Integration page](resources/image7.png)
+![Semaphore Okta Integration page](resources/image7.png) ON MAC
 
 Navigate to the Okta Integration tab and start the Okta integration process by clicking on the "Set Up" button.
 
@@ -76,7 +76,7 @@ Click Save to finish the setup and to obtain a SCIM token necessary for the next
 Make sure to save this token to a safe location, as you will need to re-enter all of the SAML info from last step again
 to attain newly generated SCIM token from Semaphore.
 
-![SCIM Authorization Token](resources/image9.png)
+![SCIM Authorization Token](resources/image9.png) ON MAC
 
 ## Provisioning Semaphore users from Okta
 
