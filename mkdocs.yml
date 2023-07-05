@@ -216,6 +216,9 @@ nav:
       - Setup with GCP: security/open-id-connect-gcloud.md
       - Setup with Vault: security/open-id-connect-vault.md
     - Pre-flight checks: security/configuring-pre-flight-checks.md
+    - "Okta integration":
+      - Overview: security/okta/overview.md
+      - Installation: security/okta/installation.md
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
