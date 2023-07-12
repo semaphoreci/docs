@@ -8,6 +8,20 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 10, 2023
+
+**(Improved) macos-xcode14 image update**
+
+**(New)** Packages: Xcode 14.3.1
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.212.1 -> 2.213.0
+- Flutter 3.7.10 -> 3.10.5
+- Ruby 2.6.9 -> 2.7.8
+
+**(Removed)** Removed packages: Xcode 14.0
+
 ### Week of June 05, 2023
 
 **(Improved) Ubuntu 20.04 image update**
