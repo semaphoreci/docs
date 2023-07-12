@@ -4,7 +4,7 @@ Description: The macos-xcode14 image is a customized image based on MacOS 12, wh
 
 # macOS Monterey Xcode 14 image
 
-The `macos-xcode14` image is a customized image based on [MacOS 12.6][monterey-release-notes],
+The `macos-xcode14` image is a customized image based on [MacOS 12.7][monterey-release-notes],
 which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
 with any [Apple machine type][machine-types] when defining the [agent][agent]
@@ -41,8 +41,8 @@ The `macos-xcode14` OS image can only be used in combination with the Apple
 
 ## System
 
-- ProductVersion: 12.6
-- BuildVersion: 21G115
+- ProductVersion: 12.7
+- BuildVersion: 21G651
 - Kernel Version: Darwin 21.6.0
 
 ## Version control
@@ -74,7 +74,7 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.211.0)
+- fastlane (2.213.0)
 - cocoapods (1.11.3)
 
 ## Languages
@@ -107,22 +107,22 @@ Supporting libraries:
 
 Installed versions:
 
-- 2.6.8 (system)
-- 2.6.9
+- 2.7.8 (system)
+- 2.7.8
 
 ## Flutter
 
-- 3.7.0
+- 3.10.5
 
 ## Xcode
 
 Installed versions:
 
-- 14.0
 - 14.1
 - 14.2
+- 14.3.1
 
-The default installed Xcode version is `14.0`.
+The default installed Xcode version is `14.3.1`.
 
 
 Xcode 14 has the following SDKs preinstalled:
