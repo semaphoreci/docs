@@ -69,7 +69,7 @@ Implementation details:
 
 !!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
-!!! warning "`r1` machines are in Technical Preview stage, please contact support if you are interested to try them."
+!!! warning "`r1` machines are currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
 
 The `r1` series machines are built on ARM architecture.
 
