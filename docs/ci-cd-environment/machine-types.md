@@ -65,6 +65,24 @@ Implementation details:
 2. `Memory` is implemented as DDR4 RAM.
 3. `Disk` is implemented using NvME storage.
 
+### R1 Generation
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+!!! warning "`r1` machines are currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
+
+The `r1` series machines are built on ARM architecture.
+
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| r1-standard-4 |             4             |        10 GB        |       65 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` is emulated ARM on [Ampere Altra Q80-30](https://amperecomputing.com/briefs/ampere-altra-family-product-brief).
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented using NvME storage.
+
 ## Apple machine type
 
 Apple machine types can be paired with the [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
