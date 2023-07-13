@@ -19,7 +19,8 @@ This page is updated on a weekly basis.
 - Fastlane 2.212.1 -> 2.213.0
 - Flutter 3.7.10 -> 3.10.5
 - Ruby 2.6.9 -> 2.7.8
-
+- Simulators (iOS, watchOS, tvOS) 9.1 -> 9.4
+  
 **(Removed)** Removed packages: Xcode 14.0
 
 ### Week of June 05, 2023
