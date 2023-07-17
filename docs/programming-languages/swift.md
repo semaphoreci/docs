@@ -46,6 +46,6 @@ Semaphore maintains an [example project](https://github.com/semaphoreci-demos/se
 [full tutorial showing how to configure an iOS project for CI with Semaphore](https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/)
 is also available.
 
-[macos-xcode-12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/
+[macos-xcode-13]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [ios-tutorial]: https://docs.semaphoreci.com/examples/ios-continuous-integration-with-xcode/
