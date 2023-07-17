@@ -80,8 +80,6 @@ Note that Semaphore usually needs some time to sync with any access updates on G
 
 ![OAuth Refresh](https://raw.githubusercontent.com/semaphoreci/docs/master/public/gh_images/oauth_refresh.png)
 
-For more information on how to troubleshoot connections between Semaphore and GitHub via OAuth App please check our [GitHub OAuth - connection troubleshooting](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/) guide.
-
 ### Transferring projects from personal token connection to a GitHub App
 You can easily transfer your old projects connected via personal access token to connect via GitHub App by following these instructions:
 
