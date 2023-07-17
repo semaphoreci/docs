@@ -23,8 +23,6 @@ Once you sign up, you will be redirected to the **Create an organization** page.
 After your organization has been created, you just need to choose a plan and then you are ready to 
 [start with your first project][guided-tour]. Happy building!
 
-**Note:** Only one of your organizations can be on a [Free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan) and one can be on an [Open Source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan).
-
 ### Creating a new organization when you already have an organization
 
 In order to crate a new organization when you already have an organization, you can:
@@ -33,8 +31,7 @@ In order to crate a new organization when you already have an organization, you 
 2. Click on **Change Organization** at the bottom of the dropdown menu
 3. Click on **+ Create new**
 4. Choose the URL for the organization and click on **Save & Continue…**
-4. Choose a plan -- please note that you can only have one organization on a [Free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan) 
-and one organization on an [Open Source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)
+4. Choose a plan.
 
 Congratulations, you are ready to start adding projects to your new organization!
 
@@ -164,8 +161,7 @@ In this email, please include your GitHub or Bitbucket username.
 ## See also
 
 - [Permission levels](https://docs.semaphoreci.com/account-management/permission-levels/)
-- [Billing](https://docs.semaphoreci.com/account-management/billing/)
-- [Plans](https://docs.semaphoreci.com/account-management/plans/)
+- [Billing FAQ](https://docs.semaphoreci.com/account-management/billing-faq/)
 
 [guided-tour]: ../guided-tour/getting-started.md
 [project-mgmt]: ../faq/managing-projects.md

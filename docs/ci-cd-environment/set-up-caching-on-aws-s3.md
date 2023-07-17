@@ -4,7 +4,7 @@ Description: This guide describes how to set up the cache CLI to work with an AW
 
 # Setting up caching with AWS S3
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 When running a Semaphore agent in a self-hosted environment, cache storage in hosted jobs is not available. However, you can use an AWS S3 bucket to store our cache dependencies instead. In order to do so, the cache CLI needs access to perform a few actions on an S3 bucket in your AWS account.
 
