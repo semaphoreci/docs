@@ -8,6 +8,115 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 17, 2023
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(New)** Packages
+
+- Erlang 26.0.2 (aliased as 26.0)
+- Elixir 1.14.5 (default), 1.15.0, 1.15.1, 1.15.2
+- Go 1.19.10, 1.19.11, 1.20.5, 1.20.6 (default)
+- PHP 8.0.29, 8.1.20, 8.1.21, 8.2.7, 8.2.8 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.19.0-1018-lowlatency -> 6.2.0-1008-lowlatency
+- Aws-cli 1.27.85 -> 1.29.2
+- Aws-cli 2.11.0 -> 2.13.0
+- Azure-cli 2.46.0 -> 2.50.0
+- Bazel 6.2.0 -> 6.2.1
+- Containerd.io 1.6.18 -> 1.6.21
+- Docker 23.0.1 -> 24.0.4
+- Docker-compose 2.15.1 -> 2.20.0
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.92.0 -> 1.97.0
+- Firefox ESR 102.5.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0
+- Git 2.39.2 -> 2.41.0
+- Gcloud 420.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 420.0.0 -> 425.0.0
+- Google Chrome 110 -> 112
+- ChromeDriver 110 -> 112
+- Github-cli 2.23.0 -> 2.32.0
+- Helm 3.11.1 -> 3.12.1
+- Heroku 7.68.3 -> 8.1.9
+- Httpie 3.2.1 -> 3.2.2
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Kerl 2.5.1 -> 3.0.0
+- Kubectl 1.26.1 -> 1.27.3
+- Maven 3.9.0 -> 3.9.3
+- NodeJS 18.12.1 -> 18.16.1
+- Npm 8.19.2 -> 9.5.1
+- Pip 23.0 -> 23.1.2
+- Rebar3 3.18.0 -> 3.22.0
+- Rust 1.67.1 -> 1.71.0
+- Sbt 1.8.2 -> 1.9.2
+- Terraform 1.3.7 -> 1.5.2
+- Virtualenv 20.17.1 -> 20.23.0
+
+To learn more about this image, check our [ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Downgraded)** Packages
+
+- Google Chrome 114 -> 112
+- ChromeDriver 114 -> 112
+- Gcloud 432.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 432.0.0 -> 425.0.0
+
+**(New)** Packages
+
+- Elixir 1.15.0, 1.15.1, 1.15.2
+- Go 1.19.10, 1.19.11, 1.20.5, 1.20.6 (default)
+- PHP 8.0.29, 8.1.20, 8.1.21, 8.2.7, 8.2.8
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-73-generic -> 5.15.0-76-generic
+- Aws-cli 1.27.142 -> 1.29.2
+- Aws-cli 2.11.23 -> 2.13.0
+- Azure-cli 2.49.0 -> 2.50.0
+- Bazel 6.2.0 -> 6.2.1
+- Doctl 1.96.1 -> 1.97.0
+- Docker-compose 2.18.1 -> 2.20.0
+- Erlang 23.3.4.18 -> 23.3.4.19 (aliased as 23.3)
+- Erlang 24.3.4.11 -> 24.3.4.13 (aliased as 24.3)
+- Erlang 25.3.2 -> 25.3.2.3 (aliased as 25.3)
+- Erlang 26.0 -> 26.0.2 (aliased as 26.0)
+- Git 2.40.1 -> 2.41.0
+- Github-cli 2.29.0 -> 2.32.0
+- Helm 3.12.0 -> 3.12.1
+- Heroku 8.1.6 -> 8.1.9
+- Kerl 2.6.0 -> 3.0.0
+- Kubectl 1.27.2 -> 1.27.3
+- Maven 3.9.2 -> 3.9.3
+- NodeJS 18.15.0 -> 18.16.1
+- Npm 9.5.0 -> 9.5.1
+- Python 3.9.16 -> 3.9.17
+- Python 3.10.11 -> 3.10.12
+- Python 3.11.3 -> 3.11.4
+- Pypy3 7.3.11 -> 7.3.12
+- Sbt 1.8.3 -> 1.9.1
+- Terraform 1.4.6 -> 1.5.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 October 2023. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
+
+**(Downgraded)** Packages
+
+- Google Chrome 114 -> 112
+- ChromeDriver 114 -> 112
+- Gcloud 432.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 432.0.0 -> 425.0.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of June 05, 2023
 
 **(Improved) Ubuntu 20.04 image update**
@@ -84,7 +193,7 @@ To learn more about this image, check our [ubuntu 20.04 page](https://docs.semap
 - Erlang 24.3.4.10 -> 24.3.4.11 (aliased as 24.3)
 - Erlang 25.3 -> 25.3.2 (aliased as 25.3)
 - Firefox ESR 102.3.0 -> 102.11.0
-- Gecko 0.26.0 -> 0.33.0  
+- Gecko 0.26.0 -> 0.33.0
 - Git 2.40.0 -> 2.40.1
 - Github-cli 2.26.1 -> 2.29.0
 - Google Chrome 112 -> 114

@@ -10,7 +10,7 @@ Description: The ubuntu2204 image is a customized image based on Ubuntu 22.04 LT
 
 The `ubuntu2204` image is a customized image based on [Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes), which has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
-and utility tools commonly used for CI/CD workflows.  
+and utility tools commonly used for CI/CD workflows.
 Please note that the image is only available for our newer generation agent type: `e2-standard-2` when defining the [agent][agent]
 of your pipeline or block.
 
@@ -45,8 +45,6 @@ blocks:
             - make test
 ```
 
-
-
 ## Toolbox
 
 The `ubuntu2204` image comes with two utility tools. One for managing background
@@ -54,21 +52,22 @@ services and databases, and one for managing language versions.
 
 - [sem-service: Managing databases and services on Linux][sem-service]
 - [sem-version: Managing language version on Linux][sem-version]
+
 ## Version control
 
 Following version control tools are pre-installed:
 
-- Git 2.39.2
+- Git 2.41.0
 - Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.23.0
-- Mercurial 
+- GitHub CLI 2.32.0
+- Mercurial 6.1.1
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 102.5 (`102.5`, `default`, `esr`)
-- Geckodriver 0.26.0
-- Google Chrome 110
-- ChromeDriver 110
+- Firefox 102.11.0 (`102`, `default`, `esr`)
+- Geckodriver 0.33.0
+- Google Chrome 112
+- ChromeDriver 112
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,34 +79,34 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.18
+- Docker 24.0.4
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.15.1 (used as `docker compose version`)
+- Docker-compose 2.20.0 (used as `docker compose version`)
 - Docker-machine 0.16.2
-- Dockerize 0.6.1
+- Dockerize 0.7.0
 - Buildah 1.23.1
 - Podman 3.4.4
 - Skopeo 1.4.1
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.27.82
-- Aws-cli v2 (used as `aws2`) 2.10.4
-- Azure-cli 2.45.0
+- Aws-cli v1 (used as `aws`) 1.29.2
+- Aws-cli v2 (used as `aws2`) 2.13.0
+- Azure-cli 2.50.0
 - Eb-cli 3.20.3
-- Doctl 1.92.0
-- Gcloud 420.0.0
-- Gke-gcloud-auth-plugin 420.0.0
-- Kubectl 
-- Heroku 7.68.2
-- Terraform 1.3.7
-- Helm 3.11.1
+- Doctl 1.97.0
+- Gcloud 425.0.0
+- Gke-gcloud-auth-plugin 425.0.0
+- Kubectl 1.27.3
+- Heroku 8.1.9
+- Terraform 1.5.2
+- Helm 3.12.1
 
 ### Network utilities
 
-- Httpie 3.2.1
-- Curl 
-- Rsync 
+- Httpie 3.2.2
+- Curl 7.81.0
+- Rsync 3.2.7
 
 ## Compilers
 
@@ -120,12 +119,12 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 25.2.2
-- Elixir: 1.14.3
+- Erlang: 25.3
+- Elixir: 1.14.5
 
 Additional libraries:
 
-- Rebar3: 3.18.0
+- Rebar3: 3.22.0
 
 ### Go
 
@@ -141,20 +140,20 @@ Versions:
 - 1.17.x
 - 1.18.x
 - 1.19.x
-- 1.20.x (1.20 as default)
+- 1.20.x (1.20.6 as default)
 
 ### Java and JVM languages
 
-- Java: 17 (OpenJDK)
+- Java: 17.0.7 (OpenJDK)
 - Scala: 3.2.2
 - Leiningen: 2.10.0 (Clojure)
-- Sbt 1.8.2
+- Sbt 1.9.2
 
 #### Additional build tools
 
-- Maven: 3.6.3
+- Maven: 3.9.3
 - Gradle: 7.4.2
-- Bazel: 6.0.0
+- Bazel: 6.2.1
 
 ### JavaScript via Node.js
 
@@ -162,7 +161,7 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.12.1includes npm 8.19.2
+- v18.16.1 includes npm 9.5.1
 
 #### Additional tools
 
@@ -171,14 +170,16 @@ Installed version:
 ### PHP
 
 PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
-Installed versions:
+Available versions:
 
+- 8.1.20 and above
+- 8.2.x
 
-The default installed PHP version is `8.2.1`.
+The default installed PHP version is `8.2.2`.
 
 #### Additional libraries
 
-PHPUnit: 9.5
+PHPUnit: 9.5.28
 
 ### Python
 
@@ -190,22 +191,24 @@ Python versions are installed and managed by
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.11
-- pip: 23.0
-- venv: 20.17.1
+- pypy3: 7.3.12
+- pip: 23.1.2
+- venv: 20.23.1
 
 ### Ruby
 
 Available versions:
 
-- 3.1.3
-- jruby-9.4.0.1
+- 3.0.0 to 3.0.6
+- 3.1.0 to 3.1.4
+- 3.2.0 to 3.2.2
+- jruby-9.4.1.0
+
+The default installed Ruby version is `3.2.2`.
 
 ### Rust
 
-- 1.67.1
-
-
+- 1.71.0
 
 ### Installing dependencies with apt package manager
 
