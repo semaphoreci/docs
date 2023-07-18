@@ -149,6 +149,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | Image | Link |
 |--------|--------|
 | ubuntu:18.04 | `registry.semaphoreci.com/ubuntu:18.04` |  
+| ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
+| ubuntu:22.04 | `registry.semaphoreci.com/ubuntu:22.04` |  
 
 ### Android  
 | Image | Link |
