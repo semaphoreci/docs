@@ -149,7 +149,7 @@ preparation.
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
 [machine-type]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [caching]: https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/
-[billing]: https://docs.semaphoreci.com/account-management/billing-overview/
+[billing]: https://docs.semaphoreci.com/account-management/billing-faq/
 [signup]: https://semaphoreci.com/signup
 [pricing]: https://semaphoreci.com/pricing
 [deployment-targets]: https://semaphoreci.com/blog/deployment-targets
