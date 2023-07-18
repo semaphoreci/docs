@@ -79,4 +79,4 @@ commands:
 
 [vault-docs]: https://developer.hashicorp.com/vault/docs/auth/jwt
 [vault-policy-docs]: https://developer.hashicorp.com/vault/docs/concepts/policies
-[oidc-overview]: ./security/open-id-connect
+[oidc-overview]: /security/open-id-connect
