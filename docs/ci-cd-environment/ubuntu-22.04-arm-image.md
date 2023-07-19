@@ -161,7 +161,7 @@ Installed version:
 ### PHP
 
 PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
-Installed versions:
+Available versions:
 
 - 8.1.x
 - 8.2.x
