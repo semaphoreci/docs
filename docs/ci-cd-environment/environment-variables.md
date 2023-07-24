@@ -162,6 +162,13 @@ during a pipeline run and is available in all the blocks of a pipeline as well
 as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
+_
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY` environment variable is 
+the GitHub/Bitbucket username of the person that initiated the workflow.
+
+Example value: `torvalds`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
@@ -360,6 +367,20 @@ The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the
 name of the Pull Request.
 
 Example values: `Update Readme.md`
+
+#### SEMAPHORE\_GIT\_COMMITTER
+
+The value of the `SEMAPHORE_GIT_COMMITTER` environment variable holds the
+GitHub/Bitbucket username of the person that committed the revision.
+
+Example values: `torvalds`
+
+#### SEMAPHORE\_GIT\_COMMIT\_AUTHOR
+
+The value of the `SEMAPHORE_GIT_COMMIT_AUTHOR` environment variable holds the
+GitHub/Bitbucket username of the person that authored the revision.
+
+Example values: `torvalds`
 
 ### Environment Variables injected into after_pipeline jobs
 
