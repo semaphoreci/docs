@@ -212,7 +212,7 @@ Available versions:
 - jruby-9.3.9.0
 - jruby-9.4.0.0
 
-The default installed Ruby version is `3.2.2`.
+The default installed Ruby version is `2.7.8`.
 
 ### Installing dependencies with apt package manager
 
