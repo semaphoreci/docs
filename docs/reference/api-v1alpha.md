@@ -2347,3 +2347,189 @@ DELETE {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:s
 
 Empty JSON object if successful with 200 response code, or an error JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
 
+## Projects
+
+### List projects
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/projects
+```
+
+**Response**
+
+Currently there is no pagination support, so the response will contain a list of all projects (max 500).
+
+```json
+[
+  {
+    "spec": {
+      "visibility": "private",
+      "schedulers": [],
+      "repository": {
+        "whitelist": {
+          "tags": [],
+          "branches": []
+        },
+        "url": "...",
+        "status": {
+          "pipeline_files": [
+            {
+              "path": ".semaphore/semaphore.yml",
+              "level": "pipeline"
+            }
+          ]
+        },
+        "run_on": [
+          "tags",
+          "branches"
+        ],
+        "pipeline_file": ".semaphore/semaphore.yml",
+        "owner": "...",
+        "name": "semaphore-demo-go",
+        "integration_type": "github_token",
+        "forked_pull_requests": {
+          "allowed_secrets": [],
+          "allowed_contributors": []
+        }
+      }
+    },
+    "metadata": {
+      "owner_id": "...",
+      "org_id": "...",
+      "name": "semaphore-demo-go",
+      "id": "...",
+      "description": ""
+    },
+    "kind": "Project",
+    "apiVersion": "v1alpha"
+  }
+]
+```
+
+### Create project
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/projects
+```
+
+**Request Body**
+
+The request body is a JSON object that must contain the following fields:
+- `metadata` - A JSON object that must contain the following fields:
+  - `name` (**required**) - The name of the project.
+  - `description` (**optional**) - The description of the project.
+- `spec` - A JSON object with project spec
+  - `visibility` (**required**) - The visibility of the project. Possible values are `public` and `private`.
+  - `repository` - A JSON object that must contain the following fields:
+    - `url` (**required**) - The URL of the repository.
+    - `integration_type` (**required**) - The integration type of the repository. Possible values are `github_token`, `github_app`, `gitlab_token`, `gitlab_app`, `bitbucket_token`, `bitbucket_app`, `gitea_token`, `gitea_app`, `gogs_token`, `gogs_app`, `custom_token`, `custom_app`.
+    - `name` (**required**) - The name of the repository.
+    - `run_on` (**required**) - A list of run on values. Possible values are `tags` and `branches`.
+    - `pipeline_file` (**required**) - The path to the pipeline file.
+    - `whitelist` - A JSON object that must contain the following fields:
+      - `tags` (**required**) - A list of tags.
+      - `branches` (**required**) - A list of branches.
+    - `forked_pull_requests` - A JSON object that must contain the following fields:
+      - `allowed_secrets` (**required**) - A list of allowed secrets.
+      - `allowed_contributors` (**required**) - A list of allowed contributors.
+
+**Example**
+
+```json
+{
+  "apiVersion": "v1alpha",
+  "kind": "Project",
+  "metadata": {
+    "name": "my-project"
+  },
+  "spec": {
+    "repository": {
+      "url": "git@github.com:semaphoreci/my-project.git",
+      "run_on": [
+        "branches",
+        "tags"
+      ],
+      "forked_pull_requests": {},
+      "pipeline_file": "",
+      "whitelist": {},
+      "integration_type": "github_token"
+    }
+  }
+}
+```
+
+**Response**
+
+```json
+{
+  "spec": {
+    "visibility": "private",
+    "schedulers": [],
+    "repository": {
+      "whitelist": {
+        "tags": [],
+        "branches": []
+      },
+      "url": "git@github.com:semaphoreci/my-project.git",
+      "status": {
+        "pipeline_files": [
+          {
+            "path": ".semaphore/semaphore.yml",
+            "level": "pipeline"
+          }
+        ]
+      },
+      "run_on": [
+        "tags",
+        "branches"
+      ],
+      "pipeline_file": ".semaphore/semaphore.yml",
+      "owner": "semaphoreci",
+      "name": "my-project",
+      "integration_type": "github_token",
+      "forked_pull_requests": {
+        "allowed_secrets": [],
+        "allowed_contributors": []
+      }
+    }
+  },
+  "metadata": {
+    "owner_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "org_id": "51980207-699f-4732-8ace-42af2b732a85",
+    "name": "my-project",
+    "id": "a8b75bd0-6db9-48d6-abaa-98139aef9e69",
+    "description": ""
+  },
+  "kind": "Project",
+  "apiVersion": "v1alpha"
+}
+```
+
+### Update project
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/projects/:project_name
+```
+
+**Params**
+
+- `project_name` (**required**) - The name of the project.
+
+**Request Body**
+
+The same JSON as the create project request body.
+
+
+### Delete project
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/projects/:project_name
+```
+
+**Params**
+
+- `project_name` (**required**) - The name of the project.
+
+**Response**
+
+Empty response with 200 status code on success.
