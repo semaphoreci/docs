@@ -190,6 +190,7 @@ will retry to initiate the workflow every ten seconds for the following 15 minut
 
 ## See also
 
+- [Semaphore API][api-schedulers]
 - [Semaphore guided tour][guided-tour]
 - [Project workflow trigger options][wf-trigger-options]
 - [Pipelines reference][pipelines-ref]
@@ -200,3 +201,4 @@ will retry to initiate the workflow every ten seconds for the following 15 minut
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
 [wf-trigger-options]: https://docs.semaphoreci.com/essentials/project-workflow-trigger-options/
 [pipelines-ref]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
+[api-schedulers]: /reference/api-v1alpha/#schedulers

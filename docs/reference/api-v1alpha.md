@@ -1594,3 +1594,147 @@ HTTP status: 200
 curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history"
 ```
+
+## Schedulers
+
+You can learn more about schedulers in the [Scheduler](/essentials/schedule-a-workflow-run) section.
+
+### Listing schedulers
+
+This API endpoint provides a list of schedulers for a given project.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/schedules?project_id=:project_id
+```
+**Params**
+
+- `project_id` (**required**) - UUID of the project for which schedulers are to be listed.
+- `page` (*optional*) - the page number to return. By default, this is 1.
+- `page_size` (*optional*) - the number of schedulers to return per page. By default, this is 30.
+
+**Response**
+
+The response is a JSON object comprising an array of scheduler objects for the specified project ID.
+
+```json
+HTTP status: 200
+
+[
+  {
+    "updated_at": "2023-07-25 08:35:54.819164Z",
+    "suspended": false,
+    "requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+    "pipeline_file": ".semaphore/semaphore.yml",
+    "paused": false,
+    "pause_toggled_by": "",
+    "pause_toggled_at": "",
+    "name": "some_scheduler",
+    "inserted_at": "2023-07-25 08:35:54.819164Z",
+    "id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+    "branch": "master",
+    "at": "0 0 * * *"
+  }
+]
+```
+
+**Example**
+```
+curl "https://{org_name}.semaphoreci.com/api/v1alpha/schedules?project_id=:project_id" -H "Authorization: Token {api_token}" | jq .
+```
+
+### Describe a scheduler
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/schedules/:scheduler_id
+```
+
+**Params**
+
+- `scheduler_id` (**required**) - The UUID of the scheduler.
+
+**Response**
+
+The response is a JSON object comprising a scheduler object for the specified scheduler ID, trigger objects representing the last 10 triggers of the scheduler with information about the workflow. The `run_now_requester_id` field is empty when automatically triggered by the scheduler, and if run now is used it contains the UUID of the user who triggered the scheduler workflow.
+
+```json
+HTTP status: 200
+
+{
+  "triggers": [
+    {
+      "triggered_at": "2023-07-25 10:03:52.929821Z",
+      "scheduling_status": "passed",
+      "scheduled_workflow_id": "3f60fbd7-aad5-4457-a58a-e1ec0253ffa3",
+      "scheduled_at": "2023-07-25 10:03:53.119981Z",
+      "run_now_requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+      "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+      "pipeline_file": ".semaphore/semaphore.yml",
+      "periodic_id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+      "error_description": "",
+      "branch": "master"
+    }
+  ],
+  "schedule": {
+    "updated_at": "2023-07-25 08:35:54.819164Z",
+    "suspended": false,
+    "requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+    "pipeline_file": ".semaphore/semaphore.yml",
+    "paused": false,
+    "pause_toggled_by": "",
+    "pause_toggled_at": "",
+    "name": "some_scheduler",
+    "inserted_at": "2023-07-25 08:35:54.819164Z",
+    "id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+    "branch": "master",
+    "at": "0 0 * * *"
+  }
+}
+```
+
+**Example**
+
+```
+curl "https://{org_name}.semaphoreci.com/api/v1alpha/schedules/:schedule_id" -H "Authorization: Token {api_token}" | jq .
+```
+
+### Upserting a scheduler
+
+This API endpoint allows to create or update a scheduler. If creating a scheduler provide the `project_name` parameter. If updating a scheduler provide the `periodic_id` parameter.
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/schedules?periodic_id={peroidic_id}
+```
+**Params**
+
+- `periodic_id` (**optional**) - The UUID of the scheduler. If the scheduler with the given UUID exists, it will be updated. If creating a new scheduler, `project_name` is **required**
+- `project_name` (**optional**) - The name of the project. If creating a new scheduler this param is **required**
+
+**Request Body**
+
+The request body should be a JSON object containing project YAML definition
+
+ - `yml_definition` (**required**) - YAML definition of the scheduler
+
+You can find more about the YAML definition in the [Scheduler](/reference/scheduler-reference) section.
+
+### Delete a scheduler
+
+This API endpoint allows to delete a scheduler.
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/schedules/:scheduler_id
+```
+
+**Params**
+
+- `scheduler_id` (**required**) - The UUID of the scheduler to be deleted.
+
+
+**Response**
+
+```
+"Schedule successfully deleted."
+```
+
