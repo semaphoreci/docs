@@ -10,9 +10,9 @@ Android images come in three forms:
 - Android:[sdk version]-node
 - Android:[sdk version]-flutter
 
-where `sdk-version` can be 25, 26, 27, 28, and 29.
+where `sdk-version` can be 25, 26, 27, 28, 29, 30, 31, 32, 33 and 34.
 
-For images using the stable sdk versions (28, 29 for now), we provide cached access.<br/>
+For images using the stable sdk versions (33 for now), we provide cached access.<br/>
 The images are updated on a biweekly basis.
 
 For an example using the Flutter image, please consult our [Flutter example](flutter.md)
