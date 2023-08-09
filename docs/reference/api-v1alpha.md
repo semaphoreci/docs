@@ -1594,3 +1594,942 @@ HTTP status: 200
 curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history"
 ```
+
+## Schedulers
+
+You can learn more about schedulers in the [Scheduler](/essentials/schedule-a-workflow-run) section.
+
+### Listing schedulers
+
+This API endpoint provides a list of schedulers for a given project.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/schedules?project_id=:project_id
+```
+**Params**
+
+- `project_id` (**required**) - UUID of the project for which schedulers are to be listed.
+- `page` (*optional*) - the page number to return. By default, this is 1.
+- `page_size` (*optional*) - the number of schedulers to return per page. By default, this is 30.
+
+**Response**
+
+The response is a JSON object comprising an array of scheduler objects for the specified project ID.
+
+```json
+HTTP status: 200
+
+[
+  {
+    "updated_at": "2023-07-25 08:35:54.819164Z",
+    "suspended": false,
+    "requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+    "pipeline_file": ".semaphore/semaphore.yml",
+    "paused": false,
+    "pause_toggled_by": "",
+    "pause_toggled_at": "",
+    "name": "some_scheduler",
+    "inserted_at": "2023-07-25 08:35:54.819164Z",
+    "id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+    "branch": "master",
+    "at": "0 0 * * *"
+  }
+]
+```
+
+**Example**
+```
+curl "https://{org_name}.semaphoreci.com/api/v1alpha/schedules?project_id=:project_id" -H "Authorization: Token {api_token}" | jq .
+```
+
+### Describe a scheduler
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/schedules/:scheduler_id
+```
+
+**Params**
+
+- `scheduler_id` (**required**) - The UUID of the scheduler.
+
+**Response**
+
+The response is a JSON object comprising a scheduler object for the specified scheduler ID, trigger objects representing the last 10 triggers of the scheduler with information about the workflow. The `run_now_requester_id` field is empty when automatically triggered by the scheduler, and if run now is used it contains the UUID of the user who triggered the scheduler workflow.
+
+```json
+HTTP status: 200
+
+{
+  "triggers": [
+    {
+      "triggered_at": "2023-07-25 10:03:52.929821Z",
+      "scheduling_status": "passed",
+      "scheduled_workflow_id": "3f60fbd7-aad5-4457-a58a-e1ec0253ffa3",
+      "scheduled_at": "2023-07-25 10:03:53.119981Z",
+      "run_now_requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+      "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+      "pipeline_file": ".semaphore/semaphore.yml",
+      "periodic_id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+      "error_description": "",
+      "branch": "master"
+    }
+  ],
+  "schedule": {
+    "updated_at": "2023-07-25 08:35:54.819164Z",
+    "suspended": false,
+    "requester_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "project_id": "826f406c-9d21-4650-8cbe-e2f9d39537dd",
+    "pipeline_file": ".semaphore/semaphore.yml",
+    "paused": false,
+    "pause_toggled_by": "",
+    "pause_toggled_at": "",
+    "name": "some_scheduler",
+    "inserted_at": "2023-07-25 08:35:54.819164Z",
+    "id": "1dd4908b-1484-4ab7-81d9-f50a03e7fdc5",
+    "branch": "master",
+    "at": "0 0 * * *"
+  }
+}
+```
+
+**Example**
+
+```
+curl "https://{org_name}.semaphoreci.com/api/v1alpha/schedules/:schedule_id" -H "Authorization: Token {api_token}" | jq .
+```
+
+### Upserting a scheduler
+
+This API endpoint allows to create or update a scheduler. If creating a scheduler provide the `project_name` parameter. If updating a scheduler provide the `periodic_id` parameter.
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/schedules?periodic_id={peroidic_id}
+```
+**Params**
+
+- `periodic_id` (**optional**) - The UUID of the scheduler. If the scheduler with the given UUID exists, it will be updated. If creating a new scheduler, `project_name` is **required**
+- `project_name` (**optional**) - The name of the project. If creating a new scheduler this param is **required**
+
+**Request Body**
+
+The request body should be a JSON object containing project YAML definition
+
+ - `yml_definition` (**required**) - YAML definition of the scheduler
+
+You can find more about the YAML definition in the [Scheduler](/reference/scheduler-reference) section.
+
+### Delete a scheduler
+
+This API endpoint allows to delete a scheduler.
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/schedules/:scheduler_id
+```
+
+**Params**
+
+- `scheduler_id` (**required**) - The UUID of the scheduler to be deleted.
+
+
+**Response**
+
+```
+"Schedule successfully deleted."
+```
+
+## Artifacts
+
+You can gain access to signed URLS of artifacts with the following API endpoints. Artifacts endpoints are available as JSON or gRPC.
+
+### Generate signed URLs
+
+This API endpoint is defined in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+```
+POST {org_name}.semaphoreci.com/api/v1/artifacts
+```
+
+**Request Body**
+
+Request body should be a JSON object containing the following fields:
+- `paths` (**required**) - A list of paths to artifacts.
+- `type`  (**required**) - The type of the action. Valid values are `PUSH`, `PUSHFORCE`, `PULL`, and `YANK`.
+
+```json
+{
+  "paths": [
+    "semaphoreci-art"
+  ],
+  "type": "PULL"
+}
+```
+
+**Response**
+
+If request is successful, the response will contain a list of signed URLs.
+
+```json
+{
+  "URLs":[
+    {
+      "URL":"https://storage.googleapis.com/semaphoreci-art",
+      "method":"GET"
+    }
+  ]
+}
+
+Method can be one of the following: `DELETE`, `GET`, `HEAD`, `PUT`, `POST`.
+
+If the request is unsuccessful, the response will contain an error message.
+
+```json
+{
+  "code": 16,
+  "error":"Artifact token is not correct",
+  "details": []
+}
+```
+
+## Dashboards
+
+Dashboards API is defined as a protobuf service in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+### List dashboards
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/dashboards
+```
+
+**Params**
+- page_size (*optional*) - the number of dashboards to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+
+**Response**
+
+A list of dashboard objects, along with the `next_page_token` and `total_size` values.
+
+```json
+HTTP status: 200
+
+{
+  "dashboards": [
+    {
+      "metadata": {
+        "name": "tech-support",
+        "id": "61740a6d-500d-4910-9b5e-7e7885da3f21",
+        "title": "Tech Support",
+        "create_time": "1665556362",
+        "update_time": "1690390061"
+      },
+      "spec": {
+        "widgets": [
+          {
+            "name": "Deployment A",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "master",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+            }
+          },
+          {
+            "name": "Deployment B",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "master",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+            }
+          },
+          {
+            "name": "Deployment C",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "data_branch",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "next_page_token": "",
+  "total_size": 0
+}
+```
+
+**Example**
+
+```
+curl \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/dashboards" | jq .
+```
+
+### Get dashboard
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Response**
+
+```json
+{
+  "metadata": {
+    "name": "tech-support",
+    "id": "61740a6d-500d-4910-9b5e-7e7885da3f21",
+    "title": "Tech Support",
+    "create_time": "1665556362",
+    "update_time": "1690390061"
+  },
+  "spec": {
+    "widgets": [
+      {
+        "name": "Deployment A",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      },
+      {
+        "name": "Deployment B",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+        }
+      },
+      {
+        "name": "Deployment C",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "data_branch",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      }
+    ]
+  }
+}
+```
+### Create dashboard
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/dashboards
+```
+
+**Request Body**
+
+A dashboard object defined in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+```json
+{
+  "metadata": {
+    "name": "tech-support-a",
+    "title": "Tech Support A"
+  },
+  "spec": {
+    "widgets": [
+      {
+        "name": "Deployment A",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      },
+      {
+        "name": "Deployment B",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+        }
+      },
+      {
+        "name": "Deployment C",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "data_branch",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      }
+    ]
+  }
+}
+```
+
+**Response**
+
+Response can be a created dashboard, or an error in a format of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto):
+
+```json
+HTTP status: 400
+
+{
+  "code": 3,
+  "message": "invalid character ',' looking for beginning of object key string",
+  "details": []
+}
+```
+
+### Update dashboard
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Request Body**
+
+A json of the dashboard. Timestamps will be ignored.
+
+### Delete dashboard
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Response**
+
+Empty JSON object if successful with 200 response code, or an error JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto)
+
+
+
+## Notifications
+
+### List notifications
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/notifications
+```
+
+**Params**
+- page_size (*optional*) - the number of notifications to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+
+**Response**
+
+A list of notification objects, along with the `next_page_token` value.
+
+
+```json
+{
+  "notifications": [
+    {
+      "metadata": {
+        "name": "test-notif",
+        "id": "79892e40-2118-407a-895c-5cc8e708161e",
+        "create_time": "1652655667",
+        "update_time": "1652657216"
+      },
+      "spec": {
+        "rules": [
+          {
+            "name": "Passed",
+            "filter": {
+              "projects": [
+                "dummy-repo"
+              ],
+              "branches": [
+                "main"
+              ],
+              "pipelines": [],
+              "blocks": [],
+              "states": [],
+              "results": [
+                "passed"
+              ]
+            },
+            "notify": {
+              "slack": {
+                "endpoint": "https://hooks.slack.com/services/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",
+                "channels": [],
+                "message": "",
+                "status": "ACTIVE"
+              },
+              "email": {
+                "subject": "",
+                "cc": [],
+                "bcc": [],
+                "content": "",
+                "status": "ACTIVE"
+              },
+              "webhook": {
+                "endpoint": "",
+                "timeout": 0,
+                "action": "",
+                "retries": 0,
+                "status": "ACTIVE",
+                "secret": ""
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "failures": []
+      }
+    }
+  ],
+  "next_page_token": ""
+}
+```
+
+
+### Get notification
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+**Response**
+
+Response contains a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api)
+
+### Create notification
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/notifications
+```
+
+**Request Body**
+
+If any errors occur the response will contain JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto).
+
+```json
+{
+  "code": 3,
+  "message": "invalid character '}' looking for beginning of object key string",
+  "details": []
+}
+```
+
+Success response will contain a JSON representation of the created notification object in [semaphoreci/api](github.com/semaphoreci/api) with timestamps and id.
+
+```json
+{
+  "metadata": {
+    "name": "test-notif-a"
+  },
+  "spec": {
+    "rules": [
+      {
+        "name": "Passed",
+        "filter": {
+          "projects": [
+            "dummy-repo"
+          ],
+          "branches": [
+            "main"
+          ],
+          "pipelines": [],
+          "blocks": [],
+          "states": [],
+          "results": [
+            "passed"
+          ]
+        },
+        "notify": {
+          "slack": {
+            "endpoint": "https://hooks.slack.com/services/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",
+            "channels": [],
+            "message": "",
+            "status": "INACTIVE"
+          },
+          "email": {
+            "subject": "",
+            "cc": [],
+            "bcc": [],
+            "content": "",
+            "status": "ACTIVE"
+          },
+          "webhook": {
+            "endpoint": "",
+            "timeout": 0,
+            "action": "",
+            "retries": 0,
+            "status": "ACTIVE",
+            "secret": ""
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Update notification
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+**Request Body**
+
+Request body should contain a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api).
+
+**Response**
+
+Response contains a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api), or an error message.
+
+### Delete notification
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+
+## Secrets
+
+**Note:**
+The API endpoint for organization secrets is `v1beta`, and the API endpoint for project secrets is `v1`.
+
+### List secrets
+
+Organization secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1beta/secrets
+```
+
+Project secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets
+```
+
+**Params**
+
+- page_size (*optional*) - the number of secrets to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+- order (*optional*) - the order of secrets to return. By default, this is `BY_NAME_ASC`. the other valid value is `BY_CREATE_TIME_ASC`.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+The response contains a list of secret objects (either project or organization level secret), along with the `next_page_token`.
+The data of the secrets is returned in the `data` field, files are base64 representation of the file content, and enviroment variables are returned raw.
+
+Organization secrets have additional fields with `org_config` that can be used to configure the secret access policy.
+
+### Get secret
+
+Organization secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+The response contains a secret object (either project or organization level secret).
+
+### Create secret
+
+Organization secrets:
+```
+POST {org_name}.semaphoreci.com/api/v1beta/secrets
+```
+Project secrets:
+```
+POST {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets
+```
+
+**Params**
+
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Request Body**
+
+The request body is a JSON that must containin the following fields:
+- `metadata` 
+- `data`
+- `org_config` (**optional** for organization secrets)
+
+The `metadata` field is a JSON object that must contain the following fields:
+- `name` (**required**) - The name of the secret.
+- `project_id_or_name` (**required** for project secrets) - The UUID or name of the project.
+
+The `data` field is a JSON object that must contain the following fields:
+- `env_vars` (**optional**) - A list of environment variables. (Environment variables are JSON objects containing name and value.)
+- `files` (**optional**) - A list of files. (Files are JSON objects containing path and content in base64 encoding.)
+
+The `org_config` field is a JSON object that must contain the following fields:
+- `project_access` (**optional**) - A list of project access objects. Possible values are `ALL`, `ALLOWED`, `NONE`. If `ALLOWED` is used, the `project_ids` list must not be empty.
+- `project_ids` (**optional**) - A list of project IDs that can access the secret. This field is required if `project_access` is set to `ALLOWED`.
+- `debug_access` (**optional**) - A list of debug access objects. Possible values are `JOB_DEBUG_YES`, `JOB_DEBUG_NO`. The default is `JOB_DEBUG_YES`.
+- `attach_access` (**optional**) - A list of attach access objects. Possible values are `JOB_ATTACH_YES`, `JOB_ATTACH_NO`. The default is `JOB_ATTACH_YES`.
+
+**Response**
+
+The JSON representation of the created secret object or an error object in [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
+### Update secret
+
+Organization secrets:
+```
+PATCH {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+PATCH {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Request Body**
+
+The request body is a JSON secret object.
+
+**Response**
+
+The JSON representation of the updated secret object or an error object in [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
+### Delete secret
+
+Organization secrets:
+```
+DELETE {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+DELETE {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+Empty JSON object if successful with 200 response code, or an error JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
+## Projects
+
+### List projects
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/projects
+```
+
+**Response**
+
+Currently there is no pagination support, so the response will contain a list of all projects (max 500).
+
+```json
+[
+  {
+    "spec": {
+      "visibility": "private",
+      "schedulers": [],
+      "repository": {
+        "whitelist": {
+          "tags": [],
+          "branches": []
+        },
+        "url": "...",
+        "status": {
+          "pipeline_files": [
+            {
+              "path": ".semaphore/semaphore.yml",
+              "level": "pipeline"
+            }
+          ]
+        },
+        "run_on": [
+          "tags",
+          "branches"
+        ],
+        "pipeline_file": ".semaphore/semaphore.yml",
+        "owner": "...",
+        "name": "semaphore-demo-go",
+        "integration_type": "github_token",
+        "forked_pull_requests": {
+          "allowed_secrets": [],
+          "allowed_contributors": []
+        }
+      }
+    },
+    "metadata": {
+      "owner_id": "...",
+      "org_id": "...",
+      "name": "semaphore-demo-go",
+      "id": "...",
+      "description": ""
+    },
+    "kind": "Project",
+    "apiVersion": "v1alpha"
+  }
+]
+```
+
+### Create project
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/projects
+```
+
+**Request Body**
+
+The request body is a JSON object that must contain the following fields:
+- `metadata` - A JSON object that must contain the following fields:
+  - `name` (**required**) - The name of the project.
+  - `description` (**optional**) - The description of the project.
+- `spec` - A JSON object with project spec
+  - `visibility` (**required**) - The visibility of the project. Possible values are `public` and `private`.
+  - `repository` - A JSON object that must contain the following fields:
+    - `url` (**required**) - The URL of the repository.
+    - `integration_type` (**required**) - The integration type of the repository. Possible values are `github_token`, `github_app`, `gitlab_token`, `gitlab_app`, `bitbucket_token`, `bitbucket_app`, `gitea_token`, `gitea_app`, `gogs_token`, `gogs_app`, `custom_token`, `custom_app`.
+    - `name` (**required**) - The name of the repository.
+    - `run_on` (**required**) - A list of run on values. Possible values are `tags` and `branches`.
+    - `pipeline_file` (**required**) - The path to the pipeline file.
+    - `whitelist` - A JSON object that must contain the following fields:
+      - `tags` (**required**) - A list of tags.
+      - `branches` (**required**) - A list of branches.
+    - `forked_pull_requests` - A JSON object that must contain the following fields:
+      - `allowed_secrets` (**required**) - A list of allowed secrets.
+      - `allowed_contributors` (**required**) - A list of allowed contributors.
+
+**Example**
+
+```json
+{
+  "apiVersion": "v1alpha",
+  "kind": "Project",
+  "metadata": {
+    "name": "my-project"
+  },
+  "spec": {
+    "repository": {
+      "url": "git@github.com:semaphoreci/my-project.git",
+      "run_on": [
+        "branches",
+        "tags"
+      ],
+      "forked_pull_requests": {},
+      "pipeline_file": "",
+      "whitelist": {},
+      "integration_type": "github_token"
+    }
+  }
+}
+```
+
+**Response**
+
+```json
+{
+  "spec": {
+    "visibility": "private",
+    "schedulers": [],
+    "repository": {
+      "whitelist": {
+        "tags": [],
+        "branches": []
+      },
+      "url": "git@github.com:semaphoreci/my-project.git",
+      "status": {
+        "pipeline_files": [
+          {
+            "path": ".semaphore/semaphore.yml",
+            "level": "pipeline"
+          }
+        ]
+      },
+      "run_on": [
+        "tags",
+        "branches"
+      ],
+      "pipeline_file": ".semaphore/semaphore.yml",
+      "owner": "semaphoreci",
+      "name": "my-project",
+      "integration_type": "github_token",
+      "forked_pull_requests": {
+        "allowed_secrets": [],
+        "allowed_contributors": []
+      }
+    }
+  },
+  "metadata": {
+    "owner_id": "f14146cf-7e15-4c5c-8514-5686b0842f1f",
+    "org_id": "51980207-699f-4732-8ace-42af2b732a85",
+    "name": "my-project",
+    "id": "a8b75bd0-6db9-48d6-abaa-98139aef9e69",
+    "description": ""
+  },
+  "kind": "Project",
+  "apiVersion": "v1alpha"
+}
+```
+
+### Update project
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/projects/:project_name
+```
+
+**Params**
+
+- `project_name` (**required**) - The name of the project.
+
+**Request Body**
+
+The same JSON as the create project request body.
+
+
+### Delete project
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/projects/:project_name
+```
+
+**Params**
+
+- `project_name` (**required**) - The name of the project.
+
+**Response**
+
+Empty response with 200 status code on success.
