@@ -1738,3 +1738,56 @@ DELETE {org_name}.semaphoreci.com/api/v1alpha/schedules/:scheduler_id
 "Schedule successfully deleted."
 ```
 
+## Artifacts
+
+You can gain access to signed URLS of artifacts with the following API endpoints. Artifacts endpoints are available as JSON or gRPC.
+
+### Generate signed URLs
+
+This API endpoint is defined in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+```
+POST {org_name}.semaphoreci.com/api/v1/artifacts
+```
+
+**Request Body**
+
+Request body should be a JSON object containing the following fields:
+- `paths` (**required**) - A list of paths to artifacts.
+- `type`  (**required**) - The type of the action. Valid values are `PUSH`, `PUSHFORCE`, `PULL`, and `YANK`.
+
+```json
+{
+  "paths": [
+    "semaphoreci-art"
+  ],
+  "type": "PULL"
+}
+```
+
+**Response**
+
+If request is successful, the response will contain a list of signed URLs.
+
+```json
+{
+  "URLs":[
+    {
+      "URL":"https://storage.googleapis.com/semaphoreci-art",
+      "method":"GET"
+    }
+  ]
+}
+
+Method can be one of the following: `DELETE`, `GET`, `HEAD`, `PUT`, `POST`.
+
+If the request is unsuccessful, the response will contain an error message.
+
+```json
+{
+  "code": 16,
+  "error":"Artifact token is not correct",
+  "details": []
+}
+```
+
