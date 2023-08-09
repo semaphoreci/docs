@@ -2212,3 +2212,138 @@ DELETE {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_
 - `notification_id_or_name` (**required**) - The UUID or name of the notification.
 
 
+## Secrets
+
+**Note:**
+The API endpoint for organization secrets is `v1beta`, and the API endpoint for project secrets is `v1`.
+
+### List secrets
+
+Organization secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1beta/secrets
+```
+
+Project secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets
+```
+
+**Params**
+
+- page_size (*optional*) - the number of secrets to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+- order (*optional*) - the order of secrets to return. By default, this is `BY_NAME_ASC`. the other valid value is `BY_CREATE_TIME_ASC`.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+The response contains a list of secret objects (either project or organization level secret), along with the `next_page_token`.
+The data of the secrets is returned in the `data` field, files are base64 representation of the file content, and enviroment variables are returned raw.
+
+Organization secrets have additional fields with `org_config` that can be used to configure the secret access policy.
+
+### Get secret
+
+Organization secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+GET {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+The response contains a secret object (either project or organization level secret).
+
+### Create secret
+
+Organization secrets:
+```
+POST {org_name}.semaphoreci.com/api/v1beta/secrets
+```
+Project secrets:
+```
+POST {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets
+```
+
+**Params**
+
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Request Body**
+
+The request body is a JSON that must containin the following fields:
+- `metadata` 
+- `data`
+- `org_config` (**optional** for organization secrets)
+
+The `metadata` field is a JSON object that must contain the following fields:
+- `name` (**required**) - The name of the secret.
+- `project_id_or_name` (**required** for project secrets) - The UUID or name of the project.
+
+The `data` field is a JSON object that must contain the following fields:
+- `env_vars` (**optional**) - A list of environment variables. (Environment variables are JSON objects containing name and value.)
+- `files` (**optional**) - A list of files. (Files are JSON objects containing path and content in base64 encoding.)
+
+The `org_config` field is a JSON object that must contain the following fields:
+- `project_access` (**optional**) - A list of project access objects. Possible values are `ALL`, `ALLOWED`, `NONE`. If `ALLOWED` is used, the `project_ids` list must not be empty.
+- `project_ids` (**optional**) - A list of project IDs that can access the secret. This field is required if `project_access` is set to `ALLOWED`.
+- `debug_access` (**optional**) - A list of debug access objects. Possible values are `JOB_DEBUG_YES`, `JOB_DEBUG_NO`. The default is `JOB_DEBUG_YES`.
+- `attach_access` (**optional**) - A list of attach access objects. Possible values are `JOB_ATTACH_YES`, `JOB_ATTACH_NO`. The default is `JOB_ATTACH_YES`.
+
+**Response**
+
+The JSON representation of the created secret object or an error object in [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
+### Update secret
+
+Organization secrets:
+```
+PATCH {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+PATCH {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Request Body**
+
+The request body is a JSON secret object.
+
+**Response**
+
+The JSON representation of the updated secret object or an error object in [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
+### Delete secret
+
+Organization secrets:
+```
+DELETE {org_name}.semaphoreci.com/api/v1beta/secrets/:secret_id_or_name
+```
+Project secrets:
+```
+DELETE {org_name}.semaphoreci.com/api/v1/projects/:project_id_or_name/secrets/:secret_id_or_name
+```
+
+**Params**
+
+- secret_id_or_name (**required**) - The UUID or name of the secret.
+- project_id_or_name (**required** for project secrets) - The UUID or name of the project.
+
+**Response**
+
+Empty JSON object if successful with 200 response code, or an error JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto) format.
+
