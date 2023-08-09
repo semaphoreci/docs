@@ -1791,3 +1791,228 @@ If the request is unsuccessful, the response will contain an error message.
 }
 ```
 
+## Dashboards
+
+Dashboards API is defined as a protobuf service in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+### List dashboards
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/dashboards
+```
+
+**Params**
+- page_size (*optional*) - the number of dashboards to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+
+**Response**
+
+A list of dashboard objects, along with the `next_page_token` and `total_size` values.
+
+```json
+HTTP status: 200
+
+{
+  "dashboards": [
+    {
+      "metadata": {
+        "name": "tech-support",
+        "id": "61740a6d-500d-4910-9b5e-7e7885da3f21",
+        "title": "Tech Support",
+        "create_time": "1665556362",
+        "update_time": "1690390061"
+      },
+      "spec": {
+        "widgets": [
+          {
+            "name": "Deployment A",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "master",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+            }
+          },
+          {
+            "name": "Deployment B",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "master",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+            }
+          },
+          {
+            "name": "Deployment C",
+            "type": "list_pipelines",
+            "filters": {
+              "branch": "data_branch",
+              "pipeline_file": ".semaphore/semaphore.yml",
+              "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "next_page_token": "",
+  "total_size": 0
+}
+```
+
+**Example**
+
+```
+curl \
+  -H "Authorization: Token {api_token}" \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/dashboards" | jq .
+```
+
+### Get dashboard
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Response**
+
+```json
+{
+  "metadata": {
+    "name": "tech-support",
+    "id": "61740a6d-500d-4910-9b5e-7e7885da3f21",
+    "title": "Tech Support",
+    "create_time": "1665556362",
+    "update_time": "1690390061"
+  },
+  "spec": {
+    "widgets": [
+      {
+        "name": "Deployment A",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      },
+      {
+        "name": "Deployment B",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+        }
+      },
+      {
+        "name": "Deployment C",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "data_branch",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      }
+    ]
+  }
+}
+```
+### Create dashboard
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/dashboards
+```
+
+**Request Body**
+
+A dashboard object defined in the [semaphoreci/api](github.com/semaphoreci/api) repository.
+
+```json
+{
+  "metadata": {
+    "name": "tech-support-a",
+    "title": "Tech Support A"
+  },
+  "spec": {
+    "widgets": [
+      {
+        "name": "Deployment A",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      },
+      {
+        "name": "Deployment B",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "master",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fc685ebf-4b7b-4421-9204-1c1c950e0b0f"
+        }
+      },
+      {
+        "name": "Deployment C",
+        "type": "list_pipelines",
+        "filters": {
+          "branch": "data_branch",
+          "pipeline_file": ".semaphore/semaphore.yml",
+          "project_id": "fea1701a-3b37-4b00-a0dc-2af4c326ab66"
+        }
+      }
+    ]
+  }
+}
+```
+
+**Response**
+
+Response can be a created dashboard, or an error in a format of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto):
+
+```json
+HTTP status: 400
+
+{
+  "code": 3,
+  "message": "invalid character ',' looking for beginning of object key string",
+  "details": []
+}
+```
+
+### Update dashboard
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Request Body**
+
+A json of the dashboard. Timestamps will be ignored.
+
+### Delete dashboard
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/dashboards/:dashboard_id_or_name
+```
+
+**Params**
+
+- `dashboard_id_or_name` (**required**) - The UUID or name of the dashboard.
+
+**Response**
+
+Empty JSON object if successful with 200 response code, or an error JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto)
+
+
+
