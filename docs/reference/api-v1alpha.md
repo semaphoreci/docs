@@ -2016,3 +2016,199 @@ Empty JSON object if successful with 200 response code, or an error JSON represe
 
 
 
+## Notifications
+
+### List notifications
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/notifications
+```
+
+**Params**
+- page_size (*optional*) - the number of notifications to return per page. By default, this is 30.
+- page_token (*optional*) - the page token to return. By default, this is the first page.
+
+**Response**
+
+A list of notification objects, along with the `next_page_token` value.
+
+
+```json
+{
+  "notifications": [
+    {
+      "metadata": {
+        "name": "test-notif",
+        "id": "79892e40-2118-407a-895c-5cc8e708161e",
+        "create_time": "1652655667",
+        "update_time": "1652657216"
+      },
+      "spec": {
+        "rules": [
+          {
+            "name": "Passed",
+            "filter": {
+              "projects": [
+                "dummy-repo"
+              ],
+              "branches": [
+                "main"
+              ],
+              "pipelines": [],
+              "blocks": [],
+              "states": [],
+              "results": [
+                "passed"
+              ]
+            },
+            "notify": {
+              "slack": {
+                "endpoint": "https://hooks.slack.com/services/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",
+                "channels": [],
+                "message": "",
+                "status": "ACTIVE"
+              },
+              "email": {
+                "subject": "",
+                "cc": [],
+                "bcc": [],
+                "content": "",
+                "status": "ACTIVE"
+              },
+              "webhook": {
+                "endpoint": "",
+                "timeout": 0,
+                "action": "",
+                "retries": 0,
+                "status": "ACTIVE",
+                "secret": ""
+              }
+            }
+          }
+        ]
+      },
+      "status": {
+        "failures": []
+      }
+    }
+  ],
+  "next_page_token": ""
+}
+```
+
+
+### Get notification
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+**Response**
+
+Response contains a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api)
+
+### Create notification
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/notifications
+```
+
+**Request Body**
+
+If any errors occur the response will contain JSON representation of [google/rpc/status.proto](https://github.com/googleapis/googleapis/blob/master/google/rpc/status.proto).
+
+```json
+{
+  "code": 3,
+  "message": "invalid character '}' looking for beginning of object key string",
+  "details": []
+}
+```
+
+Success response will contain a JSON representation of the created notification object in [semaphoreci/api](github.com/semaphoreci/api) with timestamps and id.
+
+```json
+{
+  "metadata": {
+    "name": "test-notif-a"
+  },
+  "spec": {
+    "rules": [
+      {
+        "name": "Passed",
+        "filter": {
+          "projects": [
+            "dummy-repo"
+          ],
+          "branches": [
+            "main"
+          ],
+          "pipelines": [],
+          "blocks": [],
+          "states": [],
+          "results": [
+            "passed"
+          ]
+        },
+        "notify": {
+          "slack": {
+            "endpoint": "https://hooks.slack.com/services/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",
+            "channels": [],
+            "message": "",
+            "status": "INACTIVE"
+          },
+          "email": {
+            "subject": "",
+            "cc": [],
+            "bcc": [],
+            "content": "",
+            "status": "ACTIVE"
+          },
+          "webhook": {
+            "endpoint": "",
+            "timeout": 0,
+            "action": "",
+            "retries": 0,
+            "status": "ACTIVE",
+            "secret": ""
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Update notification
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+**Request Body**
+
+Request body should contain a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api).
+
+**Response**
+
+Response contains a JSON representation of Notification object in [semaphoreci/api](github.com/semaphoreci/api), or an error message.
+
+### Delete notification
+
+```
+DELETE {org_name}.semaphoreci.com/api/v1alpha/notifications/:notification_id_or_name
+```
+
+**Params**
+
+- `notification_id_or_name` (**required**) - The UUID or name of the notification.
+
+
