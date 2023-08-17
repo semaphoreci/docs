@@ -22,7 +22,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
 - Node v16+ and NPM, for building and deploying the CDK application and managing its dependencies
-- Make, Python 3, and Packer for AMI creation and provisioning
+- Make, Python 3.9+, and Packer for AMI creation and provisioning
 - Properly-configured [AWS credentials][aws credentials]
 
 ## Usage
@@ -32,9 +32,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.2.11.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.0.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.2.11
+cd agent-aws-stack-0.3.0
 npm i
 ```
 
@@ -420,7 +420,8 @@ The following AWS IAM policy document describes all the permissions required:
         "s3:PutBucket*",
         "s3:PutObject*",
         "s3:GetEncryptionConfiguration",
-        "s3:PutEncryptionConfiguration"
+        "s3:PutEncryptionConfiguration",
+        "s3:PutLifecycleConfiguration"
       ],
       "Resource": "arn:aws:s3:::cdk*"
     },
@@ -434,7 +435,8 @@ The following AWS IAM policy document describes all the permissions required:
         "ecr:GetLifecyclePolicy",
         "ecr:PutImageTagMutability",
         "ecr:PutImageScanningConfiguration",
-        "ecr:ListTagsForResource"
+        "ecr:ListTagsForResource",
+        "ecr:PutLifecyclePolicy"
       ],
       "Resource": "arn:aws:ecr:*:*:repository/cdk*"
     },
