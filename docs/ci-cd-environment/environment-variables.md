@@ -149,6 +149,21 @@ as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
 
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_MANUAL\_RUN
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_MANUAL_RUN` environment variable
+is `true` if the workflow run was triggered manually by user from Semaphore UI (for instance by running Task manually).
+
+It has a `false` value in workflows which were triggered via a hook from the git
+repository, API, or via [scheduled Task][tasks] feature.
+
+The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_MANUAL_RUN` environment variable remains the same
+during a pipeline run and is available in all the blocks of a pipeline as well
+as in all promoted and auto-promoted pipelines in the same workflow.
+
+Example value: `false`
+
+
 #### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_API
 
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable
