@@ -32,7 +32,7 @@ This can be done via both the Web UI and CLI.
 
 1. Open the project page.
 
-2. Click **Manage Schedulers** on the top right side
+2. Click **Scheduler** in menu (below project name).
 
 3. Click the **New Scheduler** button.
 
