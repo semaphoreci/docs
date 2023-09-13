@@ -353,6 +353,17 @@ source ~/my_script
   </p>
 </details>
 
+### Why does my job fail when I specify "exit 0"  in commands?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+
+Using `exit` command closes the PTY and causes undefined behaviour for the command. As a workaround, you can use `return 0` or `echo "exit 0" | sh` instead.
+
+  </p>
+</details>
+
 ### Why are my workflows not running in parallel?
 
 <details>
