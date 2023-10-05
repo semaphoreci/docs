@@ -4,7 +4,7 @@ Description: Use OpenID Connect within your pipelines to fetch secrets from Hash
 
 # Configure OpenID Connect in Hashicorp Vault
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Scaleup</span>"
 
 Open ID Connect allows your pipelines to access secrets in Hashicorp Vault without the need
 to store long-lived access credentials in Semaphore secrets.
@@ -79,4 +79,4 @@ commands:
 
 [vault-docs]: https://developer.hashicorp.com/vault/docs/auth/jwt
 [vault-policy-docs]: https://developer.hashicorp.com/vault/docs/concepts/policies
-[oidc-overview]: ./security/open-id-connect
+[oidc-overview]: /security/open-id-connect

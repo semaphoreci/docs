@@ -4,7 +4,7 @@ Description: This guide shows you how to set up pre-flight checks run before eac
 
 # Pre-flight checks
 
-!!! plans "Available on: <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Scaleup</span>"
 
 Pre-flight checks are user-defined steps executed for each pipeline within the 
 [pipeline initialization job](/reference/pipeline-initialization/). Their purpose is to provide 

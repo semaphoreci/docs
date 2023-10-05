@@ -131,10 +131,21 @@ be automatically propagated to the cache. The command always passes, i.e. exits
 with a return code of 0.
 
 In case of insufficient disk space, `cache store` frees disk space by deleting
-the oldest keys.
+the oldest keys, by default. You can use the `--cleanup-by` parameter to delete the smallest or least recently accessed keys, in that case:
 
-**Note:** `cache store` does not overwrite data for an existing key.
-You need to [delete the key](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#cache-delete-key) first to update the associated information.
+```bash
+# Deletes the smallest keys first, if no space is available.
+cache store our-gems vendor/bundle --cleanup-by SIZE
+
+# Deletes the least recently accessed keys first, if no space is available.
+cache store our-gems vendor/bundle --cleanup-by ACCESS_TIME
+```
+
+!!! info "Cleaning up keys by access time"
+    Cleaning up keys by access time is only available when using the [SFTP backend](#sftp-backend). Additionally, for performance reasons, the access times on cache keys are only updated once every day, so they may not indicate the latest access times.
+
+!!! info "Overwriting cache keys"
+    `cache store` does not overwrite data for an existing key. You need to [delete the key](https://docs.semaphoreci.com/essentials/caching-dependencies-and-directories/#cache-delete-key) first to update the associated information.
 
 ### cache restore key [,second-key,...]
 
@@ -176,7 +187,18 @@ Example:
 cache list
 ```
 
-This command lists all cache archives for the project.
+This command lists all cache archives for the project. By default, it uses the time the key was stored to sort the keys. The `--sort-by` parameter can be used to sort the keys using other conditions:
+
+```bash
+# List all keys, sorted by size
+cache list --sort-by SIZE
+
+# List all keys, sorted by access time
+cache list --sort-by ACCESS_TIME
+```
+
+!!! info "Sorting by access time"
+    Sorting keys by access time is only available when using the [SFTP backend](#sftp-backend). Additionally, for performance reasons, the access times on cache keys are only updated once every day, so they may not indicate the latest access times.
 
 ### cache delete key
 
@@ -242,6 +264,17 @@ The following environment variables are required for the `s3` storage backend to
 
 Additionally, the `cache` CLI also needs your `~/.aws` folder to be properly configured with the appropriate credentials in order to access your AWS S3 bucket. You can [follow this guide][aws s3 setup] to set this up.
 
+## GCS backend
+
+The following environment variables are required for the `gcs` storage backend to work:
+
+| Environment variable               | Description |
+|------------------------------------|-------------|
+| `SEMAPHORE_CACHE_BACKEND`          | To use the GCS storage backend, this should be set to `gcs`. |
+| `SEMAPHORE_CACHE_GCS_BUCKET`       | The GCS bucket name. |
+
+Additionally, the `cache` CLI also needs your ADC credentials to be properly configured in order to access your GCS bucket. You can read more about ADC credentials [here][adc creds].
+
 ## Troubleshooting
 
 ### `cache restore` restores an archive with a corrupted archive message
@@ -301,3 +334,4 @@ by executing `cache clear` or `cache delete <key>`.
 [debug session]: https://docs.semaphoreci.com/essentials/debugging-with-ssh-access/
 [prologue commands]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/
 [aws s3 setup]: ../../ci-cd-environment/set-up-caching-on-aws-s3
+[adc creds]: https://cloud.google.com/docs/authentication/application-default-credentials

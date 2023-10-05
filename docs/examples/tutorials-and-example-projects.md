@@ -105,6 +105,11 @@ possible, so you can jump-start your own projects.
        <td></td>
        <td></td>
      </tr>
+          <tr>
+       <td><a href="https://docs.semaphoreci.com/examples/estimating-cloud-costs-with-infracost/">Infracost</a></td>
+       <td></td>
+       <td></td>
+     </tr>
   </tbody>
 </table>
 

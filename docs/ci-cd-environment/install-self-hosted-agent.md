@@ -4,7 +4,7 @@ Description: This guide describes how to install a self-hosted agent on various 
 
 # Installing a self-hosted agent
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
@@ -28,7 +28,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.15/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.8/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -59,7 +59,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.15/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.8/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -102,7 +102,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.15/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.8/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -159,7 +159,7 @@ Set-Location C:\semaphore-agent
 **2. Download the agent:**
 
 ```
-Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.15/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.2.8/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
 tar.exe xvf agent.tar.gz
 ```
 

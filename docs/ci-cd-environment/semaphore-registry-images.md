@@ -149,6 +149,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | Image | Link |
 |--------|--------|
 | ubuntu:18.04 | `registry.semaphoreci.com/ubuntu:18.04` |  
+| ubuntu:20.04 | `registry.semaphoreci.com/ubuntu:20.04` |  
+| ubuntu:22.04 | `registry.semaphoreci.com/ubuntu:22.04` |  
 
 ### Android  
 | Image | Link |
@@ -174,7 +176,15 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | android:31 | `registry.semaphoreci.com/android:31` |
 | android:31-flutter | `registry.semaphoreci.com/android:31-flutter` |
 | android:31-node | `registry.semaphoreci.com/android:31-node` |
-
+| android:32 | `registry.semaphoreci.com/android:32` |
+| android:32-flutter | `registry.semaphoreci.com/android:32-flutter` |
+| android:32-node | `registry.semaphoreci.com/android:32-node` |
+| android:33 | `registry.semaphoreci.com/android:33` |
+| android:33-flutter | `registry.semaphoreci.com/android:33-flutter` |
+| android:33-node | `registry.semaphoreci.com/android:33-node` |
+| android:34 | `registry.semaphoreci.com/android:34` |
+| android:34-flutter | `registry.semaphoreci.com/android:34-flutter` |
+| android:34-node | `registry.semaphoreci.com/android:34-node` |
 
 ## Supported sem-service images  
 The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/) for starting, stopping, and getting the status of background services. You can use `sem-service` to pull images from the Semaphore Container Registry. All supported versions are listed below.  

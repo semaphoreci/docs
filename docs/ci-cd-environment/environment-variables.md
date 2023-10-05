@@ -74,6 +74,12 @@ Semaphore.
 
 Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
+#### SEMAPHORE\_JOB\_CREATION_TIME
+
+The `SEMAPHORE_JOB_CREATION_TIME` environment variable holds the UNIX epoch seconds for when the job was created.
+
+Example value: `1632943641`.
+
 #### SEMAPHORE\_JOB\_RESULT
 
 The value of the `SEMAPHORE_JOB_RESULT` environment variable holds the result
