@@ -56,7 +56,7 @@ multiple Semaphore 2.0 projects connected to the same GitHub repository.
 ### spec
 
 The `spec` property is currently used for holding the required `repository` and
-optional `schedulers` properties.
+optional `schedulers` and `tasks` properties.
 
 #### repository
 
@@ -170,6 +170,9 @@ Here is a list of values for `level`: `block`, `pipeline`.
 
 #### schedulers
 
+!!! warning "Scheduler/cron is deprecated in favor of Tasks"
+    This property is deprecated and will be removed in the future. Please use `tasks` instead.
+
 The schedulers property can contain a list of schedulers defined in the
 project.
 
@@ -208,6 +211,71 @@ For more information on defining a valid pipeline file, visit the
 ##### status
 
 The current status of the scheduler. This can be `ACTIVE` if the scheduler is currently enabled, or `INACTIVE` if the scheduler is currently disabled. 
+
+#### tasks
+
+The tasks property can contain a list of tasks defined in the project.
+
+A task is a way to run a pre-defined pipeline on a project at the pre-defined 
+time or on demand. All times are interpreted as UTC.
+
+A task has the following properties:
+
+##### name
+
+The `name` property uniquely identifies each task within a project.
+
+##### description
+
+The `description` property provides additional comment for a task. It is optional and can be omitted.
+
+##### scheduled
+
+The `scheduled` property determines whether task is scheduled 
+(triggers a workflow periodically) or not. It is a boolean value
+(`true` or `false`).
+
+If `scheduled` is set to `true`, then `at` property must be set.
+
+##### branch
+
+The `branch` property specifies which branch will be used for
+running the pipeline.
+
+The chosen branch must exist on the remote repository.
+
+##### at
+
+The `at` property defines the schedule under which the pipeline will be run. This parameters is accepted and is mandatory only if `scheduled` is set to `true`. Otherwise, empty string is expected.
+
+Semaphore expects this property to be in the [standard cron syntax](https://en.wikipedia.org/wiki/Cron).
+For a simple way to define your cron syntax, visit [crontab.guru](https://crontab.guru/).
+
+##### pipeline_file
+
+The `pipeline_file` property contains the relative path to the pipeline
+definition file from the root of the project.
+
+For more information on defining a valid pipeline file, visit the
+[Pipeline YAML Reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/) documentation page.
+
+##### status
+
+The current status of the task. This can be `ACTIVE` if the scheduler is currently enabled, or `INACTIVE` if the scheduler is currently disabled. 
+
+##### parameters
+
+The `parameters` property contains a list of parameters passed to the triggered workflow. 
+Those parameters are accessible in job environment as environment variables. By default,
+`parameters` is an empty list.
+
+Each parameter has the following properties:
+
+- `name` *(required)* - the name of the parameter, it must be unique within the list of parameters,
+- `required` *(required)* - a boolean value (`true` or `false`) that determines whether the parameter is required or not,
+- `description` *(optional)* - a description of the parameter,
+- `default_value` *(optional)* - a default value of the parameter (mandatory in case of required parameters),
+- `options` *(optional)* - a list of possible values displayed in the UI.
 
 ## Examples
 
@@ -259,6 +327,51 @@ spec:
       at: "5 3 * * *"
       pipeline_file: ".semaphore/semaphore.yml"
       status: ACTIVE
+```
+
+
+A project with tasks:
+
+``` yaml
+apiVersion: v1alpha
+kind: Project
+metadata:
+  name: goDemo
+spec:
+  repository:
+    url: "git@github.com:renderedtext/goDemo.git"
+    run_on:
+      - branches
+      - tags
+    pipeline_file: ".semaphore/semaphore.yml"
+    status:
+      pipeline_files:
+        - path: ".semaphore/semaphore.yml"
+          level: "pipeline"
+  tasks:
+    - name: first-scheduler
+      scheduled: true
+      branch: master
+      at: "5 4 * * *"
+      pipeline_file: ".semaphore/cron.yml"
+      status: ACTIVE
+    - name: second-task
+      description: "second-task description"
+      scheduled: false
+      branch: develop
+      at: ""
+      pipeline_file: ".semaphore/canary.yml"
+      status: ACTIVE
+      parameters:
+      - name: CANARY_VERSION
+        required: true
+        default_value: "1.0.0"
+      - name: DEBUG_INFO
+        required: false
+        default_value: "false"
+        options:
+        - "true"
+        - "false"
 ```
 
 ## See Also
