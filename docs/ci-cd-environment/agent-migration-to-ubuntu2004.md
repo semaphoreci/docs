@@ -5,14 +5,14 @@ Description: This guide specifies the steps to change your Semaphore 2.0 agent O
 # Migrating from Ubuntu 18.04 to Ubuntu 20.04 
 If you've used the Semaphore Ubuntu 18.04 image, this guide will help you migrate to the Ubuntu 20.04 image.
 
-### You don't have to migrate
-The Ubuntu 18.04 image will continue to be supported and updated. There are no current plans to deprecate it.
+### You have to migrate
 
-Please note, however, that Ubuntu 18.04 is coming out of LTS in 2023, so we would advise you migrate to the Ubuntu 20.04 image when possible.
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 October 2023. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
 
 ### Benefits of using the Ubuntu 20.04 image
-Ubuntu 20.04 LTS (Focal Fossa) is the latest LTS release for the Ubuntu Linux
-server operating system. There are many good reasons to keep your development environment up to date. Here are only some of the benefits of switching to Ubuntu 20.04:
+Ubuntu 20.04 LTS (Focal Fossa) is the newer LTS release for the Ubuntu Linux server operating system. 
+There are many good reasons to keep your development environment up to date. 
+Here are only some of the benefits of switching to Ubuntu 20.04:
 
 - **Speed** - this release has enhanced resource usage and includes a newer kernel.
 - **Longer support** - Canonical will support Ubuntu 20.04 until April 2025.
@@ -55,10 +55,15 @@ as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in 
 | Elixir 1.11.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Elixir 1.11.4 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Elixir 1.12.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Elixir 1.13.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Elixir 1.14.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Elixir 1.15.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Erlang 21 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Erlang 22 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Erlang 23 | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Erlang 24 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Erlang 25 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Erlang 26 | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Firefox | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Google Cloud CLI | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Git | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
@@ -73,6 +78,8 @@ as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in 
 | PHP 7.3.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | PHP 7.4.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | PHP 8.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| PHP 8.1.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| PHP 8.2.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Podman | <span style="color:red;">&#10007;</span> | <span style="color:green;">&#10004;</span> |
 | Python 2.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
 | Python 3.6| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
@@ -89,6 +96,8 @@ as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in 
 | Ruby 2.6.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Ruby 2.7.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Ruby 3.0.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Ruby 3.1.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Ruby 3.2.x | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Scala  | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Skopeo  | <span style="color:red;">&#10007;</span> | <span style="color:green;">&#10004;</span> |
 | Terraform | <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 

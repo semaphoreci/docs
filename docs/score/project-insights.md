@@ -3,7 +3,7 @@ Description: Project Insights are a set of metrics that provide a granular view 
 ---
 # Project Insights
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 Project Insights provide metrics about your projects' development performance, speed, and reliability. For example, you can
 see the percentage of passed tests for the last few days in the whole project or your main branch.
@@ -12,19 +12,21 @@ You can also set up insights for your project's deployment branch via Settings o
 
 ## Configuring Insights
 
-Semaphore tracks your CI insights automatically. You only need to set up insights for CD. 
+Semaphore does its best to figure out which CI branch and pipeline to show you insights for. You can tell Semaphore the branch and pipeline file that you're interested in examining in the Insights Settings.
+However, you **must** fill in branch and pipeline values for continuous deployment to see  CD metrics.
 
-### Setting up Continuous Deployment insights
+### Setting up Integration and Deployment insights
 
-Follow the steps below to set up CD insights:
+Follow the steps below to set up CI/CD insights:
 
 1. Click on the **Insights** tab on the project page.
 2. Click on the Gear Icon (Settings) on the left side navigation bar of the Insights page.
-3. Provide the required information:
-    - Provide the Branch Name
-    - Provide the Pipeline File Path
-4. Click the **Save** button.
+3. Provide the following information:
+    - Branch Name
+    - Pipeline File Path
+4. Click on the **Save changes** button.
 
+!!! warning "Both Branch Name and Pipeline File Name are mandatory in order to set up Continuous Deployment insights in Semaphore. However, for Continuous Integration settings in Semaphore, both fields are optional."
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/settings.png" alt="Project Insights - Settings page">
 After you save changes, Semaphore will start collecting metrics for your deployment branch.
@@ -35,7 +37,7 @@ Semaphore breaks down the metrics by Performance, Frequency, and Reliability. Yo
 on the left.
 
 On the dashboard, you can see a summary of how long the pipelines need to run on average (Performance), how often
-your team runs a pipeline (Frequency), and how stable your code is (Reliability).
+your team runs pipelines (Frequency), and how stable your code is (Reliability).
 
 ### Performance
 Performance metrics provide an overview of the median time (p50) and the standard deviation (std.dev) that it takes the 
@@ -43,19 +45,19 @@ pipelines to run. In addition, you can see the data for a selected branch (main 
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/perf.png" alt="Performance metrics">
 
-If you have set up the CD Insights, you can also see data for the deployment branch.
+If you have set up CD Insights, you can also see data for the deployment branch.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_perf.png" alt="Performance metrics - CD">
 
 ### Frequency
 Frequency metrics show the number of executed pipelines per week for your project's main branch and all 
-branches and the total number of runs for all pipelines per day.
+branches, and the total number of runs for all pipelines per day.
 
 A tooltip with the total number of runs appears when you hover over the chart for a specific day.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/ci_freq.png" alt="Performance frequency">
 
-You can see the data from the deployment branch if you have CD insights set up.
+You can see data from the deployment branch if you have CD insights set up.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_freq.png" alt="Performance frequency - CD">
 
@@ -68,7 +70,7 @@ When you hover over a day on the chart, a tooltip gets displayed with the Pass R
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/ci_rel.png" alt="Performance reliability">
 
-You can see the data from the deployment branch if you have CD insights set up.
+You can see data from the deployment branch if you have CD insights set up.
 
 <img style="box-shadow: 0 0 5px #ccc" src="/score/img/cd_rel.png" alt="Performance reliability - CD">
 

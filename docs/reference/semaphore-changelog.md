@@ -8,6 +8,447 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of September 11, 2023
+
+**(Improved) macos-xcode14 image update**
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.213.0 -> 2.214.0
+- Flutter 3.10.5 -> 3.13.3
+- Homebrew 3.6.2 -> 4.1.11
+- Postgres 14.5 -> 14.9
+
+### Week of July 17, 2023
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(New)** Packages
+
+- Erlang 26.0.2 (aliased as 26.0)
+- Elixir 1.14.5 (default), 1.15.0, 1.15.1, 1.15.2
+- Go 1.19.10, 1.19.11, 1.20.5, 1.20.6 (default)
+- PHP 8.0.29, 8.1.20, 8.1.21, 8.2.7, 8.2.8 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.19.0-1018-lowlatency -> 6.2.0-1008-lowlatency
+- Aws-cli 1.27.85 -> 1.29.2
+- Aws-cli 2.11.0 -> 2.13.0
+- Azure-cli 2.46.0 -> 2.50.0
+- Bazel 6.2.0 -> 6.2.1
+- Containerd.io 1.6.18 -> 1.6.21
+- Docker 23.0.1 -> 24.0.4
+- Docker-compose 2.15.1 -> 2.20.0
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.92.0 -> 1.97.0
+- Firefox ESR 102.5.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0
+- Git 2.39.2 -> 2.41.0
+- Gcloud 420.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 420.0.0 -> 425.0.0
+- Google Chrome 110 -> 112
+- ChromeDriver 110 -> 112
+- Github-cli 2.23.0 -> 2.32.0
+- Helm 3.11.1 -> 3.12.1
+- Heroku 7.68.3 -> 8.1.9
+- Httpie 3.2.1 -> 3.2.2
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Kerl 2.5.1 -> 3.0.0
+- Kubectl 1.26.1 -> 1.27.3
+- Maven 3.9.0 -> 3.9.3
+- NodeJS 18.12.1 -> 18.16.1
+- Npm 8.19.2 -> 9.5.1
+- Pip 23.0 -> 23.1.2
+- Rebar3 3.18.0 -> 3.22.0
+- Rust 1.67.1 -> 1.71.0
+- Sbt 1.8.2 -> 1.9.2
+- Terraform 1.3.7 -> 1.5.2
+- Virtualenv 20.17.1 -> 20.23.0
+
+To learn more about this image, check our [ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(Downgraded)** Packages
+
+- Google Chrome 114 -> 112
+- ChromeDriver 114 -> 112
+- Gcloud 432.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 432.0.0 -> 425.0.0
+
+**(New)** Packages
+
+- Elixir 1.15.0, 1.15.1, 1.15.2
+- Go 1.19.10, 1.19.11, 1.20.5, 1.20.6 (default)
+- PHP 8.0.29, 8.1.20, 8.1.21, 8.2.7, 8.2.8
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-73-generic -> 5.15.0-76-generic
+- Aws-cli 1.27.142 -> 1.29.2
+- Aws-cli 2.11.23 -> 2.13.0
+- Azure-cli 2.49.0 -> 2.50.0
+- Bazel 6.2.0 -> 6.2.1
+- Doctl 1.96.1 -> 1.97.0
+- Docker-compose 2.18.1 -> 2.20.0
+- Erlang 23.3.4.18 -> 23.3.4.19 (aliased as 23.3)
+- Erlang 24.3.4.11 -> 24.3.4.13 (aliased as 24.3)
+- Erlang 25.3.2 -> 25.3.2.3 (aliased as 25.3)
+- Erlang 26.0 -> 26.0.2 (aliased as 26.0)
+- Git 2.40.1 -> 2.41.0
+- Github-cli 2.29.0 -> 2.32.0
+- Helm 3.12.0 -> 3.12.1
+- Heroku 8.1.6 -> 8.1.9
+- Kerl 2.6.0 -> 3.0.0
+- Kubectl 1.27.2 -> 1.27.3
+- Maven 3.9.2 -> 3.9.3
+- NodeJS 18.15.0 -> 18.16.1
+- Npm 9.5.0 -> 9.5.1
+- Python 3.9.16 -> 3.9.17
+- Python 3.10.11 -> 3.10.12
+- Python 3.11.3 -> 3.11.4
+- Pypy3 7.3.11 -> 7.3.12
+- Sbt 1.8.3 -> 1.9.1
+- Terraform 1.4.6 -> 1.5.2
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 October 2023. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
+
+**(Downgraded)** Packages
+
+- Google Chrome 114 -> 112
+- ChromeDriver 114 -> 112
+- Gcloud 432.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 432.0.0 -> 425.0.0
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of July 10, 2023
+
+**(Improved) macos-xcode14 image update**
+
+**(New)** Packages: Xcode 14.3.1
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.212.1 -> 2.213.0
+- Flutter 3.7.10 -> 3.10.5
+- Ruby 2.6.9 -> 2.7.8
+- Simulators (iOS, watchOS, tvOS) 9.1 -> 9.4
+  
+**(Removed)** Removed packages: Xcode 14.0
+
+### Week of June 05, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Erlang 26.0
+- Elixir 1.14.5
+- Go 1.19.9, 1.20.4 (default)
+- PHP 8.1.18, 8.1.19, 8.2.5, 8.2.6
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-69-generic -> 5.15.0-73-generic
+- Aws-cli 1.27.108 -> 1.27.142
+- Aws-cli 2.11.10 -> 2.11.23
+- Aws-eb-cli 3.20.3 -> 3.20.6
+- Azure-cli 2.47.0 -> 2.49.0
+- Bazel 6.1.1 -> 6.2.0
+- Containerd.io 1.6.20 -> 1.6.21
+- Docker 23.0.3 -> 24.0.2
+- Docker-compose 2.17.2 -> 2.18.1
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.93.1 -> 1.96.1
+- Erlang 24.3.4.10 -> 24.3.4.11 (aliased as 24.3)
+- Erlang 25.3 -> 25.3.2 (aliased as 25.3)
+- Firefox ESR 102.3.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0
+- Git 2.40.0 -> 2.40.1
+- Github-cli 2.26.1 -> 2.29.0
+- Google Chrome 112 -> 114
+- ChromeDriver 112 -> 114
+- Gcloud 425.0.0 -> 432.0.0
+- Gke-gcloud-auth-plugin 425.0.0 -> 432.0.0
+- Helm 3.11.2 -> 3.12.0
+- Heroku 7.69.1 -> 8.1.6
+- Httpie 1.0.3 -> 3.2.2
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Virtualenv 20.17.1 -> 20.23.0
+- Kerl 2.4.0 -> 2.6.0
+- Kubectl 1.26.3 -> 1.27.2
+- Maven 3.6.3 -> 3.9.2
+- NodeJS 18.15.0 -> 18.16.0
+- Npm 9.5.0 -> 9.5.1
+- Rebar3 3.18.0 -> 3.22.0
+- Pip 23.0.1 -> 23.1.2
+- Sbt 1.8.2 -> 1.8.3
+- Terraform 1.4.4 -> 1.4.6
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 26.0
+- Elixir 1.14.5
+- Go 1.19.9, 1.20.4 (default)
+- PHP 8.1.18, 8.1.19, 8.2.5, 8.2.6
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-146-generic -> 5.4.0-150-generic
+- Aws-cli 1.27.108 -> 1.27.142
+- Aws-cli 2.11.10 -> 2.11.23
+- Azure-cli 2.47.0 -> 2.49.0
+- Bazel 6.1.1 -> 6.2.0
+- Containerd.io 1.6.20 -> 1.6.21
+- Docker 23.0.3 -> 24.0.2
+- Docker-compose 2.17.2 -> 2.18.1
+- Dockerize 0.6.1 -> 0.7.0
+- Doctl 1.93.1 -> 1.96.1
+- Erlang 24.3.4.10 -> 24.3.4.11 (aliased as 24.3)
+- Erlang 25.3 -> 25.3.2 (aliased as 25.3)
+- Firefox ESR 102.3.0 -> 102.11.0
+- Gecko 0.26.0 -> 0.33.0
+- Git 2.40.0 -> 2.40.1
+- Github-cli 2.26.1 -> 2.29.0
+- Google Chrome 112 -> 114
+- ChromeDriver 112 -> 114
+- Gcloud 425.0.0 -> 432.0.0
+- Gke-gcloud-auth-plugin 425.0.0 -> 432.0.0
+- Helm 3.11.2 -> 3.12.0
+- Heroku 7.69.1 -> 8.1.6
+- Java OpenJDK 8u362 -> 8u372
+- Java OpenJDK 11.0.18 -> 11.0.19
+- Java OpenJDK 17.0.6 -> 17.0.7
+- Kerl 2.4.0 -> 2.6.0
+- Kubectl 1.26.3 -> 1.27.2
+- Maven 3.6.3 -> 3.9.2
+- Rebar3 3.18.0 -> 3.22.0
+- Pip 23.0.1 -> 23.1.2
+- Sbt 1.8.2 -> 1.8.3
+- Terraform 1.4.4 -> 1.4.6
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of April 10, 2023
+
+**(Improved) macos-xcode14 image update**
+
+**(New)** Packages: Xcode 14.3
+
+**(Updated)** Updated packages:
+
+- Fastlane 2.211.0 -> 2.212.1
+- Flutter 3.7.0 -> 3.7.10
+
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Elixir 1.14.4
+- Ruby 2.7.8 (default), 3.0.6, 3.1.4, 3.2.2
+- Go 1.19.8, 1.20.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-67-generic -> 5.15.0-69-generic
+- Aws-cli 1.27.93 -> 1.27.108
+- Aws-cli 2.11.3 -> 2.11.10
+- Azure-cli 2.46.0 -> 2.47.0
+- Containerd.io 1.6.18 -> 1.6.20
+- Docker 23.0.1 -> 23.0.3
+- Docker-compose 2.16.0 -> 2.17.2
+- Erlang 24.3.4.9 -> 24.3.4.10 (aliased as 24.3)
+- Github-cli 2.24.3 -> 2.26.1
+- Google Chrome 111 -> 112
+- ChromeDriver 111 -> 112
+- Gcloud 422.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 422.0.0 -> 425.0.0
+- Gem 3.4.7 -> 3.4.10
+- Bundler 2.4.7 -> 2.4.10
+- Kubectl 1.26.2 -> 1.26.3
+- Terraform 1.4.2 -> 1.4.4
+- Python 3.10.10. -> 3.10.11
+- Python 3.11.2 -> 3.11.3
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.14.4
+- Ruby 2.7.8 (default), 3.0.6, 3.1.4, 3.2.2
+- Go 1.19.8, 1.20.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-144-generic -> 5.4.0-146-generic
+- Aws-cli 1.27.93 -> 1.27.108
+- Aws-cli 2.11.3 -> 2.11.10
+- Azure-cli 2.46.0 -> 2.47.0
+- Containerd.io 1.6.18 -> 1.6.20
+- Docker 23.0.1 -> 23.0.3
+- Docker-compose 2.16.0 -> 2.17.2
+- Erlang 24.3.4.9 -> 24.3.4.10 (aliased as 24.3)
+- Github-cli 2.24.3 -> 2.26.1
+- Google Chrome 111 -> 112
+- ChromeDriver 111 -> 112
+- Gcloud 422.0.0 -> 425.0.0
+- Gke-gcloud-auth-plugin 422.0.0 -> 425.0.0
+- Gem 3.4.7 -> 3.4.10
+- Bundler 2.4.7 -> 2.4.10
+- Kubectl 1.26.2 -> 1.26.3
+- Terraform 1.4.2 -> 1.4.4
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of March 20, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Erlang 25.3
+- PHP 8.1.17, 8.2.4
+- Go 1.19.7, 1.20.2 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-60-generic -> 5.15.0-67-generic
+- Aws-cli 1.27.78 -> 1.27.93
+- Aws-cli 2.10.2 -> 2.11.3
+- Azure-cli 2.45.0 -> 2.46.0
+- Bazel 6.0.0 -> 6.1.1
+- Git 2.39.2 -> 2.40.0
+- Github-cli 2.23.0 -> 2.24.3
+- Google Chrome 110 -> 111
+- ChromeDriver 110 -> 111
+- Gcloud 419.0.0 -> 422.0.0
+- Gke-gcloud-auth-plugin 419.0.0 -> 422.0.0
+- Doctl 1.92.1 -> 1.93.1
+- Helm 3.11.1 -> 3.11.2
+- Heroku 7.68.2 -> 7.69.1
+- Kubectl 1.26.1 -> 1.26.2
+- Java OpenJDK 11.0.17 -> 11.0.18
+- Java OpenJDK 17.0.5 -> 17.0.6
+- Terraform 1.3.9 -> 1.4.2
+- Nodejs 18.14.2 -> 18.15.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Erlang 25.3
+- PHP 8.1.17, 8.2.4
+- Go 1.19.7, 1.20.2 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-139-generic -> 5.4.0-144-generic
+- Aws-cli 1.27.78 -> 1.27.93
+- Aws-cli 2.10.2 -> 2.11.3
+- Azure-cli 2.45.0 -> 2.46.0
+- Bazel 6.0.0 -> 6.1.1
+- Git 2.39.2 -> 2.40.0
+- Github-cli 2.23.0 -> 2.24.3
+- Google Chrome 110 -> 111
+- ChromeDriver 110 -> 111
+- Gcloud 419.0.0 -> 422.0.0
+- Gke-gcloud-auth-plugin 419.0.0 -> 422.0.0
+- Doctl 1.92.1 -> 1.93.1
+- Helm 3.11.1 -> 3.11.2
+- Heroku 7.68.2 -> 7.69.1
+- Kubectl 1.26.1 -> 1.26.2
+- Java OpenJDK 8u352 -> 8u362
+- Java OpenJDK 11.0.17 -> 11.0.18
+- Java OpenJDK 17.0.5 -> 17.0.6
+- Terraform 1.3.9 -> 1.4.2
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
+### Week of February 27, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages
+
+- Go 1.19.6, 1.20.1 (default)
+- PHP 8.0.28, 8.1.16, 8.2.3
+- Ruby 3.2.1
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-58-generic -> 5.15.0-60-generic
+- Aws-cli 1.27.62 -> 1.27.78
+- Aws-cli 2.9.20 -> 2.10.2
+- Azure-cli 2.44.1 -> 2.45.0
+- Containerd.io 1.6.16 -> 1.6.18
+- Docker 20.10.22 -> 23.0.1
+- Docker-compose 2.15.1 -> 2.16.0
+- Erlang 24.3.4.8 -> 24.3.4.9 (aliased as 24.3)
+- Erlang 25.2.2 -> 25.2.3 (aliased as 25.2)
+- Git 2.39.1 -> 2.39.2
+- Github-cli 2.22.1 -> 2.23.0
+- Gcloud 416.0.0 -> 419.0.0
+- Gke-gcloud-auth-plugin 416.0.0 -> 419.0.0
+- Google Chrome 109 -> 110
+- ChromeDriver 109 -> 110
+- Helm 3.11.0 -> 3.11.1
+- Heroku 7.67.2 -> 7.68.2
+- Pip 23.0 -> 23.0.1
+- Terraform 1.3.7 -> 1.3.9
+- Nodejs 18.13.0 -> 18.14.2
+- Npm 8.19.3 -> 9.5.0
+
+To learn more about this image, check our [ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 18.04 image update**
+
+**(New)** Packages:
+
+- Go 1.19.6, 1.20.1 (default)
+- PHP 8.0.28, 8.1.16, 8.2.3
+- Ruby 3.2.1
+
+**(Updated)** Updated packages:
+
+- Kernel 5.4.0-137-generic -> 5.4.0-139-generic
+- Aws-cli 1.27.62 -> 1.27.78
+- Aws-cli 2.9.20 -> 2.10.2
+- Azure-cli 2.44.1 -> 2.45.0
+- Containerd.io 1.6.16 -> 1.6.18
+- Docker 20.10.22 -> 23.0.1
+- Docker-compose 2.15.1 -> 2.16.0
+- Erlang 24.3.4.8 -> 24.3.4.9 (aliased as 24.3)
+- Erlang 25.2.2 -> 25.2.3 (aliased as 25.2)
+- Git 2.39.1 -> 2.39.2
+- Github-cli 2.22.1 -> 2.23.0
+- Gcloud 416.0.0 -> 419.0.0
+- Gke-gcloud-auth-plugin 416.0.0 -> 419.0.0
+- Google Chrome 109 -> 110
+- ChromeDriver 109 -> 110
+- Helm 3.11.0 -> 3.11.1
+- Heroku 7.67.2 -> 7.68.2
+- Pip 23.0 -> 23.0.1
+- Terraform 1.3.7 -> 1.3.9
+
+To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/).
+
 ### Week of February 06, 2023
 
 **(Improved) Ubuntu 20.04 image update**
@@ -1777,7 +2218,7 @@ Removed from the image:
 - Xcode 12.2
 - Xcode 12.5.0
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Improved) macOS Xcode 13 image**
 
@@ -1832,7 +2273,7 @@ Updated packages:
 - Flutter 2.0.6 -> 2.5.1
 - Ruby 2.5.1 -> 2.6.8
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of September 20, 2021
 
@@ -1879,8 +2320,8 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 **IMPORTANT: (Deprecated) MacOS Xcode 11**  
 
-The [macOS Xcode 11 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) will be removed in one month.  
-We advise all users to switch to the [macOS Xcode 12 image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+The macOS Xcode 11 image will be removed in one month.  
+We advise all users to switch to the macOS Xcode 12 image.
 
 
 **(Improved) Ubuntu 20.04 image update**
@@ -1949,12 +2390,12 @@ Updated packages:
 - Xcode 12.5 -> 12.5.1
 - Yarn 1.22.4 -> 1.22.11
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 
 **(Improved) Ubuntu 18.04 image update**
 
-- **(Deprecated)** Python 2.7 has reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the beginning of September 2021.
+- ~~**(Deprecated)** Python 2.7 has reached [End of Life](https://www.python.org/doc/sunset-python-2/) and is no longer maintained, it will be removed from the Bionic image at the beginning of September 2021.~~
 
 **(New)** Packages:
 
@@ -2246,7 +2687,7 @@ Updated packages:
 
 **(Removed)** Xcode 12.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of April 26, 2021
 **(Improved) macOS Xcode 12 image update**  
@@ -2255,7 +2696,7 @@ To learn more about this image, check our [macOS Xcode 12 page](https://docs.sem
 - Homebrew 2.4.3 -> 3.1.4
 - Rbenv can install ruby 2.6.7, 2.7.3, 3.0.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of April 19, 2021
 **(Improved) Ubuntu 18.04 image update**  
@@ -2291,7 +2732,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 - Curl 7.64.1 -> 7.71.1
 - Flutter 1.17 -> 2.0.4
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Updated)** Docker image:  
 New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
@@ -2428,7 +2869,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 - Fastlane 2.170.0 -> 2.172.0
 - Cocoapods 1.10.0 -> 1.10.1
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Updated)** Docker image:
 New convenience Docker images are available in the [Semaphore Container Registry](https://docs.semaphoreci.com/ci-cd-environment/semaphore-registry-images/).
@@ -2494,13 +2935,13 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
 
 ### Week of December 21, 2020  
 **(Improved) macOS Xcode 12 image update**  
-**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported in the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.  
+**(Removed)** Xcode 12.0 and Xcode 12.0.1 are no longer supported in the macOS Xcode 12 image.  
 **(New)** Xcode 12.3 was added to the image.  
 **(Updated)** Updated packages:
  
 - Fastlane 2.169.0 ->  2.170.0
 
-Note that the default Xcode version was changed to 12.3 for the [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) image.
+Note that the default Xcode version was changed to 12.3 for the macOS Xcode 12 image.
 
 **Minor improvements and fixes:**
 
@@ -2526,7 +2967,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
  
 - Fastalne 2.167.0 ->  2.169.0
 
-To learn more about our image macOS images, check our [macOS Xcode 12](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/) and [macOS Xcode 11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) documentation. 
+To learn more about our image macOS images, check our macOS Xcode 12 and macOS Xcode 11 documentation. 
 
 ### Week of November 23, 2020
 
@@ -2562,7 +3003,7 @@ Read our [Workflow triggers](https://docs.semaphoreci.com/essentials/project-wor
 - Fastlane 2.162.0 -> 2.167  
 - Flutter v1.22.1  -> 1.22.4
  
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 ### Week of November 9, 2020
 **(Updated) New UI available to everyone**  
@@ -2582,7 +3023,7 @@ We appreciate your feedback and encourage you to send any suggestions to [our fe
  
 - Cocoapods 1.9.3 -> 1.10.0
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of November 2, 2020
 
@@ -2611,7 +3052,7 @@ You can find the list of supported images in [our documentation](/ci-cd-environm
 - Fastlane 2.162.0 -> 2.166  
 - Flutter v1.22.1  -> 1.22.3
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(Improved) Ubuntu 18.04 image update**  
 **(Updated)** Language versions:
@@ -2652,7 +3093,7 @@ To learn more about this image, check our [Ubuntu 18.04 page](https://docs.semap
   - Fastlane 2.158.0 -> 2.162.0  
   - Flutter v1.20.2 -> v1.22.1  
   
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 ### Week of October 5, 2020
 **(Improved) Ubuntu 18.04 image update**  
@@ -2681,7 +3122,7 @@ New MacOS image is now available - `macos-xcode12`.
 The default Xcode version in this image is Xcode 12.0 and will be updated in the future.  
 If you are using `macos-xcode11`, you can switch to the latest image by changing the `os_image` value in your YAML file.  
 
-To learn more about this image, check our [macOS Xcode 12 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/).
+To learn more about this image, check our macOS Xcode 12 page.
 
 **(New) Fork&Run example projects**  
 Semaphore provides several different example projects that showcase the basic features of our product.  
@@ -2731,7 +3172,7 @@ If you want to try out the new UI, but it hasn't yet rolled out to your organiza
   - Fastlane 2.149.1 -> 2.158.0  
   - Flutter v1.20.2 -> v1.20.3  
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 **(New) Ubuntu 18.04 image additions** 
 - Added Go 1.15
@@ -2768,7 +3209,7 @@ If you want to try out the new UI, but it hasn't yet rolled out to your organiza
 **(Updated)** Xcode 11.6 installed. To switch version simply use `xcversion select 11.6`.
 **(Deprecated)** Xcode 11.2.1 will be removed from the images with the next release.  
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
 
 ### Week of August 24, 2020
 **(New) Information on promoter is stored in related enviroment variable**  
@@ -2795,7 +3236,7 @@ Information on all available enviroment variables can be found in our [documenta
   - Fastlane 2.149.1 -> 2.156.1
   - Flutter v1.17.3 -> v1.20.2
   
-To learn more about this image, check our [macOS Xcode 11 page](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/).
+To learn more about this image, check our macOS Xcode 11 page.
   
  **Minor improvements and fixes:**  
  - **(Fixed)** Fixed an issue where `[skip ci]` was ignored for pull request triggers.  
@@ -2859,7 +3300,7 @@ For more details on setting job priorities check the [prioritization page](https
 The option to check the health of GitHub deploy key and webhook has been added in the project settings UI.  
 These new settings also allow you to quickly repair connections between a Semaphore project and connected GitHub repositories.
 
-Read more about troubleshooting connections between Semaphore and GitHub in our [documentation](https://docs.semaphoreci.com/account-management/checking-the-connection-between-github-and-semaphore-2.0/#check-deploy-key-health).
+Read more about troubleshooting connections between Semaphore and GitHub in our [documentation](/account-management/connecting-github-and-semaphore/#verifying-deploy-key-health).
 
 **(Improved) Cached Android docker images**  
 From now on, Android docker images for the two latest stable SDK versions will always be cached, meaning that the jobs using these images will now start up even faster.
@@ -2887,7 +3328,7 @@ For getting started with an Android project on Semaphore please see this [guide]
     - Aws-cli 1.18.77 -> 1.18.90
     - Docker-compose 1.24.1 -> 1.26.0
 
-- The [macos-xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image update.
+- The macos-xcode11 image update.
 The following packages were updated:
     - Fastlane 1.50.1
     - Flutter 1.17.5
@@ -2930,7 +3371,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of May 18, 2020
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2421)
-- Updates to the [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/):
+- Updates to the macOS Catalina Xcode11:
     - Xcode 11.5 installed
     - Flutter version update to 1.17.1
     - Fastlane gem version update to 2.148.1
@@ -2960,12 +3401,12 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 - Names of Semaphore Secrets are now restricted to alphanumeric characters, dashes, dots, and `@`.
   Regex: `^[@: -._a-zA-Z0-9]+$`).
 - Updates to the macOS image:
-    - Flutter version updated to 1.17.0, image spec [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - Flutter version updated to 1.17.0, image spec macOS Catalina Xcode11
 - New convenience Docker images available in Semaphore's DockerHub Account.
 A detailed list can be found in the [Docker images changelog](https://github.com/semaphoreci/docker-images/blob/master/CHANGELOG#L2164).
 
 ### Week of April 27, 2020
-- New macOS image available - [macOS Catalina Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+- New macOS image available - macOS Catalina Xcode11
 - Updates to the Ubuntu1804 image:
     - Aws-cli 1.18.39 -> 1.18.42
     - Jruby 9.1.17.0 -> 9.2.11.1
@@ -2975,7 +3416,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4.1 installed. To switch version use
-    `xcversion select 11.4.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.4.1`, image spec macOS Mojave Xcode11
     - `macos-mojave-xcode11` Xcode 11.1 and Xcode 11.4 removed from the image.
 - Updates to the Ubuntu1804 image:
     - TCP port 8000 is no longer occupied.
@@ -2998,7 +3439,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.4 installed. To switch version use
-    `xcversion select 11.4`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.4`, image spec macOS Mojave Xcode11
     - `macos-mojave-xcode11` Xcode 11.0 removed from the image.
     - installed packages:
       - google-chrome
@@ -3130,7 +3571,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.3.1 installed. To switch version use
-    `xcversion select 11.3.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.3.1`, image spec macOS Mojave Xcode11
     - installed packages:
       - carthage
     - updated gems:
@@ -3203,8 +3644,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of November 11, 2019
 - macOS image updates:
     - `macos-mojave-xcode11` Xcode 11.2.1 installed. To switch version use
-    `xcversion select 11.2.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-    - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.2.1`, image spec macOS Mojave Xcode11
+    - nvm pre-installed in `macos-mojave-xcode11` and `macos-mojave-xcode10`, image spec: macOS Mojave Xcode10
     - packages:
           - fastlane 2.135.2
           - cocoapods 1.8.4
@@ -3256,7 +3697,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 
 - Updates to the macOS image:
     - `macos-mojave-xcode11` Xcode 11.1 installed. To switch version use
-    `xcversion select 11.1`, image spec [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    `xcversion select 11.1`, image spec macOS Mojave Xcode11
 - You can change which blocks and pipelines send status checks to pull requests
   on GitHub. [See how here](https://docs.semaphoreci.com/reference/sem-command-line-tool/#changing-github-status-check-notifications).
 
@@ -3281,8 +3722,8 @@ A detailed list can be found in the [Docker images changelog](https://github.com
 ### Week of September 23, 2019
 
 - New macOS `os_image` types:
-    - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, [macOS Mojave Xcode10](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
-    - `macos-mojave-xcode11` with Xcode 11.0 installed, [macOS Mojave Xcode11](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) image spec.
+    - `macos-mojave-xcode10` with Xcode 10.3 and 10.2.1 installed, macOS Mojave Xcode10 image spec.
+    - `macos-mojave-xcode11` with Xcode 11.0 installed, macOS Mojave Xcode11 image spec.
     - `macos-mojave` is no longer available.
 - Mojave system update:
     - ProductVersion: 10.14.6
@@ -3364,7 +3805,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
   configure for common language dependencies.
 - macOS platform:
     - Flutter version update to v1.8.3
-    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - New image spec - macOS Mojave
 
 ### Week of July 29, 2019
 
@@ -3388,7 +3829,7 @@ A detailed list can be found in the [Docker images changelog](https://github.com
     - Flutter version updated to v1.7.8+hotfix.4.
     - Fastlane version updated to 2.128.1.
     - Cocoapods version updated to 1.7.5.
-    - New image spec - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
+    - New image spec - macOS Mojave
 - New [environment variables available in Semaphore
   jobs](https://docs.semaphoreci.com/ci-cd-environment/environment-variables/):
     - `SEMAPHORE_GIT_REPO_SLUG`
@@ -3452,7 +3893,7 @@ if you are using protected branches with required status checks.
 
 - macOS platform:
     - Xcode 11 Beta with default simulators preinstalled on Mojave image.
-    - [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/) updated to 10.14.5.
+    - macOS Mojave updated to 10.14.5.
 
 ### Week of June 10, 2019
 
@@ -3473,7 +3914,7 @@ if you are using protected branches with required status checks.
   and the introduction of the [Conditions domain specific language](https://docs.semaphoreci.com/reference/conditions-reference/)
   that allows the expression of complex conditional rules in your pipelines.
 
-- Owners and admins can now set [Budget Alerts](https://docs.semaphoreci.com/account-management/billing/#budget-alert).
+- Owners and admins can now set [Budget Alerts](/account-management/billing-faq/#how-can-i-set-up-budget-alerts).
 
 - New Semaphore approved convenience Docker images have been released:
     - [Alpine](https://hub.docker.com/r/semaphoreci/alpine)
@@ -3602,9 +4043,7 @@ curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
   widget shows CLI commands that you can run to perform the same actions that
   you see in the UI.
 - Slack notifications can be [filtered by pipeline result](https://docs.semaphoreci.com/essentials/slack-notifications/#filtering-by-pipeline-result).
-- [macOS Mojave](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/)
-  image introduced, with iOS/macOS support in
-  [closed beta](https://semaphoreci.com/product/ios).
+- macOS Mojave image introduced, with iOS/macOS support in [closed beta](https://semaphoreci.com/product/ios).
 - Syntax highlighting in docs.
 
 ### Week of Feb 11, 2019

@@ -4,7 +4,7 @@ Description: This guide describes how commands in a job are executed and how job
 
 # Job environment
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The commands in a job are executed differently depending on the operating system where the Semaphore agent is running:
 

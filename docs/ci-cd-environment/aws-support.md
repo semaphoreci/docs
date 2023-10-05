@@ -4,7 +4,7 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 
 # AWS support
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/free-and-open-source-plans/)</span> <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] can help you deploy an auto-scaling fleet of agents on your AWS account.
 
@@ -22,7 +22,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
 - Node v16+ and NPM, for building and deploying the CDK application and managing its dependencies
-- Make, Python 3, and Packer for AMI creation and provisioning
+- Make, Python 3.9+, and Packer for AMI creation and provisioning
 - Properly-configured [AWS credentials][aws credentials]
 
 ## Usage
@@ -32,9 +32,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.2.2.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.0.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.2.2
+cd agent-aws-stack-0.3.0
 npm i
 ```
 
@@ -309,6 +309,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_LICENSE_CONFIGURATION_ARN`     | The license configuration ARN associated with the AMI used by the stack. |
 | `SEMAPHORE_AGENT_MAC_FAMILY`                    | The EC2 Mac instance family to use. Possible values: `mac1` and `mac2`. |
 | `SEMAPHORE_AGENT_MAC_DEDICATED_HOSTS`           | A comma-separated list of dedicated host IDs to include in the host resource group. |
+| `SEMAPHORE_AGENT_TAGS`                          | A comma-separated list of key-value pairs of tags to be added to all resources created for the stack. For example: `Name:Something,Category:SomethingElse`. |
 
 ## Architecture
 
@@ -419,7 +420,8 @@ The following AWS IAM policy document describes all the permissions required:
         "s3:PutBucket*",
         "s3:PutObject*",
         "s3:GetEncryptionConfiguration",
-        "s3:PutEncryptionConfiguration"
+        "s3:PutEncryptionConfiguration",
+        "s3:PutLifecycleConfiguration"
       ],
       "Resource": "arn:aws:s3:::cdk*"
     },
@@ -433,7 +435,8 @@ The following AWS IAM policy document describes all the permissions required:
         "ecr:GetLifecyclePolicy",
         "ecr:PutImageTagMutability",
         "ecr:PutImageScanningConfiguration",
-        "ecr:ListTagsForResource"
+        "ecr:ListTagsForResource",
+        "ecr:PutLifecyclePolicy"
       ],
       "Resource": "arn:aws:ecr:*:*:repository/cdk*"
     },

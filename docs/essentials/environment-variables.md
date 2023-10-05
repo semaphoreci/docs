@@ -43,6 +43,7 @@ blocks:
             - echo "${GUIDED_TOUR}"
             - echo 'Unit tests'
 ```
+**Note:** Numeric values need to be included in quotes.
 
 [envvars-perblock]: ../reference/pipeline-yaml-reference.md#env_vars
 [envvars-perjob]: ../reference/pipeline-yaml-reference.md#env_vars-in-jobs

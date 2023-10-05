@@ -33,7 +33,7 @@ Implementation details:
 
 ### E2 Generation
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
 
@@ -50,7 +50,7 @@ Implementation details:
 
 ### F1 Generation
 
-!!! plans "Available on: <span class="plans-box">[Startup](/account-management/startup-plan/)</span> <span class="plans-box">[Scaleup](/account-management/scaleup-plan/)</span>"
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
 
@@ -62,6 +62,24 @@ The `f1` series machines are built for compute-intensive jobs. These machines de
 Implementation details:
 
 1. `Virtual CPU` hyperthreaded on a 4.6GHz 12th generation [Intel i5 125000](https://ark.intel.com/content/www/us/en/ark/products/96144/intel-core-i512500-processor-18m-cache-up-to-4-60-ghz.html).
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented using NvME storage.
+
+### R1 Generation
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+!!! warning "`r1` machines are currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
+
+The `r1` series machines are built on ARM architecture.
+
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| r1-standard-4 |             4             |        10 GB        |       65 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` is emulated ARM on [Ampere Altra Q80-30](https://amperecomputing.com/briefs/ampere-altra-family-product-brief).
 2. `Memory` is implemented as DDR4 RAM.
 3. `Disk` is implemented using NvME storage.
 

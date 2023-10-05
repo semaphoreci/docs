@@ -37,6 +37,9 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
   - admonition
   - attr_list
   - md_in_html
@@ -73,6 +76,8 @@ nav:
 
     - Deployment:
       - Deploying with promotions: essentials/deploying-with-promotions.md
+      - Parameterized promotions: essentials/parameterized-promotions.md
+      - Deployment targets: essentials/deployment-targets.md
       - Pipeline queues: essentials/pipeline-queues.md
       - Tag-triggered deployment: essentials/tag-triggered-deployment.md
       - Deployment dashboards: essentials/deployment-dashboards.md
@@ -106,6 +111,8 @@ nav:
     - Linux VM:
       - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
       - Ubuntu 20.04 image: ci-cd-environment/ubuntu-20.04-image.md
+      - Ubuntu 22.04 image: ci-cd-environment/ubuntu-22.04-image.md
+      - Ubuntu 22.04 ARM image: ci-cd-environment/ubuntu-22.04-arm-image.md
       - Migrating to Ubuntu 20.04: ci-cd-environment/agent-migration-to-ubuntu2004.md
       - "Selecting language versions": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
       - "Starting databases": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
@@ -153,6 +160,7 @@ nav:
       - Using Terraform with Google Cloud: examples/using-terraform-with-google-cloud.md
       - Using private dependencies: essentials/using-private-dependencies.md
       - Releasing semantic versions: essentials/releasing-semantic-versions.md
+      - Estimating cloud costs with Infracost: examples/estimating-cloud-costs-with-infracost.md
 
     - Deployment:
       - AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
@@ -179,6 +187,7 @@ nav:
     - Dashboards YAML: reference/dashboards-yaml-reference.md
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
+    - Deployment Targets YAML: reference/deployment-targets-yaml-reference.md
     - Sem CLI: reference/sem-command-line-tool.md
     - Artifact CLI: reference/artifact-cli-reference.md
     - Sem-context CLI: reference/sem-context-reference.md
@@ -190,14 +199,8 @@ nav:
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Glossary: reference/glossary.md
   - Account Management:
-    - Plans & Billing:
-      - Billing Overview: account-management/billing-overview.md
-      - Billing FAQ: account-management/billing-faq.md
-      - Free and Open Source: account-management/free-and-open-source-plans.md
-      - Startup plan: account-management/startup-plan.md
-      - Scaleup plan: account-management/scaleup-plan.md
-      - Legacy plans: account-management/legacy-plans.md
-      - Add-ons: account-management/add-ons.md
+    - Billing FAQ: account-management/billing-faq.md
+    - Discounts: account-management/discounts.md
     - Organizations: account-management/organizations.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
@@ -214,9 +217,13 @@ nav:
       - Setup with GCP: security/open-id-connect-gcloud.md
       - Setup with Vault: security/open-id-connect-vault.md
     - Pre-flight checks: security/configuring-pre-flight-checks.md
+    - "Okta integration":
+      - Overview: security/okta/overview.md
+      - Installation: security/okta/installation.md
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
+      - Organization Health: score/organization-health.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
