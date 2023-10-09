@@ -8,6 +8,154 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of October 09, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.3, 1.15.4, 1.15.5, 1.15.6
+- Erlang 26.1.1 (aliased as 26.1)
+- Go 1.19.12, 1.19.13, 1.20.7, 1.20.8, 1.21.0, 1.21.1 (default)
+- PHP 8.0.30, 8.1.22, 8.1.23, 8.1.24, 8.2.9, 8.2.10, 8.2.11
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-76-generic -> 5.15.0-84-generic
+- Aws-cli 1.29.2 -> 1.29.57
+- Aws-cli 2.13.0 -> 2.13.22
+- Aws-eb-sli 3.20.6 -> 30.20.9
+- Azure-cli 2.50.0 -> 2.53.0
+- Bazel 6.2.1 -> 6.3.2
+- Containerd.io 1.6.21 -> 1.6.24
+- Docker 24.0.2 -> 24.0.6
+- Docker-compose 2.19.1 -> 2.21.0
+- Docker-buildx 0.11.1 -> 0.11.2
+- Doctl 1.97.0 -> 1.99.0
+- Erlang 25.3.2.3 -> 25.3.2.6 (aliased as 25.3)
+- Git 2.41.0 -> 2.42.0
+- Git-lfs 3.3.0 -> 3.4.0
+- Github-cli 2.32.0 -> 2.35.0
+- Gradle 7.4.2 -> 8.3
+- Helm 3.12.1 -> 3.13.0
+- Heroku 8.1.9 -> 8.5.0
+- Java OpenJDK 11.0.19 -> 11.0.20.1
+- Java OpenJDK 17.0.7 -> 17.0.8.1
+- Kerl 3.0.0 -> 3.1.0
+- Kubectl 1.27.3 -> 1.28.2
+- Maven 3.9.3 -> 3.9.4
+- NodeJS 18.16.1 -> 18.18.0 (default)
+- Npm 9.5.1 -> 9.8.1
+- Nvm 0.33.3 -> 0.39.5
+- Pip 23.1.2 -> 23.2.1
+- Python 3.9.17 -> 3.9.19
+- Python 3.10.12 -> 3.10.13
+- Python 3.11.4 -> 3.11.5
+- Rebar3 3.22.0 -> 3.22.1
+- Sbt 1.9.1 -> 1.9.6
+- Terraform 1.5.2 -> 1.5.7
+- Vrtualenv 20.23.0 -> 20.24.5
+
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.3, 1.15.4, 1.15.5, 1.15.6
+- Erlang 26.1.1 (aliased as 26.1)
+- Go 1.19.12, 1.19.13, 1.20.7, 1.20.8, 1.21.0, 1.21.1 (default)
+- PHP 8.1.22, 8.1.23 (default), 8.1.24, 8.2.9, 8.2.10, 8.2.11
+- Python 3.11.5
+
+**(Updated)** Updated packages:
+
+- Kernel 6.2.0-1008-lowlatency -> 6.2.0.1013-lowlatency
+- Aws-cli 1.29.2 -> 1.29.57
+- Aws-cli 2.13.0 -> 2.13.22
+- Aws-eb-sli 3.20.3 -> 30.20.9
+- Azure-cli 2.50.0 -> 2.53.0
+- Bazel 6.2.1 -> 6.3.2
+- Containerd.io 1.6.21 -> 1.6.24
+- Docker 24.0.2 -> 24.0.6
+- Docker-compose 2.19.1 -> 2.21.0
+- Docker-buildx 0.11.1 -> 0.11.2
+- Erlang 25.3.2.3 -> 25.3.2.6 (aliased as 25.3)
+- Git 2.41.0 -> 2.42.0
+- Git-lfs 3.3.0 -> 3.4.0
+- Github-cli 2.32.0 -> 2.35.0
+- Gradle 7.4.2 -> 8.3
+- Helm 3.12.1 -> 3.13.0
+- Heroku 8.1.9 -> 8.5.0
+- Java OpenJDK 11.0.19 -> 11.0.20.1
+- Java OpenJDK 17.0.7 -> 17.0.8.1
+- Kerl 3.0.0 -> 3.1.0
+- Kubectl 1.27.3 -> 1.28.2
+- Maven 3.9.3 -> 3.9.4
+- NodeJS 18.16.1 -> 18.18.0 (default)
+- Npm 9.5.1 -> 9.8.1
+- Nvm 0.33.2 -> 0.39.5
+- Pip 23.1.2 -> 23.2.1
+- Python 3.10.6 -> 3.10.12
+- Rebar3 3.22.0 -> 3.22.1
+- Rust 1.71.0 -> 1.72.1
+- Sbt 1.9.2 -> 1.9.6
+- Terraform 1.5.2 -> 1.5.7
+- Vrtualenv 20.23.0 -> 20.24.5
+
+To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
+**(Improved) Ubuntu 22.04 ARM image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.3, 1.15.4, 1.15.5, 1.15.6
+- Erlang 26.1.1 (aliased as 26.1)
+- Go 1.19.12, 1.19.13, 1.20.7, 1.20.8, 1.21.0, 1.21.1 (default)
+- PHP 8.1.22, 8.1.23 (default), 8.1.24, 8.2.9, 8.2.10, 8.2.11
+
+**(Updated)** Updated packages:
+
+- Kernel 5.19.0-1025-lowlatency -> 6.2.0.1013-lowlatency
+- Aws-cli 2.11.23 -> 2.13.22
+- Aws-eb-sli 3.20.6 -> 30.20.9
+- Azure-cli 2.49.0 -> 2.53.0
+- Bazel 6.2.1 -> 6.3.2
+- Chromium 114 -> 117
+- ChromeDriver 114 -> 117
+- Containerd.io 1.6.21 -> 1.6.24
+- Docker 24.0.2 -> 24.0.6
+- Docker-compose 2.18.1 -> 2.21.0
+- Docker-buildx 0.10.5 -> 0.11.2
+- Doctl 1.96.1 -> 1.99.0
+- Erlang 25.3.2.3 -> 25.3.2.6 (aliased as 25.3)
+- Firefox 102.12.0 -> 115.3.1
+- Git 2.41.0 -> 2.42.0
+- Git-lfs 3.3.0 -> 3.4.0
+- Github-cli 2.29.0 -> 2.35.0
+- Gradle 7.4.2 -> 8.3
+- Helm 3.12.0 -> 3.13.0
+- Java OpenJDK 11.0.19 -> 11.0.20.1
+- Java OpenJDK 17.0.7 -> 17.0.8.1
+- Kerl 3.0.0 -> 3.1.0
+- Kubectl 1.27.2 -> 1.28.2
+- Maven 3.9.2 -> 3.9.4
+- NodeJS 18.16.1 -> 18.18.0 (default)
+- Npm 9.5.1 -> 9.8.1
+- Nvm 0.33.3 -> 0.39.5
+- Pip 23.1.2 -> 23.2.1
+- Python 3.10.6 -> 3.10.12
+- Python 3.11.1 -> 3.11.5
+- Pypy3 7.3.11 -> 7.3.12
+- Rebar3 3.22.0 -> 3.22.1
+- Rust 1.70.0 -> 1.72.1
+- Sbt 1.8.3 -> 1.9.6
+- Terraform 1.4.6 -> 1.5.7
+- Vrtualenv 20.23.0 -> 20.24.5
+
+To learn more about this image, check our [Ubuntu 22.04 ARM page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/)
+
+
 ### Week of September 11, 2023
 
 **(Improved) macos-xcode14 image update**
