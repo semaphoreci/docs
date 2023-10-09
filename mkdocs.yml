@@ -58,7 +58,7 @@ nav:
       - Overview: essentials/concepts.md
       - Pipelines: essentials/modeling-complex-workflows.md
       - Triggers: essentials/project-workflow-trigger-options.md
-      - Scheduler/cron: essentials/schedule-a-workflow-run.md
+      - Tasks (formerly Schedulers): essentials/schedule-a-workflow-run.md
       - Artifacts: essentials/artifacts.md
       - Environment variables: essentials/environment-variables.md
       - Secrets: essentials/using-secrets.md
