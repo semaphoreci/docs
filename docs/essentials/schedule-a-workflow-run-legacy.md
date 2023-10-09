@@ -1,9 +1,9 @@
 ---
-Description: You can schedule workflow runs daily, hourly, or even every other minute using the workflow scheduler/cron. Workflow scheduler/cron can be set up via the GUI or CLI.
+Description: You can schedule workflow runs daily, hourly, or even every other minute using the workflow scheduler/cron. The workflow scheduler/cron can be set up via the GUI or CLI.
 ---
 
-!!! warning "Scheduler/cron is deprecated in favor of Tasks"
-    Please note that Tasks has replaced Schedulers and this piece of documention is outdated.
+!!! warning "Scheduler/cron has been deprecated in favor of Tasks"
+    Please note that Tasks has replaced Schedulers and this documention is outdated.
     Formerly configured schedulers have been automatically migrated and they should work as usual without any additional action.
     Please check out [Tasks documentation](/essentials/schedule-a-workflow-run) to learn more about the differences and new capabilities coming with the change.
 
@@ -98,20 +98,20 @@ Save the changes and close the editor, and your scheduled workflow runs will be 
 
 ## Delete the workflow scheduler
 
-If you no longer need to run the specific scheduled workflows you can delete
-that scheduler either through Web UI or the CLI.
+If you no longer need to run specific scheduled workflows you can delete
+any given scheduler, either via the Web UI or CLI.
 
-### Deleting the scheduler in Web UI
+### Deleting a scheduler in the Web UI
 
 1. Open the project page.
 
 2. Switch to the **Schedulers** tab.
 
-3. Find the wanted scheduler and click on the **Delete** button.
+3. Find the desired scheduler and click the **Delete** button.
 
-4. Confirm this action in the new message dialog.
+4. Confirm the action in the message dialog.
 
-### Deleting the scheduler with CLI
+### Deleting a scheduler with the CLI
 
 *Note*: Be sure to use the [latest version][update-cli] of Semaphore CLI
 
@@ -136,39 +136,39 @@ spec:
     pipeline_file: .semaphore/nightly-deploys.yml
 ```
 
-Simply remove the `scheduler` definition of the wanted scheduler from `schedulers`
+Simply remove the `scheduler` definition of the desired scheduler from `schedulers`
 list, save the changes, and close the editor.
 
-## Temporary deactivate the workflow scheduler
+## Temporary deactivate a workflow scheduler
 
-If you want to stop the scheduler from triggering workflows only temporary, you
+If you want to stop a scheduler from triggering workflows only temporary, you
 can deactivate it in the Web UI with the following steps:
 
 1. Open the project page.
 
 2. Switch to the **Schedulers** tab.
 
-3. Find the wanted scheduler and click on the **Deactivate** button.
+3. Find the desired scheduler and click the **Deactivate** button.
 
-4. Confirm this action in the new message dialog.
+4. Confirm this action in the message dialog.
 
 This will disable workflow scheduling, but it will allow you to easily
-resume it if needed by clicking on the **Activate** button in the same place.
+resume its use if needed by clicking the **Activate** button in the same place.
 
-Additionally, it is also possible to manually run the workflows based on the
+Additionally, it is also possible to manually run workflows based on
 deactivated schedulers.
 
-## Manually run the workflow based on scheduler definition
+## Manually run a workflow based on scheduler definition
 
-You can manually trigger the workflow in the Web UI with the following steps:
+You can manually trigger a workflow in the Web UI with the following steps:
 
 1. Open the project page.
 
 2. Switch to the **Schedulers** tab.
 
-3. Find the wanted scheduler and click on the **Run Now** button.
+3. Find the desired scheduler and click the **Run Now** button.
 
-4. Confirm this action in the new message dialog.
+4. Confirm this action in the message dialog.
 
 This will trigger a new workflow based on the configuration from the file configured
 in the scheduler definition. The workflow will use code revision of the latest
@@ -184,7 +184,7 @@ format support seconds in expressions, Semaphore 2.0 will ignore them.
 webhook received from GitHub/Bitbucket for the given branch to determine the exact commit
 for which the workflow should be run. 
 
-If a project is new and there have been no pushes to the selected branch since project creation - in this case, the creation of a schedule as described above will fail.
+If a project is new and there have been no pushes to the selected branch since project creation, **the creation of a schedule as described above will fail**.
 
 - Scheduled workflow runs will not be started in the first 60 seconds (this
 can span across two differently numbered minutes) after the schedule is created,
