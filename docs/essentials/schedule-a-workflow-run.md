@@ -202,15 +202,15 @@ to the workflow are accessible as environment variables in every job of the init
 
 ## Browsing task execution history
 
-Another useful addition to the feature is an ability to browse past executions of a particular task:
+Another useful addition to the feature is the ability to browse past executions of a particular task:
 
 1. Open the project page.
 
-2. Select **Tasks** tab on the top menu pane.
+2. Select the **Tasks** tab from the top menu pane.
 
-3. Find the wanted task and click on the **View** button. <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/schedule-a-workflow-run/view_task.png" alt="View button in the project tasks page">
+3. Find the desired task and click the **View** button. <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/schedule-a-workflow-run/view_task.png" alt="View button in the project tasks page">
 
-You will be moved to the task history page. Apart from detailed information about the task, you will see latest executions of tasks in the reverse chronological order. You can apply various filters such as branch name, pipeline file and triggerer, navigate between pages, or jump to a specific point in time.
+You will be moved to the task history page. Apart from detailed information about the task, you will see a list of the latest executions of tasks in reverse chronological order. You can apply various filters such as branch name, pipeline file and triggerer, navigate between pages, or jump to a specific point in time.
 
 <img style="box-shadow: 0px 0px 5px #ccc" src="/essentials/img/schedule-a-workflow-run/task_history.png" alt="Task history page">
 
