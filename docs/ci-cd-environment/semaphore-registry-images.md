@@ -41,6 +41,32 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ruby:2.7-node-browsers | `registry.semaphoreci.com/ruby:2.7-node-browsers` |  
 | ruby:3.0 | `registry.semaphoreci.com/ruby:3.0` |  
 | ruby:3.0-node-browsers | `registry.semaphoreci.com/ruby:3.0-node-browsers` |  
+| ruby:3.0.1 | `registry.semaphoreci.com/ruby:3.0.1` |  
+| ruby:3.0.1-node-browsers | `registry.semaphoreci.com/ruby:3.0.1-node-browsers` |  
+| ruby:3.0.2 | `registry.semaphoreci.com/ruby:3.0.2` |  
+| ruby:3.0.2-node-browsers | `registry.semaphoreci.com/ruby:3.0.2-node-browsers` |  
+| ruby:3.0.3 | `registry.semaphoreci.com/ruby:3.0.3` |  
+| ruby:3.0.3-node-browsers | `registry.semaphoreci.com/ruby:3.0.3-node-browsers` |  
+| ruby:3.0.4 | `registry.semaphoreci.com/ruby:3.0.4` |  
+| ruby:3.0.4-node-browsers | `registry.semaphoreci.com/ruby:3.0.4-node-browsers` |  
+| ruby:3.0.5 | `registry.semaphoreci.com/ruby:3.0.5` |  
+| ruby:3.0.5-node-browsers | `registry.semaphoreci.com/ruby:3.0.5-node-browsers` |  
+| ruby:3.0.6 | `registry.semaphoreci.com/ruby:3.0.6` |  
+| ruby:3.0.6-node-browsers | `registry.semaphoreci.com/ruby:3.0.6-node-browsers` |  
+| ruby:3.1.0 | `registry.semaphoreci.com/ruby:3.1.0` |  
+| ruby:3.1.0-node-browsers | `registry.semaphoreci.com/ruby:3.1.0-node-browsers` |  
+| ruby:3.1.1 | `registry.semaphoreci.com/ruby:3.1.1` |  
+| ruby:3.1.1-node-browsers | `registry.semaphoreci.com/ruby:3.1.1-node-browsers` |  
+| ruby:3.1.2 | `registry.semaphoreci.com/ruby:3.1.2` |  
+| ruby:3.1.2-node-browsers | `registry.semaphoreci.com/ruby:3.1.2-node-browsers` |  
+| ruby:3.1.3 | `registry.semaphoreci.com/ruby:3.1.3` |  
+| ruby:3.1.3-node-browsers | `registry.semaphoreci.com/ruby:3.1.3-node-browsers` |  
+| ruby:3.1.4 | `registry.semaphoreci.com/ruby:3.1.4` |  
+| ruby:3.1.4-node-browsers | `registry.semaphoreci.com/ruby:3.1.4-node-browsers` |  
+| ruby:3.2.0 | `registry.semaphoreci.com/ruby:3.2.0` |  
+| ruby:3.2.0-node-browsers | `registry.semaphoreci.com/ruby:3.2.0-node-browsers` |  
+| ruby:3.2.2 | `registry.semaphoreci.com/ruby:3.2.2` |  
+| ruby:3.2.2-node-browsers | `registry.semaphoreci.com/ruby:3.2.2-node-browsers` |  
 
 ### Python  
 | Image | Link |
@@ -63,6 +89,9 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | python:3.9-node-browsers | `registry.semaphoreci.com/python:3.9-node-browsers` |  
 | python:3.10 | `registry.semaphoreci.com/python:3.10.0a1` |  
 | python:3.10-node-browsers | `registry.semaphoreci.com/python:3.10.0a1-node-browsers` |  
+| python:3.11 | `registry.semaphoreci.com/python:3.11.5` |  
+| python:3.11-node-browsers | `registry.semaphoreci.com/python:3.11.5-node-browsers` |  
+
 
 ### PHP
 | Image | Link |
@@ -93,7 +122,13 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 |--------|--------|
 | haskell:8.8 | `registry.semaphoreci.com/haskell:8.8` |  
 | haskell:8.10 | `registry.semaphoreci.com/haskell:8.10` |  
-| haskell:9.0 | `registry.semaphoreci.com/haskell:9.0` |  
+| haskell:9.0.1 | `registry.semaphoreci.com/haskell:9.0.1` |  
+| haskell:9.0.2 | `registry.semaphoreci.com/haskell:9.0.2` |  
+| haskell:9.2.1 | `registry.semaphoreci.com/haskell:9.2.1` |  
+| haskell:9.2.8 | `registry.semaphoreci.com/haskell:9.2.8` |  
+| haskell:9.4.2 | `registry.semaphoreci.com/haskell:9.4.2` |  
+| haskell:9.4.7 | `registry.semaphoreci.com/haskell:9.4.7` |  
+| haskell:9.6.3 | `registry.semaphoreci.com/haskell:9.6.3` |  
 
 ### Rust  
 | Image | Link |
@@ -130,6 +165,9 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | elixir:1.10 | `registry.semaphoreci.com/elixir:1.10` |  
 | elixir:1.11 | `registry.semaphoreci.com/elixir:1.11` |  
 | elixir:1.12 | `registry.semaphoreci.com/elixir:1.12` |  
+| elixir:1.13 | `registry.semaphoreci.com/elixir:1.13` |  
+| elixir:1.14 | `registry.semaphoreci.com/elixir:1.14` |  
+| elixir:1.15 | `registry.semaphoreci.com/elixir:1.15` |  
 
 
 ### Node  
@@ -200,6 +238,8 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | postgres:12 | `registry.semaphoreci.com/postgres:12` |    
 | postgres:13 | `registry.semaphoreci.com/postgres:13` |  
 | postgres:14 | `registry.semaphoreci.com/postgres:14` |  
+| postgres:15 | `registry.semaphoreci.com/postgres:15` |  
+| postgres:16 | `registry.semaphoreci.com/postgres:16` |  
 
 ### PostGis
 | Image | Link |
@@ -246,6 +286,8 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | mongo:4.1 | `registry.semaphoreci.com/mongo:4.1` |    
 | mongo:4.2 | `registry.semaphoreci.com/mongo:4.2` |    
 | mongo:4.4 | `registry.semaphoreci.com/mongo:4.4` |    
+| mongo:5.0.9 | `registry.semaphoreci.com/mongo:5.0.9` |    
+| mongo:6.0.8 | `registry.semaphoreci.com/mongo:6.0.8` |    
 
 ### Redis    
 | Image | Link |
