@@ -114,12 +114,13 @@ blocks:
       jobs:
         - name: 'Auth Test Job'
           commands:
+            - export POOL_ID="" # set your pool id
+            - export PROVIDER_ID="" # set your provider name
             - export PROJECT_ID="" # set your google cloud project id
             - export SERVICE_ACCOUNT_EMAIL="" # set your service account's email
             - export POOL_URI="projects/$PROJECT_ID/locations/global/workloadIdentityPools/$POOL_ID/providers/$PROVIDER_ID"
-            - export SERVICE_ACCOUNT="https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/$SERVICE_ACCOUNT_EMAIL:generateAccessToken"
             - echo $SEMAPHORE_OIDC_TOKEN > /tmp/oidc_token
-            - gcloud iam workload-identity-pools create-cred-config $POOL_URI --service-account="$SERVICE_ACCOUNT" --service-account-token-lifetime-seconds=600 --output-file=/home/semaphore/creds.json --credential-source-file=/tmp/oidc_token --credential-source-type="text"
+            - gcloud iam workload-identity-pools create-cred-config $POOL_URI --service-account="$SERVICE_ACCOUNT_EMAIL" --service-account-token-lifetime-seconds=600 --output-file=/home/semaphore/creds.json --credential-source-file=/tmp/oidc_token --credential-source-type="text"
             - export GOOGLE_APPLICATION_CREDENTIALS=/home/semaphore/creds.json
             - gcloud auth login --cred-file=/home/semaphore/creds.json
             - gcloud projects list
