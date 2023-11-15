@@ -142,10 +142,10 @@ Click on Assignments and, in the "Assign" dropdown, choose a user or group that 
 
 ![Okta User Assigned](resources/image19.png)
 
-**DISCLAMER** Semaphore provisions users async, in batches. If you want to provision a lot of members 
+**DISCLAIMER** Semaphore provisions users async, in batches. If you want to provision a lot of members 
 (hundreds or even thousands) all at once, that process will take some time. Depending on the number of users,
 it can be up to half an hour. On the Okta integration page, it should show a green tick next to all of
-the users (or groups) that you have provisioned. This means that Semaphore has succesfully received the command for
+the users (or groups) that you have provisioned. This means that Semaphore has successfully received the command for
 user provisioning, but not that it was processed. If you want to follow the progress (how many users
 have been provisioned), you can do that on the Okta Integration tab within Semaphore Settings page.
 
