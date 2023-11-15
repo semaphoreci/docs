@@ -173,7 +173,7 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [tutorial]: https://docs.semaphoreci.com/examples/node-js-and-typescript-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
 [ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#javascript-via-node-js
-[macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-13-image/#javascript-via-node-js
+[macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 
 ## Connecting your Node.js application to the test Database
