@@ -327,10 +327,14 @@ the git tag used in the current job.
 
 Example value: `v1.0.0`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `tag`.
+
 #### SEMAPHORE\_GIT\_PR\_BRANCH
 
 The value of the `SEMAPHORE_GIT_PR_BRANCH` environment variable is the name of
 the git branch from which the Pull Request originated.
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
 
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
@@ -340,12 +344,16 @@ the Pull Request originated.
 
 Example value: `renderedtext/docs`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
+
 #### SEMAPHORE\_GIT\_PR\_SHA
 
 The value of the `SEMAPHORE_GIT_PR_SHA` environment variable holds the
 commit SHA of the HEAD commit of the Pull Request.
 
 Example values: `5c84719708b9b649b9ef3b56af214f38cee6acd3`
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
 
 #### SEMAPHORE\_GIT\_PR\_NUMBER
 
@@ -354,12 +362,16 @@ number of the Pull Request.
 
 Example values: `1`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
+
 #### SEMAPHORE\_GIT\_PR\_NAME
 
 The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the
 name of the Pull Request.
 
 Example values: `Update Readme.md`
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
 
 ### Environment Variables injected into after_pipeline jobs
 
