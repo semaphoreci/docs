@@ -4,6 +4,10 @@ Description: Semaphore supports setting environment variables on the per-job and
 
 # Setting Environment Variables
 
+<div class="docs-video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/gB02RreOd7E?si=DSrMq2ThqZtvDKyZ" title="Getting Started with Semaphore - How to Use Environment Variables" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 Semaphore supports setting environment variables for an [individual job][envvars-perjob], for [all jobs in a block][envvars-perblock], and for [all jobs in a pipeline][global_job_config].
 
 If you're looking for a list of environment variables which Semaphore sets in
