@@ -4,6 +4,10 @@ Description: This page shows you how to use secrets to store and access sensitiv
 
 # Secrets
 
+<div class="docs-video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/rAJIRX81DeA?si=sZepLMUyVtBP6yqj" title="Getting Started with Semaphore - How to Use Secrets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 This page shows you how to store and access sensitive data such as API keys,
 passwords, certificates, SSH keys, etc. Semaphore uses "secrets" to accomplish this.
 

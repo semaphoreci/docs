@@ -6,6 +6,11 @@ Description: This page explains the process of integrating Semaphore with Okta
 
 !!! plans "Available on: <span class="plans-box">Scaleup</span>"
 
+<div class="docs-video-wrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2_am8-e0UTc?si=Qy_LevOtDorHpLNB" title="Getting Started with Semaphore - How to Integrate Okta" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+
 ## Prerequisites, People, and Access Rights
 
 To make use of this tutorial, you will need the following:
