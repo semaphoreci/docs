@@ -32,9 +32,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.0.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.1.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.3.0
+cd agent-aws-stack-0.3.1
 npm i
 ```
 
@@ -310,6 +310,7 @@ Note: make sure `SEMAPHORE_AGENT_STACK_NAME` indicates to the stack you want to 
 | `SEMAPHORE_AGENT_MAC_FAMILY`                    | The EC2 Mac instance family to use. Possible values: `mac1` and `mac2`. |
 | `SEMAPHORE_AGENT_MAC_DEDICATED_HOSTS`           | A comma-separated list of dedicated host IDs to include in the host resource group. |
 | `SEMAPHORE_AGENT_TAGS`                          | A comma-separated list of key-value pairs of tags to be added to all resources created for the stack. For example: `Name:Something,Category:SomethingElse`. |
+| `SEMAPHORE_AGENT_USE_PRE_SIGNED_URL`            | Whether to use a pre-signed AWS STS GetCallerIdentity URL for agent registration. Note: the [agent type][agent type configuration] is required to be properly configured to allow this. By default, this is false. |
 
 ## Architecture
 
@@ -528,3 +529,4 @@ If an invalid agent type registration token is used, the agent won't be able to 
 [aws credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
 [kms create key]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kms/create-key.html
 [cloudwatch agent]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html
+[agent type configuration]: /ci-cd-environment/self-hosted-agent-types/#using-pre-signed-aws-sts-urls-for-registration
