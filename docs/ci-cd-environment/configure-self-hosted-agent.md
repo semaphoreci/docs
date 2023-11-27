@@ -45,7 +45,7 @@ You get an agent type registration token when you create an agent type in the Se
 
 ### `name`
 
-By default, the agent will generate a random name. If you want to set a custom name, you can use this configuration parameter. The name must have between 8 and 64 characters.
+By default, the agent will generate a random name. If you want to set a custom name, you can use this configuration parameter. The name must have between 8 and 64 characters. A pre-signed AWS STS GetCallerIdentity URL can also be used, if the [agent type][agent type] allows it.
 
 ### `name-from-env`
 
@@ -172,3 +172,5 @@ Furthermore, the shutdown script will have the following environment variables a
 ### `interruption-grace-period`
 
 By default, if the agent receives an interruption while execution a job, it will immediately stop the job, and shut down. This configuration parameter allows you to specify a number of seconds for the agent to wait before stopping the job, after receiving an interruption signal.
+
+[agent type]: /ci-cd-environment/self-hosted-agent-types/#using-pre-signed-aws-sts-urls-for-registration
