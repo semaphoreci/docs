@@ -484,7 +484,7 @@ sem get job 5c011197-2bd2-4c82-bf4d-f0edd9e69f40
 
 ### sem apply
 
-The `sem apply` command works for `projects`, `secrets`, `dashboards` and `notifications` and allows you to
+The `sem apply` command works for `projects`, `secrets`, `dashboards`, `notifications` and `agent_types`, and allows you to
 update the contents of an existing resource using an external
 YAML file. `sem apply` is used with the `-f` command
 line option followed by a valid path to a proper YAML file.
@@ -1437,6 +1437,67 @@ sem get agent_type [AGENT TYPE NAME]
 
 ```bash
 $ sem get agent_type s1-my-agent-type
+```
+
+### Creating an agent type
+
+There are two ways you can use the CLI to create an agent type:
+
+- Using the `sem create agent_type` command, specifying all the parameters. You can check the available parameters with `sem create agent_type -h`.
+- Using the `sem create -f agent_type.yml` command, defining the agent type from a YAML file.
+
+You can find more details about each parameter in the [Agent Types YAML Reference](/reference/agent-types-yaml-reference)
+
+#### Creating an agent type inline
+
+```bash
+# This creates an agent type with all the default settings.
+# By default, --name-assignment-origin=assignment_origin_agent and --release-name-after=0.
+$ sem create agent_type s1-my-agent-type
+
+# If you want to create an agent type with --name-assignment-origin=assignment_origin_aws_sts,
+# you need to specify the --aws-account-id and --aws-roles parameters.
+$ sem create agent_type s1-my-agent-type \
+  --name-assignment-origin assignment_origin_aws_sts \
+  --aws-account-id 1234567890 \
+  --aws-roles role1,role2
+```
+
+#### Creating an agent type from YAML
+
+```bash
+# Define the agent type through a YAML file
+$ cat > agent_type.yml << EOF
+apiVersion: v1alpha
+kind: SelfHostedAgentType
+metadata:
+  name: s1-example
+spec:
+  agent_name_settings:
+    assignment_origin: assignment_origin_aws_sts
+    release_after: 300
+    aws:
+      account_id: 1234567890
+      role_name_patterns: "role1,role2"
+EOF
+
+# Create the agent type
+$ sem create -f agent_type.yml
+```
+
+### Updating an agent type
+
+You can use the [`sem apply`](#sem-apply) command to update an agent type:
+
+```bash
+# Save the current state of the agent type into a YAML file.
+$ sem get agent_type s1-example > my_agent_type.yml
+
+# Edit 'my_agent_type.yml' as you wish.
+$ vim my_agent_type.yml
+
+# Update the agent type.
+$ sem apply -f agent_type.yml
 ```
 
 ### Describing an agent
