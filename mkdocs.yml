@@ -188,6 +188,7 @@ nav:
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
     - Deployment Targets YAML: reference/deployment-targets-yaml-reference.md
+    - Agent Types YAML: reference/agent-types-yaml-reference.md
     - Sem CLI: reference/sem-command-line-tool.md
     - Artifact CLI: reference/artifact-cli-reference.md
     - Sem-context CLI: reference/sem-context-reference.md
