@@ -791,6 +791,12 @@ HTTP status: 200
       "status": {
         "total_agent_count": 0
       },
+      "spec": {
+        "agent_name_settings": {
+          "assignment_origin": "assignment_origin_agent",
+          "release_after": 0
+        }
+      },
       "metadata": {
         "update_time": 1644963451,
         "name": "s1-aws-small",
@@ -800,6 +806,16 @@ HTTP status: 200
     {
       "status": {
         "total_agent_count": 0
+      },
+      "spec": {
+        "agent_name_settings": {
+          "assignment_origin": "assignment_origin_aws_sts",
+          "release_after": 0,
+          "aws": {
+            "account_id": "1234567890",
+            "role_name_patterns": "role1,role2"
+          }
+        }
       },
       "metadata": {
         "update_time": 1641302626,
@@ -828,6 +844,10 @@ POST {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types
 **Params**
 
 - `metadata.name` (**required**) - the name of the agent type to be created.
+- `spec.agent_name_settings.assignment_origin` (*optional*) - the origin of the agent name assignment during its registration. The possible values are: `assignment_origin_agent` (*default*) and `assignment_origin_aws_sts`.
+- `spec.agent_name_settings.release_after` (*optional*) - how long to hold the agent name after its disconnection, not allowing other agents to register with its name. By default, this is 0.
+- `spec.agent_name_settings.aws.account_id` (**required** if `assignment_origin_aws_sts` is used)
+- `spec.agent_name_settings.aws.role_name_patterns` (**required** if `assignment_origin_aws_sts` is used) - comma-separated list of AWS role names. Wildcards (*) can be used too.
 
 **Response**
 
@@ -839,6 +859,16 @@ HTTP status: 200
     "update_time": 1668626650,
     "name": "s1-aws-small",
     "create_time": 1668626650
+  },
+  "spec": {
+    "agent_name_settings": {
+      "assignment_origin": "assignment_origin_aws_sts",
+      "release_after": 0,
+      "aws": {
+        "account_id": "1234567890",
+        "role_name_patterns": "role1,role2,role3*"
+      }
+    }
   },
   "status": {
     "total_agent_count": 0,
@@ -854,8 +884,60 @@ curl -i \
   -H "Authorization: Token {api_token}" \
   -H "Content-Type: application/json" \
   -H "Accept: application/json" \
-  --data '{"metadata": {"name": "s1-aws-small"}}' \
+  --data '{"metadata": {"name": "s1-aws-small"}, "spec": {"agent_name_settings": {"assignment_origin": "assignment_origin_agent", "release_after": 0}}}' \
   "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types"
+```
+
+### Update an agent type
+
+```
+PATCH {org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/:agent_type_name
+```
+
+**Params**
+
+- `agent_type_name` (**required**) - the name of the agent type to describe.
+
+**Request body**
+
+The request body should be a JSON object, encapsulating details about the agent type to be updated. The available fields are the same as those for creating an agent type.
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "metadata": {
+    "update_time": 1668626650,
+    "name": "s1-aws-small",
+    "create_time": 1668626650
+  },
+  "spec": {
+    "agent_name_settings": {
+      "assignment_origin": "assignment_origin_aws_sts",
+      "release_after": 0,
+      "aws": {
+        "account_id": "1234567890",
+        "role_name_patterns": "role1,role2,role3*"
+      }
+    }
+  },
+  "status": {
+    "total_agent_count": 0
+  }
+}
+```
+
+**Example**
+
+```
+curl -X PATCH -i \
+  -H "Authorization: Token {api_token}" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  --data '{"metadata": {"name": "s1-aws-small"}, "spec": {"agent_name_settings": {"assignment_origin": "assignment_origin_agent", "release_after": 0}}}' \
+  "https://{org_name}.semaphoreci.com/api/v1alpha/self_hosted_agent_types/s1-aws-small"
 ```
 
 ### Describe an agent type
@@ -876,6 +958,12 @@ HTTP status: 200
 {
   "status": {
     "total_agent_count": 0
+  },
+  "spec": {
+    "agent_name_settings": {
+      "assignment_origin": "assignment_origin_agent",
+      "release_after": 0
+    }
   },
   "metadata": {
     "update_time": 1644963451,
@@ -947,7 +1035,7 @@ curl -i \
 
 ## Self-hosted agents
 
-### Listing agent types
+### Listing agents for an agent type
 
 ```
 GET {org_name}.semaphoreci.com/api/v1alpha/agents?agent_type=:agent_type&page_size=:page_size&cursor=:cursor
