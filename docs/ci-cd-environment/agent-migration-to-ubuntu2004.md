@@ -7,7 +7,7 @@ If you've used the Semaphore Ubuntu 18.04 image, this guide will help you migrat
 
 ### You have to migrate
 
-!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 October 2023. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 March 2024. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
 
 ### Benefits of using the Ubuntu 20.04 image
 Ubuntu 20.04 LTS (Focal Fossa) is the newer LTS release for the Ubuntu Linux server operating system. 
@@ -86,6 +86,8 @@ as changing the `os_image:` line to use `ubuntu2004` instead of `ubuntu1804` in 
 | Python 3.7| <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> | 
 | Python 3.8| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
 | Python 3.9| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> | 
+| Python 3.10| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
+| Python 3.11| <span style="color:green;">&#10004;</span> | <span style="color:green;">&#10004;</span> |
 | Ruby 1.9.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Ruby 2.0.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
 | Ruby 2.1.x | <span style="color:green;">&#10004;</span> | <span style="color:red;">&#10007;</span> |
