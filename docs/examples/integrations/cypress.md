@@ -87,13 +87,13 @@ Now click on the *Prologue* section and insert the following snippet:
 nvm install 20
 npm install -g npm
 checkout
-cache restore npm-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)-$(checksum .semaphore/semaphoreyml)
-cache restore cypress-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)-$(checksum .semaphore/semaphore.yml)
+cache restore npm-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)
+cache restore cypress-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)
 npm install
 npm ci
 npm run cy:verify
-cache store npm-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)-$(checksum .semaphore/semaphore.yml) ~/.npm
-cache store cypress-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)-$(checksum .semaphore/semaphore.yml) ~/.cache/Cypress
+cache store npm-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) ~/.npm
+cache store cypress-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) ~/.cache/Cypress
 npm run print-env -- SEMAPHORE
 npm run build
 npm run start &
