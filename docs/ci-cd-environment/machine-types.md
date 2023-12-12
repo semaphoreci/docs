@@ -85,7 +85,7 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine types can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
+Apple machine types can be paired with the [MacOS Xcode14 image][macos-xcode14].
 
 | Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
 | --------------- | :-----------------------: | :-----------------: | :---------------: |
@@ -99,6 +99,5 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
 [ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
 [macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
-[macos-xcode15]: ../ci-cd-environment/macos-xcode-15-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
 [self-hosted]: ../ci-cd-environment/self-hosted-agents-overview.md

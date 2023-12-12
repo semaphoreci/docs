@@ -98,7 +98,6 @@ These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
 - `ubuntu2004` ([reference][ubuntu2004])
-- `macos-xcode15` ([reference][macos-xcode15])
 - `macos-xcode14` ([reference][macos-xcode14])
 
 The default operating system depends on the type of the machine:
@@ -2181,7 +2180,6 @@ YAML parser, which is not a Semaphore 2.0 feature, rather the way YAML files fun
 
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
-[macos-xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
 [macos-xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
