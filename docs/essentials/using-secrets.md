@@ -19,7 +19,9 @@ blocks or pipelines to which they have been connected.
 
 ### Organization-level secrets access policy
 
-Organizations with the Startup plan or higher 
+!!! plans "Available on: <span class="plans-box">Scaleup</span>"
+
+Organizations with the Scaleup plan 
 have additional control over the secrets access policy. It is possible to add a project 
 whitelist so a given secret is available for only a subset of projects within the organization.
 This can be achieved by setting the projects access policy to "Whitelisted" and providing a list 
@@ -29,6 +31,9 @@ attach access for a secret, then only authorized users can attach the secret to 
 Likewise, restricting debug jobs will prevent unauthorized users from starting any debug job that is attached to the secret.
 
 ### Project-level secrets
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
 Project-level secrets are a feature available to organizations on 
 the Startup plan or higher. 
 These secrets are intended to securely store sensitive information, 
