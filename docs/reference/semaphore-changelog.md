@@ -8,6 +8,141 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of December 18, 2023
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.7
+- Erlang 26.2
+- Go 1.20.9, 1.20.10, 1.20.11, 1.21.4, 1.21.5 (default)
+- PHP 8.1.25, 8.1.26, 8.2.12, 8.2.13, 8.3.0
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-84-generic -> 5.15.0-91-generic
+- Aws-cli 1.29.57 -> 1.31.12 (used as `aws`)
+- Aws-cli 2.13.22 -> 2.15.0 (used as `aws2`)
+- Aws-eb-cli 3.20.9 -> 30.20.10
+- Azure-cli 2.53.0 -> 2.55.0
+- Bazel 6.3.2 -> 7.0.0
+- Containerd.io 1.6.24 -> 1.6.26
+- Docker 24.0.6 -> 24.0.7
+- Docker-compose 2.21.0 -> 2.23.3
+- Doctl 1.99.0 -> 1.101.0
+- Erlang 25.3.2.6 - > 25.3.2.7 (aliased as 25.3)
+- Erlang 26.1.1 -> 26.1.2 (aliased as 26.1)
+- Git 2.42.0 -> 2.43.0
+- Github-cli 2.35.0 -> 2.40.0
+- Helm 3.13.0 -> 3.13.2
+- Heroku 8.5.0 -> 8.7.1
+- Java OpenJDK 11.0.20.1 -> 11.0.21
+- Java OpenJDK 17.0.8.1 -> 17.0.9
+- Kubectl 1.28.2 -> 1.28.4
+- Maven 3.9.4 -> 3.9.6
+- NodeJS 18.18.0 -> 20.10.0 (default)
+- Npm 9.8.1 -> 10.2.3
+- Nvm 0.39.5 -> 0.39.7
+- Pip 23.2.1 -> 23.3.1
+- Python 3.11.5 -> 3.11.7
+- Pypy3 7.3.12 -> 7.3.13
+- Sbt 1.9.6 -> 1.9.7
+- Terraform 1.5.7 -> 1.6.5
+- Vrtualenv 20.24.5 -> 20.25.0
+
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(Removed)** Packages:
+
+- Aws-cli 1.29.57
+
+**(New)** Packages:
+
+- Elixir 1.15.7
+- Erlang 26.2
+- Go 1.20.9, 1.20.10, 1.20.11, 1.21.4, 1.21.5 (default)
+- PHP 8.1.25, 8.1.26 (default), 8.2.12, 8.2.13, 8.3.0
+
+**(Updated)** Updated packages:
+
+- Kernel 6.2.0-1014-lowlatency -> 6.2.0.1017-lowlatency
+- Aws-cli 2.13.22 -> 2.15.0 (used as `aws`)
+- Aws-eb-sli 3.20.9 -> 30.20.10
+- Azure-cli 2.53.0 -> 2.55.0
+- Bazel 6.3.2 -> 7.0.0
+- Containerd.io 1.6.24 -> 1.6.26
+- Docker 24.0.6 -> 24.0.7
+- Docker-compose 2.21.0 -> 2.23.3
+- Doctl 1.99.0 -> 1.101.0
+- Erlang 25.3.2.6 - > 25.3.2.7 (aliased as 25.3)
+- Erlang 26.1.1 -> 26.1.2 (aliased as 26.1)
+- Git 2.42.0 -> 2.43.0
+- Github-cli 2.35.0 -> 2.40.0
+- Helm 3.13.0 -> 3.13.2
+- Heroku 8.5.0 -> 8.7.1
+- Java OpenJDK 11.0.20.1 -> 11.0.21
+- Java OpenJDK 17.0.8.1 -> 17.0.9
+- Kubectl 1.28.2 -> 1.28.4
+- Maven 3.9.4 -> 3.9.6
+- NodeJS 18.18.0 -> 20.10.0 (default)
+- Npm 9.8.1 -> 10.2.3
+- Nvm 0.39.5 -> 0.39.7
+- Pip 23.2.1 -> 23.3.1
+- Python 3.11.5 -> 3.11.7
+- Pypy3 7.3.12 -> 7.3.13
+- Rust 1.72.1 -> 1.74.1
+- Sbt 1.9.6 -> 1.9.7
+- Terraform 1.5.7 -> 1.6.5
+- Vrtualenv 20.24.5 -> 20.25.0
+
+To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
+**(Improved) Ubuntu 22.04 ARM image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.7
+- Erlang 26.2
+- Go 1.20.9, 1.20.10, 1.20.11, 1.21.4, 1.21.5 (default)
+- PHP 8.1.25, 8.1.26 (default), 8.2.12, 8.2.13, 8.3.0
+
+**(Updated)** Updated packages:
+
+- Kernel 6.2.0-1014-lowlatency -> 6.2.0.1018-lowlatency
+- Aws-cli 2.13.22 -> 2.15.0 (used as `aws`)
+- Aws-eb-sli 3.20.9 -> 30.20.10
+- Azure-cli 2.53.0 -> 2.55.0
+- Chromium 117 -> 120
+- ChromeDriver 117 -> 120
+- Containerd.io 1.6.24 -> 1.6.26
+- Docker 24.0.6 -> 24.0.7
+- Docker-compose 2.21.0 -> 2.23.3
+- Doctl 1.99.0 -> 1.101.0
+- Erlang 25.3.2.6 - > 25.3.2.7 (aliased as 25.3)
+- Erlang 26.1.1 -> 26.1.2 (aliased as 26.1)
+- Firefox 115.3.1 -> 115.6.0
+- Git 2.42.0 -> 2.43.0
+- Github-cli 2.35.0 -> 2.40.0
+- Helm 3.13.0 -> 3.13.2
+- Java OpenJDK 11.0.20.1 -> 11.0.21
+- Java OpenJDK 17.0.8.1 -> 17.0.9
+- Kubectl 1.28.2 -> 1.28.4
+- Maven 3.9.4 -> 3.9.6
+- NodeJS 18.18.0 -> 20.10.0 (default)
+- Npm 9.8.1 -> 10.2.3
+- Nvm 0.39.5 -> 0.39.7
+- Pip 23.2.1 -> 23.3.1
+- Python 3.11.5 -> 3.11.7
+- Rust 1.72.1 -> 1.74.1
+- Sbt 1.9.6 -> 1.9.7
+- Terraform 1.5.7 -> 1.6.5
+- Vrtualenv 20.24.5 -> 20.25.0
+
+To learn more about this image, check our [Ubuntu 22.04 ARM page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/)
+
 ### Week of October 09, 2023
 
 **(Improved) Ubuntu 20.04 image update**
@@ -24,7 +159,7 @@ This page is updated on a weekly basis.
 - Kernel 5.15.0-76-generic -> 5.15.0-84-generic
 - Aws-cli 1.29.2 -> 1.29.57
 - Aws-cli 2.13.0 -> 2.13.22
-- Aws-eb-sli 3.20.6 -> 30.20.9
+- Aws-eb-cli 3.20.6 -> 30.20.9
 - Azure-cli 2.50.0 -> 2.53.0
 - Bazel 6.2.1 -> 6.3.2
 - Containerd.io 1.6.21 -> 1.6.24
@@ -73,7 +208,7 @@ To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semap
 - Kernel 6.2.0-1008-lowlatency -> 6.2.0.1013-lowlatency
 - Aws-cli 1.29.2 -> 1.29.57
 - Aws-cli 2.13.0 -> 2.13.22
-- Aws-eb-sli 3.20.3 -> 30.20.9
+- Aws-eb-cli 3.20.3 -> 30.20.9
 - Azure-cli 2.50.0 -> 2.53.0
 - Bazel 6.2.1 -> 6.3.2
 - Containerd.io 1.6.21 -> 1.6.24
@@ -118,9 +253,8 @@ To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semap
 
 - Kernel 5.19.0-1025-lowlatency -> 6.2.0.1013-lowlatency
 - Aws-cli 2.11.23 -> 2.13.22
-- Aws-eb-sli 3.20.6 -> 30.20.9
+- Aws-eb-cli 3.20.6 -> 30.20.9
 - Azure-cli 2.49.0 -> 2.53.0
-- Bazel 6.2.1 -> 6.3.2
 - Chromium 114 -> 117
 - ChromeDriver 114 -> 117
 - Containerd.io 1.6.21 -> 1.6.24
@@ -154,7 +288,6 @@ To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semap
 - Vrtualenv 20.23.0 -> 20.24.5
 
 To learn more about this image, check our [Ubuntu 22.04 ARM page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/)
-
 
 ### Week of September 11, 2023
 
