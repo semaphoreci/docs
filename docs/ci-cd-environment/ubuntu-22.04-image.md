@@ -57,10 +57,11 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.42.0
+- Git 2.43.0
 - Git LFS (Git Large File Storage) 3.4.0
-- GitHub CLI 2.35.0
+- GitHub CLI 2.40.0
 - Mercurial 6.1.1
+- Svn 1.14.1
 
 ### Browsers and Headless Browser Testing
 
@@ -79,10 +80,10 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 24.0.6
+- Docker 24.0.7
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.21.0 (used as `docker compose version`)
-- Docker-build 0.11.2
+- Docker-compose 2.23.3 (used as `docker compose version`)
+- Docker-buildx 0.11.2
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
 - Buildah 1.23.1
@@ -91,15 +92,15 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.29.57
-- Aws-cli v2 (used as `aws2`) 2.13.22
-- Azure-cli 2.53.0
-- Eb-cli 3.20.9
-- Doctl 1.99.0
+- Aws-cli v2 (used as `aws`) 2.15.0
+- Azure-cli 2.55.0
+- Eb-cli 3.20.10
+- Ecs-cli 1.21.0
+- Doctl 1.101.0
 - Gcloud 425.0.0
 - Gke-gcloud-auth-plugin 425.0.0
 - Kubectl 1.28.2
-- Heroku 8.5.0
+- Heroku 8.7.1
 - Terraform 1.5.7
 - Helm 3.13.0
 
@@ -120,7 +121,7 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 24.3, 25.0, 25.1, 25.2, 25.3 (default), 26.0, 26.1
+- Erlang: 24.3, 25.0, 25.1, 25.2, 25.3 (default), 26.0, 26.1, 26.2
 - Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x, 1.14.x (1.14.5 as default), 1.15.x
 
 Additional libraries:
@@ -142,20 +143,20 @@ Versions:
 - 1.18.x
 - 1.19.x
 - 1.20.x 
-- 1.21.x (1.21.1 as default)
+- 1.21.x (1.21.5 as default)
 
 ### Java and JVM languages
 
-- Java: 11.0.20.1, 17.0.8.1 (default)
+- Java: 11.0.21, 17.0.9 (default)
 - Scala: 3.2.2
 - Leiningen: 2.10.0 (Clojure)
-- Sbt 1.9.6
+- Sbt 1.9.7
 
 #### Additional build tools
 
-- Maven: 3.9.4
+- Maven: 3.9.6
 - Gradle: 8.3
-- Bazel: 6.3.2
+- Bazel: 7.0.0
 
 ### JavaScript via Node.js
 
@@ -163,7 +164,7 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.18.0 includes npm 9.8.1
+- v20.10.0 includes npm 10.2.3
 
 #### Additional tools
 
@@ -176,8 +177,9 @@ Available versions:
 
 - 8.1.20 and above
 - 8.2.x
+- 8.3.x
 
-The default installed PHP version is `8.1.23`.
+The default installed PHP version is `8.1.26`.
 
 #### Additional libraries
 
@@ -189,14 +191,14 @@ Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
 - 3.10.12
-- 3.11.5
+- 3.11.7
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.12
-- pip: 23.2.1
-- venv: 20.24.5
+- pypy3: 7.3.13
+- pip: 23.3.1
+- venv: 20.25.0
 
 ### Ruby
 
@@ -211,7 +213,7 @@ The default installed Ruby version is `3.2.2`.
 
 ### Rust
 
-- 1.72.1
+- 1.74.1
 
 ### Installing dependencies with apt package manager
 
