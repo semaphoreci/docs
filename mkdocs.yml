@@ -142,6 +142,7 @@ nav:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
     - External Integrations:
       - Cypress: examples/integrations/cypress.md
+      - BrowserStack: examples/integrations/browserstack.md
     - Continuous Integration:
       - Rails continuous integration: examples/rails-continuous-integration.md
       - Node.js and TypeScript continuous integration: examples/node-js-and-typescript-continuous-integration.md
