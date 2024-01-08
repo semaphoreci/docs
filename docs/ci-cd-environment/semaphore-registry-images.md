@@ -276,6 +276,10 @@ The `sem-service` is [a utility on Linux-based virtual machines](/ci-cd-environm
 | elasticsearch:7.10 | `registry.semaphoreci.com/elasticsearch:7.10` |   
 | elasticsearch:7.11 | `registry.semaphoreci.com/elasticsearch:7.11` |   
 | elasticsearch:7.12 | `registry.semaphoreci.com/elasticsearch:7.12` |   
+| elasticsearch:8.5.1 | `registry.semaphoreci.com/elasticsearch:8.5.1` |   
+| elasticsearch:8.5.3 | `registry.semaphoreci.com/elasticsearch:8.5.3` |   
+| elasticsearch:8.9.2 | `registry.semaphoreci.com/elasticsearch:8.9.2` |   
+| elasticsearch:8.11.3 | `registry.semaphoreci.com/elasticsearch:8.11.3` |   
 
 ### MongoDB    
 | Image | Link |
