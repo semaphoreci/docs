@@ -77,8 +77,8 @@ Following version control tools are pre-installed:
 
 Following gems are pre-installed:
 
-- fastlane (2.216.0)
-- cocoapods (1.14.2)
+- fastlane (2.219.0)
+- cocoapods (1.14.3)
 
 ## Languages
 
@@ -115,27 +115,29 @@ Installed versions:
 
 ## Flutter
 
-- 3.13.9
+- 3.16.7
 
 ## Xcode
 
 Installed versions:
 
 - 15.0.1
+- 15.2 (default)
 
-The default installed Xcode version is `15.0.1`.
+The default installed Xcode version is `15.2`.
 
 
-Xcode 15.0.1 has the following SDKs preinstalled:
+Xcode 15.2 has the following SDKs preinstalled:
 
-- iphoneos 17.0
-- iphonesimulator 17.0
+- iphoneos 17.2
+- iphonesimulator 17.2
 - driverkit.macos 23.0
-- macos 14.0
-- appletvos 17.0
-- appletvsimulator 17.0
-- watchos 10.0
-- watchsimulator 10.0
+- macos 14.2
+- appletvos 17.2
+- appletvsimulator 17.2
+- watchos 10.2
+- watchsimulator 10.2
+- visionos 1.0
 
 
 ## See Also
