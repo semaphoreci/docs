@@ -4,9 +4,9 @@ Description: This guide shows you how to use BrowserStack Automate in your Semap
 
 # BrowserStack
 
-> BrowserStack is a cloud-based testing platform that enables developers to test their websites and mobile applications across a vast range of browsers and operating systems without the need to set up and maintain a lab of physical testing devices.
+> [BrowserStack][browserstack-utm] is a cloud-based testing platform that enables developers to test their websites and mobile applications across a vast range of browsers and operating systems without the need to set up and maintain a lab of physical testing devices.
 
-This guide shows you how to integrate [BrowserStack Automate][browserstack] into your Semaphore workflows.
+This guide shows you how to integrate [BrowserStack Automate][browserstack-utm] into your Semaphore workflows.
 
 ## Integrating BrowserStack Automate into Semaphore
 
@@ -54,13 +54,22 @@ driver = new Builder()
 /** Your after all and code blocks ... */
 ```
 
-## BrowserStack Guides
+## Integrating Percy into Semaphore
+
+> [Percy][browserstack-percy-utm] by BrowserStack is a visual testing and review platform designed to help development teams detect visual changes in web applications and websites. It automates the process of capturing screenshots of web pages and comparing them against the baseline to identify any visual regressions.
+
+To set-up Percy in your Semaphore workflows, please follow the [official guide][browserstack-percy-docs].
+
+## BrowserStack Automate Guides
 
 - 📚 [Set-Up Local Testing][browserstack-docs-localwebsites] - Use this guide if your websites are hosted on a private or internal network.
 - 📚 [Integrate Existing Test Cases][browserstack-docs-existing-testcases]
 
 [browserstack]: https://www.browserstack.com
-[semaphoredocs]: https://www.browserstack.com/docs/automate/selenium/semaphore
+[browserstack-utm]: https://www.browserstack.com/automate?utm_source=semaphore&utm_medium=partnered
+[browserstack-percy-docs]: https://www.browserstack.com/docs/percy/ci-cd/semaphore?utm_source=semaphore&utm_medium=partnered
+[browserstack-percy-utm]: https://www.browserstack.com/percy?utm_source=semaphore&utm_medium=partnered
+[semaphoredocs]: https://www.browserstack.com/docs/automate/selenium/semaphore?utm_source=semaphore&utm_medium=partnered
 [browserstack-docs-existing-testcases]: https://www.browserstack.com/docs/automate/selenium/semaphore#integrate-existing-test-cases
 [browserstack-docs-localwebsites]: https://www.browserstack.com/docs/automate/selenium/semaphore#integrate-test-cases-for-locally-hosted-websites
 [semaphore-project-setup]: https://docs.semaphoreci.com/guided-tour/getting-started/#creating-a-semaphore-project
