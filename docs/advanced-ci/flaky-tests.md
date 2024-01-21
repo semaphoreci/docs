@@ -161,11 +161,24 @@ To add labels, click the "+ add label" button, type the label name, and click "O
 
 There are to charts at the top of the page, they visually show the number of new flaky tests and the number of disruptions caused by the flaky tests.
 
-### Detailed view 
+The "New flaky tests" chart defaults to displaying data in a daily overview. However, you can opt for a cumulative view of new flaky tests by clicking
+the "Cumulative overview" button located on the top right-hand side of the chart.
+
+The "Disruptions caused by a flaky test" chart presents data in a cumulative overview by default. If you prefer a daily overview,
+you can select this option by clicking the "Daily overview" button at the top right-hand side of the chart.
+
+### Detailed view
+
+In the detailed view, you encounter the same set of actions available in the main view. You can add labels to a flaky test, mark it as resolved or unresolved, and include a link to the ticket where the test is being addressed. Additionally, you'll find aggregated data detailing the impact of the selected flaky test, such as the P95 runtime, total number of runs, and the pass rate of the test.
+
+The detailed view also provides a list of flaky occurrences, allowing you to navigate to the specific jobs where the test diverged. Furthermore, a wider view of the Disruption History chart is available for analysis. You have the option to select the branch for which you want to view data; by default, the displayed data encompasses all branches.
+
+![detailed_view](img/dv.png)
 
 ### Known issues
 
 * While creating a new filter, you need to search, before saving the filter otherwise the contents of the filter do not get saved correctly.
+* Deleting a filter does not automatically switch to the next on the list.
 
 ## See also
 
