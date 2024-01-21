@@ -231,9 +231,11 @@ nav:
       - Overview: security/okta/overview.md
       - Installation: security/okta/installation.md
   - Score:
-      - Insights: score/project-insights.md
-      - Custom dashboards: score/custom-dashboards.md
-      - Organization Health: score/organization-health.md
+    - Insights: score/project-insights.md
+    - Custom dashboards: score/custom-dashboards.md
+    - Organization Health: score/organization-health.md
+  - Advanced CI:
+    - Flaky tests: advanced-ci/flaky-tests.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
