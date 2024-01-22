@@ -8,6 +8,122 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of January 22, 2024
+
+**(Improved) Ubuntu 20.04 image update**
+
+- We disabled all custom added APT repositories, more info [here](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#disabled-repositories).
+
+**(New)** Packages:
+
+- Go 1.20.12, 1.20.13, 1.21.6 (default)
+- PHP 8.1.27, 8.2.14, 8.2.15, 8.3.1, 8.3.2
+- Python 3.12.1
+- Ruby 3.2.3
+
+**(Updated)** Updated packages:
+
+- Aws-cli 1.31.12 -> 1.32.21 (used as `aws`)
+- Aws-cli 2.15.0 -> 2.15.11 (used as `aws2`)
+- Azure-cli 2.55.0 -> 2.56.0
+- Bazel 7.0.0 -> 7.0.1
+- Containerd.io 1.6.26 -> 1.6.27
+- Docker 24.0.7 -> 25.0.0
+- Docker-compose 2.23.3 -> 2.24.1
+- Docker-buildx 0.11.2 -> 0.12.1
+- Doctl 1.101.0 -> 1.102.0
+- Erlang 24.3.4.14 -> 24.3.4.15 (aliased as 24.3)
+- Erlang 25.3.2.7 -> 25.3.2.8 (aliased as 25.3)
+- Erlang 26.2 -> 26.2.1 (aliased as 26.2)
+- Git-lfs 3.4.0 -> 3.4.1
+- Github-cli 2.40.0 -> 2.42.1
+- Helm 3.13.2 -> 3.13.3
+- Kubectl 1.28.2 -> 1.29.1
+- NodeJS 20.10.0 -> 20.11.0 (default)
+- Npm 10.2.3 -> 10.2.4
+- Pip 23.3.1 -> 23.3.2
+- Pypy3 7.3.13 -> 7.3.15
+- Terraform 1.6.5 -> 1.7.0
+
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 22.04 image update**
+
+- We disabled all custom added APT repositories, more info [here](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#disabled-repositories).
+
+**(New)** Packages:
+
+- Go 1.20.12, 1.20.13, 1.21.6 (default)
+- PHP 8.1.27 (default), 8.2.14, 8.2.15, 8.3.1, 8.3.2
+- Python 3.12.1
+- Ruby 3.2.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 6.2.0-1017-lowlatency -> 6.5.0.14-lowlatency
+- Aws-cli 2.15.0 -> 2.15.11 (used as `aws`)
+- Azure-cli 2.55.0 -> 2.56.0
+- Bazel 7.0.0 -> 7.0.1
+- Containerd.io 1.6.26 -> 1.6.27
+- Docker 24.0.7 -> 25.0.0
+- Docker-compose 2.23.3 -> 2.24.1
+- Docker-buildx 0.11.2 -> 0.12.1
+- Doctl 1.101.0 -> 1.102.0
+- Erlang 24.3.4.14 -> 24.3.4.15 (aliased as 24.3)
+- Erlang 25.3.2.7 -> 25.3.2.8 (aliased as 25.3)
+- Erlang 26.2 -> 26.2.1 (aliased as 26.2)
+- Github-cli 2.40.0 -> 2.42.1
+- Git-lfs 3.4.0 -> 3.4.1
+- Helm 3.13.2 -> 3.13.3
+- Kubectl 1.28.2 -> 1.29.1
+- NodeJS 20.10.0 -> 20.11.0 (default)
+- Npm 10.2.3 -> 10.2.4
+- Pip 23.3.1 -> 23.3.2
+- Pypy3 7.3.13 -> 7.3.15
+- Rust 1.74.1 -> 1.75.0
+- Terraform 1.6.5 -> 1.7.0
+
+To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
+**(Improved) Ubuntu 22.04 ARM image update**
+
+- We disabled all custom added APT repositories, more info [here](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/#disabled-repositories).
+
+**(New)** Packages:
+
+- Go 1.20.12, 1.20.13, 1.21.6 (default)
+- PHP 8.1.27 (default), 8.2.14, 8.2.15, 8.3.1, 8.3.2
+- Python 3.12.1
+- Ruby 3.2.3 (default)
+
+**(Updated)** Updated packages:
+
+- Kernel 6.2.0-1018-lowlatency -> 6.5.0.14-lowlatency
+- Aws-cli 2.15.0 -> 2.15.11 (used as `aws`)
+- Azure-cli 2.55.0 -> 2.56.0
+- Bazel 7.0.0 -> 7.0.1
+- Containerd.io 1.6.26 -> 1.6.27
+- Docker 24.0.7 -> 25.0.0
+- Docker-compose 2.23.3 -> 2.24.1
+- Docker-buildx 0.11.2 -> 0.12.1
+- Doctl 1.101.0 -> 1.102.0
+- Erlang 24.3.4.14 -> 24.3.4.15 (aliased as 24.3)
+- Erlang 25.3.2.7 -> 25.3.2.8 (aliased as 25.3)
+- Erlang 26.2 -> 26.2.1 (aliased as 26.2)
+- Firefox 115.6.0 -> 115.7.0
+- Github-cli 2.40.0 -> 2.42.1
+- Git-lfs 3.4.0 -> 3.4.1
+- Helm 3.13.2 -> 3.13.3
+- Kubectl 1.28.2 -> 1.29.1
+- NodeJS 20.10.0 -> 20.11.0 (default)
+- Npm 10.2.3 -> 10.2.4
+- Pip 23.3.1 -> 23.3.2
+- Pypy3 7.3.13 -> 7.3.15
+- Rust 1.74.1 -> 1.75.0
+- Terraform 1.6.5 -> 1.7.0
+
+To learn more about this image, check our [Ubuntu 22.04 ARM page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/)
+
 ### Week of December 18, 2023
 
 **(Improved) Ubuntu 20.04 image update**
