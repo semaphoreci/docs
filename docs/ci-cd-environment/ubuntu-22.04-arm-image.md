@@ -82,8 +82,8 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 25.0.0
-- Docker-compose 2.24.1 (used as `docker compose version`)
+- Docker 24.0.7
+- Docker-compose 2.24.2 (used as `docker compose version`)
 - Docker-buildx 0.12.1
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
