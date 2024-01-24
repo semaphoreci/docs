@@ -234,6 +234,10 @@ nav:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
       - Organization Health: score/organization-health.md
+    - "User authorization":
+      - RBAC overview: security/rbac-authorization.md
+      - Permissions: security/permissions.md
+      - Default roles: security/default-roles.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
