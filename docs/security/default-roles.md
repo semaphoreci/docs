@@ -1,8 +1,5 @@
 Default roles are available to all Semaphore users, regardless of the plan they are on.
 
-If you or your organization need more roles with different permissions, there is an option
-to create your own [custom roles](/security/custom-roles).
-
 ### Organization roles
 <table style="background-color: rgb(255, 255, 255);">
 <thead>
@@ -21,26 +18,12 @@ to create your own [custom roles](/security/custom-roles).
 <tbody>
 <tr>
   <td>
-    **Guest**
-  </td>
-  <td>
-    <ul>
-      <li>Does not have any permissions within the organization, and can't see any information.</li>
-    </ul>
-  </td>
-  <td>
-    This role is intended for users that need access to some projects, but should not see
-    any information regarding the organization.
-  </td>
-</tr>
-<tr>
-  <td>
     **Member**
   </td>
   <td>
     <ul>
       <li>Can create new projects.</li>
-      <li>Can view existing notifications.</li>
+      <li>Can view existing notifications and settings.</li>
     </ul>
   </td>
   <td>
@@ -76,20 +59,6 @@ to create your own [custom roles](/security/custom-roles).
     By default, this role is assigned to the user that creates the organization.
     <br/>
     Each of the organization's Owners is also Admin within every project owned by the given organization.
-  </td>
-</tr>
-<tr>
-  <td>
-    **Accountant**
-  </td>
-  <td>
-    <ul>
-      <li>Manages billing</li>
-    </ul>
-  </td>
-  <td>
-    This role cant access any part of the Semaphore except for pages regarding
-    spending and financial information.
   </td>
 </tr>
 </tbody>
@@ -142,23 +111,6 @@ to create your own [custom roles](/security/custom-roles).
   <td>
     For developers who are currently working on the project, but aren't responsible for maintaining it
     and setting up/modifying the environment in which the project exists.
-  </td>
-</tr>
-<tr>
-  <td>
-    **Maintainer**
-  </td>
-  <td>
-    <ul>
-      <li>Can do everything a contributor can.</li>
-      <li>Can view and manage people within the project.</li>
-      <li>Can view modify and manage project-level secrets, schedulers and, 
-      project-level pre-flight checks.</li>
-      <li>Can view and manage project settings.</li>
-    </ul>
-  </td>
-  <td>
-    Usually developers who own the project.
   </td>
 </tr>
 <tr>
