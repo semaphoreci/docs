@@ -230,16 +230,14 @@ nav:
     - "Okta integration":
       - Overview: security/okta/overview.md
       - Installation: security/okta/installation.md
-  - Score:
-      - Insights: score/project-insights.md
-      - Custom dashboards: score/custom-dashboards.md
-      - Organization Health: score/organization-health.md
     - "User authorization":
       - RBAC overview: security/rbac-authorization.md
       - Permissions: security/permissions.md
       - Default roles: security/default-roles.md
-      - Custom roles: security/custom-roles.md
-      - Repo-to-role mapping: security/repository-to-role-mappings.md
+  - Score:
+      - Insights: score/project-insights.md
+      - Custom dashboards: score/custom-dashboards.md
+      - Organization Health: score/organization-health.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
