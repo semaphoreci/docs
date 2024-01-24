@@ -95,14 +95,16 @@ blocks:
           commands:
             - checkout
             - cache restore
+            - cache restore rubocop-cache-key
             # Bundler requires `install` to run even though cache has been
             # restored, but generally this is not the case with other package
             # managers. Installation will not actually run and the command will
             # finish quickly:
             - sem-version ruby 2.6.0
             - bundle install --deployment --path vendor/bundle
-            - bundle exec rubocop
+            - bundle exec rubocop --cache true --cache-root tmp/rubocop
             - bundle exec brakeman
+            - cache store rubocop-cache-key tmp/rubocop
 
   - name: Unit tests
     task:

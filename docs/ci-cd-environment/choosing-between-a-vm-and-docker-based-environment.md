@@ -46,11 +46,11 @@ agent:
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-xcode12
+    os_image: macos-xcode14
 ```
 
 We also have helpful documentation about [Machine Types][machine-types] and the
-[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 11][xcode11], and [Mac OS XCode 12][xcode12] virtual machines images.
+[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 14][xcode14], and [Mac OS XCode 15][xcode15] virtual machines images.
 Have a look!
 
 ## Docker-based environments
@@ -174,7 +174,7 @@ We recommend using Virtual Machines for building Docker images.
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
-[xcode12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
+[xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
+[xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
 [docker-based]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [blog-docker-in-docker]: https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/

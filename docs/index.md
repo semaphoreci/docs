@@ -7,7 +7,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
 <div class="welcome-page">
 
     <div class="welcome-intro">
-        Welcome to <a href="https://semaphoreci.com">Semaphore 2.0</a> Documentation. All pages are open source. If you feel something could be improved, you can <a href="https://github.com/semaphoreci/docs/blob/master/CONTRIBUTING.md">propose changes</a>.
+        Welcome to <a href="https://semaphoreci.com">Semaphore 2.0</a> Documentation. All pages are open source. If you feel that something could be improved, you can <a href="https://github.com/semaphoreci/docs/blob/master/CONTRIBUTING.md">propose changes</a>.
     </div>
 
     <img src="images/ill-couple-in-office-docs.svg" style="margin-bottom: -8px">
@@ -44,9 +44,12 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
     <div class="welcome-blocks-wrapper">
         <div class="welcome-block">
             <h2 id="semaphore20features">New features</h2>
-            <p class="welcome-block-description">The latest in product</p>
+            <p class="welcome-block-description">The latest in the product</p>
 
             <ul>
+                <li><a href="/score/organization-health/">Organization Health</a></li>
+                <li><a href="/score/custom-dashboards/">Custom Dashboards</a></li>
+                <li><a href="/score/project-insights/">Project Insights</a></li>
                 <li><a href="essentials/building-monorepo-projects/">Monorepo workflows</a></li>
                 <li><a href="/ci-cd-environment/ubuntu-20.04-image/">Ubuntu 20.04 image</a></li>
                 <li><a href="/account-management/connecting-github-and-semaphore/">GitHub App</a></li>
@@ -54,7 +57,7 @@ description: Semaphore 2.0 is a cloud-based automation service for building, tes
         </div>
 
         <div class="welcome-block">
-            <h2 id="languagespecificconfiguration">Language specific configuration</h2>
+            <h2 id="languagespecificconfiguration">Language-specific configuration</h2>
             <p class="welcome-block-description">Dive into the details</p>
 
             <ul>

@@ -43,6 +43,10 @@ plan to use an existing repository.
 
 ## Creating a Semaphore project
 
+<div class="docs-video-wrapper">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/Y4Ac5EJpzEc?si=9J0ko7UJepKhIsw_" title="Getting Started with Semaphore - Creating a Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 1. Log in to your [Semaphore account][semaphore-login].
 2. If you are part of multiple organizations, select the one in which you plan
    to host the project you are about to create.
@@ -63,6 +67,10 @@ plan to use an existing repository.
 ![](getting-started/single-job-passed.png)
 
 ## Adding a test block to your CI pipeline
+
+<div class="docs-video-wrapper">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/vrv3jI-85L0?si=RQ_afh4rcKqJ0xgB" title="Getting Started with Semaphore - How to Use the Visual Workflow Builder" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Let's customize your pipeline so that it looks more like a continuous integration (CI) process for a real project.
 
@@ -120,7 +128,8 @@ block runs when it completes.
 **Blocks** can contain a single job or many parallel jobs. For example, your
 `Tests` block contains two parallel jobs.
 
-!!! Info: "Running parallel jobs simultaneously is possible under open source, free trial, or paid [plans][plans]."
+!!! info ""
+    Running parallel jobs simultaneously is possible under open source, free trial, or paid plans.
 
 **Jobs** are basic units of execution. Semaphore runs each job as a sequence of
 commands in a clean, isolated environment that it creates on-demand and destroys
@@ -140,6 +149,10 @@ it performs to prepare your job for execution. This enables you to have
 full insight and control over your CI/CD environment.
 
 ## Adding a CD pipeline
+
+<div class="docs-video-wrapper">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/rbf2jb3Uh-E?si=nuc8r6RI9Pd3u3GP" title="Getting Started with Semaphore - How to Set-Up Continuous Delivery" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
 Semaphore has first-class support for continuous delivery (CD) via
 **promotions**, which trigger other pipelines. By combining promotions and
@@ -219,9 +232,8 @@ pointers for moving forward as you implement CI/CD pipelines for your projects:
 [semaphore-login]: https://id.semaphoreci.com
 [github-guide]: ../account-management/connecting-github-and-semaphore.md
 [checkout]: ../reference/toolbox-reference.md#checkout
-[plans]: ../account-management/plans.md
-[linux-env]: ../ci-cd-environment/ubuntu-18.04-image.md
-[macos-env]: ../ci-cd-environment/macos-xcode-12-image.md
+[linux-env]: ../ci-cd-environment/ubuntu-20.04-image.md
+[macos-env]: ../ci-cd-environment/macos-xcode-14-image.md
 [example-projects]: ../examples/tutorials-and-example-projects.md
 [cli]: ../reference/sem-command-line-tool.md
 [debugging]: ../essentials/debugging-with-ssh-access.md

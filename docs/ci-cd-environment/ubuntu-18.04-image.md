@@ -4,11 +4,12 @@ Description: The ubuntu1804 image is a customized image based on Ubuntu 18.04 LT
 
 # Ubuntu 18.04 Image
 
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 March 2024. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
 
 The `ubuntu1804` image is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) that has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
-with any [Linux machine type][machine-types] when defining the [agent][agent]
+with any [E1 Generation Linux machine type][e1-machine-types] when defining the [agent][agent]
 of your pipeline or block.
 
 The `ubuntu1804` image is a virtual machine (VM) image. The user in the environment,
@@ -44,7 +45,7 @@ blocks:
             - make test
 ```
 
-The `ubuntu1804` image can be used in combination with all Linux machine
+The `ubuntu1804` image can be used in combination with the following Linux machine
 types: `e1-standard-2`, `e1-standard-4`, and `e1-standard-8`.
 
 ## Toolbox
@@ -59,18 +60,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.37.3
-- Git LFS (Git Large File Storage) 3.2.0
-- GitHub CLI 2.14.7
+- Git 2.40.1
+- Git LFS (Git Large File Storage) 3.3.0
+- GitHub CLI 2.29.0
 - Mercurial 4.5.3
 - Svn 1.9.7
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.2.0 (`102`, `esr-new`, `esr-latest`)
-- geckodriver 0.26.0
-- Google Chrome 105
-- ChromeDriver 105
+- Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.11.0 (`102`, `esr-new`, `esr-latest`)
+- Geckodriver 0.33.0
+- Google Chrome 112
+- ChromeDriver 112
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -80,33 +81,38 @@ Refer to the documentation of associated libraries when configuring your project
 
 ### Docker
 
-Docker toolset is installed and following versions are available:
+Docker toolset is installed and the following versions are available:
 
-- Docker 20.10.17
+- Docker 24.0.2
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.6.1 (used as `docker compose version`)
+- Docker-compose 2.18.1 (used as `docker compose version`)
 - Docker-machine 0.16.2
-- Dockerize 0.6.1
+- Dockerize 0.7.0
 
 ### Cloud CLIs
 
-- aws-cli v1 (used as `aws`) 1.25.67
-- aws-cli v2 (used as `aws2`) 2.7.29
-- azure-cli 2.40.0
-- eb-cli 3.19.1
-- ecs-cli 1.21.0
-- doctl 1.76.0
-- gcloud 297.0.1
-- kubectl 1.25.0
-- heroku 7.63.0
-- terraform 1.2.8
-- helm 3.9.4
+- Aws-cli v1 (used as `aws`) 1.27.142
+- Aws-cli v2 (used as `aws2`) 2.11.23
+- Azure-cli 2.49.0
+- Eb-cli 3.19.1
+- Ecs-cli 1.21.0
+- Doctl 1.96.1
+- Gcloud 425.0.0
+- Gke-gcloud-auth-plugin 425.0.0
+- Kubectl 1.27.2
+- Heroku 8.1.6
+- Terraform 1.4.6
+- Helm 3.12.0
 
 ### Network utilities
 
-- httpie 1.0.3
-- curl 7.58.0
-- rsync 3.1.2
+- Httpie 1.0.3
+- Curl 7.58.0
+- Rsync 3.1.2
+
+## Compilers
+
+- gcc: 4.8, 5, 6, 7, 8 (default)
 
 ## Languages
 
@@ -115,13 +121,13 @@ Docker toolset is installed and following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2, 24.3 (default), 25.0
-- Elixir: 1.8.x, 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.0
+- Erlang: 21.3, 22.3, 23.1, 23.2, 23.3, 24.0, 24.1, 24.2, 24.3 (default), 25.0, 25.1, 25.2, 25.3, 26.0
+- Elixir: 1.8.x, 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x (1.13.4 as default), 1.14.x
 
 Additional libraries:
 
-- rebar: 2.6.4
-- rebar3: 3.18.0
+- Rebar: 2.6.4
+- Rebar3: 3.22.0
 
 ### Go
 
@@ -136,28 +142,29 @@ Versions:
 - 1.16.x
 - 1.17.x
 - 1.18.x 
-- 1.19.x (1.19 as default)
+- 1.19.x
+- 1.20.x (1.20.4 as default)
 
 ### Java and JVM languages
 
-- Java: 8u342, 11.0.16 (default), 17.0.4
+- Java: 8u372, 11.0.19 (default), 17.0.7
 - Scala: 2.12.15, 3.1.3
-- Leiningen: 2.9.10 (Clojure)
-- sbt 1.7.1
+- Leiningen: 2.10.0 (Clojure)
+- Sbt 1.8.3
 
 #### Additional build tools
 
-- Maven: 3.6.3
+- Maven: 3.9.2
 - Gradle: 7.4.2
-- Bazel: 5.3.0
+- Bazel: 6.2.0
 
 ### JavaScript via Node.js
 
-Node.js versions are managed by [nvm](https://github.com/creationix/nvm).
+Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v16.17.0 (set as default, with alias 16.17), includes npm 8.15.0
+- v16.17.1 (set as default, with alias 16.17), includes npm 8.15.0
 
 #### Additional tools
 
@@ -166,7 +173,7 @@ Installed version:
 ### PHP
 
 PHP versions are managed by [phpbrew](https://github.com/phpbrew/phpbrew).
-Installed versions:
+Available versions:
 
 - 7.0.x
 - 7.1.x
@@ -175,32 +182,33 @@ Installed versions:
 - 7.4.x
 - 8.0.x
 - 8.1.x
+- 8.2.x
 
-The default installed PHP version is `7.4.30`.
+The default installed PHP version is `7.4.33`.
 
 #### Additional libraries
 
-phpunit: 7.5.20
+PHPUnit: 7.5.20
 
 ### Python
 
 Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
-- 2.7
-- 3.6
-- 3.7
-- 3.8
-- 3.9
+- 2.7.18
+- 3.6.9
+- 3.7.16
+- 3.8.16
+- 3.9.16
 
 Supporting libraries:
 
-- pypy: 7.3.9
-- pypy3: 7.3.9
-- pip (for Python 2.7): 20.3.4
-- pip (for Python 3.6): 21.3.1
-- pip (for Python 3.7 and above): 22.2.2
-- venv: 20.14.1
+- Pypy: 7.3.9
+- Pypy3: 7.3.11
+- Pip (for Python 2.7): 20.3.4
+- Pip (for Python 3.6): 21.3.1
+- Pip (for Python 3.7 and above): 23.1.2
+- Venv: 20.15.1
 
 ### Ruby
 
@@ -216,10 +224,15 @@ Available versions:
 - 2.4.0 to 2.4.10
 - 2.5.0 to 2.5.9
 - 2.6.0 to 2.6.10
-- 2.7.0 to 2.7.6
-- 3.0.0 to 3.0.4
-- 3.1.0 to 3.1.2
+- 2.7.0 to 2.7.8
+- 3.0.0 to 3.0.6
+- 3.1.0 to 3.1.4
+- 3.2.0 to 3.2.2
 - jruby-9.2.11.1
+- jruby-9.3.9.0
+- jruby-9.4.0.0
+
+The default installed Ruby version is `2.7.8`.
 
 ### Installing dependencies with apt package manager
 
@@ -231,12 +244,31 @@ with the Ubuntu package manager
 or using an alternative method such as compiling it from the source, or
 manually downloading binaries.
 
-To install dependecies using the package manager (apt-get) you can use the
+To install dependecies using the package manager (`apt-get`) you can use the
 template command below and add it to your pipeline:
 
 ```bash
 sudo apt-get update
 sudo apt-get install -y [your-dependency]
+```
+
+#### Disabled repositories
+
+Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
+
+- `ansible.list`
+- `git.list`
+- `gradle.list`
+- `pypy.list`
+- `python.list`
+
+If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
+
+Example:
+
+```bash
+sudo mv /etc/apt/sources.list.d/disabled/git.list /etc/apt/sources.list.d/
+sudo apt-get update
 ```
 
 ## See Also
@@ -245,6 +277,7 @@ sudo apt-get install -y [your-dependency]
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
+[e1-machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/#e1-generation
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [agent]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

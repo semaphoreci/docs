@@ -97,13 +97,14 @@ the machine type is used.
 These are valid values for `os_image`:
 
 - `ubuntu1804` ([reference][ubuntu1804])
-- `macos-xcode11` ([reference][macos-xcode11])
-- `macos-xcode12` ([reference][macos-xcode12])
+- `ubuntu2004` ([reference][ubuntu2004])
+- `macos-xcode15` ([reference][macos-xcode15])
+- `macos-xcode14` ([reference][macos-xcode14])
 
 The default operating system depends on the type of the machine:
 
 - For the `e1-standard-*` machine types, the default image is `ubuntu1804`
-- For the `a1-standard-*` machine types, the default image is `macos-xcode11`
+- For the `a1-standard-*` machine types, the default image is `macos-xcode14`
 
 ### Example of `os_image` usage
 
@@ -1024,7 +1025,7 @@ blocks:
       agent:
           machine:
             type: a1-standard-4
-            os_image: macos-xcode12
+            os_image: macos-xcode14
       jobs:
         - name: Using agent job
           commands:
@@ -1117,6 +1118,8 @@ reads the plain text file and creates an equivalent job using a
 `commands` block, which is what is finally executed. This means that
 the `commands_file` property is replaced before the job is started and the
 machine begins its execution.
+
+_Note_ The location of the `commands_file` file is relative to the pipeline file. For example, if your pipeline file is located in .semaphore/semaphore.yml, the file_with_commands.sh in the above example is assumed to live in .semaphore/file_with_commands.sh.
 
 ### `env_vars` and `jobs`
 
@@ -1368,7 +1371,8 @@ An `epilogue` block should be used when you want to execute commands after
 a job has finished, either successfully or unsuccessfully.
 
 Please notice that a pipeline *will not fail* if one or more commands in the
-`epilogue` fail to execute for some reason.
+`epilogue` fail to execute for some reason. Also, epilogue commands will not run
+if the job was stopped, canceled or timed-out.
 
 There are three types of epilogue commands:
 
@@ -1610,10 +1614,8 @@ target.
 The `pipeline_file` property of the `promotions` block is a path to another pipeline YAML file within the repository of the
 Semaphore project. This property is compulsory.
 
-If the `pipeline_file` value is just a plain filename without any directories,
-then `pipeline_file` will look for it inside the `.semaphore` directory.
-Otherwise, it will follow the given path starting from the `.semaphore`
-directory.
+If `pipeline_file` is a relative path, Semaphore will search for the file inside the directory of the current pipeline.
+If `pipeline_file` is an absolute path (starts with `/` character), Semaphore will seek the file starting from the root directory of repository.
 
 Each `pipeline_file` value must be a valid and syntactically correct pipeline
 YAML file as defined in this document. However, potential errors in a
@@ -2178,8 +2180,9 @@ YAML parser, which is not a Semaphore 2.0 feature, rather the way YAML files fun
 - [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
 [ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
-[macos-xcode11]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-11-image/
-[macos-xcode12]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-12-image/
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
+[macos-xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
+[macos-xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
 [docker-run]: https://docs.docker.com/engine/reference/run/#overriding-dockerfile-image-defaults

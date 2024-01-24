@@ -17,7 +17,7 @@ There is also an option to pause a project.
 
 ## Pausing a project
 
-Projects can be paused. Selecting the "pause" setting for a project will result in Semaphore not creating new workflows for any trigger.
+Projects can be paused. Selecting the `Do not run on any events` setting for a project will result in Semaphore not creating new workflows for any trigger.
 You can, however, still restart a past workflow, run a debug session, and configure a scheduler.
 
 ## Building branches

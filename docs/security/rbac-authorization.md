@@ -17,7 +17,7 @@ to information scoped only to that project (Schedulers, Insights, Workflows, Art
 To be assigned a project-level role, you have to be a part of the organization
 which owns the project (i.e. you must have a role within the organization).
 
-There is a set of pre-defined [default roles](/security/default-roles) that are available to all users, but you may also define your own [custom roles](/security/custom-roles).
+There is a set of pre-defined [default roles](/security/default-roles) that are available to all users.
 
 ## Role Management
 
@@ -51,8 +51,8 @@ membership in a group which was assigned a role within the given project.
 
 **Example**:<br/> *Owen* has access to a project's GitHub repository, which automatically makes him
 a Contributor to that project on Semaphore. He is the organization's Admin, which makes him Admin for
-all of the organization's projects, and someone also directly assigned him the role of Maintainer.
-So, *Owen* has three roles within this project: Contributor, Admin, and Maintainer; and,
+all of the organization's projects, and someone also directly assigned him the role of Reader.
+So, *Owen* has three roles within this project: Contributor, Admin, and Reader; and,
 as with organization roles, the sum of permissions that these roles grant make up the total set
 of permission that *Owen* has within this project. 
 

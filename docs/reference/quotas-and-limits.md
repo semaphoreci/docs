@@ -8,105 +8,6 @@ Semaphore 2.0 enforces usage quotas and limits to protect customers and the
 platform from unforeseen spikes in traffic. As a given customer's use of Semaphore increases, 
 quota typically size increases correspondingly.
 
-## Quotas for Maximum Parallel Running Jobs in an Organization
-
-Every organization has a set of quotas that define the maximum number of
-parallel running jobs.
-
-Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization in a **[trial](https://docs.semaphoreci.com/account-management/plans/#trial-period)** or on
-a **[paid plan](https://docs.semaphoreci.com/account-management/plans/#paid-plan)** are shown below:
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>Machine Type</td>
-  <td>Default Quota</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>e1-standard-2</td>
-  <td>50</td>
-</tr>
-<tr>
-  <td>e1-standard-4</td>
-  <td>25</td>
-</tr>
-<tr>
-  <td>e1-standard-8</td>
-  <td>10</td>
-</tr>
-<tr>
-  <td>a1-standard-4</td>
-  <td>2</td>
-</tr>
-</tbody>
-</table>
-
-If your organization's needs are greater than what is provided with the default
-machine quotas, you can request an increase by sending a mail to
-<customersuccess@semaphoreci.com> (please include which type of machine you
-prefer) or via the UI (Billing > See detailed insights… > Quota > Request
-upgrade…).
-
-Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on an **[open source plan](https://docs.semaphoreci.com/account-management/plans/#open-source-plan)** are shown below:
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>Machine Type</td>
-  <td>Default Quota</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>e1-standard-2</td>
-  <td>4</td>
-</tr>
-<tr>
-  <td>e1-standard-4</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>e1-standard-8</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>a1-standard-4</td>
-  <td>1</td>
-</tr>
-</tbody>
-</table>
-
-Default quotas by [machine type](https://docs.semaphoreci.com/ci-cd-environment/machine-types/) for an organization on a **[free plan](https://docs.semaphoreci.com/account-management/plans/#free-plan)** are shown below:
-
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>Machine Type</td>
-  <td>Default Quota</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>e1-standard-2</td>
-  <td>1</td>
-</tr>
-<tr>
-  <td>e1-standard-4</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>e1-standard-8</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>a1-standard-4</td>
-  <td>1</td>
-</tr>
-</tbody>
-</table>
-
 ## Pipeline and Block Execution Time Limit
 
 By default, each pipeline and block has a maximum execution time of **one hour**.
@@ -196,8 +97,22 @@ Content of the log is bigger than 16MB. Log is trimmed.
 This limit is not adjustable.
 
 For collecting longer textual files, or output from long and verbose processes,
-we recommend using a blob store like AWS S3 or Google Cloud Storage.
+you can upload the logs as a job artifact, by exposing the `SEMAPHORE_AGENT_UPLOAD_JOB_LOGS` environment variable
+in the job YAML:
+
+```diff
+  jobs:
+    - name: 'Job #1'
+      commands:
+        - checkout
++ env_vars:
++   - name: SEMAPHORE_AGENT_UPLOAD_JOB_LOGS
++     value: when-trimmed
+```
+
+The possible values for that environment variable are the same ones in the Semaphore agent [--upload-job-logs][upload-job-logs-parameter] parameter.
 
 [execution-time-limit-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#execution_time_limit
 [yml-reference-queue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#queue
 [dependency-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#dependencies-in-blocks
+[upload-job-logs-parameter]: https://docs.semaphoreci.com/ci-cd-environment/configure-self-hosted-agent/#upload-job-logs

@@ -9,7 +9,7 @@ repo_name: semaphoreci/docs
 repo_url: https://github.com/semaphoreci/docs
 
 # Copyright
-copyright: '&copy; 2009-2022 Rendered Text'
+copyright: '&copy; 2009-2024 Rendered Text'
 
 theme:
   font:
@@ -37,6 +37,9 @@ extra:
     - type: 'linkedin'
       link: 'https://www.linkedin.com/company/rendered-text'
 markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
   - admonition
   - attr_list
   - md_in_html
@@ -55,7 +58,7 @@ nav:
       - Overview: essentials/concepts.md
       - Pipelines: essentials/modeling-complex-workflows.md
       - Triggers: essentials/project-workflow-trigger-options.md
-      - Scheduler/cron: essentials/schedule-a-workflow-run.md
+      - Tasks (formerly Schedulers): essentials/schedule-a-workflow-run.md
       - Artifacts: essentials/artifacts.md
       - Environment variables: essentials/environment-variables.md
       - Secrets: essentials/using-secrets.md
@@ -70,10 +73,11 @@ nav:
       - Prioritizing jobs: essentials/prioritization.md
       - Monorepo workflows: essentials/building-monorepo-projects.md
       - Job matrix: essentials/build-matrix.md
-      - "Pre-flight checks": essentials/configuring-pre-flight-checks.md
 
     - Deployment:
       - Deploying with promotions: essentials/deploying-with-promotions.md
+      - Parameterized promotions: essentials/parameterized-promotions.md
+      - Deployment targets: essentials/deployment-targets.md
       - Pipeline queues: essentials/pipeline-queues.md
       - Tag-triggered deployment: essentials/tag-triggered-deployment.md
       - Deployment dashboards: essentials/deployment-dashboards.md
@@ -107,6 +111,8 @@ nav:
     - Linux VM:
       - Ubuntu 18.04 image: ci-cd-environment/ubuntu-18.04-image.md
       - Ubuntu 20.04 image: ci-cd-environment/ubuntu-20.04-image.md
+      - Ubuntu 22.04 image: ci-cd-environment/ubuntu-22.04-image.md
+      - Ubuntu 22.04 ARM image: ci-cd-environment/ubuntu-22.04-arm-image.md
       - Migrating to Ubuntu 20.04: ci-cd-environment/agent-migration-to-ubuntu2004.md
       - "Selecting language versions": ci-cd-environment/sem-version-managing-language-versions-on-linux.md
       - "Starting databases": ci-cd-environment/sem-service-managing-databases-and-services-on-linux.md
@@ -119,8 +125,8 @@ nav:
       - DockerHub authentication: ci-cd-environment/docker-authentication.md
       - Semaphore Container Registry: ci-cd-environment/semaphore-registry-images.md
     - "iOS/macOS":
-      - macOS Xcode 12 image: ci-cd-environment/macos-xcode-12-image.md
-      - macOS Xcode 13 image: ci-cd-environment/macos-xcode-13-image.md
+      - macOS Xcode 14 image: ci-cd-environment/macos-xcode-14-image.md
+      - macOS Xcode 15 image: ci-cd-environment/macos-xcode-15-image.md
     - Android:
       - Docker images: ci-cd-environment/android-images.md
       - Flutter example: ci-cd-environment/flutter.md
@@ -129,11 +135,14 @@ nav:
       - Self-hosted agent types: ci-cd-environment/self-hosted-agent-types.md
       - Installation: ci-cd-environment/install-self-hosted-agent.md
       - Configuration: ci-cd-environment/configure-self-hosted-agent.md
-      - Job environment isolation: ci-cd-environment/job-isolation.md
+      - Job environment: ci-cd-environment/job-environment.md
       - AWS support: ci-cd-environment/aws-support.md
       - S3-based caching: ci-cd-environment/set-up-caching-on-aws-s3.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
+    - External Integrations:
+      - Cypress: examples/integrations/cypress.md
+      - BrowserStack: examples/integrations/browserstack.md
     - Continuous Integration:
       - Rails continuous integration: examples/rails-continuous-integration.md
       - Node.js and TypeScript continuous integration: examples/node-js-and-typescript-continuous-integration.md
@@ -154,6 +163,7 @@ nav:
       - Using Terraform with Google Cloud: examples/using-terraform-with-google-cloud.md
       - Using private dependencies: essentials/using-private-dependencies.md
       - Releasing semantic versions: essentials/releasing-semantic-versions.md
+      - Estimating cloud costs with Infracost: examples/estimating-cloud-costs-with-infracost.md
 
     - Deployment:
       - AWS Elastic Beanstalk: examples/deployment-to-aws-elastic-beanstalk.md
@@ -180,6 +190,8 @@ nav:
     - Dashboards YAML: reference/dashboards-yaml-reference.md
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
+    - Deployment Targets YAML: reference/deployment-targets-yaml-reference.md
+    - Agent Types YAML: reference/agent-types-yaml-reference.md
     - Sem CLI: reference/sem-command-line-tool.md
     - Artifact CLI: reference/artifact-cli-reference.md
     - Sem-context CLI: reference/sem-context-reference.md
@@ -191,10 +203,15 @@ nav:
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Glossary: reference/glossary.md
   - Account Management:
+    - Plans & Billing:
+      - Billing Overview: account-management/billing-overview.md
+      - Billing FAQ: account-management/billing-faq.md
+      - Free and Open Source: account-management/free-and-open-source-plans.md
+      - Startup plan: account-management/startup-plan.md
+      - Scaleup plan: account-management/scaleup-plan.md
+      - Legacy plans: account-management/legacy-plans.md
+      - Add-ons: account-management/add-ons.md
     - Organizations: account-management/organizations.md
-    - Billing: account-management/billing.md
-    - Plans: account-management/plans.md
-    - Discounts: account-management/discounts.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
     - Working with GitHub SSO: account-management/working-with-github-sso.md
@@ -204,12 +221,24 @@ nav:
       - Audit logs: security/audit-logs.md
       - Audit logs exporting: security/audit-logs-exporting.md
       - Audit Events reference: security/audit-events-reference.md
+    - "OpenID Connect":
+      - Overview: security/open-id-connect.md
+      - Setup with AWS: security/open-id-connect-aws.md
+      - Setup with GCP: security/open-id-connect-gcloud.md
+      - Setup with Vault: security/open-id-connect-vault.md
+    - Pre-flight checks: security/configuring-pre-flight-checks.md
+    - "Okta integration":
+      - Overview: security/okta/overview.md
+      - Installation: security/okta/installation.md
     - "User authorization":
       - RBAC overview: security/rbac-authorization.md
       - Permissions: security/permissions.md
       - Default roles: security/default-roles.md
-      - Custom roles: security/custom-roles.md
-      - Repo-to-role mapping: security/repository-to-role-mappings.md
+      - Repository-to-role mappings: security/repository-to-role-mappings.md
+  - Score:
+      - Insights: score/project-insights.md
+      - Custom dashboards: score/custom-dashboards.md
+      - Organization Health: score/organization-health.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
@@ -218,4 +247,3 @@ nav:
       - Migrating from GitHub Actions to Semaphore: faq/migrating-from-github-actions-to-semaphore.md
       - Migrating from Jenkins to Semaphore: faq/migrating-from-jenkins-to-semaphore.md
       - Migrating from Travis CI to Semaphore: faq/migrating-from-travis-ci-to-semaphore.md
-

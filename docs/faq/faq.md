@@ -353,6 +353,17 @@ source ~/my_script
   </p>
 </details>
 
+### Why does my job fail when I specify "exit 0"  in commands?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+
+Using `exit` command closes the PTY and causes undefined behaviour for the command. As a workaround, you can use `return 0` or `echo "exit 0" | sh` instead.
+
+  </p>
+</details>
+
 ### Why are my workflows not running in parallel?
 
 <details>
@@ -408,7 +419,10 @@ The workflow might have been stopped by the <a href="https://docs.semaphoreci.co
   <summary>Click for details</summary>
   <p>
 
-We recommend using the <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. Other options are also supported, e.g. <a href="https://knapsackpro.com/">Knapsack</a> (both free and pro versions).
+We recommend using <a href="https://docs.semaphoreci.com/programming-languages/ruby/#running-rspec-and-cucumber-in-parallel">semaphore_test_boosters gem</a>. This gem spreads tests across parallel jobs based on a configuration file or uniform file distribution (default behavior). Execution time-based distribution is not supported yet. 
+  </p>
+  <p>
+Other options are also supported, e.g. <a href="https://knapsackpro.com/">Knapsack</a> (both free and pro versions).
   </p>
   <p>
 Knapsack Rspec example:
@@ -476,7 +490,7 @@ blocks:
       agent:
         machine:
           type: a1-standard-4
-          os_image: macos-xcode12
+          os_image: macos-xcode14
       jobs:
         - name: 'MacOS test'
           commands:
@@ -548,7 +562,7 @@ your development workflow, it might need to be lowered more.
     An example is shown below:
 
 ```bash
-curl -X POST -H "Authorization: token <OATH_TOKEN>" https://api.github.com/repos/<owner>/<repo-name>/issues/<number>/comments -d '{"body":"body"}'
+curl -X POST -H "Authorization: token <OAUTH_TOKEN>" https://api.github.com/repos/<owner>/<repo-name>/issues/<number>/comments -d '{"body":"body"}'
 ```
   </p>  
 </details>

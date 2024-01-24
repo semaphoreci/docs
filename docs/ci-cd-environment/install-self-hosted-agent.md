@@ -4,6 +4,8 @@ Description: This guide describes how to install a self-hosted agent on various 
 
 # Installing a self-hosted agent
 
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
 The Semaphore agent is open source and can be found [here][agent repo]. Before installing it on your machine, you need to make sure the following requirements are also available:
 
 - git
@@ -12,9 +14,6 @@ The Semaphore agent is open source and can be found [here][agent repo]. Before i
 - docker-compose (Linux/MacOS)
 
 Please, follow the installation instructions for your operating system of choice below.
-
-**Note:** Self-hosted agents are only available on our [enterprise plan](https://semaphoreci.com/pricing).
-
 
 ## Installing the agent on Ubuntu/Debian
 
@@ -29,7 +28,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.13/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -60,7 +59,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.13/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -103,7 +102,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.13/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -160,7 +159,7 @@ Set-Location C:\semaphore-agent
 **2. Download the agent:**
 
 ```
-Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.1.10/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.2.13/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
 tar.exe xvf agent.tar.gz
 ```
 

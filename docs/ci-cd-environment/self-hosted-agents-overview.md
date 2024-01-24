@@ -3,9 +3,10 @@ Description: This guide gives a brief overview of self-hosted agents and how the
 ---
 
 # Self-hosted agents overview
-Semaphore allows you to run your jobs in an environment which is controlled by your team. This is achieved through the use of self-hosted agents. Additionally, compared to a hosted platform, self-hosted agents offer more control over hardware, operating system versions, and the available software. This is because as you can run the agents anywhere you want: physical or virtual machines, containers, or in the cloud.
 
-**Note:** Self-hosted agents are only available on our [enterprise plan](https://semaphoreci.com/pricing).
+!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+Semaphore allows you to run your jobs in an environment which is controlled by your team. This is achieved through the use of self-hosted agents. Additionally, compared to a hosted platform, self-hosted agents offer more control over hardware, operating system versions, and the available software. This is benefitial because you can run the agents anywhere you want: physical or virtual machines, containers, or in the cloud.
 
 ## Agent communication with Semaphore
 
@@ -27,13 +28,14 @@ The Semaphore Toolbox offers a set of tools to navigate language versions, datab
 
 | Feature                                     | Available | Notes                                           |
 |---------------------------------------------|-----------|-------------------------------------------------|
-| Accessing the cache                         | Yes       | Using [S3 as a storage backend][cache with s3]. |
+| Accessing the cache                         | Yes       | Using [S3][cache with s3] or [GCS][cache with gcs] as a storage backend. |
 | Artifact storage                            | Yes       |                                                 |
 | Publishing test results                     | Yes       |                                                 |
 | Checking code with checkout command         | Yes       |                                                 |
+| Start debug jobs                            | Yes       | Since Semaphore does not have access to the machine running the debug job, the Semaphore CLI will not automatically log into it. See the [self-hosted debug jobs][debug jobs] page for more information. |
 | Changing language versions with sem-version | No        |                                                 |
 | Managing databases with sem-service         | No        |                                                 |
 
-Debug sessions and the ability to attach to running jobs is also not available, as Semaphore has no access to machines that are running on your infrastructure.
-
 [cache with s3]: ./set-up-caching-on-aws-s3.md
+[debug jobs]: /essentials/debugging-with-ssh-access/#debug-sessions-for-self-hosted-jobs
+[cache with gcs]: /essentials/caching-dependencies-and-directories/#gcs-backend

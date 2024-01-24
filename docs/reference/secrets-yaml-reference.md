@@ -27,15 +27,16 @@ The list of values for `apiVersion` can be obtained by entering: `v1beta`.
 
 The `kind` property defines the purpose of the YAML file. For a YAML file that
 will be used for defining secrets, the value of the `kind` property should
-be `Secret`.
+be `Secret` or `ProjectSecret` if you are defining project-level secret. 
 
 The list of values for `kind` can be obtained by entering: `Secret`.
 
 ### metadata
 
 The `metadata` property defines the metadata of the Secrets YAML file.
-Currently, only the `name` property is allowed, but this might change
+Currently, only the `name` property is allowed for organization-level secrets, but this might change
 in future versions.
+For project-level secrets you also have to provide project id or project name in `project_id_or_name` field.
 
 #### name in metadata
 
@@ -46,6 +47,40 @@ argument for the `sem delete secret` command.
 The value of each `name` property should be unique for all secrets
 that exist under the same organization and must only contain [a-z], [A-Z], or
 [0-9] characters, dashes, and underscores – spaces are not allowed.
+
+#### project_id_or_name in metadata
+
+This is a required field for project-level secrets. It must contain either the project name
+or project id of the project the secret is scoped to.
+
+### org_config
+
+The `org_config` property holds organization access policy fields, which are enabled
+for organizations on Startup plan or higher. 
+Policy fields control contain things like `projects_access`, `projects_ids`, `debug_access` and `attach_access`.
+
+#### projects_access
+
+This field can be set to one of three values: `ALL`, `ALLOWED` or `NONE`. If a secret 
+is set to `ALL`, then all projects in the organizations can use this secret in jobs,
+`NONE` does the opposite and does not allow use of the secret by any project.
+When the value is set to `ALLOWED`, the secret is available to projects that are whitelisted 
+in the `projects_ids` field.
+
+#### projects_ids
+
+This field is a list of project ids to be whitelisted to use a secret when `projects_access` is 
+set to `ALLOWED`. If `projects_access` is set to `ALL` or `NONE` this whitelist is ignored.
+
+#### debug_access
+
+This field controls whether jobs containing the secret can be started for debugging with `sem debug`.
+It can be set to either `JOB_DEBUG_YES` or `JOB_DEBUG_NO`.
+
+#### attach_access
+
+This field controls if a job containing the secret can be attached to with `sem attach`.
+It can be set to either `JOB_ATTACH_YES` or `JOB_ATTACH_NO`.
 
 ### data
 

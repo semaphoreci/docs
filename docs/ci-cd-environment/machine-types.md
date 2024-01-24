@@ -15,130 +15,81 @@ the supported machine types in your pipelines, refer to our [agent documentation
 
 Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
 
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-    Machine name
-  </td>
-  <td>
-    Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-    Memory (GB) <sup>2</sup>
-  </td>
-  <td>
-    Disk (GB) <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-    e1-standard-2
-  </td>
-  <td>
-     2
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     25
-  </td>
-</tr>
-<tr>
-  <td>
-    e1-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     35
-  </td>
-</tr>
-<tr>
-  <td>
-     e1-standard-8
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     16
-  </td>
-  <td>
-     45
-  </td>
-</tr>
-</tbody>
-</table>
+### E1 Generation
 
-Implementation of `e1` series of machine types:
+The `e1` series machines are our first generation, cost-effective with medium performance. They are a good choice for less compute and memory-intensive jobs. 
 
-1. Virtual CPU is implemented as a single hardware hyper-thread on a
-   3.4GHz Max Turbo 4.0GHz Intel® Core™ i7.
-2. Memory is implemented as DDR4 RAM.
-3. Disk is implemented as RAM drive backed by DDR4 RAM.
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| e1-standard-2 |             2             |        4 GB         |       25 GB       |
+| e1-standard-4 |             4             |        8 GB         |       35 GB       |
+| e1-standard-8 |             8             |        16 GB        |       45 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` hyperthreaded on a 3.4GHz Max Turbo 4.0GHz Intel® Core™ i7.
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented as RAM drive backed by DDR4 RAM.
+
+### E2 Generation
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
+
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| e2-standard-2 |             2             |        8 GB         |       45 GB       |
+| e2-standard-4 |             4             |        16 GB        |       65 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` hyperthreaded on a 3.6GHZ [AMD Ryzen 5 3600](https://www.amd.com/en/product/8456).
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented using NvME storage.
+
+### F1 Generation
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
+
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| f1-standard-2 |             2             |        8 GB         |       45 GB       |
+| f1-standard-4 |             4             |        16 GB        |       65 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` hyperthreaded on a 4.6GHz 12th generation [Intel i5 125000](https://ark.intel.com/content/www/us/en/ark/products/96144/intel-core-i512500-processor-18m-cache-up-to-4-60-ghz.html).
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented using NvME storage.
+
+### R1 Generation
+
+!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+
+!!! warning "`r1` machines are currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
+
+The `r1` series machines are built on ARM architecture.
+
+| Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| ------------- | :-----------------------: | :-----------------: | :---------------: |
+| r1-standard-4 |             4             |        10 GB        |       65 GB       |
+
+Implementation details:
+
+1. `Virtual CPU` is emulated ARM on [Ampere Altra Q80-30](https://amperecomputing.com/briefs/ampere-altra-family-product-brief).
+2. `Memory` is implemented as DDR4 RAM.
+3. `Disk` is implemented using NvME storage.
 
 ## Apple machine type
 
-Apple machine types can be paired with [MacOS Xcode12 image][macos-xcode12] or [MacOS Xcode13 image][macos-xcode13].
+Apple machine types can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
 
-<table style="background-color: rgb(255, 255, 255);">
-<thead>
-<tr>
-  <td>
-     Machine name
-  </td>
-  <td>
-     Virtual CPUs <sup>1</sup>
-  </td>
-  <td>
-     Memory (GB) <sup>2</sup>
-  </td>
-  <td>
-     Disk (GB) <sup>3</sup>
-  </td>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>
-     a1-standard-4
-  </td>
-  <td>
-     4
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     50
-  </td>
-</tr>
-  <tr>
-  <td>
-     a1-standard-8 *
-  </td>
-  <td>
-     8
-  </td>
-  <td>
-     16
-  </td>
-  <td>
-     50
-  </td>
-</tr>
-</tbody>
-</table>
-
-`*` - only available on our [enterprise plan](https://semaphoreci.com/pricing).
+| Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
+| --------------- | :-----------------------: | :-----------------: | :---------------: |
+| a1-standard-4   |             4             |          8          |        50         |
 
 ## Self-hosted agent types
 
@@ -147,7 +98,7 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
 [ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
-[macos-xcode12]: ../ci-cd-environment/macos-xcode-12-image.md
-[macos-xcode13]: ../ci-cd-environment/macos-xcode-13-image.md
+[macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
+[macos-xcode15]: ../ci-cd-environment/macos-xcode-15-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
 [self-hosted]: ../ci-cd-environment/self-hosted-agents-overview.md
