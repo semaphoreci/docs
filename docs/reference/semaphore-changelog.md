@@ -8,6 +8,17 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### January 23, 2024
+
+**For Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM images**
+
+**(Downgraded)** Downgraded packages:
+- Docker 25.0.0 -> 24.0.7
+
+**(Updated)** Updated packages:
+- Docker-compose 2.24.1 -> 2.24.2
+
+
 ### Week of January 22, 2024
 
 **(Improved) Ubuntu 20.04 image update**
@@ -28,7 +39,7 @@ This page is updated on a weekly basis.
 - Azure-cli 2.55.0 -> 2.56.0
 - Bazel 7.0.0 -> 7.0.1
 - Containerd.io 1.6.26 -> 1.6.27
-- Docker 24.0.7 -> 25.0.0
+~~- Docker 24.0.7 -> 25.0.0~~
 - Docker-compose 2.23.3 -> 2.24.1
 - Docker-buildx 0.11.2 -> 0.12.1
 - Doctl 1.101.0 -> 1.102.0
@@ -65,7 +76,7 @@ To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semap
 - Azure-cli 2.55.0 -> 2.56.0
 - Bazel 7.0.0 -> 7.0.1
 - Containerd.io 1.6.26 -> 1.6.27
-- Docker 24.0.7 -> 25.0.0
+~~- Docker 24.0.7 -> 25.0.0~~
 - Docker-compose 2.23.3 -> 2.24.1
 - Docker-buildx 0.11.2 -> 0.12.1
 - Doctl 1.101.0 -> 1.102.0
@@ -103,7 +114,7 @@ To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semap
 - Azure-cli 2.55.0 -> 2.56.0
 - Bazel 7.0.0 -> 7.0.1
 - Containerd.io 1.6.26 -> 1.6.27
-- Docker 24.0.7 -> 25.0.0
+~~- Docker 24.0.7 -> 25.0.0~~
 - Docker-compose 2.23.3 -> 2.24.1
 - Docker-buildx 0.11.2 -> 0.12.1
 - Doctl 1.101.0 -> 1.102.0
