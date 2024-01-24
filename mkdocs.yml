@@ -230,6 +230,10 @@ nav:
     - "Okta integration":
       - Overview: security/okta/overview.md
       - Installation: security/okta/installation.md
+    - "User authorization":
+      - RBAC overview: security/rbac-authorization.md
+      - Permissions: security/permissions.md
+      - Default roles: security/default-roles.md
   - Score:
       - Insights: score/project-insights.md
       - Custom dashboards: score/custom-dashboards.md
