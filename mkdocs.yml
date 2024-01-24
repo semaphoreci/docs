@@ -233,6 +233,8 @@ nav:
     - "User authorization":
       - RBAC overview: security/rbac-authorization.md
       - Default roles: security/default-roles.md
+      - Custom roles: security/custon-roles.md
+      - Permissions: security/permissions.md
       - Repository-to-role mappings: security/repository-to-role-mappings.md
   - Score:
       - Insights: score/project-insights.md
