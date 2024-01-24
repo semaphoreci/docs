@@ -39,7 +39,7 @@ This page is updated on a weekly basis.
 - Azure-cli 2.55.0 -> 2.56.0
 - Bazel 7.0.0 -> 7.0.1
 - Containerd.io 1.6.26 -> 1.6.27
-~~- Docker 24.0.7 -> 25.0.0~~
+- ~~Docker 24.0.7 -> 25.0.0~~
 - Docker-compose 2.23.3 -> 2.24.1
 - Docker-buildx 0.11.2 -> 0.12.1
 - Doctl 1.101.0 -> 1.102.0
@@ -76,7 +76,7 @@ To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semap
 - Azure-cli 2.55.0 -> 2.56.0
 - Bazel 7.0.0 -> 7.0.1
 - Containerd.io 1.6.26 -> 1.6.27
-~~- Docker 24.0.7 -> 25.0.0~~
+- ~~Docker 24.0.7 -> 25.0.0~~
 - Docker-compose 2.23.3 -> 2.24.1
 - Docker-buildx 0.11.2 -> 0.12.1
 - Doctl 1.101.0 -> 1.102.0
