@@ -235,9 +235,11 @@ nav:
       - Default roles: security/default-roles.md
       - Repository-to-role mappings: security/repository-to-role-mappings.md
   - Score:
-      - Insights: score/project-insights.md
-      - Custom dashboards: score/custom-dashboards.md
-      - Organization Health: score/organization-health.md
+    - Insights: score/project-insights.md
+    - Custom dashboards: score/custom-dashboards.md
+    - Organization Health: score/organization-health.md
+  - Advanced CI:
+    - Flaky tests: advanced-ci/flaky-tests.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
