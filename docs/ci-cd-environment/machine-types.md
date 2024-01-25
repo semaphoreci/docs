@@ -13,7 +13,7 @@ the supported machine types in your pipelines, refer to our [agent documentation
 
 ## Linux machine types
 
-Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
+Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804] (deprecated), [Ubuntu 20.04 image][ubuntu2004], [Ubuntu 22.04 image][ubuntu2204] and [Docker-based environment][docker-env].
 
 ### E1 Generation
 
@@ -98,6 +98,7 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
 [ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
+[ubuntu2004]: ../ci-cd-environment/ubuntu-22.04-image.md
 [macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
 [macos-xcode15]: ../ci-cd-environment/macos-xcode-15-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
