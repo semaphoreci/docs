@@ -9,7 +9,10 @@ Flaky test detection helps identify and manage unreliable tests in a test suite.
 By detecting flaky tests, development teams can take specific actions to address
 these issues and improve the overall reliability of their testing pipeline.
 
-!!! warning "Note: A test is considered flaky when it produces different results within the same Git commit. For example, the test may fail at one point and subsequently pass without any alterations to the codebase."
+!!! warning "Note: This feature is in closed beta."
+
+!!! info "Definition"
+      A test is considered flaky when it produces different results within the same Git commit. For example, the test may fail at one point and subsequently pass without any alterations to the codebase. 
 
 
 ## Configuring flaky test detection
@@ -23,7 +26,7 @@ To initialize flaky test detection, find your project in Semaphore and:
 2. Click Initialize.
 
 
-![zero](img/zero.png)
+![zero](img/flaky-tests/zero.png)
 
 !!! warning "Note: It may take some time for flaky tests to be detected as your pipeline runs."
 
@@ -31,7 +34,7 @@ To initialize flaky test detection, find your project in Semaphore and:
 
 In the Flaky Tests UI, you can filter, sort, mark tests as resolved, link tickets, and access a detailed view for deeper analysis.
 
-![zero](img/ui.png)
+![zero](img/flaky-tests/ui.png)
 
 ### Filtering
 
@@ -83,7 +86,7 @@ These are the steps to create a new filter:
 3. Click the "Create new filter" button on the right hand side of the search box.
 4. Give the new filter a name and click the Save button.
 
-![new_filter](img/new_filter.png)
+![new_filter](img/flaky-tests/new_filter.png)
 
 #### Editing an existing filter
 
@@ -93,7 +96,7 @@ These are the steps to edit an existing filter:
 2. Change the search query.
 3. Click the "Save current query" button.
 
-![edit_filter](img/edit_filter.png)
+![edit_filter](img/flaky-tests/edit_filter.png)
 
 #### Renaming a filter
 
@@ -104,9 +107,9 @@ These are the steps to change a filter name:
 3. Enter a new name.
 4. Click the "Save filter name" button.
 
-![change_filter_name](img/change_filter_name.png)
+![change_filter_name](img/flaky-tests/change_filter_name.png)
 
-![save_filter_name](img/save_filter_name.png)
+![save_filter_name](img/flaky-tests/save_filter_name.png)
 
 
 #### Removing a filter
@@ -117,7 +120,7 @@ These are the steps to delete a filter:
 2. Click the "Delete this filter" button.
 
 
-![delete_filter](img/delete_filter.png)
+![delete_filter](img/flaky-tests/delete_filter.png)
 
 #### Default filters
 
@@ -172,7 +175,7 @@ In the detailed view, there is the same set of actions available in the main vie
 
 The detailed view also provides a list of flaky occurrences, allowing you to navigate to the specific jobs where the test flaked. Furthermore, a wider view of the Disruption History chart is available for analysis. You have the option to select the branch for which you want to view data; by default, the displayed data encompasses all branches.
 
-![detailed_view](img/dv.png)
+![detailed_view](img/flaky-tests/dv.png)
 
 ### Known issues
 
