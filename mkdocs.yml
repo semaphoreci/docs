@@ -138,6 +138,7 @@ nav:
       - Configuration: ci-cd-environment/configure-self-hosted-agent.md
       - Job environment: ci-cd-environment/job-environment.md
       - AWS support: ci-cd-environment/aws-support.md
+      - Kubernetes support: ci-cd-environment/kubernetes-support.md
       - S3-based caching: ci-cd-environment/set-up-caching-on-aws-s3.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
