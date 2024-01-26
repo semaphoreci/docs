@@ -6,12 +6,13 @@ Description: This guide describes the various different configuration options fo
 
 !!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
-An agent can be configured in two ways:
+An agent can be configured in three ways:
 
 - using command line arguments
 - using a configuration file with the `--config-file /path/to/config.yaml` parameter
+- using environment variables, prefixed with the `SEMAPHORE_AGENT` prefix. For example, the `--disconnect-after-job` command line argument can be specified with the `SEMAPHORE_AGENT_DISCONNECT_AFTER_JOB=true` environment variable.
 
-Both ways can be used at the same time, but command line arguments take precedence over the configuration file.
+They can be used at the same time, but command line arguments take precedence over the configuration file and environment variables.
 
 ## Available configuration parameters
 
@@ -20,7 +21,6 @@ Both ways can be used at the same time, but command line arguments take preceden
 | `endpoint`                      | Yes      | Empty string |
 | `token`                         | Yes      | Empty string |
 | `name`                          | No       | Empty string |
-| `name-from-env`                 | No       | Empty string |
 | `env-vars`                      | No       | Empty array  |
 | `files`                         | No       | Empty array  |
 | `fail-on-missing-files`         | No       | False        |
@@ -34,6 +34,10 @@ Both ways can be used at the same time, but command line arguments take preceden
 | `interruption-grace-period`     | No       | 0            |
 | `upload-job-logs`               | No       | never        |
 | `config-file`                   | No       | Empty string |
+| `kubernetes-executor`           | No       | False        |
+| `kubernetes-pod-start-timeout`  | No       | 300          |
+| `kubernetes-pod-spec`           | No       | Empty string |
+| `kubernetes-allowed-images`     | No       | Empty string |
 
 ### `endpoint`
 
@@ -46,12 +50,6 @@ You get an agent type registration token when you create an agent type in the Se
 ### `name`
 
 By default, the agent will generate a random name. If you want to set a custom name, you can use this configuration parameter. The name must have between 8 and 64 characters. A pre-signed AWS STS GetCallerIdentity URL can also be used, if the [agent type][agent type] allows it.
-
-### `name-from-env`
-
-By default, the agent will generate a random name. If you want to set a custom name using an environment variable, you can use this configuration parameter.
-
-Note: the `name` parameter takes precedence over the `name-from-env` one, so if you set both, `name` will be used.
 
 ### `env-vars`
 
@@ -174,3 +172,10 @@ Furthermore, the shutdown script will have the following environment variables a
 By default, if the agent receives an interruption while execution a job, it will immediately stop the job, and shut down. This configuration parameter allows you to specify a number of seconds for the agent to wait before stopping the job, after receiving an interruption signal.
 
 [agent type]: /ci-cd-environment/self-hosted-agent-types/#using-pre-signed-aws-sts-urls-for-registration
+
+### Kubernetes executor configuration
+
+See the [kubernetes executor documentation][kubernetes executor configuration] on the [Semaphore agent][semaphore agent] repository.
+
+[kubernetes executor configuration]: https://github.com/semaphoreci/agent/blob/master/docs/kubernetes-executor.md
+[semaphore agent]: https://github.com/semaphoreci/agent
