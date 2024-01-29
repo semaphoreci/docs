@@ -29,7 +29,7 @@ is assigned to them on the Semaphore project.
     Admin
   </td>
   <td>
-    Admin
+    Contributor
   </td>
 </tr>
 <tr>
@@ -66,7 +66,7 @@ is assigned to them on the Semaphore project.
     Admin
   </td>
   <td>
-    Admin
+    Contributor
   </td>
 </tr>
 <tr>
