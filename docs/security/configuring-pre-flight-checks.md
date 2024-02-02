@@ -129,3 +129,23 @@ if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else f
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
 or cloned repository. It is also possible to extend the functionality
 to restrict promotions from specific repositories branches. 
+
+### Dynamically editing your pipeline files
+
+During the initialization job, two important variables are exported:
+
+- `INPUT_FILE`: This variable points to the unmodified pipeline file, in this case, `semaphore.yml`.  
+- `OUTPUT_FILE`: This variable refers to the fully compiled pipeline file created from the original file (`INPUT_FILE`) during the [pipeline initialization](https://docs.semaphoreci.com/reference/pipeline-initialization/).
+Ultimately, Semaphore uses this compiled file to execute the defined pipeline.
+
+By modifying the `OUTPUT_FILE`, it's possible to change the pipeline configuration for that particular run.
+
+In the following example, we'll modify the number of parallel jobs in a block from 2 to 10, 
+but only if the push that triggered the workflow contains changes in the `my_lib` directory:
+
+```bash
+my_lib_dir_changed () { spc list-diff --default-branch main | grep -q "^my_lib/"; }
+increase_parallelism () { `sed -i 's/parallelism: 2/parallelism: 10/' $OUTPUT_FILE`; }
+
+if my_lib_dir_changed; then increase_parallelism; fi
+```
