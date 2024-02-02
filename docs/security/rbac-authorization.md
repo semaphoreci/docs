@@ -39,14 +39,16 @@ access, see the "*Notes*" column of [this table](/security/default-roles/#organi
 
 #### Project roles
 
-Project role assignment works similarly to the organization role assignment, only there
-are two additional ways a user can get a role within the project.<br/>
-If the user has access to the project's remote repository, that automatically grants them
-a role within the Semaphore project according to these ["*repo-to-role mapping*"
-rules](/security/repository-to-role-mappings/).<br/>
+By default, users get a project-level role assigned to them based on the access level they have
+within the repository from which the project was created. If the user has access to the project's
+remote repository, that automatically grants them a role within the Semaphore project according
+to these ["*repo-to-role mapping*" rules](/security/repository-to-role-mappings/).<br/>
 Next, each organization-level role can grant access to the organization's projects, as mentioned
-[above](organization-role-to-project-role-mappings). Finally, user can be assigned a role
-within the project directly (from projects Admin).
+[above](organization-role-to-project-role-mappings).
+
+Finally, the user can be assigned a role within the project directly, through the UI (from project's Admin).
+This last user management option is available only to organizations on the *ScaleUp* plan. If you need
+this feature, please contact our support team.
 
 **Example**:<br/> *Owen* has access to the project's GitHub repository, which automatically makes him
 a Contributor to that project on Semaphore. He is the organization's Admin, which makes him Admin on
