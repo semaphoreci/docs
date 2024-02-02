@@ -47,7 +47,7 @@ Next, each organization-level role can grant access to the organization's projec
 [above](organization-role-to-project-role-mappings).
 
 Finally, the user can be assigned a role within the project directly, through the UI (from project's Admin).
-This last user management option is available only to organizations on the *ScaleUp* plan. If you need
+This last user management option is available only to organizations on the [__ScaleUp__](https://docs.semaphoreci.com/account-management/scaleup-plan/#scaleup-plan) plan. If you need
 this feature, please contact our support team.
 
 **Example**:<br/> *Owen* has access to the project's GitHub repository, which automatically makes him
