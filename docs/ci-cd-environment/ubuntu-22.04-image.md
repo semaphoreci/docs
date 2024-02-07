@@ -57,7 +57,7 @@ Following version control tools are pre-installed:
 
 - Git 2.43.0
 - Git LFS (Git Large File Storage) 3.4.1
-- GitHub CLI 2.42.1
+- GitHub CLI 2.44.1
 - Mercurial 6.1.1
 - Svn 1.14.1
 
@@ -65,8 +65,8 @@ Following version control tools are pre-installed:
 
 - Firefox 102.11.0 (`102`, `default`, `esr`)
 - Geckodriver 0.33.0
-- Google Chrome 112
-- ChromeDriver 112
+- Google Chrome 121
+- ChromeDriver 121
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -78,9 +78,9 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 24.0.7
+- Docker 25.0.2
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.24.2 (used as `docker compose version`)
+- Docker-compose 2.24.5 (used as `docker compose version`)
 - Docker-buildx 0.12.1
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
@@ -90,17 +90,17 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli 2.15.11 (used as `aws`)
-- Azure-cli 2.56.0
+- Aws-cli 2.15.17 (used as `aws`)
+- Azure-cli 2.57.0
 - Eb-cli 3.20.10
 - Ecs-cli 1.21.0
-- Doctl 1.102.0
+- Doctl 1.104.0
 - Gcloud 425.0.0
 - Gke-gcloud-auth-plugin 425.0.0
 - Kubectl 1.29.1
 - Heroku 8.7.1
-- Terraform 1.7.0
-- Helm 3.13.3
+- Terraform 1.7.2
+- Helm 3.14.0
 
 ### Network utilities
 
@@ -147,14 +147,14 @@ Versions:
 
 - Java: 11.0.21, 17.0.9 (default)
 - Scala: 3.2.2
-- Leiningen: 2.10.0 (Clojure)
-- Sbt 1.9.7
+- Leiningen: 2.11.1 (Clojure)
+- Sbt 1.9.8
 
 #### Additional build tools
 
 - Maven: 3.9.6
 - Gradle: 8.3
-- Bazel: 7.0.0
+- Bazel: 7.0.2
 
 ### JavaScript via Node.js
 
@@ -196,7 +196,7 @@ Supporting libraries:
 
 - pypy: 7.3.9
 - pypy3: 7.3.15
-- pip: 23.3.2
+- pip: 24.0
 - venv: 20.25.0
 
 ### Ruby
@@ -206,6 +206,7 @@ Available versions:
 - 3.0.0 to 3.0.6
 - 3.1.0 to 3.1.4
 - 3.2.0 to 3.2.3
+- 3.3.0
 - jruby-9.4.1.0
 
 The default installed Ruby version is `3.2.3`.
