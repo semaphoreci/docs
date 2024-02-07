@@ -8,16 +8,76 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of February 5, 2024
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.16.1
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-91-generic -> 5.15.0-92-generic
+- Aws-cli 1.32.21 -> 1.32.35 (used as `aws`)
+- Aws-cli 2.15.11 -> 2.15.17 (used as `aws2`)
+- Azure-cli 2.56.0 -> 2.57.0
+- Bazel 7.0.1 -> 7.0.2
+- Containerd.io 1.6.27 -> 1.6.28
+- Docker 24.0.7 -> 25.0.2
+- Docker-compose 2.24.2 -> 2.24.5
+- Runc 1.1.11 -> 1.1.12
+- Doctl 1.102.0 -> 1.104.0
+- Google Chrome 112 -> 121
+- ChromeDriver 112 -> 121
+- Github-cli 2.42.1 -> 2.43.1
+- Helm 3.13.3 -> 3.14.0
+- Leiningen 2.10.0 -> 2.11.1
+- Pip 23.3.2 -> 24.0
+- Sbt 1.9.7 -> 1.9.8
+- Terraform 1.7.0 -> 1.7.2
+
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(New)** Packages:
+
+- Elixir 1.16.1
+
+**(Updated)** Updated packages:
+
+- Kernel 6.5.0.14-lowlatency -> 6.5.0.15-lowlatency
+- Aws-cli 2.15.11 -> 2.15.17 (used as `aws`)
+- Azure-cli 2.56.0 -> 2.57.0
+- Bazel 7.0.1 -> 7.0.2
+- Containerd.io 1.6.27 -> 1.6.28
+- Docker 24.0.7 -> 25.0.2
+- Docker-compose 2.24.2 -> 2.24.5
+- Runc 1.1.11 -> 1.1.12
+- Doctl 1.102.0 -> 1.104.0
+- Google Chrome 112 -> 121
+- ChromeDriver 112 -> 121
+- Github-cli 2.42.1 -> 2.43.1
+- Helm 3.13.3 -> 3.14.0
+- Leiningen 2.10.0 -> 2.11.1
+- Pip 23.3.2 -> 24.0
+- Sbt 1.9.7 -> 1.9.8
+- Terraform 1.7.0 -> 1.7.2
+
+To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
 ### January 23, 2024
 
 **For Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM images**
 
 **(Downgraded)** Downgraded packages:
+
 - Docker 25.0.0 -> 24.0.7
 
 **(Updated)** Updated packages:
-- Docker-compose 2.24.1 -> 2.24.2
 
+- Docker-compose 2.24.1 -> 2.24.2
 
 ### Week of January 22, 2024
 
