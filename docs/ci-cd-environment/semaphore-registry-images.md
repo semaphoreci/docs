@@ -67,6 +67,11 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | ruby:3.2.0-node-browsers | `registry.semaphoreci.com/ruby:3.2.0-node-browsers` |  
 | ruby:3.2.2 | `registry.semaphoreci.com/ruby:3.2.2` |  
 | ruby:3.2.2-node-browsers | `registry.semaphoreci.com/ruby:3.2.2-node-browsers` |  
+| ruby:3.2.3 | `registry.semaphoreci.com/ruby:3.2.3` |  
+| ruby:3.2.3-node-browsers | `registry.semaphoreci.com/ruby:3.2.3-node-browsers` |  
+| ruby:3.3.0 | `registry.semaphoreci.com/ruby:3.3.0` |  
+| ruby:3.3.0-node-browsers | `registry.semaphoreci.com/ruby:3.3.0-node-browsers` |  
+
 
 ### Python  
 | Image | Link |
@@ -89,8 +94,10 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | python:3.9-node-browsers | `registry.semaphoreci.com/python:3.9-node-browsers` |  
 | python:3.10 | `registry.semaphoreci.com/python:3.10.0a1` |  
 | python:3.10-node-browsers | `registry.semaphoreci.com/python:3.10.0a1-node-browsers` |  
-| python:3.11 | `registry.semaphoreci.com/python:3.11.5` |  
-| python:3.11-node-browsers | `registry.semaphoreci.com/python:3.11.5-node-browsers` |  
+| python:3.11 | `registry.semaphoreci.com/python:3.11.7` |  
+| python:3.11-node-browsers | `registry.semaphoreci.com/python:3.11.7-node-browsers` |  
+| python:3.12.1 | `registry.semaphoreci.com/python:3.12.1` |  
+| python:3.12.1-node-browsers | `registry.semaphoreci.com/python:3.12.1-node-browsers` |  
 
 
 ### PHP
@@ -101,21 +108,34 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | php:7.3 | `registry.semaphoreci.com/php:7.3` |
 | php:7.4 | `registry.semaphoreci.com/php:7.4` |
 | php:8.0 | `registry.semaphoreci.com/php:8.0` |
+| php:8.1.9 | `registry.semaphoreci.com/php:8.1.9` |
+| php:8.2.15 | `registry.semaphoreci.com/php:8.2.15` |
+| php:8.3.2 | `registry.semaphoreci.com/php:8.3.2` |
 | php:5.6-node | `registry.semaphoreci.com/php:5.6-node` |
 | php:7.2-node | `registry.semaphoreci.com/php:7.2-node` |
 | php:7.3-node | `registry.semaphoreci.com/php:7.3-node` |
 | php:7.4-node | `registry.semaphoreci.com/php:7.4-node` |
 | php:8.0-node | `registry.semaphoreci.com/php:8.0-node` |
+| php:8.1.9-node | `registry.semaphoreci.com/php:8.1.9-node` |
+| php:8.2.15-node | `registry.semaphoreci.com/php:8.2.15-node` |
+| php:8.3.2-node | `registry.semaphoreci.com/php:8.3.2-node` |
 | php:5.6-browsers | `registry.semaphoreci.com/php:5.6-browsers` |
 | php:7.2-browsers | `registry.semaphoreci.com/php:7.2-browsers` |
 | php:7.3-browsers | `registry.semaphoreci.com/php:7.3-browsers` |
 | php:7.4-browsers | `registry.semaphoreci.com/php:7.4-browsers` |
 | php:8.0-browsers | `registry.semaphoreci.com/php:8.0-browsers` |
+| php:8.1.9-browsers | `registry.semaphoreci.com/php:8.1.9-browsers` |
+| php:8.2.15-browsers | `registry.semaphoreci.com/php:8.2.15-browsers` |
+| php:8.3.2-browsers | `registry.semaphoreci.com/php:8.3.2-browsers` |
 | php:5.6-node-browsers | `registry.semaphoreci.com/php:5.6-node-browsers` |
 | php:7.2-node-browsers | `registry.semaphoreci.com/php:7.2-node-browsers` |
 | php:7.3-node-browsers | `registry.semaphoreci.com/php:7.3-node-browsers` |
 | php:7.4-node-browsers | `registry.semaphoreci.com/php:7.4-node-browsers` |
 | php:8.0-node-browsers | `registry.semaphoreci.com/php:8.0-node-browsers` |
+| php:8.1.9-node-browsers | `registry.semaphoreci.com/php:8.1.9-node-browsers` |
+| php:8.2.15-node-browsers | `registry.semaphoreci.com/php:8.2.15-node-browsers` |
+| php:8.3.2-node-browsers | `registry.semaphoreci.com/php:8.3.2-node-browsers` |
+
 
 ### Haskell  
 | Image | Link |
@@ -129,6 +149,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | haskell:9.4.2 | `registry.semaphoreci.com/haskell:9.4.2` |  
 | haskell:9.4.7 | `registry.semaphoreci.com/haskell:9.4.7` |  
 | haskell:9.6.3 | `registry.semaphoreci.com/haskell:9.6.3` |  
+| haskell:9.6.4 | `registry.semaphoreci.com/haskell:9.6.4` |  
+| haskell:9.8.1 | `registry.semaphoreci.com/haskell:9.8.1` |  
 
 ### Rust  
 | Image | Link |
@@ -137,6 +159,8 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | rust:1.47-node-browsers | `registry.semaphoreci.com/rust:1.47-node-browsers` |
 | rust:1.51 | `registry.semaphoreci.com/rust:1.51` |  
 | rust:1.51-node-browsers | `registry.semaphoreci.com/rust:1.51-node-browsers` |
+| rust:1.75 | `registry.semaphoreci.com/rust:1.75` |  
+| rust:1.75-node-browsers | `registry.semaphoreci.com/rust:1.75-node-browsers` |
 
 
 ### Golang  
@@ -152,6 +176,14 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | golang:1.17-node-browsers | `registry.semaphoreci.com/golang:1.17-node-browsers` |  
 | golang:1.18 | `registry.semaphoreci.com/golang:1.18` |  
 | golang:1.18-node-browsers | `registry.semaphoreci.com/golang:1.18-node-browsers` |  
+| golang:1.19 | `registry.semaphoreci.com/golang:1.19` |  
+| golang:1.19-node-browsers | `registry.semaphoreci.com/golang:1.19-node-browsers` |  
+| golang:1.20 | `registry.semaphoreci.com/golang:1.20` |  
+| golang:1.20-node-browsers | `registry.semaphoreci.com/golang:1.20-node-browsers` |  
+| golang:1.21 | `registry.semaphoreci.com/golang:1.21` |  
+| golang:1.21-node-browsers | `registry.semaphoreci.com/golang:1.21-node-browsers` |  
+| golang:1.22 | `registry.semaphoreci.com/golang:1.22` |  
+| golang:1.22-node-browsers | `registry.semaphoreci.com/golang:1.22-node-browsers` |  
 
 
 ### Elixir  
@@ -168,6 +200,7 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | elixir:1.13 | `registry.semaphoreci.com/elixir:1.13` |  
 | elixir:1.14 | `registry.semaphoreci.com/elixir:1.14` |  
 | elixir:1.15 | `registry.semaphoreci.com/elixir:1.15` |  
+| elixir:1.16 | `registry.semaphoreci.com/elixir:1.16` |  
 
 
 ### Node  
@@ -181,6 +214,18 @@ The source code of the Semaphore Docker images is [hosted on Github](https://git
 | node:14-browsers | `registry.semaphoreci.com/node:14-browsers` |  
 | node:15 | `registry.semaphoreci.com/node:15` |  
 | node:15-browsers | `registry.semaphoreci.com/node:15-browsers` |  
+| node:16 | `registry.semaphoreci.com/node:16` |  
+| node:16-browsers | `registry.semaphoreci.com/node:16-browsers` |  
+| node:17 | `registry.semaphoreci.com/node:17` |  
+| node:17-browsers | `registry.semaphoreci.com/node:17-browsers` |  
+| node:18 | `registry.semaphoreci.com/node:18` |  
+| node:18-browsers | `registry.semaphoreci.com/node:18-browsers` |  
+| node:19 | `registry.semaphoreci.com/node:19` |  
+| node:19-browsers | `registry.semaphoreci.com/node:19-browsers` |  
+| node:20 | `registry.semaphoreci.com/node:20` |  
+| node:20-browsers | `registry.semaphoreci.com/node:20-browsers` |  
+| node:21 | `registry.semaphoreci.com/node:21` |  
+| node:21-browsers | `registry.semaphoreci.com/node:21-browsers` |  
 
 
 ### Ubuntu  
