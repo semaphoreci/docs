@@ -4,7 +4,6 @@ Description: The macos-xcode15 image is a customized image based on MacOS 14.1, 
 
 # macOS Sonoma Xcode 15 image
 
-!!! warning "Xcode 15 image is currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
 
 The `macos-xcode15` image is a customized image based on [MacOS 14.1][sonoma-release-notes],
 which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
