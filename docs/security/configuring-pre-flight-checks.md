@@ -36,31 +36,33 @@ Follow the steps below to configure pre-flight checks for the whole organization
 
 1. Open the **Settings** from the **Organization menu** in the right side of the page header.
 
-2. Click **Pre-flight checks** on the left side of the settings view.
+2. Click **Initialization jobs** on the left side of the settings view and scroll down to **Pre-flight checks**.
 
 3. Type **Commands** to execute before each pipeline. 
 
 4. Choose **Secrets** you want to use in **Commands**. 
 
-5. Provide **Agent configuration** for pipeline initialization job. 
-
-    You can choose between different machine types:
-
-    - **Linux Based Virtual Machines** - hosted by Semaphore
-    - **Mac Based Virtual Machines** - hosted by Semaphore
-    - **Self-Hosted Machines** - hosted by the customer (if applicable)
-
-    For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
-    of the agent. 
-    
-    For self-hosted machines choose a **Machine type** that matches your
-    self-hosted agent type.
-
-6. Click **Save changes** button.
+5. Click **Save changes** button.
 
 To remove pre-flight checks from the organization, click the red button
 **Delete pre-flight checks**. This button should be visible if you have 
 pre-flight checks configured.
+
+### Initilization jobs configuration
+
+Additionally, on the same page above, you can [configure machine and OS image for initialization jobs](/reference/pipeline-initialization/#configuring-agents-for-intialization-job) across your organization:
+
+You can choose between different machine types:
+
+- **Linux Based Virtual Machines** - hosted by Semaphore
+- **Mac Based Virtual Machines** - hosted by Semaphore
+- **Self-Hosted Machines** - hosted by the customer (if applicable)
+
+For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
+of the agent. 
+
+For self-hosted machines choose a **Machine type** that matches your
+self-hosted agent type.
 
 ### Project pre-flight checks
 
@@ -73,6 +75,8 @@ Enabling project pre-flight checks requires you to follow these steps:
 3. Type **Commands** to execute before each pipeline.     
 
 4. Choose **Secrets** you want to use in **Commands**. 
+
+5. You can override the agent specification of initialization jobs for that project. Select **Override default agent specification** and choose machine and/or OS image, in the same way as [here](#initilization-jobs-configuration).
 
 5. Click **Save changes** button.
 
