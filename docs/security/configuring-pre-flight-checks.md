@@ -107,7 +107,9 @@ bash check-secret "deployment-secret" "example-project" ".semaphore/deployment.y
 
 You can also combine it with [secrets](/essentials/using-secrets/) or cloned GitOps repository,
 as well as other [Semaphore Environment Variables](/ci-cd-environment/environment-variables)
-to fine-tune the commands to your particular use case. 
+to fine-tune the commands to your particular use case.
+
+You can also check out [organization secrets access policy](/essentials/using-secrets/#organization-level-secrets-access-policy) or [project-level secrets](/essentials/using-secrets/#project-level-secrets) if these are more suitable for your use case.
 
 ### Limiting triggering promotions in your organization
 
@@ -133,6 +135,8 @@ if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else f
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
 or cloned repository. It is also possible to extend the functionality
 to restrict promotions from specific repositories branches. 
+
+Please note that Semaphore offers [Deployment Targets](/essentials/deployment-targets/) that allow you to secure your deployment strategies with restricting promotions for particular users, groups, and roles within your organization. 
 
 ### Dynamically editing your pipeline files
 
