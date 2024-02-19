@@ -36,31 +36,33 @@ Follow the steps below to configure pre-flight checks for the whole organization
 
 1. Open the **Settings** from the **Organization menu** in the right side of the page header.
 
-2. Click **Pre-flight checks** on the left side of the settings view.
+2. Click **Initialization jobs** on the left side of the settings view and scroll down to **Pre-flight checks**.
 
 3. Type **Commands** to execute before each pipeline. 
 
 4. Choose **Secrets** you want to use in **Commands**. 
 
-5. Provide **Agent configuration** for pipeline initialization job. 
-
-    You can choose between different machine types:
-
-    - **Linux Based Virtual Machines** - hosted by Semaphore
-    - **Mac Based Virtual Machines** - hosted by Semaphore
-    - **Self-Hosted Machines** - hosted by the customer (if applicable)
-
-    For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
-    of the agent. 
-    
-    For self-hosted machines choose a **Machine type** that matches your
-    self-hosted agent type.
-
-6. Click **Save changes** button.
+5. Click **Save changes** button.
 
 To remove pre-flight checks from the organization, click the red button
 **Delete pre-flight checks**. This button should be visible if you have 
 pre-flight checks configured.
+
+### Initilization jobs configuration
+
+Additionally, on the same page above, you can [configure machine and OS image for initialization jobs](/reference/pipeline-initialization/#configuring-agents-for-intialization-job) across your organization:
+
+You can choose between different machine types:
+
+- **Linux Based Virtual Machines** - hosted by Semaphore
+- **Mac Based Virtual Machines** - hosted by Semaphore
+- **Self-Hosted Machines** - hosted by the customer (if applicable)
+
+For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
+of the agent. 
+
+For self-hosted machines choose a **Machine type** that matches your
+self-hosted agent type.
 
 ### Project pre-flight checks
 
@@ -73,6 +75,8 @@ Enabling project pre-flight checks requires you to follow these steps:
 3. Type **Commands** to execute before each pipeline.     
 
 4. Choose **Secrets** you want to use in **Commands**. 
+
+5. You can override the agent specification of initialization jobs for that project. Select **Override default agent specification** and choose machine and/or OS image, in the same way as [here](#initilization-jobs-configuration).
 
 5. Click **Save changes** button.
 
@@ -103,7 +107,9 @@ bash check-secret "deployment-secret" "example-project" ".semaphore/deployment.y
 
 You can also combine it with [secrets](/essentials/using-secrets/) or cloned GitOps repository,
 as well as other [Semaphore Environment Variables](/ci-cd-environment/environment-variables)
-to fine-tune the commands to your particular use case. 
+to fine-tune the commands to your particular use case.
+
+You can also check out [organization secrets access policy](/essentials/using-secrets/#organization-level-secrets-access-policy) or [project-level secrets](/essentials/using-secrets/#project-level-secrets) if these are more suitable for your use case.
 
 ### Limiting triggering promotions in your organization
 
@@ -129,6 +135,8 @@ if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else f
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
 or cloned repository. It is also possible to extend the functionality
 to restrict promotions from specific repositories branches. 
+
+Please note that Semaphore offers [Deployment Targets](/essentials/deployment-targets/) that allow you to secure your deployment strategies with restricting promotions for particular users, groups, and roles within your organization. 
 
 ### Dynamically editing your pipeline files
 
