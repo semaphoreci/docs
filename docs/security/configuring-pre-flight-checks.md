@@ -1,5 +1,5 @@
 ---
-Description: This guide shows you how to set up pre-flight checks run before each pipeline in Semaphore.
+Description: This guide shows you how to set up pre-flight checks that run before each pipeline in Semaphore.
 ---
 
 # Pre-flight checks
@@ -18,15 +18,15 @@ including (but not limited to):
 This feature comes with great potential and allows you to configure pipelines on a lower 
 level. It can also serve as a last-resort check preventing further pipeline processing.
 
-!!! warning "This feature might affect the execution of pipelines in the whole organization" 
+!!! warning "This feature might affect the execution of pipelines for the whole organization" 
     We advise caution when using this feature and encourage you to first get familiar with our product. 
     This feature could potentially affect the pipeline execution process of the entire organization. 
-    Ill-defined pre-flights checks might lead to a complete failure of your CI/CD pipelines.
+    Ill-defined pre-flights checks might lead to complete failure of your CI/CD pipelines.
 
-As a security measure, pre-flight checks can be modified only by members of the organization who can:
+As a security measure, pre-flight checks can only be modified by members of the organization who can:
 
-- **manage organization settings** - organization pre-flight checks,
-- **manage project settings** - project pre-flight checks.
+- **manage organization settings** - organization pre-flight checks
+- **manage project settings** - project pre-flight checks
 
 ## Configuring pre-flight checks
 
@@ -34,34 +34,34 @@ As a security measure, pre-flight checks can be modified only by members of the 
 
 Follow the steps below to configure pre-flight checks for the whole organization:
 
-1. Open the **Settings** from the **Organization menu** in the right side of the page header.
+1. Open **Settings** in the **Organization menu** on the right side of the page header.
 
-2. Click **Initialization jobs** on the left side of the settings view and scroll down to **Pre-flight checks**.
+2. Click **Initialization jobs** on the left side of the settings panel and scroll down to **Pre-flight checks**.
 
-3. Type **Commands** to execute before each pipeline. 
+3. Type the **Commands** you would like to execute before each pipeline. 
 
-4. Choose **Secrets** you want to use in **Commands**. 
+4. Choose the **Secrets** you want to use in the **Commands**. 
 
-5. Click **Save changes** button.
+5. Click the **Save changes** button.
 
-To remove pre-flight checks from the organization, click the red button
+To remove pre-flight checks from the organization, click the red button labeled
 **Delete pre-flight checks**. This button should be visible if you have 
 pre-flight checks configured.
 
 ### Initilization jobs configuration
 
-Additionally, on the same page above, you can [configure machine and OS image for initialization jobs](/reference/pipeline-initialization/#configuring-agents-for-intialization-job) across your organization:
+Additionally, on the aforementioned page, you can [configure machines and OS images for initialization jobs](/reference/pipeline-initialization/#configuring-agents-for-intialization-job) across your organization:
 
-You can choose between different machine types:
+You can choose from different machine types:
 
-- **Linux Based Virtual Machines** - hosted by Semaphore
-- **Mac Based Virtual Machines** - hosted by Semaphore
+- **Linux-Based Virtual Machines** - hosted by Semaphore
+- **Mac-Based Virtual Machines** - hosted by Semaphore
 - **Self-Hosted Machines** - hosted by the customer (if applicable)
 
 For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** 
-of the agent. 
+for the agent. 
 
-For self-hosted machines choose a **Machine type** that matches your
+For self-hosted machines choose the **Machine type** that matches your
 self-hosted agent type.
 
 ### Project pre-flight checks
@@ -70,22 +70,22 @@ Enabling project pre-flight checks requires you to follow these steps:
 
 1. Open the project page and go to the **Settings** tab.
 
-2. Click **Pre-flight checks** on the left side of the settings view.
+2. Click **Pre-flight checks** on the left side of the settings panel.
 
-3. Type **Commands** to execute before each pipeline.     
+3. Type the **Commands** you would like to execute before each pipeline.     
 
-4. Choose **Secrets** you want to use in **Commands**. 
+4. Choose the **Secrets** you want to use in the **Commands**. 
 
-5. You can override the agent specification of initialization jobs for that project. Select **Override default agent specification** and choose machine and/or OS image, in the same way as [here](#initilization-jobs-configuration).
+5. You can override the agent specification of initialization jobs for a project. Select **Override default agent specification** and choose the machine and/or OS image, same as shown [here](#initilization-jobs-configuration).
 
-5. Click **Save changes** button.
+5. Click the **Save changes** button.
 
-To remove pre-flight checks from the project, just click **Delete pre-flight checks**.
+To remove pre-flight checks from the project, just click the red **Delete pre-flight checks** button.
 This button should be visible if you have pre-flight checks configured.
 
-## Examples of pre-flight checks configuration
+## Examples of pre-flight checks configurations
 
-### Limiting using secrets in your organization
+### Limiting secret use in your organization
 
 In the initialization job, the following information is available as environment variables:
 
@@ -93,10 +93,10 @@ In the initialization job, the following information is available as environment
 - [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
 - YAML file describing the running pipeline (`SEMAPHORE_YAML_FILE_PATH`)
 
-Based on that, you can define commands in pre-flight checks to ensure that
-a particular pipeline can use certain secrets. You can use this [snippet](https://raw.githubusercontent.com/renderedtext/snippets/master/check-secret.sh)
-as a reference on how to achieve that result. In practice, using it for restricting 
-`deployment-secret` secret for pipeline defined in `.semaphore/deployment.yml`
+Based on this, you can define commands in pre-flight checks to ensure that
+a particular pipeline can use specific secrets. You can use this [snippet](https://raw.githubusercontent.com/renderedtext/snippets/master/check-secret.sh)
+as a reference for how to achieve the desired result. In practice, using this for restricting 
+`deployment-secret` secrets for pipelines defined in `.semaphore/deployment.yml`
 in the `example-project` on the `master` branch comes down to the following commands:
 
 ```bash
@@ -105,24 +105,24 @@ curl https://raw.githubusercontent.com/renderedtext/snippets/master/check-secret
 bash check-secret "deployment-secret" "example-project" ".semaphore/deployment.yml" "master"
 ```
 
-You can also combine it with [secrets](/essentials/using-secrets/) or cloned GitOps repository,
+You can also combine this with [secrets](/essentials/using-secrets/) or cloned GitOps repositories,
 as well as other [Semaphore Environment Variables](/ci-cd-environment/environment-variables)
-to fine-tune the commands to your particular use case.
+to fine-tune commands for your particular use case.
 
-You can also check out [organization secrets access policy](/essentials/using-secrets/#organization-level-secrets-access-policy) or [project-level secrets](/essentials/using-secrets/#project-level-secrets) if these are more suitable for your use case.
+You can also check out the [organization secrets access policy](/essentials/using-secrets/#organization-level-secrets-access-policy) or [project-level secrets](/essentials/using-secrets/#project-level-secrets), to see if they might be more suitable for your use case.
 
-### Limiting triggering promotions in your organization
+### Limiting promotion triggering in your organization
 
 In the initialization job, the following information is available as environment variables:
 
 - [Repository](/ci-cd-environment/environment-variables/#semaphore_git_repo_slug) for which the pipeline started
 - [repository branch](/ci-cd-environment/environment-variables/#semaphore_git_branch) for which the pipeline started
-- [boolean flag](/ci-cd-environment/environment-variables/#semaphore_pipeline_promotion) describing if the pipeline is an initial one or a promotion
-- [GitHub/Bitbucket username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a person triggering the promotion
+- [boolean flag](/ci-cd-environment/environment-variables/#semaphore_pipeline_promotion) describing if the pipeline is an initial pipeline or a promotion
+- [GitHub/Bitbucket username](/ci-cd-environment/environment-variables/#semaphore_pipeline_promoted_by) of a user who triggered the promotion
 
-Based on that, you can define commands in pre-flight checks to ensure that the person who 
-started a promotion has a sufficient permission level. As an example, we'll demonstrate 
-how to restrict the possibility of promoting to a selected group of users:
+Based on that, you can define commands in pre-flight checks to ensure that the user who 
+started a promotion has sufficient permission levels. As an example, let's demonstrate 
+how to restrict the ability to promote a pipeline to a selected group of users:
 
 ```bash
 printf '%s\n' 'user-1' 'user-2' 'user-3' > allowed_users.txt
@@ -133,8 +133,8 @@ if is_promotion; then if user_is_allowed; then echo "Promotion allowed."; else f
 ```
 
 The list of users might come from other sources, for example [secrets](/essentials/using-secrets)
-or cloned repository. It is also possible to extend the functionality
-to restrict promotions from specific repositories branches. 
+or a cloned repository. It is also possible to extend the functionality
+to restrict promotions from specific repository branches. 
 
 Please note that Semaphore offers [Deployment Targets](/essentials/deployment-targets/) that allow you to secure your deployment strategies with restricting promotions for particular users, groups, and roles within your organization. 
 
