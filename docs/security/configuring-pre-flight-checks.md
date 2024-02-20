@@ -78,7 +78,7 @@ Enabling project pre-flight checks requires you to follow these steps:
 
 5. You can override the agent specification of initialization jobs for that project. Select **Override default agent specification** and choose machine and/or OS image, in the same way as [here](#initilization-jobs-configuration).
 
-5. Click **Save changes** button.
+6. Click **Save changes** button.
 
 To remove pre-flight checks from the project, just click **Delete pre-flight checks**.
 This button should be visible if you have pre-flight checks configured.
