@@ -125,6 +125,7 @@ To update the ownership of an organization, the following conditions need to be 
 
 - The new owner needs to be a member of the organization.
 - The new owner needs to have logged into Semaphore at least once.
+- Only an owner can assign the owner role to a user (add a new owner).
 
 ### How to add a new Owner
 
