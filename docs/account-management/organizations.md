@@ -119,23 +119,28 @@ In order to change the URL of your organization, follow these steps:
 
 Only an [Admin](https://docs.semaphoreci.com/account-management/permission-levels/#admin) or the [Owner](https://docs.semaphoreci.com/account-management/permission-levels/#owner) of the organization can perform these actions.
 
-## Transferring ownership of an organization
+## Managing ownership of an organization
 
-In order to transfer ownership of an organization to a different user, the following conditions need
-to be met:
+To update the ownership of an organization, the following conditions need to be met:
 
-- The new owner needs to be a member of the organization
-- The new owner needs to have logged into Semaphore 2.0 at least once
-- The current owner needs to send a confirmation email to [support@semaphoreci.com](mailto:support@semaphoreci.com)
-  from the primary email address associated with the GitHub or Bitbucket account used to log into
-  Semaphore 2.0 -- in this email, please include name of the organization and
-  GitHub/Bitbucket username of the new owner
+- The new owner needs to be a member of the organization.
+- The new owner needs to have logged into Semaphore at least once.
+- Only an owner can assign the owner role to a user (add a new owner).
 
-After that, we’ll transfer ownership on your behalf.
+### How to add a new Owner
 
-**Note:** Transferring ownership of an organization doesn't automatically transfer 
-the projects that you own in that organization. If you'd like to transfer the ownership of 
-projects, please refer to the "[How to transfer project ownership](https://docs.semaphoreci.com/faq/managing-projects/#how-to-transfer-project-ownership)" documentation.
+In order to promote a member of an organization to an Owner, please follow the steps below:
+
+1. Click on the initials of your current organization in the top right corner of the page, and select “People”. You will see the full list of members of your organization, each with a distinctive badge according to their current role.
+2. Click on the “Change Role” button at the user's right, and select “Owner”.
+3. After the change, you will get a notification saying “Role successfully assigned”. Please note that it might take several minutes for the update to be completed.
+
+**Note:** Updating the ownership of an organization doesn't automatically transfer the project ownership. If you'd like to transfer the ownership of a project, please refer to the "[How to transfer project ownership](https://docs.semaphoreci.com/faq/managing-projects/#how-to-transfer-project-ownership)" documentation.
+
+### How to remove an Owner
+
+If you need to demote/remove an owner from the organization, any user with the Owner permission level needs to send an email to support@semaphoreci.com from the primary email address associated with their GitHub or Bitbucket account used to log into Semaphore.
+
 
 ## Deleting an organization 
 
