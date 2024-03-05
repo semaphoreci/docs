@@ -189,6 +189,7 @@ nav:
     - When Conditions: reference/conditions-reference.md
     - Secrets YAML: reference/secrets-yaml-reference.md
     - Projects YAML: reference/projects-yaml-reference.md
+    - Scheduler YAML: reference/scheduler-reference.md
     - Dashboards YAML: reference/dashboards-yaml-reference.md
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
