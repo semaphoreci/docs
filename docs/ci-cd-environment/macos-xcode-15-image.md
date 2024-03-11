@@ -121,21 +121,22 @@ Installed versions:
 Installed versions:
 
 - 15.0.1
-- 15.2 (default)
+- 15.2
+- 15.3 (default)
 
-The default installed Xcode version is `15.2`.
+The default installed Xcode version is `15.3`.
 
 
-Xcode 15.2 has the following SDKs preinstalled:
+Xcode 15.3 has the following SDKs preinstalled:
 
-- iphoneos 17.2
-- iphonesimulator 17.2
+- iphoneos 17.4
+- iphonesimulator 17.4
 - driverkit.macos 23.0
 - macos 14.2
-- appletvos 17.2
-- appletvsimulator 17.2
-- watchos 10.2
-- watchsimulator 10.2
+- appletvos 17.4
+- appletvsimulator 17.4
+- watchos 10.4
+- watchsimulator 10.4
 - visionos 1.0
 
 

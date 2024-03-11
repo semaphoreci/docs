@@ -8,6 +8,12 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of March 11, 2024
+
+**(Improved) macos-xcode15 image update**
+**(New)** Packages: Xcode 15.3
+
+
 ### Week of February 5, 2024
 
 **(Improved) Ubuntu 20.04 image update**
