@@ -10,6 +10,9 @@ This page is updated on a weekly basis.
 
 ### Week of March 11, 2024
 
+**(Improved) macos-xcode15 image update**
+**(New)** Packages: Xcode 15.3
+
 **(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
 
 **(New)** Packages:
@@ -25,7 +28,6 @@ To learn more about these images check our [Ubuntu 20.04](https://docs.semaphore
 - Redis 7.2.4
 
 You can find out more about Semaphore toolbox by checking the [Toolbox Reference](https://docs.semaphoreci.com/reference/toolbox-reference/#toolbox-reference) documentation.
-
 
 ### Week of February 5, 2024
 
