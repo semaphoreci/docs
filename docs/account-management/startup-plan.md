@@ -14,7 +14,7 @@ The Startup subscription includes the following resources every month:
 
 | Seats | Credits | Self-hosted minutes | Storage | Egress |
 | :---: | :-----: | :-----------------: | :-----: | :----: |
-|   5   |   $45   |       60,000        | 100 GB/month  | 30 GB  |
+|   unlimited   |   $45   |       unlimited        | 100 GB/month  | 30 GB  |
 
 Any usage within these limits will not incur additional charges. However, you are not limited by these quotas, and you can generate additional spending depending on your organization's needs.
 
@@ -22,9 +22,10 @@ To understand how additional spending is calculated, please visit our [Billing O
 
 ### Seat cost
 
-In addition to the 5 free seats provided in the Subscription, any additional seat used will be charged at **$15** per seat per month.
+**Unlimited** - You can have as many seats in your organization as you need.
+**Free of charge** - Effective seat cost is $0.
 
-You can see how the seat pricing works in more detail in the [Seat billing overview](/account-management/billing-overview/#seats) section.
+You can see how the seat counting works in more detail in the [Seat billing overview](/account-management/billing-overview/#seats) section.
 
 ### Free credits
 
@@ -36,9 +37,9 @@ Please note that free credits are not transferable and will be reset at the star
 
 ## Job concurrency & self-hosted agents
 
-On the Startup plan, you can run **up to 80 jobs** in parallel, regardless of the machine type.
+On the Startup plan, you can run **up to 100 jobs** in parallel, regardless of the machine type.
 
-Additionally, you can connect **up to 40** [self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) to your organization.
+Additionally, you can connect **unlimited** [self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) to your organization.
 
 ## Cloud machine types
 
