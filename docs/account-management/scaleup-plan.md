@@ -6,15 +6,13 @@ Description: This page contains relevant details regarding the Semaphore Scaleup
 
 The Scaleup plan is designed for large teams with ambitious growth goals. It provides access to the most advanced cloud resources and features available on Semaphore.
 
-With a monthly subscription fee of **$1,800**, you receive an equal amount of credits that can be used for any combination of resources, including seats, cloud build minutes, self-hosted build minutes, artifacts storage, and premium support packages.
+Scaleup requires the pre-purchase of a yearly amount of credits that can be used for any combination of resources, including seats, cloud build minutes, self-hosted build minutes, artifacts storage, and premium support packages.
 
 The subscription operates on a usage-based pricing model, allowing you to easily adjust your resource usage based on your team's changing needs.
 
 ## Subscription details
 
-At the start of each billing cycle, the base subscription fee of **$1,800** is added to your monthly bill and credited to your account.
-
-These credits are part of a shared pool and can be distributed among your team's various resource needs, such as seats, build minutes, storage, and support packages.
+Pre-purchased credits are part of a shared pool and can be distributed among your team's various resource needs, such as seats, build minutes, storage, and support packages.
 
 The credits **are transferable**, so any unused credits will be carried over to the next billing period. However, there is a one-year lifespan on the credits, after which they will expire if not used.
 
@@ -30,9 +28,9 @@ If you are interested in the Scaleup plan please reach out to [customersuccess@s
 
 The Scaleup plan allows you to run an **unlimited** number of jobs in parallel and connect an **unlimited** number of self-hosted agents to your organization.  
 
-**180,000** self-hosted agent minutes are available every month. Any additional self-hosted agent spending is charged at a rate of **$0.0005** per minute and additional usage is charged at a rate of **$0.0005** per minute.
+Self-hosted agent minutes are **unlimited and free of charge**.
 
-There is a **soft limit of 150** on parallelism and self-hosted agents to protect customers and the platform from unexpected spikes in traffic. This limit can be increased **free of charge** by contacting support.
+There is a **soft limit of 150** on parallelism and self-hosted agents to protect customers and the platform from unexpected spikes in traffic. This limit can be increased **without additional costs** by contacting support.
 
 ## Cloud Machine types
 
