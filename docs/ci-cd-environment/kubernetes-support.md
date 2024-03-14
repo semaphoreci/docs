@@ -4,7 +4,7 @@ Description: This guide describes how to set up a fleet of self-hosted agents in
 
 # Kubernetes support
 
-!!! plans "Available on: <span class="plans-box">[Free & OS](/account-management/discounts/)</span> <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
+!!! plans "Available on: <span class="plans-box">[Startup - Hybrid]([/account-management/discounts/](https://semaphoreci.com/pricing))</span> <span class="plans-box">[Scaleup - Hybrid]([/account-management/discounts/](https://semaphoreci.com/pricing))</span>"
 
 If you intend to run your agents on a Kubernetes cluster, the Semaphore custom controller Helm chart provided [here][helm-charts] can help you deploy an on-demand fleet of agents on your Kubernetes cluster.
 
