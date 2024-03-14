@@ -6,15 +6,13 @@ Description: This page explains billing details for Semaphore and provides infor
 
 Semaphore Cloud offers flexible pricing plans that allow you to choose the resources you need to power your CI/CD solution. With no limits on the number of seats, machine minutes, or artifacts you use, you can easily scale your setup as your team grows.
 
-Each plan comes with a monthly subscription cost and includes access to all the basic resources you need. Any additional costs, such as extra machine time, storage and egress, seats, or add-ons, will be calculated daily and added to your monthly bill.
-
 ## How Spending is Calculated
 
 In addition to subscription cost, your monthly bill is determined by your usage of the following four groups of resources:
 
-- **Machine Time** - the cost of using Semaphore Cloud machines or self-hosted agents (calculated by the minute)
+- **Machine Time** - the cost of using Semaphore Cloud machines (calculated by the minute)
 - **Storage and Egress** - the cost of storing and downloading your build artifacts
-- **Seats** - the cost of additional team members using Semaphore
+- **Seats** - the cost of additional team members using Semaphore (charged only on Hybrid plans)
 - **Add-ons** - additional features or services offered by Semaphore Cloud (e.g. priority support, a dedicated cache server)
 
 You can monitor your monthly spending at any time on the Plans & Billing page within the app. Please note that spending data may take up to 24 hours to update.
@@ -39,12 +37,7 @@ Each cloud machine type has its own **price per minute**, listed in the table be
 
 #### Self-hosted agents spending
 
-[Self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) are only available on certain plans, and each plan is allotted a certain amount of free minutes per month:
-
-- **Startup plan** - 60,000 minutes
-- **Scaleup plan** - 180,000 minutes
-
-For any usage that exceeds these allotted minutes, there is an additional charge of **$0.0005 per minute**.
+[Self-hosted agents](/ci-cd-environment/self-hosted-agents-overview/) are only available on Hybrid plans, and are not additionally charged in any way.
 
 #### Monitoring and optimizing machine spending
 
@@ -114,6 +107,7 @@ To ensure that you are not generating unnecessary traffic, make sure to:
 - Don’t use artifacts to store and pull large Docker images (if you are on our _Enterprise plan_ ask our support team about the Semaphore Private Docker registry)
 
 ### Seats
+Seats are only charged in Hybrid plans and do not accumulate any charges in Cloud plans.
 
 Seats are calculated by aggregating all unique organization members and non-members during a billing period. Members are unique users who were assigned a role in the Semaphore organization and non-members are unique users who haven't been assigned a role but have triggered Semaphore builds through git commits.
 
@@ -140,13 +134,3 @@ Semaphore offers add-ons for Startup and Scaleup plans to enhance your CI/CD exp
 - **Advanced & Premium Support** - Enhances your technical and account support with options for **24x5** and **24x7 SLA** along with additional benefits
 
 The cost of any enabled add-ons will be automatically added to your monthly bill at the start of each billing period.
-
-For more information on available add-ons and how to enable them, please visit our [add-ons page](/account-management/add-ons/).
-
-## See also
-
-- [Billing FAQ](/account-management/billing-faq/)
-- [Free and OpenSource plans](/account-management/free-and-open-source-plans/)
-- [Startup plan](/account-management/startup-plan/)
-- [Scaleup plan](/account-management/scaleup-plan/)
-- [Legacy plans](/account-management/legacy-plans/)
