@@ -4,8 +4,6 @@ Description: Organization Health shows an aggregation of your organization's met
 
 # Organization Health
 
-!!! plans "Available on: <span class="plans-box">Scaleup</span>"
-
 Organization Health provides an overview of all your project metrics in one place. For example,
 you can see the lowest-performing projects for the last 30 days, which can help you spot potential problems and
 find optimization opportunities across your organization.
