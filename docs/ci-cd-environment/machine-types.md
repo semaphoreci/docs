@@ -13,7 +13,7 @@ the supported machine types in your pipelines, refer to our [agent documentation
 
 ## Linux machine types
 
-Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804], [Ubuntu 20.04 image][ubuntu2004], and [Docker-based environment][docker-env].
+Linux machine types can be paired with [Ubuntu 18.04 image][ubuntu1804] (deprecated), [Ubuntu 20.04 image][ubuntu2004], [Ubuntu 22.04 image][ubuntu2204] and [Docker-based environment][docker-env].
 
 ### E1 Generation
 
@@ -85,7 +85,7 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine types can be paired with the [MacOS Xcode13 image][macos-xcode13] or [MacOS Xcode14 image][macos-xcode14].
+Apple machine types can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
 
 | Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
 | --------------- | :-----------------------: | :-----------------: | :---------------: |
@@ -98,7 +98,8 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [agent]: ../reference/pipeline-yaml-reference.md#agent
 [ubuntu1804]: ../ci-cd-environment/ubuntu-18.04-image.md
 [ubuntu2004]: ../ci-cd-environment/ubuntu-20.04-image.md
+[ubuntu2204]: ../ci-cd-environment/ubuntu-22.04-image.md
 [macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
-[macos-xcode13]: ../ci-cd-environment/macos-xcode-13-image.md
+[macos-xcode15]: ../ci-cd-environment/macos-xcode-15-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
 [self-hosted]: ../ci-cd-environment/self-hosted-agents-overview.md

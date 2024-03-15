@@ -6,8 +6,6 @@ Description: The ubuntu2204 image is a customized image based on Ubuntu 22.04 LT
 
 !!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
-!!! warning "The `ubuntu2204` image is in the Technical Preview stage. Documentation and the image itself are subject to change."
-
 The `ubuntu2204` image is a customized image based on [Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes), which has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows.
@@ -57,17 +55,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.41.0
-- Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.32.0
+- Git 2.43.0
+- Git LFS (Git Large File Storage) 3.4.1
+- GitHub CLI 2.44.1
 - Mercurial 6.1.1
+- Svn 1.14.1
 
 ### Browsers and Headless Browser Testing
 
 - Firefox 102.11.0 (`102`, `default`, `esr`)
 - Geckodriver 0.33.0
-- Google Chrome 112
-- ChromeDriver 112
+- Google Chrome 121
+- ChromeDriver 121
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -79,9 +78,10 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 24.0.4
+- Docker 25.0.2
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.20.0 (used as `docker compose version`)
+- Docker-compose 2.24.5 (used as `docker compose version`)
+- Docker-buildx 0.12.1
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
 - Buildah 1.23.1
@@ -90,17 +90,17 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.29.2
-- Aws-cli v2 (used as `aws2`) 2.13.0
-- Azure-cli 2.50.0
-- Eb-cli 3.20.3
-- Doctl 1.97.0
+- Aws-cli 2.15.17 (used as `aws`)
+- Azure-cli 2.57.0
+- Eb-cli 3.20.10
+- Ecs-cli 1.21.0
+- Doctl 1.104.0
 - Gcloud 425.0.0
 - Gke-gcloud-auth-plugin 425.0.0
-- Kubectl 1.27.3
-- Heroku 8.1.9
-- Terraform 1.5.2
-- Helm 3.12.1
+- Kubectl 1.29.1
+- Heroku 8.7.1
+- Terraform 1.7.2
+- Helm 3.14.0
 
 ### Network utilities
 
@@ -119,12 +119,12 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 25.3
-- Elixir: 1.14.5
+- Erlang: 24.3, 25.0, 25.1, 25.2, 25.3 (default), 26.0, 26.1, 26.2
+- Elixir: 1.9.x, 1.10.x, 1.11.x, 1.12.x, 1.13.x, 1.14.x (1.14.5 as default), 1.15.x, 1.16.x
 
 Additional libraries:
 
-- Rebar3: 3.22.0
+- Rebar3: 3.22.1
 
 ### Go
 
@@ -140,20 +140,21 @@ Versions:
 - 1.17.x
 - 1.18.x
 - 1.19.x
-- 1.20.x (1.20.6 as default)
+- 1.20.x
+- 1.21.x (1.21.6 as default)
 
 ### Java and JVM languages
 
-- Java: 17.0.7 (OpenJDK)
+- Java: 11.0.21, 17.0.9 (default)
 - Scala: 3.2.2
-- Leiningen: 2.10.0 (Clojure)
-- Sbt 1.9.2
+- Leiningen: 2.11.1 (Clojure)
+- Sbt 1.9.8
 
 #### Additional build tools
 
-- Maven: 3.9.3
-- Gradle: 7.4.2
-- Bazel: 6.2.1
+- Maven: 3.9.6
+- Gradle: 8.3
+- Bazel: 7.0.2
 
 ### JavaScript via Node.js
 
@@ -161,7 +162,7 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.16.1 includes npm 9.5.1
+- v20.11.0 includes npm 10.2.4
 
 #### Additional tools
 
@@ -174,8 +175,9 @@ Available versions:
 
 - 8.1.20 and above
 - 8.2.x
+- 8.3.x
 
-The default installed PHP version is `8.2.2`.
+The default installed PHP version is `8.1.27`.
 
 #### Additional libraries
 
@@ -186,14 +188,16 @@ PHPUnit: 9.5.28
 Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
-- 3.10
+- 3.10.12
+- 3.11.7
+- 3.12.1
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.12
-- pip: 23.1.2
-- venv: 20.23.1
+- pypy3: 7.3.15
+- pip: 24.0
+- venv: 20.25.0
 
 ### Ruby
 
@@ -201,14 +205,15 @@ Available versions:
 
 - 3.0.0 to 3.0.6
 - 3.1.0 to 3.1.4
-- 3.2.0 to 3.2.2
+- 3.2.0 to 3.2.3
+- 3.3.0
 - jruby-9.4.1.0
 
-The default installed Ruby version is `3.2.2`.
+The default installed Ruby version is `3.2.3`.
 
 ### Rust
 
-- 1.71.0
+- 1.75.0
 
 ### Installing dependencies with apt package manager
 
@@ -231,11 +236,22 @@ sudo apt-get install -y [your-dependency]
 
 Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
 
+- `azure-cli.list`
+- `bazel.list`
+- `devel_kubic_libcontainers_stable.list`
+- `docker.list`
+- `github_git-lfs.list`
 - `git.list`
+- `google-chrome.list`
+- `google-cloud-sdk.list`
 - `gradle.list`
+- `helm.list`
+- `ppa_ondrej_php_jammy.list`
 - `pypy.list`
 - `python.list`
-- `devel_kubic_libcontainers_stable.list`
+- `yarn.list`
+- `sbt.list`
+- `sbt_old.list`
 
 If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
 

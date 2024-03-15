@@ -33,4 +33,34 @@ agent:
 
 And that's it. Now jobs using that agent type will run on the agents you registered for that type.
 
+## Using pre-signed AWS STS URLs for registration
+
+By default, an agent type allows an agent to choose its name when registering. However, a pre-signed AWS STS GetCallerIdentity URL can be used instead. That is configured on the agent type level.
+
+Two pieces of information are required to configure this behavior on the agent type:
+
+1. The AWS account ID.
+2. The comma-separated list of AWS IAM role names.
+
+If the agent type is configured that way, agents can only use pre-signed AWS STS URLs for registration. The Semaphore control plane will reject the agent registration if the information in the URL response do not match what is configured for the agent type.
+
+### How is the agent name assigned?
+
+The Semaphore control plane will follow the pre-signed AWS STS URL sent, and if everything in the response matches what is configured on the agent type, it will use the session ID returned in the response as the agent name.
+
+For example, if the AWS account specified is `XYZ`, and the AWS IAM role name list includes a role named `example1`, the response from the AWS STS pre-signed URL must be something like:
+
+```json
+{
+  "Account": "XYZ",
+  "Arn": "arn:aws:sts::XYZ:assumed-role/example1/i-1234567890"
+}
+```
+
+Since the session ID in that case is `i-1234567890`, that value will be used as the new agent name.
+
+## Agent name release
+
+By default, an agent name is immediately available for re-use after it disconnects. You can change that behavior by specifying a number of seconds to hold the agent name after its disconnection. The minimum number is 60 seconds.
+
 [installing-agents]: ./install-self-hosted-agent.md

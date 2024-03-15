@@ -4,7 +4,7 @@ Description: The ubuntu1804 image is a customized image based on Ubuntu 18.04 LT
 
 # Ubuntu 18.04 Image
 
-!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 October 2023. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
+!!! warning "Due to the end of standard support for Ubuntu 18.04 on 31 May 2023, we will no longer provide updates for the `ubuntu1804` image. However, the image will remain available until 31 March 2024. We encourage you to consider migrating to either the `ubuntu2004` or `ubuntu2204` image."
 
 The `ubuntu1804` image is a customized image based on [Ubuntu 18.04 LTS](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) that has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,

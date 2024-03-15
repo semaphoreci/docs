@@ -19,6 +19,10 @@ Published test results are available under the **Tests** tab.
 
 ## Setting up test reports
 
+<div class="docs-video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/9L0Z9xcKiYU?si=chwYzpD0m1FSZrng" title="Getting Started with Semaphore - How to Set-Up Test Reports" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 Semaphore supports any test runner that generates JUnit XML reports.
 
 To collect test results for your pipelines, follow these three steps.

@@ -60,18 +60,18 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.40.1
-- Git LFS (Git Large File Storage) 3.3.0
-- GitHub CLI 2.29.0
+- Git 2.42.0
+- Git LFS (Git Large File Storage) 3.4.1
+- GitHub CLI 2.42.1
 - Mercurial 6.1.1
 - Svn 1.14.1
 
 ### Browsers and Headless Browser Testing
 
-- Firefox 102.12.0 (`102`, `default`, `esr`)
+- Firefox 115.7.0 (`115`, `default`, `esr`)
 - Geckodriver 0.33.0
-- Chromium 114
-- Chromium Driver 114
+- Chromium 120
+- Chromium Driver 120
 - Xvfb (X Virtual Framebuffer)
 
 Chrome and Firefox both support headless mode. You shouldn't need to do more
@@ -82,8 +82,9 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 24.0.2
-- Docker-compose 2.18.1 (used as `docker compose version`)
+- Docker 24.0.7
+- Docker-compose 2.24.2 (used as `docker compose version`)
+- Docker-buildx 0.12.1
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
 - Buildah 1.23.1
@@ -92,16 +93,16 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli 2.11.23
-- Azure-cli 2.49.0
-- Eb-cli 3.20.6
+- Aws-cli 2.15.11 (used as `aws`)
+- Azure-cli 2.56.0
+- Eb-cli 3.20.10
 - Ecs-cli 1.21.0
-- Doctl 1.96.1
-- Gcloud 432.0.0
-- Gke-gcloud-auth-plugin 432.0.0
-- Kubectl 1.27.2
-- Terraform 1.4.6
-- Helm 3.12.0
+- Doctl 1.102.0
+- Gcloud 425.0.0
+- Gke-gcloud-auth-plugin 425.0.0
+- Kubectl 1.29.1
+- Terraform 1.7.0
+- Helm 3.13.3
 
 ### Network utilities
 
@@ -120,31 +121,32 @@ Docker toolset is installed and the following versions are available:
 Erlang versions are installed and managed via [kerl](https://github.com/kerl/kerl).
 Elixir versions are installed with [kiex](https://github.com/taylor/kiex).
 
-- Erlang: 24.3, 25.0, 25.1, 25.2, 25.3 (default), 26.0
-- Elixir: 1.14.x (1.14.5 as default), 1.15.x
+- Erlang: 24.3, 25.0, 25.1, 25.2, 25.3 (default), 26.0, 26.1, 26.2
+- Elixir: 1.14.x (1.14.5 as default), 1.15.x, 1.16.x
 
 Additional libraries:
 
-- Rebar3: 3.22.0
+- Rebar3: 3.22.1
 
 ### Go
 
 Versions:
 
 - 1.19.x
-- 1.20.x (1.20.4 as default)
+- 1.20.x
+- 1.21.x (1.21.6 as default)
 
 ### Java and JVM languages
 
-- Java: 17.0.7 (default)
+- Java: 11.0.21, 17.0.9 (default)
 - Scala: 3.2.2
 - Leiningen: 2.10.0 (Clojure)
-- Sbt 1.8.3
+- Sbt 1.9.7
 
 #### Additional build tools
 
-- Maven: 3.9.2
-- Gradle: 7.4.2
+- Maven: 3.9.6
+- Gradle: 8.3
 
 ### JavaScript via Node.js
 
@@ -152,7 +154,7 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v18.16.0 (set as default, with alias 18.16), includes npm 9.5.1
+- v20.11.0 (set as default, with alias 20.11), includes npm 10.2.4
 
 #### Additional tools
 
@@ -165,8 +167,9 @@ Available versions:
 
 - 8.1.x
 - 8.2.x
+- 8.3.x
 
-The default installed PHP version is `8.1.19`.
+The default installed PHP version is `8.1.27`.
 
 #### Additional libraries
 
@@ -177,15 +180,16 @@ PHPUnit: 9.5.27
 Python versions are installed and managed by
 [virtualenv](https://virtualenv.pypa.io/en/stable/). Installed versions:
 
-- 3.10.6 (default)
-- 3.11.3
+- 3.10.12 (default)
+- 3.11.7
+- 3.12.1
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.11
-- pip: 23.1.2
-- venv: 20.23.0
+- pypy3: 7.3.15
+- pip: 23.3.2
+- venv: 20.25.0
 
 ### Ruby
 
@@ -194,11 +198,12 @@ Available versions:
 - 2.7.0 to 2.7.8
 - 3.0.0 to 3.0.6
 - 3.1.0 to 3.1.4
-- 3.2.0 to 3.2.2
+- 3.2.0 to 3.2.3
+- 3.3.0
 - jruby-9.3.10.0
 - jruby-9.4.2.0
 
-The default installed Ruby version is `3.2.2`.
+The default installed Ruby version is `3.2.3`.
 
 ### Rust
 
@@ -225,11 +230,17 @@ sudo apt-get install -y [your-dependency]
 
 Due to occasional issues with some of the repositories that break the pipeline during `apt-get update` command, the following sources lists have been moved to `/etc/apt/sources.list.d/disabled`:
 
+- `azure-cli.list`
+- `devel_kubic_libcontainers_stable.list`
+- `docker.list`
+- `firefox.list`
 - `git.list`
+- `google-cloud-sdk.list`
 - `gradle.list`
+- `helm.list`
 - `pypy.list`
 - `python.list`
-- `devel_kubic_libcontainers_stable.list`
+- `yarn.list`
 
 If you need any of these before running the `apt-get update` command, please move them to the `/etc/apt/sources.list.d` directory.
 

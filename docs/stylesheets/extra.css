@@ -532,4 +532,17 @@ nav.md-tabs .md-tabs__link.md-tabs__link--active:hover {
     color: white !important;
     text-decoration: none !important;
   }
-  
+
+/** Needed for full width / height YouTube iframe embed */
+.docs-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+.docs-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

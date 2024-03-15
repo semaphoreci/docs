@@ -149,6 +149,21 @@ as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
 
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_MANUAL\_RUN
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_MANUAL_RUN` environment variable
+is `true` if the workflow run was triggered manually by user from Semaphore UI (for instance by running Task manually).
+
+It has a `false` value in workflows which were triggered via a hook from the git
+repository, API, or via [scheduled Task][tasks] feature.
+
+The `SEMAPHORE_WORKFLOW_TRIGGERED_BY_MANUAL_RUN` environment variable remains the same
+during a pipeline run and is available in all the blocks of a pipeline as well
+as in all promoted and auto-promoted pipelines in the same workflow.
+
+Example value: `false`
+
+
 #### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY\_API
 
 The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY_API` environment variable
@@ -162,6 +177,13 @@ during a pipeline run and is available in all the blocks of a pipeline as well
 as in all promoted and auto-promoted pipelines in the same workflow.
 
 Example value: `false`
+_
+#### SEMAPHORE\_WORKFLOW\_TRIGGERED\_BY
+
+The value of the `SEMAPHORE_WORKFLOW_TRIGGERED_BY` environment variable is 
+the GitHub/Bitbucket username of the person that initiated the workflow.
+
+Example value: `torvalds`
 
 #### SEMAPHORE\_PIPELINE\_ID
 
@@ -327,10 +349,14 @@ the git tag used in the current job.
 
 Example value: `v1.0.0`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `tag`.
+
 #### SEMAPHORE\_GIT\_PR\_BRANCH
 
 The value of the `SEMAPHORE_GIT_PR_BRANCH` environment variable is the name of
 the git branch from which the Pull Request originated.
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
 
 #### SEMAPHORE\_GIT\_PR\_SLUG
 
@@ -340,12 +366,16 @@ the Pull Request originated.
 
 Example value: `renderedtext/docs`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
+
 #### SEMAPHORE\_GIT\_PR\_SHA
 
 The value of the `SEMAPHORE_GIT_PR_SHA` environment variable holds the
 commit SHA of the HEAD commit of the Pull Request.
 
 Example values: `5c84719708b9b649b9ef3b56af214f38cee6acd3`
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
 
 #### SEMAPHORE\_GIT\_PR\_NUMBER
 
@@ -354,12 +384,30 @@ number of the Pull Request.
 
 Example values: `1`
 
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
+
 #### SEMAPHORE\_GIT\_PR\_NAME
 
 The value of the `SEMAPHORE_GIT_PR_NAME` environment variable holds the
 name of the Pull Request.
 
 Example values: `Update Readme.md`
+
+*Note:* Value is present only for builds where `SEMAPHORE_GIT_REF_TYPE` equals `pull-request`.
+
+#### SEMAPHORE\_GIT\_COMMITTER
+
+The value of the `SEMAPHORE_GIT_COMMITTER` environment variable holds the
+GitHub/Bitbucket username of the person that committed the revision.
+
+Example values: `torvalds`
+
+#### SEMAPHORE\_GIT\_COMMIT\_AUTHOR
+
+The value of the `SEMAPHORE_GIT_COMMIT_AUTHOR` environment variable holds the
+GitHub/Bitbucket username of the person that authored the revision.
+
+Example values: `torvalds`
 
 ### Environment Variables injected into after_pipeline jobs
 

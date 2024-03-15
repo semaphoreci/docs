@@ -20,6 +20,10 @@ deployments, so you can see which version was shipped and by whom.
 
 # Setup and configuration
 
+<div class="docs-video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/xId2H2wlKx4?si=KVMH0JxS2RmGZD89" title="Getting Started with Semaphore - How to Use Deployment Targets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 Configuring Deployment Targets consists of two phases: **Deployment Target setup** and **pipeline YAML configuration**. This section goes into detail about the entire process.
 
 ## Deployment Target setup

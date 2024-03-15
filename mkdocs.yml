@@ -9,7 +9,7 @@ repo_name: semaphoreci/docs
 repo_url: https://github.com/semaphoreci/docs
 
 # Copyright
-copyright: '&copy; 2009-2022 Rendered Text'
+copyright: '&copy; 2009-2024 Rendered Text'
 
 theme:
   font:
@@ -58,11 +58,12 @@ nav:
       - Overview: essentials/concepts.md
       - Pipelines: essentials/modeling-complex-workflows.md
       - Triggers: essentials/project-workflow-trigger-options.md
-      - Scheduler/cron: essentials/schedule-a-workflow-run.md
+      - Tasks (formerly Schedulers): essentials/schedule-a-workflow-run.md
       - Artifacts: essentials/artifacts.md
       - Environment variables: essentials/environment-variables.md
       - Secrets: essentials/using-secrets.md
       - Tests: essentials/test-summary.md
+      - Flaky Tests: essentials/flaky-tests.md
       - Debugging: essentials/debugging-with-ssh-access.md
 
     - Optimizations:
@@ -125,8 +126,8 @@ nav:
       - DockerHub authentication: ci-cd-environment/docker-authentication.md
       - Semaphore Container Registry: ci-cd-environment/semaphore-registry-images.md
     - "iOS/macOS":
-      - macOS Xcode 13 image: ci-cd-environment/macos-xcode-13-image.md
       - macOS Xcode 14 image: ci-cd-environment/macos-xcode-14-image.md
+      - macOS Xcode 15 image: ci-cd-environment/macos-xcode-15-image.md
     - Android:
       - Docker images: ci-cd-environment/android-images.md
       - Flutter example: ci-cd-environment/flutter.md
@@ -137,9 +138,13 @@ nav:
       - Configuration: ci-cd-environment/configure-self-hosted-agent.md
       - Job environment: ci-cd-environment/job-environment.md
       - AWS support: ci-cd-environment/aws-support.md
+      - Kubernetes support: ci-cd-environment/kubernetes-support.md
       - S3-based caching: ci-cd-environment/set-up-caching-on-aws-s3.md
   - Examples:
     - Tutorials and example projects: examples/tutorials-and-example-projects.md
+    - External Integrations:
+      - Cypress: examples/integrations/cypress.md
+      - BrowserStack: examples/integrations/browserstack.md
     - Continuous Integration:
       - Rails continuous integration: examples/rails-continuous-integration.md
       - Node.js and TypeScript continuous integration: examples/node-js-and-typescript-continuous-integration.md
@@ -188,6 +193,7 @@ nav:
     - Jobs YAML: reference/jobs-yaml-reference.md
     - Notifications YAML: reference/notifications-yaml-reference.md
     - Deployment Targets YAML: reference/deployment-targets-yaml-reference.md
+    - Agent Types YAML: reference/agent-types-yaml-reference.md
     - Sem CLI: reference/sem-command-line-tool.md
     - Artifact CLI: reference/artifact-cli-reference.md
     - Sem-context CLI: reference/sem-context-reference.md
@@ -199,8 +205,14 @@ nav:
     - Semaphore Changelog: reference/semaphore-changelog.md
     - Glossary: reference/glossary.md
   - Account Management:
-    - Billing FAQ: account-management/billing-faq.md
-    - Discounts: account-management/discounts.md
+    - Plans & Billing:
+      - Billing Overview: account-management/billing-overview.md
+      - Billing FAQ: account-management/billing-faq.md
+      - Free and Open Source: account-management/free-and-open-source-plans.md
+      - Startup plan: account-management/startup-plan.md
+      - Scaleup plan: account-management/scaleup-plan.md
+      - Legacy plans: account-management/legacy-plans.md
+      - Add-ons: account-management/add-ons.md
     - Organizations: account-management/organizations.md
     - Permission levels: account-management/permission-levels.md
     - Connecting GitHub with Semaphore: account-management/connecting-github-and-semaphore.md
@@ -220,10 +232,14 @@ nav:
     - "Okta integration":
       - Overview: security/okta/overview.md
       - Installation: security/okta/installation.md
+    - "User authorization":
+      - RBAC overview: security/rbac-authorization.md
+      - Default roles: security/default-roles.md
+      - Repository-to-role mappings: security/repository-to-role-mappings.md
   - Score:
-      - Insights: score/project-insights.md
-      - Custom dashboards: score/custom-dashboards.md
-      - Organization Health: score/organization-health.md
+    - Insights: score/project-insights.md
+    - Custom dashboards: score/custom-dashboards.md
+    - Organization Health: score/organization-health.md
   - FAQ:
     - FAQ: faq/faq.md
     - Managing projects: faq/managing-projects.md
