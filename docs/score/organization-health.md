@@ -33,5 +33,3 @@ where daily metrics are available.
 
 
 !!! warning "Note: We use every branch and pipeline to build project metrics in Organization Health, and this may not always match what is shown on the Insights page."
-
-We would like to hear feedback from you! <a href="mailto:rlopes@renderedtext.com?subject=Organization health issue">Contact us</a> if you find a bug or have questions.

@@ -183,12 +183,6 @@ The detailed view also provides a list of flaky occurrences, allowing you to nav
 ## See also
 
 - [Test reports][test-reports-ref]
-- [Startup plan](/account-management/startup-plan/)
-- [Scaleup plan](/account-management/scaleup-plan/)
-
-
-We would like to hear feedback from you! <a href="mailto:rlopes@renderedtext.com?subject=Organization health issue">Contact us</a> if you find a bug or have questions.
-
 
 
 [test-reports-ref]: ../essentials/test-summary.md
