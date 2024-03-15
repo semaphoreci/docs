@@ -38,7 +38,7 @@ the resources with this role:
 ``` json
 "Condition": {
   "StringEquals": {
-    "acme.semaphoreci.com:aud": "https://rtx.semaphoreci.com/",
+    "acme.semaphoreci.com:aud": "https://acme.semaphoreci.com/",
     "acme.semaphoreci.com:sub": "org:acme:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/main"
   }
 }
