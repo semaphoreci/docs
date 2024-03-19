@@ -27,7 +27,7 @@ vault auth enable jwt
 ```
 
 ``` bash
-export ORG_URL="" # the full url to your organization, exaple: https://acme.semaphoreci.com
+export ORG_URL="" # the full url to your organization, exaple: https://{org-name}.semaphoreci.com
 
 vault write auth/jwt/config bound_issuer="$ORG_URL" oidc_discovery_url="$ORG_URL"
 ```

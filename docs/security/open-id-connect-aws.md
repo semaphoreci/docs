@@ -9,7 +9,7 @@ Description: Use OpenID Connect within your pipelines to authenticate with Amazo
 Open ID Connect allows your pipelines to access resources in Amazon Web Services (AWS) without
 the need to store long-lived access credentials in secrets.
 
-In this guide, you will learn how to configure Google Cloud Workload Identity Provider to trust
+In this guide, you will learn how to configure AWS IAM Provider to trust
 Semaphore OIDC as a federated identity and then to access cloud resources from your Semaphore
 Pipelines.
 
@@ -24,23 +24,26 @@ Configure AWS to support OpenID Connect by creating an IAM OIDC identity provide
 and an IAM role that trusts the provider.
 See [Creating OpenID Connect (OIDC) identity providers][aws-docs].
 
-- For the provider, set the full URL to your organization. Example: `https://acme.semaphoreci.com`.
-- For the audience, set the full URL to your organization. Example: `https://acme.semaphoreci.com`.`
+- For the provider, set the full URL to your organization. Example: `https://{org-name}.semaphoreci.com`.
+- For the audience, set the full URL to your organization. Example: `https://{org-name}.semaphoreci.com`.`
 
 ### Step 2 - Configuring a role and trust policy
 
 Configuring a role and trust policy that you will use to access resources on AWS.
 Follow the documentation on AWS about [Creating a role for web identity or OIDC][create-role].
 
-Edit the trust policy to restrict which projects and which branches are able to access
-the resources with this role:
+Modify the trust policy below to specify which projects and branches can access the resources assigned to this role. Use the `StringEquals` condition to define a specific project and branch, while the `StringLike` condition allows for the inclusion of multiple branches:
 
 ``` json
 "Condition": {
   "StringEquals": {
-    "acme.semaphoreci.com:aud": "https://acme.semaphoreci.com/",
-    "acme.semaphoreci.com:sub": "org:acme:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/main"
-  }
+    "{org-name}.semaphoreci.com:aud": "https://{org-name}.semaphoreci.com",
+    "{org-name}.semaphoreci.com:sub": "org:{org-name}:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/main"
+  },
+  "StringLike": {
+    "{org-name}.semaphoreci.com:sub":
+    "org:{org-name}:project:936a5312-a3b8-4921-8b3f-2cec8baac574:repo:web:ref_type:branch:ref:refs/heads/*",
+},
 }
 ```
 
