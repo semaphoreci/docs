@@ -33,8 +33,6 @@ Implementation details:
 
 ### E2 Generation
 
-!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
-
 The `e2` series machines offer a balance of compute, memory, and cost. It is a good choice for most applications.
 
 | Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
@@ -50,8 +48,6 @@ Implementation details:
 
 ### F1 Generation
 
-!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
-
 The `f1` series machines are built for compute-intensive jobs. These machines deliver the highest performance.
 
 | Machine name  | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
@@ -66,8 +62,6 @@ Implementation details:
 3. `Disk` is implemented using NvME storage.
 
 ### R1 Generation
-
-!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
 
 !!! warning "`r1` machines are currently in the Technical Preview stage. If you're interested in trying them out, please contact our support team."
 

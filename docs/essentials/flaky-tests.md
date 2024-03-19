@@ -3,8 +3,6 @@ Description: Flaky tests on Semaphore are tests which have different states with
 ---
 # Flaky Tests
 
-!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
-
 Flaky test detection helps identify and manage unreliable tests in a test suite.
 By detecting flaky tests, development teams can take specific actions to address
 these issues and improve the overall reliability of their testing pipeline.
@@ -185,12 +183,6 @@ The detailed view also provides a list of flaky occurrences, allowing you to nav
 ## See also
 
 - [Test reports][test-reports-ref]
-- [Startup plan](/account-management/startup-plan/)
-- [Scaleup plan](/account-management/scaleup-plan/)
-
-
-We would like to hear feedback from you! <a href="mailto:rlopes@renderedtext.com?subject=Organization health issue">Contact us</a> if you find a bug or have questions.
-
 
 
 [test-reports-ref]: ../essentials/test-summary.md
