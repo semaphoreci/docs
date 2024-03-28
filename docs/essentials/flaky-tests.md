@@ -189,14 +189,18 @@ To enable notifications, follow these steps on the Flaky Tests page:
 5. Click on Activate and Save.
 
 !!! info "Branches"
-        We support simple regular expressions in the branches field, you can for example use release-* or .*
-        There's a limit of 100 characters allowed in the branches field.
+        We allow basic regular expressions in the branches field. For instance, you can use patterns like `release-*` or `.*`.
+        Please note that there's a character limit of 100 for the branches field. If you wish to specify multiple branches, you can separate them using a comma.
 
 ![notifications](img/flaky-tests/notifications.png)
 
 #### Notification payload
 
-Your endpoint will receive an HTTP POST with the following schema. Your endpoint should respond with a status code in the 200 range.
+Your endpoint is set to receive an HTTP POST request with a specific schema.
+This request will have the Content-Type header set to application/json.
+It is expected that your endpoint responds with a status code within the 200 range.
+If the response status code is outside this range, we will attempt to resend the request four additional times,
+employing an exponential backoff strategy for these retries.
 
 ```spec
 type: object
