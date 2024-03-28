@@ -7,8 +7,6 @@ Flaky test detection helps identify and manage unreliable tests in a test suite.
 By detecting flaky tests, development teams can take specific actions to address
 these issues and improve the overall reliability of their testing pipeline.
 
-!!! warning "Note: This feature is in closed beta."
-
 !!! info "Definition"
       A test is considered flaky when it produces different results within the same Git commit. For example, the test may fail at one point and subsequently pass without any alterations to the codebase. 
 
@@ -175,10 +173,98 @@ The detailed view also provides a list of flaky occurrences, allowing you to nav
 
 ![detailed_view](img/flaky-tests/dv.png)
 
-### Known issues
 
-* While creating a new filter, you need to search before saving the filter otherwise the contents of the filter do not get saved correctly.
-* Deleting a filter does not automatically switch to the next on the list.
+### Notifications
+
+Flaky tests utilize webhook-based notifications that are dispatched when new flaky tests are identified. When the conditions for notifications are satisfied, Semaphore will transmit an HTTP POST payload to the configured URL of the webhook. This can be utilized, for instance, to establish alerts when new flaky tests emerge for a specific team.
+
+#### Configuring webhook notifications for a project
+
+To enable notifications, follow these steps on the Flaky Tests page:
+
+1. Navigate to the Flaky Tests page.
+2. Click on the bell icon next to the filter actions.
+3. Enter the webhook URL (it must be an HTTPS URL).
+4. Optionally, you can also specify the branches for which you want to receive notifications (leave this field blank if you want to receive notifications for all branches).
+5. Click on Activate and Save.
+
+!!! info "Branches"
+        We support simple regular expressions in the branches field, you can for example use release-* or .*
+        There's a limit of 100 characters allowed in the branches field.
+
+![notifications](img/flaky-tests/notifications.png)
+
+#### Notification payload
+
+Your endpoint will receive an HTTP POST with the following schema. Your endpoint should respond with a status code in the 200 range.
+
+```spec
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "a01e9b47-7e3c-4165-9007-8a3c1652b31a"
+  project_id:
+    type: string
+    format: uuid
+    example: "4627d711-4aa2-xe1e-bc5c-e0f4491b8735"
+  test_id:
+    type: string
+    format: uuid
+    example: "3177e680-46ac-4c39-b9fa-02c4ba71b644"
+  branch_name:
+    type: string
+    example: "main"
+  test_name:
+    type: string
+    example: "Test 1"
+  test_group:
+    type: string
+    example: "Elixir.Calculator.Test"
+  test_file:
+    type: string
+    example: "calculator_test.exs"
+  test_suite:
+    type: string
+    example: "suite1"
+  created_at:
+    type: string
+    format: date-time
+    example: "2025-03-22T18:24:34.479219+01:00"
+  updated_at:
+    type: string
+    format: date-time
+    example: "2025-03-22T18:24:34.479219+01:00"
+required:
+  - id
+  - project_id
+  - test_id
+  - branch_name
+  - test_name
+  - test_group
+  - test_file
+  - test_suite
+  - created_at
+  - updated_at
+```
+
+Example
+
+```json
+{
+  "id": "a01e9b47-7e3c-4165-9007-8a3c1652b31a",
+  "project_id": "4627d711-4aa2-xe1e-bc5c-e0f4491b8735",
+  "test_id": "3177e680-46ac-4c39-b9fa-02c4ba71b644",
+  "branch_name": "main",
+  "test_name": "Test 1",
+  "test_group": "Elixir.Calculator.Test",
+  "test_file": "calculator_test.exs",
+  "test_suite": "suite1",
+  "created_at": "2025-03-22T18:24:34.479219+01:00",
+  "updated_at": "2025-03-22T18:24:34.479219+01:00"
+}
+```
 
 ## See also
 
