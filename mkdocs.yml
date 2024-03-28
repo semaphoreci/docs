@@ -230,6 +230,7 @@ nav:
       - RBAC overview: security/rbac-authorization.md
       - Default roles: security/default-roles.md
       - Repository-to-role mappings: security/repository-to-role-mappings.md
+      - User Groups: security/groups.md
   - Score:
     - Insights: score/project-insights.md
     - Custom dashboards: score/custom-dashboards.md
