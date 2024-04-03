@@ -13,16 +13,8 @@ these issues and improve the overall reliability of their testing pipeline.
 
 ## Configuring flaky test detection
 
-There are two steps needed to enable flaky tests detection: the first is to set up [test reports][test-reports-ref] in your projects,
-and the second is to go to your project and initialize flaky test detection.
+To enable flaky tests detection: you need to set up [test reports][test-reports-ref] in your projects.
 
-To initialize flaky test detection, find your project in Semaphore and:
-
-1. Select the Flaky tests tab.
-2. Click Initialize.
-
-
-![zero](img/flaky-tests/zero.png)
 
 !!! warning "Note: It may take some time for flaky tests to be detected as your pipeline runs."
 
@@ -30,7 +22,7 @@ To initialize flaky test detection, find your project in Semaphore and:
 
 In the Flaky Tests UI, you can filter, sort, mark tests as resolved, link tickets, and access a detailed view for deeper analysis.
 
-![zero](img/flaky-tests/ui.png)
+![ui](img/flaky-tests/ui.png)
 
 ### Filtering
 
@@ -120,17 +112,13 @@ These are the steps to delete a filter:
 
 #### Default filters
 
-When you first initialize Flaky Test detection, there are 5 default filters for you to use.
+There are two pre-set filters available for your use, and these cannot be deleted.
 
-!!! warning "Note: You can remove the default filters if you wish, but be sure to keep at least one filter, whether default or custom. Failure to retain at least one filter will prompt a request to reinitialize flaky test detection. This does not impact the processing of your flaky tests."
 
-| Filter name | Filter value |
-|-------------| -------------|
-| Current 30 days | @is.resolved:false @date.from:now-30d |
-| Previous 30 days | @is.resolved:false @date.from:now-60d @date.to:now-30d |
-| Current 90 days | @is.resolved:false @date.from:now-90d |
-| Master branch only | @is.resolved:false @git.branch:master @date.from:now-60d |
-| More than 10 disruptions | @is.resolved:false @date.from:now-90d @metric.disruptions:>10 |
+| Filter name | Example                                   |
+|-------------|-------------------------------------------|
+| Current month | @date.from:2024-04-01 @date.to:2024-04-30 |
+| Previous month | @date.from:2024-03-01 @date.to:2024-03-31 |
 
 ### Sorting
 
