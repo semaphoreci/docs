@@ -16,15 +16,13 @@ these issues and improve the overall reliability of their testing pipeline.
 To enable flaky tests detection: you need to set up [test reports][test-reports-ref] in your projects.
 
 
-![zero](img/flaky-tests/zero.png)
-
 !!! warning "Note: It may take some time for flaky tests to be detected as your pipeline runs."
 
 ##  Flaky Tests UI
 
 In the Flaky Tests UI, you can filter, sort, mark tests as resolved, link tickets, and access a detailed view for deeper analysis.
 
-![zero](img/flaky-tests/ui.png)
+![ui](img/flaky-tests/ui.png)
 
 ### Filtering
 
