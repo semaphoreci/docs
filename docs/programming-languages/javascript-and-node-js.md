@@ -51,14 +51,14 @@ additional tools.
 #### Selecting a Node.js version on Linux
 
 On Linux, Semaphore uses [nvm](https://github.com/creationix/nvm) to manage Node.js
-versions. Any version that can be installed with `nvm` is supported by Semaphore.
+versions.
 
 The version of Node.js that will be used can be set from a `.nvmrc` file, if
 such a file exists in your repository. If you want to make use of the `.nvmrc`
 file, you will need to run `nvm use` so you can tell nvm to set the
 node version specified within the `.nvmrc` file.
 
-Alternatively, you can change the Node.js version by calling `sem-version node`.
+Alternatively, you can set the Node.js version by calling `sem-version node`, which uses preinstalled node versions.
 Here's an example:
 
 ``` yaml
