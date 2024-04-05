@@ -16,6 +16,11 @@ To download and install `sem`, copy and paste the installation command:
 curl https://storage.googleapis.com/sem-cli-releases/get.sh | bash
 ```
 
+You can also install it through Homebrew with:
+``` bash
+brew install semaphoreci/tap/sem
+```
+
 Next, you'll need to connect `sem` to an organization.
 The command includes the URL and access token. In your web browser,
 you'll see something similar to:
