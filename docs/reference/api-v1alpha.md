@@ -1682,3 +1682,124 @@ HTTP status: 200
 curl -i -H "Authorization: Token {api_token}" \
      "https://{org_name}.semaphoreci.com/api/v1alpha/deployment_targets/:target_id/history"
 ```
+
+
+## Artifact retention policies
+
+### Configure retention policy
+
+This API endpoint allows you to configure the artifact retention policy for a project with the given UUID.
+
+By default, artifacts are persisted and never automatically deleted. The artifact retention policy allows you to configure the lifetime of artifacts in your projects.
+
+```
+POST {org_name}.semaphoreci.com/api/v1alpha/artifacts_retention_policies
+```
+
+**Request Body**
+
+The request body should be a JSON object, encapsulating details about the artifact retention policies to be configured. The available fields are as follows:
+
+  - `project_id` (**required**) - UUID of the project.
+  - `project_level_retention_policies` (*optional*) - List of retention rules for project-level artifacts.
+  - `workflow_level_retention_policies` (*optional*) - List of retention rules for workflow-level artifacts.
+  - `job_level_retention_policies` (*optional*) - List of retention rules for job-level artifacts.
+
+At least one of the `project_level_retention_policies`, `workflow_level_retention_policies`, and `job_level_retention_policies` lists needs to contain valid list items for a request to be valid.
+
+The list items for each of the retention policy fields from above should be JSON objects with the following properties:
+  - `selector` (**required**) - a double-star glob pattern used for identifying the artifacts paths.
+  - `age` (**required**) - the time after which the artifacts on the path from the `selector` field should be automatically deleted. Values should consist of a number from 1 to 12 followed by a space and one of the following: week(s), month(s), or year(s). Examples: 1 week, 2 weeks, 3 months, 4 years.
+
+When evaluating retention policies for an artifact on a particular path, the system will iterate through the list of the policy rules and apply the first one with a selector that matches the path of that artifact. 
+
+You can find more details about artifacts retention policy in the [Artifact Retention Policies Reference](/reference/artifact-retention-policies)
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "workflow_level_retention_policies": [],
+  "project_level_retention_policies": [
+    {
+      "selector": "/**/*",
+      "age": "1 year"
+    }
+  ],
+  "job_level_retention_policies":[
+    {
+      "selector": "/screenshots/**/*.png",
+      "age": "2 weeks"
+    },
+    {
+      "selector": "/logs/**/*.txt",
+      "age": "3 months"
+    },
+  ]
+}
+
+```
+
+**Example request**
+
+```
+curl -X POST -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/artifacts_retention_policies" \
+     -H "Content-Type: application/json" \
+     -d '<json object>' 
+```
+```
+curl -X POST -H "Authorization: Token {api_token}" \ 
+     "https://{org_name}.semaphoreci.com/api/v1alpha/artifacts_retention_policies" \
+     -H "Content-Type: application/json" \
+     -d '{"project_id":"3796efe0-81a0-4157-8774-7ad72d41ac28","job_level_retention_policies":[{"selector":"/screenshots/**/*.png","age":"2  weeks"},{"selector":"/logs/**/*.txt","age":"3 months"}]}'
+```
+
+### Describe retention policy
+
+This API endpoint retrieves the details about an artifacts retention policy that is configured for a project with the given UUID.
+
+By default, projects do not have an artifacts retention policy configured so a response in this case will have a policy with an empty set of retention rules for all artifacts levels.
+
+```
+GET {org_name}.semaphoreci.com/api/v1alpha/artifacts_retention_policies/:project_id
+```
+
+**Params**
+
+- `project_id` (**required**) - The UUID of the project
+
+**Response**
+
+```json
+HTTP status: 200
+
+{
+  "workflow_level_retention_policies": [],
+  "project_level_retention_policies": [
+    {
+      "selector": "/**/*",
+      "age": "1 year"
+    }
+  ],
+  "job_level_retention_policies":[
+    {
+      "selector": "/screenshots/**/*.png",
+      "age": "2 weeks"
+    },
+    {
+      "selector": "/logs/**/*.txt",
+      "age": "3 months"
+    },
+  ]
+}
+```
+
+**Example**
+
+```
+curl -i -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/artifacts_retention_policies/:project_id"
+```
