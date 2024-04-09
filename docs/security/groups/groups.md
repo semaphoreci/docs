@@ -16,7 +16,7 @@ Instead of managing users (changing their roles and adding them to individual pr
 
 ### Adding/removing users from a group
 <ul>
- <li> On top of the people page, there is a section listing all the groups that exist within your organization. If you have sufficient permissions, you will see "Modify group" button next to the group name. </li>
+ <li> On top of the people page, there is a section listing all the groups that exist within your organization. If you have sufficient permissions (Owner or Admin), you will see "Modify group" button next to the group name. </li>
 ![Modify group button](./modify_group.png)
  <li> The same popup used to create a new group will appear. Here, you can change add new members, remove existing ones, or change group name and description.</li>
  <li> Once you have made all the changes, click on the "Save changes" button. It might take up to a couple of minutes for all the changes to propagate through the system, depending on how many users you have added/removed from the group. </li>
