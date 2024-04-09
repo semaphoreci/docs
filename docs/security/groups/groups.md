@@ -1,12 +1,17 @@
 # User Groups
 
-Instead of managing users (changing their roles and adding them to individual projects) one by one, you can use user groups. This feature simplifies user management, enhances access control, and streamlines the assignment of roles and permissions across your projects. With User Groups, you can efficiently organize users into groups, assign roles to these groups, and manage access to your projects at the group level. Here's how it works:
+!!! plans "Available on: <span class="plans-box">Scaleup</span>"
+
+Instead of managing users (changing their roles and adding them to individual projects) one by one, you can use User Groups. This feature simplifies user management, enhances access control, and streamlines the assignment of roles and permissions across your projects. With User Groups, you can efficiently organize users into groups, assign roles to these groups, and manage access to your projects at the group level. Here's how it works:
 
 ### Creating a User Group
 <ul>
- <li> Navigate to the User Groups section: Find the User Groups option in your application's dashboard or settings menu. </li>
- <li> Create a new group: Click on the "Create New Group" button. You'll be prompted to name the group and optionally describe its purpose or the types of users it will contain. </li>
- <li> Save the group: Once named and described, save the group to add it to your list of User Groups. </li>
+ <li> Navigate to the People page. </li>
+![People page](./go_to_people_page.png)
+ <li> If you organization has access to the Groups feature, you should see a "Create a group" button. When you click on it, a pop-up will show, asking for group name, description and it's members. </li>
+![Create a group](./create_a_group_btn.png)
+ <li> As the final step, you need to enter group name and it's description, as well as adding it's members.</li>
+![Add members](./new_group_popup.png)
 </ul>
 
 ### Adding Users to a User Group
