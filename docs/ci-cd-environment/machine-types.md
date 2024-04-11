@@ -79,11 +79,15 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine types can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
+Apple machine type `a1-standard-4`, amd64 based,can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
+
+Apple machine type `a2-standard-4`, apple silicon based, can be paired with the [MacOS Xcode15 image][macos-xcode15-apple-silicon].
+
 
 | Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
 | --------------- | :-----------------------: | :-----------------: | :---------------: |
 | a1-standard-4   |             4             |          8          |        50         |
+| a2-standard-4   |             4             |          8          |        50         |
 
 ## Self-hosted agent types
 
@@ -95,5 +99,6 @@ Semaphore also allows you to run jobs on your own infrastructure, using [self-ho
 [ubuntu2204]: ../ci-cd-environment/ubuntu-22.04-image.md
 [macos-xcode14]: ../ci-cd-environment/macos-xcode-14-image.md
 [macos-xcode15]: ../ci-cd-environment/macos-xcode-15-image.md
+[macos-xcode15-apple-silicon]: ../ci-cd-environment/macos-xcode-15-apple-silicon-image.md
 [docker-env]: ../ci-cd-environment/custom-ci-cd-environment-with-docker.md
 [self-hosted]: ../ci-cd-environment/self-hosted-agents-overview.md
