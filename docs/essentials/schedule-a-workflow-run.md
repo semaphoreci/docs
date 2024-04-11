@@ -13,7 +13,7 @@ Tasks are a evolution of Schedulers/cron feature, offering a wider range of uses
 They act as an entrypoint for workflows that were not initiated by git provider automation.
 The following are the key differences between Schedulers and Tasks:
 
-- Schedulers require the provition of a cron-based schedule. In contrast, Tasks have two modes: 
+- Schedulers require the provision of a cron-based schedule. In contrast, Tasks have two modes: 
 **scheduled** (which overlaps Schedulers) and **unscheduled** (periodic execution is disabled). 
 - Due to technical limitations, Schedulers required customers to run at least one workflow before their use. 
 Tasks use a new data flow to overcome that difficulty, so you can **run them on any branch** (as long as it exists in the repository).
