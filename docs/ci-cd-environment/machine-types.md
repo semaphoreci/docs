@@ -86,8 +86,8 @@ Apple machine type `a2-standard-4`, apple silicon based, can be paired with the 
 
 | Machine name    | Virtual CPUs <sup>1</sup> | Memory <sup>2</sup> | Disk <sup>3</sup> |
 | --------------- | :-----------------------: | :-----------------: | :---------------: |
-| a1-standard-4   |             4             |          8          |        50         |
-| a2-standard-4   |             4             |          8          |        50         |
+| a1-standard-4   |             4             |          8          |        150         |
+| a2-standard-4   |             4             |          8          |        150         |
 
 ## Self-hosted agent types
 
