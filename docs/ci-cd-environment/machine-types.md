@@ -79,7 +79,7 @@ Implementation details:
 
 ## Apple machine type
 
-Apple machine type `a1-standard-4`, amd64 based,can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
+Apple machine type `a1-standard-4`, amd64 based, can be paired with the [MacOS Xcode14 image][macos-xcode14] or [MacOS Xcode15 image][macos-xcode15].
 
 Apple machine type `a2-standard-4`, apple silicon based, can be paired with the [MacOS Xcode15 image][macos-xcode15-apple-silicon].
 
