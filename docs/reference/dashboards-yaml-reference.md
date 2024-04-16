@@ -5,7 +5,7 @@ Description: This is the guide for the Dashboard YAML grammar used to define das
 # Dashboards YAML Reference
 
 This document shows you how to use the Dashboard YAML grammar to
-define `dashboards` in Semaphore 2.0.
+define `dashboards` in Semaphore 2.0. The [dashboards](https://docs.semaphoreci.com/score/custom-dashboards/) will be visible on the Insights page.
 
 A Semaphore 2.0 `Dashboard` is an interface where you can define `widgets`, which 
 you can use to overview the operations that take place in a Semaphore 2.0
