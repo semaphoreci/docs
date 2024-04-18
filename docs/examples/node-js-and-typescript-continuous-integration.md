@@ -55,11 +55,11 @@ name: Semaphore JavaScript Example Pipeline
 # It is a combination of one of available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -182,7 +182,7 @@ blocks:
           - npm --version
           # Start a Postgres database. On Semaphore, databases run in the same
           # environment as your code.
-          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services
+          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#databases-and-services
           - sem-service start postgres
           # With unrestricted sudo access, you can install any additional
           # system package:

@@ -16,7 +16,7 @@ name: YAML file example for Go project.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Inspect Linux environment
    task:
@@ -101,7 +101,7 @@ name: YAML file example for Go project.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 ```
 
 The `blocks` block contains `task` blocks that embed the jobs of the

@@ -55,7 +55,7 @@ name: Run tests
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Install dependencies
     task:
@@ -95,7 +95,7 @@ name: Docker build
 agent:
   machine:
     type: e1-standard-4
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Build
     task:
@@ -130,7 +130,7 @@ name: Deploy to production
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy to production
     task:
@@ -172,7 +172,7 @@ and [operating systems or Docker images][cicd-env]:
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 ```
 
 Each pipeline is composed of blocks. Here we define two sequential blocks, one

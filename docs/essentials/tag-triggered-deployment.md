@@ -26,7 +26,7 @@ name: CI pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Run tests"
@@ -68,7 +68,7 @@ name: CI pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Run tests"
@@ -93,7 +93,7 @@ name: Deployment to production
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Deployment"

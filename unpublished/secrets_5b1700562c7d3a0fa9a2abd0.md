@@ -209,7 +209,7 @@ name: Basic YAML configuration file example.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - task:
       jobs:
@@ -244,7 +244,7 @@ name: Using secrets in Semaphore 2.0
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
 - task:
       jobs:

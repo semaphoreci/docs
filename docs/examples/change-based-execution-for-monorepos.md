@@ -63,11 +63,11 @@ name: Monorepo Demo
 # It is a combination of one of available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/article/20-machine-types
-# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the

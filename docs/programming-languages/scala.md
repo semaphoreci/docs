@@ -21,7 +21,7 @@ name: Using Scala in Semaphore
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Choose version
     task:
@@ -55,7 +55,7 @@ CI pipeline that you can use to get started quickly. You can find them here:
 
 ## Supported Scala versions
 
-The supported Scala versions via the [Ubuntu1804 image][ubuntu1804] are:
+The supported Scala versions via the [Ubuntu2004 image][ubuntu2004] are:
 
 - 2.11.11
 - 2.12.6
@@ -91,12 +91,12 @@ packages.
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [tutorial]: https://docs.semaphoreci.com/examples/scala-play-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-scala-play
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

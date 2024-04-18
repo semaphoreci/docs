@@ -17,7 +17,7 @@ name: Hello Semaphore
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Elixir example
     task:
@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Elixir. You have the following options:
 
-- Linux: Elixir is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-elixir].
+- Linux: Elixir is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-elixir].
 - Docker: use [semaphoreci/elixir](/ci-cd-environment/semaphore-registry-images/#elixir) or
   [your own Docker image][docker-env] with the version of Elixir and other
   packages that you need.
@@ -176,7 +176,7 @@ name: Elixir & Phoenix Example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Install dependencies
@@ -248,7 +248,7 @@ blocks:
             - mix test
 ```
 
-[ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
+[ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [tutorial]: https://docs.semaphoreci.com/examples/elixir-phoenix-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix

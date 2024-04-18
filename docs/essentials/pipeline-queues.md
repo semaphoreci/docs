@@ -37,7 +37,7 @@ name: Production deployment
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 queue:
   name: Deployment queue
@@ -65,7 +65,7 @@ name: Project A deployment
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 queue:
   name: Shared deployment queue
@@ -100,7 +100,7 @@ name: Tests
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 queue:
   processing: parallel
@@ -130,7 +130,7 @@ name: Example project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 queue:
   - when: "branch = 'master'"

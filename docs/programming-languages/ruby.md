@@ -17,7 +17,7 @@ name: Ruby example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Hello world
     task:
@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Ruby. You have the following options:
 
-- Linux: Ruby is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-ruby].
+- Linux: Ruby is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-ruby].
 - macOS: Ruby is available out-of-the-box in the [macOS VM image][macos-ruby].
 - Docker: use [semaphoreci/ruby](/ci-cd-environment/semaphore-registry-images/#ruby) or
   [your own Docker image][docker-env] with the version of Ruby and other
@@ -187,7 +187,7 @@ name: Example Ruby pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Install dependencies
@@ -336,7 +336,7 @@ blocks:
 solution for browser tests in Ruby. The Firefox, Chrome, and Chrome Headless
 drivers work out-of-the-box.
 
-Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 for details on preinstalled browsers and testing tools in Semaphore.
 
 ## Running RSpec and Cucumber in parallel
@@ -369,11 +369,11 @@ jobs:
 
 [rails-tutorial]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
 [rails-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-ruby-rails
-[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
+[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#browsers-and-headless-browser-testing
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
 [rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
 [rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
-[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#ruby
+[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#ruby
 [macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [rspec-junit-formatter]: https://github.com/sj26/rspec_junit_formatter

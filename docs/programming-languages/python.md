@@ -17,7 +17,7 @@ name: Python example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Hello world
     task:
@@ -38,7 +38,7 @@ CI/CD pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Python. You have the following options:
 
-- Linux: Python is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-python].
+- Linux: Python is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-python].
 - macOS: Python is available out-of-the-box in the [macOS VM image][macos-python].
 - Docker: use [semaphoreci/python](/ci-cd-environment/semaphore-registry-images/#python) or
   [your own Docker image][docker-env] with the version of Python and other
@@ -101,7 +101,7 @@ name: Python Example
 agent:
  machine:
    type: e1-standard-2
-   os_image: ubuntu1804
+   os_image: ubuntu2004
 
 blocks:
  - name: Install dependencies
@@ -180,7 +180,7 @@ blocks:
 ```
 
 [django-tutorial]: https://docs.semaphoreci.com/examples/django-continuous-integration/
-[ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python
+[ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#python
 [macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#python
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

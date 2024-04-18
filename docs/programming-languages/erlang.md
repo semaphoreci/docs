@@ -47,7 +47,7 @@ name: Using Erlang
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Change Erlang version
@@ -98,10 +98,10 @@ helloWorld() -> io:fwrite("hello, world\n").
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
-[erlang-versions]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#erlang-and-elixir
+[erlang-versions]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir

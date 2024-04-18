@@ -137,7 +137,7 @@ An example `Dockerfile` that meets the minimal requirements can be constructed
 with the following Dockerfile, as shown below:
 
 ``` Dockerfile
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN apt-get -y update && apt-get install -y git lftp openssh-client coreutils curl
 RUN curl -sSL https://get.docker.com/ | sh
