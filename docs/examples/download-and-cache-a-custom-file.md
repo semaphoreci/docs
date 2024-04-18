@@ -17,7 +17,7 @@ name: Cache custom file
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Use cache or create

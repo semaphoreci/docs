@@ -24,7 +24,7 @@ name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Promotions
@@ -47,7 +47,7 @@ name: Deploy to production
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy
     task:
@@ -81,7 +81,7 @@ name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Promotions
@@ -108,7 +108,7 @@ name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy
     task:
@@ -130,7 +130,7 @@ name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Promotions
@@ -174,7 +174,7 @@ name: Promotions and Auto-promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Promotions

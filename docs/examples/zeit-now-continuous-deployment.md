@@ -61,11 +61,11 @@ name: Build and test
 # It is a combination of one of the available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -126,7 +126,7 @@ name: Deploy to production
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy to production
     task:

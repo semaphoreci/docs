@@ -246,7 +246,7 @@ Example value: `e1-standard-4`
 The value of the `SEMAPHORE_AGENT_MACHINE_OS_IMAGE` environment variable represents
 the operating system image that is being used.
 
-Example value: `ubuntu1804`
+Example value: `ubuntu2004`
 
 #### SEMAPHORE\_AGENT\_MACHINE\_ENVIRONMENT\_TYPE
 

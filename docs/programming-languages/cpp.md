@@ -17,7 +17,7 @@ name: Hello Semaphore
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: C++ example
     task:
@@ -59,7 +59,7 @@ name: Using C++ in Semaphore 2.0
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Change g++ version
@@ -99,7 +99,7 @@ name: Using C++ in Semaphore 2.0
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Compile and run C++ code
@@ -130,7 +130,7 @@ int main()
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)

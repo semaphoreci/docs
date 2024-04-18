@@ -15,10 +15,10 @@ operating system images in pipelines see pipeline [agent documentation][1].
 <tbody>
 <tr>
   <td>
-    <a href="https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/">ubuntu1804</a>
+    <a href="https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/">ubuntu2004</a>
   </td>
   <td>
-    Ubuntu 18.04 LTS (Bionic Beaver)
+    Ubuntu 20.04 LTS (Bionic Beaver)
   </td>
 </tr>
 </tbody>

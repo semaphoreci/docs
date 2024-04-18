@@ -14,7 +14,7 @@ to invoke Docker Compose and Docker CLI.*
 
 Semaphore supports Docker and Docker Compose out of the box, no
 additional configuration required. The
-[Ubuntu 18.04][ubuntu-vm] image includes everything you need to get started
+[Ubuntu 20.04][ubuntu-vm] image includes everything you need to get started
 right away.
 
 It's useful to keep in mind that:
@@ -59,7 +59,7 @@ agent:
     # Use a machine type with more RAM and CPU power for faster container
     # builds:
     type: e1-standard-4
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Build
     task:
@@ -189,7 +189,7 @@ name: Install docker-compose
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Install desired version of docker-compose
@@ -224,4 +224,4 @@ One thing that you have to be careful about here is having a valid value for the
     images](https://docs.semaphoreci.com/ci-cd-environment/working-with-docker/)
 
 [docker-agents]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
-[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/

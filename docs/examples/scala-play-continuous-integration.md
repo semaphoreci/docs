@@ -43,11 +43,11 @@ name: Semaphore example for Scala Play
 # It is a combination of one of available machine types and operating
 # system images. See:
 # - https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# - https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# - https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks define the structure of a pipeline and are executed sequentially.
 # Each block has a task that defines one or many parallel jobs. Jobs define

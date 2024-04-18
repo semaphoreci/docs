@@ -56,7 +56,7 @@ virtual machine that runs your jobs.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 ```
 
 *Note*: `agent` can also be defined on a [per `task` basis](#the-agent-section-in-a-task).
@@ -71,7 +71,7 @@ properties: `type` and `os_image`.
 ``` yaml
 machine:
   type: e1-standard-2
-  os_image: ubuntu1804
+  os_image: ubuntu2004
 ```
 
 ### `type`
@@ -96,20 +96,20 @@ the machine type is used.
 
 These are valid values for `os_image`:
 
-- `ubuntu1804` ([reference][ubuntu1804])
 - `ubuntu2004` ([reference][ubuntu2004])
+- `ubuntu2204` ([reference][ubuntu2204])
 - `macos-xcode15` ([reference][macos-xcode15])
 - `macos-xcode14` ([reference][macos-xcode14])
 
 The default operating system depends on the type of the machine:
 
-- For the `e1-standard-*` machine types, the default image is `ubuntu1804`
+- For the `e1-standard-*` machine types, the default image is `ubuntu2004`
 - For the `a1-standard-*` machine types, the default image is `macos-xcode14`
 
 ### Example of `os_image` usage
 
 ``` yaml
-os_image: ubuntu1804
+os_image: ubuntu2004
 ```
 
 ### `containers`
@@ -169,7 +169,7 @@ name: The name of the Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Inspect Linux environment
    task:
@@ -217,7 +217,7 @@ name: Using execution_time_limit
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 execution_time_limit:
   hours: 3
 
@@ -250,7 +250,7 @@ name: Using execution_time_limit
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Creating Docker Image
@@ -285,7 +285,7 @@ name: Using execution_time_limit on a job
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Tests
@@ -317,7 +317,7 @@ name: Using execution_time_limit
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 execution_time_limit:
   hours: 5
 
@@ -389,7 +389,7 @@ name: Setting fail fast stop policy
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 fail_fast:
   stop:
@@ -437,7 +437,7 @@ name: Setting fail fast cancel policy
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 fail_fast:
   cancel:
@@ -599,7 +599,7 @@ name: Setting auto-cancel running strategy
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 auto_cancel:
   running:
@@ -625,7 +625,7 @@ name: Setting auto-cancel queued strategy
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 auto_cancel:
   queued:
@@ -681,7 +681,7 @@ name: An example of using global_job_config
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 global_job_config:
   prologue:
     commands:
@@ -745,7 +745,7 @@ name: Pipeline with dependencies
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Block A"
@@ -784,7 +784,7 @@ name: Invalid pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Block A"
@@ -846,7 +846,7 @@ name: The name of the Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Inspect Linux environment
    skip:
@@ -883,7 +883,7 @@ name: The name of the Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Inspect Linux environment
    run:
@@ -952,7 +952,7 @@ name: A Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
    task:
       jobs:
@@ -980,7 +980,7 @@ name: The name of the Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
    task:
       jobs:
@@ -1011,7 +1011,7 @@ name: YAML file example with task and agent.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Run in Linux environment
    task:
@@ -1063,7 +1063,7 @@ name: The name of the Semaphore 2.0 project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
    task:
       jobs:
@@ -1094,7 +1094,7 @@ name: Using commands_file
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Calling text file
    task:
@@ -1141,7 +1141,7 @@ name: Using env_vars per jobs
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Using Local Environment variables only
@@ -1207,7 +1207,7 @@ name: Job priorities
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Tests
@@ -1253,7 +1253,7 @@ name: Using the matrix property
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Elixir + Erlang
@@ -1309,7 +1309,7 @@ name: Using the parallelism property
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Example for parallelism
@@ -1351,7 +1351,7 @@ name: YAML file illustrating the prologue property
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Display a file
    task:
@@ -1398,7 +1398,7 @@ name: YAML file illustrating the epilogue property
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Linux version
    task:
@@ -1427,7 +1427,7 @@ name: YAML file illustrating the epilogue property
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
  - name: Linux version
    task:
@@ -1504,7 +1504,7 @@ name: Pipeline configuration with secrets
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - task:
       jobs:
@@ -1527,7 +1527,7 @@ name: Using files in secrets in Semaphore 2.0
 agent:
    machine:
      type: e1-standard-2
-     os_image: ubuntu1804
+     os_image: ubuntu2004
 
 blocks:
 - task:
@@ -1635,7 +1635,7 @@ name: Using promotions
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: ls
@@ -1665,7 +1665,7 @@ name: This is Pipeline 1
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Environment variable
@@ -1684,7 +1684,7 @@ name: This is Pipeline 2
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: List VM Linux version
@@ -1755,7 +1755,7 @@ name: Testing Auto Promoting
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Staging
@@ -1815,7 +1815,7 @@ name: Pipeline 1
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Environment variable
@@ -1834,7 +1834,7 @@ name: Pipeline 2
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Update docs
@@ -1853,7 +1853,7 @@ name: This is Pipeline 3
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: List VM Linux version
@@ -1953,7 +1953,7 @@ name: Testing Auto Promoting
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Staging
@@ -2009,7 +2009,7 @@ name: Pipeline 1
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Environment variable
@@ -2028,7 +2028,7 @@ name: This is Pipeline 2
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: List VM Linux version
@@ -2055,7 +2055,7 @@ name: YAML file example for Go project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
  - name: Inspect Linux environment
@@ -2106,7 +2106,7 @@ name: Pipeline configuration with secrets
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - task:
       jobs:
@@ -2143,7 +2143,7 @@ name: Basic YAML configuration file example.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - task:
       jobs:
@@ -2179,8 +2179,8 @@ YAML parser, which is not a Semaphore 2.0 feature, rather the way YAML files fun
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Machine Types](https://docs.semaphoreci.com/ci-cd-environment/machine-types/)
 
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
+[ubuntu2204]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/
 [macos-xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
 [macos-xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/

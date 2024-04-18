@@ -17,7 +17,7 @@ name: JavaScript example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Hello world
     task:
@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Node.js. You have the following options:
 
-- Linux: Node.js is available out-of-the-box in the [Ubuntu 18.04 VM image][ubuntu-javascript].
+- Linux: Node.js is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-javascript].
 - macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
 - Docker: use [semaphoreci/node](/ci-cd-environment/semaphore-registry-images/#node) or
   [your own Docker image][docker-env] with the version of Node.js and related
@@ -106,7 +106,7 @@ name: First pipeline example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Install dependencies
@@ -166,13 +166,13 @@ Install the
 [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
 library and it should work out of the box. The same goes for higher-level
 libraries that leverage Selenium. See the official [Node examples](https://github.com/SeleniumHQ/selenium/tree/master/javascript/node/selenium-webdriver/example) documentation for more information.  
-Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+Refer to the [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 for details on pre-installed browsers and testing tools on Semaphore.
 
-[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing
+[browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#browsers-and-headless-browser-testing
 [tutorial]: https://docs.semaphoreci.com/examples/node-js-and-typescript-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
-[ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#javascript-via-node-js
+[ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#javascript-via-node-js
 [macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 

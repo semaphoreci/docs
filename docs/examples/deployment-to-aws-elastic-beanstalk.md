@@ -23,7 +23,7 @@ name: Test pipeline
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Run tests"
@@ -51,7 +51,7 @@ name: EB-Deploy
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Deploy to ElasticBeanstalk"

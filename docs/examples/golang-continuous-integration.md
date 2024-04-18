@@ -10,7 +10,7 @@ This guide shows you how to use Semaphore to set up a continuous integration
 ## Demo project
 
 Semaphore 2.0 has support for building Go projects, using the supported Go
-versions that are listed in the [Ubuntu 18.04 image documentation][ubuntu1804].
+versions that are listed in the [Ubuntu 20.04 image documentation][ubuntu2004].
 You can select the desired Go version using the
 [`sem-version`][sem-version] utility.
 
@@ -53,7 +53,7 @@ name: Go project example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Build project
@@ -112,14 +112,14 @@ name: Go project example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 ```
 
 In this preamble, we define the version of the YAML grammar, the name of
 the pipeline, and the agent that is going to be used to run our code.
 
 In this case, the agent runs
-[Linux (`ubuntu1804`)][ubuntu1804] on an
+[Linux (`ubuntu2004`)][ubuntu2004] on an
 [`e1-standard-2` machine type][machine-types].
 
 Now, it is time to explain what each `block` of the `.semaphore/semaphore.yml`
@@ -245,7 +245,7 @@ name: Go project example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Build project
@@ -265,10 +265,10 @@ blocks:
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 - [Sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
-- [Ubuntu 18.04 image](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [Ubuntu 20.04 image](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [checkout]: https://docs.semaphoreci.com/reference/toolbox-reference/#checkout

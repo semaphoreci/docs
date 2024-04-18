@@ -57,11 +57,11 @@ name: CI
 # It is a combination of one of available machine types and operating
 # system images. See:
 # https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -137,7 +137,7 @@ agent:
     # Use a machine type with more RAM and CPU power for faster container
     # builds:
     type: e1-standard-4
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Build
     task:
@@ -201,7 +201,7 @@ name: Deploy to Kubernetes
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy to Kubernetes
     task:
