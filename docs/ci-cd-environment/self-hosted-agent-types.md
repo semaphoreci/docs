@@ -26,7 +26,7 @@ To use a self-hosted agent type in your pipelines, the machine type in the agent
 ```diff
 agent:
   machine:
--   os_image: ubuntu1804
+-   os_image: ubuntu2004
 -   type: e1-standard-2
 +   type: s1-linux-small
 ```

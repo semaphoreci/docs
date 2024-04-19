@@ -145,7 +145,7 @@ name: Testing Auto Promoting
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Staging
@@ -217,7 +217,7 @@ name: 1st promotion
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Publish image
@@ -250,7 +250,7 @@ name: 2nd promotion
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Test Docker image
@@ -292,7 +292,7 @@ name: Reuse Docker Images in S2
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Staging
@@ -381,7 +381,7 @@ name: 1st promotion
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 promotions:
 - name: Publish image
@@ -456,7 +456,7 @@ name: 2nd promotion
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Test Docker images

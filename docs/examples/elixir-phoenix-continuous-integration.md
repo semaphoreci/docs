@@ -55,11 +55,11 @@ name: Elixir Phoenix example CI pipeline on Semaphore
 # It is a combination of one of available machine types and operating
 # system images. See:
 # https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks make up the structure of a pipeline and are executed sequentially.
 # Each block has a task that defines one or many parallel jobs. Jobs define
@@ -150,7 +150,7 @@ blocks:
 
 PostgreSQL and MySQL instances run inside each job and can be accessed with
 a blank password. For more information on starting and using databases, see
-the [Ubuntu image][ubuntu1804] and [sem-service][sem-service] reference 
+the [Ubuntu image][ubuntu2004] and [sem-service][sem-service] reference 
 documentation.
 
 ### Browser testing
@@ -162,7 +162,7 @@ config :wallaby,
   driver: Wallaby.Experimental.Chrome
 ```
 
-Semaphore provides [Chrome preinstalled][ubuntu1804], so no further action is
+Semaphore provides [Chrome preinstalled][ubuntu2004], so no further action is
 needed on your part.
 
 ## Run the demo Elixir project yourself
@@ -188,7 +188,7 @@ deployment. For more information and practical examples, see:
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix
 [concepts]: https://docs.semaphoreci.com/essentials/concepts/
 [guided-tour]: https://docs.semaphoreci.com/guided-tour/getting-started/
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
 [promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [deployment-tutorials]: https://docs.semaphoreci.com/examples/tutorials-and-example-projects/#deployment

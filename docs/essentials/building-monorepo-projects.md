@@ -43,7 +43,7 @@ name: Monorepo project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   # Run this block on changes in the web-app folder at the root of the repository

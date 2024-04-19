@@ -296,5 +296,5 @@ install-package [--update|--skip-update|--update-new] pkg1[=version] [pkg2[=vers
 
 ## See also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)

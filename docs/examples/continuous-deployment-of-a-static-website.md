@@ -46,7 +46,7 @@ name: "Deploy website"
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Install dependencies"
@@ -113,7 +113,7 @@ name: Deploy website
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy
     task:

@@ -26,7 +26,7 @@ spec:
   agent:
     machine:
       type: e1-standard-2
-      os_image: ubuntu1804
+      os_image: ubuntu2004
   files: []
   envvars:
   - name: SEMAPHORE_GIT_SHA
@@ -161,7 +161,7 @@ documentation.
 The `os_image` property specifies the operating system and the version of the
 operating system that will be used on a Virtual Machine.
 
-Here is a list of values for the `os_image` property: `ubuntu1804`.
+Here is a list of values for the `os_image` property: `ubuntu2004`.
 
 #### files
 

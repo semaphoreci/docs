@@ -63,11 +63,11 @@ name: Semaphore Python / Django Example Pipeline
 # It is a combination of one of available machine types and operating
 # system images.
 # See https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+# and https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 # Blocks are the heart of a pipeline and are executed sequentially.
 # Each block has a task that defines one or more jobs. Jobs define the
@@ -137,7 +137,7 @@ blocks:
           - sem-version python 3.7
           # Start a MySQL database. On Semaphore, databases run in the same
           # environment as your code.
-          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services
+          # See https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#databases-and-services
           # Also https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service
           - sem-service start mysql
           - checkout
@@ -204,7 +204,7 @@ blocks:
 ### Python
 
 Semaphore provides [python 2 &
-3](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#python)
+3](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#python)
 stable versions, as well as pip, pypy, and virtualvenv.
 
 ### Database access
@@ -212,14 +212,14 @@ stable versions, as well as pip, pypy, and virtualvenv.
 In Semaphore, databases run in the same environment as jobs, and can
 be accessed with a blank password. For more information on using
 databases see [databases and
-services](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#databases-and-services)
+services](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#databases-and-services)
 and
 [sem-service](https://docs.semaphoreci.com/reference/toolbox-reference/#sem-service).
 
 ### Browser testing
 
 Semaphore provides [Chrome
-preinstalled](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#browsers-and-headless-browser-testing),
+preinstalled](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#browsers-and-headless-browser-testing),
 so no installation steps are required for doing browser tests.
 
 Run the demo yourself

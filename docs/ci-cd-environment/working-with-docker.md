@@ -22,7 +22,7 @@ name: Hello Docker
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: "Build"
@@ -72,7 +72,7 @@ name: Using a public Docker image
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Pull Nginx image
@@ -118,7 +118,7 @@ name: Using a private Docker image
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Using private Docker image
@@ -199,7 +199,7 @@ name: Building Docker images
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Build Go executable
@@ -229,7 +229,7 @@ name: Pushing a Docker image
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Push Docker image to registry
@@ -345,7 +345,7 @@ name: Update Docker
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Update docker-ce
@@ -373,7 +373,7 @@ blocks:
 [ecr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-aws-elastic-container-registry-ecr/
 [gcr-tutorial]: https://docs.semaphoreci.com/examples/pushing-docker-images-to-google-container-registry-gcr/
 [using-secrets]: https://docs.semaphoreci.com/essentials/using-secrets/
-[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#docker
+[ubuntu-vm]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#docker
 [sem-reference]: https://docs.semaphoreci.com/reference/sem-command-line-tool/
 [using-promotions]: https://docs.semaphoreci.com/essentials/deploying-with-promotions/
 [pipeline-reference]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/

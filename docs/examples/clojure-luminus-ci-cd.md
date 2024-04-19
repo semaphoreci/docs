@@ -44,7 +44,7 @@ name: Clojure+Semaphore example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: "Setup"
     task:
@@ -97,7 +97,7 @@ promotions:
 ```
 
 Semaphore's
-[Ubuntu 18.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/)
+[Ubuntu 20.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
 Virtual Machine comes with [leiningen](https://leiningen.org/)
 pre-installed. `lein` automates Clojure projects and manages
 dependencies.
@@ -137,7 +137,7 @@ name: Deploy to production
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Deploy
     task:

@@ -37,7 +37,7 @@ of agent definition in your pipeline YAML file.
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 ```
 
 **Mac-based virtual machines**
@@ -50,7 +50,7 @@ agent:
 ```
 
 We also have helpful documentation about [Machine Types][machine-types] and the
-[Ubuntu 18.04][ubuntu1804], [Mac OS XCode 14][xcode14], and [Mac OS XCode 15][xcode15] virtual machines images.
+[Ubuntu 20.04][ubuntu2004], [Mac OS XCode 14][xcode14], and [Mac OS XCode 15][xcode15] virtual machines images.
 Have a look!
 
 ## Docker-based environments
@@ -173,7 +173,7 @@ present.
 We recommend using Virtual Machines for building Docker images.
 
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
 [xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
 [docker-based]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

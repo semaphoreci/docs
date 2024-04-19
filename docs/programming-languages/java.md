@@ -17,7 +17,7 @@ name: Java example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
   - name: Hello world
     task:
@@ -41,7 +41,7 @@ CI/CD pipeline that you can use to get started quickly:
 Semaphore supports all versions of Java. You have the following options:
 
 - Linux: Java and related tools are available out-of-the-box in the
-  [Ubuntu 18.04 VM image][ubuntu-java].
+  [Ubuntu 20.04 VM image][ubuntu-java].
 - Docker: Use [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
 
@@ -50,7 +50,7 @@ additional tools.
 
 #### Selecting a Java version on Linux
 
-The [Linux VM][ubuntu1804] provides multiple versions of Java.
+The [Linux VM][ubuntu2004] provides multiple versions of Java.
 You can switch between them using the [`sem-version` tool][sem-version].
 
 For example, by entering the following into your `semaphore.yml` file:
@@ -77,7 +77,7 @@ name: Java & Maven Example
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Setup
@@ -115,8 +115,8 @@ blocks:
 
 [tutorial]: https://docs.semaphoreci.com/examples/java-spring-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[ubuntu-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/#java-and-jvm-languages
-[ubuntu1804]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-18.04-image/
+[ubuntu-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#java-and-jvm-languages
+[ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#java
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

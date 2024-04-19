@@ -79,7 +79,7 @@ name: My blue project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: Test
@@ -104,7 +104,7 @@ name: My blue project
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 global_job_config:
   # Connect secret to all jobs in the pipeline

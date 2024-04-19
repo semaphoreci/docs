@@ -30,7 +30,7 @@ name: Testing sem-version
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 
 blocks:
   - name: sem-version
