@@ -91,7 +91,7 @@ blocks:
       jobs:
         - name: Comment Git commits
           commands:
-            - 'curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | INFRACOST_VERSION=v0.10 sh'
+            - 'curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh'
             - checkout
             - infracost diff --path . --format json --compare-to baseline.json --out-file /tmp/infracost-diff-commit.json
             - infracost comment github --path=/tmp/infracost-diff-commit.json --repo=$SEMAPHORE_GIT_REPO_SLUG --commit=$SEMAPHORE_GIT_SHA --github-token=$GITHUB_API_KEY --behavior=update
