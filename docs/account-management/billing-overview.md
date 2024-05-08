@@ -34,7 +34,7 @@ Each cloud machine type has its own **price per minute**, listed in the table be
 | E2 (Linux) |        $0.01        |        $0.02        |          /          |
 | F1 (Linux) |       $0.015        |        $0.03        |          /          |
 | A1 (MacOS ARM64) |          /          |        $0.03        |          /          |
-| A2 (MacOS Silicone) |          /          |        $0.09        |          /          |
+| A2 (MacOS Silicon) |          /          |        $0.09        |          /          |
 
 #### Self-hosted agents spending
 
