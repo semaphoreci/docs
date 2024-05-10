@@ -21,7 +21,7 @@ If you intend to run your agents on AWS, the [agent-aws-stack][agent-aws-stack] 
 
 The [agent-aws-stack][agent-aws-stack] is an [AWS CDK][aws cdk] application written in JavaScript, which depends on a few things to work:
 
-- Node v16+ and NPM, for building and deploying the CDK application and managing its dependencies
+- Node v18+ and NPM, for building and deploying the CDK application and managing its dependencies
 - Make, Python 3.9+, and Packer for AMI creation and provisioning
 - Properly-configured [AWS credentials][aws credentials]
 
@@ -32,9 +32,9 @@ In order to follow the steps below, please make sure that your AWS user has the 
 ### 1. Download the CDK application and installing dependencies
 
 ```
-curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.2.tar.gz -o agent-aws-stack.tar.gz
+curl -sL https://github.com/renderedtext/agent-aws-stack/archive/refs/tags/v0.3.4.tar.gz -o agent-aws-stack.tar.gz
 tar -xf agent-aws-stack.tar.gz
-cd agent-aws-stack-0.3.2
+cd agent-aws-stack-0.3.4
 npm i
 ```
 
@@ -170,6 +170,7 @@ Create a `config.json` file with the following:
   "SEMAPHORE_AGENT_OS": "macos",
   "SEMAPHORE_AGENT_DISCONNECT_AFTER_IDLE_TIMEOUT": "86400",
   "SEMAPHORE_AGENT_MAC_FAMILY": "mac1",
+  "SEMAPHORE_AGENT_INSTANCE_TYPE": "mac1.metal",
   "SEMAPHORE_AGENT_AZS": "us-east-1a,us-east-1b,us-east-1d",
   "SEMAPHORE_AGENT_LICENSE_CONFIGURATION_ARN": "arn:aws:license-manager:<region>:<accountId>:license-configuration:<your-license-configuration>"
 }

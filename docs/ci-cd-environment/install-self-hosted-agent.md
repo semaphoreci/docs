@@ -28,7 +28,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```bash
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.16/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.21/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -63,7 +63,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```bash
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.16/agent_Linux_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.21/agent_Linux_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -110,7 +110,7 @@ cd /opt/semaphore/agent
 **2. Download the agent:**
 
 ```bash
-curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.16/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
+curl -L https://github.com/semaphoreci/agent/releases/download/v2.2.21/agent_Darwin_x86_64.tar.gz -o agent.tar.gz
 tar -xf agent.tar.gz
 ```
 
@@ -175,7 +175,7 @@ Set-Location C:\semaphore-agent
 **2. Download the agent:**
 
 ```
-Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.2.16/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
+Invoke-WebRequest "https://github.com/semaphoreci/agent/releases/download/v2.2.21/agent_Windows_x86_64.tar.gz" -OutFile agent.tar.gz
 tar.exe xvf agent.tar.gz
 ```
 
@@ -185,6 +185,37 @@ tar.exe xvf agent.tar.gz
 $env:SemaphoreEndpoint = "<your-organization>.semaphoreci.com"
 $env:SemaphoreRegistrationToken = "<your-agent-type-registration-token>"
 .\install.ps1
+```
+
+## Installing the agent on FIPS enabled RHEL
+
+The [Semaphore agent][agent repo] is written in Go, which does not provide FIPS friendly cryptography libraries. Due to that, the agent must be compiled from source using the [go-toolset][RHEL go-toolset] to be run on a FIPS enabled RHEL host.
+
+**1. Verify the host has FIPS mode enabled:**
+
+```bash
+sudo fips-mode-setup --check
+```
+
+**2. Install the [go-toolset][RHEL go-toolset]:**
+
+```bash
+sudo yum install go-toolset
+```
+
+**3. Download agent source and compile it from source:**
+
+```bash
+curl -L https://github.com/semaphoreci/agent/archive/refs/tags/v2.2.21.tar.gz -o agent.tar.gz
+tar -xf agent.tar.gz
+cd agent
+go build -ldflags='-s -w -X "main.VERSION=v2.2.21"' -o build/agent main.go
+```
+
+**4. Verify binary is FIPS compatible:**
+
+```bash
+go tool nm ./build/agent | grep FIPS
 ```
 
 ## Configure GitHub SSH keys
@@ -225,3 +256,4 @@ sudo chown $USER: /home/$USER/.ssh
 [agent repo]: https://github.com/semaphoreci/agent
 [checkout]: /reference/toolbox-reference/#checkout
 [GH meta API]: https://docs.github.com/en/rest/meta/meta#get-github-meta-information
+[RHEL go-toolset]: https://developers.redhat.com/blog/2019/06/24/go-and-fips-140-2-on-red-hat-enterprise-linux#using_go_toolset
