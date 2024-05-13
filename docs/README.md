@@ -5,12 +5,14 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 ## Installation
 
 ```shell
+cd docs
 npm install
 ```
 
 ## Local Development
 
 ```shell
+cd docs
 npm start
 ```
 
@@ -67,6 +69,7 @@ To add a new sidebar (because you added a category):
 ## Build
 
 ```shell
+cd docs
 npm run build
 npn run serve
 ```
@@ -78,12 +81,14 @@ This command generates static content into the `build` directory and can be serv
 Using SSH:
 
 ```shell
+cd docs
 USE_SSH=true npm run deploy
 ```
 
 Not using SSH:
 
 ```shell
+cd docs
 GIT_USER=<Your GitHub username> npm run deploy
 ```
 
