@@ -1,0 +1,12 @@
+{
+    "default": true,
+    "line-length": false,
+    "single-trailing-newline": false,
+    "no-trailing-punctuation": false,
+    "no-duplicate-heading": false,
+    "no-trailing-spaces": false,
+    "blanks-around-fences": false,
+    "blanks-around-lists": false,
+    "no-multiple-blanks": false,
+    "single-title": { "front_matter_title": "$disable" }
+}
