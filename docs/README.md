@@ -64,6 +64,15 @@ To add a new sidebar (because you added a category):
     ],
     ```
 
+## Lint
+
+We use [markdownlint](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown files for style errors.
+
+Run the linter before commiting:
+```shell
+npm run lint
+```
+
 ## Build
 
 ```shell
