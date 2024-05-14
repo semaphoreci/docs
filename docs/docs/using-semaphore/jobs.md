@@ -11,9 +11,9 @@ Jobs are the building blocks of Continuous Integration. Everything that happens,
 
 ## Overview
 
-Jobs runs in their own dedicated VM. When a job is scheduled, Semaphore will:
+Jobs run in their own dedicated VM. When a job is scheduled, Semaphore will:
 1. **Create VM**: every job gets its own separate VM
-2. **Mount OS**: the selected Operating Sytem image is mounted
+2. **Mount OS**: the selected Operating System image is mounted
 3. **Initialize Environment**: import environment variables, load SSH keys, mount secrets, and install the CLI toolbox
 4. **Attach Cache**: attach the project's shared cache (only on Semaphore Cloud)
 5. **Run commands**: execute the your commands
@@ -26,14 +26,14 @@ This lifecycle ensures every job starts in a uniform and well-defined environmen
 
 ### Blocks and dependencies
 
-Jobs are grouped into blocks. Every job in Semaphore belongs in a block, even if the block only has a single job. Even when jobs are in the same block, each still runs in their own separate VM and do not share any state. 
+Jobs are grouped into blocks. Every job in Semaphore belongs in a block, even if the block only has a single job. Even when jobs are in the same block, each still runs in its own separate VM and does not share any state. 
 
 Jobs in the same block run in parallel. In the following diagram Jobs 1, 2, and 3 of Block A run at the same time. The same happens with Jobs 1 and 2 of Block B.
 
 ![Block and jobs](./img/one-block.jpg)
 
 Blocks can have dependencies, which force blocks to run sequentially. Below is a more complex example:
-- Block B and C depends on Block A. That means that Block B and C's won't start until all Block A is done. 
+- Block B and C depend on Block A. That means that Block B and C won't start until all Block A is done. 
 - Block D only starts when Block B AND Block C have finished.
 
 ![Pipeline execution order](./img/pipeline-execution-order.jpg)
@@ -48,7 +48,7 @@ Blocks can have dependencies, which force blocks to run sequentially. Below is a
 
 A pipeline is a group of blocks, usually connected via dependencies. Pipelines are used to fulfill specific goals like build, test, or deploy. But there is no rule; you can organize your pipelines in any shape you like.
 
-Every pipeline is stored as a separated file inside the `.semaphore` folder in your repository. Semaphore uses YAML to enconde all the elements in the pipeline including blocks, jobs, and commands. Here is an example pipeline with its repective YAML.
+Every pipeline is stored as a separate file inside the `.semaphore` folder in your repository. Semaphore uses YAML to encode all the elements in the pipeline including blocks, jobs, and commands. Here is an example pipeline with its respective YAML.
 
 CODE
 
@@ -63,7 +63,7 @@ You can create a job using YAML or by editing your pipeline in the visual workfl
 <Tabs groupId="jobs">
   <TabItem value="yaml" label="YAML">
     1. Create a pipeline file called `.semaphore/semaphore.yml` at the repository's root
-    2. Add `name` item under `blocks`. This is the block's name
+    2. Add the `name` item under `blocks`. This is the block's name
     3. Add `name` item `task.jobs`. This is the job's name
     4. Add the list of shell commands under `commands`
 
@@ -110,7 +110,7 @@ Semaphore will pick up the change and automatically start your job. You can view
 
 ## Cloning your repository with checkout
 
-One of the first tasks for most jobs will be to clone the repository. Semaphore installs a several command line utitities during VM initialization. To check out the code from your GitHub or Bitbucket repository we use checkout.
+One of the first tasks for most jobs will be to clone the repository. Semaphore installs several command line utilities during VM initialization. To check out the code from your GitHub or Bitbucket repository we use checkout.
 
 ```shell
 checkout
@@ -125,7 +125,7 @@ make build
 
 <details>
   <summary>Why do I need to clone the repository every time?</summary>
-  <div>Remember that each job gets a brand new VM, so besides from a few pre-installed utilities, there is nothing in the local disk. You have to clone the repository inside the job VM to do any work on it.</div>
+  <div>Remember that each job gets a brand new VM, so besides a few pre-installed utilities, there is nothing in the local disk. You have to clone the repository inside the job VM to do any work on it.</div>
 </details>
 
 
@@ -134,8 +134,8 @@ make build
 Semaphore will create a new VM for every job. The only way to share files between jobs is by **using non-ephemeral storage**.
 
 Semaphore Cloud provides two ways to save data between jobs:
-- **cache**: attached during VM intialization. The cache is a fixed-size temporary storage and is typically used to store dependencies (like `node_modules` or `vendor`).
-- **artifacts**: you can push and pull files and folders from the artifact store. Artifacts are kept until deleted but may be billed per-usage depending on the plan.
+- **cache**: attached during VM initialization. The cache is a fixed-size temporary storage and is typically used to store dependencies (like `node_modules` or `vendor`).
+- **artifacts**: you can push and pull files and folders from the artifact store. Artifacts are kept until deleted but may be billed per usage depending on the plan.
 
 
 ## Success and failure conditions
@@ -165,7 +165,7 @@ If you want to run jobs one after the other, i.e. not in parallel, you must defi
   <TabItem value="yaml" label="YAML">
 
   1. Add a new job entry under `blocks`
-  2. Add a `dependencies`. List the names of the dependecy blocks.
+  2. Add a `dependencies`. List the names of the dependent blocks.
       
   ```yaml title=".semaphore/semaphore.yml"
   version: v1.0
@@ -225,7 +225,7 @@ Blocks are groups of jobs. All jobs in the same block *run in parallel* in no sp
 
   1. Add a new `name` item under `jobs`
   2. Add your shell commands (one per line) under `commands`
-  3. Save file, commit and push it to your repository
+  3. Save the file, commit and push it to your repository
 
   ```yaml title=".semaphore/semaphore.yaml"
   version: v1.0
@@ -327,7 +327,7 @@ If the block only contains the job you want to delete you must [delete the block
 
 ## How to delete a block {#block-delete}
 
-Deleting a block also **deletes all it's jobs**. You can also [delete single jobs](#delete-job).
+Deleting a block also **deletes all its jobs**. You can also [delete single jobs](#delete-job).
 
 <Tabs groupId="jobs">
   <TabItem value="yaml" label="YAML">
@@ -564,7 +564,7 @@ Use secrets to store sensitive data like API keys, passwords, or SSH key files w
   2. Add a `secrets` key under `tasks`
   3. List the names of the secrets to import
 
-  ```yaml title=".semaphore/sempahore.yaml"
+  ```yaml title=".semaphore/semaphore.yaml"
   version: v1.0
   name: Initial pipeline
   agent:
@@ -722,4 +722,3 @@ The agent is the VM type and operating system that runs the jobs. Every pipeline
 
   </TabItem>
 </Tabs>
-
