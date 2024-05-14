@@ -4,6 +4,8 @@ description: Key concepts
 
 # Key Concepts
 
+THIS CONTENT NEEDS MORE WORK
+
 Semaphore uses a hierarchical system to determine in which order to [run the jobs](../using-semaphore/jobs).
 
 ## Jobs, blocks and pipelines

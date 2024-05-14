@@ -9,5 +9,6 @@
     "blanks-around-lists": false,
     "no-multiple-blanks": false,
     "no-inline-html": false,
+    "code-block-style": false,
     "single-title": { "front_matter_title": "$disable" }
 }
