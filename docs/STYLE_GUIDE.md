@@ -9,6 +9,15 @@ Most rules are enforced with markdownlint. If you find errors, check the [rule d
 
 <http://localhost:3000/>
 
+## Bullet points and lists
+
+Since most of the bullet points and list are used to give step-by-step instructions, don't use periods to end a line. 
+
+Example:
+1. This line doesn't end with a period
+2. Another item. Only use periods to separate sentences in the same line
+3. Don't use periods to end a line
+
 ## Shell commands
 
 When showing the output prefix the shell command with a dollar sign ($):

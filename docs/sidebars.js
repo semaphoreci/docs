@@ -27,7 +27,7 @@ const sidebars = {
       },
       items: [
           'getting-started/guided-tour',
-          'getting-started/concepts',
+          // 'getting-started/concepts',
           'getting-started/continuous-integration',
           'getting-started/continuous-deployment',
           'getting-started/platform-engineering',

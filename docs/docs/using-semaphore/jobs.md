@@ -7,22 +7,27 @@ description: The building block for Continuous Integration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Jobs are the building blocks of Continuous Integration. Everything that happens, happens in a job. Jobs run user-defined shell commands in a virtual machine (VM) with a well-defined environment.
+Jobs are the building blocks of Continuous Integration. Everything that happens, happens in a job. Jobs run user-defined shell commands in an *agent*, which can be a Virtual Machine (VM), a Kubernetes node, or a Docker container.
 
 ## Overview
 
-Jobs run in their own dedicated VM. When a job is scheduled, Semaphore will:
-1. **Create VM**: every job gets its own separate VM
-2. **Mount OS**: the selected Operating System image is mounted
-3. **Initialize Environment**: import environment variables, load SSH keys, mount secrets, and install the CLI toolbox
-4. **Attach Cache**: attach the project's shared cache (only on Semaphore Cloud)
-5. **Run commands**: execute the your commands
-6. **Save logs**: activity log is exported
-7. **Destroy VM**: the virtual machine is completely deleted
+Jobs run in their own dedicated agent, ensuring your commands run in an clean and ephemeral environment.
+
+When a job is scheduled, Semaphore will:
+1. **Schedule gent from pool**: pick a suitable agent from the warm pool of agents.
+2. **Initialize environment**: execute setup steps such as importing environment variables, loading SSH keys, mounting secrets, and installing the Semaphore CLI toolbox
+3. **Run commands**: execute the your commands inside the agent
+4. **End job and save logs**: when the job ends, its activity log is exported and saved for future inspection
+5. **Destroy agent**: the used agent is discarded.
 
 ![Job Lifecycle](./img/job-lifecycle.jpg)
 
-This lifecycle ensures every job starts in a uniform and well-defined environment.
+:::info
+
+Agents can be non-ephemeral when using self-hosted agents instead of Semaphore Cloud.
+
+:::
+
 
 ### Blocks and dependencies
 
@@ -48,9 +53,32 @@ Blocks can have dependencies, which force blocks to run sequentially. Below is a
 
 A pipeline is a group of blocks, usually connected via dependencies. Pipelines are used to fulfill specific goals like build, test, or deploy. But there is no rule; you can organize your pipelines in any shape you like.
 
-Every pipeline is stored as a separate file inside the `.semaphore` folder in your repository. Semaphore uses YAML to encode all the elements in the pipeline including blocks, jobs, and commands. Here is an example pipeline with its respective YAML.
+Every pipeline is stored as a separate file inside the `.semaphore` folder in your repository. Semaphore uses YAML to encode all the elements in the pipeline including blocks, jobs, and commands. For reference, here is an example pipeline with its respective YAML. We'll learn how it works in the course of this document.
 
-CODE
+<Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+  ![Example job with a single test](./img/example-job.jpg)
+  </TabItem>
+  <TabItem value="yaml" label="YAML">
+  ```yaml title=".semaphore/semaphore.yml"
+  version: v1.0
+  name: Initial pipeline
+  agent:
+    machine:
+      type: e1-standard-2
+      os_image: ubuntu2004
+  blocks:
+    - name: Build & test
+      task:
+        jobs:
+          - name: npm test
+            commands:
+              - checkout
+              - npm run build
+              - npm test
+  ```
+  </TabItem>
+</Tabs>
 
 You can have as many pipelines as you like inside your repository. Pipelines can be connected using promotions to make more complex workflows.
 
@@ -61,6 +89,20 @@ You can have as many pipelines as you like inside your repository. Pipelines can
 You can create a job using YAML or by editing your pipeline in the visual workflow editor.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor" default>
+    1. Press **+ Add Block**. The block settings appear on the right
+    2. Type the block's name
+    3. Type the job's name
+    4. Type your shell commands
+    ![New job being edited](./img/create-a-job-1.jpg)
+    
+    To save your changes and start the job:
+
+    1. Press on **Run the workflow**
+    2. Press on **Looks good, Start**
+
+    ![Run and Start](./img/run-and-start.jpg)
+  </TabItem>
   <TabItem value="yaml" label="YAML">
     1. Create a pipeline file called `.semaphore/semaphore.yml` at the repository's root
     2. Add the `name` item under `blocks`. This is the block's name
@@ -85,22 +127,6 @@ You can create a job using YAML or by editing your pipeline in the visual workfl
                 - make build
     # highlight-end
     ```
-  </TabItem>
-  <TabItem value="editor" label="Editor">
-
-    1. Press **+ Add Block**. The block settings appear on the right
-    2. Type the block's name
-    3. Type the job's name
-    4. Type your shell commands
-    ![New job being edited](./img/create-a-job-1.jpg)
-    
-    To save your changes and start the job:
-
-    1. Press on **Run the workflow**
-    2. Press on **Looks good, Start**
-
-    ![Run and Start](./img/run-and-start.jpg)
-
   </TabItem>
 </Tabs>
 
@@ -162,6 +188,15 @@ echo "continuing job..."
 If you want to run jobs one after the other, i.e. not in parallel, you must define them in separate blocks.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+
+  1. Create the first block and job
+  2. Add a second block and job
+  3. Adjust dependencies to define execution order
+
+  ![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
+  </TabItem>
   <TabItem value="yaml" label="YAML">
 
   1. Add a new job entry under `blocks`
@@ -197,17 +232,6 @@ If you want to run jobs one after the other, i.e. not in parallel, you must defi
   ```
 
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-
-  1. Create the first block and job
-  2. Add a second block and job
-  3. Adjust dependencies to define execution order
-
-  ![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
-
-
-  </TabItem>
 </Tabs>
 
 :::info
@@ -221,7 +245,20 @@ Semaphore will always start with the blocks that have no dependencies and move a
 Blocks are groups of jobs. All jobs in the same block *run in parallel* in no specific order. 
 
 <Tabs groupId="jobs">
-  <TabItem value="yaml" label="YAML">
+  <TabItem value="editor" label="Editor">
+
+
+  To run a second job that runs in parallel:
+
+  1. Press **+ Add job**
+  2. Type the job name
+  3. Type the job shell commands
+
+  ![Adding a second job](./img/add-job-to-block.jpg)
+
+
+  </TabItem>
+    <TabItem value="yaml" label="YAML">
 
   1. Add a new `name` item under `jobs`
   2. Add your shell commands (one per line) under `commands`
@@ -253,19 +290,6 @@ Blocks are groups of jobs. All jobs in the same block *run in parallel* in no sp
   ```
 
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-
-  To run a second job that runs in parallel:
-
-  1. Press **+ Add job**
-  2. Type the job name
-  3. Type the job shell commands
-
-  ![Adding a second job](./img/add-job-to-block.jpg)
-
-
-  </TabItem>
 </Tabs>
 
 :::info
@@ -280,6 +304,14 @@ Because each job runs in a separate environment, you cannot share files or data 
 If the block only contains the job you want to delete you must [delete the block](#block-delete) instead.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block containing the job you want to delete
+  2. On the right menu, press the "X" symbol on the top-right side of the job.
+  3. Confirm deletion
+
+  ![Deleting a job](./img/delete-job.jpg)
+  </TabItem>
   <TabItem value="yaml" label="YAML">
   1. Delete the `name` entry in the block
   2. Delete all `commands` inside the job
@@ -309,17 +341,6 @@ If the block only contains the job you want to delete you must [delete the block
           # highlight-end
   ```
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block containing the job you want to delete
-  2. On the right menu, press the "X" symbol on the top-right side of the job.
-  3. Confirm deletion
-
-  ![Deleting a job](./img/delete-job.jpg)
-
-
-
-  </TabItem>
 </Tabs>
 
 
@@ -330,6 +351,15 @@ If the block only contains the job you want to delete you must [delete the block
 Deleting a block also **deletes all its jobs**. You can also [delete single jobs](#delete-job).
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block you want to delete
+  2. Scroll down to the right menu. Press **Delete Block...**
+  3. Confirm deletion
+
+  ![Deleting a block](./img/delete-block.jpg)
+
+  </TabItem>
   <TabItem value="yaml" label="YAML">
   1. Find the block you wish to delete under `blocks`
   2. Delete the whole block with all its child jobs
@@ -364,16 +394,6 @@ Deleting a block also **deletes all its jobs**. You can also [delete single jobs
               - make test
     # highlight-end
   ```
-
-  </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block you want to delete
-  2. Scroll down to the right menu. Press **Delete Block...**
-  3. Confirm deletion
-
-  ![Deleting a block](./img/delete-block.jpg)
-
   </TabItem>
 </Tabs>
 
@@ -393,6 +413,13 @@ Block settings apply to every child's job. Select any block to view its settings
 The prologue contains shell commands that run before every job begins. Use this to run common setup commands like downloading dependencies, setting the runtime version, or starting test services.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block
+  2. Open the prologue section and add your shell commands
+  ![Adding commands to the prologue](./img/prologue.jpg)
+
+  </TabItem>
   <TabItem value="yaml" label="YAML">
 
   1. Locate the block you wish to add the prologue to
@@ -424,13 +451,6 @@ The prologue contains shell commands that run before every job begins. Use this 
   ```
 
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block
-  2. Open the prologue section and add your shell commands
-  ![Adding commands to the prologue](./img/prologue.jpg)
-
-  </TabItem>
 </Tabs>
 
 ### Epilogue
@@ -441,6 +461,13 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 - **If the job has failed**: commands to run when the job failed (one command in the job exited with non-zero status).
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block to add the epilogue to
+  2. Open the epilogue section and add your commands in the right box
+  ![Editing the block's epilogue](./img/epilogue.jpg)
+
+  </TabItem>
   <TabItem value="yaml" label="YAML">
   1. Find the block where you wish to add the epilogue
   2. Add the `epilogue` types you wish key under `tasks`
@@ -476,14 +503,6 @@ The *epilogue* contains commands to run after each job ends. There are three typ
               - echo "success"
         # highlight-end
   ```
-
-  </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block to add the epilogue to
-  2. Open the epilogue section and add your commands in the right box
-  ![Editing the block's epilogue](./img/epilogue.jpg)
-
   </TabItem>
 </Tabs>
 
@@ -493,6 +512,17 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 Environment variables will be exported into the shell environment of every job in the block. You must supply the variable name and its value. A block can have any number of environment variables.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  To add an environment variable:
+  1. Select the block
+  2. Open the Environment Variables section
+  3. Set your variable name and value
+  4. Press **+Add env vars** if you need more variables
+  5. Press the X if you need to delete a variable
+
+  ![Environment variables](./img/env-vars.jpg)
+  </TabItem>
   <TabItem value="yaml" label="YAML">
 
   1. Locate the block where you add the environment variables
@@ -524,19 +554,6 @@ Environment variables will be exported into the shell environment of every job i
         # highlight-end
   ```
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  To add an environment variable:
-  1. Select the block
-  2. Open the Environment Variables section
-  3. Set your variable name and value
-  4. Press **+Add env vars** if you need more variables
-  5. Press the X if you need to delete a variable
-
-  ![Environment variables](./img/env-vars.jpg)
-
-
-  </TabItem>
 </Tabs>
 
 
@@ -559,6 +576,13 @@ Secrets work like environment variables. The main difference is that they are st
 Use secrets to store sensitive data like API keys, passwords, or SSH key files without revealing their contents.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block where you want to add the secrets
+  2. Open the secrets section and select the secrets to import
+  ![Importing secrets](./img/secrets.jpg)
+
+  </TabItem>
   <TabItem value="yaml" label="YAML">
   1. Locate the block where you want to add the secrets
   2. Add a `secrets` key under `tasks`
@@ -586,13 +610,6 @@ Use secrets to store sensitive data like API keys, passwords, or SSH key files w
         # highlight-end
   ```
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block where you want to add the secrets
-  2. Open the secrets section and select the secrets to import
-  ![Importing secrets](./img/secrets.jpg)
-
-  </TabItem>
 </Tabs>
 
 
@@ -603,7 +620,17 @@ You can choose to skip or run the block only under certain conditions. When a bl
 Use cases for this feature include skipping a block on certain branches, or only running it when files in a defined folder have changed.
 
 <Tabs groupId="jobs">
-  <TabItem value="yaml" label="YAML Run">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block to apply conditions
+  2. To disable conditions choose "Always run this block"
+  3. To enable conditions select either "Run this block when..." or "Skip this block when..."
+  4. Type the conditions to run or skip the block
+
+  ![Editing skip/run conditions](./img/conditions.jpg)
+
+  </TabItem>
+  <TabItem value="yaml" label="YAML (Run/When)">
 
   1. Select the block where to edit the conditions
   2. Under the block `name` add `run` and `when`
@@ -632,7 +659,7 @@ Use cases for this feature include skipping a block on certain branches, or only
   ```
 
   </TabItem>
-  <TabItem value="yaml2" label="YAML Skip">
+  <TabItem value="yaml2" label="YAML (Skip/When)">
 
 
   1. Select the block where to edit the conditions
@@ -662,16 +689,6 @@ Use cases for this feature include skipping a block on certain branches, or only
   ```
 
   </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block to apply conditions
-  2. To disable conditions choose "Always run this block"
-  3. To enable conditions select either "Run this block when..." or "Skip this block when..."
-  4. Type the conditions to run or skip the block
-
-  ![Editing skip/run conditions](./img/conditions.jpg)
-
-  </TabItem>
 </Tabs>
 
 
@@ -680,6 +697,17 @@ Use cases for this feature include skipping a block on certain branches, or only
 The agent is the VM type and operating system that runs the jobs. Every pipeline has a default agent, but you can override the agent for specific blocks.
 
 <Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+
+  1. Select the block to override the agent
+  2. Open the agent section and check the option "Override global agent definition"
+  3. Select the environment type
+  4. Select the OS image
+  5. Select the machine type
+
+  ![Overriding the global agent](./img/agent.jpg)
+
+  </TabItem>
   <TabItem value="yaml" label="YAML">
 
   1. Select the block where you want to override the agent.
@@ -709,16 +737,5 @@ The agent is the VM type and operating system that runs the jobs. Every pipeline
             os_image: ubuntu2004
         # highlight-end
   ```
-  </TabItem>
-  <TabItem value="editor" label="Editor">
-
-  1. Select the block to override the agent
-  2. Open the agent section and check the option "Override global agent definition"
-  3. Select the environment type
-  4. Select the OS image
-  5. Select the machine type
-
-  ![Overriding the global agent](./img/agent.jpg)
-
   </TabItem>
 </Tabs>
