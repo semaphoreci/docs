@@ -1,5 +1,5 @@
 ---
-description: The building block for Continuous Integration
+description: The basic unit of work
 ---
 
 # Jobs
@@ -7,16 +7,16 @@ description: The building block for Continuous Integration
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Jobs are the building blocks of Continuous Integration. Everything that happens, happens in a job. Jobs run user-defined shell commands in an *agent*, which can be a Virtual Machine (VM), a Kubernetes node, or a Docker container.
+Jobs get stuff done. This page explains how jobs work, how you can configure them, and what settings are available.
 
-## Overview
+## Job lifecycle
 
-Jobs run in their own dedicated agent, ensuring your commands run in an clean and ephemeral environment.
+Jobs run user-defined shell commands inside a dedicated environment called an *agent*. Agents are ephemeral Docker containers, Kubernetes pods, or VMs running Linux, MacOS, or Windows.
 
 When a job is scheduled, Semaphore will:
 1. **Schedule gent from pool**: pick a suitable agent from the warm pool of agents.
 2. **Initialize environment**: execute setup steps such as importing environment variables, loading SSH keys, mounting secrets, and installing the Semaphore CLI toolbox
-3. **Run commands**: execute the your commands inside the agent
+3. **Run commands**: execute your commands inside the agent
 4. **End job and save logs**: when the job ends, its activity log is exported and saved for future inspection
 5. **Destroy agent**: the used agent is discarded.
 
@@ -24,65 +24,19 @@ When a job is scheduled, Semaphore will:
 
 :::info
 
-Agents can be non-ephemeral when using self-hosted agents instead of Semaphore Cloud.
+Agents can be non-ephemeral when using *self-hosted agents*.
 
 :::
 
+## Blocks
 
-### Blocks and dependencies
+Every job in Semaphore exists inside a block. Blocks provide a convenient way to group jobs that share settings like [environment variables](#environment-variables). By default, jobs *do not share state* even when on the same block.
 
-Jobs are grouped into blocks. Every job in Semaphore belongs in a block, even if the block only has a single job. Even when jobs are in the same block, each still runs in its own separate VM and does not share any state. 
-
-Jobs in the same block run in parallel. In the following diagram Jobs 1, 2, and 3 of Block A run at the same time. The same happens with Jobs 1 and 2 of Block B.
+Jobs in the same block *run in parallel*. Here jobs #1, #2, and #3 run simultaneously.
 
 ![Block and jobs](./img/one-block.jpg)
 
-Blocks can have dependencies, which force blocks to run sequentially. Below is a more complex example:
-- Block B and C depend on Block A. That means that Block B and C won't start until all Block A is done. 
-- Block D only starts when Block B AND Block C have finished.
-
-![Pipeline execution order](./img/pipeline-execution-order.jpg)
-
-<details>
-  <summary>What if we removed all dependencies?</summary>
-  <div>If we removed all block dependencies between blocks then all of them would run in parallel. 
-  Functionally, it would be the same as having all jobs in one big block</div>
-</details>
-
-### Pipelines and workflows
-
-A pipeline is a group of blocks, usually connected via dependencies. Pipelines are used to fulfill specific goals like build, test, or deploy. But there is no rule; you can organize your pipelines in any shape you like.
-
-Every pipeline is stored as a separate file inside the `.semaphore` folder in your repository. Semaphore uses YAML to encode all the elements in the pipeline including blocks, jobs, and commands. For reference, here is an example pipeline with its respective YAML. We'll learn how it works in the course of this document.
-
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
-  ![Example job with a single test](./img/example-job.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build & test
-      task:
-        jobs:
-          - name: npm test
-            commands:
-              - checkout
-              - npm run build
-              - npm test
-  ```
-  </TabItem>
-</Tabs>
-
-You can have as many pipelines as you like inside your repository. Pipelines can be connected using promotions to make more complex workflows.
-
-![A workflow with 3 pipelines](./img/workflows.jpg)
+You can add dependencies to blocks to orchestrate complex workflows. For more details, check [pipelines](./pipelines.md).
 
 ## How to create a job
 
@@ -105,9 +59,13 @@ You can create a job using YAML or by editing your pipeline in the visual workfl
   </TabItem>
   <TabItem value="yaml" label="YAML">
     1. Create a pipeline file called `.semaphore/semaphore.yml` at the repository's root
-    2. Add the `name` item under `blocks`. This is the block's name
-    3. Add `name` item `task.jobs`. This is the job's name
-    4. Add the list of shell commands under `commands`
+    2. Define an *agent*
+    3. Create a `blocks` key. The block's value is a list
+    4. Start with the block's `name`
+    5. Add a `task.jobs` key. The job's value is a lit
+    6. Type the job's `name`
+    7. Add the job's `commands`. The value is a list of shell commands (one line per list item)
+    8. Save the file, commit and push it to your remote repo
 
     ```yaml title=".semaphore/semaphore.yml"
     version: v1.0
@@ -130,48 +88,159 @@ You can create a job using YAML or by editing your pipeline in the visual workfl
   </TabItem>
 </Tabs>
 
-Semaphore will pick up the change and automatically start your job. You can view the job's log by clicking on the job name.
+Semaphore will detect a change in the remote repository and automatically start the job. Open the project in Semaphore to follow the progress and view the job log.
 
 ![Job log](./img/job-log.jpg)
 
-## Cloning your repository with checkout
+<details>
+  <summary>Where are my files?</summary>
+  <div>Remember that each job gets a brand new agent, so besides a few pre-installed utilities, there is nothing in the local disk. Semaphore provides tools to persist files and move them between jobs.</div>
+</details>
 
-One of the first tasks for most jobs will be to clone the repository. Semaphore installs several command line utilities during VM initialization. To check out the code from your GitHub or Bitbucket repository we use checkout.
+## Semaphore toolbox
+
+Most CI platforms provide primitives in their config to do standard actions like checking out the code from the repository. For example, GitHub Actions has a [checkout action](https://github.com/actions/checkout) while CircleCI has a [checkout step](https://circleci.com/docs/hello-world/). 
+
+Semaphore is different: it doesn't provide YAML primitives for standard tasks like persisting files or checking out code. They add unnecessary complexity to the YAML syntax. Instead, Semaphore gives you the *toolbox*, which is a suite of shell scripts that let you achieve all these tasks and more.
+
+The most-used tools in the Semaphore toolbox are: 
+- *checkout* to checkout the code from the remote repository
+- *cache* to speed up jobs by caching downloaded files
+- *artifact* lets you move files between jobs and store build artifacts
+
+### checkout
+
+*Checkout* clones the remote repository into the agent so your job has a working copy of your codebase. It also `cd`s into the cloned repository so you're ready to work.
+
+Let's say we want to clone the repository and install Node.js dependencies:
 
 ```shell
 checkout
+npm install
 ```
 
-Checkout clones the repository in the local disk and `cd`s into it, allowing you to run commands in the codebase directly. For example:
+Checkout, like all the tools in the toolbox, are shell scripts. They are typed in the command section of the job like any other script.
 
-```shell
-checkout
-make build
-```
+<Tabs groupId="jobs">
+  <TabItem value="editor" label="Editor">
+  ![Running checkout with the visual editor](./img/checkout.jpg)
+  </TabItem>
+  <TabItem value="yaml" label="YAML">
+  ```yaml title=".semaphore/semaphore.yml"
+  version: v1.0
+  name: Initial pipeline
+  agent:
+    machine:
+      type: e1-standard-2
+      os_image: ubuntu2004
+  blocks:
+    - name: Install
+      task:
+        jobs:
+          - name: npm install
+            commands:
+              - checkout
+              - npm install
+  ```
+  </TabItem>
+</Tabs>
 
 <details>
-  <summary>Why do I need to clone the repository every time?</summary>
-  <div>Remember that each job gets a brand new VM, so besides a few pre-installed utilities, there is nothing in the local disk. You have to clone the repository inside the job VM to do any work on it.</div>
+  <summary>How checkout works</summary>
+  <div>
+  During agent initialization, Semaphore sets four *environment variables* that define how checkout works:
+  - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
+  - SEMAPHORE_GIT_DIR: the path where the repository will be cloned (e.g. `/home/semaphore/myproject`)
+  - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
+  - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
+  </div>
 </details>
 
 
-## Persisting state with cache and artifact
+### cache
 
-Semaphore will create a new VM for every job. The only way to share files between jobs is by **using non-ephemeral storage**.
+The main function of the *cache* is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
 
-Semaphore Cloud provides two ways to save data between jobs:
-- **cache**: attached during VM initialization. The cache is a fixed-size temporary storage and is typically used to store dependencies (like `node_modules` or `vendor`).
-- **artifacts**: you can push and pull files and folders from the artifact store. Artifacts are kept until deleted but may be billed per usage depending on the plan.
+Cache can detect dependency folders. Let's say we want to speed up `npm install`:
+
+```shell
+checkout
+# highlight-next-line
+cache restore
+npm install
+# highlight-next-line
+cache store
+```
+
+The highlighted lines show how to use the cache:
+
+- cache store: saves `node_modules` to non-ephemeral storage.
+- cache restore: retrieves the cached copy of `node_modules` to the working directory.
+
+Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to *supply additional arguments*.
+
+:::info
+
+cache and artifact only works in Semaphore Cloud
+
+:::
+
+### artifact
+
+The *artifact* command can be used as:
+
+- a way to move files between jobs and runs
+- as persistent storage for artifacts such as compiled binaries or bundles
+
+The following example shows how to persist files between jobs. In the first job we have:
+
+```shell
+checkout
+npm run build
+artifact push workflow dist
+```
+
+In the following jobs, we can access the content of the dist folder with:
+
+```shell
+artifact pull workflow dist
+```
+
+Let's do another example: this time we want to save the compiled binary `hello.exe`:
+
+```shell
+checkout
+go build 
+artifact push project hello.exe
+```
+
+Artifacts can be viewed and downloaded from the Semaphore project.
+
+![Artifact view in Semaphore](./img/artifact-view.jpg)
 
 
-## Success and failure conditions
+:::info
+
+cache and artifact only works in Semaphore Cloud
+
+:::
+
+## Debugging jobs
+
+Semaphore provides superb tools to debug and troubleshoot jobs. For instance, you can create an [interactive SSH session](#ssh-into-agent) to try out several solutions without having to re-run all the jobs.
+
+### Why my job has failed?
 
 If at least one of the commands in a job ends with non-zero exit status, the job will be *marked as failed* and the pipeline will stop with error. No new jobs will be started once a job has failed.
+
+Open the job log to see why it failed. The problematic command will be shown in red and expanded.
+
+![Job log with the error shown](./img/failed-job-log.jpg)
 
 
 :::tip
 
-If you want to keep running the job even when a command fails you can append `|| true` to the failing line. For example:
+To keep running the job even on a failed command, append `|| true` to the problematic line.
 
 ```shell
 echo "the next command might fail, that's OK"
@@ -182,6 +251,40 @@ echo "continuing job..."
 
 :::
 
+### Interactive debug with SSH {#ssh-into-agent}
+
+You can debug a job interactively by SSHing into the agent — a particularly powerful feature for troubleshooting.
+
+![An interactive SSH session](./img/ssh-debug-session.jpg)
+
+To open a debugging session for the first time:
+
+1. Click on **SSH Debug** in the job log view
+2. Open the "How to install ..." section
+3. Install the *sem cli*: copy and paste the command in a terminal
+4. Authorize sem cli to access your organization: copy and paste the command into a terminal
+5. Start the SSH session: copy and paste the command in a terminal 
+
+You only need to execute steps 3 and 4 the first time you start a debug session.
+
+![How to connect with SSH for the first time](./img/sem-debug-first-time.jpg)
+
+You'll be presented with a welcome message like this:
+
+```shell
+* Creating debug session for job 'd5972748-12d9-216f-a010-242683a04b27'
+* Setting duration to 60 minutes
+* Waiting for the debug session to boot up ...
+* Waiting for ssh daemon to become ready.
+
+Semaphore CI Debug Session.
+
+  - Checkout your code with `checkout`
+  - Run your CI commands with `source ~/commands.sh`
+  - Leave the session with `exit`
+```
+
+You have entered into the agent before the actual job has started. The contents of `commands.sh` are the job commands. So, you can execute `source ~/commands.sh` to start it. You can actually run anything in the agent, including commands that were not actually part of the job.
 
 ## How to run jobs sequentially
 
@@ -342,8 +445,6 @@ If the block only contains the job you want to delete you must [delete the block
   ```
   </TabItem>
 </Tabs>
-
-
 
 
 ## How to delete a block {#block-delete}
@@ -507,7 +608,7 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 </Tabs>
 
 
-### Environment variables
+### Environment variables {#environment-variables}
 
 Environment variables will be exported into the shell environment of every job in the block. You must supply the variable name and its value. A block can have any number of environment variables.
 
