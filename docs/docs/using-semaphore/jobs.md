@@ -28,7 +28,7 @@ Agents can be non-ephemeral when using *self-hosted agents*.
 
 :::
 
-## Blocks
+## Blocks {#blocks}
 
 Every job in Semaphore exists inside a block. Blocks provide a convenient way to group jobs that share settings like [environment variables](#environment-variables). By default, jobs *do not share state* even when on the same block.
 
@@ -36,11 +36,11 @@ Jobs in the same block *run in parallel*. Here jobs #1, #2, and #3 run simultane
 
 ![Block and jobs](./img/one-block.jpg)
 
-You can add dependencies to blocks to orchestrate complex workflows. For more details, check [pipelines](./pipelines.md).
+You can [connect blocks](./pipelines#dependencies) with dependencies to blocks to orchestrate complex workflows.
 
 ## How to create a job
 
-You can create a job using YAML or by editing your pipeline in the visual workflow editor.
+You can create a job using YAML or by editing your [pipeline](./pipeline) in the visual workflow editor.
 
 <Tabs groupId="jobs">
   <TabItem value="editor" label="Editor" default>
@@ -58,7 +58,7 @@ You can create a job using YAML or by editing your pipeline in the visual workfl
     ![Run and Start](./img/run-and-start.jpg)
   </TabItem>
   <TabItem value="yaml" label="YAML">
-    1. Create a pipeline file called `.semaphore/semaphore.yml` at the repository's root
+    1. Create a file called `.semaphore/semaphore.yml` at the repository's root
     2. Define an *agent*
     3. Create a `blocks` key. The block's value is a list
     4. Start with the block's `name`
@@ -96,6 +96,126 @@ Semaphore will detect a change in the remote repository and automatically start 
   <summary>Where are my files?</summary>
   <div>Remember that each job gets a brand new agent, so besides a few pre-installed utilities, there is nothing in the local disk. Semaphore provides tools to persist files and move them between jobs.</div>
 </details>
+
+
+## Debugging jobs
+
+Semaphore provides superb tools to debug and troubleshoot jobs. For instance, you can create an [interactive SSH session](#ssh-into-agent) to try out several solutions without having to re-run all the jobs.
+
+### Why my job has failed?
+
+If at least one of the commands in a job ends with non-zero exit status, the job will be *marked as failed* and the pipeline will stop with error. No new jobs will be started once a job has failed.
+
+Open the job log to see why it failed. The problematic command will be shown in red and expanded.
+
+![Job log with the error shown](./img/failed-job-log.jpg)
+
+
+:::tip
+
+To keep running the job even on a failed command, append `|| true` to the problematic line.
+
+```shell
+echo "the next command might fail, that's OK"
+# highlight-next-line
+command_that_might_fail || true
+echo "continuing job..."
+```
+
+:::
+
+### Interactive debug with SSH {#ssh-into-agent}
+
+You can debug a job interactively by SSHing into the agent — a particularly powerful feature for troubleshooting.
+
+![An interactive SSH session](./img/ssh-debug-session.jpg)
+
+To open a debugging session for the first time:
+
+1. Click on **SSH Debug** in the job log view
+2. Open the "How to install ..." section
+3. Install the *sem cli*: copy and paste the command in a terminal
+4. Authorize sem cli to access your organization: copy and paste the command into a terminal
+5. Start the SSH session: copy and paste the command in a terminal 
+  ```shell
+  sem debug job <job-id>
+  ```
+
+You only need to execute steps 3 and 4 the first time you start a debug session.
+
+![How to connect with SSH for the first time](./img/sem-debug-first-time.jpg)
+
+You'll be presented with a welcome message like this:
+
+```shell
+* Creating debug session for job 'd5972748-12d9-216f-a010-242683a04b27'
+* Setting duration to 60 minutes
+* Waiting for the debug session to boot up ...
+* Waiting for ssh daemon to become ready.
+
+Semaphore CI Debug Session.
+
+  - Checkout your code with `checkout`
+  - Run your CI commands with `source ~/commands.sh`
+  - Leave the session with `exit`
+```
+
+You have entered into the agent before the actual job has started. The contents of `commands.sh` are the job commands. So, you can execute `source ~/commands.sh` to start it. You can actually run anything in the agent, including commands that were not actually part of the job. Exit the session to end the job.
+
+By default, the duration of the SSH session is limited to one hour. To run longer debug sessions, pass the duration flag to the previous command as shown below:
+
+```shell
+sem debug job <job-id> --duration 3h
+```
+
+To view the job id, open the job log. You can view the id of the job in two places:
+- The URL in the browser
+- By clicking SSH Debug/Attach
+
+<Tabs groupId="jobs">
+  <TabItem value="browser-url" label="URL">
+  ![View the job id in the URL](./img/job-id-debug.jpg)
+  </TabItem>
+  <TabItem value="debug-link" label="SSH Debug/Attach">
+  ![View the job id in the SSH Debug/Attach option](./img/job-id-debug.jpg)
+  </TabItem>
+</Tabs>
+
+### Inspecting running jobs
+
+You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore will present the following command while a the job is running:
+
+```shell
+sem attach <job-id>
+```
+
+You can explore running processes, inspect the environment variables, and take a peek at the log files to help identify problems with your jobs.
+
+### Port forwarding
+
+When SSH is not enough to troubleshoot an issue, you can forward use port forwarding to connect to services running inside your job.
+
+A typical use case for this feature is troubleshooting end to end tests. Imagine a test is failing and you can find any obvious cause. Port forwarding the HTTP port in the job to your local machine can reveal how the application "looks" while running inside the agent.
+
+To start a port-forwarding session:
+
+```shell
+sem port-forward <job-id> <local-port> <remote-port>
+```
+
+For example, if the application inside the job starts on port 3000 and you want to bind it port 6000 in your local machine, execute this while the job is running.
+
+```shell
+sem port-forward <job-id> 6000 3000
+```
+
+You can now connect to `http://localhost:6000` to view the application running remotely in the job.
+
+:::info
+
+Port-forwarding only works for Virtual Machine-based agents.
+
+:::
 
 ## Semaphore toolbox
 
@@ -224,67 +344,6 @@ Artifacts can be viewed and downloaded from the Semaphore project.
 cache and artifact only works in Semaphore Cloud
 
 :::
-
-## Debugging jobs
-
-Semaphore provides superb tools to debug and troubleshoot jobs. For instance, you can create an [interactive SSH session](#ssh-into-agent) to try out several solutions without having to re-run all the jobs.
-
-### Why my job has failed?
-
-If at least one of the commands in a job ends with non-zero exit status, the job will be *marked as failed* and the pipeline will stop with error. No new jobs will be started once a job has failed.
-
-Open the job log to see why it failed. The problematic command will be shown in red and expanded.
-
-![Job log with the error shown](./img/failed-job-log.jpg)
-
-
-:::tip
-
-To keep running the job even on a failed command, append `|| true` to the problematic line.
-
-```shell
-echo "the next command might fail, that's OK"
-# highlight-next-line
-command_that_might_fail || true
-echo "continuing job..."
-```
-
-:::
-
-### Interactive debug with SSH {#ssh-into-agent}
-
-You can debug a job interactively by SSHing into the agent — a particularly powerful feature for troubleshooting.
-
-![An interactive SSH session](./img/ssh-debug-session.jpg)
-
-To open a debugging session for the first time:
-
-1. Click on **SSH Debug** in the job log view
-2. Open the "How to install ..." section
-3. Install the *sem cli*: copy and paste the command in a terminal
-4. Authorize sem cli to access your organization: copy and paste the command into a terminal
-5. Start the SSH session: copy and paste the command in a terminal 
-
-You only need to execute steps 3 and 4 the first time you start a debug session.
-
-![How to connect with SSH for the first time](./img/sem-debug-first-time.jpg)
-
-You'll be presented with a welcome message like this:
-
-```shell
-* Creating debug session for job 'd5972748-12d9-216f-a010-242683a04b27'
-* Setting duration to 60 minutes
-* Waiting for the debug session to boot up ...
-* Waiting for ssh daemon to become ready.
-
-Semaphore CI Debug Session.
-
-  - Checkout your code with `checkout`
-  - Run your CI commands with `source ~/commands.sh`
-  - Leave the session with `exit`
-```
-
-You have entered into the agent before the actual job has started. The contents of `commands.sh` are the job commands. So, you can execute `source ~/commands.sh` to start it. You can actually run anything in the agent, including commands that were not actually part of the job.
 
 ## How to run jobs sequentially
 
@@ -654,6 +713,12 @@ Environment variables will be exported into the shell environment of every job i
             value: bar
         # highlight-end
   ```
+
+  :::info
+
+  Numeric values need to be included in quotes.
+
+  :::
   </TabItem>
 </Tabs>
 
@@ -793,9 +858,9 @@ Use cases for this feature include skipping a block on certain branches, or only
 </Tabs>
 
 
-### Agent
+### Agent {#agent-override}
 
-The agent is the VM type and operating system that runs the jobs. Every pipeline has a default agent, but you can override the agent for specific blocks.
+The agent is the *machine type* and *operating system* that runs the jobs. Every pipeline has a [default agent](./pipeline#settings), but you can override the agent for specific blocks.
 
 <Tabs groupId="jobs">
   <TabItem value="editor" label="Editor">
