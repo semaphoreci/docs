@@ -40,7 +40,7 @@ You can [connect blocks](./pipelines#dependencies) with dependencies to blocks t
 
 ## How to create a job
 
-You can create a job using YAML or by editing your [pipeline](./pipeline) in the visual workflow editor.
+You can create a job using YAML or by editing your [pipeline](./pipelines) in the visual workflow editor.
 
 <Tabs groupId="jobs">
   <TabItem value="editor" label="Editor" default>
@@ -860,7 +860,7 @@ Use cases for this feature include skipping a block on certain branches, or only
 
 ### Agent {#agent-override}
 
-The agent is the *machine type* and *operating system* that runs the jobs. Every pipeline has a [default agent](./pipeline#settings), but you can override the agent for specific blocks.
+The agent is the *machine type* and *operating system* that runs the jobs. Every pipeline has a [default agent](./pipelines#settings), but you can override the agent for specific blocks.
 
 <Tabs groupId="jobs">
   <TabItem value="editor" label="Editor">

@@ -142,7 +142,7 @@ Pipeline settings will be applied to all jobs contained. You can change pipeline
 
 The pipeline settings are:
 
-1. **Agent**: the *agent environment* where the jobs in the pipeline will run — [unless overriden](./jobs#agent-agent-override).
+1. **Agent**: the *agent environment* where the jobs in the pipeline will run — [unless overriden](./jobs#agent-override).
 2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several *machine types* out of the box. You can add more types using *self-hosted agents*.
 3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands will be prepended to the job commands in the pipeline.
 4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands will be appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or to run always.
