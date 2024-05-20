@@ -26,14 +26,14 @@ The command includes the URL and access token. In your web browser,
 you'll see something similar to:
 
 ``` bash
-sem connect ORGANIZATION.semaphoreci.com ACCESS_TOKEN
+sem connect ORGANIZATION.semaphoreci.com _YOUR_API_TOKEN_
 ```
 
 You can find the exact `sem connect` command, which includes your current
-organization's name and access token, by selecting the CLI widget in the top-right
+organization's, by selecting the CLI widget in the top-right
 corner of any screen on Semaphore.
 
-Your access token is always available, and revokable, on your [account
+Your API Token is available and revokable on your [account
 page](https://me.semaphoreci.com/account).
 
 ## Overview
@@ -46,7 +46,7 @@ The general syntax of the `sem` utility is as follows:
 sem [COMMAND] [RESOURCE] [NAME] [flags]
 ```
 
-where `[COMMAND]` is the name of the command as explained in this reference
+where `[COMMAND]` is the name of the command, as explained in this reference
 page, `[RESOURCE]` is the resource type that interests us, `[NAME]` is the
 actual name of the resource and `[flags]` are optional command line flags.
 
