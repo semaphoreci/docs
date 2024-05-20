@@ -22,7 +22,7 @@ brew install semaphoreci/tap/sem
 ```
 
 Next, you'll need to connect `sem` to an organization.
-The command includes the URL and access token. In your web browser,
+The command includes the URL and API Token. In your web browser,
 you'll see something similar to:
 
 ``` bash
