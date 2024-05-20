@@ -16,19 +16,19 @@ Every API request and response must satisfy the following constraints:
 - All requests must use HTTPS.
 - All data is sent and received as JSON.
 - Blank fields are included as `null` instead of being omitted.
-- Timestamps are in different formats due to the historical circumstances of how these public APIs appeared. In next release of the API, they will be standardized. Currently there are the following formats:
+- Timestamps are in different formats due to the historical circumstances of how these public APIs appeared. In the next release of the API, they will be standardized. Currently, there are the following formats:
   - Unixtime Epoch time: `"create_time": "1571083003"`
   - Unixtime Epoch time with nanoseconds: `"created_at": {"seconds": 1571063401, "nanos": 559492000}`
-  - Custom format: `YYYY-MM-DD HH:MM:SS.ffffffZ`, e.g.`"2019-10-14 12:11:47.824128Z"`
+  - Custom format: `YYYY-MM-DD HH:MM:SS.ffffffZ`, e.g.,`"2019-10-14 12:11:47.824128Z"`
   - All API requests must set the User-Agent to `SemaphoreCI v2.0 Client`.
 
 ### Authentication
 
 All API requests require authentication. To authenticate, you need an
-authentication token. You can find your authentication token by visiting your
+API Token. You can find your token by visiting your
 [account settings](https://me.semaphoreci.com/account).
 
-Your Authentication Token must be sent as a HTTP header in all requests, as shown below:
+Your API Token must be sent as an HTTP header in all requests, as shown below:
 
 ```
 curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/api/v1alpha/{resource_name}"
@@ -36,7 +36,7 @@ curl -H "Authorization: Token {api_token}" "https://{org_name}.semaphoreci.com/a
 
 ### Errors
 
-There are several errors that you can receive as a response to an API request.
+You can receive several errors as a response to an API request.
 
 #### Failure to authenticate
 
