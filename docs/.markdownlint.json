@@ -10,5 +10,6 @@
     "no-multiple-blanks": false,
     "no-inline-html": false,
     "code-block-style": false,
+    "no-bare-urls": false,
     "single-title": { "front_matter_title": "$disable" }
 }
