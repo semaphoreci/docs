@@ -1,0 +1,32 @@
+version: v1.0
+name: Deploy artifacts
+agent:
+  machine:
+    type: e2-standard-2
+    os_image: ubuntu2004
+global_job_config:
+  prologue:
+    commands:
+      - checkout
+blocks:
+  - name: Deploy artifacts
+    dependencies: []
+    task:
+      env_vars:
+        - name: PROVIDER_ID
+          value: "semaphore"
+        - name: POOL_ID
+          value: "deployment-semaphore-preprod"
+        - name: PROJECT_ID
+          value: "525291099507"
+        - name: SERVICE_ACCOUNT_EMAIL
+          value: "semaphore-documentation@semaphore2-stg.iam.gserviceaccount.com"
+      jobs:
+        - name: Validate Prod
+          commands:
+            - echo $SEMAPHORE_OIDC_TOKEN > /tmp/oidc_token
+            - gcloud iam workload-identity-pools create-cred-config projects/$PROJECT_ID/locations/global/workloadIdentityPools/$POOL_ID/providers/$PROVIDER_ID --service-account="$SERVICE_ACCOUNT_EMAIL" --service-account-token-lifetime-seconds=600 --output-file=/home/semaphore/creds.json --credential-source-file=/tmp/oidc_token --credential-source-type="text"
+            - GOOGLE_APPLICATION_CREDENTIALS=/home/semaphore/creds.json
+            - gcloud auth login --cred-file=/home/semaphore/creds.json
+            - gcloud config set project semaphore2-stg --quiet
+            - gcloud storage ls --recursive gs://sem-docs/**
