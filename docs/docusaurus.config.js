@@ -15,7 +15,7 @@ const config = {
   // extra themes
   themes: [
     // required for search
-    ["@easyops-cn/docusaurus-search-local", 
+    ["@easyops-cn/docusaurus-search-local",
     {
       hashed: true,
       language: ["en"]
@@ -26,7 +26,7 @@ const config = {
   url: 'https://docs.semaphoreci.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: process.env.BASE_URL ? process.env.BASE_URL : '/',
 
   // GitHub org and project. Needed for Github Pages.
   organizationName: 'semaphoreci',
@@ -98,14 +98,14 @@ const config = {
             position: 'left',
             label: 'Using Semaphore',
           },
-          
+
           {
             href: 'https://github.com/semaphoreci/docs',
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
             // label: 'GitHub',
             position: 'right',
-            
+
           },
           // {
           //   type: 'html',
@@ -167,7 +167,7 @@ const config = {
               {
                 label: 'LinkedIn',
                 to: 'https://www.linkedin.com/company/rendered-text/',
-              }, 
+              },
             ],
           },
         ],
