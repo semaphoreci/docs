@@ -42,50 +42,50 @@ You can [connect blocks](./pipelines#dependencies) with dependencies to blocks t
 
 You can create a job using YAML or by editing your [pipeline](./pipelines) in the visual workflow editor.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor" default>
-    1. Press **+ Add Block**. The block settings appear on the right
-    2. Type the block's name
-    3. Type the job's name
-    4. Type your shell commands
-    ![New job being edited](./img/create-a-job-1.jpg)
-    
-    To save your changes and start the job:
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor" default>
+ 1. Press **+ Add Block**. The block settings appear on the right
+ 2. Type the block's name
+ 3. Type the job's name
+ 4. Type your shell commands
+ ![New job being edited](./img/create-a-job-1.jpg)
+ 
+ To save your changes and start the job:
 
-    1. Press on **Run the workflow**
-    2. Press on **Looks good, Start**
+ 1. Press on **Run the workflow**
+ 2. Press on **Looks good, Start**
 
-    ![Run and Start](./img/run-and-start.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-    1. Create a file called `.semaphore/semaphore.yml` at the repository's root
-    2. Define an *agent*
-    3. Create a `blocks` key. The block's value is a list
-    4. Start with the block's `name`
-    5. Add a `task.jobs` key. The job's value is a lit
-    6. Type the job's `name`
-    7. Add the job's `commands`. The value is a list of shell commands (one line per list item)
-    8. Save the file, commit and push it to your remote repo
+ ![Run and Start](./img/run-and-start.jpg)
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ 1. Create a file called `.semaphore/semaphore.yml` at the repository's root
+ 2. Define an *agent*
+ 3. Create a `blocks` key. The block's value is a list
+ 4. Start with the block's `name`
+ 5. Add a `task.jobs` key. The job's value is a lit
+ 6. Type the job's `name`
+ 7. Add the job's `commands`. The value is a list of shell commands (one line per list item)
+ 8. Save the file, commit and push it to your remote repo
 
-    ```yaml title=".semaphore/semaphore.yml"
-    version: v1.0
-    name: Initial pipeline
-    agent:
-      machine:
-        type: e1-standard-2
-        os_image: ubuntu2004
-    # highlight-start
-    blocks:
-      - name: Build
-        task:
-          jobs:
-            - name: Make
-              commands:
-                - checkout
-                - make build
-    # highlight-end
-    ```
-  </TabItem>
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+ type: e1-standard-2
+ os_image: ubuntu2004
+ # highlight-start
+ blocks:
+ - name: Build
+ task:
+ jobs:
+ - name: Make
+ commands:
+ - checkout
+ - make build
+ # highlight-end
+ ```
+ </TabItem>
 </Tabs>
 
 Semaphore will detect a change in the remote repository and automatically start the job. Open the project in Semaphore to follow the progress and view the job log.
@@ -93,8 +93,8 @@ Semaphore will detect a change in the remote repository and automatically start 
 ![Job log](./img/job-log.jpg)
 
 <details>
-  <summary>Where are my files?</summary>
-  <div>Remember that each job gets a brand new agent, so besides a few pre-installed utilities, there is nothing in the local disk. Semaphore provides tools to persist files and move them between jobs.</div>
+ <summary>Where are my files?</summary>
+ <div>Remember that each job gets a brand new agent, so besides a few pre-installed utilities, there is nothing in the local disk. Semaphore provides tools to persist files and move them between jobs.</div>
 </details>
 
 
@@ -104,7 +104,7 @@ Semaphore provides superb tools to debug and troubleshoot jobs. For instance, yo
 
 ### Why my job has failed?
 
-If at least one of the commands in a job ends with non-zero exit status, the job will be *marked as failed* and the pipeline will stop with error. No new jobs will be started once a job has failed.
+If at least one of the commands in a job ends with non-zero exit status, the job will be *marked as failed* and the pipeline will stop with an error. No new jobs will be started once a job has failed.
 
 Open the job log to see why it failed. The problematic command will be shown in red and expanded.
 
@@ -137,9 +137,9 @@ To open a debugging session for the first time:
 3. Install the *sem cli*: copy and paste the command in a terminal
 4. Authorize sem cli to access your organization: copy and paste the command into a terminal
 5. Start the SSH session: copy and paste the command in a terminal 
-  ```shell
-  sem debug job <job-id>
-  ```
+ ```shell
+ sem debug job <job-id>
+ ```
 
 You only need to execute steps 3 and 4 the first time you start a debug session.
 
@@ -155,9 +155,9 @@ You'll be presented with a welcome message like this:
 
 Semaphore CI Debug Session.
 
-  - Checkout your code with `checkout`
-  - Run your CI commands with `source ~/commands.sh`
-  - Leave the session with `exit`
+ - Checkout your code with `checkout`
+ - Run your CI commands with `source ~/commands.sh`
+ - Leave the session with `exit`
 ```
 
 You have entered into the agent before the actual job has started. The contents of `commands.sh` are the job commands. So, you can execute `source ~/commands.sh` to start it. You can actually run anything in the agent, including commands that were not actually part of the job. Exit the session to end the job.
@@ -172,13 +172,13 @@ To view the job id, open the job log. You can view the id of the job in two plac
 - The URL in the browser
 - By clicking SSH Debug/Attach
 
-<Tabs groupId="jobs">
-  <TabItem value="browser-url" label="URL">
-  ![View the job id in the URL](./img/job-id-debug.jpg)
-  </TabItem>
-  <TabItem value="debug-link" label="SSH Debug/Attach">
-  ![View the job id in the SSH Debug/Attach option](./img/job-id-debug.jpg)
-  </TabItem>
+<Tabs groupId="editor-yaml">
+ <TabItem value="browser-url" label="URL">
+ ![View the job id in the URL](./img/job-id-debug.jpg)
+ </TabItem>
+ <TabItem value="debug-link" label="SSH Debug/Attach">
+ ![View the job id in the SSH Debug/Attach option](./img/job-id-debug.jpg)
+ </TabItem>
 </Tabs>
 
 ### Inspecting running jobs
@@ -195,7 +195,7 @@ You can explore running processes, inspect the environment variables, and take a
 
 When SSH is not enough to troubleshoot an issue, you can forward use port forwarding to connect to services running inside your job.
 
-A typical use case for this feature is troubleshooting end to end tests. Imagine a test is failing and you can find any obvious cause. Port forwarding the HTTP port in the job to your local machine can reveal how the application "looks" while running inside the agent.
+A typical use case for this feature is troubleshooting end-to-end tests. Imagine a test is failing and you can find any obvious cause. Port forwarding the HTTP port in the job to your local machine can reveal how the application "looks" while running inside the agent.
 
 To start a port-forwarding session:
 
@@ -241,39 +241,39 @@ npm install
 
 Checkout, like all the tools in the toolbox, are shell scripts. They are typed in the command section of the job like any other script.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
-  ![Running checkout with the visual editor](./img/checkout.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Install
-      task:
-        jobs:
-          - name: npm install
-            commands:
-              - checkout
-              - npm install
-  ```
-  </TabItem>
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
+ ![Running checkout with the visual editor](./img/checkout.jpg)
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+ type: e1-standard-2
+ os_image: ubuntu2004
+ blocks:
+ - name: Install
+ task:
+ jobs:
+ - name: npm install
+ commands:
+ - checkout
+ - npm install
+ ```
+ </TabItem>
 </Tabs>
 
 <details>
-  <summary>How checkout works</summary>
-  <div>
-  During agent initialization, Semaphore sets four *environment variables* that define how checkout works:
-  - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
-  - SEMAPHORE_GIT_DIR: the path where the repository will be cloned (e.g. `/home/semaphore/myproject`)
-  - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
-  - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
-  </div>
+ <summary>How checkout works</summary>
+ <div>
+ During agent initialization, Semaphore sets four *environment variables* that define how checkout works:
+ - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
+ - SEMAPHORE_GIT_DIR: the path where the repository will be cloned (e.g. `/home/semaphore/myproject`)
+ - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
+ - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
+ </div>
 </details>
 
 
@@ -349,51 +349,51 @@ cache and artifact only works in Semaphore Cloud
 
 If you want to run jobs one after the other, i.e. not in parallel, you must define them in separate blocks.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
 
-  1. Create the first block and job
-  2. Add a second block and job
-  3. Adjust dependencies to define execution order
+ 1. Create the first block and job
+ 2. Add a second block and job
+ 3. Adjust dependencies to define execution order
 
-  ![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
+ ![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
 
-  1. Add a new job entry under `blocks`
-  2. Add a `dependencies`. List the names of the dependent blocks.
-      
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build
-      task:
-        jobs:
-          - name: Make
-            commands:
-              - checkout
-              - make build
-    # highlight-start
-    # block added
-    - name: Test
-      dependencies:
-        - Build
-      task:
-        jobs:
-          - name: Test
-            commands:
-              - checkout
-              - make test
-    # highlight-end
-  ```
+ 1. Add a new job entry under `blocks`
+ 2. Add a `dependencies`. List the names of the dependent blocks.
+ 
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build
+  task:
+  jobs:
+  - name: Make
+  commands:
+  - checkout
+  - make build
+ # highlight-start
+ # block added
+ - name: Test
+  dependencies:
+  - Build
+  task:
+  jobs:
+  - name: Test
+  commands:
+  - checkout
+  - make test
+ # highlight-end
+ ```
 
-  </TabItem>
+ </TabItem>
 </Tabs>
 
 :::info
@@ -406,52 +406,52 @@ Semaphore will always start with the blocks that have no dependencies and move a
 
 Blocks are groups of jobs. All jobs in the same block *run in parallel* in no specific order. 
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
 
-  To run a second job that runs in parallel:
+ To run a second job that runs in parallel:
 
-  1. Press **+ Add job**
-  2. Type the job name
-  3. Type the job shell commands
+ 1. Press **+ Add job**
+ 2. Type the job name
+ 3. Type the job shell commands
 
-  ![Adding a second job](./img/add-job-to-block.jpg)
+ ![Adding a second job](./img/add-job-to-block.jpg)
 
 
-  </TabItem>
-    <TabItem value="yaml" label="YAML">
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
 
-  1. Add a new `name` item under `jobs`
-  2. Add your shell commands (one per line) under `commands`
-  3. Save the file, commit and push it to your repository
+ 1. Add a new `name` item under `jobs`
+ 2. Add your shell commands (one per line) under `commands`
+ 3. Save the file, commit and push it to your repository
 
-  ```yaml title=".semaphore/semaphore.yaml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - make build
-          # highlight-start
-          # job added
-          - name: Lint
-            commands:
-              - checkout
-              - make lint
-          # highlight-end
-  ```
+ ```yaml title=".semaphore/semaphore.yaml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - make build
+  # highlight-start
+  # job added
+  - name: Lint
+  commands:
+  - checkout
+  - make lint
+  # highlight-end
+ ```
 
-  </TabItem>
+ </TabItem>
 </Tabs>
 
 :::info
@@ -465,44 +465,44 @@ Because each job runs in a separate environment, you cannot share files or data 
 
 If the block only contains the job you want to delete you must [delete the block](#block-delete) instead.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block containing the job you want to delete
-  2. On the right menu, press the "X" symbol on the top-right side of the job.
-  3. Confirm deletion
+ 1. Select the block containing the job you want to delete
+ 2. On the right menu, press the "X" symbol on the top-right side of the job.
+ 3. Confirm deletion
 
-  ![Deleting a job](./img/delete-job.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  1. Delete the `name` entry in the block
-  2. Delete all `commands` inside the job
+ ![Deleting a job](./img/delete-job.jpg)
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ 1. Delete the `name` entry in the block
+ 2. Delete all `commands` inside the job
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - make build
-          # highlight-start
-          # job to delete
-          - name: Lint
-            commands:
-              - checkout
-              - make lint
-          # highlight-end
-  ```
-  </TabItem>
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - make build
+  # highlight-start
+  # job to delete
+  - name: Lint
+  commands:
+  - checkout
+  - make lint
+  # highlight-end
+ ```
+ </TabItem>
 </Tabs>
 
 
@@ -510,57 +510,57 @@ If the block only contains the job you want to delete you must [delete the block
 
 Deleting a block also **deletes all its jobs**. You can also [delete single jobs](#delete-job).
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block you want to delete
-  2. Scroll down to the right menu. Press **Delete Block...**
-  3. Confirm deletion
+ 1. Select the block you want to delete
+ 2. Scroll down to the right menu. Press **Delete Block...**
+ 3. Confirm deletion
 
-  ![Deleting a block](./img/delete-block.jpg)
+ ![Deleting a block](./img/delete-block.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  1. Find the block you wish to delete under `blocks`
-  2. Delete the whole block with all its child jobs
-  3. Adjust dependencies on other blocks as necessary
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ 1. Find the block you wish to delete under `blocks`
+ 2. Delete the whole block with all its child jobs
+ 3. Adjust dependencies on other blocks as necessary
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - make build
-    # highlight-start
-    # block to delete
-    - name: Unit tests
-      dependencies:
-        - Build and Lint
-      task:
-        jobs:
-          - name: Test
-            commands:
-              - checkout
-              - make test
-    # highlight-end
-  ```
-  </TabItem>
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - make build
+ # highlight-start
+ # block to delete
+ - name: Unit tests
+  dependencies:
+  - Build and Lint
+  task:
+  jobs:
+  - name: Test
+  commands:
+  - checkout
+  - make test
+ # highlight-end
+ ```
+ </TabItem>
 </Tabs>
 
 
 :::warning
 
-Deleting a block deletes all it's children jobs.
+Deleting a block deletes all contained jobs.
 
 :::
 
@@ -572,45 +572,45 @@ Block settings apply to every child's job. Select any block to view its settings
 
 The prologue contains shell commands that run before every job begins. Use this to run common setup commands like downloading dependencies, setting the runtime version, or starting test services.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block
-  2. Open the prologue section and add your shell commands
-  ![Adding commands to the prologue](./img/prologue.jpg)
+ 1. Select the block
+ 2. Open the prologue section and add your shell commands
+ ![Adding commands to the prologue](./img/prologue.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
 
-  1. Locate the block you wish to add the prologue to
-  2. Add the `prologue` under `tasks`
+ 1. Locate the block you wish to add the prologue to
+ 2. Add the `prologue` under `tasks`
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - make build
-          - name: Lint
-            commands:
-              - make lint
-        # highlight-start
-        prologue:
-          commands:
-            - checkout
-        # highlight-end
-  ```
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - make build
+  - name: Lint
+  commands:
+  - make lint
+  # highlight-start
+  prologue:
+  commands:
+  - checkout
+  # highlight-end
+ ```
 
-  </TabItem>
+ </TabItem>
 </Tabs>
 
 ### Epilogue
@@ -620,50 +620,50 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 - **If the job has passed**: commands to run when the job passes (all commands in the job exited with zero status).
 - **If the job has failed**: commands to run when the job failed (one command in the job exited with non-zero status).
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block to add the epilogue to
-  2. Open the epilogue section and add your commands in the right box
-  ![Editing the block's epilogue](./img/epilogue.jpg)
+ 1. Select the block to add the epilogue to
+ 2. Open the epilogue section and add your commands in the right box
+ ![Editing the block's epilogue](./img/epilogue.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  1. Find the block where you wish to add the epilogue
-  2. Add the `epilogue` types you wish key under `tasks`
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ 1. Find the block where you wish to add the epilogue
+ 2. Add the `epilogue` types you wish key under `tasks`
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - make build
-          - name: Lint
-            commands:
-              - make lint
-        # highlight-start
-        epilogue:
-          always:
-            commands:
-              - echo "we are done here"
-          on_pass:
-            commands:
-              - echo "failure!"
-          on_fail:
-            commands:
-              - echo "success"
-        # highlight-end
-  ```
-  </TabItem>
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - make build
+  - name: Lint
+  commands:
+  - make lint
+  # highlight-start
+  epilogue:
+  always:
+  commands:
+  - echo "we are done here"
+  on_pass:
+  commands:
+  - echo "failure!"
+  on_fail:
+  commands:
+  - echo "success"
+  # highlight-end
+ ```
+ </TabItem>
 </Tabs>
 
 
@@ -671,111 +671,111 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 
 Environment variables will be exported into the shell environment of every job in the block. You must supply the variable name and its value. A block can have any number of environment variables.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  To add an environment variable:
-  1. Select the block
-  2. Open the Environment Variables section
-  3. Set your variable name and value
-  4. Press **+Add env vars** if you need more variables
-  5. Press the X if you need to delete a variable
+ To add an environment variable:
+ 1. Select the block
+ 2. Open the Environment Variables section
+ 3. Set your variable name and value
+ 4. Press **+Add env vars** if you need more variables
+ 5. Press the X if you need to delete a variable
 
-  ![Environment variables](./img/env-vars.jpg)
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
+ ![Environment variables](./img/env-vars.jpg)
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
 
-  1. Locate the block where you add the environment variables
-  2. Add `env_vars` key under `task`
-  3. Edit the variables `name` and `value`. You can have many variables under `env_vars`
+ 1. Locate the block where you add the environment variables
+ 2. Add `env_vars` key under `task`
+ 3. Edit the variables `name` and `value`. You can have many variables under `env_vars`
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - npm run build
-        # highlight-start
-        env_vars:
-          - name: NODE_ENV
-            value: production
-          - name: FOO
-            value: bar
-        # highlight-end
-  ```
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - npm run build
+  # highlight-start
+  env_vars:
+  - name: NODE_ENV
+  value: production
+  - name: FOO
+  value: bar
+  # highlight-end
+ ```
 
-  :::info
+ :::info
 
-  Numeric values need to be included in quotes.
+ Numeric values need to be included in quotes.
 
-  :::
-  </TabItem>
+ :::
+ </TabItem>
 </Tabs>
 
 
 
 <details>
-  <summary>Environment variables or shell exports?</summary>
-  <div>
-        <p>You can define block-level environment variables in two ways:</p>
-        <ul>
-            <li>By adding name-values under the <strong>environment variables section</strong></li>
-            <li>By using export in the job command window:<pre>export NODE_ENV="production"</pre></li>
-        </ul>
-  </div>
+ <summary>Environment variables or shell exports?</summary>
+ <div>
+ <p>You can define block-level environment variables in two ways:</p>
+ <ul>
+ <li>By adding name-values under the <strong>environment variables section</strong></li>
+ <li>By using export in the job command window:<pre>export NODE_ENV="production"</pre></li>
+ </ul>
+ </div>
 </details>
 
-### Secrets
+### Secrets {#secrets}
 
 Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list will decrypt the secret and inject its files or variables into all jobs in the block.
 
 Use secrets to store sensitive data like API keys, passwords, or SSH key files without revealing their contents.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block where you want to add the secrets
-  2. Open the secrets section and select the secrets to import
-  ![Importing secrets](./img/secrets.jpg)
+ 1. Select the block where you want to add the secrets
+ 2. Open the secrets section and select the secrets to import
+ ![Importing secrets](./img/secrets.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
-  1. Locate the block where you want to add the secrets
-  2. Add a `secrets` key under `tasks`
-  3. List the names of the secrets to import
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
+ 1. Locate the block where you want to add the secrets
+ 2. Add a `secrets` key under `tasks`
+ 3. List the names of the secrets to import
 
-  ```yaml title=".semaphore/semaphore.yaml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - npm run build
-        # highlight-start
-        secrets:
-          - name: mysecret
-          - name: awskey
-        # highlight-end
-  ```
-  </TabItem>
+ ```yaml title=".semaphore/semaphore.yaml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - npm run build
+  # highlight-start
+  secrets:
+  - name: mysecret
+  - name: awskey
+  # highlight-end
+ ```
+ </TabItem>
 </Tabs>
 
 
@@ -785,76 +785,76 @@ You can choose to skip or run the block only under certain conditions. When a bl
 
 Use cases for this feature include skipping a block on certain branches, or only running it when files in a defined folder have changed.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block to apply conditions
-  2. To disable conditions choose "Always run this block"
-  3. To enable conditions select either "Run this block when..." or "Skip this block when..."
-  4. Type the conditions to run or skip the block
+ 1. Select the block to apply conditions
+ 2. To disable conditions choose "Always run this block"
+ 3. To enable conditions select either "Run this block when..." or "Skip this block when..."
+ 4. Type the conditions to run or skip the block
 
-  ![Editing skip/run conditions](./img/conditions.jpg)
+ ![Editing skip/run conditions](./img/conditions.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML (Run/When)">
+ </TabItem>
+ <TabItem value="yaml" label="YAML (Run/When)">
 
-  1. Select the block where to edit the conditions
-  2. Under the block `name` add `run` and `when`
-  3. Type the condition that causes the block to run
+ 1. Select the block where to edit the conditions
+ 2. Under the block `name` add `run` and `when`
+ 3. Type the condition that causes the block to run
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - npm run build
-      # highlight-start
-      run:
-        when: branch = 'master'
-      # highlight-end
-  ```
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - npm run build
+  # highlight-start
+  run:
+  when: branch = 'master'
+  # highlight-end
+ ```
 
-  </TabItem>
-  <TabItem value="yaml2" label="YAML (Skip/When)">
+ </TabItem>
+ <TabItem value="yaml2" label="YAML (Skip/When)">
 
 
-  1. Select the block where to edit the conditions
-  2. Under the block `name`, add `skip` and `when` keys
-  3. Type the condition that causes the block to be skipped
+ 1. Select the block where to edit the conditions
+ 2. Under the block `name`, add `skip` and `when` keys
+ 3. Type the condition that causes the block to be skipped
 
-  ```yaml title=".semaphore/semaphore.yml"
-  version: v1.0
-  name: Initial pipeline
-  agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - npm run build
-      # highlight-start
-      skip:
-        when: branch = 'master'
-      # highlight-end
-  ```
+ ```yaml title=".semaphore/semaphore.yml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - npm run build
+  # highlight-start
+  skip:
+  when: branch = 'master'
+  # highlight-end
+ ```
 
-  </TabItem>
+ </TabItem>
 </Tabs>
 
 
@@ -862,46 +862,46 @@ Use cases for this feature include skipping a block on certain branches, or only
 
 The agent is the *machine type* and *operating system* that runs the jobs. Every pipeline has a [default agent](./pipelines#settings), but you can override the agent for specific blocks.
 
-<Tabs groupId="jobs">
-  <TabItem value="editor" label="Editor">
+<Tabs groupId="editor-yaml">
+ <TabItem value="editor" label="Editor">
 
-  1. Select the block to override the agent
-  2. Open the agent section and check the option "Override global agent definition"
-  3. Select the environment type
-  4. Select the OS image
-  5. Select the machine type
+ 1. Select the block to override the agent
+ 2. Open the agent section and check the option "Override global agent definition"
+ 3. Select the environment type
+ 4. Select the OS image
+ 5. Select the machine type
 
-  ![Overriding the global agent](./img/agent.jpg)
+ ![Overriding the global agent](./img/agent.jpg)
 
-  </TabItem>
-  <TabItem value="yaml" label="YAML">
+ </TabItem>
+ <TabItem value="yaml" label="YAML">
 
-  1. Select the block where you want to override the agent.
-  2. Add an `agent` key under the `task`
-  3. Set the `machine` and `os_image`
+ 1. Select the block where you want to override the agent.
+ 2. Add an `agent` key under the `task`
+ 3. Set the `machine` and `os_image`
 
-  ```yaml title=".semaphore/semaphore.yaml"
-  version: v1.0
-  name: Initial pipeline
+ ```yaml title=".semaphore/semaphore.yaml"
+ version: v1.0
+ name: Initial pipeline
+ agent:
+ machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+ blocks:
+ - name: Build and Lint
+  dependencies: []
+  task:
+  jobs:
+  - name: Build
+  commands:
+  - checkout
+  - npm run build
+  # highlight-start
   agent:
-    machine:
-      type: e1-standard-2
-      os_image: ubuntu2004
-  blocks:
-    - name: Build and Lint
-      dependencies: []
-      task:
-        jobs:
-          - name: Build
-            commands:
-              - checkout
-              - npm run build
-        # highlight-start
-        agent:
-          machine:
-            type: e1-standard-2
-            os_image: ubuntu2004
-        # highlight-end
-  ```
-  </TabItem>
+  machine:
+  type: e1-standard-2
+  os_image: ubuntu2004
+  # highlight-end
+ ```
+ </TabItem>
 </Tabs>

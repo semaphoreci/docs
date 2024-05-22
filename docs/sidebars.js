@@ -49,9 +49,9 @@ const sidebars = {
       items: [
         'using-semaphore/jobs',
         'using-semaphore/pipelines',
-        'using-semaphore/agents',
+        'using-semaphore/deployment-targets',
+        'using-semaphore/tasks',
         'using-semaphore/tests',
-        'using-semaphore/deployment',
         'using-semaphore/observability',
         'using-semaphore/optimization',
         'using-semaphore/account-and-security',
