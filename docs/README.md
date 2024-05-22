@@ -1,105 +1,26 @@
 # Semaphore Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repo contains the source for the Semaphore docs site, including the content of the docs and docs engine.
 
-## Installation
+If you notice that something is vague, inaccurate, or incomplete about the documentation, or have an idea for a great guide, we encourage you to create a GitHub issue in this repository using our [issue template](./).
 
-```shell
-npm install
-```
+## Contribution
 
-## Local Development
+To learn how to contribute to the Semaphore docs site, please refer to the following guides:
 
-```shell
-npm start
-```
+- [How to Contribute](./docs-contributing/CONTRIBUTING.md): A comprehensive guide to making changes to the Semaphore documentation.
+- [How to Review](./docs-contributing/REVIEWING.md): Instructions on how to set up a local preview site to review documentation changes.
+- [Style Guide](./docs-contributing/STYLE_GUIDE.md): Guidelines for maintaining consistency in the Semaphore documentation.
+- [UI Reference](./docs-contributing/UI-REFERENCE.md): A reference for UI components available to documentation authors.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Interest group meetings
 
-## How to add a category
+WIP
 
-To add new category in the top navbar:
-1. Open `docusaurus.config.js`
-2. Go to `config.themeConfig.navbar.items`. Add your category.
-    ```js
-            {
-                type: 'docSidebar',
-                sidebarId: 'yourSidebarId',
-                position: 'left',
-                label: 'The top navbar label',
-            },
-    ```
+## Top Contributors
 
-## How to add a item on the sidebar
+WIP
 
-To add a item in the sidebar:
-1. Writer your document (eg `folder/item2.md` )
-2. Open `sidebars.js` 
-3. Go to `sidebars.yourSidebarId` 
-4. To add an item, add it to `items`. Remove the `.md` from the filename
-    ```js
-    items: [ 'folder/item1', 'folder/item2' ]
-    ```
+## License
 
-## How to add a new sidebar 
-
-To add a new sidebar (because you added a category):
-1. Write your documents (eg `folder/item1.md` and `folder/item2.md`)
-2. Open `sidebars.js` 
-3. Go to `sidebars.yourSidebarId` 
-4. To add an sidebar your the items.
-    ```js
-    yourSidebarId: [
-        {
-        type: 'category',
-        label: 'Your Category Label',
-        link: {
-            type: 'generated-index',
-            title: 'Your title for the category page',
-            description: 'Your description to the category page',
-            keywords: ['your', 'keywords'],
-        },
-        items: ['folder/item1', 'folder/item2' ],
-        },
-    ],
-    ```
-
-## Lint
-
-We use [markdownlint](https://github.com/DavidAnson/markdownlint-cli2) to check Markdown files for style errors.
-
-Run the linter before commiting:
-```shell
-npm run lint
-```
-
-## Build
-
-```shell
-npm run build
-npn run serve
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
-
-```shell
-USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```shell
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-
-## Plugins
-
-Extra Plugins/Packages needed:
-- [@easyops-cn/docusaurus-search-local](https://github.com/easyops-cn/docusaurus-search-local)
+WIP
