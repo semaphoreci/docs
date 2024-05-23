@@ -491,7 +491,7 @@ After [adding a promotion](#manual-promotion), you can set automatic conditions.
  </TabItem>
 </Tabs>
 
-## Parameterized promotions
+## Parameterized promotions {#parameters}
 
 Parameterized promotions allow you to propagate environment variables on all jobs in the next pipeline. 
 

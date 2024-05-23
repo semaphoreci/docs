@@ -84,3 +84,16 @@ You can pass an array of plans instead.
 // Renders as: Available on Semaphore Cloud: Startup Scalup
 <Available  plans={['Startup','Scaleup']}/>
 ```
+
+## Toggable content
+
+You can hide less important elements using a toggable content
+
+```html
+<details>
+ <summary>You will see this line</summary>
+ <div>This content is hidden until the reader toggles the content</div>
+</details>
+```
+
+You can add regular markdown inside the `<div>`

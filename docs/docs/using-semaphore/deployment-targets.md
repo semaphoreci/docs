@@ -1,57 +1,190 @@
 ---
-description: Control who and what can trigger promotions
+description: Secure your continuous deployment pipelines
 ---
 
 # Deployment Targets
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Available from '@site/src/components/Available';
+
+## Overview
+
+Deployment targets allows you to tightly control [promotions](./pipelines.md#promotions), preventing unauthorized users from starting a critical pipelines. In addition, deployment targests can restrict branches, pull request, and protect *secrets*.
+
+Configuring a deployment target is a two-step process:
+1. Create a deployment target
+2. Associate the target with a promotion
 
 
-WIP
+## How to create a deployment target {#create}
 
-1. Create deployment target
-2. Create promotion
-3. Link promotion to deployment target
+Deployment targets can be defined once and used in multiple promotions in a project.
 
-Goals: 
-- control who and what branch/tag/pr can trigger a promotion
-- control if automatic promotions are allowed
-- set special/hidden environment variables, files, or secrets for the promotion
-- a dedicated view a history of deployments, you can detailed history pipeline or easily rerun 
-  deployment (only promoted pipeline is run, not full workflow).
+To create a deployment target, navigate to your Semaphore project and:
+1. Go to the **Deployment Targets** tab
+2. Press **Create your first Deployment Target**
+  ![Creating a deployment target](./img/deployment-target-create.jpg)
+3. Fill in the deployment details:
+   - Name of the deployment
+   - Optional description
+   - Optional URL of the deployed application
+   - Optional bookmarks
+4. Press **Next**
+<details>
+ <summary>Open to view an example</summary>
+ <div>![Example deployment target](./img/deployment-target-1.jpg)</div>
+</details>
 
-There's a lock icon: changes between lock/unlock depending on situation: Show what happens if branch/person in target is forbidden
+The bookmarks are useful when using [parameterized promotions](./pipelines#parameters). You can add up to three bookmarks matchig the names of the parameters in the promotions. Think of the bookmarks as additional filters available in the deployment history view. 
 
-How to use bookmark:
-1. Only if using parametrized promotion
-2. The bookmark in the target should match interesting parameter names, e.g. ENVIRONMENT
-3. View deployment tab
-4. Click view hitory button
-5. Type the value in promotion parameters: "Production" or "Stage"
-6. Press enter. You will only see deployments that match the string
+### Credentials
+
+Credentials are a restricted type of *secrets* that are only accessible to authorized members of your organization.
+
+In the second part of the deployment target we can define environment variables and upload files that will be accessible to the promoted pipelines. All information will be encrypted once saved.
+
+Credentials are optional. Go to the next step if you don't need them.
+
+1. Set the environment variable name and value
+2. Add more variables as needed
+3. Upload a file and set where to put it in the [agent](./pipelines#agents)
+4. Add more files as needed
+5. Press **Next**
+
+![Setting up credentials for the deployment target](./img/deployment-target-2.jpg)
+
+### Granular permissions
+
+<Available plans={['Scaleup']} />
+
+In the "Who can deploy?" section you can define the users and roles that can manually start the promotion. Granular permission are optional. You can go to the next section if you don't need to restrict access to the promotion.
+
+By default, everyone can start the promotion linked to this deployment target. To restrict access:
+
+1. Select "Allow only particular users to deploy"
+2. Optionally, select the roles that can deploy from the list
+3. Optionally, select the members of your organization that can deploy
+4. Uncheck the "Allow automatic promotions.." option to disallow [automatic promotions](./pipelines#automatic-promotions)
+5. Press **Next**
+
+![Configuring granular access permissions for the deployment target](./img/deployment-target-3.jpg)
+
+### Git-based permissions
+
+In the fourth section of deployment targets you can restrict which Git branches and tags are be allowed to start a promotion. Here you can also block promotions coming from pull requests. This section is optional.
+
+To restrict Git-based access:
+1. Select which branches are enabled for promotions: all, none or list of allowed branches
+2. Select which Git tags are enabled: all, none or list of allowed tags
+3. Enable or disable pull requests from triggering promotions
+4. Press **Next**
+5. Press **Create**
+
+![Setting up Git-based permissions](./img/deployment-target-4.jpg)
+
+<details>
+ <summary>Exact match or regular expressions?</summary>
+ <div>
+Branches and tags can be matched in two ways:
+- **Exact match**: strings must match exactly
+- **Regex match**: strings are matched using against Perl-compatible regular expressions. See the [Erlang re module documentation](https://www.erlang.org/doc/man/re.html) to see more details on the syntax
+ </div>
+</details>
+
+Once done, you can see the created deployment targets in the Deployments tab.
 
 
-Deployment target
+## How to target promotions {#promotion}
 
-https://docs.semaphoreci.com/essentials/deployment-targets/
+Once you have created at least one deployment target, you can associate it with a [promotion](./pipelines#promotions). This creates a targeted promotion.
 
-Deployment Targets allow you to apply strict conditions for who can start individual pipelines and under which conditions. Using them, you have the ability to control who has the ability to start specific promoted pipelines or select git references (branches and tags).
+![Deployment target created](./img/deployment-target-created.jpg)
 
-Combining the functionality of promotions and Deployment Targets gives you a full toolset to configure secure Continuous Deployment pipelines. This is backwards compatible with your previous setup.
+<Tabs groupId="editor-yaml">
+  <TabItem value="editor" label="Editor">
+  Press **Edit workflow** to open the visual editor and:
+  1. Select or create a promotion
+  2. In **Deployment target**, select the target from the dropdown list
 
-The core advantage of using Deployment Targets is multi-faceted access control, i.e. taking many factors into account while granting the right to promote. Moreover, they are backed with a dedicated secret, unique per Deployment Target and inaccessible to outside Deployments. Last but not least, Deployment Targets give you a clear overview of your previous deployments, so you can see which version was shipped and by whom.
+  Select **No target** to remove the association between the deployment target and the promotion.
+  ![Associating a deployment target with a promotion](./img/promotion-target.jpg)
+  </TabItem>
+  <TabItem value="yaml" label="YAML">
+  1. Edit the pipeline file with the promotion you wish to target
+  2. Add a `deployment_target` key to the promotion. The value is the name of the deployment target you wish to associate with this promotion
 
-## How to add targets
+  Delete `deployment_target` to remove the association between the deployment target and the promotion.
 
-## Access control
+  ```yaml title=".semaphore/semaphore.yml"
+  # ...
+  promotions:
+    - name: Promotion 1
+      pipeline_file: deploy.yml
+      # highlight-next-line
+      deployment_target: Production
+  ```
+  </TabItem>
+</Tabs>
 
-## Promotions with the UI
+## How to start targeted promotions
 
-## Promotions with the API
+[Targeted promotions](#promotion) show a lock icon next to the promotion buton. The icon will be unlocked if you have permissions to start the promotion or locked if you don't.
 
-### Deployment history
+<Tabs groupId="targeted-promotions">
+  <TabItem value="unlocked" label="Unlocked promotion">
+  Promotion is unlocked. Press the promotion button to start the next pipeline.
+  ![Promotion is unlocked](./img/promotion-unlocked.jpg)
+  </TabItem>
+  <TabItem value="locked" label="Locked promotion">
+  Promotion is unlocked. The button is grayed out and you can't start the next pipeline.
+  ![Promotion is locked](./img/promotion-locked.jpg)
+  </TabItem>
+</Tabs>
 
+:::warning
 
+Anyone with write access to the repository can edit the pipeline file and remove the deployment target in the promotion.
 
+:::
 
+### Help! I can't start a promotion
+
+Once a [promotion is targeted](#promotion), you may be locked out from starting it.  The most common reasons that a promotion appears as blocked are:
+
+- you don't have the correct permissions to deploy to the bound [deployment target](#overview)
+- you are on Git branch, tag, or pull request that is not allowed
+- you are not logged in or you are viewing a build of a public project
+- the deployment target is deactivated or deleted
+
+### Starting promotions with the API
+
+You can also use the *Public API (alpha)* to trigger promotions. If promotion is forbidden by deployment target, you will receive an "HTTP 400 Bad Request" response with a reason in the body.
+
+## How to view deployment history
+
+The **Deployment** tab allows you to track your previous deployments. In this tab, you can see:
+
+- how started the last deployment
+- which commit was used
+- what workflow the deployment belongs to
+
+You can also stop a running pipeline or rerun a promotion if you have rights to do so.
+
+![Deployment history](./img/deployment-history-1.jpg)
+
+Press **View full history** to see the latest deployments in the reverse-chronological order.
+
+![Deployment history details](./img/deployment-history-2.jpg)
+
+Use **Newer** and **Older** buttons to navigate to other pages. If you want to jump to a specific date, click on the right top Jump to date button.
+
+You can also filter deployments by:
+- **type**: view branches, tags, pull requests, or everything
+- **author**: everyone or just you
+- **origin**: branch, tag, or pull request
+- **promotion parameters**: these are the [bookmarks](#created) added to the deployment target
+
+To filter using promotion parameters, type the value of the parameter and press Enter. This feature is useful when you have [parameterized promotions](./pipelines#promotions).
+
+![Deployment history filtered by parameters](./img/deployment-history-3.jpg)
