@@ -15,11 +15,12 @@ const config = {
   // extra themes
   themes: [
     // required for search
-    ["@easyops-cn/docusaurus-search-local",
-    {
-      hashed: true,
-      language: ["en"]
-    }],
+    // Disabled for now, it's not working with hash router
+    // ["@easyops-cn/docusaurus-search-local",
+    // {
+    //   hashed: 'filename',
+    //   language: ["en"]
+    // }],
   ],
 
   // Production url of your site here
@@ -178,6 +179,9 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
+  future: {
+    experimental_router: 'hash', // default to "browser"
+  }
 };
 
 export default config;
