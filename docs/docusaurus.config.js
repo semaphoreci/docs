@@ -83,8 +83,8 @@ const config = {
         title: 'Semaphore Docs',
         logo: {
           alt: 'Semaphore Logo',
-          src: 'img/logo.png',
-          srcDark: 'img/logo-dark.png'
+          src: 'img/logo.svg',
+          srcDark: 'img/logo-white.svg'
         },
         items: [
           {

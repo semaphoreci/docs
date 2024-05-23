@@ -61,4 +61,26 @@ To use tabs:
 
 The `groupID` is optional. Tabs sharing a group id will switch together through the document.
 
+## Plans
 
+We use a special admonition to mark features that are available only with specific plans.
+
+First import the React component:
+
+```js
+import Available from '@site/src/components/Available';
+```
+
+Then use the admonition in the MDX.
+
+```js
+// Renders as: Available on Semaphore Cloud: All Plans
+<Available  />
+```
+
+You can pass an array of plans instead.
+
+```js
+// Renders as: Available on Semaphore Cloud: Startup Scalup
+<Available  plans={['Startup','Scaleup']}/>
+```
