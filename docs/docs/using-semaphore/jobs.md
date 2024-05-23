@@ -6,6 +6,7 @@ description: The basic unit of work
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Available from '@site/src/components/Available';
 
 Jobs get stuff done. This page explains how jobs work, how you can configure them, and what settings are available.
 
@@ -219,6 +220,8 @@ Port-forwarding only works for Virtual Machine-based agents.
 
 ## Semaphore toolbox
 
+<Available/>
+
 Most CI platforms provide primitives in their config to do standard actions like checking out the code from the repository. For example, GitHub Actions has a [checkout action](https://github.com/actions/checkout) while CircleCI has a [checkout step](https://circleci.com/docs/hello-world/). 
 
 Semaphore is different: it doesn't provide YAML primitives for standard tasks like persisting files or checking out code. They add unnecessary complexity to the YAML syntax. Instead, Semaphore gives you the *toolbox*, which is a suite of shell scripts that let you achieve all these tasks and more.
@@ -299,12 +302,6 @@ The highlighted lines show how to use the cache:
 
 Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to *supply additional arguments*.
 
-:::info
-
-cache and artifact only works in Semaphore Cloud
-
-:::
-
 ### artifact
 
 The *artifact* command can be used as:
@@ -337,13 +334,6 @@ artifact push project hello.exe
 Artifacts can be viewed and downloaded from the Semaphore project.
 
 ![Artifact view in Semaphore](./img/artifact-view.jpg)
-
-
-:::info
-
-cache and artifact only works in Semaphore Cloud
-
-:::
 
 ## How to run jobs sequentially
 

@@ -6,6 +6,7 @@ description: Orchestrate jobs, configure global settings, and launch deployments
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Available from '@site/src/components/Available';
 
 ## Overview
 
@@ -151,8 +152,9 @@ The pipeline settings are:
 7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore will queue these runs. You can, for example, stop the current pipeline and run the newer commits instead.
 8. **YAML file path**: you can override where the pipeline config file is located in your repository.
 
-
 ### Agents
+
+<Available/>
 
 Agents are the environment where jobs run. Semaphore keeps a pool of warm agents at all times to be sure there's always one ready to work.
 
@@ -593,6 +595,8 @@ Once you have [added a parameter](#how-to-add-parameters), you can select its va
 
 ### Promoting with the API
 
+<Available/>
+
 You can pass parameter values to the promotion when it is triggered using the *Semaphore API*.
 
 The following is an example of a curl call that includes parameters:
@@ -602,12 +606,6 @@ curl -H "Authorization: Token {api_token}" \
  -d "name={promotion_name}&pipeline_id={parent_pipeline_id}&{param_1_name}={param_1_value}&{param_2_name}={param_2_value}" \
  -X POST "https://{org_name}.semaphoreci.com/api/v1alpha/promotions"
 ```
-
-:::info
-
-Only supported in Semaphore Cloud.
-
-:::
 
 ### Accessing parameters in jobs
 
