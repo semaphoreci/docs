@@ -46,26 +46,26 @@ To set up a local environment for contributing to Semaphore documentation:
 
 1. Open a terminal shell on your computer.
 
-1. Clone the `semaphoreci/docs` repository by running the following command:
+2. Clone the `semaphoreci/docs` repository by running the following command:
 
    ```bash
-   $ git clone https://github.com/semaphoreci/docs 
+   git clone https://github.com/semaphoreci/docs 
    ```
 
-2. Change to the root of the `docs` directory:
+3. Change to the root of the `docs` directory:
    
    ```bash
-   $ cd docs
+   cd docs
    ```
 
-3. Update the documentation to the latest version from the master branch:
+4. Update the documentation to the latest version from the master branch:
    
    ```bash
-   $ git pull
+   git pull
    ```
 
-4. Install dependencies:
+5. Install dependencies:
    
    ```bash
-   $ npm install
+   npm install
    ```
