@@ -8,6 +8,18 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of May 27, 2024
+
+**(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
+
+**(New)** Packages:
+
+- Elixir 1.15.8, 1.16.3
+- PHP 8.1.28, 8.2.17, 8.2.18, 8.2.19, 8.3.4, 8.3.6, 8.3.7
+- Ruby 3.0.7, 3.1.5, 3.2.4, 3.1.3
+
+To learn more about these images check our [Ubuntu 20.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/), [Ubuntu 22.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/) and [Ubuntu 22.04 ARM](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-arm-image/).
+
 ### Week of March 11, 2024
 
 **(Improved) macos-xcode15 image update**
