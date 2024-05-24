@@ -1,5 +1,5 @@
 ---
-description: Secure your continuous deployment pipelines
+description: Secure your deployment pipelines
 ---
 
 # Deployment Targets
@@ -24,7 +24,12 @@ Deployment targets can be defined once and used in multiple promotions in a proj
 To create a deployment target, navigate to your Semaphore project and:
 1. Go to the **Deployment Targets** tab
 2. Press **Create your first Deployment Target**
- ![Creating a deployment target](./img/deployment-target-create.jpg)
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Creating a deployment target](./img/deployment-target-create.jpg)
+        </div>
+    </details>
 3. Fill in the deployment details:
     - Name of the deployment
     - Optional description
@@ -32,10 +37,10 @@ To create a deployment target, navigate to your Semaphore project and:
     - Optional bookmarks
 4. Press **Next**
 
-<details>
- <summary>Open to view an example</summary>
- <div>![Example deployment target](./img/deployment-target-1.jpg)</div>
-</details>
+    <details>
+    <summary>Show me</summary>
+    <div>![Example deployment target](./img/deployment-target-1.jpg)</div>
+    </details>
 
 The bookmarks are useful when using [parameterized promotions](./pipelines#parameters). You can add up to three bookmarks matching the names of the parameters in the promotions. Think of the bookmarks as additional filters available in the deployment history view. 
 
@@ -53,7 +58,12 @@ Credentials are optional. Go to the next step if you don't need them.
 4. Add more files as needed
 5. Press **Next**
 
-![Setting up credentials for the deployment target](./img/deployment-target-2.jpg)
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Setting up credentials for the deployment target](./img/deployment-target-2.jpg)
+        </div>
+    </details>
 
 ### Granular permissions
 
@@ -69,7 +79,12 @@ By default, everyone can start the promotion linked to this deployment target. T
 4. Uncheck the "Allow automatic promotions.." option to disallow [automatic promotions](./pipelines#automatic-promotions)
 5. Press **Next**
 
-![Configuring granular access permissions for the deployment target](./img/deployment-target-3.jpg)
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Configuring granular access permissions for the deployment target](./img/deployment-target-3.jpg)
+        </div>
+    </details>
 
 ### Git-based permissions
 
@@ -82,19 +97,22 @@ To restrict Git-based access:
 4. Press **Next**
 5. Press **Create**
 
-![Setting up Git-based permissions](./img/deployment-target-4.jpg)
-
-<details>
- <summary>Exact match or regular expressions?</summary>
- <div>
-Branches and tags can be matched in two ways:
-- **Exact match**: strings must match exactly
-- **Regex match**: strings are matched using Perl-compatible regular expressions. See the [Erlang re module documentation](https://www.erlang.org/doc/man/re.html) to see more details on the syntax
- </div>
-</details>
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Setting up Git-based permissions](./img/deployment-target-4.jpg)
+        </div>
+    </details>
 
 Once done, you can see the created deployment targets in the Deployments tab.
 
+:::tip Exact match or regular expressions?
+
+Branches and tags can be matched in two ways:
+- **Exact match**: strings must match exactly
+- **Regex match**: strings are matched using Perl-compatible regular expressions. See the [Erlang re module documentation](https://www.erlang.org/doc/man/re.html) to see more details on the syntax
+
+:::
 
 ## How to target promotions {#promotion}
 
@@ -103,29 +121,33 @@ Once you have created at least one deployment target, you can associate it with 
 ![Deployment target created](./img/deployment-target-created.jpg)
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- Press **Edit workflow** to open the visual editor and:
- 1. Select or create a promotion
- 2. In **Deployment target**, select the target from the dropdown list
+<TabItem value="editor" label="Editor">
 
- Select **No target** to remove the association between the deployment target and the promotion.
- ![Associating a deployment target with a promotion](./img/promotion-target.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
- 1. Edit the pipeline file with the promotion you wish to target
- 2. Add a `deployment_target` key to the promotion. The value is the name of the deployment target you wish to associate with this promotion
+Press **Edit workflow** to open the visual editor and:
+1. Select or create a promotion
+2. In **Deployment target**, select the target from the dropdown list
 
- Delete `deployment_target` to remove the association between the deployment target and the promotion.
+Select **No target** to remove the association between the deployment target and the promotion.
+![Associating a deployment target with a promotion](./img/promotion-target.jpg)
 
- ```yaml title=".semaphore/semaphore.yml"
- # ...
- promotions:
- - name: Promotion 1
- pipeline_file: deploy.yml
- # highlight-next-line
- deployment_target: Production
- ```
- </TabItem>
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+1. Edit the pipeline file with the promotion you wish to target
+2. Add a `deployment_target` key to the promotion. The value is the name of the deployment target you wish to associate with this promotion
+
+Delete `deployment_target` to remove the association between the deployment target and the promotion.
+
+```yaml title=".semaphore/semaphore.yml"
+# ...
+promotions:
+  - name: Promotion 1
+    pipeline_file: deploy.yml
+    # highlight-next-line
+    deployment_target: Production
+```
+
+</TabItem>
 </Tabs>
 
 ## How to start targeted promotions
@@ -133,14 +155,18 @@ Once you have created at least one deployment target, you can associate it with 
 [Targeted promotions](#promotion) shows a lock icon next to the promotion button. The icon will be unlocked if you have permission to start the promotion or locked if you don't.
 
 <Tabs groupId="targeted-promotions">
- <TabItem value="unlocked" label="Unlocked promotion">
- The promotion is unlocked. Press the promotion button to start the next pipeline.
- ![Promotion is unlocked](./img/promotion-unlocked.jpg)
- </TabItem>
- <TabItem value="locked" label="Locked promotion">
- The promotion is unlocked. The button is grayed out and you can't start the next pipeline.
- ![Promotion is locked](./img/promotion-locked.jpg)
- </TabItem>
+<TabItem value="unlocked" label="Unlocked promotion">
+
+The promotion is unlocked. Press the promotion button to start the next pipeline.
+![Promotion is unlocked](./img/promotion-unlocked.jpg)
+
+</TabItem>
+<TabItem value="locked" label="Locked promotion">
+
+The promotion is unlocked. The button is grayed out and you can't start the next pipeline.
+![Promotion is locked](./img/promotion-locked.jpg)
+
+</TabItem>
 </Tabs>
 
 :::warning

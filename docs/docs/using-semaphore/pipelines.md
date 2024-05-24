@@ -1,5 +1,5 @@
 ---
-description: Orchestrate jobs, configure global settings, and launch deployments.
+description: Orchestrate jobs and ship software.
 ---
 
 # Pipelines
@@ -15,55 +15,56 @@ The pipeline is the configuration unit. Each pipeline is encoded as a YAML file.
 For reference, here is an example pipeline with its respective YAML.
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Example pipeline">
+<TabItem value="editor" label="Example pipeline">
+
  ![Example job with a single test](./img/example-pipeline.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
- machine:
- type: e1-standard-2
- os_image: ubuntu2004
- blocks:
- - name: Build
- task:
- jobs:
- - name: Build
- commands:
- - checkout
- - npm install
- - npm run build
- - artifact push workflow dist
- - name: Test
- dependencies:
- - Build
- task:
- jobs:
- - name: Unit tests
- commands:
- - checkout
- - artifact pull workflow dist
- - 'npm run test:unit'
- - name: Integration
- commands:
- - checkout
- - artifact pull workflow dist
- - 'npm run test:integration'
- - name: UI Tests
- dependencies:
- - Test
- task:
- jobs:
- - name: UI tests
- commands:
- - checkout
- - artifact pull workflow dist
- - npm run serve &
- - 'npm run test:ui'
- ```
- </TabItem>
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+  containers:
+    - name: main
+      image: 'semaphoreci/ubuntu:20.04'
+blocks:
+  - name: Build
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - echo "build commands here"
+  - name: Test
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Unit tests
+          commands:
+            - checkout
+            - echo "unit tests commands here"
+        - name: Integration tests
+          commands:
+            - checkout
+            - echo "integration tests commands here"
+  - name: UI Tests
+    dependencies:
+      - Test
+    task:
+      jobs:
+        - name: UI Test
+          commands:
+            - checkout
+            - echo "UI tests commands here"
+```
+
+</TabItem>
 </Tabs>
 
 ## Job execution order {#dependencies}
@@ -87,71 +88,6 @@ In the following example:
 
 Pipeline settings are applied to all jobs it contains. You can change pipeline settings with the editor or directly in the YAML.
 
-<Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- ![Pipelines settings screeen](./img/pipeline-settings.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- # highlight-next-line
- agent:
- machine:
- type: e1-standard-2
- os_image: ubuntu2004
- # highlight-next-line
- execution_time_limit:
- hours: 2
- # highlight-next-line
- fail_fast:
- stop:
- when: 'true'
- # highlight-next-line
- auto_cancel:
- running:
- when: 'true'
- global_job_config:
- # highlight-next-line
- prologue:
- commands:
- - echo "this is the prologue"
- # highlight-next-line
- epilogue:
- always:
- commands:
- - 'echo "epilogue: is always executed"'
- on_pass:
- commands:
- - 'echo "epilogue: executed only if job passes"'
- on_fail:
- commands:
- - 'echo "epilogue: executed only if job fails"'
- blocks:
- - name: Build
- task:
- jobs:
- - name: Build
- commands:
- - checkout
- - npm install
- - npm run build
- ```
- </TabItem>
-</Tabs>
-
-
-The pipeline settings are:
-
-1. **Agent**: the *agent environment* where the jobs in the pipeline will run — [unless overriden](./jobs#agent-override).
-2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several *machine types* out of the box. You can add more types using *self-hosted agents*.
-3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands will be prepended to the job commands in the pipeline.
-4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands will be appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or always runs.
-5. **Execution time limit**: time limit for job execution. Defaults to 1 hour. Any jobs running longer than this limit will be forcibly stopped.
-6. **Fail-fast**: defines what to do when a job fails. Here you can configure the Semaphore to stop all running jobs as soon as one fails or set custom behaviors.
-7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore will queue these runs. You can, for example, stop the current pipeline and run the newer commits instead.
-8. **YAML file path**: you can override where the pipeline config file is located in your repository.
-
 ### Agents
 
 <Available/>
@@ -171,42 +107,48 @@ You can register additional machines as agents for your organization by *install
 To select the agent running your jobs by default:
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
+<TabItem value="editor" label="Editor">
 
- 1. Select the pipeline
- 2. Select the "Environment Type": Linux, Mac, or Docker
- 3. Select the "Operating System" version
- 4. Select the *machine type*
+1. Select the pipeline
+2. Select the "Environment Type": Linux, Mac, or Docker
+3. Select the "Operating System" version
+4. Select the *machine type*
 
- The available hardware changes depending on the type of environment you selected.
+The available hardware changes depending on the type of environment you selected.
 
- ![Agent Selection](./img/agent-settings.jpg)
+![Agent Selection](./img/agent-settings.jpg)
 
- </TabItem>
- <TabItem value="yaml" label="YAML">
+</TabItem>
+<TabItem value="yaml" label="YAML">
 
- 1. Add the `agent` and `machine` keys
- 2. Add the hardware `type`. The value must be one of the supported *machine types*
- 3. Add the `os_image`. Value must be one of the supported *operating systems*
+1. Add the `agent` and `machine` keys
+2. Add the hardware `type`. The value must be one of the supported *machine types*
+3. Add the `os_image`. Value must be one of the supported *operating systems*
 
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial Pipeline
- # highlight-start
- agent:
- machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- # highlight-start
- blocks:
- - name: 'Block #1'
-  task:
-  jobs:
-  - name: 'Job #1'
-  commands:
-  - checkout
- ```
- </TabItem>
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+# highlight-start
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-end
+blocks:
+  - name: 'Block #1'
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+```
+
+</TabItem>
 </Tabs>
 
 ### Docker containers {#docker-environments}
@@ -225,47 +167,55 @@ If you want to build and run Docker images in your jobs, check the *working with
 To run the job inside a Docker container:
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- 1. Select the pipeline
- 2. In "Environment Types" select "Docker Container(s)"
- 3. Select the *machine type*
- 4. Type the name of the container
- 5. Optionally, add environment variables
- 6. Optionally, add more containers
+<TabItem value="editor" label="Editor">
 
- ![Setting Docker environments](./img/agent-docker.jpg)
+1. Select the pipeline
+2. In "Environment Types" select "Docker Container(s)"
+3. Select the *machine type*
+4. Type the name of the container
+5. Optionally, add environment variables
+6. Optionally, add more containers
 
- </TabItem>
- <TabItem value="yaml" label="YAML">
+![Setting Docker environments](./img/agent-docker.jpg)
 
- 1. Add the `agent` and `machine`
- 2. Add a `containers` key
- 3. Each list item is a container. The first one must be called `main`
- 4. Add the `image`
- 5. Optionally add more containers
+</TabItem>
+<TabItem value="yaml" label="YAML">
 
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial Pipeline
- agent:
- machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- containers:
-  - name: main
-  image: 'semaphoreci/ubuntu:20.04'
-  - name: web
-  image: nginx
- blocks:
- - name: 'Block #1'
-  task:
-  jobs:
-  - name: 'Job #1'
-  commands:
-  - 'curl http://web'
- ```
+1. Add the `agent` and `machine`
+2. Add a `containers` key
+3. Each list item is a container. The first one must be called `main`
+4. Add the `image`
+5. Optionally add more containers
 
- </TabItem>
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+# highlight-start
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+  containers:
+    - name: main
+      image: 'semaphoreci/ubuntu:20.04'
+    - name: web
+      image: nginx
+# highlight-end
+blocks:
+  - name: 'Block #1'
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'curl http://web'
+```
+
+</TabItem>
 </Tabs>
 
 :::warning
@@ -273,6 +223,78 @@ To run the job inside a Docker container:
 Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/), Semaphore will automatically redirect any pulls from the semaphoreci Docker Hub repository to the *Semaphore Container Registry*.
 
 :::
+
+### Other settings
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+ ![Pipelines settings screeen](./img/pipeline-settings.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+execution_time_limit:
+  hours: 2
+fail_fast:
+  stop:
+    when: 'true'
+auto_cancel:
+  running:
+    when: 'true'
+global_job_config:
+  prologue:
+    commands:
+      - checkout
+  epilogue:
+    always:
+      commands:
+        - echo "this is always executed"
+    on_pass:
+      commands:
+        - echo "job finished success"
+    on_fail:
+      commands:
+        - echo "job finished failure"
+# highlight-end
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - npm run build
+```
+
+</TabItem>
+</Tabs>
+
+
+The pipeline settings are:
+
+1. **Agent**: the *agent environment* where the jobs in the pipeline will run — [unless overriden](./jobs#agent-override).
+2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several *machine types* out of the box. You can add more types using *self-hosted agents*.
+3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands will be prepended to the job commands in the pipeline.
+4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands will be appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or always runs.
+5. **Execution time limit**: time limit for job execution. Defaults to 1 hour. Any jobs running longer than this limit will be forcibly stopped.
+6. **Fail-fast**: defines what to do when a job fails. Here you can configure the Semaphore to stop all running jobs as soon as one fails or set custom behaviors.
+7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore will queue these runs. You can, for example, stop the current pipeline and run the newer commits instead.
+8. **YAML file path**: you can override where the pipeline config file is located in your repository.
+
 
 ### After pipeline jobs
 
@@ -283,47 +305,64 @@ After-pipeline jobs are executed in parallel. Typical use cases for after-pipeli
 You can add after-pipeline jobs using YAML or the editor.
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- 1. Press **+Add After Jobs**
- 2. Type the name of the job
- 3. Add your commands
- 4. Optionally, you can add more jobs
- 5. To delete them, click the X next to the job
- ![Adding an after pipeline job with the visual editor](./img/after-pipeline.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
- 1. Add `after_pipeline` key at the top level of the YAML.
- 2. Create a `task.jobs` key
- 3. Add the list of jobs with `name` and `commands`
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
- machine:
- type: e1-standard-2
- os_image: ubuntu2004
- blocks:
- - name: Build
- task:
- jobs:
- - name: Build
- commands:
- - checkout
- - make build
- # highlight-start
- after_pipeline:
- task:
- jobs:
- - name: Submit metrics
- commands:
- - "export DURATION_IN_MS=$((SEMAPHORE_PIPELINE_TOTAL_DURATION * 1000))"
- - echo "ci.duration:${DURATION_IN_MS}|ms" | nc -w 3 -u statsd.example.com
- # highlight-end
- ```
- </TabItem>
+<TabItem value="editor" label="Editor">
+
+1. Press **+Add After Jobs**
+2. Type the name of the job
+3. Add your commands
+4. Optionally, you can add more jobs
+5. To delete them, click the X next to the job
+
+![Adding an after pipeline job with the visual editor](./img/after-pipeline.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+1. Add `after_pipeline` key at the top level of the YAML.
+2. Create a `task.jobs` key
+3. Add the list of jobs with `name` and `commands`
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+            - make build
+# highlight-start
+after_pipeline:
+  task:
+    jobs:
+      - name: Submit metrics
+        commands:
+          - 'export DURATION_IN_MS=$((SEMAPHORE_PIPELINE_TOTAL_DURATION * 1000))'
+          - 'echo "ci.duration:${DURATION_IN_MS}|ms" | nc -w 3 -u statsd.example.com'
+# highlight-end
+```
+
+</TabItem>
 </Tabs>
 
 ## Connecting pipelines {#promotions}
+
+:::tip
+
+You can run pipelines without promotions with [tasks](./tasks)
+
+:::
 
 Your repository can contain more than one pipeline. We use *promotions* to tie pipelines together. Promotions define which pipelines should run next.
 
@@ -348,99 +387,53 @@ When a promotion is triggered the child pipeline starts to run. There are three 
 Promotions are defined in the pipeline from which the child pipelines branch off.
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
+<TabItem value="editor" label="Editor">
 
- 1. Press **+Add Promotion** 
- 2. Set a descriptive name for the promotion
- 3. Configure the new pipeline and add jobs as needed
+1. Press **+Add Promotion** 
+2. Set a descriptive name for the promotion
+3. Configure the new pipeline and add jobs as needed
 
- ![Adding a manual promotion](./img/promotion-add-manual.jpg)
+![Adding a manual promotion](./img/promotion-add-manual.jpg)
 
- </TabItem>
- <TabItem value="yaml" label="YAML">
+Press (A) "Delete Promotion" to completely delete the promotion and **all child pipelines**.
 
- 1. Create a new pipeline file in the `.semaphore` folder, e.g. `deploy.yml`
- 2. Edit the pipeline from which the new one (from step 1) branches off, e.g. `semaphore.yml` 
- 3. Add the `promotions` key at the root level of the YAML
- 4. Type the `name` of the promotion
- 5. Type the `pipeline_file` filename of the pipeline created in step 1.
+</TabItem>
+<TabItem value="yaml" label="YAML">
 
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
- machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- blocks:
- - name: Build
-  dependencies: []
-  task:
-  jobs:
-  - name: Build
-  commands:
-  - checkout
-  - make build
- # highlight-start
- promotions:
- - name: Promotion 1
-  pipeline_file: deploy.yml
- # highlight-end
- ```
- </TabItem>
-</Tabs>
+1. Create a new pipeline file in the `.semaphore` folder, e.g. `deploy.yml`
+2. Edit the pipeline from which the new one (from step 1) branches off, e.g. `semaphore.yml` 
+3. Add the `promotions` key at the root level of the YAML
+4. Type the `name` of the promotion
+5. Type the `pipeline_file` filename of the pipeline created in step 1.
 
-### How to delete promotions {#manual-promotion}
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+            - make build
+# highlight-start
+promotions:
+  - name: Promotion 1
+    pipeline_file: deploy.yml
+# highlight-end
+```
 
-You can delete promotions when you no longer need them.
-
-<Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
-
- 1. Press on the promotion you wish to delete
- 2. Click on **Delete Promotion**
- 3. Confirm the action
-
- :::danger
-
- Deleting a promotion this way also deletes all the child pipeline files.
-
- :::
-
- ![Deleting a promotion](./img/promotion-delete.jpg)
-
- </TabItem>
- <TabItem value="yaml" label="YAML">
-
- 1. Open the pipeline file containing the promotion you wish to delete
- 2. Remove either the whole `promotions` section or individual items under the key
- 3. (Optional) Delete the pipeline file referenced in the removed `pipeline_file` key
-
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
- machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- blocks:
- - name: Build
-  dependencies: []
-  task:
-  jobs:
-  - name: Build
-  commands:
-  - checkout
-  - make build
- # highlight-start
- # remove all the following lines
- promotions:
- - name: Promotion 1
-  pipeline_file: deploy.yml
- # highlight-end
- ```
-
- </TabItem>
+</TabItem>
 </Tabs>
 
 ### Automatic promotions
@@ -450,47 +443,51 @@ Automatic promotions start a pipeline on user-defined conditions.
 After [adding a promotion](#manual-promotion), you can set automatic conditions. Whenever Semaphore detects these conditions are fulfilled the child pipeline will automatically start.
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
+<TabItem value="editor" label="Editor">
 
- 1. Open the promotion you wish to autostart
- 2. Enable the checkbox **Enable automatic promotion**
- 3. Type in the *start conditions*
+1. Open the promotion you wish to autostart
+2. Enable the checkbox **Enable automatic promotion**
+3. Type in the *start conditions*
 
- ![Setting autostart conditions on a promotion](./img/promotion-auto.jpg)
+![Setting autostart conditions on a promotion](./img/promotion-auto.jpg)
 
- </TabItem>
- <TabItem value="yaml" label="YAML">
+</TabItem>
+<TabItem value="yaml" label="YAML">
 
- 1. Open the pipeline file containing the promotion you wish to autostart
- 2. Add an `auto_promote` key
- 3. Add a child `when` key. Type in the *start conditions*
+1. Open the pipeline file containing the promotion you wish to autostart
+2. Add an `auto_promote` key
+3. Add a child `when` key. Type in the *start conditions*
 
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
- machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- blocks:
- - name: Build
-  dependencies: []
-  task:
-  jobs:
-  - name: Build
-  commands:
-  - checkout
-  - make build
- promotions:
- - name: Promotion 1
-  pipeline_file: deploy.yml
-  # highlight-start
-  auto_promote:
-  when: branch = 'master' AND result = 'passed'
-  # highlight-end
- ```
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    dependencies: []
+    task:
+      agent:
+        machine:
+          type: e1-standard-2
+          os_image: ubuntu2004
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+            - make build
+promotions:
+  - name: Promotion 1
+    pipeline_file: deploy.yml
+    # highlight-start
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
+    # highlight-end
+```
 
- </TabItem>
+</TabItem>
 </Tabs>
 
 ## Parameterized promotions {#parameters}
@@ -505,66 +502,59 @@ Use parameters to reduce the amount of pipeline duplication. For example, if you
 To add parameters to a promotion, follow these steps:
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
+<TabItem value="editor" label="Editor">
 
- 1. Press the promotion you wish to add parameters to
- 2. Click **+Add Environment Variable**
- 3. Set the variable name 
- 4. Set an optional description
- 5. Set optional valid options. Leave blank to input value as freeform text
- 6. Enable the "This is a required parameter" checkbox if the parameter is mandatory
- 7. Set a default value (only when the parameter is mandatory)
- 8. Add more parameters as needed
+1. Press the promotion you wish to add parameters to
+2. Click **+Add Environment Variable**
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Add parameter to promotion](./img/parameter-1.jpg)
+        </div>
+    </details>
+3. Set the variable name 
+4. Set an optional description
+5. Set optional valid options. Leave blank to input value as freeform text
+6. Enable the "This is a required parameter" checkbox if the parameter is mandatory
+7. Set a default value (only when the parameter is mandatory)
+8. Add more parameters as needed
+    <details>
+        <summary>Show me</summary>
+        <div>
+        ![Setting up parameters](./img/parameter-2.jpg)
+        </div>
+    </details>
 
- ![Adding parameters to a promotion](./img/promotions-parameters.jpg)
+</TabItem>
+<TabItem value="yaml" label="YAML">
 
- </TabItem>
- <TabItem value="yaml" label="YAML">
+1. Edit the file where you wish to add the parameters
+2. Add a `parameters.env_vars` key
+3. Every list item is a new parameter. Set the `name` of the environment variable
+4. Type an optional `description`
+5. Optionally set `required` to `true|false`
+6. Optionally set `options`. Each item in the list is a valid option. Leave blank to input value as freeform text
+7. If `required: true`, set the `default_value`. Optional parameters don't have a default value
 
- 1. Edit the file where you wish to add the parameters
- 2. Add a `parameters.env_vars` key
- 3. Every list item is a new parameter. Set the `name` of the environment variable
- 4. Type an optional `description`
- 5. Optionally set `required` to `true|false`
- 6. Optionally set `options`. Each item in the list is a valid option. Leave blank to input value as freeform text
- 7. If `required: true`, set the `default_value`. Optional parameters don't have a default value
+```yaml title=".semaphore/semaphore.yml"
+# ...
+promotions:
+ - name: Deploy
+   pipeline_file: deploy.yml
+   # highlight-start
+   parameters:
+     env_vars:
+       - required: true
+         options:
+           - Stage
+           - Production
+         default_value: Stage
+         description: Where to deploy?
+         name: ENVIRONMENT
+   # highlight-end
+```
 
- ```yaml title=".semaphore/semaphore.yml"
- version: v1.0
- name: Initial pipeline
- agent:
-  machine:
-  type: e1-standard-2
-  os_image: ubuntu2004
- blocks:
-  - name: Build
-  dependencies: []
-  task:
-  jobs:
-  - name: Build
-  commands:
-  - checkout
-  - make build
- promotions:
-  - name: Deploy
-  pipeline_file: deploy.yml
-  # highlight-start
-  parameters:
-  env_vars:
-  - required: true
-  options:
-  - Stage
-  - Production
-  default_value: Stage
-  description: Where to deploy?
-  name: ENVIRONMENT
-
-  - required: false
-  description: Release name?
-  name: RELEASE
-  # highlight-end
- ```
- </TabItem>
+</TabItem>
 </Tabs>
 
 :::info
@@ -585,12 +575,16 @@ Once you have [added a parameter](#how-to-add-parameters), you can select its va
 3. Press **Start promotion**
 
 <Tabs>
- <TabItem value="options" label="Select value from options">
- ![Selecting a parameter value from options](./img/promotion-options.jpg)
- </TabItem>
- <TabItem value="freeform" label="Freeform type value">
+<TabItem value="options" label="Select value from options">
+
+![Selecting a parameter value from options](./img/promotion-options.jpg)
+
+</TabItem>
+<TabItem value="freeform" label="Freeform type value">
+
  ![Typing the parameter value in freeform](./img/promotion-freeform.jpg)
- </TabItem>
+
+</TabItem>
 </Tabs>
 
 ### Promoting with the API
@@ -614,30 +608,33 @@ Parameters are exported as [environment variables](./jobs#environment-variables)
 You can access the parameter value by directly using the environment variable in your commands.
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- ![Using parameters a environment variables in jobs](./img/parameters-jobs.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
+<TabItem value="editor" label="Editor">
 
- The parameters are accessible are regular environment variables in the `commands` section.
+![Using parameters a environment variables in jobs](./img/parameters-jobs.jpg)
 
- ```yaml title="deploy.yml"
- version: v1.0
- name: Deploy pipeline
- agent:
- machine:
- type: e1-standard-2
- os_image: ubuntu2004
- blocks:
- - name: Deploy
- task:
- jobs:
- - name: Deploy
- commands:
- # highlight-next-line
- - echo "Deploy to $ENVIRONMENT"
- ```
- </TabItem>
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+The parameters are accessible are regular environment variables in the `commands` section.
+
+```yaml title="deploy.yml"
+version: v1.0
+name: Deployment pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Deploy
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            # highlight-next-line
+            - echo "Deploy to $ENVIRONMENT"
+```
+
+</TabItem>
 </Tabs>
 
 
