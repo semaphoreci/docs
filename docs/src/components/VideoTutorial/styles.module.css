@@ -1,49 +1,65 @@
 /* Styling for the details element that contains the video */
 .details {
-  border: 1px solid #ddd; /* Light grey border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 10px;
-  margin: 20px 0; /* Vertical spacing */
-  background: #f9f9f9; /* Light background */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  cursor: pointer; /* Indicates this can be interacted with */
+  border: 1px solid #ddd; 
+  border-radius: 0.2rem;
+  margin: 0.2rem 0;
+  background: #f9f9f9; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out; 
+  max-height: 5rem;
+  padding: 0.2rem; 
 }
 
 /* Styling when details is opened */
 .details[open] {
-  background: #fff; /* Slightly different background to indicate active state */
+  max-height: 1000px; 
 }
 
-
+/* Styling for the summary element */
 .summary {
   color: #333;
-  padding: 8px 0;
   width: 100%;
   text-align: left;
   outline: none;
-  position: relative; /* Needed for absolute positioning of the icon */
+  position: relative; 
   display: flex;
   align-items: center;
-  }
+  cursor: pointer; 
+  user-select: none; 
+}
+
+  
+
+/* Styling for the content element */
+.content {
+  margin-top: 0.2rem; 
+  transition: opacity 0.5s ease-out; 
+  opacity: 0; 
+  max-height: 0; 
+  overflow: hidden; 
+}
 
 .icon {
   margin-right: 0.2rem ;
+  margin-left: 0.2rem ;
   display: inline-block;
-  background-size: cover; /* Cover the entire area of the span */
+  background-size: cover; 
   transform: translateY(0.2rem);
 }
 
-/* .logo {
-    width: 1.5rem;
-    margin-right: 0.2rem ;
-} */
 
+/* Styling when details is opened */
+.details[open] .content {
+  opacity: 1; 
+  max-height: 100%; 
+}
 
 /* Responsive iframe styling */
 .iframe {
-  width: 100%; /* Responsive width */
-  max-width: 560px; /* Maximum width to maintain aspect ratio */
-  height: 315px; /* Fixed height as per aspect ratio */
-  border: none; /* Removes the iframe border */
-  border-radius: 5px; /* Rounded corners within the details */
+  width: 100%; 
+  max-width: 560px; 
+  height: 315px; 
+  border: none; 
+  border-radius: 0.2rem; 
 }

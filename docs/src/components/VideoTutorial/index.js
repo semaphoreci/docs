@@ -10,10 +10,10 @@ import Youtube from '@site/static/img/youtube.svg';
 const VideoTutorial  = ({title, src}) => {
     return (
         <details className={styles.details}> 
-        <summary className={styles.summary}><span className={styles.icon}><Youtube/></span>Video Tutorial: {title}</summary>
-        <div>
-        <iframe className={styles.iframe} width="560" height="315" src={src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+         <summary className={styles.summary}><span className={styles.icon}><Youtube/></span>Video Tutorial: {title}</summary>
+         <div className={styles.content}>
+           <iframe className={styles.iframe} width="560" height="315" src={src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         </div>
         </details>
     );
 };
