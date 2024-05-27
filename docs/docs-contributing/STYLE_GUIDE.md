@@ -97,3 +97,20 @@ You can hide less important elements using a toggable content
 ```
 
 You can add regular markdown inside the `<div>`
+
+## YouTube Embeds
+
+Sometimes we want to include a YouTube video inside the documentation. We have a custom component for this:
+
+```js
+import VideoTutorial from '@site/src/components/VideoTutorial';
+
+<VideoTutorial title="Video Title" src="Video-Embed-URL"/>
+```
+
+To get the embeddable URL:
+
+1. Go to the YouTube video
+2. Press the **Share** button
+3. Select embed
+4. Copy the SRC part of the code, e.g. "https://www.youtube.com/embed/xId2H2wlKx4?si=0IXKyNNUVVjDDvHz"
