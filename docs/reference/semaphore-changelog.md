@@ -10,6 +10,18 @@ This page is updated on a weekly basis.
 
 ### Week of May 27, 2024
 
+**(Improved) macos-xcode15 (apple silicon) image update**
+
+**(New)** Packages: 
+- Xcode 15.4 (default)
+
+**(Updated)** :
+
+- iOS 17.5
+- watchOS 10.5
+- tvOS 17.5 
+
+
 **(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
 
 **(New)** Packages:
