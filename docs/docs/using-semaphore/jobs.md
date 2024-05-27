@@ -248,7 +248,7 @@ Semaphore take a different approach. Instead of providing you with special actio
 - *cache* to speed up jobs by caching downloaded files
 - *artifact* tomove files between jobs and save build artifacts
 
-### checkout
+### checkout {#checkout}
 
 *Checkout* clones the remote repository and `cd`s into the cloned repository so you're ready to work.
 
@@ -303,7 +303,7 @@ blocks:
  </div>
 </details>
 
-### cache
+### cache {#cache}
 
 <Available/>
 
@@ -327,7 +327,7 @@ The highlighted lines show how to use the cache:
 
 Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to *supply additional arguments*.
 
-### artifact
+### artifact {#artifact}
 
 <Available/>
 

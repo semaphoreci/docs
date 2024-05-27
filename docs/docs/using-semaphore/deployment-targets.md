@@ -7,7 +7,6 @@ description: Secure your deployment pipelines
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
-
 import VideoTutorial from '@site/src/components/VideoTutorial';
 
 <VideoTutorial title="How to Use Deployment Targets" src="https://www.youtube.com/embed/xId2H2wlKx4?si=0IXKyNNUVVjDDvHz" />

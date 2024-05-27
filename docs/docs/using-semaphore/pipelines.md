@@ -224,7 +224,7 @@ Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com
 
 :::
 
-### Other settings
+### Other settings {#settings}
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
@@ -296,7 +296,7 @@ The pipeline settings are:
 8. **YAML file path**: you can override where the pipeline config file is located in your repository.
 
 
-### After pipeline jobs
+### After pipeline jobs {#after-pipeline-job}
 
 You can configure jobs to run once a pipeline stops, even if it ended due to a failure, stopped, or canceled.
 
