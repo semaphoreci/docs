@@ -1,0 +1,49 @@
+/* Styling for the details element that contains the video */
+.details {
+  border: 1px solid #ddd; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  margin: 20px 0; /* Vertical spacing */
+  background: #f9f9f9; /* Light background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  cursor: pointer; /* Indicates this can be interacted with */
+}
+
+/* Styling when details is opened */
+.details[open] {
+  background: #fff; /* Slightly different background to indicate active state */
+}
+
+
+.summary {
+  color: #333;
+  padding: 8px 0;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  position: relative; /* Needed for absolute positioning of the icon */
+  display: flex;
+  align-items: center;
+  }
+
+.icon {
+  margin-right: 0.2rem ;
+  display: inline-block;
+  background-size: cover; /* Cover the entire area of the span */
+  transform: translateY(0.2rem);
+}
+
+/* .logo {
+    width: 1.5rem;
+    margin-right: 0.2rem ;
+} */
+
+
+/* Responsive iframe styling */
+.iframe {
+  width: 100%; /* Responsive width */
+  max-width: 560px; /* Maximum width to maintain aspect ratio */
+  height: 315px; /* Fixed height as per aspect ratio */
+  border: none; /* Removes the iframe border */
+  border-radius: 5px; /* Rounded corners within the details */
+}

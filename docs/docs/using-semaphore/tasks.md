@@ -4,6 +4,9 @@ description: Schedule pipelines
 
 # Tasks
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Task allow you to trigger [pipelines](./pipelines) on a schedule or even manually. 
 
 The main use cases for tasks are to:
@@ -25,9 +28,12 @@ Scheduled tasks have some limitations:
 - Tasks will not start automatically in the first 60 seconds after being created or edites.
 - In the rare cases in which the scheduler fails to start a task, Semaphore will retry it every 10 seconds for the following 15 minutes.
 
-## How to create a task
+## How to manage tasks
 
-To create a task, open your project and follow these steps:
+To create a task, open your project and follow these steps. You can create tasks with the UI, or use Semahore CLI.
+
+<Tabs groupId="ui-cli">
+<TabItem value="ui" label="UI">
 
 1. Select the **Tasks** tab
 2. Press **New task**
@@ -70,30 +76,68 @@ To create a task, open your project and follow these steps:
     </details>
 10. Press **Next** and **Create**
 
-## How to run tasks manually
+</TabItem>
+<TabItem value="cli" label="CLI">
 
-Scheduled or unscheduled tasks can always be started manually.
+You can add tasks by editing the project using the *sem cli*. 
 
-## How to deactivate a task
+1. Run `sem edit project <project-name>`
+2. An editor should open showing the project settings. For example, this is a project called "hello-semaphore"
 
-## How to view task history
+    ```yaml title="sem edit projet hello-semaphore"
+    apiVersion: v1alpha
+    kind: Project
+    metadata:
+      name: hello-semaphore
+      id: a2ba1008-afc9-4326-b994-58fb816fc4d5
+      description: "This is a test project"
+    # ...
+    ```
+3. Add a `task` section. Each item in the list is a task. The example below shows two tasks:
+   - Task "nightly-deploys" runs the `nighthly-deploys.yml` on "master" branch pipeline at 12:15 am every day.
+   - Task "canary-setup" runs the same pipeline in "develop" branch with [parameters](./pipelines#parameters)
 
+    ```yaml title="sem edit projet hello-semaphore"
+    # ...
+    # This section defines two tasks
+      tasks:
+      - name: nightly-deploys
+        branch: master
+        scheduled: true
+        at: "15 12 * * *"
+        pipeline_file: .semaphore/nightly-deploys.yml
+      - name: canary-setup
+        branch: develop
+        scheduled: false
+        pipeline_file: .semaphore/nightly-deploys.yml
+        parameters:
+        - name: CANARY_VERSION
+          required: true
+          default_value: "1.0.0"
+    ```
 
----
+4. Save the file to submit your changes
 
-You can pass [parameters](./pipelines#parameters) to the pipeline to control it's behavior.
+</TabItem>
+</Tabs>
 
-Pipelines running with tasks don't need to be connected with [a promotion](./pipelines#promotions). In other words, you can create special, task-only pipelines to run your maintenance work separate from continuous integration.
+## Working with tasks
 
-Scheduling workflow runs daily, hourly, or even every other minute might be handful in many use cases, such as:
+Go to the **Tasks** tab in your project to view the configured tasks.
 
-Periodically performing long or resource-intensive tests that should not be triggered on every push.
-If your application delivery process requires periodic builds.
-When you have an inactive project but would like to be sure that the code still works with its dependencies.
-An easy way to periodically execute arbitrary code, track results, and receive notifications.
-Manually-triggered workflow runs complement the mentioned range to give a full control over the execution of CI/CD workflows. Here are some example cases:
+![Viewing a task on Semaphore UI](./img/task-view.jpg)
 
-repeated jobs performed under specific circumstances (for instance, database maintenance)
-quality control of your CI/CD environment performed on demand
-provisioning and setting up resources with your cloud provider
-exceptional corrective actions (e.g. pruning the cache)
+You can control tasks using the UI:
+- Press **Run now** to start the task
+- **Deactivate** disables the task's schedule
+- **View** shows the task's execution history
+- **Delete** deletes the task
+- **Edit** let's you modify the task
+
+### Running tasks manually
+
+Pressing **Run now** shows you the following screen.
+
+![Running task manually](./img/task-run.jpg)
+
+Here you can change the branch, pipeline file, and define parameter values. Press **Run** to start the task immediately.

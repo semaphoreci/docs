@@ -4,7 +4,11 @@ import styles from './styles.module.css';
 
 const pricingUrl = "https://semaphoreci.com/pricing";
 
-// Optional argument list of plans. Eg: ['Startup', 'Scaleup']
+/**
+ * An reporpoused admonition to show plans that support the explained feature
+ * @param {array(string)} plans - (optional) Plans where feature is supported
+ * @returns 
+ */
 const Available = ({plans}) => {
     return (
         <Admonition type="note" icon=<SemaphoreLogo/> title="Available On">
@@ -28,4 +32,3 @@ const Available = ({plans}) => {
 };
 
 export default Available;
-
