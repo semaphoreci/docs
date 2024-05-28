@@ -38,7 +38,7 @@ blocks:
 ```
 
 The `macos-xcode15` OS image can only be used in combination with the Apple 
-`a1-standard-4` machine type.
+`a1-standard-4` or `a2-standard-4` machine type.
 
 ## System
 
