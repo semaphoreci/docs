@@ -59,13 +59,20 @@ The UNIX timestamp before which the token is not valid. Example: `1660317851`.
 The Unique ID of the JWT token. Example: `2s557dchalv2mv76kk000el1`.
 
 #### branch
-The name of the branch on which job is running. Example: `main`.
+The name of the branch on which the job is running. If the job was triggered by a Pull Request, then the value is 
+the target branch of the Pull Request that triggered that job. Example: `main`.
+
+#### pr_branch
+The name of the source branch of the Pull Request which triggered a job. Example: `feature-branch`.
 
 #### pr
-The name of the Pull Request for which the token was issued. Example: `PR #12: Update YAML`.
+The number of the Pull Request for which the token was issued. Example: `123`.
 
 #### ref
 The full git reference for which the token was issued. Example: `refs/heads/main`.
+
+#### ref_type
+The type of git reference that triggered the job. Possible values: `branch`, `tag`, or `pull-request`.
 
 #### tag
 The name of the git tag for which the token was issued. Example: `v1.0.0`.
@@ -81,6 +88,14 @@ The ID of the workflow for which the token was issued. Example: `1be81412-6ab8-4
 
 #### ppl_id
 The pipeline ID for which the token was issued. Example: `1e1fcfb5-09c0-487e-b051-2d0b5514c42a`.
+
+#### job_type
+The type of the job based on the way it was created. The possible values are: 
+- `pipeline_job` - A regular job that is the part of a pipeline.
+- `debug_job` - A job that was created to debug the other job via the `sem debug job <JOB_ID>` command.
+- `project_debug_job` - A job that was created to debug the project via the `sem debug project <PROJECT_NAME>` command.
+
+Example: `pipeline_job`.
 
 #### job_id
 The ID of the job for which the token was issued. Example: `c117e453-1189-4eaf-b03a-dd6538eb49b2`.
