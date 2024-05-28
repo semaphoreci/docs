@@ -1,7 +1,7 @@
 
 # Style Guide
 
-Documents are written in Markdown with a [few extensions](#extensions).
+This document describe *guidelines* to write documentation pages. Documents are written in Markdown with a [few custom extensions](#extensions). 
 
 ## Language
 
@@ -57,6 +57,12 @@ Use a single H1 header for the page title at the beginning of the document. The 
 For the rest of the document only use H2 and H3 headers. Don't use H4 or smaller headers at all.
 
 All H2 and H3 headers should have an anchor, e.g. `## Pipeline settings {#settings}` so it's easy to link from other pages.
+
+Header rules:
+
+- Keep them short: ideally under 4-5 words
+- Use H3s sparingly: reserve H3s to split long H2 sections
+- Obvious headings are best: for example "How to create a job" is a great heading for step-by-step instructions
 
 ## Bullet points and lists
 
