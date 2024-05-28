@@ -10,13 +10,13 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 <VideoTutorial title="How to set up test reports" src="https://www.youtube.com/embed/9L0Z9xcKiYU?si=IdSsYfGLU7btYVwq" />
 
-## Overview
+## Overview {#overview-}
 
-The test tab in your project offers a unified view of the state of tests across all your pipelines. The test reports dashboard highlight test failures and can be filtered in many ways to provides insights into your test suite.
+The test tab in your project offers a unified view of the state of tests across all your pipelines. The test reports dashboard highlights test failures and can be filtered in many ways to provide insights into your test suite.
 
-![Test report example](./img/tests-tab.jpg)
+![Test report example](./img/test-reports-tab.jpg)
 
-## How to set up test reports
+## How to set up test reports {#setup}
 
 Before you can view your tests in the Test tabs, you need to perform a one-time setup. The benefit of having all tests in one place is usually worth the effort of this setup.
 
@@ -24,9 +24,9 @@ Before you can view your tests in the Test tabs, you need to perform a one-time 
 2. **Publish**: push results file into the [artifact store](./jobs#artifact)
 3. **Merge**: collect and process all result files
 
-![Steps to enable test results](./img/tests-results-steps.jpg)
+![Steps to enable test results](./img/test-reports-steps.jpg)
 
-### Step 1 - Format
+### Step 1 - Format {#step1}
 
 The JUnit XML format was created by the [JUnit Project](https://junit.org/junit5/) for Java but has been so popular that many other frameworks in diverse languages have implemented it. 
 
@@ -55,7 +55,7 @@ To make setup easier, it's recommended to save all report files to the same path
 
 :::
 
-Below you will find examples on generating reports in different test runners.
+Below there are examples of generating reports in different test runners.
 
 <details>
 <summary>Ruby on Rails example</summary>
@@ -111,7 +111,7 @@ gotestsum --junitfile report.xml
 <summary>Elixir example</summary>
 <div>
 
-To generate JUnit reports to your Elixir project, follow these steps:
+To generate JUnit reports for your Elixir project, follow these steps:
 
 1. Add [junit-formatter](https://github.com/victorolinasc/junit-formatter) to your `mix.exs`
 
@@ -179,7 +179,7 @@ The table shows possible test runners for popular languages. If your test runner
 | Java       | Maven       | [maven-surefire](https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit.html) |
 
 
-### Step 2 - Publish
+### Step 2 - Publish {#step2}
 
 The publish step uploads all report files to the [artifact store](./jobs#artifact). This is accomplished using the `test-results` tool which is part of the *Semaphore toolbox*.
 
@@ -219,7 +219,7 @@ global_job_config:
 </TabItem>
 </Tabs>
 
-### Step 3 - Merge
+### Step 3 - Merge {#step3}
 
 The final step is to merge and process all report files. This is achieved using an [after-pipeline job](./pipelines#after-pipeline-job).
 
@@ -254,10 +254,26 @@ after_pipeline:
 </TabItem>
 </Tabs>
 
-## How to view test results
+## How to view test reports {#view}
 
-### Find failed tests
+To view test results, navigate to your pipeline and go to the **Tests** tab.
 
-### Find slowest tests
+![Tests tab shown](./img/test-reports-tab-location.jpg)
 
-### Find skipped tests
+:::info
+
+The test tab is only populated for the pipelines where [test reports are configured](#setup). If you don't see anything yet, try rerunning the pipeline.
+
+:::
+
+The default Test view shows failed tests first.
+
+![View failed tests first](./img/test-reports-failed.jpg)
+
+Click on "Failed first" to change the sort order. You can sort by "Slowest first" or alphabetically.
+
+![Changing the sort order](./img/test-reports-sort.jpg)
+
+Click on "View" to change display preferences. You can hide passed or skipped tests and change how the report looks.
+
+![Changing display preferences](./img/test-reports-display.jpg)
