@@ -10,7 +10,9 @@ import Available from '@site/src/components/Available';
 
 ## Overview
 
-The pipeline is the configuration unit. Each pipeline is encoded as a YAML file. By default, Semaphore will look for the first pipeline in the path `.semaphore/semaphore.yml` relative to the root of your repository. 
+The pipeline is the configuration unit. Each pipeline is encoded as a YAML file. 
+
+By default, Semaphore will look for the first pipeline in the path `.semaphore/semaphore.yml` relative to the root of your repository. More pipelines can be chained using [promotions](#promotions) to create complex *workflows*.
 
 For reference, here is an example pipeline with its respective YAML.
 
@@ -368,7 +370,7 @@ Your repository can contain more than one pipeline. We use *promotions* to tie p
 
 ![How jobs are organized into blocks which are organized into pipelines. Pipelines can trigger other pipelines using promotions](./img/pipeline-blocks-promotions.jpg)
 
-Using promotions we can create a tree-like structure where pipelines branch off other pipelines. The root of the tree is the default pipeline located at `.semaphore/semaphore.yml` relative to the repository's root.
+Using promotions we can create a tree-like structure where pipelines branch off other pipelines. The root of the tree is the default pipeline located at `.semaphore/semaphore.yml` (relative to the repository's root.
 
 ![A workflow with 3 pipelines](./img/workflows.jpg)
 
@@ -440,7 +442,7 @@ promotions:
 
 Automatic promotions start a pipeline on user-defined conditions.
 
-After [adding a promotion](#manual-promotion), you can set automatic conditions. Whenever Semaphore detects these conditions are fulfilled the child pipeline will automatically start.
+After [adding a promotion](#promotions), you can set automatic conditions. Whenever Semaphore detects these conditions are fulfilled the child pipeline will automatically start.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">

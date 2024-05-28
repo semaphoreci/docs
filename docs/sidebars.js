@@ -49,7 +49,7 @@ const sidebars = {
       items: [
         'using-semaphore/jobs',
         'using-semaphore/pipelines',
-        'using-semaphore/deployment-targets',
+        'using-semaphore/environments',
         'using-semaphore/tasks',
         'using-semaphore/test-reports',
         'using-semaphore/flaky-tests',

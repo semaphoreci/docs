@@ -26,6 +26,8 @@ Before you can view your tests in the Test tabs, you need to perform a one-time 
 
 ![Steps to enable test results](./img/test-reports-steps.jpg)
 
+Once test reports are configure the [flaky test detection](./flaky-tests) feature is automatically enabled.
+
 ### Step 1 - Format {#step1}
 
 The JUnit XML format was created by the [JUnit Project](https://junit.org/junit5/) for Java but has been so popular that many other frameworks in diverse languages have implemented it. 
