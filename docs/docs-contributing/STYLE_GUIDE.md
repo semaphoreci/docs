@@ -1,52 +1,113 @@
 
 # Style Guide
 
-## Linter
+Documents are written in Markdown with a [few extensions](#extensions).
 
-Most rules are enforced with markdownlint. If you find errors, check the [rule descriptions](https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#configuration) to see what might be wrong.
+## Language
+
+The general guidelines to approach writing are:
+
+- Put first things first
+- Write like you speak 
+- Get to the point fast
+- Shorter is better than longer
+- Simple is better than complex
+- Be bold
+
+### General rules
+
+- Grammar: before submitting a pull request, verify all non-code text with [Grammarly](https://grammarly.com) (use a free account)
+- Prefer active over passive voice
+- Prefer the present tense
+- Contractions: use contractions: it's, you'll, you're, let's.
+- Imperative: use imperative for steps, e.g. "Fork the repository and clone it to your machine"
+- Punctuation: skip periods (.), exclamation (!) and question (?) marks in titles, headings and bullet point lists 
+- Commas: when listing three or more items use a comma before the conjuction (Oxford comma), e.g. "apples, tomatoes, and pears"
+- Italics: use *italics* to draw attention to words.
+- Bold: use **bold** for UI elements.
+- Ampersand (&): don't use ampersand instead of "and", e.g. "Jobs and Pipelines"
+- Links: use meaningful text in the link text. The reader should know where the link goes before clicking on it, e.g. instead of "Read *this* to learn more" use "Read the *Jobs page* to learn more".
+- Images: images should provide an Alt text. Don't leave images without alt text. The text should describe the contents of the page for persons using a screen reader.
+- Jargon: don't overuse jargon. Use plain English whenever possible.
+- Numbers: numbers lower than then must be spelled in words, e.g. "one, two, three". Number greater than 10 must be writen in numerals, e.g. "10, 25, 102"
+
+### Code
+
+Use `inline fences` for inline code.
+
+For blocks of code, use code fences with the language. Use `shell` for Bash or shell scripts. You can add `title="Filename"` next to the language when describing what file to edit:
+
+```yaml title=".semaphore/semaphore.yml"
+Example pipeline
+```
+
+### Capitalization
+
+Titles are used in the left sidebar, so they must be properly capitalized. Headings are shown in the right-side TOC, only the first word must be capitalized.
+
+- Titles: capitalize *only* the H1 titles using the Chicago Manual of Style. Use [Capitalize My Title](https://capitalizemytitle.com/style/Chicago/) to generate the correct form.
+- Headings: for H2 and H3 only capitalize the first word in the heading, e.g. `## Pipeline settings`
+- Proper names: capitalize proper names like persons, places, languages or frameworks, e.g. "React" "JavaScript"
+- Words: when in doubt, don't capitalize, e.g. "internet"
 
 ## Headers
 
-Use a single H1 header at the beginning of the document. This is your title.
+Use a single H1 header for the page title at the beginning of the document. The only thing that can appear before the H1 header title is the frontmatter.
 
-For the rest of the document only use H2 and H3 headers. Every H2 header should be followed with a description of the content summarized in a single sentence.
+For the rest of the document only use H2 and H3 headers. Don't use H4 or smaller headers at all.
+
+All H2 and H3 headers should have an anchor, e.g. `## Pipeline settings {#settings}` so it's easy to link from other pages.
 
 ## Bullet points and lists
 
-Since most of the bullet points and list are used to give step-by-step instructions, don't use periods to end a line. 
+Since most of the bullet points and lists are used to give step-by-step instructions and show commands, you can skip the final period at the end of the line.
 
 Example:
-1. This line doesn't end with a period
+1. This line doesn't end with a period. It describes how to use `checkout`
 2. Another item. Only use periods to separate sentences in the same line
-3. Don't use periods to end a line
+3. Periods at the end of this line are optional.
 
 ## Shell commands
 
-When showing the output prefix the shell command with a dollar sign ($):
+When showing the output of a command, prefix it with a dollar sign ($) to distinguish command from output:
 
 ```shell
-$ ls docs
-getting-started using-semaphore
+$ uname -a
+Darwin mac.local 23.5.0 Darwin Kernel Version 23.5.0
 ```
 
-If you don't show the output of a command *do not* use the dollar sign:
+When the output is not shown, don't use the dollar sign ($):
 
 ```shell
-ls docs
+npm run build
 ```
 
-## Tabs
+## Linter
 
-When there are multiple ways to achieve a task, use tabs to show the most important options. For instance, most of the configuration on Semaphore can be done with the visual editor or directly editing the YAML. When describing steps to do something, show both options using tabs.
+Most rules are enforced with markdownlint. Run the linter before pushing changes or creating a pull request:
 
-To import tabs in the document:
+```shell
+npm run lint
+```
+
+The rules are explained in [markdownlint rule descriptions](https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#configuration). Fix any errors before pushing changes into the repo.
+
+## Markdown extensions {#extensions}
+
+We use some non-standard Markdown extensions provided by Docusaurus.
+
+### Tabs
+
+Use tabs to show multiple ways of achieving the same task. For example, in the [jobs page](http://localhost:3000/docs/using-semaphore/jobs) we use tabs to show how to configure jobs using the visual editor and the YAML. In the [tasks page](http://localhost:3000/docs/using-semaphore/tasks) we use tabs to show how to create a task using the UI and the CLI.
+
+To use tabs, import them near the beginning of the document:
 
 ```js
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 ```
 
-To use tabs:
+Then add the `<Tabs>` component. Each `<TabItem>` is a tab. Indenting is optional.
 
 ```js
 <Tabs groupId="myGroupId">
@@ -61,7 +122,7 @@ To use tabs:
 
 The `groupID` is optional. Tabs sharing a group id will switch together through the document.
 
-## Plans
+### Plans
 
 We use a special admonition to mark features that are available only with specific plans.
 
@@ -85,7 +146,7 @@ You can pass an array of plans instead.
 <Available  plans={['Startup','Scaleup']}/>
 ```
 
-## Toggable content
+### Toggable content
 
 You can hide less important elements using a toggable content
 
@@ -98,7 +159,7 @@ You can hide less important elements using a toggable content
 
 You can add regular markdown inside the `<div>`
 
-## YouTube Embeds
+### YouTube Embeds
 
 Sometimes we want to include a YouTube video inside the documentation. We have a custom component for this:
 
