@@ -51,7 +51,88 @@ To view or create other organizations, open the organization menu on the top rig
 
 ## Managing users {#people}
 
-TODO: https://docs.semaphoreci.com/account-management/organizations/
+Semaphore uses roles to manage user access. You can add an unlimited number of persons to your organization.
+
+To manage users in your organization, open the organization menu and select **People**.
+
+### Organization roles {#roles}
+
+The default organization roles are:
+
+- **Members**
+  - Can create new [projects](./projects)
+  - Can view existing notifications and settings.
+- **Admins**
+  - Can view, manage, and modify everything within the organization except general settings and financial information.
+  - Get admin access to every project inside the organization
+- **Owners**
+  - Can do everything within the organization, including changing general settings and deleting it
+  - By default, this role is assigned to the user that creates the organization
+  - Get admin access to every project inside the organization 
+
+
+
+The **People** tab shows users in your organization along with their:
+
+- Semaphore usernames
+- GitHub or BitBucket handles
+- Role
+
+TODO: people screenshot (rtx can be a starting point)
+
+### How to add users {#add-people}
+
+To add a user, press the **Add people** button. You have two options:
+
+- By their GitHub handle
+  - Type their GitHub handle and press **Invite**
+  - Invitees will receive an email to join the organization
+- By shared GitHub organization
+  - The list shows users who already belong in the same GitHub organization as you
+  - Select the users and optionally type an email
+  - Press **Add selected** to add them to the organization
+
+TODO: people screenshot
+
+### How to change user roles {#roles-people}
+
+To change the role of a user, press the **Change Role** button next to the person.
+
+TODO: image
+
+
+### How to create user groups {#add-groups}
+
+<Available plans={['Scaleup']}/>
+
+User groups allows you to manage users in bulk. Instead of managing users one by one, add them to a group and assign a role to it.
+
+To create a group, open the organization menu and select **People**. 
+
+1. Press on **Create group**
+2. Type in the group name and description
+3. Type the names of the persons to add to the group
+4. Press **Save changes** to create the group
+
+TODO: image
+
+### How to change the role of a group {#group-role}
+
+To change the role of a group, press the **Change Role** button next to the group.
+
+TODO: image
+
+### How to add/remove users to a group {#change-groups}
+
+To add or remove users in a group, press the **Modify group** button next to it.
+
+- Press the **X** button to remove the user from the group
+- Type the name of the persons you want to add to the group
+- Press **Save changes** to finish editing the group
+
+TODO: image
+
+https://docs.semaphoreci.com/security/groups/groups/
 
 ## Managing ownership {#manage-ownership}
 

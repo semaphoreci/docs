@@ -17,3 +17,6 @@ apply: the apply command is used for updating existing projects, secrets, dashbo
 TODO: project-level secrets - https://docs.semaphoreci.com/essentials/using-secrets/
     CLI
     https://docs.semaphoreci.com/essentials/using-secrets/#project-level-secrets_3
+
+
+Project roles: https://docs.semaphoreci.com/security/default-roles/
