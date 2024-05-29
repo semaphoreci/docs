@@ -74,6 +74,17 @@ Semaphore.
 
 Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
+#### SEMAPHORE\_JOB\_TYPE
+
+The value of the `SEMAPHORE_JOB_TYPE` environment variable represents the type of
+the job based on the way it was created.
+The possible values are: 
+- `pipeline_job` - A regular job that is the part of a pipeline.
+- `debug_job` - A job that was created to debug the other job via the `sem debug job <JOB_ID>` command.
+- `project_debug_job` - A job that was created to debug the project via the `sem debug project <PROJECT_NAME>` command.
+
+Example value: `pipeline_job`
+
 #### SEMAPHORE\_JOB\_CREATION_TIME
 
 The `SEMAPHORE_JOB_CREATION_TIME` environment variable holds the UNIX epoch seconds for when the job was created.
@@ -318,6 +329,13 @@ name (owner_name/repo_name) of the repository of the current
 Semaphore project.
 
 Example value: `semaphoreci/docs`
+
+#### SEMAPHORE\_GIT\_REPO\_NAME
+
+The value of the `SEMAPHORE_GIT_REPO__NAME` environment variable is the
+name of the git repository of the current Semaphore project.
+
+Example value: `docs`
 
 #### SEMAPHORE\_GIT\_REF\_TYPE
 
