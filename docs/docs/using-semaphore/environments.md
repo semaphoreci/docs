@@ -11,6 +11,14 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 <VideoTutorial title="How to Use Environments" src="https://www.youtube.com/embed/xId2H2wlKx4?si=0IXKyNNUVVjDDvHz" />
 
+Environments provide additional controls over [pipelines](./pipelines). You can limit who and when a pipeline is triggered or define fine-grained secrets and environment variables.
+
+:::note
+
+Environments we formerly known as "Deployment Targets"
+
+:::
+
 ## Overview {#overview}
 
 Environments allow you to tightly control [promotions](./pipelines.md#promotions), preventing unauthorized users from starting a critical pipeline. In addition, deployment targets can restrict branches, pull requests, and protect [secrets](./organizations#secrets).
