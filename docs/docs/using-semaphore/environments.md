@@ -11,14 +11,14 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 <VideoTutorial title="How to Use Environments" src="https://www.youtube.com/embed/xId2H2wlKx4?si=0IXKyNNUVVjDDvHz" />
 
-## Overview
+## Overview {#overview}
 
 Environments allow you to tightly control [promotions](./pipelines.md#promotions), preventing unauthorized users from starting a critical pipeline. In addition, deployment targets can restrict branches, pull requests, and protect [secrets](./organizations#secrets).
 
 Configuring a deployment target is a two-step process:
+
 1. Create a deployment target
 2. Associate the target with a promotion
-
 
 ## How to create a deployment environment {#create}
 
@@ -153,7 +153,7 @@ promotions:
 </TabItem>
 </Tabs>
 
-## How to start targeted promotions
+## How to start targeted promotions {#targeted-promotions}
 
 [Targeted promotions](#promotion) shows a lock icon next to the promotion button. The icon will be unlocked if you have permission to start the promotion or locked if you don't.
 
@@ -178,7 +178,7 @@ Anyone with write access to the repository can edit the pipeline file and remove
 
 :::
 
-### Help! I can't start a promotion
+### Help! I can't start a promotion {#promotion-debug}
 
 Once a [promotion is targeted](#promotion), you may be locked out from starting it. The most common reasons that a promotion appears as blocked are:
 
@@ -187,11 +187,11 @@ Once a [promotion is targeted](#promotion), you may be locked out from starting 
 - you are not logged in or you are viewing a build of a public project
 - the environment is deactivated or deleted
 
-### Starting promotions with the API
+### Starting promotions with the API {#promotion-api}
 
-You can also use the *Public API (alpha)* to trigger promotions. If promotion is forbidden by the environment, you will receive an "HTTP 400 Bad Request" response with a reason in the body.
+You can also use the _Public API (alpha)_ to trigger promotions. If promotion is forbidden by the environment, you will receive an `HTTP 400 Bad Request` response with a reason in the body.
 
-## How to view deployment history
+## How to view deployment history {#view-history}
 
 The **Deployment** tab allows you to track your previous deployments. In this tab, you can see:
 
@@ -210,10 +210,10 @@ Press **View full history** to see the latest deployments in reverse chronologic
 Use **Newer** and **Older** buttons to navigate to other pages. You can also jump to a specific date.
 
 You can also filter deployments by:
-- **type**: view branches, tags, pull requests, or everything
-- **author**: everyone or just you
-- **origin**: branch, tag, or pull request
-- **promotion parameters**: these are the [bookmarks](#create) added to the environment target
+- **Type**: view branches, tags, pull requests, or everything
+- **Author**: everyone or just you
+- **Origin**: branch, tag, or pull request
+- **Promotion parameters**: these are the [bookmarks](#create) added to the environment target
 
 To filter using promotion parameters, type the value of the parameter and press Enter. This feature is useful when you have [parameterized promotions](./pipelines#promotions).
 

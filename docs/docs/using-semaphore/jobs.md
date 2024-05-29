@@ -11,11 +11,11 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 Jobs get stuff done. This page explains how jobs work, how you can configure them, and what settings are available.
 
-## Job lifecycle
+## Job lifecycle {#job-lifecycle}
 
 Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or VMs running Linux or macOS.
 
-When a job is scheduled, Semaphore will:
+When a job is scheduled, the following happens:
 
 1. **Schedule agent from pool**: pick a suitable agent from the warm pool of agents.
 2. **Initialize environment**: execute setup steps such as importing environment variables, loading SSH keys, mounting secrets, and installing the [Semaphore toolbox](#toolbox)
@@ -27,7 +27,7 @@ When a job is scheduled, Semaphore will:
 
 :::info
 
-Agents can be non-ephemeral when using *self-hosted agents*.
+Agents can be non-ephemeral when using _self-hosted agents_.
 
 :::
 
@@ -61,7 +61,7 @@ To save your changes and start the job:
 1. Press on **Run the workflow**
 2. Press on **Looks good, Start**
 
-This will commit the changes into the remote repository and start the jobs.
+This commits the changes into the remote repository and start the jobs.
 
 ![Run and Start](./img/run-and-start.jpg)
 
@@ -98,7 +98,7 @@ blocks:
 </TabItem>
 </Tabs>
 
-Semaphore will detect a change in the remote repository and automatically start the job. Open the project in Semaphore to follow the progress and view the job log.
+Semaphore detects a change in the remote repository and automatically start the job. Open the project in Semaphore to follow the progress and view the job log.
 
 ![Job log](./img/job-log.jpg)
 
@@ -112,11 +112,11 @@ Semaphore will detect a change in the remote repository and automatically start 
 
 Semaphore makes it easy to troubleshoot jobs. You can debug a job [interactively with an SSH session](#ssh-into-agent) or see the job log in real time.
 
-### Why my job has failed?
+### Why my job has failed? {#debug-job}
 
-When the first command in the job ends in a non-zero status the job ends immediately with error. By default no new jobs will start once a job has failed.
+When the first command in the job ends in a non-zero status the job ends immediately with error. By default no new jobs start once a job has failed.
 
-Open the job log to see why it failed. The problematic command will be shown in red. You can click on the commands to expand their output.
+Open the job log to see why it failed. The problematic command is shown in red. You can click on the commands to expand their output.
 
 ![Job log with the error shown](./img/failed-job-log.jpg)
 
@@ -144,7 +144,7 @@ If this is the first time using an interactive session you need to:
 
 1. Click on **SSH Debug** in the job log view
 2. Open the "How to install ..." section
-3. Install the *sem cli*: copy and paste the command in a terminal
+3. Install the _Semaphore command line tool_: copy and paste the command in a terminal
 4. Authorize sem cli to access your organization: copy and paste the command into a terminal
 
 Now you can start an SSH session by copying and pasting the debug command (#5 in the screenshot above)
@@ -212,7 +212,7 @@ Interactive sessions are not available for jobs with [access policies for secret
 
 ### Inspecting running jobs {#attach-job}
 
-You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore will present the following command (only while a the job is running):
+You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore presents the following command (only while a the job is running):
 
 ```shell
 sem attach <job-id>
@@ -225,7 +225,7 @@ Inspecting running jobs is not available [access policies for secrets](./organiz
 
 :::
 
-### Port forwarding
+### Port forwarding {#port-forwarding}
 
 When SSH is not enough to troubleshoot an issue, you can forward use port forwarding to connect to services running inside the agent.
 
@@ -255,15 +255,15 @@ Port-forwarding only works for Virtual Machine-based agents. It's not available 
 
 Most CI platforms provide primitives in their configd to perform standard actions. For example, GitHub Actions has a [checkout action](https://github.com/actions/checkout) while CircleCI has a [checkout step](https://circleci.com/docs/hello-world/). 
 
-Semaphore take a different approach. Instead of providing you with special actions that add to the YAML syntax complexity, it gives you a *toolbox*. The most-used tools in the Semaphore toolbox are: 
+Semaphore take a different approach. Instead of providing you with special actions that add to the YAML syntax complexity, it gives you a *toolbox*. The most-used tools in the _Semaphore toolbox_ are: 
 
-- *checkout* to checkout the code from the remote repository
-- *cache* to speed up jobs by caching downloaded files
-- *artifact* tomove files between jobs and save build artifacts
+- _checkout_ to checkout the code from the remote repository
+- _cache_ to speed up jobs by caching downloaded files
+- _artifact_ tomove files between jobs and save build artifacts
 
 ### checkout {#checkout}
 
-*Checkout* clones the remote repository and `cd`s into the cloned repository so you're ready to work.
+_Checkout_ clones the remote repository and `cd`s into the cloned repository so you're ready to work.
 
 The following example shows how to work with a Node.js project. The checkout command is needed to clone the repository so we can get `package.json` and `package-lock.json`.
 
@@ -308,9 +308,9 @@ blocks:
 <details>
  <summary>How does checkout work?</summary>
  <div>
- During agent initialization, Semaphore sets four *environment variables* that define how checkout works:
+ During agent initialization, Semaphore sets four [environment variables](#environment-variables) that define how checkout works:
  - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
- - SEMAPHORE_GIT_DIR: the path where the repository will be cloned (e.g. `/home/semaphore/myproject`)
+ - SEMAPHORE_GIT_DIR: the path where the repository is to be cloned (e.g. `/home/semaphore/myproject`)
  - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
  - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
  </div>
@@ -320,7 +320,7 @@ blocks:
 
 <Available/>
 
-The main function of the *cache* is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
+The main function of the _cache_ is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
 
 Cache can detect dependency folders. Let's say we want to speed up `npm install`:
 
@@ -338,13 +338,13 @@ The highlighted lines show how to use the cache:
 - **cache store**: saves `node_modules` to non-ephemeral storage. It knows it's a Node project because it found `package.json` in the working folder.
 - **cache restore**: retrieves the cached copy of `node_modules` to the working directory.
 
-Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to *supply additional arguments*.
+Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to _supply additional arguments_.
 
 ### artifact {#artifact}
 
 <Available/>
 
-The *artifact* command can be used as:
+The _artifact_ command can be used as:
 
 - a way to move files between jobs and runs
 - as persistent storage for artifacts such as compiled binaries or bundles
@@ -387,7 +387,7 @@ Artifacts can be viewed and downloaded from the Semaphore project.
     The namespace used controls at what level the artifact is accessible:
 
     - job artifacts are only accessible to the job that created it. Useful for collecting debugging data
-    - workflow artifacts are accessible to all jobs in all running [pipelines](./pipelines). The main use case is to *pass data between jobs*.
+    - workflow artifacts are accessible to all jobs in all running [pipelines](./pipelines). The main use case is to pass data between jobs.
     - project artifacts are always accessible. They are ideal for storing final deliverables. 
 
  </div>
@@ -508,7 +508,7 @@ blocks:
 
 :::info
 
-Semaphore will always start with the blocks that have no dependencies and move along the dependency graph until all blocks are done.
+Semaphore always starts with the blocks that have no dependencies and move along the dependency graph until all blocks are done.
 
 :::
 
@@ -561,9 +561,10 @@ blocks:
 </TabItem>
 </Tabs>
 
-### Epilogue
+### Epilogue {#epilogue}
 
 The *epilogue* contains commands to run after each job ends. There are three types of epilogue:
+
 - **Execute always**: always runs after the job ends, even if the job failed.
 - **If the job has passed**: commands to run when the job passes (all commands in the job exited with zero status).
 - **If the job has failed**: commands to run when the job failed (one command in the job exited with non-zero status).
@@ -620,7 +621,7 @@ blocks:
 
 ### Environment variables {#environment-variables}
 
-Environment variables will be exported into the shell environment of every job in the block. You must supply the variable name and its value. A block can have any number of environment variables.
+Environment variables are exported into the shell environment of every job in the block. You must supply the variable name and its value. A block can have any number of environment variables.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
@@ -691,7 +692,7 @@ Numeric values need to be included in quotes.
 
 <VideoTutorial title="How to use secrets" src="https://www.youtube.com/embed/rAJIRX81DeA"/>
 
-Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list will decrypt the secret and inject its files or variables into all jobs in the block.
+Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list decrypts the secret and injects its files or variables into all jobs in the block.
 
 Use secrets to store sensitive data like API keys, passwords, or SSH key files without revealing their contents.
 
@@ -735,7 +736,7 @@ blocks:
 </Tabs>
 
 
-### Skip/run conditions
+### Skip/run conditions {#skip-run}
 
 You can choose to skip or run the block only under certain conditions. When a block is skipped, none of the contained jobs run. 
 

@@ -8,11 +8,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 
-## Overview
+Pipelines group [jobs](./jobs) to make complex workflows.
+
+## Overview {#overview}
 
 The pipeline is the configuration unit. Each pipeline is encoded as a YAML file. 
 
-By default, Semaphore will look for the first pipeline in the path `.semaphore/semaphore.yml` relative to the root of your repository. More pipelines can be chained using [promotions](#promotions) to create complex *workflows*.
+By default, Semaphore looks for the first pipeline in the path `.semaphore/semaphore.yml` relative to the root of your repository. More pipelines can be chained using [promotions](#promotions) to create complex workflows.
 
 For reference, here is an example pipeline with its respective YAML.
 
@@ -71,7 +73,7 @@ blocks:
 
 ## Job execution order {#dependencies}
 
-A pipeline is a group of [blocks](./jobs#blocks) connected by dependencies. Semaphore will automatically compute the execution graph based on the declared block dependencies.
+A pipeline is a group of [blocks](./jobs#blocks) connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
 
 In the following example:
 
@@ -97,12 +99,12 @@ Pipeline settings are applied to all jobs it contains. You can change pipeline s
 Agents are the environment where jobs run. Semaphore keeps a pool of warm agents at all times to be sure there's always one ready to work.
 
 Semaphore Cloud provides the following agent types:
-- *Linux Machines* presented as VMs or [Docker containers](#docker-environments)
-- *Apple macOS Machines*
+- _Linux Machines_ presented as VMs or [Docker containers](#docker-environments)
+- _Apple macOS Machines_
 
 :::info
 
-You can register additional machines as agents for your organization by *installing self-hosted agents*.
+You can register additional machines as agents for your organization by _installing self-hosted agents_.
 
 :::
 
@@ -114,7 +116,7 @@ To select the agent running your jobs by default:
 1. Select the pipeline
 2. Select the "Environment Type": Linux, Mac, or Docker
 3. Select the "Operating System" version
-4. Select the *machine type*
+4. Select the _machine type_
 
 The available hardware changes depending on the type of environment you selected.
 
@@ -124,8 +126,8 @@ The available hardware changes depending on the type of environment you selected
 <TabItem value="yaml" label="YAML">
 
 1. Add the `agent` and `machine` keys
-2. Add the hardware `type`. The value must be one of the supported *machine types*
-3. Add the `os_image`. Value must be one of the supported *operating systems*
+2. Add the hardware `type`. The value must be one of the supported _machine types_
+3. Add the `os_image`. Value must be one of the supported _operating systems_
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -157,12 +159,12 @@ blocks:
 
 Jobs can run inside Docker containers. This allows you to define a custom-build environment with pre-installed tools and dependencies needed for your project.
 
-You can run multiple containers at the same time. The job will run in the first container (called `main`) and connect the rest of the containers to the same network. You can reach the other containers using their names as DNS records are injected into the main container.
+You can run multiple containers at the same time. The job runs in the first container (called `main`) and connect the rest of the containers to the same network. You can reach the other containers using their names as DNS records are injected into the main container.
 
 
 :::tip
 
-If you want to build and run Docker images in your jobs, check the *working with Docker Images documentation*.
+If you want to build and run Docker images in your jobs, check the _working with Docker Images documentation_.
 
 :::
 
@@ -173,7 +175,7 @@ To run the job inside a Docker container:
 
 1. Select the pipeline
 2. In "Environment Types" select "Docker Container(s)"
-3. Select the *machine type*
+3. Select the _machine type_
 4. Type the name of the container
 5. Optionally, add environment variables
 6. Optionally, add more containers
@@ -222,7 +224,7 @@ blocks:
 
 :::warning
 
-Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/), Semaphore will automatically redirect any pulls from the semaphoreci Docker Hub repository to the *Semaphore Container Registry*.
+Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/), Semaphore automatically redirects any image pulls from the semaphoreci Docker Hub repository to the _Semaphore Container Registry_.
 
 :::
 
@@ -288,14 +290,14 @@ blocks:
 
 The pipeline settings are:
 
-1. **Agent**: the *agent environment* where the jobs in the pipeline will run — [unless overriden](./jobs#agent-override).
-2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several *machine types* out of the box. You can add more types using *self-hosted agents*.
-3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands will be prepended to the job commands in the pipeline.
-4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands will be appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or always runs.
-5. **Execution time limit**: time limit for job execution. Defaults to 1 hour. Any jobs running longer than this limit will be forcibly stopped.
-6. **Fail-fast**: defines what to do when a job fails. Here you can configure the Semaphore to stop all running jobs as soon as one fails or set custom behaviors.
-7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore will queue these runs. You can, for example, stop the current pipeline and run the newer commits instead.
-8. **YAML file path**: you can override where the pipeline config file is located in your repository.
+1. **Agent**: the [agent environment](#agents) where the jobs in the pipeline runs [unless overriden](./jobs#agent-override)
+2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several _machine types_ out of the box. You can add more types using _self-hosted agents_
+3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands are prepended to the job commands in the pipeline
+4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands are appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or always runs.
+5. **Execution time limit**: time limit for job execution. Defaults to 1 hour. Any jobs running longer than this limit are forcibly stopped
+6. **Fail-fast**: defines what to do when a job fails. Here you can configure the Semaphore to stop all running jobs as soon as one fails or set custom behaviors
+7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore queues these runs. You can, for example, stop the current pipeline and run the newer commits instead
+8. **YAML file path**: you can override where the pipeline config file is located in your repository
 
 
 ### After pipeline jobs {#after-pipeline-job}
@@ -376,15 +378,15 @@ Using promotions we can create a tree-like structure where pipelines branch off 
 
 Promoted pipelines are typically used for continuous delivery and continuous deployment. The following example shows the initial pipeline branching into two continuous delivery pipelines: production and development. In each of these two, we define the sequence of [jobs](./jobs) needed to deploy the application in the respective environment.
 
-### Promotion triggers
+### Promotion triggers {#triggers}
 
 When a promotion is triggered the child pipeline starts to run. There are three options for triggering a promotion:
 
-- **Manual promotions**: the default. Start the next pipeline by pressing a button.
-- **Auto promotions**: start on certain conditions such as when all tests have passed on the "master" branch.
-- **Parameterized promotions**: pass values as environment variables into the next pipelines. Allows us to reuse the same pipeline configuration for different tasks.
+- **Manual promotions**: the default. Start the next pipeline by pressing a button
+- **Auto promotions**: start on certain conditions such as when all tests have passed on the "master" branch
+- **Parameterized promotions**: pass values as environment variables into the next pipelines. Allows us to reuse the same pipeline configuration for different tasks
 
-### How to add promotions
+### How to add promotions {#create-promotions}
 
 Promotions are defined in the pipeline from which the child pipelines branch off.
 
@@ -438,18 +440,18 @@ promotions:
 </TabItem>
 </Tabs>
 
-### Automatic promotions
+### Automatic promotions {#automatic-promotions}
 
 Automatic promotions start a pipeline on user-defined conditions.
 
-After [adding a promotion](#promotions), you can set automatic conditions. Whenever Semaphore detects these conditions are fulfilled the child pipeline will automatically start.
+After [adding a promotion](#promotions), you can set automatic conditions. Whenever Semaphore detects these conditions are fulfilled the child pipeline automatically starts.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
 1. Open the promotion you wish to autostart
 2. Enable the checkbox **Enable automatic promotion**
-3. Type in the *start conditions*
+3. Type in the _start conditions_
 
 ![Setting autostart conditions on a promotion](./img/promotion-auto.jpg)
 
@@ -458,7 +460,7 @@ After [adding a promotion](#promotions), you can set automatic conditions. Whene
 
 1. Open the pipeline file containing the promotion you wish to autostart
 2. Add an `auto_promote` key
-3. Add a child `when` key. Type in the *start conditions*
+3. Add a child `when` key. Type in the _start conditions_
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -496,10 +498,10 @@ promotions:
 
 Parameterized promotions allow you to propagate environment variables on all jobs in the next pipeline. 
 
-Use parameters to reduce the amount of pipeline duplication. For example, if you create a parametrized pipeline that reads the target environment from a variable, you can reuse it to deploy an application to production and testing environments. Parameters work with [manual](#how-to-add-promotions) and [automatic](#automatic-promotions) promotions.
+Use parameters to reduce the amount of pipeline duplication. For example, if you create a parametrized pipeline that reads the target environment from a variable, you can reuse it to deploy an application to production and testing environments. Parameters work with [manual](#manual-promotions) and [automatic](#automatic-promotions) promotions.
 
 
-### How to add parameters
+### How to add parameters {#parameters-add}
 
 To add parameters to a promotion, follow these steps:
 
@@ -568,9 +570,9 @@ When a pipeline is triggered with [automatic promotions](#automatic-promotions) 
 
 :::
 
-### Promoting with the UI
+### Promoting with the UI {#manual-promotions}
 
-Once you have [added a parameter](#how-to-add-parameters), you can select its value from the Semaphore UI.
+Once you have [added a parameter](#parameters-add), you can select its value from the Semaphore UI.
 
 1. Press the promotion button
 2. Select or type in the value. Optional parameters can be left blank
@@ -589,11 +591,11 @@ Once you have [added a parameter](#how-to-add-parameters), you can select its va
 </TabItem>
 </Tabs>
 
-### Promoting with the API
+### Promoting with the API {#api-promotions}
 
 <Available/>
 
-You can pass parameter values to the promotion when it is triggered using the *Semaphore API*.
+You can pass parameter values to the promotion when it is triggered using the _Semaphore API_.
 
 The following is an example of a curl call that includes parameters:
 
@@ -603,7 +605,7 @@ curl -H "Authorization: Token {api_token}" \
  -X POST "https://{org_name}.semaphoreci.com/api/v1alpha/promotions"
 ```
 
-### Accessing parameters in jobs
+### Accessing parameters in jobs {#access-parameters-jobs}
 
 Parameters are exported as [environment variables](./jobs#environment-variables) in all the jobs contained in the promoted pipeline.
 
@@ -640,7 +642,7 @@ blocks:
 </Tabs>
 
 
-### Accessing parameters in pipeline 
+### Accessing parameters in pipeline {#access-parameters-pipeline}
 
 You can access parameter values in pipeline elements like the pipeline name.
 
@@ -653,7 +655,7 @@ ${{parameters.ENVIRONMENT}}
 Parameters are available in the following places:
 
 - Pipeline `name`
-- Pipeline *queue name* (only available via YAML)
+- Pipeline _queue name_ (only available via YAML)
 - As the name of a [secret](./jobs#secrets) (only available in YAML)
 
 <Tabs groupId="editor-yaml">

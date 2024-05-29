@@ -7,6 +7,10 @@ description: Find unreliable tests
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+The flaky test dashboard shows unreliable tests in your [project](./projects).
+
+## Overview {#overview}
+
 The flaky test tab helps you find flaky tests in your suite. Flaky tests are tests that fail seemingly random without any obvious cause. Identify flaky tests to improve the reliability of your pipeline.
 
 <details>
@@ -23,7 +27,7 @@ A test is considered flaky when one of these conditions happen:
 
 TODO: ![Flaky Tests UI]
 
-## How to set up flaky detection
+## How to set up flaky detection {#setup}
 
 Flaky test detection is automatically enabled once [test reports](./test-reports) are configured.
 
@@ -34,19 +38,19 @@ It may take a few pipeline runs before flaky tests begin to appear in the flaky 
 :::
 
 
-## How to view flaky tests
+## How to view flaky tests {#view}
 
 TODO: image tab
 
-## Filtering the view
+## Filtering the view {#filters}
 
-## Taking actions on tests
+## Taking actions on tests {#actions}
 
-## Charts
+## Charts {#charts}
 
-### Detailed view
+### Detailed view {#details}
 
-## Notifications
+## Notifications {#notifications}
 
 
 

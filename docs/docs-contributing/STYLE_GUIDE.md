@@ -3,6 +3,16 @@
 
 This document describe *guidelines* to write documentation pages. Documents are written in Markdown with a [few custom components](#components). 
 
+## Linter
+
+A few rules are enforced with markdownlint. Run the linter before pushing changes or creating a pull request:
+
+```shell
+npm run lint
+```
+
+The rules are explained in [markdownlint rule descriptions](https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#configuration). Fix any errors before pushing changes into the repo.
+
 ## Language
 
 The general guidelines to approach writing are:
@@ -30,6 +40,7 @@ The general guidelines to approach writing are:
 - Images: images should provide an Alt text. Don't leave images without alt text. The text should describe the contents of the page for persons using a screen reader.
 - Jargon: don't overuse jargon. Use plain English whenever possible.
 - Numbers: numbers lower than then must be spelled in words, e.g. "one, two, three". Number greater than 10 must be writen in numerals, e.g. "10, 25, 102"
+- Links to missing pages: links to pages not yet written should be _enclosed inside underscores_ for easy identification
 
 ### Code
 
@@ -88,15 +99,18 @@ When the output is not shown, don't use the dollar sign ($):
 npm run build
 ```
 
-## Linter
+## Indentation
 
-Most rules are enforced with markdownlint. Run the linter before pushing changes or creating a pull request:
+Only use indentation when absolutely needed. Avoid it when possible. The typical example is when you want to add a child item inside a list without breaking the numbering.
 
-```shell
-npm run lint
+```md
+1. Step 1
+2. Step 2
+3. Step 3 has some child image
+  ![Alt text](image.jpg)
+4. Thanks to indentation the numbering did not get interrupted
 ```
 
-The rules are explained in [markdownlint rule descriptions](https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#configuration). Fix any errors before pushing changes into the repo.
 
 ## Admonitions
 

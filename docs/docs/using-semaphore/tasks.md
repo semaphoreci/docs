@@ -7,7 +7,7 @@ description: Schedule pipelines
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Task allow you to trigger [pipelines](./pipelines) on a schedule or even manually. 
+Task allow you to trigger specific [pipelines](./pipelines) on a schedule or manually. 
 
 The main use cases for tasks are to:
 
@@ -20,15 +20,15 @@ The main use cases for tasks are to:
 - Running exceptional corrective actions such as pruning the [cache](./jobs#cache)
 
 
-## Limitations
+## Limitations {#limitations}
 
 Scheduled tasks have some limitations:
 
 - Pipelines are triggered at a random second inside the scheduled minute. This helps disperse the load on the system.
-- Tasks will not start automatically in the first 60 seconds after being created or edites.
-- In the rare cases in which the scheduler fails to start a task, Semaphore will retry it every 10 seconds for the following 15 minutes.
+- Tasks do not start automatically in the first 60 seconds after being created or edited.
+- In the rare cases in which the scheduler fails to start a task, Semaphore retries it every 10 seconds for the following 15 minutes.
 
-## How to manage tasks
+## How to manage tasks {#manage-tasks}
 
 To create a task, open your project and follow these steps. You can create tasks with the UI, or use Semahore CLI.
 
@@ -79,7 +79,7 @@ To create a task, open your project and follow these steps. You can create tasks
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-You can add tasks by editing the project using the *sem cli*. 
+You can add tasks by editing the project using the _Semaphore command line tool_.
 
 1. Run `sem edit project <project-name>`
 2. An editor should open showing the project settings. For example, this is a project called "hello-semaphore"
@@ -121,7 +121,7 @@ You can add tasks by editing the project using the *sem cli*.
 </TabItem>
 </Tabs>
 
-## Working with tasks
+## Working with tasks {#create-task}
 
 Go to the **Tasks** tab in your project to view the configured tasks.
 
@@ -134,7 +134,7 @@ You can control tasks using the UI:
 - **Delete** deletes the task
 - **Edit** let's you modify the task
 
-### Running tasks manually
+### Running tasks manually {#run-tasks}
 
 Pressing **Run now** shows you the following screen.
 

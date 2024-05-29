@@ -10,7 +10,9 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 <VideoTutorial title="How to set up test reports" src="https://www.youtube.com/embed/9L0Z9xcKiYU?si=IdSsYfGLU7btYVwq" />
 
-## Overview {#overview-}
+Test reports shows a unified view of all your tests in a [pipeline](./pipelines).
+
+## Overview {#overview}
 
 The test tab in your project offers a unified view of the state of tests across all your pipelines. The test reports dashboard highlights test failures and can be filtered in many ways to provide insights into your test suite.
 
@@ -183,7 +185,7 @@ The table shows possible test runners for popular languages. If your test runner
 
 ### Step 2 - Publish {#step2}
 
-The publish step uploads all report files to the [artifact store](./jobs#artifact). This is accomplished using the `test-results` tool which is part of the *Semaphore toolbox*.
+The publish step uploads all report files to the [artifact store](./jobs#artifact). This is accomplished using the `test-results` tool which is part of the _Semaphore toolbox_.
 
 Assuming the file is called `report.xml`, you can publish the report with the following command, which runs only if the file exists.
 

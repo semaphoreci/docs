@@ -9,7 +9,9 @@ import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 import VideoTutorial from '@site/src/components/VideoTutorial';
 
-## Overview
+Organizations are the administrative unit in Semaphore. All your [projects](./projects) live inside an organization.
+
+## Overview {#overview}
 
 The fist time you log in to Semaphore you'll be prompted to create an *organization*. An organization is the basic unit of administration. 
 
@@ -29,7 +31,7 @@ To view or create other organizations, open the organization menu on the top rig
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-1. Install and connect the *Semaphore command line*
+1. Install and connect the _Semaphore command line_
 2. Run `sem context` to show the organizations connected to the tool. The active organization has an asterisk (*) next to it
     ```shell title="View connected organizations"
     $ sem context
@@ -47,11 +49,11 @@ To view or create other organizations, open the organization menu on the top rig
 </TabItem>
 </Tabs>
 
-## Managing users
+## Managing users {#people}
 
 TODO: https://docs.semaphoreci.com/account-management/organizations/
 
-## Managing ownership
+## Managing ownership {#manage-ownership}
 
 TODO: https://docs.semaphoreci.com/account-management/organizations/
 
@@ -59,7 +61,7 @@ TODO: https://docs.semaphoreci.com/account-management/organizations/
 
 To access your organization settings, open the organization menu and click on **Settings**.
 
-### General settings
+### General settings {#general-settings}
 
 Your organization main settings.  Here, you can change its name, its URL, and control how workflows run.
 
@@ -196,7 +198,7 @@ When creating or editing a secret, you can manage control where and who can use 
 </div>
 </details>
 
-### Slack notifications
+### Slack notifications {#slack-notifications}
 
 Send notifications to Slack and other webhook-based services. Notifications are sent when a pipeline finishes running so your team get instant feedback on the result. 
 
@@ -277,17 +279,17 @@ https://docs.semaphoreci.com/essentials/webhook-notifications/
 </Tabs>
 
 
-### IP Allow List
+### IP Allow List {#ip-list}
 
 Filter access to your organization by IP.
 
 TODO: get access to this feature
 
-### Initialization jobs
+### Initialization jobs {#initialization-jobs}
 
 Configure how pipelines are initialized.
 
-Semaphore must run some initialiation steps before it can start a [pipeline](./pipelines). It must fetch and validate the pipeline YAML and, in some cases like *monorepos* or *pre-flight checks*, even do a full repository clone.
+Semaphore must run some initialiation steps before it can start a [pipeline](./pipelines). It must fetch and validate the pipeline YAML and, in some cases like _monorepos_ or _pre-flight checks_, even do a full repository clone.
 
 By default, Semaphore chooses automatically which kind of [agent](./pipelines#agents) run the initialization job, but in this section you can customize it for all [projects](./projects).
 
@@ -298,13 +300,13 @@ By default, Semaphore chooses automatically which kind of [agent](./pipelines#ag
 </div>
 </details>
 
-### Okta integration
+### Okta integration {#okta-integration}
 
 <Available plans={['Scaleup']} />
 
 TODO: TBD
 
-### Contacts
+### Contacts {#contacts}
 
 Manage your contact information.
 
@@ -314,18 +316,14 @@ In this section, you can add contact details in case the Semaphore Support Team 
 - **Main**: used as the primary point of communication
 - **Security**: used to discuss any issues related to security in your organization
 
-## Managing collaborators
+## Audit logs {#audit-log}
 
 TODO: TBD
 
-## Audit logs
+## Activity monitor {#activity-monitor}
 
 TODO: TBD
 
-## Activity monitor
-
-TODO: TBD
-
-## Plans and billing
+## Plans and billing {#plans}
 
 TODO: TBD

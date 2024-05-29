@@ -11,5 +11,6 @@
     "no-inline-html": false,
     "code-block-style": false,
     "no-bare-urls": false,
+    "emphasis-style": false,
     "single-title": { "front_matter_title": "$disable" }
 }
