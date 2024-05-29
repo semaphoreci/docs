@@ -1,7 +1,7 @@
 
 # Style Guide
 
-This document describe *guidelines* to write documentation pages. Documents are written in Markdown with a [few custom extensions](#extensions). 
+This document describe *guidelines* to write documentation pages. Documents are written in Markdown with a [few custom components](#components). 
 
 ## Language
 
@@ -98,9 +98,39 @@ npm run lint
 
 The rules are explained in [markdownlint rule descriptions](https://github.com/DavidAnson/markdownlint/blob/v0.32.1/README.md#configuration). Fix any errors before pushing changes into the repo.
 
-## Markdown extensions {#extensions}
+## Admonitions
 
-We use some non-standard Markdown extensions provided by Docusaurus.
+Admonitions are used to highlight important passages in the docs. The syntax to use them is:
+
+```md
+:::note
+
+Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
+
+:::
+```
+
+There are five types of admonitions, in increasing levels of importance:
+- note
+- tip
+- info
+- warning
+- danger
+
+Don't use an admonition of higher leven when a lower level will do. Danger should be reserved for actions that can break things.
+
+## Verbs for UI actions
+
+Use the proper verb to act on elements:
+- Buttons are *pressed*
+- Links are *clicked* or *navigated to*
+- Toggable sections are *expanded*, *maximized* or *minimized*
+- Text is *typed* into inputs
+
+
+## Custom components {#components}
+
+We use some non-standard React components and Markdown extensions.
 
 ### Tabs
 
