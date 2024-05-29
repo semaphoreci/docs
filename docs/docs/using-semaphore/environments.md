@@ -13,7 +13,7 @@ import VideoTutorial from '@site/src/components/VideoTutorial';
 
 ## Overview
 
-Environments allow you to tightly control [promotions](./pipelines.md#promotions), preventing unauthorized users from starting a critical pipeline. In addition, deployment targets can restrict branches, pull requests, and protect *secrets*.
+Environments allow you to tightly control [promotions](./pipelines.md#promotions), preventing unauthorized users from starting a critical pipeline. In addition, deployment targets can restrict branches, pull requests, and protect [secrets](./organizations#secrets).
 
 Configuring a deployment target is a two-step process:
 1. Create a deployment target
@@ -47,9 +47,9 @@ To create a environment, navigate to your Semaphore project and:
 
 The bookmarks are useful when using [parameterized promotions](./pipelines#parameters). You can add up to three bookmarks matching the names of the parameters in the promotions. Think of the bookmarks as additional filters available in the deployment history view. 
 
-### Credentials
+### Credentials {#credentials}
 
-Credentials are a restricted type of *secrets* that are only accessible to authorized members of your organization.
+Credentials are a restricted type of [secrets](./organizations#secrets) that are only accessible to authorized members of your organization.
 
 In the second part, we can define environment variables and upload files that will be accessible to the promoted pipelines. All information will be encrypted once saved.
 
@@ -68,7 +68,7 @@ Credentials are optional. Go to the next step if you don't need them.
         </div>
     </details>
 
-### Granular permissions
+### Granular permissions {#granular-permissions}
 
 <Available plans={['Scaleup']} />
 
@@ -89,7 +89,7 @@ By default, everyone can start the promotion linked to this environment. To rest
         </div>
     </details>
 
-### Git-based permissions
+### Git-based permissions {#git-permissions}
 
 In the fourth part, you can restrict which Git branches and tags are allowed to start a promotion. Here you can also block promotions coming from pull requests. This section is optional.
 

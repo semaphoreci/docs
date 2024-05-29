@@ -7,12 +7,13 @@ description: The basic unit of work
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
+import VideoTutorial from '@site/src/components/VideoTutorial';
 
 Jobs get stuff done. This page explains how jobs work, how you can configure them, and what settings are available.
 
 ## Job lifecycle
 
-Jobs run arbitrary shell commands inside a dedicated environment called *agent*. Agents are ephemeral Docker containers, Kubernetes pods, or VMs running Linux or macOS.
+Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or VMs running Linux or macOS.
 
 When a job is scheduled, Semaphore will:
 
@@ -32,7 +33,7 @@ Agents can be non-ephemeral when using *self-hosted agents*.
 
 ## Blocks {#blocks}
 
-Every job in Semaphore exists inside a block. Blocks provide a convenient way to group jobs that share settings like [environment variables](#environment-variables). By default jobs **never share state** — even when on the same block.
+Every job in Semaphore exists inside a block. Blocks provide a convenient way to group jobs that share settings like [environment variables](#environment-variables). By default jobs *never share state* — even when on the same block.
 
 Jobs in the same block *run in parallel*. Here jobs #1, #2, and #3 run simultaneously.
 
@@ -107,7 +108,7 @@ Semaphore will detect a change in the remote repository and automatically start 
 </details>
 
 
-## Debugging jobs
+## Debugging jobs {#debug-jobs}
 
 Semaphore makes it easy to troubleshoot jobs. You can debug a job [interactively with an SSH session](#ssh-into-agent) or see the job log in real time.
 
@@ -203,7 +204,13 @@ To view the job id, open the job log. You can view the id of the job in two plac
 </TabItem>
 </Tabs>
 
-### Inspecting running jobs
+:::info
+
+Interactive sessions are not available for jobs with [access policies for secrets](./organizations#secret-access-policy)
+
+:::
+
+### Inspecting running jobs {#attach-job}
 
 You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore will present the following command (only while a the job is running):
 
@@ -211,6 +218,12 @@ You can use SSH to attach a console to a running job. The steps are the same as 
 sem attach <job-id>
 ```
 You can explore running processes, inspect the environment variables, and take a peek at the log files to help identify problems with your jobs.
+
+:::info
+
+Inspecting running jobs is not available [access policies for secrets](./organizations#secret-access-policy) are enabled.
+
+:::
 
 ### Port forwarding
 
@@ -675,6 +688,8 @@ Numeric values need to be included in quotes.
 </details>
 
 ### Secrets {#secrets}
+
+<VideoTutorial title="How to use secrets" src="https://www.youtube.com/embed/rAJIRX81DeA"/>
 
 Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list will decrypt the secret and inject its files or variables into all jobs in the block.
 

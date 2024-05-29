@@ -90,7 +90,7 @@ In the following example:
 
 Pipeline settings are applied to all jobs it contains. You can change pipeline settings with the editor or directly in the YAML.
 
-### Agents
+### Agents {#agents}
 
 <Available/>
 
@@ -302,7 +302,7 @@ The pipeline settings are:
 
 You can configure jobs to run once a pipeline stops, even if it ended due to a failure, stopped, or canceled.
 
-After-pipeline jobs are executed in parallel. Typical use cases for after-pipeline jobs are sending notifications, collecting *test results*, or submitting metrics to an external server.
+After-pipeline jobs are executed in parallel. Typical use cases for after-pipeline jobs are sending notifications, collecting [test reports](./test-reports), or submitting metrics to an external server.
 
 You can add after-pipeline jobs using YAML or the editor.
 
@@ -397,7 +397,7 @@ Promotions are defined in the pipeline from which the child pipelines branch off
 
 ![Adding a manual promotion](./img/promotion-add-manual.jpg)
 
-Press (A) "Delete Promotion" to completely delete the promotion and **all child pipelines**.
+Press (A) "Delete Promotion" to completely delete the promotion and *all child pipelines*.
 
 </TabItem>
 <TabItem value="yaml" label="YAML">
@@ -584,7 +584,7 @@ Once you have [added a parameter](#how-to-add-parameters), you can select its va
 </TabItem>
 <TabItem value="freeform" label="Freeform type value">
 
- ![Typing the parameter value in freeform](./img/promotion-freeform.jpg)
+![Typing the parameter value in freeform](./img/promotion-freeform.jpg)
 
 </TabItem>
 </Tabs>
@@ -657,37 +657,45 @@ Parameters are available in the following places:
 - As the name of a [secret](./jobs#secrets) (only available in YAML)
 
 <Tabs groupId="editor-yaml">
- <TabItem value="editor" label="Editor">
- ![Parameter value is expanded in the pipeline name](./img/pipeline-parameter-expansion.jpg)
- </TabItem>
- <TabItem value="yaml" label="YAML">
- The following YAML pipeline shows all the places where a parameter value can be used:
+<TabItem value="editor" label="Editor">
 
- ```yaml title="deploy.yml"
+![Parameter value is expanded in the pipeline name](./img/pipeline-parameter-expansion.jpg)
 
- version: v1.0
- # highlight-next-line
- name: 'Deploy to ${{parameters.ENVIRONMENT}}'
- agent:
- machine:
- type: e1-standard-2
- os_image: ubuntu2004
- # highlight-start
- queue:
- name: '${{parameters.ENVIRONMENT}}-queue'
- scope: project
- # highlight-end
- blocks:
- - name: Param. promotions example
- task:
- jobs:
- - name: Using promotion as env. var
- commands:
- # highlight-next-line
- - echo "Deploy to $ENVIRONMENT"
- secrets:
- # highlight-next-line
- - name: 'secrets-for-${{parameters.ENVIRONMENT}}'
- ```
- </TabItem>
+</TabItem>
+<TabItem value="yaml" label="YAML">
+The following YAML pipeline shows all the places where a parameter value can be used:
+
+```yaml title="deploy.yml"
+version: v1.0
+# highlight-start
+# Use parameter values in the pipeline name
+name: '${{parameters.ENVIRONMENT}} deployment of the release: ${{parameters.RELEASE}}'
+# highlight-end
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+queue:
+  # highlight-start
+  # Use parameter values in the pipeline queue name
+  name: '${{parameters.ENVIRONMENT}}-queue'
+  scope: project
+  # highlight-end
+blocks:
+  - name: Param. promotions example
+    task:
+      jobs:
+        - name: Using promotion as env. var
+          commands:
+            # highlight-start
+            # Use parameter values inside a job
+            - echo $ENVIRONMENT
+            - echo $RELEASE
+            # highlight-end
+      secrets:
+        # highlight-next-line
+        - name: 'creds-for-${{parameters.ENVIRONMENT}}'
+```
+
+</TabItem>
 </Tabs>
