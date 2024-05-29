@@ -50,6 +50,7 @@ const sidebars = {
         'using-semaphore/jobs',
         'using-semaphore/pipelines',
         'using-semaphore/environments',
+        'using-semaphore/organizations',
         'using-semaphore/tasks',
         'using-semaphore/test-reports',
         'using-semaphore/flaky-tests',
