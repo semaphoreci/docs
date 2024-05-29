@@ -78,7 +78,9 @@ Example value: `a26d42cf-89ac-4c3f-9e2d-51bb231897bf`
 
 The value of the `SEMAPHORE_JOB_TYPE` environment variable represents the type of
 the job based on the way it was created.
+
 The possible values are: 
+
 - `pipeline_job` - A regular job that is the part of a pipeline.
 - `debug_job` - A job that was created to debug the other job via the `sem debug job <JOB_ID>` command.
 - `project_debug_job` - A job that was created to debug the project via the `sem debug project <PROJECT_NAME>` command.
