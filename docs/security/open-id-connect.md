@@ -90,7 +90,10 @@ The ID of the workflow for which the token was issued. Example: `1be81412-6ab8-4
 The pipeline ID for which the token was issued. Example: `1e1fcfb5-09c0-487e-b051-2d0b5514c42a`.
 
 #### job_type
-The type of the job based on the way it was created. The possible values are: 
+The type of the job based on the way it was created. 
+
+The possible values are: 
+
 - `pipeline_job` - A regular job that is the part of a pipeline.
 - `debug_job` - A job that was created to debug the other job via the `sem debug job <JOB_ID>` command.
 - `project_debug_job` - A job that was created to debug the project via the `sem debug project <PROJECT_NAME>` command.
