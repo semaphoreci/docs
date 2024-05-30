@@ -1,27 +1,28 @@
 ---
-description: The basic unit of work
+description: Jobs and blocks are the basic unit of work
 ---
 
 # Jobs
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import Available from '@site/src/components/Available';
 import VideoTutorial from '@site/src/components/VideoTutorial';
 
 Jobs get stuff done. This page explains how jobs work, how you can configure them, and what settings are available.
 
 ## Job lifecycle {#job-lifecycle}
 
-Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or VMs running Linux or macOS.
+Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or x86/ARM VMs running Linux, macOS, or _Windows_ (TODO: link to self-hosted)
 
 When a job is scheduled, the following happens:
 
-1. **Schedule agent from pool**: pick a suitable agent from the warm pool of agents.
-2. **Initialize environment**: execute setup steps such as importing environment variables, loading SSH keys, mounting secrets, and installing the [Semaphore toolbox](#toolbox)
+1. **Allocate agent from pool**: pick a suitable agent from the warm pool of agents.
+2. **Initialize environment**: execute setup steps such as importing environment variables, loading SSH keys, mounting [secrets](#secrets), and installing the [Semaphore toolbox](#toolbox)
 3. **Run commands**: execute your commands inside the agent
 4. **End job and save logs**: the job activity log is exported and saved for future inspection
 5. **Destroy agent**: the used agent is discarded, along with all its files
+
+TODO: change the person to be less hacker-like
 
 ![Job Lifecycle](./img/job-lifecycle.jpg)
 
@@ -31,19 +32,11 @@ Agents can be non-ephemeral when using _self-hosted agents_.
 
 :::
 
-## Blocks {#blocks}
-
-Every job in Semaphore exists inside a block. Blocks provide a convenient way to group jobs that share settings like [environment variables](#environment-variables). By default jobs *never share state* — even when on the same block.
-
-Jobs in the same block *run in parallel*. Here jobs #1, #2, and #3 run simultaneously.
-
-![Block and jobs](./img/one-block.jpg)
-
-You can [connect blocks](./pipelines#dependencies) with dependencies to blocks to orchestrate complex workflows.
-
 ## How to create a job {#job-create}
 
 You can create a job with the visual editor or by editing the YAML directly in the `.semaphore` folder.
+
+TODO: reuse the one job. Press workflow editor button.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor" default>
@@ -102,9 +95,270 @@ Semaphore detects a change in the remote repository and automatically start the 
 
 ![Job log](./img/job-log.jpg)
 
+
+## Blocks {#blocks}
+
+TODO: mention blocks more organically, don't use the toolbox just yet.
+TODO: mention that jobs are run in a completely isolated environment
+TODO: create video/gif showing how to reorder blocks using dependencies
+
+Blocks are groups of jobs that run in parallel, in no specific order. [Block settings](#block-settings) are applied to all jobs in the block.
+
+### Jobs in parallel {#jobs-parallel}
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+To run a two jobs in parallel:
+
+1. Press **+ Add job**
+2. Type the job name
+3. Type the job shell commands
+
+![Adding a second job](./img/jobs-parallel.jpg)
+
+Press:
+
+- (A) X next to the job to delete a job
+- (B) "Delete block" to delete all jobs
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+1. Add a new `name` item under `jobs`
+2. Add your shell commands (one per line) under `commands`
+3. Save the file, commit and push it to your repository
+
+```yaml title=".semaphore/semaphore.yaml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - make build
+        # highlight-start
+        - name: Lint
+          commands:
+            - checkout
+            - make lint
+        # highlight-end
+```
+
+</TabItem>
+</Tabs>
+
+:::note
+
+Because each job runs in a separate environment, you cannot share files or data between jobs in the same block.
+
+:::
+
+### Jobs in sequence {#jobs-sequence}
+
+If you want to run jobs one after the other, i.e. not in parallel, you must define them in separate blocks.
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+1. Create the first block and job
+2. Add a second block and job
+3. Adjust dependencies to define execution order
+
+![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+1. Add a new job entry under `blocks`
+2. Add a `dependencies`. List the names of the dependent blocks.
+ 
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - checkout
+            - make build
+  # highlight-start
+  - name: Test
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Test
+          commands:
+            - checkout
+            - make test
+  # highlight-end
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+
+All jobs run in a completely isolated space. Once the job ends, *all files and changes are lost*.  To move files between blocks add the [checkout](#checkout) or [artifact](#artifact) commands to your jobs.
+
+:::
+
+## Semaphore toolbox {#toolbox}
+
+The _Semaphore toolbox_ is a set of command line tools to carry essential tasks in your jobs such as cloning the repository or moving data between jobs.
+
+The most-used tools in the _Semaphore toolbox_ are: 
+
+- _checkout_ to checkout the code from the remote repository
+- _cache_ to speed up jobs by caching downloaded files
+- _artifact_ tomove files between jobs and save build artifacts
+
+### checkout {#checkout}
+
+_Checkout_ clones the remote repository and `cd`s into the cloned repository so you're ready to work.
+
+The following example shows how to work with a Node.js project. The checkout command is needed to clone the repository so we can get `package.json` and `package-lock.json`.
+
+```shell
+checkout
+npm install
+```
+Checkout, like all the tools in the toolbox, are shell scripts. 
+
+All the tools in the toolbox should be added in the correct order in the command section of the job, the [block prologue/epilogue](#prologue), or in the [pipeline prologue/epilogue](./pipelines#settings).
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Running checkout with the visual editor](./img/checkout.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Install
+    dependencies: []
+    task:
+      jobs:
+        - name: npm install
+          commands:
+            # highlight-next-line
+            - checkout
+            - npm install
+```
+
+</TabItem>
+</Tabs>
+
 <details>
- <summary>Where are my files?</summary>
- <div>Remember that each job gets a brand new agent, so besides a few pre-installed utilities, there is nothing in the agent's disk. Semaphore provides [tools to persist files](#toolbox) and move them between jobs.</div>
+ <summary>How does checkout work?</summary>
+ <div>
+ During agent initialization, Semaphore sets four [environment variables](#environment-variables) that define how checkout works:
+ - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
+ - SEMAPHORE_GIT_DIR: the path where the repository is to be cloned (e.g. `/home/semaphore/myproject`)
+ - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
+ - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
+ </div>
+</details>
+
+### cache {#cache}
+
+TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
+
+The main function of the _cache_ is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
+
+Cache can detect dependency folders. Let's say we want to speed up `npm install`:
+
+```shell
+checkout
+# highlight-next-line
+cache restore
+npm install
+# highlight-next-line
+cache store
+```
+
+The highlighted lines show how to use the cache:
+
+- **cache store**: saves `node_modules` to non-ephemeral storage. It knows it's a Node project because it found `package.json` in the working folder.
+- **cache restore**: retrieves the cached copy of `node_modules` to the working directory.
+
+Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to _supply additional arguments_.
+
+### artifact {#artifact}
+
+TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
+
+The _artifact_ command can be used as:
+
+- a way to move files between jobs and runs
+- as persistent storage for artifacts such as compiled binaries or bundles
+
+The following example shows how to persist files between jobs. In the first job we have:
+
+```shell
+checkout
+npm run build
+artifact push workflow dist
+```
+
+In the following jobs, we can access the content of the dist folder with:
+
+```shell
+artifact pull workflow dist
+```
+
+Let's do another example: this time we want to save the compiled binary `hello.exe`:
+
+```shell
+checkout
+go build 
+artifact push project hello.exe
+```
+
+Artifacts can be viewed and downloaded from the Semaphore project.
+
+![Artifact view in Semaphore](./img/artifact-view.jpg)
+
+<details>
+ <summary>Artifact namespaces</summary>
+ <div>
+    Semaphore has three separate namespaces of artifacts: job, workflow, and project. The syntax is:
+
+    ```shell
+    artifact pull|push job|workflow|project /path/to/file/or/folder
+    ```
+
+    The namespace used controls at what level the artifact is accessible:
+
+    - job artifacts are only accessible to the job that created it. Useful for collecting debugging data
+    - workflow artifacts are accessible to all jobs in all running [pipelines](./pipelines). The main use case is to pass data between jobs.
+    - project artifacts are always accessible. They are ideal for storing final deliverables. 
+
+ </div>
 </details>
 
 
@@ -194,7 +448,7 @@ To view the job id, open the job log. You can view the id of the job in two plac
 <Tabs groupId="editor-yaml">
 <TabItem value="browser-url" label="URL">
 
-![View the job id in the URL](./img/job-id-debug.jpg)
+![View the job id in the URL](./img/job-id-url.jpg)
 
 </TabItem>
 <TabItem value="debug-link" label="SSH Debug/Attach">
@@ -247,268 +501,7 @@ You can now connect to `http://localhost:6000` to view the application running r
 
 :::info
 
-Port-forwarding only works for Virtual Machine-based agents. It's not available in [Docker environments](./pipelines#docker-environments)
-
-:::
-
-## Semaphore toolbox {#toolbox}
-
-Most CI platforms provide primitives in their configd to perform standard actions. For example, GitHub Actions has a [checkout action](https://github.com/actions/checkout) while CircleCI has a [checkout step](https://circleci.com/docs/hello-world/). 
-
-Semaphore take a different approach. Instead of providing you with special actions that add to the YAML syntax complexity, it gives you a *toolbox*. The most-used tools in the _Semaphore toolbox_ are: 
-
-- _checkout_ to checkout the code from the remote repository
-- _cache_ to speed up jobs by caching downloaded files
-- _artifact_ tomove files between jobs and save build artifacts
-
-### checkout {#checkout}
-
-_Checkout_ clones the remote repository and `cd`s into the cloned repository so you're ready to work.
-
-The following example shows how to work with a Node.js project. The checkout command is needed to clone the repository so we can get `package.json` and `package-lock.json`.
-
-```shell
-checkout
-npm install
-```
-Checkout, like all the tools in the toolbox, are shell scripts. 
-
-All the tools in the toolbox should be added in the correct order in the command section of the job, the [block prologue/epilogue](#prologue), or in the [pipeline prologue/epilogue](./pipelines#settings).
-
-<Tabs groupId="editor-yaml">
-<TabItem value="editor" label="Editor">
-
-![Running checkout with the visual editor](./img/checkout.jpg)
-
-</TabItem>
-<TabItem value="yaml" label="YAML">
-
-```yaml title=".semaphore/semaphore.yml"
-version: v1.0
-name: Initial Pipeline
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
-blocks:
-  - name: Install
-    dependencies: []
-    task:
-      jobs:
-        - name: npm install
-          commands:
-            # highlight-next-line
-            - checkout
-            - npm install
-```
-
-</TabItem>
-</Tabs>
-
-<details>
- <summary>How does checkout work?</summary>
- <div>
- During agent initialization, Semaphore sets four [environment variables](#environment-variables) that define how checkout works:
- - SEMAPHORE_GIT_URL: the URL of the repository (e.g. git@github.com:mycompany/myproject.git).
- - SEMAPHORE_GIT_DIR: the path where the repository is to be cloned (e.g. `/home/semaphore/myproject`)
- - SEMAPHORE_GIT_SHA: the SHA key for the HEAD used for `git reset -q --hard`
- - SEMAPHORE_GIT_DEPTH: checkout does by default a shallow clone. This is the depth level for the shallow clone. Defaults to 50
- </div>
-</details>
-
-### cache {#cache}
-
-<Available/>
-
-The main function of the _cache_ is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
-
-Cache can detect dependency folders. Let's say we want to speed up `npm install`:
-
-```shell
-checkout
-# highlight-next-line
-cache restore
-npm install
-# highlight-next-line
-cache store
-```
-
-The highlighted lines show how to use the cache:
-
-- **cache store**: saves `node_modules` to non-ephemeral storage. It knows it's a Node project because it found `package.json` in the working folder.
-- **cache restore**: retrieves the cached copy of `node_modules` to the working directory.
-
-Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to _supply additional arguments_.
-
-### artifact {#artifact}
-
-<Available/>
-
-The _artifact_ command can be used as:
-
-- a way to move files between jobs and runs
-- as persistent storage for artifacts such as compiled binaries or bundles
-
-The following example shows how to persist files between jobs. In the first job we have:
-
-```shell
-checkout
-npm run build
-artifact push workflow dist
-```
-
-In the following jobs, we can access the content of the dist folder with:
-
-```shell
-artifact pull workflow dist
-```
-
-Let's do another example: this time we want to save the compiled binary `hello.exe`:
-
-```shell
-checkout
-go build 
-artifact push project hello.exe
-```
-
-Artifacts can be viewed and downloaded from the Semaphore project.
-
-![Artifact view in Semaphore](./img/artifact-view.jpg)
-
-<details>
- <summary>Artifact namespaces</summary>
- <div>
-    Semaphore has three separate namespaces of artifacts: job, workflow, and project. The syntax is:
-
-    ```shell
-    artifact pull|push job|workflow|project /path/to/file/or/folder
-    ```
-
-    The namespace used controls at what level the artifact is accessible:
-
-    - job artifacts are only accessible to the job that created it. Useful for collecting debugging data
-    - workflow artifacts are accessible to all jobs in all running [pipelines](./pipelines). The main use case is to pass data between jobs.
-    - project artifacts are always accessible. They are ideal for storing final deliverables. 
-
- </div>
-</details>
-
-## Blocks {#blocks}
-
-Blocks are groups of jobs that run in parallel, in no specific order. [Block settings](#block-settings) are applied to all jobs in the block.
-
-### Jobs in parallel {#jobs-parallel}
-
-<Tabs groupId="editor-yaml">
-<TabItem value="editor" label="Editor">
-
-To run a two jobs in parallel:
-
-1. Press **+ Add job**
-2. Type the job name
-3. Type the job shell commands
-
-![Adding a second job](./img/jobs-parallel.jpg)
-
-Press:
-
-- (A) X next to the job to delete a job
-- (B) "Delete block" to delete all jobs
-
-</TabItem>
-<TabItem value="yaml" label="YAML">
-
-1. Add a new `name` item under `jobs`
-2. Add your shell commands (one per line) under `commands`
-3. Save the file, commit and push it to your repository
-
-```yaml title=".semaphore/semaphore.yaml"
-version: v1.0
-name: Initial Pipeline
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
-blocks:
-  - name: Build
-    dependencies: []
-    task:
-      jobs:
-        - name: Build
-          commands:
-            - checkout
-            - make build
-        # highlight-start
-        - name: Lint
-          commands:
-            - checkout
-            - make lint
-        # highlight-end
-```
-
-</TabItem>
-</Tabs>
-
-:::warning
-
-Because each job runs in a separate environment, you cannot share files or data between jobs in the same block.
-
-:::
-
-### Jobs in sequence {#jobs-sequence}
-
-If you want to run jobs one after the other, i.e. not in parallel, you must define them in separate blocks.
-
-<Tabs groupId="editor-yaml">
-<TabItem value="editor" label="Editor">
-
-1. Create the first block and job
-2. Add a second block and job
-3. Adjust dependencies to define execution order
-
-![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
-
-</TabItem>
-<TabItem value="yaml" label="YAML">
-
-1. Add a new job entry under `blocks`
-2. Add a `dependencies`. List the names of the dependent blocks.
- 
-```yaml title=".semaphore/semaphore.yml"
-version: v1.0
-name: Initial Pipeline
-agent:
-  machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
-blocks:
-  - name: Build
-    dependencies: []
-    task:
-      jobs:
-        - name: Build
-          commands:
-            - checkout
-            - make build
-  # highlight-start
-  - name: Test
-    dependencies:
-      - Build
-    task:
-      jobs:
-        - name: Test
-          commands:
-            - checkout
-            - make test
-  # highlight-end
-```
-
-</TabItem>
-</Tabs>
-
-:::info
-
-Semaphore always starts with the blocks that have no dependencies and move along the dependency graph until all blocks are done.
+Port-forwarding only works for Virtual Machine-based agents. It's not available in [Docker environments](./pipelines#docker-environments).
 
 :::
 
@@ -517,6 +510,8 @@ Semaphore always starts with the blocks that have no dependencies and move along
 Block settings apply to every job inside. Select a block to view its settings.
 
 ### Prologue {#prologue}
+
+TODO: use checkout and other relevant toolbox commands
 
 The prologue contains shell commands that run before every job begins. Use this to run common setup commands like downloading dependencies, setting the runtime version, or starting test services.
 
@@ -692,6 +687,8 @@ Numeric values need to be included in quotes.
 
 <VideoTutorial title="How to use secrets" src="https://www.youtube.com/embed/rAJIRX81DeA"/>
 
+TODO: secrets are not visible to users, technically decryption happens at runtime, as opposed as when they are added to the block. They are not like environment variables. They may contain values that are exported as environment variables in the job environment. Their values are available as environment variables.
+
 Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list decrypts the secret and injects its files or variables into all jobs in the block.
 
 Use secrets to store sensitive data like API keys, passwords, or SSH key files without revealing their contents.
@@ -734,6 +731,18 @@ blocks:
 
 </TabItem>
 </Tabs>
+
+<details>
+<summary>How to protect secrets</summary>
+<div>
+
+TODO: secrets are implemented at different levels:
+- environments
+- organization access policy
+- project/pipeline access policy
+
+</div>
+</details>
 
 
 ### Skip/run conditions {#skip-run}
@@ -817,7 +826,7 @@ blocks:
 
 ### Agent {#agent-override}
 
-Here you can override the pipeline-level [agent](./pipelines#agents) for a specific job.
+Here you can override the pipeline-level [agent](./pipelines#agents) for a specific job. You can select X86/ARM VMs running Linux, macOS, or Windows (_self-hosted_ only). In addition, the agent can run in Kubernetes pods or [Docker environments](./pipelines#docker-environments).
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">

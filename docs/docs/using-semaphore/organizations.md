@@ -158,7 +158,7 @@ Secrets allows you to keep files and environment variables with sensitive data s
 
 :::tip 
 
-Secrets are available to all the [projects](./projects) in the organization. If you need more fine grained control, use the [credentials in environments](./environments#credentials).
+Secrets are available to all the [projects](./projects) in the organization. If you need more fine grained control, use the [credentials in environments](./promotions#credentials).
 
 :::
 
