@@ -99,7 +99,7 @@ When the output is not shown, don't use the dollar sign ($):
 npm run build
 ```
 
-## Indentation
+## Step-by-step instructions
 
 Only use indentation when absolutely needed. Avoid it when possible. The typical example is when you want to add a child item inside a list without breaking the numbering.
 
@@ -111,6 +111,24 @@ Only use indentation when absolutely needed. Avoid it when possible. The typical
 4. Thanks to indentation the numbering did not get interrupted
 ```
 
+When there are large items between steps that might interrupt the flow of the step-by-step instructions, you should hide them using [toggles](#toggles). For example if image.jpg is really big and takes the whole screen, the reader might lose the thread of the steps. In that case we can do something like this:
+
+```md
+1. Step 1
+2. Step 2
+3. Step 3 has some child image
+
+  <details>
+  <summary>Show me</summary>
+  <div>
+    ![Alt text](image.jpg)
+  </div>
+  </details>
+
+4. Thanks to indentation the numbering did not get interrupted
+```
+
+Note that the step child items need to be indented to keep the numbering of the list intact.
 
 ## Admonitions
 
@@ -146,7 +164,7 @@ Use the proper verb to act on elements:
 
 We use some non-standard React components and Markdown extensions.
 
-### Tabs
+### Tabs {#tabs}
 
 Use tabs to show multiple ways of achieving the same task. For example, in the [jobs page](http://localhost:3000/docs/using-semaphore/jobs) we use tabs to show how to configure jobs using the visual editor and the YAML. In the [tasks page](http://localhost:3000/docs/using-semaphore/tasks) we use tabs to show how to create a task using the UI and the CLI.
 
@@ -172,7 +190,7 @@ Then add the `<Tabs>` component. Each `<TabItem>` is a tab. Indenting is optiona
 
 The `groupID` is optional. Tabs sharing a group id will switch together through the document.
 
-### Plans
+### Plans {#plans}
 
 We use a special admonition to mark features that are available only with specific plans.
 
@@ -196,7 +214,7 @@ You can pass an array of plans instead.
 <Available  plans={['Startup','Scaleup']}/>
 ```
 
-### Toggable content
+### Toggable content {#toggles}
 
 You can hide less important elements using a toggable content
 
