@@ -4,6 +4,27 @@ We love your input! We want to make contributing to Semaphore documentation as e
 
 This guide outlines the process for making changes to the documentation, whether you are an internal or external contributor.
 
+
+## Table of Content
+
+<!-- toc -->
+
+- [Ways to Contribute](#ways-to-contribute)
+  * [Provide Feedback](#provide-feedback)
+  * [Update Documentation Content](#update-documentation-content)
+- [Prerequisites](#prerequisites)
+- [Step 1: Set Up Your Local Environment](#step-1-set-up-your-local-environment)
+- [Step 2: Set Up Your Working Branch](#step-2-set-up-your-working-branch)
+- [Step 3: Test Your Changes Locally](#step-3-test-your-changes-locally)
+  * [Validate the Markdown Syntax](#validate-the-markdown-syntax)
+  * [Review Changes in Browser](#review-changes-in-browser)
+- [Step 4: Create a Pull Request](#step-4-create-a-pull-request)
+  * [Pull Request Etiquette](#pull-request-etiquette)
+  * [Internal Contributors](#internal-contributors)
+- [Next Steps](#next-steps)
+
+<!-- tocstop -->
+
 ## Ways to Contribute
 
 ### Provide Feedback
