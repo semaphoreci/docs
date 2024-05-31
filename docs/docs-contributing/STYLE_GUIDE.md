@@ -66,6 +66,7 @@ When using images:
 
 - always provide alt text for people using screen readers, e.g. `![The picture of an organge cat](./img/cat.jpg)`
 - strive to create pictures with wider-than-tall aspect ratio such as 3:2, 4:3, or 16:9. Images that are taller than wider take a lot of screen real state and look bad
+- in practice, images of size around 800 x 400 seem to work best
 
 ## Links
 
@@ -128,7 +129,7 @@ Only use indentation when absolutely needed. Avoid it when possible. The typical
 4. Thanks to indentation the numbering did not get interrupted
 ```
 
-When there are large items between steps that might interrupt the flow of the step-by-step instructions, you should hide them using [toggles](#toggles). For example if image.jpg is really big and takes the whole screen, the reader might lose the thread of the steps. In that case we can do something like this:
+When there are large items between steps that might interrupt the flow of the step-by-step instructions, you should hide them using [toggles](#toggable-content). For example if image.jpg is really big and takes the whole screen, the reader might lose the thread of the steps. In that case we can do something like this:
 
 ```md
 1. Step 1
@@ -145,9 +146,7 @@ When there are large items between steps that might interrupt the flow of the st
 4. Thanks to indentation the numbering did not get interrupted
 ```
 
-Note that the step child items need to be indented to keep the numbering of the list intact.
-
-## 
+Note that things added between steps need to be indented to avoid breaking numeration
 
 ## Admonitions
 
@@ -177,13 +176,15 @@ Use the proper verb to act on elements:
 - Links are *clicked* or *navigated to*
 - Toggable sections are *expanded*, *maximized* or *minimized*
 - Text is *typed* into inputs
+- Checkboxes are *checked/unchecked* or *enabled/disabled*
+- Radio selection items are *selected*
 
 
-## Custom components {#components}
+## Components
 
 We use some non-standard React components and Markdown extensions.
 
-### Tabs {#tabs}
+### Tabs
 
 Use tabs to show multiple ways of achieving the same task. For example, in the [jobs page](http://localhost:3000/docs/using-semaphore/jobs) we use tabs to show how to configure jobs using the visual editor and the YAML. In the [tasks page](http://localhost:3000/docs/using-semaphore/tasks) we use tabs to show how to create a task using the UI and the CLI.
 
@@ -209,7 +210,7 @@ Then add the `<Tabs>` component. Each `<TabItem>` is a tab. Indenting is optiona
 
 The `groupID` is optional. Tabs sharing a group id will switch together through the document.
 
-### Plans {#plans}
+### Plans 
 
 We use a special admonition to mark features that are available only with specific plans.
 
@@ -233,7 +234,7 @@ You can pass an array of plans instead.
 <Available  plans={['Startup','Scaleup']}/>
 ```
 
-### Toggable content {#toggles}
+### Toggable content 
 
 You can hide less important elements using a toggable content
 

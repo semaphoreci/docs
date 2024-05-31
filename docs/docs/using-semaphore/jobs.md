@@ -39,10 +39,9 @@ You can create a job with the visual editor or by editing the YAML directly in t
 
 Open your [project](./projects) on Semaphore and press **Edit Workflow**.
 
-![Screenshot of project opened in Semaphore. The Edit Workflow button is highlighted](./img/edit-workflow.jpg)
+![Screenshot of the project opened in Semaphore. The Edit Workflow button is highlighted](./img/edit-workflow.jpg)
 
-
-1. Press on the block
+1. Select the first block
 2. Type your shell commands
 3. Press **Run the workflow** > **Looks good, Start →**
 
@@ -85,20 +84,20 @@ Semaphore automatically starts the job. Open the job to follow the progress and 
 
 ![Job log](./img/job-log.jpg)
 
-## Blocks {#blocks}
+:::info
 
-TODO: mention blocks more organically, don't use the toolbox just yet.
-TODO: mention that jobs are run in a completely isolated environment
-TODO: create video/gif showing how to reorder blocks using dependencies
+A *block* is a group of jobs that [share common settings](#block-settings).
 
-Blocks are groups of jobs that run in parallel, in no specific order. [Block settings](#block-settings) are applied to all jobs in the block.
+:::
 
-### Jobs in parallel {#jobs-parallel}
+### Run jobs in parallel {#jobs-parallel}
+
+Jobs added to the same block not only [share settings](#block-settings) but also run in parallel.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
-To run a two jobs in parallel:
+To run two jobs in parallel:
 
 1. Press **+ Add job**
 2. Type the job name
@@ -106,10 +105,7 @@ To run a two jobs in parallel:
 
 ![Adding a second job](./img/jobs-parallel.jpg)
 
-Press:
-
-- (A) X next to the job to delete a job
-- (B) "Delete block" to delete all jobs
+You can delete a job by pressing the X sign next to it. To delete the whole block, scroll down and click on **Delete block...**.
 
 </TabItem>
 <TabItem value="yaml" label="YAML">
@@ -126,19 +122,17 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Build
+  - name: 'Block #1'
     dependencies: []
     task:
       jobs:
-        - name: Build
+        - name: 'Job #1'
           commands:
-            - checkout
-            - make build
+            - echo 'this is job #1'
         # highlight-start
-        - name: Lint
+        - name: 'Job #2'
           commands:
-            - checkout
-            - make lint
+            - echo 'this is job #2'
         # highlight-end
 ```
 
@@ -147,19 +141,19 @@ blocks:
 
 :::note
 
-Because each job runs in a separate environment, you cannot share files or data between jobs in the same block.
+Jobs always run in an isolated environment. Because each job gets a different [agent](./pipelines#agents), they cannot share files or data when running on the same block.
 
 :::
 
-### Jobs in sequence {#jobs-sequence}
+### Run jobs in sequence {#jobs-sequence}
 
 If you want to run jobs one after the other, i.e. not in parallel, you must define them in separate blocks.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
-1. Create the first block and job
-2. Add a second block and job
+1. Click on **+Add Block**
+2. Type the names and commands of the second jo b
 3. Adjust dependencies to define execution order
 
 ![Adding a second job and using dependencies to define execution order](./img/add-block.jpg)
@@ -178,24 +172,22 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Build
+  - name: 'Block #1'
     dependencies: []
     task:
       jobs:
-        - name: Build
+        - name: 'Job #1'
           commands:
-            - checkout
-            - make build
+            - echo 'this is job #1 in block #1'
   # highlight-start
-  - name: Test
+  - name: 'Block #2'
     dependencies:
-      - Build
+      - 'Block #1'
     task:
       jobs:
-        - name: Test
+        - name: 'Job #1'
           commands:
-            - checkout
-            - make test
+            - echo 'this is job #1 in block #2'
   # highlight-end
 ```
 
@@ -204,9 +196,13 @@ blocks:
 
 :::tip
 
-All jobs run in a completely isolated space. Once the job ends, *all files and changes are lost*.  To move files between blocks add the [checkout](#checkout) or [artifact](#artifact) commands to your jobs.
+Since jobs always run in a completely isolated space, all local files are lost when the job ends. Use the [checkout](#checkout) and [artifact](#artifact) commands to share and persist files between jobs.
 
 :::
+
+### Changing execution order
+
+The order in which jobs and blocks run is defined by the dependencies of each block. Dependencies are explained in detail in the [pipelines page](./pipelines#dependencies).
 
 ## Semaphore toolbox {#toolbox}
 
@@ -216,7 +212,7 @@ The most-used tools in the [Semaphore toolbox] are:
 
 - [checkout] to checkout the code from the remote repository
 - [cache] to speed up jobs by caching downloaded files
-- [artifact] tomove files between jobs and save build artifacts
+- [artifact] to move files between jobs and save build artifacts
 
 ### checkout {#checkout}
 
@@ -275,7 +271,11 @@ blocks:
 
 ### cache {#cache}
 
-TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
+:::note
+
+Using `cache` in [self-hosted agents] requires additional setup steps.
+
+:::
 
 The main function of the [cache] is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
 
@@ -297,9 +297,14 @@ The highlighted lines show how to use the cache:
 
 Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to [supply additional arguments].
 
+
 ### artifact {#artifact}
 
-TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
+:::note
+
+Using `artifact` in [self-hosted agents] requires additional setup steps.
+
+:::
 
 The [artifact] command can be used as:
 
@@ -353,11 +358,11 @@ Artifacts can be viewed and downloaded from the Semaphore project.
 
 ## Debugging jobs {#debug-jobs}
 
-Semaphore makes it easy to troubleshoot jobs. You can debug a job [interactively with an SSH session](#ssh-into-agent) or see the job log in real time.
+Semaphore makes it easy to troubleshoot jobs. You can debug a job [interactively with an SSH session](#ssh-into-agent) or see the job log in real-time.
 
 ### Why my job has failed? {#debug-job}
 
-When the first command in the job ends in a non-zero status the job ends immediately with error. By default no new jobs start once a job has failed.
+When the first command in the job ends in a non-zero status the job ends immediately with error. By default, no new jobs start once a job has failed.
 
 Open the job log to see why it failed. The problematic command is shown in red. You can click on the commands to expand their output.
 
@@ -382,21 +387,19 @@ You can debug a job interactively by SSHing into the agent — a particularly po
 
 ![An interactive SSH session](./img/ssh-debug-session.png)
 
+:::note
 
-If this is the first time using an interactive session you need to:
+If this is the first time using an interactive session you need to [install and connect] the Semaphore command line tool.
 
-1. Click on **SSH Debug** in the job log view
-2. Open the "How to install ..." section
-3. Install the [Semaphore command line tool]: copy and paste the command in a terminal
-4. Authorize sem cli to access your organization: copy and paste the command into a terminal
+:::
 
-Now you can start an SSH session by copying and pasting the debug command (#5 in the screenshot above)
+To open an interactive session, open the job log and:
 
- ```shell
- sem debug job <job-id>
- ```
+1. Click on **SSH Debug**
+2. Copy the command shown
+3. Run the command in a terminal
 
-![How to connect with SSH for the first time](./img/sem-debug-first-time.jpg)
+![How to connect with SSH for the first time](./img/sem-debug.jpg)
 
 You'll be presented with a welcome message like this:
 
@@ -429,42 +432,24 @@ By default, the duration of the SSH session is limited to one hour. To run longe
 sem debug job <job-id> --duration 3h
 ```
 
-To view the job id, open the job log. You can view the id of the job in two places:
+:::note
 
-- The URL in the browser
-- The SSH Debug/Attach job tooltip
-
-<Tabs groupId="editor-yaml">
-<TabItem value="browser-url" label="URL">
-
-![View the job id in the URL](./img/job-id-url.jpg)
-
-</TabItem>
-<TabItem value="debug-link" label="SSH Debug/Attach">
-
-![View the job id in the SSH Debug/Attach option](./img/job-id-debug.jpg)
-
-</TabItem>
-</Tabs>
-
-:::info
-
-Interactive sessions are not available for jobs with [access policies for secrets](./organizations#secret-access-policy)
+Interactive sessions may be unavailable when [access policies for secrets](./organizations#secret-access-policy) is enabled.
 
 :::
 
 ### Inspecting running jobs {#attach-job}
 
-You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore presents the following command (only while a the job is running):
+You can use SSH to attach a console to a running job. The steps are the same as [debugging a job](#ssh-into-agent). The only difference is that Semaphore presents the following command (only while a job is running):
 
 ```shell
 sem attach <job-id>
 ```
 You can explore running processes, inspect the environment variables, and take a peek at the log files to help identify problems with your jobs.
 
-:::info
+:::note
 
-Inspecting running jobs is not available [access policies for secrets](./organizations#secret-access-policy) are enabled.
+Inspecting running jobs may be unavailable when [access policies for secrets](./organizations#secret-access-policy) is enabled.
 
 :::
 
@@ -488,7 +473,7 @@ sem port-forward <job-id> 6000 3000
 
 You can now connect to `http://localhost:6000` to view the application running remotely in the agent.
 
-:::info
+:::note
 
 Port-forwarding only works for Virtual Machine-based agents. It's not available in [Docker environments](./pipelines#docker-environments).
 
@@ -500,15 +485,16 @@ Block settings apply to every job inside. Select a block to view its settings.
 
 ### Prologue {#prologue}
 
-TODO: use checkout and other relevant toolbox commands
-
 The prologue contains shell commands that run before every job begins. Use this to run common setup commands like downloading dependencies, setting the runtime version, or starting test services.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
 1. Select the block
-2. Open the prologue section and add your shell commands
+2. Open the prologue section and add your shell commands. 
+
+In the example below we use [checkout](#checkout) to clone the repository at the start of every job in the block.
+
 ![Adding commands to the prologue](./img/prologue.jpg)
 
 </TabItem>
@@ -516,6 +502,9 @@ The prologue contains shell commands that run before every job begins. Use this 
 
 1. Locate the block you wish to add the prologue to
 2. Add the `prologue` under `tasks`
+3. The `commands` are prepended to all jobs in the block. 
+
+In the example below we use [checkout](#checkout) to clone the repository at the start of every job in the block.
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -557,7 +546,9 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 <TabItem value="editor" label="Editor">
 
 1. Select the block to add the epilogue to
-2. Open the epilogue section and add your commands in the right box
+2. Open the epilogue section (you may need to scroll down) and add your commands in the right box.
+
+In the example below we use [artifact](#artifact) to save build artifacts or log files.
 
 ![Editing the block's epilogue](./img/epilogue.jpg)
 
@@ -566,6 +557,8 @@ The *epilogue* contains commands to run after each job ends. There are three typ
 
 1. Find the block where you wish to add the epilogue
 2. Add the `epilogue` types you wish key under `tasks`
+
+In the example below we use [artifact](#artifact) to save build artifacts or log files.
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -582,14 +575,19 @@ blocks:
       epilogue:
         always:
           commands:
-            - echo "we're done here"
+            - echo "the job ended"
         on_pass:
           commands:
-            - echo "failure!"
+            - echo "job passed, saving build artifact"
+            - artifact push project a.out
         on_fail:
           commands:
-            - echo "success"
+            - echo "job failed, saving build log"
+            - artifact push job build.log
       # highlight-end
+      prologue:
+        commands:
+          - checkout
       jobs:
         - name: Build
           commands:
@@ -612,10 +610,9 @@ Environment variables are exported into the shell environment of every job in th
 
 To add an environment variable:
 1. Select the block
-2. Open the Environment Variables section
+2. Open the Environment Variables section (you may need to scroll down)
 3. Set your variable name and value
 4. Press **+Add env vars** if you need more variables
-5. Press the X if you need to delete a variable
 
 ![Environment variables](./img/env-vars.jpg)
 
@@ -666,7 +663,7 @@ Numeric values need to be included in quotes.
 
     You can define environment variables in two ways:
 
-    - by putting them to the [environment variables](#environment-variables) section
+    - by putting them in the [environment variables](#environment-variables) section
     - by using `export` commands in the job window: `export NODE_ENV="production"`
 
  </div>
@@ -676,17 +673,25 @@ Numeric values need to be included in quotes.
 
 <VideoTutorial title="How to use secrets" src="https://www.youtube.com/embed/rAJIRX81DeA"/>
 
-TODO: secrets are not visible to users, technically decryption happens at runtime, as opposed as when they are added to the block. They are not like environment variables. They may contain values that are exported as environment variables in the job environment. Their values are available as environment variables.
+Secrets store sensitive data such as API keys, passwords, or SSH keys. Secrets are enabled at the block level and available to all the jobs in the block.
 
-Secrets work like environment variables. The main difference is that they are stored in encrypted format. Selecting a secret from the list decrypts the secret and injects its files or variables into all jobs in the block.
+You must create the secret before you can add it to a block. How you create the secret depends on its scope:
 
-Use secrets to store sensitive data like API keys, passwords, or SSH key files without revealing their contents.
+- [Organization secrets](./organizations#secrets) are available globally
+- [Project secrets](./projects#secrets) are available only to the pipelines belonging to a [project](./projects)
+- [Environment credentials](./promotions#credentials) fine-grained secrets only available to specific [pipelines](./pipelines)
+
+Once created, the values are no longer visible to users. Secrets are automatically decrypted at runtime when the job starts. Their values are available as environment variables or mounted as files.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
-1. Select the block where you want to add the secrets
-2. Open the secrets section and select the secrets to import
+1. Select the block 
+2. Open the secrets section (you may need to scroll down)
+3. Enable the checkbox next to the secret
+
+The secret values are now available for all jobs in the block.
+
 ![Importing secrets](./img/secrets.jpg)
 
 </TabItem>
@@ -696,6 +701,8 @@ Use secrets to store sensitive data like API keys, passwords, or SSH key files w
 2. Add a `secrets` key under `tasks`
 3. List the names of the secrets to import
 
+The secret values are now available for all jobs in the block.
+
 ```yaml title=".semaphore/semaphore.yaml"
 version: v1.0
 name: Initial Pipeline
@@ -704,35 +711,22 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Build
+  - name: AWS Login Test
     dependencies: []
     task:
       # highlight-start
       secrets:
-        - name: mysecret
+        - name: awskey
       # highlight-end
       jobs:
-        - name: Build
+        - name: List buckets
           commands:
-            - checkout
-            - npm run build
+            - echo "Accessing $AWS_DEFAULT_REGION"
+            - aws s3 ls
 ```
 
 </TabItem>
 </Tabs>
-
-<details>
-<summary>How to protect secrets</summary>
-<div>
-
-TODO: secrets are implemented at different levels:
-- environments
-- organization access policy
-- project/pipeline access policy
-
-</div>
-</details>
-
 
 ### Skip/run conditions {#skip-run}
 
@@ -743,10 +737,10 @@ Use cases for this feature include skipping a block on certain branches, or only
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
-1. Select the block to apply conditions
-2. To disable conditions choose "Always run this block"
-3. To enable conditions select either "Run this block when..." or "Skip this block when..."
-4. Type the conditions to run or skip the block
+1. Select the block
+2. Open the **Skip/Run conditions** section (you may need to scroll down)
+3. Select **Run this block when...** or **Skip this block when...**
+4. Type the [conditions] to run or skip the block
 
 ![Editing skip/run conditions](./img/conditions.jpg)
 
@@ -820,11 +814,11 @@ Here you can override the pipeline-level [agent](./pipelines#agents) for a speci
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
-1. Select the block to override the agent
-2. Open the agent section and check the option "Override global agent definition"
-3. Select the environment type
-4. Select the OS image
-5. Select the machine type
+1. Select the block
+2. Open the **Agent** section (you may need to scroll down)
+3. Select the **Environment Type**
+4. Select the **OS Image**
+5. Select the **Machine Type**
 
 ![Overriding the global agent](./img/agent.jpg)
 
@@ -849,8 +843,8 @@ blocks:
       # highlight-start
       agent:
         machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
+          type: a1-standard-4
+          os_image: macos-xcode15
       # highlight-end
       jobs:
         - name: Build

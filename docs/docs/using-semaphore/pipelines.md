@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 
-Pipelines connect [blocks](./jobs#blocks) in order. You declare dependencies for each block and Semaphore figures out their execution order.
+Pipelines connect blocks to plan the execution order. All you need to do is declare the dependencies of each block and Semaphore figures out the rest.
 
 ## Overview {#overview}
 
@@ -72,7 +72,9 @@ Pipelines can be chained using [promotions](./promotions) to create branching wo
 
 ## Block execution order {#dependencies}
 
-A pipeline is a group of [blocks](./jobs#blocks) connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
+TODO: needs more work
+
+A pipeline is a group of blocksobs#blocks) connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
 
 In the following example:
 
@@ -80,6 +82,8 @@ In the following example:
 - Block D only starts when Block B AND Block C have finished.
 
 ![Pipeline execution order](./img/pipeline-execution-order.jpg)
+
+TODO: animation/video showing how dependencies work
 
 <details>
  <summary>What if we removed all dependencies?</summary>

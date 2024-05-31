@@ -14,7 +14,7 @@ Task allow you to trigger specific [pipelines](./pipelines) on a schedule or man
 The main use cases for tasks are to:
 
 - Run long or resource-intensive jobs outside the usual continuous integration workflow.
-- Trigger pipelines not connected to any [promotions](./pipelines#promotions)
+- Trigger pipelines not connected to any [promotions](./promotions)
 - Periodically rebuild an application or run security audits
 - Continue testing projects even when they are inactive (not getting new commits)
 - Run arbitrary code, track results, and get notifications
@@ -61,7 +61,7 @@ To create a task, open your project and follow these steps. You can create tasks
         ![Task creation step 2: branch and pipeline](./img/task-create-2.jpg)
         </div>
     </details>
-7. Optionally, you can add parameters. These work exacly the same as [parameterized promotions](./pipelines#parameters)
+7. Optionally, you can add parameters. These work exacly the same as [parameterized promotions](./promotions#parameters)
     <details>
         <summary>Show me</summary>
         <div>
@@ -97,7 +97,7 @@ You can add tasks by editing the project using the _Semaphore command line tool_
     ```
 3. Add a `task` section. Each item in the list is a task. The example below shows two tasks:
    - Task "nightly-deploys" runs the `nighthly-deploys.yml` on "master" branch pipeline at 12:15 am every day.
-   - Task "canary-setup" runs the same pipeline in "develop" branch with [parameters](./pipelines#parameters)
+   - Task "canary-setup" runs the same pipeline in "develop" branch with [parameters](./promotions#parameters)
 
     ```yaml title="sem edit projet hello-semaphore"
     # ...
