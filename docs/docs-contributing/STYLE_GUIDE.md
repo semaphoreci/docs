@@ -36,11 +36,8 @@ The general guidelines to approach writing are:
 - Italics: use *italics* to draw attention to words.
 - Bold: use **bold** for UI elements.
 - Ampersand (&): don't use ampersand instead of "and", e.g. "Jobs and Pipelines"
-- Links: use meaningful text in the link text. The reader should know where the link goes before clicking on it, e.g. instead of "Read *this* to learn more" use "Read the *Jobs page* to learn more".
-- Images: images should provide an Alt text. Don't leave images without alt text. The text should describe the contents of the page for persons using a screen reader.
 - Jargon: don't overuse jargon. Use plain English whenever possible.
 - Numbers: numbers lower than then must be spelled in words, e.g. "one, two, three". Number greater than 10 must be writen in numerals, e.g. "10, 25, 102"
-- Links to missing pages: links to pages not yet written should be _enclosed inside underscores_ for easy identification
 
 ### Code
 
@@ -60,6 +57,26 @@ Titles are used in the left sidebar, so they must be properly capitalized. Headi
 - Headings: for H2 and H3 only capitalize the first word in the heading, e.g. `## Pipeline settings`
 - Proper names: capitalize proper names like persons, places, languages or frameworks, e.g. "React" "JavaScript"
 - Words: when in doubt, don't capitalize, e.g. "internet"
+
+## Images
+
+Images can be added with the usual Markdown syntax or using `<img>` tags if you need to specify the size.
+
+When using images:
+
+- always provide alt text for people using screen readers, e.g. `![The picture of an organge cat](./img/cat.jpg)`
+- strive to create pictures with wider-than-tall aspect ratio such as 3:2, 4:3, or 16:9. Images that are taller than wider take a lot of screen real state and look bad
+
+## Links
+
+Use 
+- Links to missing pages: links to pages not yet written should be _enclosed inside underscores_ for easy identification
+
+Use meaningful text in the link text. The reader should know where the link goes before clicking on it.
+
+For example, instead of `Read [this](example.com) to learn more` use `Read the [Jobs page](jobs.example.com) to learn more`
+
+If the page you want to link doesn't exist yet in the docs, write the link text `[between square brackets]`. It will make it easier to idenfity what pages are missing
 
 ## Headers
 
@@ -129,6 +146,8 @@ When there are large items between steps that might interrupt the flow of the st
 ```
 
 Note that the step child items need to be indented to keep the numbering of the list intact.
+
+## 
 
 ## Admonitions
 

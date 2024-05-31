@@ -12,7 +12,7 @@ Jobs get stuff done. This page explains how jobs work, how you can configure the
 
 ## Job lifecycle {#job-lifecycle}
 
-Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or x86/ARM VMs running Linux, macOS, or _Windows_ (TODO: link to self-hosted)
+Jobs run arbitrary shell commands inside a dedicated environment called [agent](./pipelines#agents). Agents are ephemeral Docker containers, Kubernetes pods, or x86/ARM VMs running Linux, macOS, or [Windows] (TODO: link to self-hosted)
 
 When a job is scheduled, the following happens:
 
@@ -22,13 +22,11 @@ When a job is scheduled, the following happens:
 4. **End job and save logs**: the job activity log is exported and saved for future inspection
 5. **Destroy agent**: the used agent is discarded, along with all its files
 
-TODO: change the person to be less hacker-like
-
 ![Job Lifecycle](./img/job-lifecycle.jpg)
 
 :::info
 
-Agents can be non-ephemeral when using _self-hosted agents_.
+Agents can be non-ephemeral when using [self-hosted agents].
 
 :::
 
@@ -36,28 +34,20 @@ Agents can be non-ephemeral when using _self-hosted agents_.
 
 You can create a job with the visual editor or by editing the YAML directly in the `.semaphore` folder.
 
-TODO: reuse the one job. Press workflow editor button.
-
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor" default>
 
-Open the visual editor by pressing **Edit Workflow**.
+Open your [project](./projects) on Semaphore and press **Edit Workflow**.
 
-1. Press **+ Add Block**. The block settings appear on the right
-2. Type the block's name
-3. Type the job's name
-4. Type your shell commands
+![Screenshot of project opened in Semaphore. The Edit Workflow button is highlighted](./img/edit-workflow.jpg)
+
+
+1. Press on the block
+2. Type your shell commands
+3. Press **Run the workflow** > **Looks good, Start →**
+
 ![New job being edited](./img/create-a-job-1.jpg)
  
-To save your changes and start the job:
-
-1. Press on **Run the workflow**
-2. Press on **Looks good, Start**
-
-This commits the changes into the remote repository and start the jobs.
-
-![Run and Start](./img/run-and-start.jpg)
-
 </TabItem>
 <TabItem value="yaml" label="YAML">
 
@@ -69,6 +59,8 @@ This commits the changes into the remote repository and start the jobs.
 6. Add the job's `commands`. The value is a list of shell commands (one line per list item)
 7. Save the file, commit and push it to your remote repository
 
+You can use the following code as a starting point:
+
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
 name: Initial Pipeline
@@ -76,25 +68,22 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
-# highlight-start
 blocks:
-  - name: Block A
+  - name: 'Block #1'
     dependencies: []
     task:
       jobs:
         - name: 'Job #1'
           commands:
             - 'echo "hello, world!"'
-# highlight-end
 ```
 
 </TabItem>
 </Tabs>
 
-Semaphore detects a change in the remote repository and automatically start the job. Open the project in Semaphore to follow the progress and view the job log.
+Semaphore automatically starts the job. Open the job to follow the progress and view the log.
 
 ![Job log](./img/job-log.jpg)
-
 
 ## Blocks {#blocks}
 
@@ -221,17 +210,17 @@ All jobs run in a completely isolated space. Once the job ends, *all files and c
 
 ## Semaphore toolbox {#toolbox}
 
-The _Semaphore toolbox_ is a set of command line tools to carry essential tasks in your jobs such as cloning the repository or moving data between jobs.
+The [Semaphore toolbox] is a set of command line tools to carry essential tasks in your jobs such as cloning the repository or moving data between jobs.
 
-The most-used tools in the _Semaphore toolbox_ are: 
+The most-used tools in the [Semaphore toolbox] are: 
 
-- _checkout_ to checkout the code from the remote repository
-- _cache_ to speed up jobs by caching downloaded files
-- _artifact_ tomove files between jobs and save build artifacts
+- [checkout] to checkout the code from the remote repository
+- [cache] to speed up jobs by caching downloaded files
+- [artifact] tomove files between jobs and save build artifacts
 
 ### checkout {#checkout}
 
-_Checkout_ clones the remote repository and `cd`s into the cloned repository so you're ready to work.
+[Checkout] clones the remote repository and `cd`s into the cloned repository so you're ready to work.
 
 The following example shows how to work with a Node.js project. The checkout command is needed to clone the repository so we can get `package.json` and `package-lock.json`.
 
@@ -288,7 +277,7 @@ blocks:
 
 TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
 
-The main function of the _cache_ is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
+The main function of the [cache] is to speed up job execution by caching downloaded files. As a result, it's a totally optional feature. 
 
 Cache can detect dependency folders. Let's say we want to speed up `npm install`:
 
@@ -306,13 +295,13 @@ The highlighted lines show how to use the cache:
 - **cache store**: saves `node_modules` to non-ephemeral storage. It knows it's a Node project because it found `package.json` in the working folder.
 - **cache restore**: retrieves the cached copy of `node_modules` to the working directory.
 
-Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to _supply additional arguments_.
+Cache is not limited to Node.js. It works with several languages and frameworks. Also, you can use cache with any kind of file or folder but in that case, you need to [supply additional arguments].
 
 ### artifact {#artifact}
 
 TODO: mention that cache and artifacts need aditional setting in self-hosted agents.
 
-The _artifact_ command can be used as:
+The [artifact] command can be used as:
 
 - a way to move files between jobs and runs
 - as persistent storage for artifacts such as compiled binaries or bundles
@@ -398,7 +387,7 @@ If this is the first time using an interactive session you need to:
 
 1. Click on **SSH Debug** in the job log view
 2. Open the "How to install ..." section
-3. Install the _Semaphore command line tool_: copy and paste the command in a terminal
+3. Install the [Semaphore command line tool]: copy and paste the command in a terminal
 4. Authorize sem cli to access your organization: copy and paste the command into a terminal
 
 Now you can start an SSH session by copying and pasting the debug command (#5 in the screenshot above)
@@ -826,7 +815,7 @@ blocks:
 
 ### Agent {#agent-override}
 
-Here you can override the pipeline-level [agent](./pipelines#agents) for a specific job. You can select X86/ARM VMs running Linux, macOS, or Windows (_self-hosted_ only). In addition, the agent can run in Kubernetes pods or [Docker environments](./pipelines#docker-environments).
+Here you can override the pipeline-level [agent](./pipelines#agents) for a specific job. You can select X86/ARM VMs running Linux, macOS, or Windows ([self-hosted only]). In addition, the agent can run in Kubernetes pods or [Docker environments](./pipelines#docker-environments).
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
