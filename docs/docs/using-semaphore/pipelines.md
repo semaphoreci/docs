@@ -197,17 +197,17 @@ To run the job inside a Docker container:
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
 name: Initial Pipeline
-# highlight-start
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
+  # highlight-start
   containers:
     - name: main
       image: 'semaphoreci/ubuntu:20.04'
     - name: web
       image: nginx
-# highlight-end
+  # highlight-end
 blocks:
   - name: 'Block #1'
     dependencies: []
@@ -355,7 +355,7 @@ after_pipeline:
     jobs:
       - name: Submit metrics
         commands:
-          - 'export DURATION_IN_MS=$((SEMAPHORE_PIPELINE_TOTAL_DURATION * 1000))'
+          - export DURATION_IN_MS=$((SEMAPHORE_PIPELINE_TOTAL_DURATION * 1000))
           - 'echo "ci.duration:${DURATION_IN_MS}|ms" | nc -w 3 -u statsd.example.com'
 # highlight-end
 ```

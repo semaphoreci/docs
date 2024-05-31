@@ -101,21 +101,22 @@ You can add tasks by editing the project using the _Semaphore command line tool_
 
     ```yaml title="sem edit projet hello-semaphore"
     # ...
-    # This section defines two tasks
-      tasks:
-      - name: nightly-deploys
-        branch: master
-        scheduled: true
-        at: "15 12 * * *"
-        pipeline_file: .semaphore/nightly-deploys.yml
-      - name: canary-setup
-        branch: develop
-        scheduled: false
-        pipeline_file: .semaphore/nightly-deploys.yml
-        parameters:
-        - name: CANARY_VERSION
-          required: true
-          default_value: "1.0.0"
+    tasks:
+    # task 1
+        - name: nightly-deploys
+          branch: master
+          scheduled: true
+          at: "15 12 * * *"
+          pipeline_file: .semaphore/nightly-deploys.yml
+    # task 2 with parametrized promotions
+        - name: canary-setup
+          branch: develop
+          scheduled: false
+          pipeline_file: .semaphore/nightly-deploys.yml
+          parameters:
+              - name: CANARY_VERSION
+                required: true
+                default_value: "1.0.0"
     ```
 
 4. Save the file to submit your changes

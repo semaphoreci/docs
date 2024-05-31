@@ -128,11 +128,11 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - echo 'this is job #1'
+            - echo 'this is job
         # highlight-start
         - name: 'Job #2'
           commands:
-            - echo 'this is job #2'
+            - echo 'this is job
         # highlight-end
 ```
 
@@ -178,7 +178,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - echo 'this is job #1 in block #1'
+            - echo 'this is job
   # highlight-start
   - name: 'Block #2'
     dependencies:
@@ -187,7 +187,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - echo 'this is job #1 in block #2'
+            - echo 'this is job
   # highlight-end
 ```
 
@@ -578,11 +578,11 @@ blocks:
             - echo "the job ended"
         on_pass:
           commands:
-            - echo "job passed, saving build artifact"
+            - 'echo "job passed, saving build artifact"'
             - artifact push project a.out
         on_fail:
           commands:
-            - echo "job failed, saving build log"
+            - 'echo "job failed, saving build log"'
             - artifact push job build.log
       # highlight-end
       prologue:
@@ -839,13 +839,13 @@ agent:
 blocks:
   - name: Build
     dependencies: []
+    # highlight-start
     task:
-      # highlight-start
       agent:
         machine:
           type: a1-standard-4
           os_image: macos-xcode15
-      # highlight-end
+    # highlight-end
       jobs:
         - name: Build
           commands:

@@ -61,8 +61,6 @@ Press (A) "Delete Promotion" to completely delete the promotion and *all child p
 4. Type the `name` of the promotion
 5. Type the `pipeline_file` filename of the pipeline created in step 1.
 
-TODO: fix YAML
-
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
 name: Initial Pipeline
@@ -71,21 +69,17 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
- - name: 'Block #1'
+  - name: Build
     dependencies: []
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
       jobs:
- - name: 'Job #1'
+        - name: Build
           commands:
- - checkout
- - make build
+            - checkout
+            - npm run build
 # highlight-start
 promotions:
- - name: Promotion 1
+  - name: Promotion 1
     pipeline_file: deploy.yml
 # highlight-end
 ```
@@ -115,8 +109,6 @@ After [adding a promotion](#promotions), you can set automatic conditions. Whene
 2. Add an `auto_promote` key
 3. Add a child `when` key. Type in the _start conditions_
 
-TODO: fix YAML
-
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
 name: Initial Pipeline
@@ -125,25 +117,21 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
- - name: 'Block #1'
+  - name: 'Block #1'
     dependencies: []
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
       jobs:
- - name: 'Job #1'
+        - name: 'Job #1'
           commands:
- - checkout
- - make build
+            - checkout
+            - make build
+# highlight-start
 promotions:
- - name: Promotion 1
+  - name: Promotion 1
     pipeline_file: deploy.yml
-    # highlight-start
     auto_promote:
       when: branch = 'master' AND result = 'passed'
-    # highlight-end
+# highlight-end
 ```
 
 </TabItem>
@@ -198,24 +186,22 @@ To add parameters to a promotion, follow these steps:
 6. Optionally set `options`. Each item in the list is a valid option. Leave blank to input value as freeform text
 7. If `required: true`, set the `default_value`. Optional parameters don't have a default value
 
-TODO: fix YAML
-
 ```yaml title=".semaphore/semaphore.yml"
 # ...
 promotions:
- - name: Deploy
-   pipeline_file: deploy.yml
-   # highlight-start
-   parameters:
-     env_vars:
- - required: true
-         options:
- - Stage
- - Production
-         default_value: Stage
-         description: Where to deploy?
-         name: ENVIRONMENT
-   # highlight-end
+  - name: Push to Prod
+    pipeline_file: pipeline_8.yml
+    parameters:
+      # highlight-start
+      env_vars:
+        - required: true
+          options:
+            - Stage
+            - Production
+          default_value: Stage
+          description: Where to Deploy?
+          name: ENVIRONMENT
+      # highlight-end
 ```
 
 </TabItem>
@@ -281,8 +267,6 @@ You can access the parameter value by directly using the environment variable in
 
 The parameters are accessible are regular environment variables in the `commands` section.
 
-TODO: fix YAML
-
 ```yaml title="deploy.yml"
 version: v1.0
 name: Deployment pipeline
@@ -291,13 +275,13 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
- - name: Deploy
+  - name: Deploy
     task:
       jobs:
- - name: Deploy
+        - name: Deploy
           commands:
             # highlight-next-line
- - echo "Deploy to $ENVIRONMENT"
+            - echo "Deploy to $ENVIRONMENT"
 ```
 
 </TabItem>
@@ -329,8 +313,6 @@ Parameters are available in the following places:
 <TabItem value="yaml" label="YAML">
 The following YAML pipeline shows all the places where a parameter value can be used:
 
-TODO: fix YAML
-
 ```yaml title="deploy.yml"
 version: v1.0
 # highlight-start
@@ -348,19 +330,42 @@ queue:
   scope: project
   # highlight-end
 blocks:
- - name: Param. promotions example
     task:
       jobs:
- - name: Using promotion as env. var
+        - name: Using promotion as env. var
           commands:
             # highlight-start
             # Use parameter values inside a job
- - echo $ENVIRONMENT
- - echo $RELEASE
+            - echo $ENVIRONMENT
+            - echo $RELEASE
             # highlight-end
+version: v1.0
+# highlight-next-line
+name: '${{parameters.ENVIRONMENT}} deployment of the release: ${{parameters.RELEASE}}'
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+queue:
+  name: '${{parameters.ENVIRONMENT}}-queue'
+  scope: project
+# highlight-end
+blocks:
+  - name: Install
+    dependencies: []
+    task:
+      jobs:
+        - name: npm install
+          commands:
+            # highlight-start
+            - echo "Release: $RELEASE"
+            - echo "Deploying to $ENVIRONMENT"
+            # highlight-end
+      # highlight-start
       secrets:
-        # highlight-next-line
- - name: 'creds-for-${{parameters.ENVIRONMENT}}'
+        - name: 'creds-for-${{parameters.ENVIRONMENT}}'
+      # highlight-end
 ```
 
 </TabItem>
@@ -515,8 +520,8 @@ Delete `deployment_target` to remove the association between the environment and
 ```yaml title=".semaphore/semaphore.yml"
 # ...
 promotions:
- - name: Promotion 1
-    pipeline_file: deploy.yml
+  - name: Promotion 1
+    pipeline_file: pipeline_4.yml
     # highlight-next-line
     deployment_target: Production
 ```
