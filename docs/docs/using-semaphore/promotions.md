@@ -9,11 +9,20 @@ import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 import VideoTutorial from '@site/src/components/VideoTutorial';
 
-Promotions connect pipelines to create branching workflows.
+Promotions connect [pipelines](./pipelines) to create branching workflows. This page explains what promotions are, how to use them to connect pipelines, and what settings are available.
 
 ## Connecting pipelines {#promotions}
 
-In the same way that [pipelines connect blocks](./pipelines#dependencies) promotions connect pipelines.
+If your [project](./projects) contains more than one pipeline, you can use promotions to chain them.  Promotions *connect pipelines* in the same way that [pipelines connect blocks](./pipelines#dependencies).
+
+Using promotions we can create a tree-like structure where pipelines branch off other pipelines. The root of the tree is the default pipeline located at `.semaphore/semaphore.yml`.
+
+Promoted pipelines are typically used for continuous delivery and continuous deployment. The following example shows the initial pipeline branching into two continuous delivery pipelines: production and development. In each of these two, we define the sequence of [jobs](./jobs) needed to deploy the application in the respective environment.
+
+poena 
+
+![A workflow with 3 pipelines](./img/workflows.jpg)
+
 
 :::tip
 
@@ -21,15 +30,7 @@ You can also run specific pipelines with [tasks](./tasks).
 
 :::
 
-Your repository can contain more than one pipeline. We use *promotions* to tie pipelines together. Promotions define which pipelines should run next.
-
-Using promotions we can create a tree-like structure where pipelines branch off other pipelines. The root of the tree is the default pipeline located at `.semaphore/semaphore.yml` (relative to the repository's root.
-
-![A workflow with 3 pipelines](./img/workflows.jpg)
-
-Promoted pipelines are typically used for continuous delivery and continuous deployment. The following example shows the initial pipeline branching into two continuous delivery pipelines: production and development. In each of these two, we define the sequence of [jobs](./jobs) needed to deploy the application in the respective environment.
-
-### Promotion triggers {#triggers}
+## Promotion triggers {#triggers}
 
 When a promotion is triggered the child pipeline starts to run. There are three options for triggering a promotion:
 
@@ -37,9 +38,9 @@ When a promotion is triggered the child pipeline starts to run. There are three 
 - **Auto promotions**: start on certain conditions such as when all tests have passed on the "master" branch
 - **Parameterized promotions**: pass values as environment variables into the next pipelines. Allows us to reuse the same pipeline configuration for different tasks
 
-### How to add promotions {#create-promotions}
+## How to add promotions {#create-promotions}
 
-Promotions are defined in the pipeline from which the child pipelines branch off.
+Promotions are defined in the pipeline from which the child pipelines branch off. 
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
@@ -251,7 +252,7 @@ curl -H "Authorization: Token {api_token}" \
  -X POST "https://{org_name}.semaphoreci.com/api/v1alpha/promotions"
 ```
 
-### Accessing parameters in jobs {#access-parameters-jobs}
+### Accessing values in jobs {#access-parameters-jobs}
 
 Parameters are exported as [environment variables](./jobs#environment-variables) in all the jobs contained in the promoted pipeline.
 
@@ -288,7 +289,7 @@ blocks:
 </Tabs>
 
 
-### Accessing parameters in pipeline {#access-parameters-pipeline}
+### Accessing values in pipelines {#access-parameters-pipeline}
 
 You can access parameter values in pipeline elements like the pipeline name.
 
@@ -371,7 +372,7 @@ blocks:
 </TabItem>
 </Tabs>
 
-## Environments
+## Environments (deployment targets)
 
 <VideoTutorial title="How to Use Environments" src="https://www.youtube.com/embed/xId2H2wlKx4?si=0IXKyNNUVVjDDvHz" />
 
@@ -493,6 +494,34 @@ Branches and tags can be matched in two ways:
 
 :::
 
+### How to view deployment history {#view-history}
+
+The **Deployment** tab allows you to track your previous deployments. In this tab, you can see:
+
+- how started the last deployment
+- which commit was used
+- what workflow does the deployment belong to
+
+You can also stop a running pipeline or rerun a promotion if you have the right to do so.
+
+![Deployment history](./img/deployment-history-1.jpg)
+
+Press **View full history** to see the latest deployments in reverse chronological order.
+
+![Deployment history details](./img/deployment-history-2.jpg)
+
+Use **Newer** and **Older** buttons to navigate to other pages. You can also jump to a specific date.
+
+You can also filter deployments by:
+- **Type**: view branches, tags, pull requests, or everything
+- **Author**: everyone or just you
+- **Origin**: branch, tag, or pull request
+- **Promotion parameters**: these are the [bookmarks](#create-environment) added to the environment target
+
+To filter using promotion parameters, type the value of the parameter and press Enter. This feature is useful when you have [parameterized promotions](#promotions).
+
+![Deployment history filtered by parameters](./img/deployment-history-3.jpg)
+
 ### How to target promotions {#promotion-target}
 
 Once you have created at least one environment, you can associate it with a [promotion](#promotions). This creates a targeted promotion.
@@ -529,9 +558,9 @@ promotions:
 </TabItem>
 </Tabs>
 
-### How to start targeted promotions {#targeted-promotions}
+### Promoting environments {#targeted-promotions}
 
-Targeted [promotions](#promotions) shows a lock icon next to the promotion button. The icon will be unlocked if you have permission to start the promotion or locked if you don't.
+Promotions with attached environment show a lock icon next to the promotion button.  The icon will be unlocked if you have permission to start the promotion or locked if you don't.
 
 <Tabs groupId="targeted-promotions">
 <TabItem value="unlocked" label="Unlocked promotion">
@@ -563,34 +592,6 @@ Once a [promotion](#promotions) is targeted, you may be locked out from starting
 - you are not logged in or you are viewing a build of a public project
 - the environment is deactivated or deleted
 
-### Starting promotions with the API {#promotion-api}
+### Promoting environments via API {#promotion-api}
 
 You can also use the _Public API (alpha)_ to trigger promotions. If promotion is forbidden by the environment, you will receive an `HTTP 400 Bad Request` response with a reason in the body.
-
-### How to view deployment history {#view-history}
-
-The **Deployment** tab allows you to track your previous deployments. In this tab, you can see:
-
-- how started the last deployment
-- which commit was used
-- what workflow does the deployment belong to
-
-You can also stop a running pipeline or rerun a promotion if you have the right to do so.
-
-![Deployment history](./img/deployment-history-1.jpg)
-
-Press **View full history** to see the latest deployments in reverse chronological order.
-
-![Deployment history details](./img/deployment-history-2.jpg)
-
-Use **Newer** and **Older** buttons to navigate to other pages. You can also jump to a specific date.
-
-You can also filter deployments by:
-- **Type**: view branches, tags, pull requests, or everything
-- **Author**: everyone or just you
-- **Origin**: branch, tag, or pull request
-- **Promotion parameters**: these are the [bookmarks](#create-environment) added to the environment target
-
-To filter using promotion parameters, type the value of the parameter and press Enter. This feature is useful when you have [parameterized promotions](#promotions).
-
-![Deployment history filtered by parameters](./img/deployment-history-3.jpg)

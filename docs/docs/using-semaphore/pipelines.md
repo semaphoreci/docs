@@ -1,5 +1,5 @@
 ---
-description: Connect blocks and define execution order
+description: Connect blocks to plan workflow execution order
 ---
 
 # Pipelines
@@ -8,13 +8,15 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 
-Pipelines connect blocks to plan the execution order. All you need to do is declare the dependencies of each block and Semaphore figures out the rest.
+Pipelines connect blocks to plan the workflow execution order. This page explains what pipelines are, how they organize workflow execution order, and what settings are available.
 
 ## Overview {#overview}
 
-The main purpose of a pipeline is to connect blocks using dependencies. This lets your plan in what order blocks and jobs run. 
+The main purpose of a pipeline is to connect blocks using dependencies. This lets your plan the order in which blocks (and thus jobs) run.
 
-Pipelines are also the unit of configuration. Each pipeline is encoded as a YAML file.  By default, Semaphore looks for the first pipeline in the path `.semaphore/semaphore.yml` relative to the root of your repository. 
+Pipelines are also the *unit of configuration*. Each pipeline is encoded as separate a YAML file in the `.semaphore` folder. The default starting pipeline is located `.semaphore/semaphore.yml`.
+
+Pipelines can be chained using [promotions](./promotions) to create branching workflows and implement continuous delivery.
 
 For reference, here is an example pipeline with its respective YAML.
 
@@ -68,20 +70,18 @@ blocks:
 </TabItem>
 </Tabs>
 
-Pipelines can be chained using [promotions](./promotions) to create branching workflows and implement continuous delivery.
+## Workflow execution order {#dependencies}
 
-## Block execution order {#dependencies}
+A pipeline is a group of blocks containing [jobs](./jobs) and are connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
 
-TODO: needs more work
+Take the following example:
 
-A pipeline is a group of blocksobs#blocks) connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
-
-In the following example:
-
-- Block B and C depend on Block A. So, Block B and C won't start until all Block A is done. 
-- Block D only starts when Block B AND Block C have finished.
+- Blocks B and C depend on Block A. Thus, they won't start until Block A is all done 
+- Block D depends on both Blocks B and C. It won't start until those are finished
 
 ![Pipeline execution order](./img/pipeline-execution-order.jpg)
+
+You can reorder blocks by changing their dependencies, as shown in the following animation.
 
 TODO: animation/video showing how dependencies work
 
@@ -91,9 +91,17 @@ TODO: animation/video showing how dependencies work
  Functionally, it would be the same as having all jobs in one big block</div>
 </details>
 
+## Connecting pipelines
+
+Pipelines are connected with promotions. The workflow always starts with the default pipeline located at `.semaphore/semaphore.yml` and from there it can branch off using promotions. 
+
+Promotions are explained in detail in the [promotions page](./promotions).
+
+![A workflow with 3 pipelines](./img/workflows.jpg)
+
 ## Pipeline settings {#settings}
 
-Pipeline settings are applied to all jobs it contains. You can change pipeline settings with the editor or directly in the YAML.
+Pipeline settings are applied to all blocks (and thus jobs) it contains. You can change pipeline settings with the editor or directly in the YAML.
 
 ### Agents {#agents}
 
@@ -101,13 +109,14 @@ Pipeline settings are applied to all jobs it contains. You can change pipeline s
 
 Agents are the environment where jobs run. Semaphore keeps a pool of warm agents at all times to be sure there's always one ready to work.
 
-Semaphore Cloud provides the following agent types:
-- _Linux Machines_ presented as VMs or [Docker containers](#docker-environments)
-- _Apple macOS Machines_
+Semaphore Cloud provides the following agent types in x86 and ARM architectures:
+- [Linux Machines] presented as VMs or [Docker containers](#docker-environments)
+- [Apple macOS Machines]
+- [Windows Machines] (only for [self-hosted agents]) 
 
 :::info
 
-You can register additional machines as agents for your organization by _installing self-hosted agents_.
+Register your own machines as agents by _installing self-hosted agents_.
 
 :::
 

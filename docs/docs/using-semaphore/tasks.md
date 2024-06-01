@@ -7,7 +7,7 @@ description: Schedule pipelines
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Task allow you to trigger specific [pipelines](./pipelines) on a schedule or manually. 
+Task allow you to trigger specific [pipelines](./pipelines) on a schedule or manually. This page explains how to create and run tasks, and what settings are available.
 
 ## Overview {#overview}
 
