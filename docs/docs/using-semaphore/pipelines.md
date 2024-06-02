@@ -7,6 +7,7 @@ description: Connect blocks to do more
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
+import VideoTutorial from '@site/src/components/VideoTutorial';
 
 A pipeline is a group of connected blocks. This page explains what pipelines are, how they organize workflow execution order, and what settings are available.
 
@@ -82,7 +83,7 @@ In this scenario Block B and C wait until Block A is done. Block D in turn, wait
 
 You can reorder blocks by changing their dependencies using the visual editor.
 
-TODO: animation/video showing how dependencies work
+<VideoTutorial title="How to reorder blocks" src="https://www.youtube.com/embed/6o8gssc5JIQ?si=el9coKJyPzMXpKTq" opened={true} />
 
 <details>
  <summary>What if we removed all dependencies?</summary>
