@@ -1,5 +1,5 @@
 ---
-description: Connect pipelines and continuously deploy
+description: Connect pipelines to create workflows
 ---
 
 # Promotions
@@ -18,8 +18,6 @@ If your [project](./projects) contains more than one pipeline, you can use promo
 Using promotions we can create a tree-like structure where pipelines branch off other pipelines. The root of the tree is the default pipeline located at `.semaphore/semaphore.yml`.
 
 Promoted pipelines are typically used for continuous delivery and continuous deployment. The following example shows the initial pipeline branching into two continuous delivery pipelines: production and development. In each of these two, we define the sequence of [jobs](./jobs) needed to deploy the application in the respective environment.
-
-poena 
 
 ![A workflow with 3 pipelines](./img/workflows.jpg)
 

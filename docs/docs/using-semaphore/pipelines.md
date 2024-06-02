@@ -1,5 +1,5 @@
 ---
-description: Connect blocks to plan workflow execution order
+description: Connect blocks to do more
 ---
 
 # Pipelines
@@ -8,17 +8,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Available from '@site/src/components/Available';
 
-Pipelines connect blocks to plan the workflow execution order. This page explains what pipelines are, how they organize workflow execution order, and what settings are available.
+A pipeline is a group of connected blocks. This page explains what pipelines are, how they organize workflow execution order, and what settings are available.
 
 ## Overview {#overview}
 
-The main purpose of a pipeline is to connect blocks using dependencies. This lets your plan the order in which blocks (and thus jobs) run.
+The purpose of a pipeline is to connect blocks using dependencies. This lets your plan the execution order.
 
-Pipelines are also the *unit of configuration*. Each pipeline is encoded as separate a YAML file in the `.semaphore` folder. The default starting pipeline is located `.semaphore/semaphore.yml`.
-
-Pipelines can be chained using [promotions](./promotions) to create branching workflows and implement continuous delivery.
-
-For reference, here is an example pipeline with its respective YAML.
+Pipelines are also the *unit of configuration*. Each pipeline is encoded as separate a YAML file in the `.semaphore` folder. For reference, here is an example pipeline with its respective YAML.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Example pipeline">
@@ -70,18 +66,21 @@ blocks:
 </TabItem>
 </Tabs>
 
+
 ## Workflow execution order {#dependencies}
 
-A pipeline is a group of blocks containing [jobs](./jobs) and are connected by dependencies. Semaphore automatically computes the execution graph based on the declared block dependencies.
+In the same way that a block is a group of [jobs](./jobs), a pipeline is a group of blocks. Pipelines connect blocks using dependencies.  Semaphore derives the execution order from the block dependencies.
 
 Take the following example:
 
-- Blocks B and C depend on Block A. Thus, they won't start until Block A is all done 
-- Block D depends on both Blocks B and C. It won't start until those are finished
+- Blocks B and C depend on Block A
+- Block D depends on both Blocks B and C
+
+In this scenario Block B and C wait until Block A is done. Block D in turn, waits for Blocks B and C to be finished.
 
 ![Pipeline execution order](./img/pipeline-execution-order.jpg)
 
-You can reorder blocks by changing their dependencies, as shown in the following animation.
+You can reorder blocks by changing their dependencies using the visual editor.
 
 TODO: animation/video showing how dependencies work
 
@@ -93,15 +92,13 @@ TODO: animation/video showing how dependencies work
 
 ## Connecting pipelines
 
-Pipelines are connected with promotions. The workflow always starts with the default pipeline located at `.semaphore/semaphore.yml` and from there it can branch off using promotions. 
-
-Promotions are explained in detail in the [promotions page](./promotions).
+Multiple pipelines can be chained using [promotions](./promotions) to create branching workflows and implement continuous delivery. The workflow always starts with the default pipeline (located at `.semaphore/semaphore.yml`) and flows from left to right following promotions.
 
 ![A workflow with 3 pipelines](./img/workflows.jpg)
 
 ## Pipeline settings {#settings}
 
-Pipeline settings are applied to all blocks (and thus jobs) it contains. You can change pipeline settings with the editor or directly in the YAML.
+Pipeline settings are applied to all its blocks. You can change pipeline settings with the editor or directly in the YAML. 
 
 ### Agents {#agents}
 
@@ -116,7 +113,7 @@ Semaphore Cloud provides the following agent types in x86 and ARM architectures:
 
 :::info
 
-Register your own machines as agents by _installing self-hosted agents_.
+Register your own machines as agents by [installing self-hosted agents].
 
 :::
 
@@ -126,9 +123,9 @@ To select the agent running your jobs by default:
 <TabItem value="editor" label="Editor">
 
 1. Select the pipeline
-2. Select the "Environment Type": Linux, Mac, or Docker
-3. Select the "Operating System" version
-4. Select the _machine type_
+2. Select the **Environment Type**
+3. Select the **Operating System**
+4. Select the [machine type]
 
 The available hardware changes depending on the type of environment you selected.
 
@@ -138,8 +135,8 @@ The available hardware changes depending on the type of environment you selected
 <TabItem value="yaml" label="YAML">
 
 1. Add the `agent` and `machine` keys
-2. Add the hardware `type`. The value must be one of the supported _machine types_
-3. Add the `os_image`. Value must be one of the supported _operating systems_
+2. Add the hardware `type`. The value must be one of the supported [machine types]
+3. Add the `os_image`. Value must be one of the supported [operating systems]
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -169,16 +166,21 @@ blocks:
 
 ### Docker containers {#docker-environments}
 
-Jobs can run inside Docker containers. This allows you to define a custom-build environment with pre-installed tools and dependencies needed for your project.
-
-You can run multiple containers at the same time. The job runs in the first container (called `main`) and connect the rest of the containers to the same network. You can reach the other containers using their names as DNS records are injected into the main container.
-
-
 :::tip
 
-If you want to build and run Docker images in your jobs, check the _working with Docker Images documentation_.
+If you want to build and run Docker images in your jobs, check the [working with Docker Images documentation].
 
 :::
+
+Jobs can run inside Docker containers. This allows you to define a custom-build environment with pre-installed tools and dependencies needed for your project. You can enable this setting in the pipeline agent or in the [block agent override](./jobs#agent-override).
+
+You can run multiple containers at the same time. The job runs in the first container (called `main`) and attaches the other of the containers to the same network. This is similar to how containers inside a Kubernetes pod communicate. 
+
+The network addresses of all containers are mapped to their names. Let's say you have two containers, "main" and "mysql", you can connect to the database from main with:
+
+```shell title="container 'main'"
+mysql --host=mysql --user=root
+```
 
 To run the job inside a Docker container:
 
@@ -186,9 +188,9 @@ To run the job inside a Docker container:
 <TabItem value="editor" label="Editor">
 
 1. Select the pipeline
-2. In "Environment Types" select "Docker Container(s)"
-3. Select the _machine type_
-4. Type the name of the container
+2. In **Environment Types** select **Docker Container(s)**
+3. Select the [machine type]
+4. Type the **Image** name for this container
 5. Optionally, add environment variables
 6. Optionally, add more containers
 
@@ -201,7 +203,8 @@ To run the job inside a Docker container:
 2. Add a `containers` key
 3. Each list item is a container. The first one must be called `main`
 4. Add the `image`
-5. Optionally add more containers
+5. Optionally, add `env_vars`
+6. Optionally, add more containers
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -214,6 +217,9 @@ agent:
   containers:
     - name: main
       image: 'semaphoreci/ubuntu:20.04'
+      env_vars:
+        - name: FOO_1
+          value: BAR_1
     - name: web
       image: nginx
   # highlight-end
@@ -221,10 +227,6 @@ blocks:
   - name: 'Block #1'
     dependencies: []
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
       jobs:
         - name: 'Job #1'
           commands:
@@ -236,16 +238,117 @@ blocks:
 
 :::warning
 
-Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/), Semaphore automatically redirects any image pulls from the semaphoreci Docker Hub repository to the _Semaphore Container Registry_.
+Due to the introduction of [Docker Hub rate limits](https://docs.semaphoreci.com/ci-cd-environment/docker-authentication/), Semaphore automatically redirects any image pulls from the semaphoreci Docker Hub repository to the [Semaphore Container Registry].
 
 :::
 
-### Other settings {#settings}
+### Prologue {#prologue}
+
+Commands in the *prologue* run before the commands in all blocks. Semaphore will preprend these commands to every job contained in the pipeline. This works like the [block prologue](./jobs#prologue) but for all blocks in the pipeline.
 
 <Tabs groupId="editor-yaml">
 <TabItem value="editor" label="Editor">
 
- ![Pipelines settings screeen](./img/pipeline-settings.jpg)
+![Pipeline prologue](./img/pipeline-prologue.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+global_job_config:
+  prologue:
+    commands:
+      - checkout
+      - npm install
+# highlight-end
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - npm run build
+  - name: Tests
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - npm run build
+```
+
+</TabItem>
+</Tabs>
+
+### Epilogue {#epilogue}
+
+Commands in the *epilogue* run at the end of the jobs in all blocks. Semaphore will append these commands to every job contained in the pipeline.  This works like the [block epilogue](./jobs#epilogue) but for all blocks in the pipeline.
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Pipeline epilogue](./img/pipeline-epilogue.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+global_job_config:
+  epilogue:
+    always:
+      commands:
+        - echo "the job has ended"
+    on_pass:
+      commands:
+        - echo "the job has passed"
+    on_fail:
+      commands:
+        - echo "the job has failed"
+# highlight-end
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - npm run build
+  - name: Tests
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - npm run build
+```
+</TabItem>
+</Tabs>
+
+### Execution time limit {#time-limit}
+
+The time limit for job execution. Defaults to 1 hour. Jobs running longer that the limit are forcibly terminated.
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Execution time limit set 1 hour](./img/execution-limit.jpg)
 
 </TabItem>
 <TabItem value="yaml" label="YAML">
@@ -260,57 +363,171 @@ agent:
 # highlight-start
 execution_time_limit:
   hours: 2
-fail_fast:
-  stop:
-    when: 'true'
-auto_cancel:
-  running:
-    when: 'true'
-global_job_config:
-  prologue:
-    commands:
-      - checkout
-  epilogue:
-    always:
-      commands:
-        - echo "this is always executed"
-    on_pass:
-      commands:
-        - echo "job finished success"
-    on_fail:
-      commands:
-        - echo "job finished failure"
 # highlight-end
 blocks:
   - name: Build
     dependencies: []
     task:
-      agent:
-        machine:
-          type: e1-standard-2
-          os_image: ubuntu2004
       jobs:
         - name: Build
           commands:
-            - checkout
+            - npm run build
+  - name: Tests
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - npm run build
+```
+</TabItem>
+</Tabs>
+
+### Fail-fast {#fail-fast}
+
+Changes Semaphore behavior when a job fails. The possible actions are:
+
+- **Stop**: stop all running jobs
+- **Cancel**: already-running jobs are allowed to finish
+
+The available strategies are:
+
+- **Do nothing**: fail fast is disabled
+- **Stop all remaining jobs**: stops the jobs
+- **Cancel pending jobs**: cancels the jobs
+- **Stop remaining jobs, unless on the master branch**: stops the jobs except when the current branch is "master"
+- **Run a custom fail-fast strategy**: define custom conditions for stop and cancel. Uses the [conditions DSL]
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Setting the fail fast strategy](./img/fail-fast.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+fail_fast:
+  stop:
+    when: 'true'
+# highlight-end
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - npm run build
+  - name: Tests
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Lint
+          commands:
             - npm run build
 ```
 
 </TabItem>
 </Tabs>
 
+### Auto-cancel {#auto-cancel}
 
-The pipeline settings are:
+Define what happens when changes are pushed to the remote repository while a pipeline is running. By default, all pipelines will enter a First-In-First-Out (FIFO) queue and be executed in turn.
 
-1. **Agent**: the [agent environment](#agents) where the jobs in the pipeline runs [unless overriden](./jobs#agent-override)
-2. **Machine Type**: the hardware where the jobs run. Semaphore Cloud provides several _machine types_ out of the box. You can add more types using _self-hosted agents_
-3. **Prologue**: similar to the [block prologue](./jobs#prologue), these commands are prepended to the job commands in the pipeline
-4. **Epilogue**: like the [block epilogue](./jobs#epilogue), these commands are appended to the job commands in the pipeline. You add commands that are executed when the job passes, fails, or always runs.
-5. **Execution time limit**: time limit for job execution. Defaults to 1 hour. Any jobs running longer than this limit are forcibly stopped
-6. **Fail-fast**: defines what to do when a job fails. Here you can configure the Semaphore to stop all running jobs as soon as one fails or set custom behaviors
-7. **Auto-cancel**: define what happens if changes are pushed to the repository while a pipeline is running. By default, Semaphore queues these runs. You can, for example, stop the current pipeline and run the newer commits instead
-8. **YAML file path**: you can override where the pipeline config file is located in your repository
+The possible strategies when a new pipeline is queued are:
 
+- **running**: stops and cancels all pipelines in the queue. Starts the new pipeline immediately
+- **queued**: cancels queued but no-yet-started pipelines. Waits for running pipelines to finish before starting the new one
+
+The options are:
+
+- **Do nothing**: disables auto-cancel
+- **Cancel all pipelines, both running and queued**: stops running pipelines and cancel queued pipelines
+- **Cancel only queued pipelines**: cancels queued pipelines, wait for already-started pipelines to finish
+- **On the master branch cancel only queued pipelines, on others cancel both running and queued**: a mix of the last two strategies
+- **Run a custom auto-cancel strategy**: define custom conditions for stop and cancel. Uses the [conditions DSL]
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Defining an auto-cancel strategy](./img/auto-cancel.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/semaphore.yml"
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+# highlight-start
+auto_cancel:
+  running:
+    when: 'true'
+# highlight-end
+blocks:
+  - name: Build
+    dependencies: []
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - npm run build
+  - name: Tests
+    dependencies:
+      - Build
+    task:
+      jobs:
+        - name: Lint
+          commands:
+            - npm run build
+```
+</TabItem>
+</Tabs>
+
+
+### YAML file path {#yaml-path}
+
+This option overrides the location of the pipeline file. This option is not available for the default pipeline (located at `.semaphore/semaphore.yml`).
+
+<Tabs groupId="editor-yaml">
+<TabItem value="editor" label="Editor">
+
+![Changing the pipeline configuration path](./img/yaml-path.jpg)
+
+</TabItem>
+<TabItem value="yaml" label="YAML">
+
+```yaml title=".semaphore/deploy.yml"
+version: v1.0
+name: Deploy
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: 'Block #1'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "job 1"
+```
+
+</TabItem>
+</Tabs>
 
 ### After pipeline jobs {#after-pipeline-job}
 
