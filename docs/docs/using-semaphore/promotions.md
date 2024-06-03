@@ -97,7 +97,7 @@ After [adding a promotion](#promotions), you can set automatic conditions. Whene
 
 1. Open the promotion you wish to autostart
 2. Enable the checkbox **Enable automatic promotion**
-3. Type in the _start conditions_
+3. Type in the [start conditions]
 
 ![Setting autostart conditions on a promotion](./img/promotion-auto.jpg)
 
@@ -106,7 +106,7 @@ After [adding a promotion](#promotions), you can set automatic conditions. Whene
 
 1. Open the pipeline file containing the promotion you wish to autostart
 2. Add an `auto_promote` key
-3. Add a child `when` key. Type in the _start conditions_
+3. Add a child `when` key. Type in the [start conditions]
 
 ```yaml title=".semaphore/semaphore.yml"
 version: v1.0
@@ -240,7 +240,7 @@ Once you have [added a parameter](#parameters-add), you can select its value fro
 
 <Available/>
 
-You can pass parameter values to the promotion when it is triggered using the _Semaphore API_.
+You can pass parameter values to the promotion when it is triggered using the [Semaphore API].
 
 The following is an example of a curl call that includes parameters:
 
@@ -300,7 +300,7 @@ ${{parameters.ENVIRONMENT}}
 Parameters are available in the following places:
 
 - Pipeline `name`
-- Pipeline _queue name_ (only available via YAML)
+- Pipeline [queue name] (only available via YAML)
 - As the name of a [secret](./jobs#secrets) (only available in YAML)
 
 <Tabs groupId="editor-yaml">
@@ -592,4 +592,4 @@ Once a [promotion](#promotions) is targeted, you may be locked out from starting
 
 ### Promoting environments via API {#promotion-api}
 
-You can also use the _Public API (alpha)_ to trigger promotions. If promotion is forbidden by the environment, you will receive an `HTTP 400 Bad Request` response with a reason in the body.
+You can also use the [Public API (alpha)] to trigger promotions. If promotion is forbidden by the environment, you will receive an `HTTP 400 Bad Request` response with a reason in the body.

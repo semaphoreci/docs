@@ -81,7 +81,7 @@ To create a task, open your project and follow these steps. You can create tasks
 </TabItem>
 <TabItem value="cli" label="CLI">
 
-You can add tasks by editing the project using the _Semaphore command line tool_.
+You can add tasks by editing the project using the [Semaphore command line tool].
 
 1. Run `sem edit project <project-name>`
 2. An editor should open showing the project settings. For example, this is a project called "hello-semaphore"
