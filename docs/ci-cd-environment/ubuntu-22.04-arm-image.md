@@ -194,10 +194,10 @@ Supporting libraries:
 Available versions:
 
 - 2.7.0 to 2.7.8
-- 3.0.0 to 3.0.6
-- 3.1.0 to 3.1.4
-- 3.2.0 to 3.2.3
-- 3.3.0
+- 3.0.0 to 3.0.7
+- 3.1.0 to 3.1.5
+- 3.2.0 to 3.2.4
+- 3.3.0 to 3.3.2
 - jruby-9.3.10.0
 - jruby-9.4.2.0
 
