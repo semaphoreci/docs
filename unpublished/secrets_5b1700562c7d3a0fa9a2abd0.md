@@ -279,6 +279,6 @@ following:
     error: http status 504 received from upstream
 
 Generally speaking using the `-v` switch when things go wrong might help
-you or Rendered Text reveal the root of problem and correct it.
+you or Semaphore team reveal the root of problem and correct it.
 
 [1]: https://docs.semaphoreci.com/article/29-changing-organizations
