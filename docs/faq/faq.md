@@ -4,7 +4,7 @@ Description: The following questions regard common issues that Semaphore users e
 
 # FAQ: Frequently asked questions
 
-<p>Issues we stumble upon regularly, in all areas of Semaphore 2.0</p>
+<p>Issues we stumble upon regularly, in all areas of Semaphore</p>
 
 ### How can I solve "Fail: Could not parse object" during bundle install?
 
@@ -256,7 +256,7 @@ You can find more information about the <code>retry</code> tool <a href="https:/
 
 The main reason for this behavior is differences in the stacks. As a first step, ensure that the same versions of languages, services, tools, and frameworks such as Selenium, browser drivers, Capybara, Cypress are used both locally and in the CI environment.
 To achieve this, use <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/">sem-service</a>, <a href="https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/">sem-version</a>, and the operating systems' package manager.
-Environment variables can also lead to unexpected behaviors, for instance, Semaphore 2.0 will set <code>CI=true</code> by default.
+Environment variables can also lead to unexpected behaviors, for instance, Semaphore will set <code>CI=true</code> by default.
 
   </p>
 
@@ -474,7 +474,7 @@ For instance, some operations require fewer resources and it would be wasteful t
 or a test suite that has to run in multiple environments.
   </p>
   <p>
-Semaphore 2.0 provides the <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task">agent in task feature</a> that allows mixing and matching of various machine types and even 
+Semaphore provides the <a href="https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#agent-in-task">agent in task feature</a> that allows mixing and matching of various machine types and even 
 <a href="https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/#using-a-docker-container-as-your-pipelines-cicd-environment">Docker-based CI/CD</a>:
 <br>
 ```yml
@@ -622,13 +622,60 @@ After that, you’ll be able to remove the old credit card.
   <summary>Click for details</summary>
   <p>
 
-In order to be able to do that, Semaphore 2.0 needs to be granted access within your GitHub organization.
+In order to be able to do that, Semaphore needs to be granted access within your GitHub organization.
 You can grant access <a href="https://github.com/settings/applications">here</a>. If it has already been granted, there should be a green checkmark next to the name of your organization.
 </p>
 <p>
 If not, you should either grant access or request it from the organization's owner.
 </p>
 </details>
+
+### Can I use YAML anchors in Semaphore?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+
+Yes, Semaphore's YAML processing system works with [YAML version 1.2](https://yaml.org/) and it accepts all official YAML features. 
+Below, a working code example of using anchors and aliases:
+
+```
+version: v1.0
+name: Aliases test
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Block 1
+    task:
+      prologue: &common_prologue
+        commands:
+          - echo hello
+      jobs:
+        - name: Job 1
+          commands:
+            - echo hello1
+  - name: Block 2
+    task:
+      prologue: *common_prologue
+      jobs:
+        - name: Job 2
+          commands:
+            - echo hello2
+  - name: Block 3
+    task:
+      jobs:
+        - name: Job 3
+          commands:
+            - echo hello3
+```    
+
+The [global_job_config](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#global_job_config) property can work as a complement. It enables you to choose a set of configurations that are shared across the whole pipeline and define it in one place instead of having to repeat it in every task separately.
+
+</p>
+</details>
+
 
 [prologue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-prologue-property
 [epilogue]: https://docs.semaphoreci.com/reference/pipeline-yaml-reference/#the-epilogue-property
