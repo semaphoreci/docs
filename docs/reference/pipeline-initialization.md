@@ -20,8 +20,8 @@ As a default, initialization jobs use machine and OS image assigned by internal 
 2. Click **Initialization jobs** on the left side of the settings view and go to **Agent configuration** section.
 
 3. Choose between different machine types:
-    - **Linux Based Virtual Machines** - hosted by Semaphore
-    - **Mac Based Virtual Machines** - hosted by Semaphore
+    - **Linux-Based Virtual Machines** - hosted by Semaphore
+    - **Mac-Based Virtual Machines** - hosted by Semaphore
     - **Self-Hosted Machines** - hosted by the customer (if applicable)
 
     For machines hosted by Semaphore, choose a proper **Machine type** and **OS image** of the agent. For self-hosted machines choose a **Machine type** that matches your self-hosted agent type.
