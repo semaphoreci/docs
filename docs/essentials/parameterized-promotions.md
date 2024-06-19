@@ -191,4 +191,4 @@ promotions:
           default_value: Test release
 ```
 
-In the example above, if auto-promotion is triggered, the value for `$ENVIRONMENT` will be `Stage` and the value for `$RELEASE` will be set to the name of the pull request.
+In the example above, if auto-promotion is triggered, the value for `$ENVIRONMENT` will be `Stage` and the value for `$RELEASE` will be set to `Test release`.
