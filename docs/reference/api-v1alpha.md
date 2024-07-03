@@ -748,7 +748,7 @@ curl -i -X POST -H "Authorization: Token {api_token}" \
 ### Getting a log
 
 ```
-GET https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json
+GET https://{org_name}.semaphoreci.com/api/v1alpha/logs/:job_id
 ```
 
 **Response**
@@ -756,20 +756,54 @@ GET https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json
 ```
 HTTP status: 200
 
-BranchPage.Models.ProjectTest
-  * test .find when the response is succesfull => it returns a project model instance (1.1ms)
-  * test .find when the response is unsuccesfull => it returns nil (1.1ms)
-
-BranchPage.Models.BranchTest
-  * test .find when the response is succesfull => it returns a branch model instance (1.1ms)
-  * test .find when the response is unsuccesfull => it returns nil (1.4ms)
+{
+  "events": [
+    {
+      "event": "job_started",
+      "timestamp": 1719979253
+    },
+    {
+      "event": "cmd_started",
+      "timestamp": 1719979253,
+      "directive": "Exporting environment variables"
+    },
+    {
+      "event": "cmd_output",
+      "timestamp": 1719979253,
+      "output": "Exporting CI\n"
+    },
+    {
+      "event": "cmd_output",
+      "timestamp": 1719979253,
+      "output": "Exporting DISPLAY\n"
+    },
+    {
+      "event": "cmd_output",
+      "timestamp": 1719979253,
+      "output": "Exporting PAGER\n"
+    },
+    {
+      "event": "cmd_finished",
+      "timestamp": 1719979255,
+      "directive": "Exporting environment variables",
+      "exit_code": 0,
+      "started_at": 1719979255,
+      "finished_at": 1719979255
+    },
+    {
+      "event": "job_finished",
+      "timestamp": 1719979255,
+      "result": "passed"
+    }
+  ]
+}
 ```
 
 **Example**
 
 ```
-curl -i -H "Authorization: Token {api_token}" \
-     "https://{org_name}.semaphoreci.com/jobs/:job_id/plain_logs.json"
+curl -H "Authorization: Token {api_token}" \
+     "https://{org_name}.semaphoreci.com/api/v1alpha/logs/:job_id"
 ```
 
 ## Self-hosted agent types
