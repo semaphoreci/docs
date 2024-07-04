@@ -191,6 +191,8 @@ To view a secret use:
 sem get secret blue-secret
 ```
 
+>:warning: For security reasons, this does not provide the contents of the secret.
+
 To edit a secret use:
 
 ```
