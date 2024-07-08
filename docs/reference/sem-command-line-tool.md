@@ -467,7 +467,7 @@ you should execute the following command:
 sem get project docs
 ```
 
-Similarly, in order to find out the contents of a `secret`, named `mySecrets`,
+Similarly, in order to find out the list of environment variables and files in a `secret`, named `mySecrets`,
 you should execute the following command:
 
 ``` bash
