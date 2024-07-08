@@ -191,13 +191,14 @@ To view a secret use:
 sem get secret blue-secret
 ```
 
->:warning: For security reasons, this does not provide the contents of the secret.
+>Note: For security reasons, this does not provide the contents of the secret.
 
 To edit a secret use:
 
 ```
 sem edit secret blue-secret
 ```
+>Note: For security reasons, we do not allow partial edits. This will overwrite the secret.
 
 For more information about managing secrets check the [sem CLI Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/).
 
@@ -213,6 +214,7 @@ To get the created secret
 ```
 sem get secret -p <project-name> <secret-name>
 ```
+>Note: For security reasons, this does not provide the contents of the secret.
 
 ## See also
 
