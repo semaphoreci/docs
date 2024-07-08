@@ -360,14 +360,14 @@ The `sem edit` command does not support the `job` resource type.
 
 #### sem edit examples
 
-The following command will edit an existing `secret` that is named `my-secret`,
+The following command will edit an existing `secret` that is named `my-secret` by overwriting it,
 and will automatically run your configured text editor:
 
 ``` bash
 sem edit secret my-secret
 ```
 
-If the secret is on the project `my-project` level you can edit it with he following command:
+If the secret is on the project `my-project` level you can edit it with the following command:
 
 ```bash
 sem edit secret -p my-project my-secret
