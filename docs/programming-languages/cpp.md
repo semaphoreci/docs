@@ -33,18 +33,15 @@ blocks:
 
 Semaphore VM is 64-bit and provides the following versions of the g++ compiler:
 
-- g++ 4.8: found in `/usr/bin/g++-4.8`
-- g++ 5: found in `/usr/bin/g++-5`
-- g++ 6: found in `/usr/bin/g++-6`
-- g++ 7: found in `/usr/bin/g++-7`
-- g++ 8: found in `/usr/bin/g++-8`
+- for [Ubuntu 20.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#compilers)
+- for [Ubuntu 22.04](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#compilers)
 
 The default version of the g++ compiler can be found as shown below:
 
 ```
 $ g++ --version
-g++ (Ubuntu 4.8.5-4ubuntu8) 4.8.5
-Copyright (C) 2015 Free Software Foundation, Inc.
+g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -65,16 +62,16 @@ blocks:
   - name: Change g++ version
     task:
       jobs:
-      - name: Select g++ version 6
+      - name: Select g++ version 9
         commands:
           - g++ --version
-          - sem-version cpp 6
+          - sem-version cpp 9
           - g++ --version
 
-      - name: Select g++ version 8
+      - name: Select g++ version 10
         commands:
           - g++ --version
-          - sem-version cpp 8
+          - sem-version cpp 10
           - g++ --version
 ```
 
@@ -108,7 +105,7 @@ blocks:
       - name: Hello World!
         matrix:
           - env_var: GPP_VERSION
-            values: [ "7", "8" ]
+            values: [ "9", "10" ]
         commands:
           - checkout
           - sem-version cpp $GPP_VERSION
@@ -130,7 +127,8 @@ int main()
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 20.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 22.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)

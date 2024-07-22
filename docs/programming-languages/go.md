@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Go. You have the following options:
 
-- Linux: Go is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-go].
+- Linux: Go is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu2004-go] and [Ubuntu 22.04 VM image][ubuntu2204-go].
 - Docker: use [semaphoreci/golang](/ci-cd-environment/semaphore-registry-images/#golang) or
   [your own Docker image][docker-env] with the version of Go and other
   packages that you want.
@@ -237,7 +237,8 @@ blocks:
             - make test
 ```
 
-[ubuntu-go]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#go
+[ubuntu2004-go]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#go
+[ubuntu2204-go]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#go
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [go-tutorial]: https://docs.semaphoreci.com/examples/golang-continuous-integration/
 [go-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-go
