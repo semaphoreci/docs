@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Elixir. You have the following options:
 
-- Linux: Elixir is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-elixir].
+- Linux: Elixir is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu2004-elixir] and [Ubuntu 22.04 VM image][ubuntu2204-elixir].
 - Docker: use [semaphoreci/elixir](/ci-cd-environment/semaphore-registry-images/#elixir) or
   [your own Docker image][docker-env] with the version of Elixir and other
   packages that you need.
@@ -60,8 +60,8 @@ blocks:
     task:
       prologue:
         commands:
-          - kiex install 1.6
-          - sem-version elixir 1.6
+          - kiex install 1.17.0
+          - sem-version elixir 1.17.0
       jobs:
         - name: Tests
           commands:
@@ -248,7 +248,16 @@ blocks:
             - mix test
 ```
 
-[ubuntu-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir
+## See Also
+
+- [Ubuntu 20.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 22.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/)
+- [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
+- [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
+- [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
+
+[ubuntu2004-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir
+[ubuntu2204-elixir]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#erlang-and-elixir
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [tutorial]: https://docs.semaphoreci.com/examples/elixir-phoenix-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-elixir-phoenix

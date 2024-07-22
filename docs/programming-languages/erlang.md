@@ -6,24 +6,18 @@ description: This guide provides an explanation on how to configure Erlang proje
 
 ## Supported Erlang versions
 
-The list of supported Erlang versions is [available here][erlang-versions].
+The list of supported Erlang versions for [Ubuntu 20.04 VM image][ubuntu2004-erlang] and [Ubuntu 22.04 VM image][ubuntu2204-erlang].
 
 ## Changing Erlang version
 
 The [`sem-version` utility][sem-version]
 can help you change between the available Erlang versions.
 
-By default Semaphore Virtual Machine (VM) uses Erlang version 21.0. You can change
-to Erlang version 20.3 by executing the following command:
+Different Semaphore images have different default Erlang version, so for example you can change
+to Erlang version 25.3 by executing the following command:
 
 ``` yaml
-sem-version erlang 20
-```
-
-You can change back to Erlang version 21.0 by executing the following command:
-
-``` yaml
-sem-version erlang 21
+sem-version erlang 25
 ```
 
 ## Dependency management
@@ -58,10 +52,10 @@ blocks:
           - checkout
           - kerl status
           - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
-          - sem-version erlang 20
+          - sem-version erlang 25
           - kerl active
           - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
-          - sem-version erlang 21
+          - sem-version erlang 26
           - kerl active
           - erl -eval 'erlang:display(erlang:system_info(otp_release)), halt().'  -noshell
 
@@ -78,7 +72,7 @@ blocks:
     - name: Hello World 20.3
       commands:
         - checkout
-        - sem-version erlang 20
+        - sem-version erlang 25
         - erlc hello.erl
         - ls -l
         - erl -noshell -s hello helloWorld -s init stop
@@ -98,10 +92,12 @@ helloWorld() -> io:fwrite("hello, world\n").
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 20.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 22.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
 
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
-[erlang-versions]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir
+[ubuntu2004-erlang]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#erlang-and-elixir
+[ubuntu2204-erlang]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#erlang-and-elixir

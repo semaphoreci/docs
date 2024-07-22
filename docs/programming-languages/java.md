@@ -41,7 +41,7 @@ CI/CD pipeline that you can use to get started quickly:
 Semaphore supports all versions of Java. You have the following options:
 
 - Linux: Java and related tools are available out-of-the-box in the
-  [Ubuntu 20.04 VM image][ubuntu-java].
+  [Ubuntu 20.04 VM image][ubuntu2004-java] and [Ubuntu 22.04 VM image][ubuntu2204-java].
 - Docker: Use [your own Docker image][docker-env] with the version of Java and other
   packages that you need.
 
@@ -115,7 +115,8 @@ blocks:
 
 [tutorial]: https://docs.semaphoreci.com/examples/java-spring-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-java-spring
-[ubuntu-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#java-and-jvm-languages
+[ubuntu2004-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#java-and-jvm-languages
+[ubuntu2204-java]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#java-and-jvm-languages
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [macos-java]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#java
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

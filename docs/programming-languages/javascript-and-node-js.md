@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Node.js. You have the following options:
 
-- Linux: Node.js is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-javascript].
+- Linux: Node.js is available out-of-the-box in the [Ubuntu 22.04 VM image][ubuntu2004-javascript] and [Ubuntu 22.04 VM image][ubuntu2204-javascript].
 - macOS: Node.js is available out-of-the-box in the [macOS VM image][macos-javascript].
 - Docker: use [semaphoreci/node](/ci-cd-environment/semaphore-registry-images/#node) or
   [your own Docker image][docker-env] with the version of Node.js and related
@@ -67,7 +67,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version node 10.13.0
+          - sem-version node 18.20.4
       jobs:
         - name: Tests
           commands:
@@ -172,7 +172,8 @@ for details on pre-installed browsers and testing tools on Semaphore.
 [browser-ref]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#browsers-and-headless-browser-testing
 [tutorial]: https://docs.semaphoreci.com/examples/node-js-and-typescript-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-javascript
-[ubuntu-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#javascript-via-node-js
+[ubuntu2004-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#javascript-via-node-js
+[ubuntu2204-javascript]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#javascript-via-node-js
 [macos-javascript]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#javascript-via-node-js
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 

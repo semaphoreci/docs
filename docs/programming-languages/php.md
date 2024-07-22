@@ -40,7 +40,7 @@ CI pipeline that you can use to get started quickly:
 Semaphore supports all versions of PHP. You have the following options:
 
 - Linux: PHP and related tools are available out-of-the-box in the
-  [Ubuntu 20.04 VM image][ubuntu-php].
+  [Ubuntu 20.04 VM image][ubuntu2004-php] and [Ubuntu 22.04 VM image][ubuntu2204-php].
 - Docker: Use [your own Docker image][docker-env] with the version of PHP and other
   packages that you want.
 
@@ -60,7 +60,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version php 5.6
+          - sem-version php 8.2.20
       jobs:
         - name: Tests
           commands:
@@ -79,7 +79,7 @@ blocks:
     task:
       prologue:
         commands:
-          - phpbrew --no-progress install 5.6
+          - phpbrew --no-progress install 8.2.20
       jobs:
         - name: Tests
           commands:
@@ -169,5 +169,6 @@ blocks:
 
 [laravel-tutorial]: https://docs.semaphoreci.com/examples/laravel-php-continuous-integration/
 [laravel-demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-php-laravel
-[ubuntu-php]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#php
+[ubuntu2004-php]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#php
+[ubuntu2204-php]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#php
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
