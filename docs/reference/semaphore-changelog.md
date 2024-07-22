@@ -8,6 +8,23 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 22, 2024
+
+**(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
+
+**(New)** Packages:
+
+- Erlang 27.0.1 (aliased as 27.0)
+- Elixir 1.17.0, 1.17.1, 1.17.2
+- PHP 8.1.29, 8.2.20, 8.2.21, 8.3.8, 8.3.9
+- Ruby 3.3.3, 3.3.4
+
+**(Updated)** Packages:
+
+- Erlang 24.3.4.15 -> 24.3.4.17 (aliased as 24.3)
+- Erlang 25.3.2.8 -> 25.3.2.13 (aliased as 25.3)
+- Erlang 26.2.1 -> 26.2.5.2 (aliased as 26.2)
+
 ### Week of Jun 3, 2024
 
 **(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
