@@ -138,6 +138,17 @@ To get the job ID, you can use <code>sem get jobs</code> to get a list of all ru
  </p>
 </details>
 
+### Why are my secrets empty?
+
+<details>
+  <summary>Click for details</summary>
+  <p>
+
+We have discontinued exposing secret content via the CLI, API, and web interface to ensure enhanced security measures. Retrieval of secret values is now exclusively available through the job mechanism.
+
+ </p>
+</details>
+
 ### How can I change the Postgres locale?
 
 <details>
