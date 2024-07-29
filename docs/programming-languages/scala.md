@@ -55,24 +55,17 @@ CI pipeline that you can use to get started quickly. You can find them here:
 
 ## Supported Scala versions
 
-The supported Scala versions via the [Ubuntu2004 image][ubuntu2004] are:
+For supported Scala versions check:
 
-- 2.11.11
-- 2.12.6
+- [Ubuntu 20.04 image][ubuntu2004]
+- [Ubuntu 22.04 image][ubuntu2204]
 
 ## Changing the Scala version
 
 You can choose the Scala version to use with the help of the
 [`sem-version` utility][sem-version]
 
-Choosing Scala version 2.11 can be done with the following command:
-
-``` bash
-sem-version scala 2.11
-```
-
-In order to go back to Scala 2.12, which is the default version of the
-Semaphore Virtual Machine (VM), you should execute the following command:
+Choosing Scala version 2.12 can be done with the following command:
 
 ``` bash
 sem-version scala 2.12
@@ -91,7 +84,8 @@ packages.
 
 ## See Also
 
-- [Ubuntu image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 20.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/)
+- [Ubuntu 22.04 image reference](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/)
 - [sem command line tool Reference](https://docs.semaphoreci.com/reference/sem-command-line-tool/)
 - [Toolbox reference page](https://docs.semaphoreci.com/reference/toolbox-reference/)
 - [Pipeline YAML reference](https://docs.semaphoreci.com/reference/pipeline-yaml-reference/)
@@ -99,4 +93,5 @@ packages.
 [tutorial]: https://docs.semaphoreci.com/examples/scala-play-continuous-integration/
 [demo-project]: https://github.com/semaphoreci-demos/semaphore-demo-scala-play
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
+[ubuntu2204]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/

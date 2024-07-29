@@ -38,7 +38,7 @@ CI/CD pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Python. You have the following options:
 
-- Linux: Python is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-python].
+- Linux: Python is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu2004-python] and [Ubuntu 22.04 VM image][ubuntu2204-python].
 - macOS: Python is available out-of-the-box in the [macOS VM image][macos-python].
 - Docker: use [semaphoreci/python](/ci-cd-environment/semaphore-registry-images/#python) or
   [your own Docker image][docker-env] with the version of Python and other
@@ -53,7 +53,7 @@ On Linux, you can use the [`sem-version` tool][sem-version] to switch between
 Python versions, as shown below:
 
 ```
-sem-version python 3.7
+sem-version python 3.9
 ```
 
 If the version of Python that you need is not currently available in the Linux VM,
@@ -180,7 +180,8 @@ blocks:
 ```
 
 [django-tutorial]: https://docs.semaphoreci.com/examples/django-continuous-integration/
-[ubuntu-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#python
+[ubuntu2004-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#python
+[ubuntu2204-python]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#python
 [macos-python]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#python
 [sem-version]: https://docs.semaphoreci.com/ci-cd-environment/sem-version-managing-language-versions-on-linux/
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/

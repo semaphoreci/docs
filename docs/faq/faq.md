@@ -370,12 +370,14 @@ source ~/my_script
   <summary>Click for details</summary>
   <p>
 
-Using the `exit` command closes the PTY and causes the job to fail. If this isn't the desired behavior, you can use the `return 130` command with different `SEMAPHORE_JOB_RESULT` environmental variables to specify the desired behaviour:
-  - Stopped job: `return 130`
-  - Stopped job, but marked as successful: `export SEMAPHORE_JOB_RESULT=passed` then `return 130`
-  - Stopped job, but marked as failed: `export SEMAPHORE_JOB_RESULT=failed` then `return 130`
+Using the <code>exit</code> command closes the PTY and causes the job to fail. If this isn't the desired behavior, you can use the <code>return 130</code> command with different <code>SEMAPHORE_JOB_RESULT</code> environmental variables to specify the desired behaviour:
+</p>
+<p>
+<br>- Stopped job: <code>return 130</code>
+<br>- Stopped job, but marked as successful: <code>export SEMAPHORE_JOB_RESULT=passed</code> then <code>return 130</code>
+<br>- Stopped job, but marked as failed: <code>export SEMAPHORE_JOB_RESULT=failed</code> then <code>return 130</code>
+</p>
 
-  </p>
 </details>
 
 ### Why are my workflows not running in parallel?

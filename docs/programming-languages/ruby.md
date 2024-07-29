@@ -39,7 +39,7 @@ CI pipeline that you can use to get started quickly:
 
 Semaphore supports all versions of Ruby. You have the following options:
 
-- Linux: Ruby is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu-ruby].
+- Linux: Ruby is available out-of-the-box in the [Ubuntu 20.04 VM image][ubuntu2004-ruby] and [Ubuntu 22.04 VM image][ubuntu2204-ruby].
 - macOS: Ruby is available out-of-the-box in the [macOS VM image][macos-ruby].
 - Docker: use [semaphoreci/ruby](/ci-cd-environment/semaphore-registry-images/#ruby) or
   [your own Docker image][docker-env] with the version of Ruby and other
@@ -52,7 +52,7 @@ additional tools.
 
 On Linux, Semaphore uses [rbenv](https://github.com/rbenv/rbenv) to manage supported
 Ruby versions. All Ruby versions listed in the
-[Ubuntu image reference][ubuntu-ruby]
+[Ubuntu 20.04 image reference][ubuntu2004-ruby] and [Ubuntu 22.04 image reference][ubuntu2204-ruby]
 are supported and can be used in Semaphore jobs. The default version is set by the
 `.ruby-version` file in your repository. If the `.ruby-version` file is present,
 you cannot force any other Ruby version for that directory. In such a case,
@@ -70,7 +70,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version ruby 2.5 -f
+          - sem-version ruby 3.3.1 -f
       jobs:
         - name: Tests
           commands:
@@ -373,7 +373,8 @@ jobs:
 [sem-service]: https://docs.semaphoreci.com/ci-cd-environment/sem-service-managing-databases-and-services-on-linux/
 [rails-database-configuration]: https://guides.rubyonrails.org/configuring.html#configuring-a-database
 [rails-guide]: https://docs.semaphoreci.com/examples/rails-continuous-integration/
-[ubuntu-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#ruby
+[ubuntu2004-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/#ruby
+[ubuntu2204-ruby]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/#ruby
 [macos-ruby]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/#ruby
 [docker-env]: https://docs.semaphoreci.com/ci-cd-environment/custom-ci-cd-environment-with-docker/
 [rspec-junit-formatter]: https://github.com/sj26/rspec_junit_formatter
