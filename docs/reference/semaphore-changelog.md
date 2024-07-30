@@ -8,6 +8,14 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of July 29, 2024
+
+**(Improved) macos-xcode16 (apple silicon) image update**
+
+**(Updated)** :
+
+- Xcode 16_beta_3 -> 16_beta_4
+
 ### Week of July 22, 2024
 
 **(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
