@@ -120,12 +120,12 @@ Installed versions:
 
 Installed versions:
 
-- 16_beta_3 (default)
+- 16_beta_4 (default)
 
 The default installed Xcode version is `16.0`.
 
 
-Xcode 15.3 has the following SDKs preinstalled:
+Xcode 16.0 has the following SDKs preinstalled:
 
 - iOS 18.0
 - macOS 15.0
