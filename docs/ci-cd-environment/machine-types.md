@@ -13,7 +13,8 @@ the supported machine types in your pipelines, refer to our [agent documentation
 
 ## Linux machine types
 
-Linux machine types can be paired with [Ubuntu 20.04 image][ubuntu2004], [Ubuntu 22.04 image][ubuntu2204] and [Docker-based environment][docker-env].
+
+E1 Generation machine types can be paired with [Ubuntu 20.04 image][ubuntu2004] and [Docker-based environment][docker-env]. R1 Generation machine types can only be paired with [Ubuntu 22.04 image][ubuntu2204]. All other Linux machine types can also be paired with [Ubuntu 22.04 image][ubuntu2204], besides [Ubuntu 20.04 image][ubuntu2004] and [Docker-based environment][docker-env].
 
 ### E1 Generation
 
