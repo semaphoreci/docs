@@ -120,7 +120,7 @@ Installed versions:
 
 Installed versions:
 
-- 16_beta_4 (default)
+- 16_beta_5 (default)
 
 The default installed Xcode version is `16.0`.
 
