@@ -10,6 +10,13 @@ This page is updated on a weekly basis.
 
 ### Week of August 12, 2024
 
+**(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
+
+**(New)** Packages:
+
+- PHP 8.2.22, 8.3.10
+- Ruby 3.2.5
+
 **(Improved) macos-xcode16 (apple silicon) image update**
 
 **(Updated)** :
