@@ -366,6 +366,7 @@ Using the <code>exit</code> command closes the PTY and causes the job to fail. I
 <br>- Stopped job, but marked as successful: <code>export SEMAPHORE_JOB_RESULT=passed</code> then <code>return 130</code>
 <br>- Stopped job, but marked as failed: <code>export SEMAPHORE_JOB_RESULT=failed</code> then <code>return 130</code>
 </p>
+Please note that some commands like <code>bash -e</code> or <code>set -x otrace</code> may override this behavior and make it not function correctly.
 
 </details>
 
