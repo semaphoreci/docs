@@ -100,11 +100,14 @@ These are valid values for `os_image`:
 - `ubuntu2204` ([reference][ubuntu2204])
 - `macos-xcode15` ([reference][macos-xcode15])
 - `macos-xcode14` ([reference][macos-xcode14])
+- `macos-xcode16` ([reference][macos-xcode16])
+
+> **WARNING: The macOS Xcode 14 OS image will be deprecated on September 30, 2024. Please update to the newer [macOS Xcode 15](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/) image.**
 
 The default operating system depends on the type of the machine:
 
 - For the `e1-standard-*` machine types, the default image is `ubuntu2004`
-- For the `a1-standard-*` machine types, the default image is `macos-xcode14`
+- For the `a1-standard-*` machine types, the default image is `macos-xcode15`
 
 ### Example of `os_image` usage
 
@@ -2182,6 +2185,7 @@ YAML parser, which is not a Semaphore 2.0 feature, rather the way YAML files fun
 [ubuntu2004]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/
 [ubuntu2204]: https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/
 [macos-xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
+[macos-xcode16]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-16-image/
 [macos-xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
 [conditions-reference]: https://docs.semaphoreci.com/reference/conditions-reference/
 [when-repo-skip-exemples]: https://github.com/renderedtext/when#skip-block-exection
