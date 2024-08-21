@@ -4,6 +4,8 @@ Description: The macos-xcode14 image is a customized image based on MacOS 12, wh
 
 # macOS Monterey Xcode 14 image
 
+> **WARNING: The macOS Xcode 14 OS image will be deprecated on September 30, 2024. Please update to the newer [macOS Xcode 15](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/) image.**
+
 The `macos-xcode14` image is a customized image based on [MacOS 12.7][monterey-release-notes],
 which has been optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows. The image can be paired
