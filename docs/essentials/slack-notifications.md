@@ -62,10 +62,10 @@ $ sem create notifications new-releases \
     --slack-channels "#dev-team,#qa-team"
 ```
 
-## Filtering by project, branch, and pipeline name
+## Filtering by project, branch, and pipeline YAML file name
 
 When creating a notification, you can specify filters for project, branch, and
-pipeline names.
+pipeline YAML file names.
 
 For example, to send notifications for the `master` and `staging` branches, use
 the following command:
@@ -90,7 +90,7 @@ Regex matches must be wrapped in forward slashes (e.g. `/.*/`). Specifying a
 branch name without slashes (e.g. `.*`) will execute a direct equality
 match.
 
-Matching can be specified for project and pipeline names as well. For example,
+Matching can be specified for project and pipeline YAML file names as well. For example,
 if you want to get notified for every notification on a project that matches
 `/.*-api$/` on the master branch when the `prod.yml` pipeline is executed, use
 the following command:
