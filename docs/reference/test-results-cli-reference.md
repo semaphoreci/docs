@@ -7,6 +7,8 @@ Description: This guide shows you how to use Semaphore's test results CLI.
 The `test-results` command line interface (CLI) is a tool that helps you compile and
 process JUnit test result XML files for [Test Summary&nbsp;↗][test-summary-essentials] pages.
 
+The is open-sourced and available on [GitHub&nbsp;↗](https://github.com/semaphoreci/test-results). You can access the source code, contribute, and report issues there.
+
 `test-results` have a built-in help command that can be accessed by running the following:
 
 ```
@@ -20,7 +22,7 @@ Usage:
 Available Commands:
   combine             combines multiples json summary files into one file
   compile             parses xml files to a well-defined json schema
-  gen-pipeline-report fetches workflow level junit reports and combines them 
+  gen-pipeline-report fetches workflow level junit reports and combines them
   help                Help with commands
   publish             parses xml file to a well-defined json schema and publishes results to artifacts storage
 
