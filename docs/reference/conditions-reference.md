@@ -318,6 +318,15 @@ blocks:
       when: "change_in('/web-app/')"
 ```
 
+### When a directory from a list changes
+
+```yaml
+blocks:
+  - name: Test WEB server
+    run:
+      when: "change_in(['/web-app/','/lib/'])"
+```
+
 ### When a file changes
 
 ```yaml
