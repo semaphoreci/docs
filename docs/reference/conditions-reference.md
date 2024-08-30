@@ -21,7 +21,7 @@ Currently, you can use the Conditions DSL to configure the following features:
 - [Skip block execution][skip]
 - [Conditionally run a block][run]
 
-You can find detailed information about the `when` operation in our [library repo](https://github.com/renderedtext/when#promote-automatically-on-master-branch-and-tags-when-the-result-is-passed).
+You can find detailed information about the `when` operation in our [library repo](https://github.com/renderedtext/when?tab=readme-ov-file#when-library).
 
 ## Formal language definition
 
