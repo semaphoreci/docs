@@ -9,7 +9,7 @@ Description: The ubuntu2204 image is a customized image based on Ubuntu 22.04 LT
 The `ubuntu2204` image is a customized image based on [Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes), which has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows.
-Please note that the image is only available for our newer generation agent type: `e2-standard-2` when defining the [agent][agent]
+Please note that the image is not available for our older generation agent type: `e1-standard` when defining the [agent][agent]
 of your pipeline or block.
 
 The `ubuntu2204` image is a virtual machine (VM) image. The user in the environment,
