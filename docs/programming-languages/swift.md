@@ -17,6 +17,8 @@ Xcode, fastlane, CocoaPods, and all other tools is found below:
 * [macOS Xcode 14 Image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/)
 * [macOS Xcode 15 Image](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/)
 
+> **WARNING: The macOS Xcode 14 OS image will be deprecated on September 30, 2024. Please update to the newer [macOS Xcode 15](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/) image.**
+
 # Configuring continuous integration
 
 Below is a minimal `semaphore.yml` file, which starts an
