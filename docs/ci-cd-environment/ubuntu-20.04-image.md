@@ -25,7 +25,7 @@ machine, as shown below:
 
 ``` yaml
 version: 1.0
-name: Ubuntu18 Based Pipeline
+name: Ubuntu2004 Based Pipeline
 
 agent:
   machine:
@@ -53,9 +53,9 @@ services and databases, and one for managing language versions.
 
 Following version control tools are pre-installed:
 
-- Git 2.43.0
-- Git LFS (Git Large File Storage) 3.4.1
-- GitHub CLI 2.43.1
+- Git 2.46.0
+- Git LFS (Git Large File Storage) 3.5.1
+- GitHub CLI 2.55.0
 - Mercurial 5.3.1
 - Svn 1.13.0
 
@@ -63,8 +63,8 @@ Following version control tools are pre-installed:
 
 - Firefox 68.9 (`68`, `esr-old`), 78.1 (`78`, `default`, `esr`), 102.11.0 (`102`, `esr-new`, `esr-latest`)
 - Geckodriver 0.33.0
-- Google Chrome 121
-- ChromeDriver 121
+- Google Chrome 128
+- ChromeDriver 128
 - Xvfb (X Virtual Framebuffer)
 - Phantomjs 2.1.1
 
@@ -76,10 +76,10 @@ Refer to the documentation of associated libraries when configuring your project
 
 Docker toolset is installed and the following versions are available:
 
-- Docker 25.0.2
+- Docker 27.2.0
 - Docker-compose 1.29.2 (used as `docker-compose --version`)
-- Docker-compose 2.24.5 (used as `docker compose version`)
-- Docker-buildx 0.12.1
+- Docker-compose 2.29.2 (used as `docker compose version`)
+- Docker-buildx 0.16.2
 - Docker-machine 0.16.2
 - Dockerize 0.7.0
 - Buildah 1.22.3
@@ -88,18 +88,18 @@ Docker toolset is installed and the following versions are available:
 
 ### Cloud CLIs
 
-- Aws-cli v1 (used as `aws`) 1.32.35
-- Aws-cli v2 (used as `aws2`) 2.15.17
-- Azure-cli 2.57.0
+- Aws-cli v1 (used as `aws`) 1.34.10
+- Aws-cli v2 (used as `aws2`) 2.17.40
+- Azure-cli 2.64.0
 - Eb-cli 3.20.10
 - Ecs-cli 1.21.0
-- Doctl 1.104.0
-- Gcloud 425.0.0
-- Gke-gcloud-auth-plugin 425.0.0
+- Doctl 1.111.0
+- Gcloud 490.0.0
+- Gke-gcloud-auth-plugin 490.0.0
 - Kubectl 1.29.1
-- Heroku 8.7.1
-- Terraform 1.7.2
-- Helm 3.14.0
+- Heroku 9.2.0
+- Terraform 1.9.5
+- Helm 3.15.4
 
 ### Network utilities
 
@@ -141,21 +141,22 @@ Versions:
 - 1.18.x
 - 1.19.x
 - 1.20.x
-- 1.21.x (1.21.6 as default)
+- 1.21.x
 - 1.22.x
+- 1.23.x (1.23.0 as default)
 
 ### Java and JVM languages
 
-- Java: 11.0.21 (default), 17.0.9
+- Java: 11.0.24 (default), 17.0.12
 - Scala: 2.12.15, 3.1.3
-- Leiningen: 2.11.1 (Clojure)
-- Sbt 1.9.8
+- Leiningen: 2.11.2 (Clojure)
+- Sbt 1.10.1
 
 #### Additional build tools
 
 - Maven: 3.9.6
-- Gradle: 8.3
-- Bazel: 7.0.2
+- Gradle: 8.10
+- Bazel: 7.3.1
 
 ### JavaScript via Node.js
 
@@ -163,11 +164,11 @@ Node.js versions are managed by [nvm](https://github.com/nvm-sh/nvm).
 You can install any version you need with `nvm install [version]`.
 Installed version:
 
-- v20.11.0 (set as default, with alias 20.11), includes npm 10.2.4
+- v20.17.0 (set as default, with alias 20.17), includes npm 10.8.2
 
 #### Additional tools
 
-- Yarn: 1.22.19
+- Yarn: 1.22.22
 
 ### PHP
 
@@ -193,27 +194,27 @@ Python versions are installed and managed by
 
 - 3.8.10 (default)
 - 3.9.19
-- 3.10.13
-- 3.11.7
-- 3.12.1
+- 3.10.14
+- 3.11.9
+- 3.12.5
 
 Supporting libraries:
 
 - pypy: 7.3.9
-- pypy3: 7.3.15
-- pip: 24.0
-- venv: 20.25.0
+- pypy3: 7.3.16
+- pip: 24.2
+- venv: 20.26.3
 
 ### Ruby
 
 Available versions:
 
-- 2.6.0 to 2.6.10
-- 2.7.0 to 2.7.8
-- 3.0.0 to 3.0.7
-- 3.1.0 to 3.1.6
-- 3.2.0 to 3.2.5
-- 3.3.0 to 3.3.4
+- 2.6.x
+- 2.7.x
+- 3.0.x
+- 3.1.x
+- 3.2.x
+- 3.3.x
 - jruby-9.2.11.1
 - jruby-9.3.9.0
 - jruby-9.4.0.0
