@@ -8,6 +8,109 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of September 9, 2024
+
+**(Improved) Ubuntu 20.04 image update**
+
+**(New)** Packages:
+
+- PHP 8.2.23, 8.3.11
+- Ruby 3.3.5
+
+**(Updated)** Updated packages:
+
+- Kernel 5.15.0-92-generic -> 5.15.0-119-generic
+- Aws-cli 1.32.35 -> 1.34.10 (used as `aws`)
+- Aws-cli 2.15.17 -> 2.17.40 (used as `aws2`)
+- Azure-cli 2.57.0 -> 2.64.0
+- Bazel 7.0.2 -> 7.3.1
+- Containerd.io 1.6.28 -> 1.7.21
+- Doctl 1.104.0 -> 1.111.0
+- Docker 25.0.2 -> 27.2.0
+- Docker-buildx 0.12.1 -> 0.16.2
+- Docker-compose 2.24.5 -> 2.29.2
+- Runc 1.1.12 -> 1.1.13
+- Go 1.21.6 -> 1.23.0 (default)
+- Google Cloud 425.0.0 -> 490.0.0
+- Google Chrome 121 -> 128
+- ChromeDriver 121 -> 128
+- Git 2.43.0 -> 2.46.0
+- Github-cli 2.43.1 -> 2.55.0
+- Git-lfs 3.4.1 -> 3.5.1
+- Grade 8.3 -> 8.10
+- Grunt 1.4.3 -> 1.5.0
+- Helm 3.14.0 -> 3.15.4
+- Heroku 8.7.1 -> 9.2.0
+- Java OpenJDK 11.0.21 -> 11.0.24
+- Java OpenJDK 17.0.9 -> 17.0.12
+- Kerl 3.1.0 -> 4.2.0
+- Leiningen 2.11.1 -> 2.11.2
+- Nvm 0.39.7 -> 0.40.1
+- NodeJS 20.11.0 -> 20.17.0 (default)
+- Npm 10.2.4 -> 10.8.2
+- Pip 24.0 -> 24.2
+- Python 3.10.13 -> 3.10.14
+- Python 3.11.7 -> 3.11.9
+- Python 3.12.1 -> 3.12.5
+- Pypy3 7.3.15 -> 7.3.16
+- Sbt 1.9.8 -> 1.10.1
+- Terraform 1.7.2 -> 1.9.5
+- Virtualenv 20.25.0 -> 20.26.3
+- Yarn 1.22.19 -> 1.22.22
+
+To learn more about this image, check our [Ubuntu 20.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-20.04-image/).
+
+**(Improved) Ubuntu 22.04 image update**
+
+**(New)** Packages:
+
+- PHP 8.2.23, 8.3.11
+- Ruby 3.3.5
+
+**(Updated)** Updated packages:
+
+- Kernel 6.5.0.15-lowlatency -> 6.8.0.40-lowlatency
+- Aws-cli 2.15.17 -> 2.17.40 (used as `aws`)
+- Azure-cli 2.57.0 -> 2.63.0
+- Bazel 7.0.2 -> 7.3.1
+- Containerd.io 1.6.28 -> 1.7.21
+- Doctl 1.104.0 -> 1.111.0
+- Docker 25.0.2 -> 27.2.0
+- Docker-buildx 0.12.1 -> 0.16.2
+- Docker-compose 2.24.5 -> 2.29.2
+- Runc 1.1.12 -> 1.1.13
+- Go 1.21.6 -> 1.23.0 (default)
+- Google Cloud 425.0.0 -> 490.0.0
+- Google Chrome 121 -> 128
+- ChromeDriver 121 -> 128
+- Curl 7.81.0 -> 8.5.0
+- Git 2.43.0 -> 2.46.0
+- Github-cli 2.43.1 -> 2.55.0
+- Git-lfs 3.4.1 -> 3.5.1
+- Gradle 8.3 -> 8.10
+- Grunt 1.4.3 -> 1.5.0
+- Helm 3.14.0 -> 3.15.4
+- Heroku 8.7.1 -> 9.2.0
+- Java OpenJDK 11.0.21 -> 11.0.24
+- Java OpenJDK 17.0.9 -> 17.0.12
+- Kerl 3.1.0 -> 4.2.0
+- Leiningen 2.11.1 -> 2.11.2
+- Nvm 0.39.7 -> 0.40.1
+- NodeJS 20.11.0 -> 20.17.0 (default)
+- Npm 10.2.4 -> 10.8.2
+- Pip 24.0 -> 24.2
+- Python 3.10.12 -> 3.10.14
+- Python 3.11.7 -> 3.11.9
+- Python 3.12.1 -> 3.12.5
+- Pypy3 7.3.15 -> 7.3.16
+- Rust 1.75.0 -> 1.80.1
+- Sbt 1.9.8 -> 1.10.1
+- Terraform 1.7.2 -> 1.9.5
+- Virtualenv 20.25.0 -> 20.26.3
+- Yarn 1.22.19 -> 1.22.22
+
+To learn more about this image, check our [Ubuntu 22.04 page](https://docs.semaphoreci.com/ci-cd-environment/ubuntu-22.04-image/).
+
 ### Week of August 12, 2024
 
 **(Improved) Ubuntu 20.04, Ubuntu 22.04 and Ubuntu 22.04 ARM image update**
