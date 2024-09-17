@@ -61,6 +61,9 @@ You can see data from the deployment branch if you have CD insights set up.
 
 ### Reliability
 
+!!! warning "Please note that although you can specify a branch when creating a reliability metric, the actual branch 
+is defined under the "Insight" settings in a project."
+
 Reliability metrics provide an overview of your project's pipeline run pass rate. You can also see the 
 mean time it takes to recover from a failed pipeline run and when the last successful run was.
 
