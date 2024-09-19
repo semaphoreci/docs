@@ -8,6 +8,21 @@ Thank you for using Semaphore!
 We continuously deploy changes that improve our product for our customers.
 This page is updated on a weekly basis.
 
+### Week of September 16, 2024
+
+**(Improved) macos-xcode16 (apple silicon) image update**
+
+**(Updated)** :
+
+- Fastlane 2.221.1 -> 2.222.0
+- Flutter 3.22.2 -> 3.24.3
+- Homebrew 4.3.9 -> 4.3.23
+- NVM 0.39.7 -> 0.40.1
+- Postres 14.12 -> 14.13
+- Ruby 3.3.4 -> 3.3.5
+- Xcode 16_beta_5 -> 16
+
+
 ### Week of September 9, 2024
 
 **(Improved) Ubuntu 20.04 image update**
