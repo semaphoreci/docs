@@ -56,7 +56,7 @@ or project id of the project the secret is scoped to.
 ### org_config
 
 The `org_config` property holds organization access policy fields, which are enabled
-for organizations on Startup plan or higher. 
+for organizations on Scaleup plan. 
 Policy fields control contain things like `projects_access`, `projects_ids`, `debug_access` and `attach_access`.
 
 #### projects_access
