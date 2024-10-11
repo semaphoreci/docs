@@ -12,6 +12,8 @@ React Native projects. Projects can be built with
 [Xcode 14][macos-xcode14] running on a macOS `a1-standard-4` 
 or higher [machine type][machine-types].
 
+> **WARNING: The macOS Xcode 14 OS image is now deprecated. Please update to the newer [macOS Xcode 15](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/) image.**
+
 ## Example project
 
 Semaphore maintains an example iOS app written in Swift 5.1 with SwiftUI to
