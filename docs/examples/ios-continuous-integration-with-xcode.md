@@ -9,7 +9,7 @@ Xcode that run on iOS, macOS, watchOS, or tvOS.
 
 Semaphore supports building, testing, and deploying Swift, Objective-C, and
 React Native projects. Projects can be built with
-[Xcode 14][macos-xcode14] running on a macOS `a1-standard-4` 
+[Xcode 15][macos-xcode15] running on a macOS `a1-standard-4` 
 or higher [machine type][machine-types].
 
 > **WARNING: The macOS Xcode 14 OS image is now deprecated. Please update to the newer [macOS Xcode 15](https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/) image.**
@@ -69,7 +69,7 @@ name: Tallest Towers
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-xcode14
+    os_image: macos-xcode15
 
 # Blocks are the heart of a pipeline and are executed sequentially. Each block
 # has a task that defines one or more parallel jobs. Jobs define commands that
@@ -177,13 +177,13 @@ them. For example, you might have a build phase and a delivery phase.
 The agent defines the environment in which your CI runs. It is a combination of
 a machine type and an operating system image. For a project built with Xcode, you
 must use one of the Apple [machine types][machine-types], coupled with a macOS
-image running [Xcode 14][macos-xcode14].
+image running [Xcode 15][macos-xcode15].
 
 ``` yaml
 agent:
   machine:
     type: a1-standard-4
-    os_image: macos-xcode14
+    os_image: macos-xcode15
 ```
 
 ### Defining blocks
@@ -253,7 +253,7 @@ information on the exact functionality of `cache` can be found in
 ### Selecting an Xcode version
 
 You can find the list of available versions of Xcode in the
-[Xcode 14][macos-xcode14] image references. 
+[Xcode 14][macos-xcode15] image references. 
 Select the desired version for your project with `xcversion`.
 
 ``` yaml
@@ -375,7 +375,7 @@ yourself. Here’s how to build the demo project with your own account:
 - [TestFlight integration][testflight]
 - [HockeyApp integration][hockeyapp]
 
-[macos-xcode14]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-14-image/
+[macos-xcode15]: https://docs.semaphoreci.com/ci-cd-environment/macos-xcode-15-image/
 [machine-types]: https://docs.semaphoreci.com/ci-cd-environment/machine-types/
 [example-project]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode
 [example-project-readme]: https://github.com/semaphoreci-demos/semaphore-demo-ios-swift-xcode/blob/master/README.md
