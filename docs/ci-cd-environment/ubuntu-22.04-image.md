@@ -4,8 +4,6 @@ Description: The ubuntu2204 image is a customized image based on Ubuntu 22.04 LT
 
 # Ubuntu 22.04 Image
 
-!!! plans "Available on: <span class="plans-box">Startup</span> <span class="plans-box">Scaleup</span>"
-
 The `ubuntu2204` image is a customized image based on [Ubuntu 22.04 LTS](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes), which has been
 optimized for CI/CD. It comes with a set of preinstalled languages, databases,
 and utility tools commonly used for CI/CD workflows.
